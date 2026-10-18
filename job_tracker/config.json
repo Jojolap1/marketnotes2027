@@ -58,7 +58,8 @@
       "company": "JPMorgan Chase",
       "url": "https://careers.jpmorgan.com/global/en/students/programs",
       "allowed_hosts": [
-        "jpmorgan.com"
+        "jpmorgan.com",
+        "jpmorganchase.com"
       ]
     },
     {
