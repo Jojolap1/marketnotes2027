@@ -1,1 +1,42 @@
-{}
+{
+  "greenhouse:imc:4787640101": {
+    "company": "IMC Trading",
+    "title": "Quantitative Trader – Equities (Live Trading)",
+    "first_seen": "2026-10-18T10:03:12.964641+00:00"
+  },
+  "greenhouse:imc:4787639101": {
+    "company": "IMC Trading",
+    "title": "Quantitative Trader – Equities (Strategy Monetization)",
+    "first_seen": "2026-10-18T10:03:12.964641+00:00"
+  },
+  "greenhouse:imc:4941205101": {
+    "company": "IMC Trading",
+    "title": "Quantitative Trader Intern 2027",
+    "first_seen": "2026-10-18T10:03:12.964641+00:00"
+  },
+  "greenhouse:flowtraders:7708220": {
+    "company": "Flow Traders",
+    "title": "Delta One Trader ",
+    "first_seen": "2026-10-18T10:03:12.964641+00:00"
+  },
+  "greenhouse:flowtraders:7770955": {
+    "company": "Flow Traders",
+    "title": "Digital Assets Trader ",
+    "first_seen": "2026-10-18T10:03:12.964641+00:00"
+  },
+  "greenhouse:flowtraders:4782837": {
+    "company": "Flow Traders",
+    "title": "Graduate Trader",
+    "first_seen": "2026-10-18T10:03:12.964641+00:00"
+  },
+  "greenhouse:flowtraders:7064123": {
+    "company": "Flow Traders",
+    "title": "Python Engineer, Trading Automation ",
+    "first_seen": "2026-10-18T10:03:12.964641+00:00"
+  },
+  "greenhouse:flowtraders:8102618": {
+    "company": "Flow Traders",
+    "title": "Trading Intern ",
+    "first_seen": "2026-10-18T10:03:12.964641+00:00"
+  }
+}
