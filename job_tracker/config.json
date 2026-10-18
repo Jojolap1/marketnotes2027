@@ -40,11 +40,6 @@
   "sources": [
     {
       "platform": "greenhouse",
-      "company": "Citadel",
-      "board": "citadel"
-    },
-    {
-      "platform": "greenhouse",
       "company": "IMC Trading",
       "board": "imc"
     },
