@@ -81,18 +81,20 @@
     {
       "platform": "official",
       "company": "Société Générale",
-      "url": "https://careers.societegenerale.com/en",
+      "url": "https://careers.societegenerale.com/en/search",
       "allowed_hosts": [
         "societegenerale.com"
-      ]
+      ],
+      "adapter": "sg"
     },
     {
       "platform": "official",
       "company": "Citi",
-      "url": "https://jobs.citi.com/",
+      "url": "https://jobs.citi.com/search-jobs?k=trading",
       "allowed_hosts": [
         "citi.com"
-      ]
+      ],
+      "adapter": "citi"
     },
     {
       "platform": "official",
