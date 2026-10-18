@@ -364,6 +364,84 @@ Q('MS students tal', links, 'https://www.morganstanley.com/people-opportunities/
 Q('GS students links', links, 'https://www.goldmansachs.com/careers/students/programs-and-internships', r'https?://[^"\'\s<>]*(?:higher\.gs|apply|oracle|tal\.net|workday)[^"\'\s<>]*')
 PROBES = PROBES + R2
 
+
+# ---------------- Round 3 ----------------
+def gs_chunks():
+    page = get('https://higher.gs.com/results').text
+    chunks = re.findall(r'"(/_next/static/chunks/[^"]+\.js)"', page)
+    hits = set()
+    for c in chunks:
+        js = get('https://higher.gs.com' + c).text
+        for m in re.findall(r'https?://[a-zA-Z0-9.-]+(?:/[a-zA-Z0-9_./-]*)?', js):
+            if re.search('api|graphql|search|gateway|role', m, re.I):
+                hits.add(m)
+        for m in re.findall(r'.{60}(?:graphql|operationName|roleSearch|searchRoles).{120}', js):
+            hits.add('CTX ' + m)
+    return str(sorted(hits)[:40])
+
+
+def first_text(url, pattern, n=8, width=300):
+    r = get(url)
+    out = [m[:width] for m in re.findall(pattern, r.text, re.S | re.I)[:n]]
+    return f'HTTP {r.status_code} final={r.url} len={len(r.text)} hits={out}'
+
+
+def eightfold_detail(host, domain):
+    d = get(f'https://{host}/api/apply/v2/jobs?domain={domain}&start=0&num=100&location=Singapore&sort_by=timestamp').json()
+    pos = d.get('positions', [])
+    pid = pos[0]['id'] if pos else None
+    det = get(f'https://{host}/api/apply/v2/jobs/{pid}?domain={domain}').json() if pid else {}
+    return f'count={d.get("count")} returned={len(pos)} first={pos[0] if pos else None} detail_keys={list(det.keys())} desc_len={len(det.get("job_description") or "")}'
+
+
+R3 = []
+def T(name, fn, *a):
+    R3.append(('R3 ' + name, lambda: fn(*a)))
+
+T('GS chunks', gs_chunks)
+T('UBS preload', first_text, 'https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=searchResults&SearchType=linkquery&LinkID=15231', r'.{80}(?:JobTitle|"Questions"|jobtitle|reqid).{200}')
+T('Natixis recrutement', discover, 'https://recrutement.natixis.com/en')
+T('Natixis offers', first_text, 'https://recrutement.natixis.com/en/offres', r'href="([^"]*(?:offre|offer|job)[^"]*)"', 20, 200)
+T('Natixis sitemap', sitemap, 'https://recrutement.natixis.com/sitemap.xml')
+T('Pictet SF xml', first_text, 'https://career012.successfactors.eu/career?company=banquepict&career_ns=job_listing_summary&resultType=XML', r'<(?:Job-Title|JobTitle|title)[^>]*>[^<]*|<Job .{300}', 8)
+T('Pictet SF page', first_text, 'https://career012.successfactors.eu/career?company=banquepict', r'jobTitle[^<]{0,200}|career_job_req_id=\d+[^"]{0,100}|<title>[^<]*', 10)
+T('SMBC early', discover, 'https://www.smbcgroup.com/emea/careers/early-careers')
+T('SMBC vacancies', discover, 'https://www.smbcgroup.com/emea/careers/current-vacancies')
+T('BofA ghr facets', workday_facets, 'ghr.wd1.myworkdayjobs.com', 'ghr', 'lateral-us')
+T('BofA campus board', first_text, 'https://bankcampuscareers.tal.net/vx/lang-en-GB/mobile-0/brand-4/candidate/jobboard/vacancy/2/adv/', r'opp/\d+[^"\'<>]*|<title>[^<]*', 30, 150)
+T('HSBC eightfold London', eightfold_loc, 'portal.careers.hsbc.com', 'hsbc.com', 'London', '')
+T('HSBC eightfold UK', eightfold_loc, 'portal.careers.hsbc.com', 'hsbc.com', 'United Kingdom', '')
+T('HSBC eightfold Paris', eightfold_loc, 'portal.careers.hsbc.com', 'hsbc.com', 'Paris', '')
+T('HSBC eightfold detail', eightfold_detail, 'portal.careers.hsbc.com', 'hsbc.com')
+CDATA_TITLE = r'<title><!\[CDATA\[(.*?)\]\]>'
+
+
+def sc_rss(query, n):
+    t = get('https://jobs.standardchartered.com/services/rss/job/?locale=en_GB' + query).text
+    items = re.findall(r'<item>(.*?)</item>', t, re.S)
+    return 'items=%d titles=%s item0_tail=%s' % (len(items), re.findall(CDATA_TITLE, t)[:n], items[0][-700:] if items else '')
+
+
+T('SC rss all', sc_rss, '', 15)
+T('SC rss intern', sc_rss, '&keywords=intern', 40)
+T('Nomura opp page', first_text, 'https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/jobboard/vacancy/1/adv/', r'<a[^>]+href="([^"]*opp/14\d\d[^"]*)"[^>]*>(.*?)</a>', 3, 300)
+T('Nomura opp detail', first_text, 'https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1449-2027-Global-Markets-Sales-Trading-Structuring-Summer-Internship-London/en-GB', r'(?:closing|deadline|location|apply)[^<]{0,150}', 12, 200)
+T('Nomura board 2', first_text, 'https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/jobboard/vacancy/2/adv/', r'opp/\d+[^"\'<>/]*', 40, 120)
+def ca_rss():
+    t = get('https://jobs.ca-cib.com/handlers/offerRss.ashx?LCID=2057').text
+    return 'items=%d categories=%s' % (t.count('<item>'), sorted(set(re.findall(r'<category>([^<]*)</category>', t)))[:80])
+
+
+T('CA-CIB rss count', ca_rss)
+T('Haitong facets', workday_facets, 'htisec.wd3.myworkdayjobs.com', 'htisec', 'hti_careers')
+T('JPM all locations', lambda: str([(l.get('Id'), l.get('Name'), l.get('TotalCount')) for l in get('https://jpmc.fa.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions?onlyData=true&finder=findReqs;siteNumber=CX_1001,facetsList=LOCATIONS,limit=1', headers={'Accept': 'application/json'}).json()['items'][0]['locationsFacet']]))
+T('JPM london search', oracle_loc, 'jpmc.fa.oraclecloud.com', 'CX_1001', '300000057005324')
+T('BNP careers alt', discover, 'https://careers.bnpparibas/')
+T('BNP group fr', discover, 'https://group.bnpparibas/emploi-carriere/toutes-offres-emploi')
+T('SG page jsonld', first_text, 'https://careers.societegenerale.com/en/job-offers/trainee-sales-assistant-26000M1T-en', r'"validThrough"[^,]*|"datePosted"[^,]*|"employmentType"[^,]*|"addressLocality"[^,]*', 8)
+T('Barclays early careers', workday_detail, 'barclays.wd3.myworkdayjobs.com', 'barclays', 'External_Career_Site_Barclays', 'Global Markets')
+PROBES = PROBES + R3
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
