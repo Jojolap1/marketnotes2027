@@ -67,3 +67,38 @@ Add an entry to `sources` (see existing ones for each `platform`). For a Workday
 "Source probe" workflow to test a new endpoint before enabling it. Sources that cannot be
 read legitimately stay listed with `"enabled": false` and a `disabled_reason`, so every
 report shows the gap.
+
+## Source coverage (validated by live dry runs on GitHub Actions, 2026-10-18)
+
+"Listed" = vacancies returned by the official feed for the target countries/cities;
+"Relevant" = jobs passing all filters in that run.
+
+| Employer | Official source | Listed | Relevant | Status evidence |
+|---|---|---|---|---|
+| JPMorgan | Oracle Recruiting Cloud API (CX_1001), London/HK/SG facets | 732 | 11 | feed = live requisitions |
+| Goldman Sachs | higher.gs.com role search API (campus + early career) | 225 | 17 | feed status POSTED |
+| Morgan Stanley | Workday `ms/External` | 142 | 1 | Workday canApply + end date |
+| Citi | Workday `citi/2` | 560 | 3 | Workday canApply + end date |
+| Barclays | Workday `barclays/External_Career_Site_Barclays` | 138 | 9 | Workday |
+| Deutsche Bank | Workday `db/DBWebsite` | 103 | 4 | Workday |
+| HSBC | Eightfold portal API (HK, SG, London, Paris) | 338 | 6 | feed = live postings |
+| MUFG | Workday `mufgub/MUFG-Careers` | 165 | 4 | Workday |
+| Nomura | Oleeo campus board | 28 | 5 | board + application deadline |
+| Bank of America | Oleeo campus board (campus programmes only) | 50 | 1 | board |
+| Société Générale | sitemap + JSON-LD | 653 | 5 open, 4 closed | `validThrough` |
+| Standard Chartered | sitemap + vacancy pages | 1201 | 5 | unknown (no closing date published) |
+| Crédit Agricole CIB | Talentsoft RSS (20 most recent) | 20 | 0 | feed |
+| CITIC CLSA (CITIC Securities) | Workday `citicclsa/External` | 213 | 0 | Workday |
+| RBC, CIBC, Haitong Intl, BlackRock | Workday | 28 / 8 / 1 / 37 | 0 | Workday |
+| Pictet | SuccessFactors XML | 54 | 0 | feed |
+| Optiver | sitemap + JSON-LD | 160 | 1 | unknown |
+| IMC, Flow Traders, Jane Street, Jump, HRT, DRW, Tower, Point72, Squarepoint, Virtu, XTX | Greenhouse API | 1,262 | 16 | feed |
+
+**Not covered (documented, not bypassed):** BNP Paribas (HTTP 403 Akamai), UBS (BrassRing app,
+no public feed), Natixis CIB (JavaScript-only site), SMBC (no discoverable feed), CICC (HTTP 521),
+Huatai (HTTP 403), ICBC / Bank of China / CCB (no public English feed). They stay in
+`config.json` as disabled sources, so every report lists them.
+
+**Partial:** Bank of America and Nomura (campus programmes only; BofA's public Workday site lists
+US roles only), Crédit Agricole CIB (RSS shows only the 20 latest offers — new ones are caught
+hourly, older backlog is not), JPMorgan Paris (no Paris location facet exposed; London/HK/SG covered).
