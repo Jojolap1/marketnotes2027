@@ -442,6 +442,45 @@ T('SG page jsonld', first_text, 'https://careers.societegenerale.com/en/job-offe
 T('Barclays early careers', workday_detail, 'barclays.wd3.myworkdayjobs.com', 'barclays', 'External_Career_Site_Barclays', 'Global Markets')
 PROBES = PROBES + R3
 
+
+# ---------------- Round 4 ----------------
+def gs_queries():
+    page = get('https://higher.gs.com/results').text
+    chunks = re.findall(r'"(/_next/static/chunks/[^"]+\.js)"', page)
+    out = []
+    for c in chunks:
+        js = get('https://higher.gs.com' + c).text
+        for m in re.finditer(r'query \w*Roles?\w*\([^`]{0,2500}', js):
+            out.append(m.group(0)[:2500])
+        for m in re.finditer(r'.{300}searchQueryInput:\{.{600}', js):
+            out.append('VARS ' + m.group(0))
+        for m in re.finditer(r'.{200}experiences:\[.{300}', js):
+            out.append('EXP ' + m.group(0))
+    return '\n'.join(dict.fromkeys(out))[:9000]
+
+
+def raw(url, start_pat, width=2500):
+    t = get(url).text
+    m = re.search(start_pat, t, re.S)
+    return t[m.start():m.start() + width] if m else f'no match; len={len(t)} head={t[:300]!r}'
+
+
+R4 = []
+def U(name, fn, *a):
+    R4.append(('R4 ' + name, lambda: fn(*a)))
+
+U('GS queries', gs_queries)
+U('Pictet xml job', raw, 'https://career012.successfactors.eu/career?company=banquepict&career_ns=job_listing_summary&resultType=XML', r'<Job[ >]', 3000)
+U('SC detail page', first_text, 'https://jobs.standardchartered.com/job/Central-Global-Banking-Intern-Hong-Kong-2027/1369586257/', r'itemprop="[^"]+"[^>]{0,200}|<meta[^>]+(?:og:title|description)[^>]*>|data-careersite-propertyid="[^"]+"|class="jobdescription"', 25, 200)
+U('SC sitemap lastmod', raw, 'https://jobs.standardchartered.com/sitemap.xml', r'<url>', 600)
+U('CA-CIB listing', first_text, 'https://jobs.ca-cib.com/offre-de-emploi/liste-toutes-offres.aspx?LCID=2057', r'href="([^"]*(?:detailoffre|emploi-|offre-de-emploi/[^"]*\.aspx)[^"]*)"[^>]*>([^<]{0,120})', 15, 250)
+U('CA-CIB rss params', lambda: str([(q, get('https://jobs.ca-cib.com/handlers/offerRss.ashx?LCID=2057' + q).text.count('<item>')) for q in ['&nbItems=200', '&nb=200', '&count=200', '&max=200', '&page=2']]))
+U('BofA campus jobs', first_text, 'https://bankcampuscareers.tal.net/vx/lang-en-GB/mobile-0/brand-4/candidate/jobboard/vacancy/1/adv/', r'opp/\d+[^"\'<>/]*|<title>[^<]*', 40, 150)
+U('BofA campus jobs 3', first_text, 'https://bankcampuscareers.tal.net/vx/lang-en-GB/mobile-0/brand-4/candidate/jobboard/vacancy/3/adv/', r'opp/\d+[^"\'<>/]*|<title>[^<]*', 40, 150)
+U('Optiver job page full', first_text, 'https://www.optiver.com/join-us/jobs/institutional-sales/new-york/us-options-sales-trader/', r'"validThrough"[^,]*|"employmentType"[^,]*|"datePosted"[^,]*|"description"\s*:\s*".{0,200}', 6, 260)
+U('Oleeo nomura detail meta', raw, 'https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1449-2027-Global-Markets-Sales-Trading-Structuring-Summer-Internship-London/en-GB', r'<meta[^>]+description', 400)
+PROBES = PROBES + R4
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
