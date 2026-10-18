@@ -1,98 +1,545 @@
 {
-  "location_patterns": [
-    "hong\\s*kong",
-    "singapore",
-    "paris",
-    "london",
-    "greater london"
-  ],
-  "include_title_patterns": [
-    "\\bsales\\b",
-    "\\bsalesperson\\b",
-    "\\btrading\\b",
-    "\\btrader\\b",
-    "\\bstructur\\w*",
-    "\\bmarket mak\\w*",
-    "\\bportfolio manag\\w*",
-    "\\basset manag\\w*",
-    "\\binvestment manag\\w*",
-    "\\binvestment analyst\\b",
-    "\\bresearch analyst\\b",
-    "\\bquantitative research\\b",
-    "\\bquantitative trader\\b",
-    "\\bexecution\\s+(?:trader|trading)\\b",
-    "\\b(?:fx|equity|equities|credit|rates|fixed income|macro|commodit\\w*|derivatives|multi.asset|etf|bonds?|fic)\\b"
-  ],
-  "exclude_title_patterns": [
-    "\\bsenior\\b",
-    "\\bsr\\.?\\b",
-    "\\bdirector\\b",
-    "\\bvice president\\b",
-    "\\b(?:svp|evp|avp|vp)\\b",
-    "\\bhead of\\b",
-    "\\bprincipal\\b",
-    "\\bmanaging director\\b",
-    "\\bteam lead\\b",
-    "\\blead (?:trader|analyst|portfolio|sales)\\b",
-    "\\bassociate director\\b"
-  ],
-  "max_notifications_per_run": 20,
+  "filters": {
+    "max_years_experience": 1,
+    "require_entry_signal": true,
+    "cities": {
+      "Hong Kong": [
+        "hong[\\s-]*kong",
+        "kowloon",
+        "\\bhksar\\b",
+        "香港",
+        "quarry bay",
+        "kwun[\\s-]*tong",
+        "tsim sha tsui",
+        "\\bcentral,? hk\\b",
+        "\\bhk\\b",
+        "\\bhkg\\b"
+      ],
+      "Singapore": [
+        "singapore",
+        "singapour",
+        "新加坡",
+        "\\bsgp\\b",
+        "marina bay"
+      ],
+      "Paris": [
+        "\\bparis\\b",
+        "la d[ée]fense",
+        "\\bmontrouge\\b",
+        "\\bputeaux\\b",
+        "\\bcourbevoie\\b",
+        "\\bnanterre\\b",
+        "\\bfontenay[\\s-]sous[\\s-]bois\\b",
+        "[iî]le[- ]de[- ]france"
+      ],
+      "London": [
+        "(?<!new )\\blondon\\b(?!,? (?:ontario|on\\b|ct\\b|connecticut|kentucky|ky\\b|ohio))",
+        "\\blondres\\b",
+        "canary wharf",
+        "\\bldn\\b"
+      ]
+    },
+    "role_families": {
+      "Structuring": [
+        "\\bstructur(?:er|ing|ation|eur)\\b"
+      ],
+      "Sales & Trading": [
+        "\\bsales\\s*(?:&|and|-|/)?\\s*trad(?:ing|er)\\b",
+        "\\btrad(?:er|ers|ing)\\b",
+        "\\b(?:e-?)?sales\\b",
+        "\\bsalesperson\\b",
+        "\\bmarket[- ]?mak(?:er|ing)\\b",
+        "\\bdelta[- ]?one\\b",
+        "\\bglobal (?:banking and )?markets\\b",
+        "\\bmarkets? (?:division|desk|internship|intern|analyst|graduate|programme|program|summer|off[- ]cycle)\\b",
+        "\\b(?:summer|off[- ]cycle|graduate|internship|intern)\\b.{0,40}\\bmarkets\\b",
+        "\\bmarch[ée]s (?:de capitaux|financiers)\\b",
+        "\\bsalle des march[ée]s\\b",
+        "\\bvente(?:s)?\\b",
+        "\\bvendeur\\b",
+        "\\bn[ée]gociat(?:eur|ion)\\b",
+        "\\b(?:fx|forex|foreign exchange|rates|credit|equit(?:y|ies)|fixed income|fic|ficc|commodit(?:y|ies)|macro|emerging markets|securitized products|repo|bonds?|delta one|prime)\\b.{0,30}\\b(?:sales|trad(?:ing|er)|desk|markets)\\b"
+      ],
+      "Derivatives": [
+        "\\bderivatives?\\b",
+        "\\bd[ée]riv[ée]s\\b",
+        "\\bexotics?\\b",
+        "\\bxva\\b"
+      ],
+      "Asset & Portfolio Management": [
+        "\\basset manag\\w*",
+        "\\bportfolio manag\\w*",
+        "\\binvestment manag\\w*",
+        "\\bfund manag\\w*",
+        "\\bgestion (?:d'actifs|d.actifs|de portefeuilles?|de fonds|financi[èe]re)\\b",
+        "\\bg[ée]rant\\b",
+        "\\bmulti[- ]asset\\b",
+        "\\binvestment (?:team|management|solutions|specialist)\\b",
+        "\\bportfolio (?:analyst|construction|solutions)\\b"
+      ],
+      "Markets / Investment Analyst": [
+        "\\b(?:commodit\\w*|macro|fx|rates|credit|equit(?:y|ies)|fixed income|emerging markets?) (?:analyst|strategist|research)\\b",
+        "\\binvestment (?:analyst|research)\\b",
+        "\\bmarkets? analyst\\b",
+        "\\bequity research\\b",
+        "\\bcredit research\\b",
+        "\\bfixed income research\\b",
+        "\\bmacro research\\b",
+        "\\bresearch analyst\\b",
+        "\\banalyste (?:financier|investissement|march[ée]s|actions|cr[ée]dit)\\b",
+        "\\bmarkets\\b"
+      ]
+    },
+    "role_exclusion_patterns": [
+      "\\bsales ?force\\b",
+      "\\bpre-?sales\\b",
+      "\\bretail sales\\b",
+      "\\binsurance\\b",
+      "\\bcapital markets? (?:technology|operations)\\b",
+      "\\btrade (?:finance|support|operations|surveillance|services)\\b",
+      "\\btrading (?:operations|support|technology|systems|platform engineer)\\b",
+      "\\bsales (?:operations|support|enablement)\\b",
+      "\\bmarket(?:ing)? (?:intelligence|communications)\\b",
+      "\\bmarket risk\\b",
+      "\\bcapital markets\\b(?!.{0,30}\\b(?:sales|trad(?:ing|er)|structur))",
+      "\\bprivate (?:equity|credit|investing|markets)\\b",
+      "\\breal estate\\b",
+      "\\bsecurities (?:&|and) derivatives (?:analyst|services|operations)\\b"
+    ],
+    "senior_title_patterns": [
+      "\\bsenior\\b",
+      "\\bsr\\.?\\b",
+      "\\bdirector\\b",
+      "\\bdirect(?:eur|rice)\\b",
+      "\\bvice[- ]president\\b",
+      "\\b(?:svp|evp|avp|vp|md|ed)\\b",
+      "\\bhead\\b",
+      "\\bresponsable\\b",
+      "\\bprincipal\\b",
+      "\\bmanaging director\\b",
+      "\\bteam lead(?:er)?\\b",
+      "\\blead\\b",
+      "\\bchief\\b",
+      "\\bpartner\\b",
+      "\\bexperienced\\b",
+      "\\bconfirm[ée]e?\\b",
+      "\\bexp[ée]riment[ée]e?\\b",
+      "\\blateral\\b",
+      "\\bsummer associate\\b",
+      "\\bassociate program(?:me)?\\b",
+      "\\bmba\\b",
+      "\\bpost[- ]?doc\\w*\\b"
+    ],
+    "non_front_office_patterns": [
+      "\\bsoftware\\b",
+      "\\bengineer(?:ing)?\\b",
+      "\\bing[ée]nieur\\b",
+      "\\bdeveloper\\b",
+      "\\bd[ée]veloppeur\\b",
+      "\\bprogrammer\\b",
+      "\\b(?:it|ict)\\b",
+      "\\btechnology\\b",
+      "\\bdevops\\b",
+      "\\bdata (?:engineer|scientist|analyst|science)\\b",
+      "\\bcyber\\b",
+      "\\bcloud\\b",
+      "\\bcompliance\\b",
+      "\\bconformit[ée]\\b",
+      "\\blegal\\b",
+      "\\bjuriste\\b",
+      "\\blawyer\\b",
+      "\\bcounsel\\b",
+      "\\baudit\\w*\\b",
+      "\\bhuman resources\\b",
+      "\\b(?:hr|rh)\\b",
+      "\\brecruit\\w*\\b",
+      "\\btalent acquisition\\b",
+      "\\bmarketing\\b",
+      "\\bcommunications?\\b",
+      "\\baccount(?:ing|ant)\\b",
+      "\\bcomptab\\w*\\b",
+      "\\bcontroll?(?:er|ing)\\b",
+      "\\bproduct control\\b",
+      "\\boperations?\\b",
+      "\\bback[- ]office\\b",
+      "\\bmiddle[- ]office\\b",
+      "\\bsettlement\\w*\\b",
+      "\\breconciliation\\b",
+      "\\bkyc\\b",
+      "\\baml\\b",
+      "\\bfinancial crime\\b",
+      "\\bfraud\\b",
+      "\\bsurveillance\\b",
+      "\\brisk\\b",
+      "\\brisques?\\b",
+      "\\bmodel validation\\b",
+      "\\bquant(?:itative)? (?:developer|engineer)\\b",
+      "\\bdesign\\w*\\b",
+      "\\bproduct manager\\b",
+      "\\bproduct owner\\b",
+      "\\bproject manager\\b",
+      "\\bbusiness analyst\\b",
+      "\\bprocurement\\b",
+      "\\bfacilities\\b",
+      "\\breceptionist\\b",
+      "\\bpersonal assistant\\b",
+      "\\bexecutive assistant\\b",
+      "\\bsecretar\\w*\\b",
+      "\\bcustody\\b",
+      "\\bfund (?:administration|accounting|services)\\b",
+      "\\btreasury operations\\b",
+      "\\bpayments?\\b",
+      "\\bcash management\\b",
+      "\\bbusiness development\\b",
+      "\\bclient onboarding\\b",
+      "\\bclient service\\w*\\b",
+      "\\bcall cent(?:er|re)\\b",
+      "\\bbranch\\b",
+      "\\bteller\\b",
+      "\\bcredit (?:analyst|underwriter|underwriting|officer)\\b",
+      "\\bloan\\b",
+      "\\bmortgage\\b",
+      "\\binfrastructure\\b",
+      "\\barchitect\\b",
+      "\\binvestment banking\\b",
+      "\\bm&a\\b",
+      "\\bmergers\\b",
+      "\\bleveraged finance\\b",
+      "\\bequity capital markets\\b",
+      "\\bdebt capital markets\\b",
+      "\\b(?:ecm|dcm)\\b",
+      "\\bwealth\\b",
+      "\\bprivate bank\\w*\\b",
+      "\\bretail bank\\w*\\b",
+      "\\bphd\\b",
+      "\\bquantitative research(?:er)?\\b",
+      "\\b(?:trading|sales) applications?\\b",
+      "\\bapplication support\\b"
+    ],
+    "entry_types": {
+      "vie": [
+        "\\bv\\.?i\\.?e\\.?\\b",
+        "volontariat international",
+        "\\bvolontaire international\\b"
+      ],
+      "apprenticeship": [
+        "\\bapprenti\\w*\\b",
+        "\\balternan\\w*\\b",
+        "\\bwork[- ]study\\b",
+        "\\bdegree apprenticeship\\b"
+      ],
+      "internship": [
+        "\\bintern\\b",
+        "\\binterns\\b",
+        "\\binternships?\\b",
+        "\\bstagiaire\\b",
+        "\\bsummer (?:analyst|associate|intern|internship|programme|program)\\b",
+        "\\bsummer\\b",
+        "\\boff[- ]?cycle\\b",
+        "\\bindustrial placement\\b",
+        "\\bplacement\\b",
+        "\\bspring (?:week|insight|programme|program)\\b",
+        "\\binsight (?:programme|program|week|day)\\b",
+        "\\bwinter (?:analyst|internship|programme)\\b",
+        "\\bINTERN\\b",
+        "\\bINTERNSHIP\\b",
+        "\\bstages?\\b"
+      ],
+      "graduate_programme": [
+        "\\bgraduates?\\b",
+        "\\bgrad\\b",
+        "\\bnew grads?\\b",
+        "\\bcampus\\b",
+        "\\bjeunes? dipl[ôo]m[ée]s?\\b",
+        "\\btrainee\\w*\\b",
+        "\\b(?:analyst|graduate) (?:programme|program)\\b",
+        "\\bfull[- ]time analyst\\b",
+        "\\b20\\d\\d analyst\\b",
+        "\\banalyst,? 20\\d\\d\\b"
+      ],
+      "entry_level": [
+        "\\bjunior\\b",
+        "\\bentry[- ]level\\b",
+        "\\bd[ée]butant\\w*\\b",
+        "\\bassistant\\b"
+      ]
+    },
+    "senior_description_patterns": [
+      "\\b(?:corporate title|job level|rank|grade|titre)\\s*:?\\s*(?:assistant vice president|vice president|executive director|managing director|director|associate|avp|vp|ed|md|c1[1-9]|c[2-9]\\d)\\b"
+    ],
+    "excluded_companies": [],
+    "soft_senior_title_patterns": [
+      "\\bmanager\\b",
+      "\\bassociate\\b",
+      "\\bspecialist\\b",
+      "\\bconsultant\\b",
+      "\\bofficer\\b"
+    ]
+  },
+  "notifications": {
+    "max_per_run": 25,
+    "statuses": [
+      "open",
+      "unknown"
+    ],
+    "title_dedup_days": 180
+  },
+  "http": {
+    "min_interval_seconds": 0.8,
+    "host_intervals": {}
+  },
   "sources": [
     {
-      "platform": "greenhouse",
+      "company": "JPMorgan",
+      "platform": "oracle",
+      "host": "jpmc.fa.oraclecloud.com",
+      "site": "CX_1001"
+    },
+    {
+      "company": "Goldman Sachs",
+      "platform": "goldman",
+      "experiences": [
+        [
+          "CAMPUS"
+        ],
+        [
+          "EARLY_CAREER"
+        ]
+      ]
+    },
+    {
+      "company": "Morgan Stanley",
+      "platform": "workday",
+      "host": "ms.wd5.myworkdayjobs.com",
+      "tenant": "ms",
+      "site": "External"
+    },
+    {
+      "company": "Citi",
+      "platform": "workday",
+      "host": "citi.wd5.myworkdayjobs.com",
+      "tenant": "citi",
+      "site": "2"
+    },
+    {
+      "company": "Bank of America",
+      "platform": "oleeo",
+      "boards": [
+        "https://bankcampuscareers.tal.net/vx/lang-en-GB/mobile-0/brand-4/candidate/jobboard/vacancy/1/adv/"
+      ],
+      "note": "Campus programmes only; the public Workday site (ghr/lateral-us) lists US roles only"
+    },
+    {
+      "company": "HSBC",
+      "platform": "eightfold",
+      "host": "portal.careers.hsbc.com",
+      "domain": "hsbc.com",
+      "locations": [
+        "Hong Kong",
+        "Singapore",
+        "London",
+        "Paris"
+      ]
+    },
+    {
+      "company": "Barclays",
+      "platform": "workday",
+      "host": "barclays.wd3.myworkdayjobs.com",
+      "tenant": "barclays",
+      "site": "External_Career_Site_Barclays"
+    },
+    {
+      "company": "Deutsche Bank",
+      "platform": "workday",
+      "host": "db.wd3.myworkdayjobs.com",
+      "tenant": "db",
+      "site": "DBWebsite"
+    },
+    {
+      "company": "Standard Chartered",
+      "platform": "sitemap",
+      "sitemap_url": "https://jobs.standardchartered.com/sitemap.xml",
+      "job_url_pattern": "^/job/",
+      "slug_has_city": true,
+      "location_from_slug": true,
+      "max_fetch_per_run": 40
+    },
+    {
+      "company": "Société Générale",
+      "platform": "sitemap",
+      "sitemap_url": "https://careers.societegenerale.com/sitemap.xml",
+      "job_url_pattern": "^/en/job-offers/",
+      "max_fetch_per_run": 60
+    },
+    {
+      "company": "Crédit Agricole CIB",
+      "platform": "rss",
+      "feeds": [
+        "https://jobs.ca-cib.com/handlers/offerRss.ashx?LCID=2057"
+      ],
+      "note": "RSS exposes the 20 most recent offers; hourly polling catches new ones, older backlog is not visible"
+    },
+    {
+      "company": "Nomura",
+      "platform": "oleeo",
+      "boards": [
+        "https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/jobboard/vacancy/1/adv/"
+      ],
+      "note": "Campus programmes only"
+    },
+    {
+      "company": "MUFG",
+      "platform": "workday",
+      "host": "mufgub.wd3.myworkdayjobs.com",
+      "tenant": "mufgub",
+      "site": "MUFG-Careers"
+    },
+    {
+      "company": "RBC",
+      "platform": "workday",
+      "host": "rbc.wd3.myworkdayjobs.com",
+      "tenant": "rbc",
+      "site": "RBCGLOBAL1"
+    },
+    {
+      "company": "CIBC",
+      "platform": "workday",
+      "host": "cibc.wd3.myworkdayjobs.com",
+      "tenant": "cibc",
+      "site": "search"
+    },
+    {
+      "company": "CITIC CLSA (CITIC Securities)",
+      "platform": "workday",
+      "host": "citicclsa.wd3.myworkdayjobs.com",
+      "tenant": "citicclsa",
+      "site": "External"
+    },
+    {
+      "company": "Haitong International",
+      "platform": "workday",
+      "host": "htisec.wd3.myworkdayjobs.com",
+      "tenant": "htisec",
+      "site": "hti_careers"
+    },
+    {
+      "company": "BlackRock",
+      "platform": "workday",
+      "host": "blackrock.wd1.myworkdayjobs.com",
+      "tenant": "blackrock",
+      "site": "BlackRock_Professional"
+    },
+    {
+      "company": "Pictet",
+      "platform": "successfactors_xml",
+      "host": "career012.successfactors.eu",
+      "sf_company": "banquepict"
+    },
+    {
       "company": "IMC Trading",
+      "platform": "greenhouse",
       "board": "imc"
     },
     {
-      "platform": "greenhouse",
       "company": "Optiver",
-      "board": "optiver"
+      "platform": "sitemap",
+      "sitemap_url": "https://www.optiver.com/sitemap.xml",
+      "job_url_pattern": "^/join-us/jobs/[^/]+/[^/]+/[^/]+/?$",
+      "slug_has_city": true,
+      "url_location_segment": 3,
+      "max_fetch_per_run": 30
     },
     {
-      "platform": "greenhouse",
       "company": "Flow Traders",
+      "platform": "greenhouse",
       "board": "flowtraders"
+    },
+    {
+      "company": "Jane Street",
+      "platform": "greenhouse",
+      "board": "janestreet"
+    },
+    {
+      "company": "Jump Trading",
+      "platform": "greenhouse",
+      "board": "jumptrading"
+    },
+    {
+      "company": "Hudson River Trading",
+      "platform": "greenhouse",
+      "board": "wehrtyou"
+    },
+    {
+      "company": "DRW",
+      "platform": "greenhouse",
+      "board": "drweng"
+    },
+    {
+      "company": "Tower Research Capital",
+      "platform": "greenhouse",
+      "board": "towerresearchcapital"
+    },
+    {
+      "company": "Point72",
+      "platform": "greenhouse",
+      "board": "point72"
+    },
+    {
+      "company": "Squarepoint Capital",
+      "platform": "greenhouse",
+      "board": "squarepointcapital"
+    },
+    {
+      "company": "Virtu Financial",
+      "platform": "greenhouse",
+      "board": "virtu"
+    },
+    {
+      "company": "XTX Markets",
+      "platform": "greenhouse",
+      "board": "xtxmarketstechnologies"
+    },
+    {
+      "company": "BNP Paribas",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "group.bnpparibas returns HTTP 403 (Akamai 'Access Denied') to automated requests, including its sitemap; no public ATS feed found. Not bypassed."
+    },
+    {
+      "company": "UBS",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "jobs.ubs.com is a Kenexa BrassRing JavaScript app; no public sitemap/feed (sitemap 404) and results require a session token. Not scraped."
+    },
+    {
+      "company": "Natixis CIB",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "recrutement.natixis.com is a JavaScript-only shell (3 KB HTML), empty sitemap, no public ATS feed found."
+    },
+    {
+      "company": "SMBC",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "smbcgroup.com careers pages link to no discoverable public job feed; tested Workday/SmartRecruiters guesses failed."
+    },
+    {
+      "company": "CICC",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "www.cicc.com returns HTTP 521 (origin down / blocked)."
+    },
+    {
+      "company": "Huatai Securities",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "htsc.com.hk returns HTTP 403."
+    },
+    {
+      "company": "ICBC / Bank of China / CCB",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "No public English job feed found (ICBC Asia and BOCI careers URLs 404, CCB International TLS certificate invalid)."
     }
-  ],
-  "entry_title_patterns": [
-    "\\bintern\\w*\\b",
-    "\\bstagiaire\\b",
-    "\\bstage\\b",
-    "\\boff[ -]?cycle\\b",
-    "\\bsummer\\b",
-    "\\bgraduate\\b",
-    "\\bnew grad\\b",
-    "\\bjunior\\b",
-    "\\bentry[ -]?level\\b",
-    "\\bvie\\b",
-    "\\bv\\.i\\.e\\.?\\b",
-    "\\btrainee\\b",
-    "\\bapprentice\\b",
-    "\\balternan\\w*\\b",
-    "\\bworking student\\b"
-  ],
-  "senior_description_patterns": [
-    "\\b(?:minimum|at least|more than|over|minimum of)\\s+(?:[4-9]|\\d{2,})\\+?\\s+years?\\b",
-    "\\b(?:[4-9]|\\d{2,})\\+\\s+years?\\s+(?:of\\s+)?(?:relevant\\s+)?experience\\b",
-    "\\b(?:[4-9]|\\d{2,})\\s*(?:-|to)\\s*\\d+\\s+years?\\b",
-    "\\b(?:required|requires?)\\s+(?:a\\s+minimum\\s+of\\s+)?(?:[4-9]|\\d{2,})\\+?\\s+years?\\b"
-  ],
-  "non_finance_title_patterns": [
-    "\\bsoftware\\b",
-    "\\bengineer(?:ing)?\\b",
-    "\\bdeveloper\\b",
-    "\\bproduct manager\\b",
-    "\\bmarketing\\b",
-    "\\bhuman resources\\b",
-    "\\brecruit\\w*\\b",
-    "\\bcompliance\\b",
-    "\\blegal\\b",
-    "\\baccounting\\b",
-    "\\boperations\\b",
-    "\\bdata engineer\\b",
-    "\\bdesign\\w*\\b",
-    "\\bbusiness development\\b"
-  ],
-  "max_years_experience": 1,
-  "require_entry_signal": true
+  ]
 }

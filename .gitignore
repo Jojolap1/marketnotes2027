@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+job_tracker/.cache/
+job_tracker/reports/
