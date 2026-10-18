@@ -121,6 +121,26 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(len(tg.sent), 1)
 
 
+    def test_only_recent_jobs_alerted_but_undated_jobs_still_sent(self):
+        from datetime import datetime, timedelta, timezone
+        from unittest import mock
+        today = datetime.now(timezone.utc).date()
+        base = dict(company='Bank', location='London', description='', status='open', status_evidence='',
+                    employment_type='', apply_url='', requisition_id='')
+        jobs = [dict(base, id='a', title='FX Sales Intern', url='https://b/a', published=(today - timedelta(days=3)).isoformat()),
+                dict(base, id='b', title='Rates Sales Intern', url='https://b/b', published=(today - timedelta(days=30)).isoformat()),
+                dict(base, id='c', title='Credit Trading Intern', url='https://b/c', published='')]
+        with mock.patch.object(tracker, 'fetch_source', lambda s, ctx: jobs):
+            tg = FakeTelegram()
+            self.run_tracker(tg, sources=SOURCES[:1], max_age_days=14)
+        text = '\n'.join(tg.sent)
+        self.assertIn('FX Sales Intern', text)
+        self.assertIn('Credit Trading Intern', text)
+        self.assertIn('date not provided by the source', text)
+        self.assertNotIn('Rates Sales Intern', text)
+        self.assertIn('published more than 14 days ago: 1', self.report.read_text())
+
+
 class ConfigTests(unittest.TestCase):
     REQUIRED = {'greenhouse': ['board'], 'lever': ['board'], 'ashby': ['board'], 'smartrecruiters': ['board'],
                 'workday': ['host', 'tenant', 'site'], 'oracle': ['host', 'site'], 'eightfold': ['host', 'domain'],
@@ -147,7 +167,10 @@ class ConfigTests(unittest.TestCase):
         for bank in ['Société Générale', 'BNP Paribas', 'Citi', 'JPMorgan', 'Goldman Sachs', 'Morgan Stanley', 'Bank of America',
                      'HSBC', 'UBS', 'Deutsche Bank', 'Barclays', 'Standard Chartered', 'Crédit Agricole CIB', 'Natixis', 'MUFG',
                      'Nomura', 'SMBC', 'RBC', 'CIBC', 'CICC', 'CITIC', 'ICBC', 'Bank of China', 'China Construction Bank' if False else 'CCB',
-                     'Haitong', 'Huatai', 'IMC Trading', 'Optiver', 'Flow Traders', 'BlackRock', 'Pictet']:
+                     'Haitong', 'Huatai', 'IMC Trading', 'Optiver', 'Flow Traders', 'BlackRock', 'Pictet',
+                     'DBS', 'OCBC', 'UOB', 'UOB Kay Hian', 'Mizuho', 'Daiwa', 'BBVA', 'Santander', 'ING', 'NatWest',
+                     'Guotai Junan', 'China Merchants Securities', 'BOC International', 'ICBC International', 'GF Securities',
+                     'Shenwan Hongyuan', 'China Galaxy', 'Maybank', 'CIMB', 'Citadel Securities']:
             self.assertIn(bank, names)
 
 

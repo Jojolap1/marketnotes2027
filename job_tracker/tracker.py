@@ -27,7 +27,7 @@ from report import Report
 from sources import fetch_source
 from sources.context import Context, DetailCache
 from state import State
-from status import CLOSED, parse_date
+from status import CLOSED, age_days, parse_date
 
 ROOT = Path(__file__).resolve().parent
 CONFIG_FILE = ROOT / 'config.json'
@@ -85,6 +85,8 @@ def collect(config, ctx, state, report):
 def select(jobs, classifier, state, config, report):
     """Classify, deduplicate within the run and split into new / known."""
     notify_statuses = set(config.get('notifications', {}).get('statuses', ['open', 'unknown']))
+    # Jobs older than this are not alerted; jobs without a publication date are (just in case).
+    max_age = config.get('notifications', {}).get('max_age_days')
     run_keys, new, matched, near = set(), [], [], []
     reasons = Counter()
     samples = {}
@@ -115,6 +117,10 @@ def select(jobs, classifier, state, config, report):
             continue
         if job.get('status') not in notify_statuses:
             reasons[f'status {job.get("status")} not notified'] += 1
+            continue
+        age = age_days(job.get('published'))
+        if max_age is not None and age is not None and age > max_age:
+            reasons[f'published more than {max_age} days ago'] += 1
             continue
         new.append((job, c))
     new.sort(key=_sort_key)
