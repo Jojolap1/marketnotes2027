@@ -28,6 +28,7 @@ jobs:
         run: pip install -r job_tracker/requirements.txt
 
       - name: Run automated filter tests
+        id: filter_tests
         continue-on-error: true
         run: |
           set -o pipefail
@@ -35,6 +36,7 @@ jobs:
           python -m unittest -v test_tracker.py 2>&1 | tee ../test_results.log
 
       - name: Run job tracker
+        id: tracker_run
         env:
           DRY_RUN: '1'
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -77,3 +79,7 @@ jobs:
             git commit -m "Update CI diagnostic report [skip ci]"
             git push
           fi
+
+      - name: Fail workflow if validation failed
+        if: always() && (steps.filter_tests.outcome == 'failure' || steps.tracker_run.outcome == 'failure')
+        run: exit 1
