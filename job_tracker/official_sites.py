@@ -131,6 +131,14 @@ def fetch_sitemap_jobs(source):
     for link in dict.fromkeys(job_urls):
         slug = urlparse(link).path.lower()
         if role.search(slug) and junior.search(slug) and not senior.search(slug):
+            # Citi URLs encode their actual city in /job/<city>/.
+            # Filter before fetching pages so an 80-page cap does not discard
+            # London/Paris/Singapore/Hong Kong roles behind other cities.
+            if source.get('adapter') == 'citi':
+                segments = slug.strip('/').split('/')
+                city = segments[1] if len(segments) > 2 and segments[0] == 'job' else ''
+                if not location.fullmatch(city):
+                    continue
             score = 2 + (2 if location.search(slug) else 0)
             candidates.append((score, link))
     candidates.sort(key=lambda item: -item[0])
