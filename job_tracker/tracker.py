@@ -82,24 +82,24 @@ def matches(job):
     # Reject explicit requirements above the user's maximum, including ranges.
     # Avoid treating years in company histories as job requirements.
     max_years = int(CONFIG.get('max_years_experience', 1))
-    section = re.split(r'(?i)\\b(?:about us|about the company|benefits|equal opportunity)\\b', description)[0]
-    requirements = re.split(r'(?i)\\b(?:requirements|qualifications|your profile|about you|what you bring|experience required)\\b', section)
+    section = re.split(r'(?i)\b(?:about us|about the company|benefits|equal opportunity)\b', description)[0]
+    requirements = re.split(r'(?i)\b(?:requirements|qualifications|your profile|about you|what you bring|experience required)\b', section)
     relevant = ' '.join(requirements[1:]) if len(requirements) > 1 else section
     patterns = [
-        r'(?i)\\b(?:at least|minimum(?: of)?|more than|over|requires?|required|must have)\\s*(\\d{1,2})\\s*\\+?\\s*years?',
-        r'(?i)\\b(\\d{1,2})\\s*\\+\\s*years?\\s+(?:of\\s+)?(?:relevant\\s+|professional\\s+|industry\\s+)?experience',
-        r'(?i)\\b(\\d{1,2})\\s*(?:-|to|–)\\s*\\d{1,2}\\s+years?\\s+(?:of\\s+)?experience',
-        r'(?i)\\b(\\d{1,2})\\s+years?\\s+(?:of\\s+)?(?:relevant\\s+|professional\\s+|industry\\s+)?experience\\s+(?:required|minimum|in)',
+        r'(?i)\b(?:at least|minimum(?: of)?|more than|over|requires?|required|must have)\s*(\d{1,2})\s*\+?\s*years?',
+        r'(?i)\b(\d{1,2})\s*\+\s*years?\s+(?:of\s+)?(?:relevant\s+|professional\s+|industry\s+)?experience',
+        r'(?i)\b(\d{1,2})\s*(?:-|to|–)\s*\d{1,2}\s+years?\s+(?:of\s+)?experience',
+        r'(?i)\b(\d{1,2})\s+years?\s+(?:of\s+)?(?:relevant\s+|professional\s+|industry\s+)?experience\s+(?:required|minimum|in)',
     ]
     for pattern in patterns:
         for match in re.finditer(pattern, relevant):
             if int(match.group(1)) > max_years:
                 return False
     # A bare 'Analyst' title is not evidence of entry-level eligibility.
-    if re.search(r'(?i)\\banalyst\\b', title) and not re.search(
-        r'(?i)\\b(?:intern|internship|junior|graduate|trainee|summer|off[ -]?cycle|vie|v\\.i\\.e|entry[ -]?level|new grad)\\b', title
+    if re.search(r'(?i)\banalyst\b', title) and not re.search(
+        r'(?i)\b(?:intern|internship|junior|graduate|trainee|summer|off[ -]?cycle|vie|v\.i\.e|entry[ -]?level|new grad)\b', title
     ):
-        if not re.search(r'(?i)\\b(?:0\\s*[-–to]+\\s*1|0\\s*(?:or|to)\\s*1|no (?:prior|previous) experience|entry[ -]?level|recent graduate)\\b', relevant):
+        if not re.search(r'(?i)\b(?:0\s*[-–to]+\s*1|0\s*(?:or|to)\s*1|no (?:prior|previous) experience|entry[ -]?level|recent graduate)\b', relevant):
             return False
     return True
 
