@@ -481,6 +481,62 @@ U('Optiver job page full', first_text, 'https://www.optiver.com/join-us/jobs/ins
 U('Oleeo nomura detail meta', raw, 'https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1449-2027-Global-Markets-Sales-Trading-Structuring-Summer-Internship-London/en-GB', r'<meta[^>]+description', 400)
 PROBES = PROBES + R4
 
+
+# ---------------- Round 5 ----------------
+GS_API = 'https://api-higher.gs.com/gateway/api/v1/graphql'
+GS_FILTERS = """query GetRoleFilters($filterCategories: [RoleSearchFilterCategoryType!] $experiences: [RoleSearchExperience!]!) {
+  roleSearchFilters(categories: $filterCategories experiences: $experiences) { filterCategoryType { code description }
+    filters { filter count subFilters { filter count subFilters { filter count } } } } }"""
+GS_ROLES = """query GetCampusRoles($searchQueryInput: RoleSearchQueryInput!) { roleSearch(searchQueryInput: $searchQueryInput) {
+  totalCount items { roleId corporateTitle jobTitle jobFunction locations { primary state country city } status division
+  jobType { code description } externalSource { sourceId } educationLevel startDate } } }"""
+
+
+def gs_post(query, variables):
+    r = S.post(GS_API, json={'query': query, 'variables': variables}, timeout=25,
+               headers={'Content-Type': 'application/json', 'Origin': 'https://higher.gs.com', 'Referer': 'https://higher.gs.com/'})
+    return r.status_code, r.text
+
+
+def gs_filters(exp):
+    code, text = gs_post(GS_FILTERS, {'experiences': exp})
+    if code != 200:
+        return f'HTTP {code} {text[:300]}'
+    d = json.loads(text)
+    out = []
+    for cat in (d.get('data') or {}).get('roleSearchFilters') or []:
+        out.append((cat['filterCategoryType']['code'], [(f['filter'], f['count'], [(s['filter'], s['count'], [x['filter'] for x in s.get('subFilters') or []][:12]) for s in f.get('subFilters') or []][:12]) for f in cat['filters']][:10]))
+    return str(out)[:4000] + (' errors=' + str(d.get('errors'))[:300] if d.get('errors') else '')
+
+
+def gs_roles(exp, filters, sort=None):
+    v = {'searchQueryInput': {'page': {'pageSize': 20, 'pageNumber': 0}, 'filters': filters, 'experiences': exp, 'searchTerm': ''}}
+    if sort:
+        v['searchQueryInput']['sort'] = sort
+    code, text = gs_post(GS_ROLES, v)
+    if code != 200:
+        return f'HTTP {code} {text[:400]}'
+    d = json.loads(text)
+    rs = (d.get('data') or {}).get('roleSearch') or {}
+    return f'total={rs.get("totalCount")} items={[(i["jobTitle"], i["corporateTitle"], [(l.get("city"), l.get("country")) for l in i["locations"]], i["status"], i["externalSource"], i["roleId"], i["jobType"], i.get("startDate")) for i in rs.get("items", [])[:6]]} errors={str(d.get("errors"))[:500]}'
+
+
+R5 = []
+def V(name, fn, *a):
+    R5.append(('R5 ' + name, lambda: fn(*a)))
+
+V('GS filters campus', gs_filters, ['CAMPUS'])
+V('GS filters pro', gs_filters, ['EARLY_CAREER', 'PROFESSIONAL'])
+V('GS roles campus nofilter', gs_roles, ['CAMPUS'], [])
+V('GS roles campus London', gs_roles, ['CAMPUS'], [{'filterCategoryType': 'LOCATION', 'filters': [{'filter': 'EMEA', 'subFilters': [{'filter': 'United Kingdom', 'subFilters': [{'filter': 'London', 'subFilters': []}]}]}]}])
+V('GS role page sitemap', lambda: str([l for l in re.findall(r'<loc>\s*([^<]+?)\s*</loc>', get('https://higher.gs.com/sitemap-roles.xml').text)][:5]))
+V('Pictet xml tags', lambda: (lambda t: str(sorted(set(re.findall(r'<([A-Za-z][\w-]*)>', re.search(r'<Job>.*?</Job>', t, re.S).group(0))))) + ' count=' + str(t.count('<Job>')) + ' sample=' + re.sub(r'<Job-Description>.*?</Job-Description>', '', re.search(r'<Job>.*?</Job>', t, re.S).group(0), flags=re.S)[:1500])(get('https://career012.successfactors.eu/career?company=banquepict&career_ns=job_listing_summary&resultType=XML').text))
+V('CA-CIB listing offers', first_text, 'https://jobs.ca-cib.com/offre-de-emploi/liste-toutes-offres.aspx?LCID=2057&mode=list', r'.{0,200}idOffre.{0,300}|<a[^>]+href="[^"]*emploi-[^"]*"[^>]*>.{0,300}', 4, 600)
+V('BofA opp meta', raw, 'https://bankcampuscareers.tal.net/vx/lang-en-GB/mobile-0/brand-4/candidate/so/pm/1/pl/1/opp/14670-Global-Markets-Credit-2027-Summer-Analyst-London/en-GB', r'<meta[^>]+description', 400)
+V('BofA board anchors', first_text, 'https://bankcampuscareers.tal.net/vx/lang-en-GB/mobile-0/brand-4/candidate/jobboard/vacancy/1/adv/', r'<a[^>]+href="([^"]*opp/14670[^"]*)"[^>]*>(.*?)</a>', 2, 300)
+V('Oleeo pagination', first_text, 'https://bankcampuscareers.tal.net/vx/lang-en-GB/mobile-0/brand-4/candidate/jobboard/vacancy/1/adv/', r'href="[^"]*(?:page|start|ftq)[^"]*"[^>]*>[^<]{0,40}|of \d+ results|\d+ results', 10, 200)
+PROBES = PROBES + R5
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
