@@ -54,6 +54,9 @@ def fetch(source):
                  'published': j.get('publishedAt') or '',
                  'description': html.unescape(re.sub(r'<[^>]*>', ' ', j.get('descriptionHtml') or j.get('descriptionPlain') or ''))}
                 for j in payload.get('jobs', []) if j.get('isListed', True)]
+    if kind == 'sitemap':
+        from official_sites import fetch_sitemap_jobs
+        return fetch_sitemap_jobs(source)
     if kind == 'official':
         from official_sites import fetch_official
         return fetch_official(source)
