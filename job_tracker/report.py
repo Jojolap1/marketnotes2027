@@ -83,6 +83,10 @@ class Report:
             for company, items in sorted(self.samples.items()):
                 for job, c in items:
                     lines.append(f"- {company} — {job['title'][:110]} — [{job['location'][:50]}] — {c.reject_reason}")
+        if getattr(self, 'screened_out', None):
+            lines += ['', '## Titles screened out before detail fetch (target cities, samples)', '']
+            for company, titles in sorted(self.screened_out.items()):
+                lines.append(f"- {company}: " + ' | '.join(t[:70] for t in titles))
         if self.reasons:
             lines += ['', '## Exclusion reasons (all screened jobs)', '']
             for reason, n in sorted(self.reasons.items(), key=lambda x: -x[1]):

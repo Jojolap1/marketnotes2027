@@ -174,6 +174,7 @@ def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT
                 exit_code = 3
         state.save(Path(state_path))
     ctx.cache.save()
+    report.screened_out = ctx.screened_out
     report.write(report_path, http)
     return exit_code, report
 

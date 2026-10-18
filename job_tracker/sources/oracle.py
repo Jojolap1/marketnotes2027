@@ -82,7 +82,7 @@ def fetch(source, ctx):
         title = req.get('Title') or ''
         locations = '; '.join(filter(None, [req.get('PrimaryLocation')] + [
             loc.get('Name', '') for loc in req.get('secondaryLocations') or [] if isinstance(loc, dict)]))
-        if not ctx.title_worth_fetching(title) or not ctx.city_of(locations):
+        if not ctx.screen(company, title, locations):
             continue
         ctx.stat(company, 'candidates')
         detail = _detail(source, ctx, req_id)

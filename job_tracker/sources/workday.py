@@ -124,11 +124,8 @@ def fetch(source, ctx):
     jobs = []
     for path, post in posts.items():
         title = post.get('title') or ''
-        if not ctx.title_worth_fetching(title):
-            continue
         loc_text = post.get('locationsText') or ''
-        multi = bool(re.match(r'\d+ Locations', loc_text))
-        if not multi and not ctx.city_of(loc_text):
+        if not ctx.screen(company, title, loc_text):
             continue
         ctx.stat(company, 'candidates')
         detail = _detail(source, ctx, base, path)
