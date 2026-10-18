@@ -67,5 +67,23 @@ def fetch_official(source):
                 BeautifulSoup(obj.get('description') or '', 'html.parser').get_text(' ', strip=True))
     # Navigation links on career landing pages are not individual vacancies.
     # Only structured JobPosting records count until a site-specific adapter is validated.
+    # Site-specific search result cards: only links inside known vacancy
+    # result containers, never arbitrary career/navigation links.
+    if source.get('adapter') == 'citi':
+        for item in soup.select('li.jobs-list-item, li.job-result, .job-listing, .job-result, [data-job-id]'):
+            a = item.select_one('a[href*="/job/"], a[href*="/job-detail/"], a[href*="/job/"]')
+            if not a:
+                continue
+            title = (item.select_one('h2, h3, .job-title') or a).get_text(' ', strip=True)
+            location = (item.select_one('.job-location, .location, [class*="location"]') or item).get_text(' ', strip=True)
+            add(title, location, a.get('href'))
+    elif source.get('adapter') == 'sg':
+        for item in soup.select('article, .job-card, .job-item, [data-job-id]'):
+            a = item.select_one('a[href*="/job/"], a[href*="/offre/"], a[href*="/jobs/"]')
+            if not a:
+                continue
+            title = (item.select_one('h2, h3, .job-title') or a).get_text(' ', strip=True)
+            location = (item.select_one('.job-location, .location, [class*="location"]') or item).get_text(' ', strip=True)
+            add(title, location, a.get('href'))
     LOG.info('%s official page: %d verified JobPosting records', source['company'], len(jobs))
     return list(jobs.values())
