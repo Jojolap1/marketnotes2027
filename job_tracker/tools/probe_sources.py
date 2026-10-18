@@ -641,6 +641,50 @@ for b in ['DBSBank', 'OCBC', 'UOB', 'Maybank', 'CIMB', 'BBVA', 'ING', 'Amundi', 
     R6.append((f'R6 SR {b}', (lambda b=b: smartrecruiters(b))))
 PROBES = PROBES + R6
 
+
+# ---------------- Round 7 ----------------
+def rss_count(url):
+    r = get(url)
+    titles = re.findall(r'<title>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</title>', r.text, re.S)
+    return f'HTTP {r.status_code} final={r.url} type={r.headers.get("content-type")} items={r.text.count("<item>")} titles={[t.strip()[:70] for t in titles[:8]]}'
+
+
+R7 = []
+def W(name, fn, *a):
+    R7.append(('R7 ' + name, lambda: fn(*a)))
+
+for name, url in [
+    ('Macquarie avature feed', 'https://recruitment.macquarie.com/en_US/careers/SearchJobs/feed/'),
+    ('Macquarie avature feed2', 'https://recruitment.macquarie.com/en_US/careers/SearchJobs/feed/?listFilterMode=1&jobRecordsPerPage=100'),
+    ('Two Sigma avature feed', 'https://careers.twosigma.com/careers/SearchJobs/feed/'),
+    ('Two Sigma openroles feed', 'https://careers.twosigma.com/careers/OpenRoles/feed/'),
+    ('Amundi talentsoft rss', 'https://jobs.amundi.com/handlers/offerRss.ashx?LCID=2057'),
+    ('HSBC avature feed', 'https://mycareer.hsbc.com/en_GB/external/SearchJobs/feed/'),
+]:
+    W(name, rss_count, url)
+W('Schroders oracle', oracle, 'ekbq.fa.em2.oraclecloud.com', 'CX_2')
+W('Schroders oracle facets', oracle_facets, 'ekbq.fa.em2.oraclecloud.com', 'CX_2')
+W('ANZ SF xml', lambda: (lambda t: 'count=%d sample=%s' % (t.count('<Job>'), re.findall(r'<JobTitle><!\[CDATA\[(.*?)\]\]>', t)[:6]))(get('https://career10.successfactors.com/career?company=anzbanking&career_ns=job_listing_summary&resultType=XML').text))
+W('Millennium eightfold', eightfold, 'mlp.eightfold.ai', 'mlp.com', 'analyst')
+W('Mizuho internship page', validate_page, 'https://www.mizuhogroup.com/emea/careers/internship-programme')
+W('BBVA careers en', validate_page, 'https://www.bbva.com/en/careers/')
+W('BBVA raw workday links', links, 'https://www.bbva.com/es/empleo/', r'https://[a-z0-9-]+\.wd\d+\.myworkdayjobs\.com[^"\'\s<>]*')
+W('Fidelity tal', links, 'https://careers.fidelityinternational.com/', r'https://fidelityinternational\.tal\.net[^"\'\s<>]*')
+W('Akuna json', lambda: (lambda d: f'type={type(d).__name__} n={len(d)} sample={str(d)[:400]}')(get('https://akunacapital.com/wp-content/uploads/akuna_jobs.json').json()))
+for tenant, site in [('uob', 'UOB'), ('uob', 'uob'), ('uobgroup', 'UOBGroup'), ('maybank', 'Maybank'), ('daiwa', 'Daiwa'), ('natwest', 'NatWest'), ('rbs', 'RBS_Careers')]:
+    W(f'WD guess {tenant}/{site}', workday, f'{tenant}.wd3.myworkdayjobs.com', tenant, site)
+for name, url in [
+    ('GTJAI careers', 'https://www.gtjai.com/en/careers'), ('GTJAI careers2', 'https://www.gtjai.com/en/about-us/careers'),
+    ('CMBI careers', 'https://www.cmbi.com/en/careers'), ('CMBI join', 'https://www.cmbi.com.hk/en/join-us'),
+    ('BOCI careers', 'https://www.bocigroup.com/Web/Index/joinus'), ('ICBCI careers', 'https://www.icbci.com.hk/en/careers'),
+    ('GF HK careers', 'https://www.gfgroup.com.hk/en/careers'), ('SWHY careers', 'https://www.swhyhk.com/en/careers'),
+    ('CGI careers', 'https://www.chinastock.com.hk/en/careers'), ('Maybank careers', 'https://www.maybank.com/en/careers/index.page'),
+    ('Maybank IB careers', 'https://www.maybank.com/investment-banking/en/careers.page'), ('UOBKH careers', 'https://www.uobkh.com/careers'),
+    ('Daiwa UK careers', 'https://www.uk.daiwacm.com/careers'), ('UOB careers', 'https://www.uobgroup.com/careers/index.page'),
+]:
+    W(name, validate_page, url)
+PROBES = PROBES + R7
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
