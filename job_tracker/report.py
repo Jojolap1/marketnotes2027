@@ -70,7 +70,8 @@ class Report:
         lines += ['', '## Relevant jobs', '']
         new_ids = {j['id'] for j, _ in self.new}
         for job, c in sorted(self.matched, key=lambda x: (x[0]['company'], x[0]['title'])):
-            flag = 'NEW' if job['id'] in new_ids else 'known' if job.get('status') != 'closed' else 'closed'
+            flag = ('NEW' if job['id'] in new_ids else 'closed' if job.get('status') == 'closed'
+                    else 'older than limit' if job.get('too_old') else 'already notified')
             lines.append(f"- [{flag}] **{job['company']}** — {job['title']} — {c.city} — {c.level_label} — "
                          f"exp: {c.experience_label} — status: {job.get('status')}"
                          + (f" ({job.get('status_evidence', '')[:90]})" if job.get('status') != 'open' else '') + f" — {job['url']}")

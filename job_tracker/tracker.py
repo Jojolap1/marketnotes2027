@@ -121,6 +121,7 @@ def select(jobs, classifier, state, config, report):
         age = age_days(job.get('published'))
         if max_age is not None and age is not None and age > max_age:
             reasons[f'published more than {max_age} days ago'] += 1
+            job['too_old'] = True
             continue
         new.append((job, c))
     new.sort(key=_sort_key)

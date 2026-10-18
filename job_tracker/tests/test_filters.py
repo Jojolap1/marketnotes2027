@@ -194,7 +194,9 @@ class SeniorityAndRoleTests(unittest.TestCase):
         for title in ['Python Engineer, Trading Automation', 'Compliance Intern - Markets', 'Operations Analyst Summer 2027',
                       'Market Risk Intern', 'Trade Support Graduate', 'Investment Banking Summer Analyst',
                       'Software Developer Intern - Trading Systems', 'HR Graduate Programme', 'Private Banking Graduate',
-                      'Global Technology Summer Analyst', 'Business Analyst Intern', 'Graduate Trading Applications Specialist']:
+                      'Global Technology Summer Analyst', 'Business Analyst Intern', 'Graduate Trading Applications Specialist',
+                      'Intern, Financial Markets Business Management',
+                      'Internship: Global Consumer Financial Services, Consumer Secured Lending, Home Financing & Secured Lending Portfolio Management']:
             self.assertFalse(classify(title).eligible, title)
 
     def test_target_roles_accepted(self):
