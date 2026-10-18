@@ -290,7 +290,12 @@
       "unknown"
     ],
     "title_dedup_days": 180,
-    "max_age_days": 14
+    "max_age_days": 14,
+    "send_window": {
+      "timezone": "Asia/Ho_Chi_Minh",
+      "start_hour": 11,
+      "end_hour": 22
+    }
   },
   "http": {
     "min_interval_seconds": 0.8,

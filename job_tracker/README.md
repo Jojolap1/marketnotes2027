@@ -47,6 +47,10 @@ A job whose source gives no publication date (e.g. Oleeo boards, Standard Charte
 marked "date not provided by the source". Dates come from the feeds (Workday posting date or
 "Posted N days ago", Oracle `PostedDate`, Greenhouse `first_published`, JSON-LD `datePosted`, RSS `pubDate`…).
 
+**Send window:** the workflow runs at 11:07, 13:07, 15:07, 17:07, 19:07 and 21:07 Vietnam time, and
+`notifications.send_window` (Asia/Ho_Chi_Minh, 11h-22h) stops any run outside that window from
+sending; new jobs then wait for the next slot.
+
 `notifications.statuses` controls which statuses alert (default `open` and `unknown`; unknown alerts are labelled *Unknown (not confirmed)*). Closed jobs never alert.
 
 ## Duplicate prevention
