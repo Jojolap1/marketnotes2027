@@ -52,6 +52,126 @@
       "platform": "greenhouse",
       "company": "Flow Traders",
       "board": "flowtraders"
+    },
+    {
+      "platform": "official",
+      "company": "JPMorgan Chase",
+      "url": "https://careers.jpmorgan.com/global/en/students/programs",
+      "allowed_hosts": [
+        "jpmorgan.com"
+      ]
+    },
+    {
+      "platform": "official",
+      "company": "HSBC",
+      "url": "https://www.hsbc.com/careers/students-and-graduates",
+      "allowed_hosts": [
+        "hsbc.com"
+      ]
+    },
+    {
+      "platform": "official",
+      "company": "BNP Paribas",
+      "url": "https://group.bnpparibas/en/careers",
+      "allowed_hosts": [
+        "bnpparibas.com"
+      ]
+    },
+    {
+      "platform": "official",
+      "company": "Société Générale",
+      "url": "https://careers.societegenerale.com/en",
+      "allowed_hosts": [
+        "societegenerale.com"
+      ]
+    },
+    {
+      "platform": "official",
+      "company": "Citi",
+      "url": "https://jobs.citi.com/",
+      "allowed_hosts": [
+        "citi.com"
+      ]
+    },
+    {
+      "platform": "official",
+      "company": "Goldman Sachs",
+      "url": "https://www.goldmansachs.com/careers/",
+      "allowed_hosts": [
+        "goldmansachs.com"
+      ]
+    },
+    {
+      "platform": "official",
+      "company": "Morgan Stanley",
+      "url": "https://www.morganstanley.com/people-opportunities/students-graduates",
+      "allowed_hosts": [
+        "morganstanley.com"
+      ]
+    },
+    {
+      "platform": "official",
+      "company": "BlackRock",
+      "url": "https://careers.blackrock.com/",
+      "allowed_hosts": [
+        "blackrock.com"
+      ]
+    },
+    {
+      "platform": "official",
+      "company": "Standard Chartered",
+      "url": "https://www.sc.com/en/global-careers/",
+      "allowed_hosts": [
+        "sc.com"
+      ]
+    },
+    {
+      "platform": "official",
+      "company": "Deutsche Bank",
+      "url": "https://careers.db.com/",
+      "allowed_hosts": [
+        "db.com"
+      ]
+    },
+    {
+      "platform": "official",
+      "company": "UBS",
+      "url": "https://www.ubs.com/global/en/careers.html",
+      "allowed_hosts": [
+        "ubs.com"
+      ]
+    },
+    {
+      "platform": "official",
+      "company": "Bank of America",
+      "url": "https://careers.bankofamerica.com/en-us",
+      "allowed_hosts": [
+        "bankofamerica.com"
+      ]
+    },
+    {
+      "platform": "official",
+      "company": "CICC",
+      "url": "https://www.cicc.com/",
+      "allowed_hosts": [
+        "cicc.com"
+      ]
+    },
+    {
+      "platform": "official",
+      "company": "CITIC Securities",
+      "url": "https://www.cs.ecitic.com/",
+      "allowed_hosts": [
+        "ecitic.com"
+      ]
+    },
+    {
+      "platform": "official",
+      "company": "ICBC",
+      "url": "https://www.icbc.com.cn/",
+      "allowed_hosts": [
+        "icbc.com.cn"
+      ]
     }
   ],
   "entry_title_patterns": [
