@@ -79,22 +79,28 @@
       ]
     },
     {
-      "platform": "official",
+      "platform": "sitemap",
       "company": "Société Générale",
       "url": "https://careers.societegenerale.com/en/search",
       "allowed_hosts": [
         "societegenerale.com"
       ],
-      "adapter": "sg"
+      "adapter": "sg",
+      "sitemap_url": "https://careers.societegenerale.com/sitemap.xml",
+      "job_url_pattern": "/en/job-offers/",
+      "max_jobs": 80
     },
     {
-      "platform": "official",
+      "platform": "sitemap",
       "company": "Citi",
       "url": "https://jobs.citi.com/search-jobs?k=trading",
       "allowed_hosts": [
         "citi.com"
       ],
-      "adapter": "citi"
+      "adapter": "citi",
+      "sitemap_url": "https://jobs.citi.com/sitemap.xml",
+      "job_url_pattern": "/job/",
+      "max_jobs": 80
     },
     {
       "platform": "official",
