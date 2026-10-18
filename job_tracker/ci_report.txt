@@ -1,6 +1,6 @@
 # Automated tracker validation
-Commit: c5d977813dcddecc8ec95992943261bb4af0069c
-Run: 39122732893
+Commit: b974cd7260f80b70d3975413a867f0204df6570b
+Run: 39122850489
 
 ## Unit tests
 test_analyst_explicit_entry_allowed (test_tracker.JobFilterTests.test_analyst_explicit_entry_allowed) ... ok
@@ -16,11 +16,12 @@ test_unqualified_analyst_rejected (test_tracker.JobFilterTests.test_unqualified_
 test_vp_rejected (test_tracker.JobFilterTests.test_vp_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 11 tests in 0.007s
+Ran 11 tests in 0.006s
 
 OK
 
 ## Tracker summary
+WARNING Source unavailable (JPMorgan Chase): ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 WARNING Source unavailable (BNP Paribas): 403 Client Error: Forbidden for url: https://group.bnpparibas/en/careers
 INFO Société Générale sitemap: 653 URLs discovered, 48 junior finance slug candidates, 48 selected
 INFO Société Générale sitemap result: 9 verified candidates; 0 HTTP errors; rejected={'no_title': 0, 'closed': 0, 'no_job_detail': 0, 'no_location': 39}
