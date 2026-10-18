@@ -138,6 +138,7 @@ def fetch_sitemap_jobs(source):
              source['company'], len(job_urls), len(candidates), len(selected))
     jobs = {}
     errors = 0
+    samples = []
     rejected = {'no_title': 0, 'closed': 0, 'no_job_detail': 0, 'no_location': 0}
     for link in selected:
         try:
@@ -156,6 +157,8 @@ def fetch_sitemap_jobs(source):
             # A title and relevant slug alone are insufficient to validate a posting.
             if not re.search(r'(?i)(?:apply now|apply for this|job description|job reference|requisition id|job id)', body[:6000]):
                 rejected['no_job_detail'] += 1
+                if len(samples) < 3:
+                    samples.append({'reason':'no_job_detail','url':link,'h1':title[:100], 'page_title':(soup.title.get_text(' ',strip=True) if soup.title else '')[:120], 'text_excerpt':body[:160]})
                 continue
             # Do not infer job location from the global navigation/footer.
             location_text = ''
@@ -184,6 +187,8 @@ def fetch_sitemap_jobs(source):
             locs = sorted(set(re.findall(r'(?i)\\b(?:Hong Kong|Singapore|Paris|London|Kowloon)\\b', location_text)))
             if not locs:
                 rejected['no_location'] += 1
+                if len(samples) < 6:
+                    samples.append({'reason':'no_location','url':link,'h1':title[:100], 'page_title':(soup.title.get_text(' ',strip=True) if soup.title else '')[:120], 'text_excerpt':body[:160]})
                 continue
             key = 'sitemap:' + source['company'] + ':' + link
             jobs[key] = {'id': key, 'company': source['company'], 'title': title,
@@ -195,4 +200,6 @@ def fetch_sitemap_jobs(source):
                 LOG.warning('%s vacancy fetch failed %s: %s', source['company'], link, exc)
     LOG.info('%s sitemap result: %d verified candidates; %d HTTP errors; rejected=%s',
              source['company'], len(jobs), errors, rejected)
+    for sample in samples:
+        LOG.info('%s rejection sample: %s', source['company'], sample)
     return list(jobs.values())
