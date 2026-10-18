@@ -78,6 +78,7 @@
         "\\bportfolio (?:analyst|construction|solutions)\\b"
       ],
       "Markets / Investment Analyst": [
+        "\\b(?:global|markets?|investment|fixed income|credit|equity|macro) research\\b",
         "\\b(?:commodit\\w*|macro|fx|rates|credit|equit(?:y|ies)|fixed income|emerging markets?) (?:analyst|strategist|research)\\b",
         "\\binvestment (?:analyst|research)\\b",
         "\\bmarkets? analyst\\b",
@@ -214,7 +215,13 @@
       "\\bphd\\b",
       "\\bquantitative research(?:er)?\\b",
       "\\b(?:trading|sales) applications?\\b",
-      "\\bapplication support\\b"
+      "\\bapplication support\\b",
+      "\\bbusiness management\\b",
+      "\\bmanagement information\\b",
+      "\\bstrategy,? planning\\b",
+      "\\bconsumer\\b",
+      "\\blending\\b",
+      "\\bhome financing\\b"
     ],
     "entry_types": {
       "vie": [
@@ -282,7 +289,8 @@
       "open",
       "unknown"
     ],
-    "title_dedup_days": 180
+    "title_dedup_days": 180,
+    "max_age_days": 14
   },
   "http": {
     "min_interval_seconds": 0.8,
@@ -442,12 +450,8 @@
     },
     {
       "company": "Optiver",
-      "platform": "sitemap",
-      "sitemap_url": "https://www.optiver.com/sitemap.xml",
-      "job_url_pattern": "^/join-us/jobs/[^/]+/[^/]+/[^/]+/?$",
-      "slug_has_city": true,
-      "url_location_segment": 3,
-      "max_fetch_per_run": 30
+      "platform": "greenhouse",
+      "board": "optiverus"
     },
     {
       "company": "Flow Traders",
@@ -500,6 +504,146 @@
       "board": "xtxmarketstechnologies"
     },
     {
+      "company": "DBS Bank",
+      "platform": "workday",
+      "host": "dbs.wd3.myworkdayjobs.com",
+      "tenant": "dbs",
+      "site": "DBS_Careers"
+    },
+    {
+      "company": "OCBC / Bank of Singapore",
+      "platform": "workday",
+      "host": "ocbc.wd102.myworkdayjobs.com",
+      "tenant": "ocbc",
+      "site": "External"
+    },
+    {
+      "company": "Santander CIB",
+      "platform": "workday",
+      "host": "santander.wd3.myworkdayjobs.com",
+      "tenant": "santander",
+      "site": "SantanderCareers"
+    },
+    {
+      "company": "ING",
+      "platform": "workday",
+      "host": "ing.wd3.myworkdayjobs.com",
+      "tenant": "ing",
+      "site": "ICSGBLCOR"
+    },
+    {
+      "company": "Invesco",
+      "platform": "workday",
+      "host": "invesco.wd1.myworkdayjobs.com",
+      "tenant": "invesco",
+      "site": "IVZ"
+    },
+    {
+      "company": "Fidelity International",
+      "platform": "workday",
+      "host": "fil.wd3.myworkdayjobs.com",
+      "tenant": "fil",
+      "site": "001"
+    },
+    {
+      "company": "Eastspring Investments",
+      "platform": "workday",
+      "host": "prudential.wd3.myworkdayjobs.com",
+      "tenant": "prudential",
+      "site": "prudential_eastspring"
+    },
+    {
+      "company": "Mako Trading",
+      "platform": "greenhouse",
+      "board": "mako"
+    },
+    {
+      "company": "Akuna Capital",
+      "platform": "greenhouse",
+      "board": "akunacapital"
+    },
+    {
+      "company": "Old Mission",
+      "platform": "greenhouse",
+      "board": "oldmissioncapital"
+    },
+    {
+      "company": "Eclipse Trading",
+      "platform": "greenhouse",
+      "board": "eclipsetrading"
+    },
+    {
+      "company": "UOB",
+      "platform": "workday",
+      "host": "uobgroup.wd3.myworkdayjobs.com",
+      "tenant": "uobgroup",
+      "site": "UOBExternal"
+    },
+    {
+      "company": "BBVA",
+      "platform": "workday",
+      "host": "bbva.wd3.myworkdayjobs.com",
+      "tenant": "bbva",
+      "site": "BBVA"
+    },
+    {
+      "company": "ANZ",
+      "platform": "successfactors_xml",
+      "host": "career10.successfactors.com",
+      "sf_company": "anzbanking"
+    },
+    {
+      "company": "Macquarie",
+      "platform": "rss",
+      "feeds": [
+        "https://recruitment.macquarie.com/en_US/careers/SearchJobs/feed/"
+      ],
+      "location_in_title": true,
+      "note": "Avature RSS: 20 most recent offers only"
+    },
+    {
+      "company": "Schroders",
+      "platform": "oracle",
+      "host": "ekbq.fa.em2.oraclecloud.com",
+      "site": "CX_2"
+    },
+    {
+      "company": "Amundi",
+      "platform": "rss",
+      "feeds": [
+        "https://jobs.amundi.com/handlers/offerRss.ashx?LCID=2057"
+      ],
+      "note": "Talentsoft RSS: 20 most recent offers only"
+    },
+    {
+      "company": "Fidelity International (campus)",
+      "platform": "oleeo",
+      "boards": [
+        "https://fidelityinternational.tal.net/vx/lang-en-GB/mobile-0/brand-5/candidate/jobboard/vacancy/1/adv/"
+      ]
+    },
+    {
+      "company": "Millennium",
+      "platform": "eightfold",
+      "host": "mlp.eightfold.ai",
+      "domain": "mlp.com",
+      "locations": [
+        "Hong Kong",
+        "Singapore",
+        "London",
+        "Paris"
+      ]
+    },
+    {
+      "company": "Two Sigma",
+      "platform": "rss",
+      "feeds": [
+        "https://careers.twosigma.com/careers/OpenRoles/feed/"
+      ],
+      "location_in_title": true,
+      "note": "Avature RSS: 20 most recent offers only"
+    },
+    {
       "company": "BNP Paribas",
       "platform": "official",
       "enabled": false,
@@ -540,6 +684,90 @@
       "platform": "official",
       "enabled": false,
       "disabled_reason": "No public English job feed found (ICBC Asia and BOCI careers URLs 404, CCB International TLS certificate invalid)."
+    },
+    {
+      "company": "Citadel Securities",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "citadelsecurities.com and citadel.com careers pages return HTTP 403 to automated requests; no Greenhouse/Lever board. Not bypassed."
+    },
+    {
+      "company": "NatWest Markets",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "jobs.natwestgroup.com returns HTTP 403; no public Workday site found."
+    },
+    {
+      "company": "Mizuho",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "EMEA/APAC careers pages link to no public feed (internships advertised via a third-party board); the public Workday site mizuhoamericas lists US roles only."
+    },
+    {
+      "company": "Daiwa Securities",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "uk.daiwacm.com careers page has no job feed; daiwacm.com times out."
+    },
+    {
+      "company": "UOB Kay Hian",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "uobkh.com/careers is a static page with no job feed."
+    },
+    {
+      "company": "Maybank Investment Bank",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "maybank.com careers URLs return 404; no public feed found (Workday/SmartRecruiters guesses failed)."
+    },
+    {
+      "company": "CIMB Securities",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "cimb.com careers pages link to no public job feed (Workday/SmartRecruiters guesses failed)."
+    },
+    {
+      "company": "Guotai Junan International",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "gtjai.com careers pages return an error page; no public feed."
+    },
+    {
+      "company": "China Merchants Securities International / CMBI",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "cmschina.com.hk / cmbi.com have no careers feed (404)."
+    },
+    {
+      "company": "BOC International",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "bocigroup.com serves a 2 KB JavaScript shell; no job feed."
+    },
+    {
+      "company": "ICBC International",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "icbci.com.hk careers URL 404; no job feed."
+    },
+    {
+      "company": "GF Securities (Hong Kong)",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "gfgroup.com.hk careers URL 404; no job feed."
+    },
+    {
+      "company": "Shenwan Hongyuan (H.K.)",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "swhyhk.com careers URL 404; no job feed."
+    },
+    {
+      "company": "China Galaxy International",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "chinastock.com.hk careers URL 404; no job feed."
     }
   ]
 }

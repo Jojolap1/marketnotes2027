@@ -107,6 +107,17 @@ class StatusTests(unittest.TestCase):
                      'Les candidatures sont clôturées']:
             self.assertEqual(assess_page(text, '2027-01-01', self.now)[0], CLOSED, text)
 
+    def test_publication_date_formats(self):
+        from status import age_days, parse_date
+        self.assertEqual(age_days('Posted Today'), 0)
+        self.assertEqual(age_days('Posted 3 Days Ago'), 3)
+        self.assertGreaterEqual(age_days('Posted 30+ Days Ago'), 30)
+        self.assertEqual(parse_date('Sun, 18 Oct 2026 2:00:00 GMT').date().isoformat(), '2026-10-18')
+        self.assertEqual(parse_date('2026/10/14').date().isoformat(), '2026-10-14')
+        self.assertEqual(parse_date(1792158709).year, 2026)
+        self.assertIsNone(age_days(''))
+        self.assertIsNone(age_days('not a date'))
+
     def test_valid_through(self):
         self.assertEqual(assess_page('Apply', '2026/11/16', self.now)[0], OPEN)
         self.assertEqual(assess_page('Apply', '2026-10-01', self.now)[0], CLOSED)

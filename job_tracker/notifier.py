@@ -11,7 +11,7 @@ import time
 
 import requests
 
-from status import label as status_label, parse_date
+from status import age_days, label as status_label, parse_date
 
 LOG = logging.getLogger(__name__)
 API = 'https://api.telegram.org/bot{token}/{method}'
@@ -46,8 +46,11 @@ def format_message(job, classification):
         f'💼 Employment type: {e(employment or c.level_label)}',
     ]
     published = format_date(job.get('published'))
+    age = age_days(job.get('published'))
     if published:
-        lines.append(f'📅 Published: {published}')
+        lines.append(f'📅 Published: {published} ({"today" if age == 0 else f"{age} day(s) ago"})')
+    else:
+        lines.append('📅 Published: date not provided by the source (sent in case it is recent)')
     lines.append(f'{status_icon} Application status: {e(status_label(job.get("status")))}'
                  + (f' — {e(job.get("status_evidence", "")[:160])}' if job.get('status_evidence') else ''))
     lines.append(f'💡 Why it matches: {e("; ".join(c.reasons))}')

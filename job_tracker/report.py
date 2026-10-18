@@ -70,7 +70,8 @@ class Report:
         lines += ['', '## Relevant jobs', '']
         new_ids = {j['id'] for j, _ in self.new}
         for job, c in sorted(self.matched, key=lambda x: (x[0]['company'], x[0]['title'])):
-            flag = 'NEW' if job['id'] in new_ids else 'known' if job.get('status') != 'closed' else 'closed'
+            flag = ('NEW' if job['id'] in new_ids else 'closed' if job.get('status') == 'closed'
+                    else 'older than limit' if job.get('too_old') else 'already notified')
             lines.append(f"- [{flag}] **{job['company']}** — {job['title']} — {c.city} — {c.level_label} — "
                          f"exp: {c.experience_label} — status: {job.get('status')}"
                          + (f" ({job.get('status_evidence', '')[:90]})" if job.get('status') != 'open' else '') + f" — {job['url']}")
@@ -83,6 +84,10 @@ class Report:
             for company, items in sorted(self.samples.items()):
                 for job, c in items:
                     lines.append(f"- {company} — {job['title'][:110]} — [{job['location'][:50]}] — {c.reject_reason}")
+        if getattr(self, 'screened_out', None):
+            lines += ['', '## Titles screened out before detail fetch (target cities, samples)', '']
+            for company, titles in sorted(self.screened_out.items()):
+                lines.append(f"- {company}: " + ' | '.join(t[:70] for t in titles))
         if self.reasons:
             lines += ['', '## Exclusion reasons (all screened jobs)', '']
             for reason, n in sorted(self.reasons.items(), key=lambda x: -x[1]):

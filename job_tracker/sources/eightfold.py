@@ -47,7 +47,7 @@ def fetch(source, ctx):
     for pid, p in positions.items():
         title = p.get('name') or ''
         location = '; '.join(p.get('locations') or [p.get('location') or ''])
-        if not ctx.title_worth_fetching(title) or not ctx.city_of(location):
+        if not ctx.screen(company, title, location):
             continue
         ctx.stat(company, 'candidates')
         detail = _detail(source, ctx, pid)

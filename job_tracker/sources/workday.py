@@ -124,11 +124,8 @@ def fetch(source, ctx):
     jobs = []
     for path, post in posts.items():
         title = post.get('title') or ''
-        if not ctx.title_worth_fetching(title):
-            continue
         loc_text = post.get('locationsText') or ''
-        multi = bool(re.match(r'\d+ Locations', loc_text))
-        if not multi and not ctx.city_of(loc_text):
+        if not ctx.screen(company, title, loc_text):
             continue
         ctx.stat(company, 'candidates')
         detail = _detail(source, ctx, base, path)
@@ -139,7 +136,7 @@ def fetch(source, ctx):
         req_id = detail.get('req_id') or ''.join((post.get('bulletFields') or [])[:1])
         jobs.append(make_job(
             id=f'workday:{tenant}:{req_id or path}', company=company, title=detail.get('title') or title,
-            location=location, url=detail.get('url') or site_url + path, published=detail.get('start') or '',
+            location=location, url=detail.get('url') or site_url + path, published=detail.get('start') or post.get('postedOn') or '',
             description=detail.get('description') or '', employment_type=detail.get('time_type') or '',
             source=f'Workday careers API ({host}/{site})', requisition_id=req_id,
             status=status, status_evidence=evidence))

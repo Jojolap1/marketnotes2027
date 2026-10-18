@@ -87,6 +87,8 @@ def successfactors_xml(source, ctx):
         title = (node.findtext('JobTitle') or '').strip()
         req_id = (node.findtext('ReqId') or '').strip()
         location = ', '.join(filter(None, [fields.get('City'), fields.get('Country')]))
+        if not location:  # tenants label their location fields differently
+            location = ', '.join(v for k, v in fields.items() if re.search(r'(?i)city|country|location|state', k))
         if not ctx.title_worth_fetching(title) or not ctx.city_of(location):
             continue
         experience = fields.get('Experience level', '')
@@ -120,6 +122,8 @@ def rss(source, ctx):
         categories = [c.text or '' for c in item.findall('category')]
         suffix = re.search(r'\(([^()]+)\)\s*$', title)
         location = '; '.join(filter(None, categories + [suffix.group(1) if suffix else '']))
+        if not ctx.city_of(location) and source.get('location_in_title'):
+            location = '; '.join(filter(None, [location, title]))  # e.g. '... - Hong Kong'
         if not ctx.title_worth_fetching(title) or not ctx.city_of(location):
             continue
         description = html_to_text(item.findtext('description'))

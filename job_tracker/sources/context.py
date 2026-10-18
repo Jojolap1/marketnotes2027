@@ -57,10 +57,22 @@ class Context:
         self.cache = cache or DetailCache()
         self.now = now or datetime.now(timezone.utc)
         self.stats = {}
+        self.screened_out = {}
 
     def stat(self, company, key, inc=1):
         bucket = self.stats.setdefault(company, {})
         bucket[key] = bucket.get(key, 0) + inc
+
+    def screen(self, company, title, location):
+        """title_worth_fetching + city check, keeping samples of target-city
+        titles screened out (shown in the report to audit false negatives)."""
+        in_city = bool(self.city_of(location)) or bool(re.match(r'\d+ Locations', location or ''))
+        ok = self.title_worth_fetching(title)
+        if in_city and not ok:
+            bucket = self.screened_out.setdefault(company, [])
+            if len(bucket) < 8:
+                bucket.append(title)
+        return ok and in_city
 
     def title_worth_fetching(self, title):
         """Cheap title-only screen applied before any per-vacancy request.

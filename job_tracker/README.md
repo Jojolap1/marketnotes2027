@@ -42,6 +42,11 @@ A job is relevant only if **all** hold:
 | `closed` | Closure notice on the page (EN/FR), expired end date/deadline, page 404/410 |
 | `unknown` | Page parsed but no structured closing date (e.g. Optiver). HTTP 200 alone is never "open" |
 
+**Freshness:** only jobs published in the last `notifications.max_age_days` (14) days are alerted.
+A job whose source gives no publication date (e.g. Oleeo boards, Standard Chartered) is still sent,
+marked "date not provided by the source". Dates come from the feeds (Workday posting date or
+"Posted N days ago", Oracle `PostedDate`, Greenhouse `first_published`, JSON-LD `datePosted`, RSS `pubDate`…).
+
 `notifications.statuses` controls which statuses alert (default `open` and `unknown`; unknown alerts are labelled *Unknown (not confirmed)*). Closed jobs never alert.
 
 ## Duplicate prevention
@@ -94,7 +99,17 @@ report shows the gap.
 | Optiver | sitemap + JSON-LD | 160 | 1 | unknown |
 | IMC, Flow Traders, Jane Street, Jump, HRT, DRW, Tower, Point72, Squarepoint, Virtu, XTX | Greenhouse API | 1,262 | 16 | feed |
 
-**Not covered (documented, not bypassed):** BNP Paribas (HTTP 403 Akamai), UBS (BrassRing app,
+**Added 2026-10-18 (second batch, validated by a live dry run — 51 sources ok, 0 failed):**
+DBS Bank, OCBC / Bank of Singapore, UOB, Santander CIB, ING, BBVA, Invesco, Fidelity International
+(Workday + Oleeo campus board), Eastspring (Workday); Schroders (Oracle); ANZ (SuccessFactors XML);
+Millennium (Eightfold); Amundi, Macquarie, Two Sigma (RSS, 20 latest offers only); Optiver (now its
+Greenhouse board), Mako, Akuna, Old Mission, Eclipse Trading (Greenhouse).
+
+**Not covered (documented, not bypassed):** Citadel Securities (HTTP 403), NatWest Markets (HTTP 403),
+Mizuho (EMEA/APAC: no public feed; public Workday site is US-only), Daiwa, UOB Kay Hian, Maybank IB,
+CIMB, Guotai Junan International, China Merchants Securities International / CMBI, BOC International,
+ICBC International, GF Securities (HK), Shenwan Hongyuan (HK), China Galaxy International (no public
+job feed — static pages, 404 or JavaScript-only); BNP Paribas (HTTP 403 Akamai), UBS (BrassRing app,
 no public feed), Natixis CIB (JavaScript-only site), SMBC (no discoverable feed), CICC (HTTP 521),
 Huatai (HTTP 403), ICBC / Bank of China / CCB (no public English feed). They stay in
 `config.json` as disabled sources, so every report lists them.

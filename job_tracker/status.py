@@ -10,7 +10,8 @@ Three outcomes:
   unknown  - nothing conclusive. A page loading with HTTP 200 is NOT evidence.
 """
 import re
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
 
 OPEN, CLOSED, UNKNOWN = 'open', 'closed', 'unknown'
 
@@ -30,7 +31,20 @@ def parse_date(value):
     if isinstance(value, (int, float)):
         ts = value / 1000 if value > 1e11 else value
         return datetime.fromtimestamp(ts, tz=timezone.utc)
-    text = str(value).strip().replace('/', '-')
+    raw = str(value).strip()
+    if raw.isdigit() and len(raw) >= 10:
+        return parse_date(int(raw))
+    # Workday listing text: 'Posted Today', 'Posted Yesterday', 'Posted 3 Days Ago', 'Posted 30+ Days Ago'
+    rel = re.match(r'(?i)posted\s+(today|yesterday|(\d+)\+?\s+days?\s+ago)', raw)
+    if rel:
+        days = 0 if rel.group(1).lower() == 'today' else 1 if rel.group(1).lower() == 'yesterday' else int(rel.group(2))
+        return datetime.now(timezone.utc) - timedelta(days=days)
+    if re.match(r'[A-Za-z]{3},\s+\d', raw):  # RFC 822 (RSS pubDate)
+        try:
+            return parsedate_to_datetime(raw).astimezone(timezone.utc)
+        except (TypeError, ValueError):
+            return None
+    text = raw.replace('/', '-')
     m = re.match(r'(\d{4})-(\d{1,2})-(\d{1,2})', text)
     if not m:
         return None
@@ -38,6 +52,15 @@ def parse_date(value):
         return datetime(int(m.group(1)), int(m.group(2)), int(m.group(3)), 23, 59, tzinfo=timezone.utc)
     except ValueError:
         return None
+
+
+def age_days(published, now=None):
+    """Whole days since publication, or None when no usable date exists."""
+    d = parse_date(published)
+    if d is None:
+        return None
+    now = now or datetime.now(timezone.utc)
+    return max(0, (now - d).days)
 
 
 def closure_notice(text):
