@@ -121,6 +121,7 @@ def fetch_sitemap_jobs(source):
                 pending.append(link)
             elif re.search(source['job_url_pattern'], urlparse(link).path, re.I):
                 job_urls.append(link)
+    LOG.info('%s sitemap discovery: %d URLs matched pattern %s; first=%s', source['company'], len(job_urls), source['job_url_pattern'], job_urls[:2])
     jobs = {}
     for link in job_urls[:max_jobs]:
         try:
@@ -134,7 +135,11 @@ def fetch_sitemap_jobs(source):
             text = soup.get_text(' ', strip=True)
             if not title or len(title) > 160:
                 continue
-            # Job pages must contain an explicit location signal.
+            # Exclude visibly closed or expired postings, and generic navigation pages.
+            if re.search(r'(?i)\\b(?:this (?:job|position|vacancy) (?:is|has been) (?:closed|filled)|no longer accepting applications|this job is no longer available|position has been filled)\\b', text[:3500]):
+                continue
+            if not re.search(r'(?i)\\b(?:apply now|apply for this|job description|job reference|requisition id|job id)\\b', text[:5000]):
+                continue
             locations = re.findall(r'(?i)\\b(?:Hong Kong|Singapore|Paris|London)\\b', text[:2500])
             if not locations:
                 continue
