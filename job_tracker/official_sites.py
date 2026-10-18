@@ -85,5 +85,5 @@ def fetch_official(source):
             title = (item.select_one('h2, h3, .job-title') or a).get_text(' ', strip=True)
             location = (item.select_one('.job-location, .location, [class*="location"]') or item).get_text(' ', strip=True)
             add(title, location, a.get('href'))
-    LOG.info('%s official page: %d verified JobPosting records', source['company'], len(jobs))
+    LOG.info('%s official page: %d extracted job records; adapter=%s', source['company'], len(jobs), source.get('adapter', 'jsonld'))
     return list(jobs.values())
