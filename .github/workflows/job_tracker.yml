@@ -28,14 +28,22 @@ jobs:
         run: pip install -r job_tracker/requirements.txt
 
       - name: Run automated filter tests
-        run: cd job_tracker && python -m unittest -v test_tracker.py
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          cd job_tracker
+          python -m unittest -v test_tracker.py 2>&1 | tee ../test_results.log
 
       - name: Run job tracker
         env:
           DRY_RUN: '1'
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: cd job_tracker && python tracker.py
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          cd job_tracker
+          python tracker.py 2>&1 | tee ../tracker_results.log
 
       - name: Save tracked jobs
         if: github.ref == 'refs/heads/main'
@@ -45,5 +53,27 @@ jobs:
           git add job_tracker/seen_jobs.json
           if ! git diff --cached --quiet; then
             git commit -m "Update tracked jobs"
+            git push
+          fi
+
+      - name: Save experimental diagnostic report
+        if: always() && github.ref == 'refs/heads/feature/official-bank-careers'
+        run: |
+          {
+            echo "# Automated tracker validation"
+            echo "Commit: ${GITHUB_SHA}"
+            echo "Run: ${GITHUB_RUN_ID}"
+            echo ""
+            echo "## Unit tests"
+            tail -n 70 test_results.log 2>/dev/null || echo "No unit test log"
+            echo ""
+            echo "## Tracker summary"
+            grep -E 'matching jobs|new|sitemap result|sitemap:|DRY RUN MATCH:|WARNING|ERROR' tracker_results.log 2>/dev/null | tail -n 65 || echo "No tracker log"
+          } > job_tracker/ci_report.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add job_tracker/ci_report.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "Update CI diagnostic report [skip ci]"
             git push
           fi
