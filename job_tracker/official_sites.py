@@ -121,34 +121,78 @@ def fetch_sitemap_jobs(source):
                 pending.append(link)
             elif re.search(source['job_url_pattern'], urlparse(link).path, re.I):
                 job_urls.append(link)
-    LOG.info('%s sitemap discovery: %d URLs matched pattern %s; first=%s', source['company'], len(job_urls), source['job_url_pattern'], job_urls[:2])
+    # Prioritize job-title slugs before making expensive page requests.
+    # Do not mistake sitemap entries for confirmed, open vacancies.
+    role = re.compile(r'(sales|trading|trader|structur|market[-_]?risk|equity|credit|fixed[-_]?income|fx[-_]|rates|derivative|investment|portfolio|asset[-_]?manage|quantitative|market[-_]?analyst)', re.I)
+    junior = re.compile(r'(intern|trainee|graduate|junior|summer|off[-_]?cycle|analyst|vie|v-i-e|assistant)', re.I)
+    location = re.compile(r'(hong[-_]?kong|singapore|paris|london|kowloon)', re.I)
+    candidates = []
+    for link in dict.fromkeys(job_urls):
+        slug = urlparse(link).path.lower()
+        if role.search(slug) and junior.search(slug):
+            score = 2 + (2 if location.search(slug) else 0)
+            candidates.append((score, link))
+    candidates.sort(key=lambda item: -item[0])
+    selected = [link for _, link in candidates[:max_jobs]]
+    LOG.info('%s sitemap: %d URLs discovered, %d junior finance slug candidates, %d selected',
+             source['company'], len(job_urls), len(candidates), len(selected))
     jobs = {}
-    for link in job_urls[:max_jobs]:
+    errors = 0
+    rejected = {'no_title': 0, 'closed': 0, 'no_job_detail': 0, 'no_location': 0}
+    for link in selected:
         try:
             res = requests.get(link, headers=HEADERS, timeout=20)
             res.raise_for_status()
             soup = BeautifulSoup(res.text, 'html.parser')
             heading = soup.select_one('h1')
-            if not heading:
+            if not heading or len(heading.get_text(' ', strip=True)) > 160:
+                rejected['no_title'] += 1
                 continue
             title = heading.get_text(' ', strip=True)
-            text = soup.get_text(' ', strip=True)
-            if not title or len(title) > 160:
+            body = soup.get_text(' ', strip=True)
+            if re.search(r'(?i)(?:no longer accepting applications|this job is no longer available|position has been filled|this position is closed)', body[:5000]):
+                rejected['closed'] += 1
                 continue
-            # Exclude visibly closed or expired postings, and generic navigation pages.
-            if re.search(r'(?i)\\b(?:this (?:job|position|vacancy) (?:is|has been) (?:closed|filled)|no longer accepting applications|this job is no longer available|position has been filled)\\b', text[:3500]):
+            # A title and relevant slug alone are insufficient to validate a posting.
+            if not re.search(r'(?i)(?:apply now|apply for this|job description|job reference|requisition id|job id)', body[:6000]):
+                rejected['no_job_detail'] += 1
                 continue
-            if not re.search(r'(?i)\\b(?:apply now|apply for this|job description|job reference|requisition id|job id)\\b', text[:5000]):
-                continue
-            locations = re.findall(r'(?i)\\b(?:Hong Kong|Singapore|Paris|London)\\b', text[:2500])
-            if not locations:
+            # Do not infer job location from the global navigation/footer.
+            location_text = ''
+            for selector in ('[itemprop="jobLocation"]', '[data-testid*="location"]',
+                             '.job-location', '.jobLocation', '[class*="job-location"]'):
+                el = soup.select_one(selector)
+                if el:
+                    location_text = el.get_text(' ', strip=True)
+                    break
+            for script in soup.select('script[type="application/ld+json"]'):
+                try:
+                    payload = json.loads(script.string or script.get_text())
+                except (ValueError, TypeError):
+                    continue
+                for obj in (payload if isinstance(payload, list) else [payload]):
+                    if not isinstance(obj, dict) or 'JobPosting' not in str(obj.get('@type', '')):
+                        continue
+                    place = obj.get('jobLocation') or []
+                    if isinstance(place, dict):
+                        place = [place]
+                    for entry in place:
+                        if isinstance(entry, dict):
+                            addr = entry.get('address') or {}
+                            if isinstance(addr, dict):
+                                location_text += ' ' + ' '.join(str(addr.get(k) or '') for k in ('addressLocality','addressRegion','addressCountry'))
+            locs = sorted(set(re.findall(r'(?i)\\b(?:Hong Kong|Singapore|Paris|London|Kowloon)\\b', location_text)))
+            if not locs:
+                rejected['no_location'] += 1
                 continue
             key = 'sitemap:' + source['company'] + ':' + link
-            jobs[key] = {'id': key, 'company': source['company'],
-                         'title': title, 'location': ', '.join(sorted(set(locations))),
-                         'url': link, 'description': text[:10000], 'published': ''}
+            jobs[key] = {'id': key, 'company': source['company'], 'title': title,
+                         'location': ', '.join(locs), 'url': link,
+                         'description': body[:10000], 'published': ''}
         except requests.RequestException as exc:
-            LOG.debug('Vacancy unavailable %s: %s', link, exc)
-    LOG.info('%s sitemap: %d job pages checked, %d candidates',
-             source['company'], min(len(job_urls), max_jobs), len(jobs))
+            errors += 1
+            if errors <= 3:
+                LOG.warning('%s vacancy fetch failed %s: %s', source['company'], link, exc)
+    LOG.info('%s sitemap result: %d verified candidates; %d HTTP errors; rejected=%s',
+             source['company'], len(jobs), errors, rejected)
     return list(jobs.values())
