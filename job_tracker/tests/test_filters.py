@@ -158,8 +158,22 @@ class SeniorityAndRoleTests(unittest.TestCase):
             self.assertFalse(c.eligible, title)
             self.assertEqual(c.seniority, 'senior', title)
 
-    def test_associate_programme_allowed(self):
-        self.assertTrue(classify('Summer Associate Internship - Sales & Trading').eligible)
+    def test_associate_level_programmes_rejected(self):
+        # MBA / PhD-level programmes are not 0-1 year roles.
+        for title in ['Summer Associate Internship - Sales & Trading', '2027 | APEJ | Hong Kong | Asset Management | Summer Associate',
+                      '2027 Markets Quantitative Trading & Research Associate Program – Off-Cycle Internship - Hong Kong']:
+            self.assertFalse(classify(title).eligible, title)
+
+    def test_graduate_associate_titles_allowed(self):
+        self.assertTrue(classify('Graduate Associate - FX Sales').eligible)
+
+    def test_capital_markets_and_private_markets_excluded(self):
+        for title in ['Capital Markets Off Cycle Internship Programme 2027 Paris', '2027 MUFG UK Analyst Programme: Capital Markets',
+                      '2027 | EMEA | London | Asset Management, Private Investing, Private Equity | Seasonal/Off-Cycle',
+                      '2027 | EMEA | London | Asset Management | Real Estate - Alternatives Investing | Seasonal/Off Cycle',
+                      'Securities & Derivatives Analyst 1']:
+            self.assertFalse(classify(title, location='Paris').eligible, title)
+        self.assertTrue(classify('Capital Markets Sales & Trading Graduate 2027').eligible)
 
     def test_senior_corporate_title_in_description(self):
         c = classify('Global Markets Sales Analyst', 'Corporate Title: Associate')

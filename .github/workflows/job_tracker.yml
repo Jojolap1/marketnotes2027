@@ -80,6 +80,10 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ env.PRODUCTION == 'true' && secrets.TELEGRAM_CHAT_ID || '' }}
         run: python tracker.py
 
+      - name: Print diagnostic report
+        if: always()
+        run: cat job_tracker/reports/last_run.md || echo "No report produced"
+
       - name: Upload diagnostic report
         if: always()
         uses: actions/upload-artifact@v4

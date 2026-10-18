@@ -85,12 +85,14 @@ def collect(config, ctx, state, report):
 def select(jobs, classifier, state, config, report):
     """Classify, deduplicate within the run and split into new / known."""
     notify_statuses = set(config.get('notifications', {}).get('statuses', ['open', 'unknown']))
-    run_keys, new, matched = set(), [], []
+    run_keys, new, matched, near = set(), [], [], []
     reasons = Counter()
     for job in jobs:
         c = classifier.classify(job)
         if not c.eligible:
             reasons[c.reject_reason.split(' (')[0]] += 1
+            if c.city and c.role_family:
+                near.append((job, c))
             continue
         keys = fingerprints(job, c.city)
         if run_keys.intersection(keys):
@@ -112,7 +114,7 @@ def select(jobs, classifier, state, config, report):
             continue
         new.append((job, c))
     new.sort(key=_sort_key)
-    report.classification(matched, new, reasons)
+    report.classification(matched, new, reasons, near)
     return matched, new
 
 

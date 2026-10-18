@@ -99,7 +99,11 @@
       "\\btrading (?:operations|support|technology|systems|platform engineer)\\b",
       "\\bsales (?:operations|support|enablement)\\b",
       "\\bmarket(?:ing)? (?:intelligence|communications)\\b",
-      "\\bmarket risk\\b"
+      "\\bmarket risk\\b",
+      "\\bcapital markets\\b(?!.{0,30}\\b(?:sales|trad(?:ing|er)|structur))",
+      "\\bprivate (?:equity|credit|investing|markets)\\b",
+      "\\breal estate\\b",
+      "\\bsecurities (?:&|and) derivatives (?:analyst|services|operations)\\b"
     ],
     "senior_title_patterns": [
       "\\bsenior\\b",
@@ -119,7 +123,11 @@
       "\\bexperienced\\b",
       "\\bconfirm[ée]e?\\b",
       "\\bexp[ée]riment[ée]e?\\b",
-      "\\blateral\\b"
+      "\\blateral\\b",
+      "\\bsummer associate\\b",
+      "\\bassociate program(?:me)?\\b",
+      "\\bmba\\b",
+      "\\bpost[- ]?doc\\w*\\b"
     ],
     "non_front_office_patterns": [
       "\\bsoftware\\b",
