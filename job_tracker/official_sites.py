@@ -126,10 +126,11 @@ def fetch_sitemap_jobs(source):
     role = re.compile(r'(sales|trading|trader|structur|market[-_]?risk|equity|credit|fixed[-_]?income|fx[-_]|rates|derivative|investment|portfolio|asset[-_]?manage|quantitative|market[-_]?analyst)', re.I)
     junior = re.compile(r'(intern|trainee|graduate|junior|summer|off[-_]?cycle|analyst|vie|v-i-e|assistant)', re.I)
     location = re.compile(r'(hong[-_]?kong|singapore|paris|london|kowloon)', re.I)
+    senior = re.compile(r'(?:^|[-_/])(?:vp|avp|svp|vice[-_]president|director|senior|head[-_]of|principal|managing[-_]director)(?:[-_/]|$)', re.I)
     candidates = []
     for link in dict.fromkeys(job_urls):
         slug = urlparse(link).path.lower()
-        if role.search(slug) and junior.search(slug):
+        if role.search(slug) and junior.search(slug) and not senior.search(slug):
             score = 2 + (2 if location.search(slug) else 0)
             candidates.append((score, link))
     candidates.sort(key=lambda item: -item[0])
