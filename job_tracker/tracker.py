@@ -87,10 +87,14 @@ def select(jobs, classifier, state, config, report):
     notify_statuses = set(config.get('notifications', {}).get('statuses', ['open', 'unknown']))
     run_keys, new, matched, near = set(), [], [], []
     reasons = Counter()
+    samples = {}
     for job in jobs:
         c = classifier.classify(job)
         if not c.eligible:
             reasons[c.reject_reason.split(' (')[0]] += 1
+            bucket = samples.setdefault(job['company'], [])
+            if len(bucket) < 6 and not c.reject_reason.startswith('location not targeted'):
+                bucket.append((job, c))
             if c.city and c.role_family:
                 near.append((job, c))
             continue
@@ -114,7 +118,7 @@ def select(jobs, classifier, state, config, report):
             continue
         new.append((job, c))
     new.sort(key=_sort_key)
-    report.classification(matched, new, reasons, near)
+    report.classification(matched, new, reasons, near, samples)
     return matched, new
 
 

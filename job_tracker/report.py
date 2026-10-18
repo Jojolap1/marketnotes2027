@@ -44,9 +44,10 @@ class Report:
                              'listed': '', 'candidates': '', 'details': 0, 'cache_hits': 0, 'pending': 0,
                              'seconds': 0, 'error': 'skipped: ' + reason})
 
-    def classification(self, matched, new, reasons, near_misses=()):
+    def classification(self, matched, new, reasons, near_misses=(), samples=None):
         self.matched, self.new, self.reasons = matched, new, dict(reasons)
         self.near_misses = list(near_misses)
+        self.samples = samples or {}
         LOG.info('%d relevant jobs matched, %d new (not yet notified)', len(matched), len(new))
 
     def notifications(self, sent, total_new, note):
@@ -76,6 +77,11 @@ class Report:
             lines += ['', '## Near misses (target city and role, rejected on level/experience)', '']
             for job, c in self.near_misses[:150]:
                 lines.append(f"- {job['company']} — {job['title']} — {c.city} — {c.reject_reason}")
+        if getattr(self, 'samples', None):
+            lines += ['', '## Rejected samples per source (target-city screening passed)', '']
+            for company, items in sorted(self.samples.items()):
+                for job, c in items:
+                    lines.append(f"- {company} — {job['title'][:110]} — [{job['location'][:50]}] — {c.reject_reason}")
         if self.reasons:
             lines += ['', '## Exclusion reasons (all screened jobs)', '']
             for reason, n in sorted(self.reasons.items(), key=lambda x: -x[1]):
