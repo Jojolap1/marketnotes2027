@@ -41,6 +41,19 @@ def fetch(source):
                  'location': (j.get('categories') or {}).get('location') or '',
                  'url': j.get('hostedUrl') or '', 'published': '', 'description': html.unescape(re.sub(r'<[^>]*>', ' ', (j.get('descriptionPlain') or j.get('description') or '') + ' ' + ' '.join(x.get('text','') for x in j.get('lists',[]) if isinstance(x,dict))))}
                 for j in response.json()]
+    if kind == 'ashby':
+        url = f'https://api.ashbyhq.com/posting-api/job-board/{quote(board, safe="")}'
+        response = SESSION.get(url, timeout=25)
+        response.raise_for_status()
+        payload = response.json()
+        return [{'id': f'ashby:{board}:{j.get("id") or j.get("jobUrl")}',
+                 'company': company, 'title': j.get('title') or '',
+                 'location': '; '.join(filter(None, [j.get('location')] + [
+                     x.get('location') for x in j.get('secondaryLocations', []) if isinstance(x, dict)])),
+                 'url': j.get('jobUrl') or j.get('applyUrl') or '',
+                 'published': j.get('publishedAt') or '',
+                 'description': html.unescape(re.sub(r'<[^>]*>', ' ', j.get('descriptionHtml') or j.get('descriptionPlain') or ''))}
+                for j in payload.get('jobs', []) if j.get('isListed', True)]
     raise ValueError(f'Unknown platform: {kind}')
 
 
