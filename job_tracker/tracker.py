@@ -141,6 +141,11 @@ def main():
         raise RuntimeError('All job feeds failed; preserving existing state')
     new = [job for id_, job in found.items() if id_ not in seen]
     logging.info('%d matching jobs, %d new', len(found), len(new))
+    if os.environ.get('DRY_RUN') == '1':
+        for job in new[:30]:
+            logging.info('DRY RUN MATCH: %s | %s | %s', job['company'], job['title'], job['url'])
+        logging.info('DRY RUN: no Telegram messages, no state changes')
+        return
     max_per_run = int(CONFIG.get('max_notifications_per_run', 20))
     sent = 0
     now = datetime.now(timezone.utc).isoformat()
