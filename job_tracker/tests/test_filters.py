@@ -75,6 +75,7 @@ class EntryLevelTests(unittest.TestCase):
         cases = {
             'Global Markets Off-Cycle Internship 2027': 'internship',
             'Stage - Assistant Vendeur Dérivés Actions (H/F)': 'internship',
+            'Stages en Vente/Sales - Clients Institutionnels (f/m/d)': 'internship',
             'VIE - Structuration Taux': 'vie',
             'Alternance - Assistant Trader Change': 'apprenticeship',
             'Graduate Programme 2027 - Global Markets': 'graduate_programme',
@@ -135,9 +136,19 @@ class ExperienceTests(unittest.TestCase):
         e = self.exp('0-1 years of experience preferred. Must have at least 3 years of experience in FX.')
         self.assertEqual(e.category, '2+')
 
-    def test_borderline_rejected_for_entry_level_but_allowed_for_internship(self):
-        self.assertFalse(classify('Junior Trader', '1-2 years of experience in trading').eligible)
-        self.assertTrue(classify('Trader Assistant Intern', '1-2 years of experience in trading').eligible)
+    def test_minimum_requirement_decides(self):
+        # 'More than one year' is excluded; a range whose minimum is <= 1 is kept and labelled borderline.
+        for title, text in [('Junior Trader', '1-2 years of experience in trading'),
+                            ('Energy Trading Assistant, Analyst', 'This role suits candidates with 0-2 years of experience, recent graduates welcome'),
+                            ('Trader Assistant Intern', '1-2 years of experience in trading')]:
+            c = classify(title, text)
+            self.assertTrue(c.eligible, (title, c.reject_reason))
+            self.assertEqual(c.experience.category, 'borderline')
+            self.assertIn('borderline', c.experience_label)
+        self.assertFalse(classify('Junior Trader', '2-3 years of experience in trading').eligible)
+
+    def test_company_history_numbers_ignored(self):
+        self.assertEqual(C.experience('With more than 25 years of experience in the markets, our firm ...').category, 'not_stated')
 
     def test_experience_threshold_configurable(self):
         import copy
@@ -183,7 +194,7 @@ class SeniorityAndRoleTests(unittest.TestCase):
         for title in ['Python Engineer, Trading Automation', 'Compliance Intern - Markets', 'Operations Analyst Summer 2027',
                       'Market Risk Intern', 'Trade Support Graduate', 'Investment Banking Summer Analyst',
                       'Software Developer Intern - Trading Systems', 'HR Graduate Programme', 'Private Banking Graduate',
-                      'Global Technology Summer Analyst', 'Business Analyst Intern']:
+                      'Global Technology Summer Analyst', 'Business Analyst Intern', 'Graduate Trading Applications Specialist']:
             self.assertFalse(classify(title).eligible, title)
 
     def test_target_roles_accepted(self):

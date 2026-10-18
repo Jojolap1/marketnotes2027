@@ -150,7 +150,7 @@ class Classifier:
                     continue
                 lo = _num(m.group(1))
                 hi = _num(m.group(2)) if m.re.groups > 1 and m.group(2) else lo
-                if lo is None or lo > 40:
+                if lo is None or lo > 15:  # larger numbers are company history, not requirements
                     continue
                 before = text[max(0, m.start() - 70):m.start()]
                 after = text[m.end():m.end() + 70]
@@ -219,6 +219,7 @@ class Classifier:
         c.entry_type = title_entry or self.entry_type(job.get('employment_type') or '')
         c.experience = self.experience(description)
         exp = c.experience
+        # Only a *minimum* above the threshold excludes a job ("1-2 years" requires 1).
         if exp.category == '2+':
             c.reject_reason = f'requires {exp.min_years}+ years of experience'
             return c
@@ -229,9 +230,6 @@ class Classifier:
             if self.require_entry_signal:
                 c.reject_reason = 'no entry-level evidence (title or description)'
                 return c
-        if exp.category == 'borderline' and c.entry_type == 'entry_level':
-            c.reject_reason = f'experience requirement {exp.min_years}-{exp.max_years} years is above target'
-            return c
         c.seniority = 'junior'
         c.eligible = True
         c.reasons = [

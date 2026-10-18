@@ -140,6 +140,8 @@ def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT
     if dry_run:
         for job, c in new[:60]:
             LOG.info('DRY RUN NEW: %s | %s | %s | %s | %s', job['company'], job['title'], job['location'][:60], job['status'], job['url'])
+        for job, c in new[:2]:
+            LOG.info('DRY RUN sample alert:\n%s', format_message(job, c))
         report.notifications(0, len(new), 'dry run: nothing sent, state not saved')
     else:
         telegram = telegram or Telegram()

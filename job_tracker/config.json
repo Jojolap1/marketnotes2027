@@ -211,7 +211,9 @@
       "\\bprivate bank\\w*\\b",
       "\\bretail bank\\w*\\b",
       "\\bphd\\b",
-      "\\bquantitative research(?:er)?\\b"
+      "\\bquantitative research(?:er)?\\b",
+      "\\b(?:trading|sales) applications?\\b",
+      "\\bapplication support\\b"
     ],
     "entry_types": {
       "vie": [
@@ -230,7 +232,6 @@
         "\\binterns\\b",
         "\\binternships?\\b",
         "\\bstagiaire\\b",
-        "\\bstage\\b",
         "\\bsummer (?:analyst|associate|intern|internship|programme|program)\\b",
         "\\bsummer\\b",
         "\\boff[- ]?cycle\\b",
@@ -240,7 +241,8 @@
         "\\binsight (?:programme|program|week|day)\\b",
         "\\bwinter (?:analyst|internship|programme)\\b",
         "\\bINTERN\\b",
-        "\\bINTERNSHIP\\b"
+        "\\bINTERNSHIP\\b",
+        "\\bstages?\\b"
       ],
       "graduate_programme": [
         "\\bgraduates?\\b",
@@ -274,7 +276,7 @@
     ]
   },
   "notifications": {
-    "max_per_run": 15,
+    "max_per_run": 25,
     "statuses": [
       "open",
       "unknown"

@@ -74,7 +74,7 @@ class Report:
                          f"exp: {c.experience_label} — status: {job.get('status')} — {job['url']}")
         if self.near_misses:
             lines += ['', '## Near misses (target city and role, rejected on level/experience)', '']
-            for job, c in self.near_misses[:60]:
+            for job, c in self.near_misses[:150]:
                 lines.append(f"- {job['company']} — {job['title']} — {c.city} — {c.reject_reason}")
         if self.reasons:
             lines += ['', '## Exclusion reasons (all screened jobs)', '']
