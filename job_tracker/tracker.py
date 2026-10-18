@@ -17,7 +17,9 @@ import os
 import sys
 import time
 from collections import Counter
+from datetime import datetime, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from filters import Classifier
 from http_client import AccessDenied, HttpClient
@@ -129,8 +131,21 @@ def select(jobs, classifier, state, config, report):
     return matched, new
 
 
+def in_send_window(window, now=None):
+    """True when alerts may be sent now. window = {timezone, start_hour, end_hour}
+    (end hour inclusive: 11-22 allows 11:00 to 22:59 local time). No window = always."""
+    if not window:
+        return True
+    local = (now or datetime.now(timezone.utc)).astimezone(ZoneInfo(window.get('timezone', 'UTC')))
+    return int(window.get('start_hour', 0)) <= local.hour <= int(window.get('end_hour', 23))
+
+
+def describe_window(window):
+    return f"{window.get('start_hour')}h-{window.get('end_hour')}h {window.get('timezone')}"
+
+
 def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT_FILE,
-        dry_run=False, http=None, telegram=None):
+        dry_run=False, http=None, telegram=None, now=None):
     notif = config.get('notifications', {})
     classifier = Classifier(config)
     state = State.load(Path(state_path), title_dedup_days=int(notif.get('title_dedup_days', 180)))
@@ -154,6 +169,10 @@ def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT
         for job, c in new[:2]:
             LOG.info('DRY RUN sample alert:\n%s', format_message(job, c))
         report.notifications(0, len(new), 'dry run: nothing sent, state not saved')
+    elif not in_send_window(notif.get('send_window'), now):
+        report.notifications(0, len(new), f'outside the send window ({describe_window(notif["send_window"])}): '
+                                          f'{len(new)} pending for the next slot')
+        state.save(Path(state_path))
     else:
         telegram = telegram or Telegram()
         if not telegram.configured:

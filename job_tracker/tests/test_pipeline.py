@@ -30,11 +30,12 @@ class PipelineTests(unittest.TestCase):
     def tearDown(self):
         self.dir.cleanup()
 
-    def run_tracker(self, telegram=None, dry_run=False, sources=SOURCES, **notif):
+    def run_tracker(self, telegram=None, dry_run=False, sources=SOURCES, now=None, **notif):
         config = config_with(sources)
+        notif.setdefault('send_window', None)  # window behaviour is tested separately
         config['notifications'] = dict(config['notifications'], **notif)
         return tracker.run(config, self.state, self.cache, self.report, dry_run=dry_run, http=self.http,
-                           telegram=telegram or FakeTelegram())
+                           telegram=telegram or FakeTelegram(), now=now)
 
     def test_first_run_alerts_then_no_duplicates(self):
         tg = FakeTelegram()
@@ -139,6 +140,30 @@ class PipelineTests(unittest.TestCase):
         self.assertIn('date not provided by the source', text)
         self.assertNotIn('Rates Sales Intern', text)
         self.assertIn('published more than 14 days ago: 1', self.report.read_text())
+
+
+    def test_send_window_holds_alerts_until_next_slot(self):
+        from datetime import datetime, timezone
+        window = {'timezone': 'Asia/Ho_Chi_Minh', 'start_hour': 11, 'end_hour': 22}
+        night = datetime(2026, 10, 18, 18, 30, tzinfo=timezone.utc)    # 01:30 in Vietnam
+        tg = FakeTelegram()
+        code, _ = self.run_tracker(tg, now=night, send_window=window)
+        self.assertEqual((code, tg.sent), (0, []))
+        self.assertIn('outside the send window', self.report.read_text())
+        day = datetime(2026, 10, 19, 6, 7, tzinfo=timezone.utc)        # 13:07 in Vietnam
+        tg2 = FakeTelegram()
+        self.run_tracker(tg2, now=day, send_window=window)
+        self.assertEqual(len(tg2.sent), 2)
+
+    def test_window_bounds(self):
+        from datetime import datetime, timezone
+        w = {'timezone': 'Asia/Ho_Chi_Minh', 'start_hour': 11, 'end_hour': 22}
+        at = lambda h, m=0: datetime(2026, 10, 19, h, m, tzinfo=timezone.utc)
+        self.assertFalse(tracker.in_send_window(w, at(3, 59)))   # 10:59 local
+        self.assertTrue(tracker.in_send_window(w, at(4, 0)))     # 11:00 local
+        self.assertTrue(tracker.in_send_window(w, at(15, 59)))   # 22:59 local
+        self.assertFalse(tracker.in_send_window(w, at(16, 0)))   # 23:00 local
+        self.assertTrue(tracker.in_send_window(None, at(16, 0)))
 
 
 class ConfigTests(unittest.TestCase):

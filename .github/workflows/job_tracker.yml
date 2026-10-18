@@ -4,7 +4,10 @@ name: Sales Trading Job Tracker
 # alerts and commits seen_jobs.json. Every other branch/push is a dry run.
 on:
   schedule:
-    - cron: "17 * * * *"
+    # 11:07, 13:07, 15:07, 17:07, 19:07 and 21:07 in Vietnam (UTC+7, no DST).
+    # tracker.py also refuses to send outside 11:00-22:59 Vietnam time
+    # (notifications.send_window), so delayed or manual runs keep alerts pending.
+    - cron: "7 4-14/2 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
