@@ -5,6 +5,8 @@ import re
 from urllib.parse import urljoin, urlparse
 from bs4 import BeautifulSoup
 import requests
+from xml.etree import ElementTree as ET
+from collections import deque
 
 LOG = logging.getLogger(__name__)
 HEADERS = {'User-Agent': 'Mozilla/5.0 (compatible; PersonalJobAlertTracker/3.0)'}
@@ -86,4 +88,62 @@ def fetch_official(source):
             location = (item.select_one('.job-location, .location, [class*="location"]') or item).get_text(' ', strip=True)
             add(title, location, a.get('href'))
     LOG.info('%s official page: %d extracted job records; adapter=%s', source['company'], len(jobs), source.get('adapter', 'jsonld'))
+    return list(jobs.values())
+
+def fetch_sitemap_jobs(source):
+    """Read official XML sitemaps and verify individual vacancy pages."""
+    root_url = source['sitemap_url']
+    host = urlparse(root_url).hostname
+    pending = deque([root_url])
+    visited = set()
+    job_urls = []
+    max_sitemaps = int(source.get('max_sitemaps', 25))
+    max_jobs = int(source.get('max_jobs', 60))
+    while pending and len(visited) < max_sitemaps and len(job_urls) < max_jobs * 3:
+        url = pending.popleft()
+        if url in visited or urlparse(url).hostname != host:
+            continue
+        visited.add(url)
+        try:
+            res = requests.get(url, headers=HEADERS, timeout=25)
+            res.raise_for_status()
+            xml = ET.fromstring(res.content)
+        except (requests.RequestException, ET.ParseError) as exc:
+            LOG.warning('%s sitemap unavailable %s: %s', source['company'], url, exc)
+            continue
+        for elem in xml.iter():
+            if not elem.tag.endswith('loc') or not elem.text:
+                continue
+            link = elem.text.strip()
+            if urlparse(link).hostname != host:
+                continue
+            if link.lower().split('?')[0].endswith('.xml'):
+                pending.append(link)
+            elif re.search(source['job_url_pattern'], urlparse(link).path, re.I):
+                job_urls.append(link)
+    jobs = {}
+    for link in job_urls[:max_jobs]:
+        try:
+            res = requests.get(link, headers=HEADERS, timeout=20)
+            res.raise_for_status()
+            soup = BeautifulSoup(res.text, 'html.parser')
+            heading = soup.select_one('h1')
+            if not heading:
+                continue
+            title = heading.get_text(' ', strip=True)
+            text = soup.get_text(' ', strip=True)
+            if not title or len(title) > 160:
+                continue
+            # Job pages must contain an explicit location signal.
+            locations = re.findall(r'(?i)\\b(?:Hong Kong|Singapore|Paris|London)\\b', text[:2500])
+            if not locations:
+                continue
+            key = 'sitemap:' + source['company'] + ':' + link
+            jobs[key] = {'id': key, 'company': source['company'],
+                         'title': title, 'location': ', '.join(sorted(set(locations))),
+                         'url': link, 'description': text[:10000], 'published': ''}
+        except requests.RequestException as exc:
+            LOG.debug('Vacancy unavailable %s: %s', link, exc)
+    LOG.info('%s sitemap: %d job pages checked, %d candidates',
+             source['company'], min(len(job_urls), max_jobs), len(jobs))
     return list(jobs.values())
