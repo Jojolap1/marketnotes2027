@@ -24,6 +24,8 @@ from sources.context import slug_words
 from status import CLOSED, assess_page
 
 LOG = logging.getLogger(__name__)
+# Bump when parse_detail output changes so cached pages are re-parsed.
+PAGE_KEY = 'page:v2:'
 LOCATION_SELECTORS = ('[itemprop="jobLocation"]', '[data-testid*="location"]', '.job-location', '.jobLocation',
                       '[class*="job-location"]', '[class*="jobGeoLocation"]', '[itemprop="addressLocality"]')
 
@@ -105,11 +107,17 @@ def parse_detail(html, url, source):
     """Parse one vacancy page into a dict, or {'reject': reason}."""
     soup = BeautifulSoup(html, 'html.parser')
     posting = next(_jsonld_postings(soup), None)
+    h1 = soup.select_one('h1')
+    h1_text = re.sub(r'\s+', ' ', h1.get_text(' ', strip=True)) if h1 else ''
     for tag in soup(['script', 'style', 'noscript', 'nav', 'header', 'footer']):
         tag.decompose()
     visible = re.sub(r'\s+', ' ', soup.get_text(' ', strip=True))
     if posting:
         title = html_to_text(posting.get('title'))
+        # Some sites (Société Générale) append ' - <business line> - <city>' to
+        # the structured title; the visible heading is the real job title.
+        if h1_text and len(h1_text) < len(title) and title.lower().startswith(h1_text.lower()):
+            title = h1_text
         description = html_to_text(posting.get('description'))
         location = _places(posting)
         valid_through = posting.get('validThrough') or ''
@@ -158,9 +166,9 @@ def fetch(source, ctx):
     budget = int(source.get('max_fetch_per_run', 40))
     fresh, stale = [], []
     for url in candidates:
-        if ctx.cache.get('page:' + url, max_age_hours=refresh, lastmod=urls[url]) is not None:
+        if ctx.cache.get(PAGE_KEY + url, max_age_hours=refresh, lastmod=urls[url]) is not None:
             continue
-        (stale if ctx.cache.get('page:' + url) is not None else fresh).append(url)
+        (stale if ctx.cache.get(PAGE_KEY + url) is not None else fresh).append(url)
     # Never-seen URLs first (newest lastmod first), then status re-checks.
     fresh.sort(key=lambda u: urls[u], reverse=True)
     to_fetch = (fresh + stale)[:budget]
@@ -172,11 +180,11 @@ def fetch(source, ctx):
         else:
             response.raise_for_status()
             value = parse_detail(response.text, url, source)
-        ctx.cache.put('page:' + url, value, lastmod=urls[url])
+        ctx.cache.put(PAGE_KEY + url, value, lastmod=urls[url])
         ctx.stat(company, 'detail_requests')
     jobs = []
     for url in candidates:
-        value = ctx.cache.get('page:' + url)
+        value = ctx.cache.get(PAGE_KEY + url)
         if not value:
             continue
         if value.get('reject'):

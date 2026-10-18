@@ -207,6 +207,12 @@ class SitemapTests(unittest.TestCase):
         self.assertNotIn('10 years', d['description'])
         self.assertEqual(d['status'], 'open')
 
+    def test_business_line_suffix_in_structured_title_removed(self):
+        page = SG_PAGE.replace('"title":"TRAINEE: Sales Assistant"',
+                               '"title":"TRAINEE: Sales Assistant - Corporate & Investment banking - Hong Kong, Hong Kong"')
+        d = parse_detail(page, 'u', {})
+        self.assertEqual(d['title'], 'TRAINEE: Sales Assistant')
+
     def test_closed_page_detected(self):
         page = SG_PAGE.replace('<h1>', '<p>This job is no longer available</p><h1>')
         self.assertEqual(parse_detail(page, 'u', {})['status'], 'closed')

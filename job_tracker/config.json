@@ -78,6 +78,7 @@
         "\\bportfolio (?:analyst|construction|solutions)\\b"
       ],
       "Markets / Investment Analyst": [
+        "\\b(?:commodit\\w*|macro|fx|rates|credit|equit(?:y|ies)|fixed income|emerging markets?) (?:analyst|strategist|research)\\b",
         "\\binvestment (?:analyst|research)\\b",
         "\\bmarkets? analyst\\b",
         "\\bequity research\\b",
