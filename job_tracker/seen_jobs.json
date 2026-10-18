@@ -988,6 +988,81 @@
    "title": "TRAINEE: Sales Assistant",
    "url": "https://careers.societegenerale.com/en/job-offers/trainee-sales-assistant-26000M1T-en"
   },
+  "sitemap:Standard Chartered:https://jobs.standardchartered.com/job/Central-Markets-Intern-Hong-Kong-2027/1370623857/": {
+   "company": "Standard Chartered",
+   "fingerprints": [
+    "id:sitemap:Standard Chartered:https://jobs.standardchartered.com/job/Central-Markets-Intern-Hong-Kong-2027/1370623857/",
+    "url:https://jobs.standardchartered.com/job/central-markets-intern-hong-kong-2027/1370623857",
+    "title:standard chartered:markets intern hong kong 2027:hong kong"
+   ],
+   "first_seen": "2026-10-18T16:40:18+00:00",
+   "last_seen": "2026-10-18",
+   "location": "job central markets intern hong kong 0 7 13706 3857",
+   "notified_at": "2026-10-18T16:40:18+00:00",
+   "status": "unknown",
+   "title": "Markets Intern Hong Kong 2027",
+   "url": "https://jobs.standardchartered.com/job/Central-Markets-Intern-Hong-Kong-2027/1370623857/"
+  },
+  "sitemap:Standard Chartered:https://jobs.standardchartered.com/job/Central-Syndicate-&-Portfolio-Management-Intern-Hong-Kong-2027/1374336057/": {
+   "company": "Standard Chartered",
+   "fingerprints": [
+    "id:sitemap:Standard Chartered:https://jobs.standardchartered.com/job/Central-Syndicate-&-Portfolio-Management-Intern-Hong-Kong-2027/1374336057/",
+    "url:https://jobs.standardchartered.com/job/central-syndicate-&-portfolio-management-intern-hong-kong-2027/1374336057",
+    "title:standard chartered:syndicate portfolio management intern hong kong 2027:hong kong"
+   ],
+   "first_seen": "2026-10-18T16:40:15+00:00",
+   "last_seen": "2026-10-18",
+   "location": "job central syndicate & portfolio management intern hong kong 0 7 1374336057",
+   "notified_at": "2026-10-18T16:40:15+00:00",
+   "status": "unknown",
+   "title": "Syndicate & Portfolio Management Intern Hong Kong 2027",
+   "url": "https://jobs.standardchartered.com/job/Central-Syndicate-&-Portfolio-Management-Intern-Hong-Kong-2027/1374336057/"
+  },
+  "sitemap:Standard Chartered:https://jobs.standardchartered.com/job/London-Markets-Intern-UK-2027/1370621257/": {
+   "company": "Standard Chartered",
+   "fingerprints": [
+    "id:sitemap:Standard Chartered:https://jobs.standardchartered.com/job/London-Markets-Intern-UK-2027/1370621257/",
+    "url:https://jobs.standardchartered.com/job/london-markets-intern-uk-2027/1370621257",
+    "title:standard chartered:markets intern uk 2027:london"
+   ],
+   "first_seen": "2026-10-18T16:40:17+00:00",
+   "last_seen": "2026-10-18",
+   "location": "job london markets intern uk 0 7 13706 1 57",
+   "notified_at": "2026-10-18T16:40:17+00:00",
+   "status": "unknown",
+   "title": "Markets Intern UK 2027",
+   "url": "https://jobs.standardchartered.com/job/London-Markets-Intern-UK-2027/1370621257/"
+  },
+  "sitemap:Standard Chartered:https://jobs.standardchartered.com/job/London-Syndicate-and-Portfolio-Management%E2%80%AFGraduate-Programme-2027/1373604557/": {
+   "company": "Standard Chartered",
+   "fingerprints": [
+    "id:sitemap:Standard Chartered:https://jobs.standardchartered.com/job/London-Syndicate-and-Portfolio-Management%E2%80%AFGraduate-Programme-2027/1373604557/",
+    "url:https://jobs.standardchartered.com/job/london-syndicate-and-portfolio-management%e2%80%afgraduate-programme-2027/1373604557",
+    "title:standard chartered:syndicate and portfolio management graduate programme 2027:london"
+   ],
+   "first_seen": "2026-10-18T16:40:20+00:00",
+   "last_seen": "2026-10-18",
+   "location": "job london syndicate and portfolio management graduate programme 0 7 1373604557",
+   "notified_at": "2026-10-18T16:40:20+00:00",
+   "status": "unknown",
+   "title": "Syndicate and Portfolio Management Graduate Programme 2027",
+   "url": "https://jobs.standardchartered.com/job/London-Syndicate-and-Portfolio-Management%E2%80%AFGraduate-Programme-2027/1373604557/"
+  },
+  "sitemap:Standard Chartered:https://jobs.standardchartered.com/job/Singapore-Markets-Intern-SG-2027/1370624257/": {
+   "company": "Standard Chartered",
+   "fingerprints": [
+    "id:sitemap:Standard Chartered:https://jobs.standardchartered.com/job/Singapore-Markets-Intern-SG-2027/1370624257/",
+    "url:https://jobs.standardchartered.com/job/singapore-markets-intern-sg-2027/1370624257",
+    "title:standard chartered:markets intern sg 2027:singapore"
+   ],
+   "first_seen": "2026-10-18T16:40:19+00:00",
+   "last_seen": "2026-10-18",
+   "location": "job singapore markets intern sg 0 7 13706 4 57",
+   "notified_at": "2026-10-18T16:40:19+00:00",
+   "status": "unknown",
+   "title": "Markets Intern SG 2027",
+   "url": "https://jobs.standardchartered.com/job/Singapore-Markets-Intern-SG-2027/1370624257/"
+  },
   "workday:barclays:JR-0000124692": {
    "company": "Barclays",
    "fingerprints": [
