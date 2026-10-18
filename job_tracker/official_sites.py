@@ -65,15 +65,7 @@ def fetch_official(source):
                         places.append(', '.join(str(address.get(k) or '') for k in ('addressLocality','addressRegion','addressCountry')).strip(', '))
             add(obj.get('title'), '; '.join(places), obj.get('url') or response.url,
                 BeautifulSoup(obj.get('description') or '', 'html.parser').get_text(' ', strip=True))
-    for a in soup.select('a[href]'):
-        href = urljoin(response.url, a.get('href', ''))
-        if not JOB_LINK.search(urlparse(href).path):
-            continue
-        title = a.get_text(' ', strip=True)
-        if len(title) < 8 or len(title) > 150:
-            continue
-        container = a.find_parent(['article','li','tr']) or a.parent
-        context = container.get_text(' ', strip=True)[:350] if container else ''
-        add(title, context, href)
-    LOG.info('%s official page: %d candidate links (not necessarily eligible)', source['company'], len(jobs))
+    # Navigation links on career landing pages are not individual vacancies.
+    # Only structured JobPosting records count until a site-specific adapter is validated.
+    LOG.info('%s official page: %d verified JobPosting records', source['company'], len(jobs))
     return list(jobs.values())
