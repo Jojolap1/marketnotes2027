@@ -537,6 +537,110 @@ V('BofA board anchors', first_text, 'https://bankcampuscareers.tal.net/vx/lang-e
 V('Oleeo pagination', first_text, 'https://bankcampuscareers.tal.net/vx/lang-en-GB/mobile-0/brand-4/candidate/jobboard/vacancy/1/adv/', r'href="[^"]*(?:page|start|ftq)[^"]*"[^>]*>[^<]{0,40}|of \d+ results|\d+ results', 10, 200)
 PROBES = PROBES + R5
 
+
+# ---------------- Round 6: new employers (auto-validate discovered feeds) ----------------
+WD_URL = re.compile(r'https://([a-z0-9-]+)\.(wd\d+)\.myworkdayjobs\.com/(?:[a-z]{2}-[A-Z]{2}/)?([A-Za-z0-9_-]+)', re.I)
+OTHER_ATS = re.compile(r'https?://(?:boards\.greenhouse\.io|job-boards\.greenhouse\.io|jobs\.lever\.co|jobs\.ashbyhq\.com|jobs\.smartrecruiters\.com|careers\.smartrecruiters\.com)/([A-Za-z0-9_-]+)|https?://([a-z0-9-]+)\.eightfold\.ai|https?://([a-z0-9.-]+\.fa\.[a-z0-9.]*oraclecloud\.com)[^"\s]*?(CX_\d+)|https?://(career\d*\.successfactors\.(?:com|eu))/career\?company=([A-Za-z0-9_]+)|https?://([a-z0-9-]+)\.tal\.net|https?://([a-z0-9-]+)\.(?:avature\.net|taleo\.net|icims\.com|csod\.com|jobs2web\.com|brassring\.com|phenompeople\.com)', re.I)
+
+
+def validate_page(url):
+    out = []
+    try:
+        r = get(url)
+    except Exception as exc:
+        return f'EXC {type(exc).__name__}: {str(exc)[:150]}'
+    out.append(f'HTTP {r.status_code} final={r.url} len={len(r.text)}')
+    text = r.text.replace('\\/', '/')
+    seen = set()
+    for host, wd, site in WD_URL.findall(text):
+        key = (host.lower(), wd, site)
+        if key in seen or site.lower() in ('wday', 'login', 'cxs'):
+            continue
+        seen.add(key)
+        try:
+            out.append(f'  WORKDAY {host}.{wd}/{site}: ' + workday(f'{host}.{wd}.myworkdayjobs.com', host, site)[:300])
+        except Exception as exc:
+            out.append(f'  WORKDAY {host}.{wd}/{site}: EXC {exc}'[:200])
+    others = sorted(set(m.group(0)[:120] for m in OTHER_ATS.finditer(text)))
+    if others:
+        out.append('  OTHER ATS: ' + str(others[:10]))
+    jobs = sorted(set(re.findall(r'https?://[a-z0-9.-]+/[^"\'\s<>]*(?:job|career|vacanc|recruit|opportunit)[^"\'\s<>]*', text, re.I)))
+    out.append('  job-ish links: ' + str([j[:110] for j in jobs[:12]]))
+    return '\n'.join(out)
+
+
+R6_PAGES = {
+    'DBS': ['https://www.dbs.com/careers/default.page', 'https://www.dbs.com/careers/jobs.page'],
+    'OCBC': ['https://www.ocbc.com/group/careers', 'https://www.ocbc.com/group/careers/job-openings'],
+    'UOB': ['https://www.uobgroup.com/uobgroup/careers/index.page', 'https://careers.uobgroup.com/'],
+    'UOB Kay Hian': ['https://www.uobkayhian.com/careers', 'https://www.utrade.com.sg/careers'],
+    'Mizuho': ['https://www.mizuhogroup.com/emea/careers', 'https://www.mizuhogroup.com/asia-pacific/careers', 'https://www.mizuhogroup.com/americas/careers'],
+    'Daiwa': ['https://www.daiwacm.com/careers/', 'https://www.uk.daiwacm.com/careers', 'https://www.daiwa-grp.jp/english/recruit/'],
+    'BBVA': ['https://careers.bbva.com/', 'https://careers.bbva.com/europe/'],
+    'Santander CIB': ['https://www.santandercib.com/careers', 'https://www.santander.com/en/careers'],
+    'ING': ['https://careers.ing.com/', 'https://www.ing.jobs/'],
+    'NatWest': ['https://jobs.natwestgroup.com/', 'https://www.natwestgroup.com/careers.html'],
+    'Guotai Junan Intl': ['https://www.gtjai.com/en/about-us/join-us', 'https://www.gtja.com.hk/'],
+    'CMB International / CMS Intl': ['https://www.cmschina.com.hk/', 'https://www.cmbi.com/'],
+    'BOCI': ['https://www.bocigroup.com/', 'https://www.bocigroup.com/en/'],
+    'ICBC International': ['https://www.icbci.com.hk/', 'https://www.icbcasia.com/'],
+    'GF Securities HK': ['https://www.gfgroup.com.hk/', 'https://en.gf.com.cn/'],
+    'Shenwan Hongyuan HK': ['https://www.swhyhk.com/', 'https://www.swhyhk.com/en/'],
+    'China Galaxy Intl': ['https://www.chinastock.com.hk/', 'https://www.cgisec.com/'],
+    'Maybank': ['https://www.maybank.com/en/careers.page', 'https://www.maybankib.com/'],
+    'CIMB': ['https://www.cimb.com/en/careers.html', 'https://www.cimb.com/en/careers/career-opportunities.html'],
+    'Citadel Securities': ['https://www.citadelsecurities.com/careers/open-opportunities/', 'https://www.citadel.com/careers/open-opportunities/'],
+    'Macquarie': ['https://www.macquarie.com/careers', 'https://recruitment.macquarie.com/'],
+    'Jefferies': ['https://www.jefferies.com/careers/', 'https://jefferies.tal.net/'],
+    'ANZ': ['https://careers.anz.com/'],
+    'Commerzbank': ['https://jobs.commerzbank.com/'],
+    'Natixis IM / BPCE': ['https://www.im.natixis.com/en-intl/about-us/careers'],
+    'Amundi': ['https://jobs.amundi.com/', 'https://about.amundi.com/careers'],
+    'AXA IM': ['https://www.axa-im.com/careers'],
+    'Schroders': ['https://www.schroders.com/en/global/individual/careers/'],
+    'Fidelity International': ['https://careers.fidelityinternational.com/'],
+    'Invesco': ['https://careers.invesco.com/'],
+    'Millennium': ['https://www.mlp.com/careers/'],
+    'Susquehanna': ['https://careers.sig.com/'],
+    'Marshall Wace': ['https://www.mwam.com/careers/'],
+    'Two Sigma': ['https://careers.twosigma.com/'],
+    'QRT': ['https://www.qube-rt.com/careers/'],
+    'Mako': ['https://www.mako.com/careers'],
+    'Akuna': ['https://akunacapital.com/careers'],
+    'Natixis CIB (again)': ['https://natixis.groupebpce.com/en/careers/'],
+    'Lazard AM': ['https://www.lazard.com/careers/'],
+    'Nikko AM': ['https://www.nikkoam.com/careers'],
+    'Eastspring': ['https://www.eastspring.com/careers'],
+    'Bank of Singapore': ['https://www.bankofsingapore.com/careers.html'],
+    'Hang Seng / BEA': ['https://www.hkbea.com/html/en/bea-about-bea-careers.html'],
+    'CCB Asia': ['https://www.asia.ccb.com/hongkong/careers/'],
+    'Haitong Bank / AMTD': ['https://www.amtdgroup.com/careers'],
+}
+
+R6 = []
+for name, urls in R6_PAGES.items():
+    for u in urls:
+        R6.append((f'R6 {name} | {u}', (lambda u=u: validate_page(u))))
+
+for host, tenant, site in [
+    ('dbs.wd3.myworkdayjobs.com', 'dbs', 'DBS_Careers'), ('ocbc.wd102.myworkdayjobs.com', 'ocbc', 'OCBC'),
+    ('mizuho.wd1.myworkdayjobs.com', 'mizuho', 'mizuhoemea'), ('mizuho.wd1.myworkdayjobs.com', 'mizuho', 'mizuhoasia'),
+    ('ing.wd3.myworkdayjobs.com', 'ing', 'ICSGBLCOR'), ('santander.wd3.myworkdayjobs.com', 'santander', 'SantanderCareers'),
+    ('natwestgroup.wd3.myworkdayjobs.com', 'natwestgroup', 'NatWestGroupCareers'), ('jefferies.wd5.myworkdayjobs.com', 'jefferies', 'Jefferies'),
+    ('macquarie.wd3.myworkdayjobs.com', 'macquarie', 'Macquarie'), ('schroders.wd3.myworkdayjobs.com', 'schroders', 'Schroders'),
+    ('invesco.wd1.myworkdayjobs.com', 'invesco', 'IVZ'), ('fil.wd3.myworkdayjobs.com', 'fil', 'FIL'),
+    ('anz.wd3.myworkdayjobs.com', 'anz', 'ANZ'), ('mlp.wd5.myworkdayjobs.com', 'mlp', 'MLPCareers'),
+    ('sig.wd1.myworkdayjobs.com', 'sig', 'SIG'), ('cimb.wd3.myworkdayjobs.com', 'cimb', 'CIMB'),
+]:
+    R6.append((f'R6 WD-guess {tenant}/{site}', (lambda h=host, t=tenant, s=site: workday(h, t, s))))
+for b in ['citadelsecurities', 'citadel', 'akunacapital', 'twosigma', 'qubeResearchTechnologies', 'marshallwace', 'mako', 'millennium', 'davincitrading', 'optiverus', 'maven', 'belvederetrading', 'oldmissioncapital', 'gsa', 'g-research', 'gresearch', 'tibra', 'vivcourt', 'eclipsetrading', 'quadeye']:
+    R6.append((f'R6 GH {b}', (lambda b=b: greenhouse(b))))
+for b in ['citadelsecurities', 'g-research', 'qube-rt', 'mavensecurities', 'cfm', 'eclipse', 'tibra']:
+    R6.append((f'R6 Lever {b}', (lambda b=b: lever(b))))
+for b in ['DBSBank', 'OCBC', 'UOB', 'Maybank', 'CIMB', 'BBVA', 'ING', 'Amundi', 'AXAInvestmentManagers', 'Macquarie', 'Daiwa', 'Mizuho']:
+    R6.append((f'R6 SR {b}', (lambda b=b: smartrecruiters(b))))
+PROBES = PROBES + R6
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
