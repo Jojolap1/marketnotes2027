@@ -192,7 +192,7 @@ def fetch_sitemap_jobs(source):
                 segments = urlparse(link).path.strip('/').split('/')
                 if len(segments) > 2 and segments[0] == 'job':
                     location_text += ' ' + segments[1].replace('-', ' ')
-            locs = sorted(set(re.findall(r'(?i)\\b(?:Hong Kong|Singapore|Paris|London|Kowloon)\\b', location_text)))
+            locs = sorted(set(re.findall(r'(?i)\b(?:Hong Kong|Singapore|Paris|London|Kowloon)\b', location_text)))
             if not locs:
                 rejected['no_location'] += 1
                 if len(samples) < 6:
