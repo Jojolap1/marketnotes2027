@@ -1,0 +1,18 @@
+{
+  "location_patterns": ["hong\\s*kong", "singapore"],
+  "include_title_patterns": [
+    "equity", "credit", "sales", "trading", "trader", "structur", "market maker",
+    "fixed income", "\\bfx\\b", "\\brates\\b", "\\bfic\\b", "derivatives", "quantitative trading"
+  ],
+  "exclude_title_patterns": [
+    "\\bsenior\\b", "\\bsr\\.?\\b", "\\bdirector\\b", "\\bvp\\b",
+    "vice president", "\\bhead of\\b", "\\bprincipal\\b", "\\bmanager\\b", "\\blead\\b"
+  ],
+  "sources": [
+    {"platform": "greenhouse", "company": "Citadel", "board": "citadel"},
+    {"platform": "greenhouse", "company": "IMC Trading", "board": "imc"},
+    {"platform": "greenhouse", "company": "Optiver", "board": "optiver"},
+    {"platform": "greenhouse", "company": "Flow Traders", "board": "flowtraders"},
+    {"platform": "greenhouse", "company": "Wintermute", "board": "wintermute"}
+  ]
+}
