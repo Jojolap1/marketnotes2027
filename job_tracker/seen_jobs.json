@@ -208,6 +208,22 @@
    "title": "2026 | APEJ | Hong Kong | Global Investment Research, Macro, Portfolio Strategy | Seasonal / Off-cycle Internship",
    "url": "https://higher.gs.com/roles/183898"
   },
+  "greenhouse:akunacapital:8275358": {
+   "company": "Akuna Capital",
+   "fingerprints": [
+    "id:greenhouse:akunacapital:8275358",
+    "req:akuna capital:300",
+    "url:https://akunacapital.com/careers/job/8275358?gh_jid=8275358",
+    "title:akuna capital:junior trader:london"
+   ],
+   "first_seen": "2026-10-18T16:14:38+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London, UK",
+   "notified_at": "2026-10-18T16:14:38+00:00",
+   "status": "open",
+   "title": "Junior Trader",
+   "url": "https://www.akunacapital.com/careers/job/8275358/?gh_jid=8275358"
+  },
   "greenhouse:flowtraders:4782837": {
    "company": "Flow Traders",
    "fingerprints": [
@@ -382,6 +398,21 @@
    "title": "Campus Quantitative Trader (Intern)",
    "url": "https://www.jumptrading.com/hr/job?gh_jid=8027922"
   },
+  "greenhouse:mako:8883121002": {
+   "company": "Mako Trading",
+   "fingerprints": [
+    "id:greenhouse:mako:8883121002",
+    "url:https://mako.com/opportunities/job-listing/8883121002?gh_jid=8883121002",
+    "title:mako trading:mako summer internship trading:london"
+   ],
+   "first_seen": "2026-10-18T16:14:37+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London",
+   "notified_at": "2026-10-18T16:14:37+00:00",
+   "status": "open",
+   "title": "Mako Summer Internship – Trading",
+   "url": "https://www.mako.com/opportunities/job-listing/8883121002?gh_jid=8883121002"
+  },
   "greenhouse:squarepointcapital:8143287": {
    "company": "Squarepoint Capital",
    "fingerprints": [
@@ -429,6 +460,278 @@
    "status": "open",
    "title": "Quantitative Trader/Researcher Summer Internship 2027 (2028 Graduates)",
    "url": "https://www.tower-research.com/open-positions/?gh_jid=8037860"
+  },
+  "oleeo:Bank of America:14670": {
+   "company": "Bank of America",
+   "fingerprints": [
+    "id:oleeo:Bank of America:14670",
+    "req:bank of america:14670",
+    "url:https://bankcampuscareers.tal.net/vx/lang-en-gb/mobile-0/brand-4/candidate/so/pm/1/pl/1/opp/14670-global-markets-credit-2027-summer-analyst-london/en-gb",
+    "title:bank of america:global markets credit 2027 summer analyst london:london"
+   ],
+   "first_seen": "2026-10-18T16:14:44+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London",
+   "notified_at": "2026-10-18T16:14:44+00:00",
+   "status": "open",
+   "title": "Global Markets Credit 2027 Summer Analyst - London",
+   "url": "https://bankcampuscareers.tal.net/vx/lang-en-GB/mobile-0/brand-4/candidate/so/pm/1/pl/1/opp/14670-Global-Markets-Credit-2027-Summer-Analyst-London/en-GB"
+  },
+  "oleeo:Bank of America:14720": {
+   "company": "Bank of America",
+   "fingerprints": [
+    "id:oleeo:Bank of America:14720",
+    "req:bank of america:14720",
+    "url:https://bankcampuscareers.tal.net/vx/lang-en-gb/mobile-0/brand-4/candidate/so/pm/1/pl/1/opp/14720-global-research-2027-summer-analyst-london/en-gb",
+    "title:bank of america:global research 2027 summer analyst london:london"
+   ],
+   "first_seen": "2026-10-18T16:14:42+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London",
+   "notified_at": "2026-10-18T16:14:42+00:00",
+   "status": "open",
+   "title": "Global Research 2027 Summer Analyst - London",
+   "url": "https://bankcampuscareers.tal.net/vx/lang-en-GB/mobile-0/brand-4/candidate/so/pm/1/pl/1/opp/14720-Global-Research-2027-Summer-Analyst-London/en-GB"
+  },
+  "oleeo:Fidelity International (campus):1393": {
+   "company": "Fidelity International (campus)",
+   "fingerprints": [
+    "id:oleeo:Fidelity International (campus):1393",
+    "req:fidelity international campus:1393",
+    "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1393-equity-research-summer-internship-programme-2027-singapore/en-gb",
+    "title:fidelity international campus:equity research summer internship programme 2027 singapore:singapore"
+   ],
+   "first_seen": "2026-10-18T16:14:59+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Equity Research Summer Internship Programme 2027 - Singapore",
+   "notified_at": "2026-10-18T16:14:59+00:00",
+   "status": "open",
+   "title": "Equity Research Summer Internship Programme 2027 - Singapore",
+   "url": "https://fidelityinternational.tal.net/vx/lang-en-GB/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1393-Equity-Research-Summer-Internship-Programme-2027-Singapore/en-GB"
+  },
+  "oleeo:Fidelity International (campus):1394": {
+   "company": "Fidelity International (campus)",
+   "fingerprints": [
+    "id:oleeo:Fidelity International (campus):1394",
+    "req:fidelity international campus:1394",
+    "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1394-equity-research-summer-internship-programme-2027-hong-kong/en-gb",
+    "title:fidelity international campus:equity research summer internship programme 2027 hong kong:hong kong"
+   ],
+   "first_seen": "2026-10-18T16:14:58+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Equity Research Summer Internship Programme 2027 - Hong Kong",
+   "notified_at": "2026-10-18T16:14:58+00:00",
+   "status": "open",
+   "title": "Equity Research Summer Internship Programme 2027 - Hong Kong",
+   "url": "https://fidelityinternational.tal.net/vx/lang-en-GB/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1394-Equity-Research-Summer-Internship-Programme-2027-Hong-Kong/en-GB"
+  },
+  "oleeo:Fidelity International (campus):1397": {
+   "company": "Fidelity International (campus)",
+   "fingerprints": [
+    "id:oleeo:Fidelity International (campus):1397",
+    "req:fidelity international campus:1397",
+    "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1397-multi-asset-summer-internship-programme-2027-hong-kong/en-gb",
+    "title:fidelity international campus:multi asset summer internship programme 2027 hong kong:hong kong"
+   ],
+   "first_seen": "2026-10-18T16:15:01+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Multi Asset Summer Internship Programme 2027 - Hong Kong",
+   "notified_at": "2026-10-18T16:15:01+00:00",
+   "status": "open",
+   "title": "Multi Asset Summer Internship Programme 2027 - Hong Kong",
+   "url": "https://fidelityinternational.tal.net/vx/lang-en-GB/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1397-Multi-Asset-Summer-Internship-Programme-2027-Hong-Kong/en-GB"
+  },
+  "oleeo:Fidelity International (campus):1405": {
+   "company": "Fidelity International (campus)",
+   "fingerprints": [
+    "id:oleeo:Fidelity International (campus):1405",
+    "req:fidelity international campus:1405",
+    "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1405-equity-research-summer-internship-programme-2027-london/en-gb",
+    "title:fidelity international campus:equity research summer internship programme 2027 london:london"
+   ],
+   "first_seen": "2026-10-18T16:14:54+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Equity Research Summer Internship Programme 2027 - London",
+   "notified_at": "2026-10-18T16:14:54+00:00",
+   "status": "open",
+   "title": "Equity Research Summer Internship Programme 2027 - London",
+   "url": "https://fidelityinternational.tal.net/vx/lang-en-GB/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1405-Equity-Research-Summer-Internship-Programme-2027-London/en-GB"
+  },
+  "oleeo:Fidelity International (campus):1406": {
+   "company": "Fidelity International (campus)",
+   "fingerprints": [
+    "id:oleeo:Fidelity International (campus):1406",
+    "req:fidelity international campus:1406",
+    "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1406-equity-research-graduate-programme-2027-london/en-gb",
+    "title:fidelity international campus:equity research graduate programme 2027 london:london"
+   ],
+   "first_seen": "2026-10-18T16:14:56+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Equity Research Graduate Programme 2027 - London",
+   "notified_at": "2026-10-18T16:14:56+00:00",
+   "status": "open",
+   "title": "Equity Research Graduate Programme 2027 - London",
+   "url": "https://fidelityinternational.tal.net/vx/lang-en-GB/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1406-Equity-Research-Graduate-Programme-2027-London/en-GB"
+  },
+  "oleeo:Fidelity International (campus):1407": {
+   "company": "Fidelity International (campus)",
+   "fingerprints": [
+    "id:oleeo:Fidelity International (campus):1407",
+    "req:fidelity international campus:1407",
+    "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1407-multi-asset-summer-internship-programme-2027-london/en-gb",
+    "title:fidelity international campus:multi asset summer internship programme 2027 london:london"
+   ],
+   "first_seen": "2026-10-18T16:14:57+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Multi Asset Summer Internship Programme 2027 - London",
+   "notified_at": "2026-10-18T16:14:57+00:00",
+   "status": "open",
+   "title": "Multi Asset Summer Internship Programme 2027 - London",
+   "url": "https://fidelityinternational.tal.net/vx/lang-en-GB/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1407-Multi-Asset-Summer-Internship-Programme-2027-London/en-GB"
+  },
+  "oleeo:Fidelity International (campus):1422": {
+   "company": "Fidelity International (campus)",
+   "fingerprints": [
+    "id:oleeo:Fidelity International (campus):1422",
+    "req:fidelity international campus:1422",
+    "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1422-institutional-sales-intern-programme-2027-paris/en-gb",
+    "title:fidelity international campus:institutional sales intern programme 2027 paris:paris"
+   ],
+   "first_seen": "2026-10-18T16:14:52+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Institutional Sales Intern Programme 2027 - Paris",
+   "notified_at": "2026-10-18T16:14:52+00:00",
+   "status": "open",
+   "title": "Institutional Sales Intern Programme 2027 - Paris",
+   "url": "https://fidelityinternational.tal.net/vx/lang-en-GB/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1422-Institutional-Sales-Intern-Programme-2027-Paris/en-GB"
+  },
+  "oleeo:Fidelity International (campus):1429": {
+   "company": "Fidelity International (campus)",
+   "fingerprints": [
+    "id:oleeo:Fidelity International (campus):1429",
+    "req:fidelity international campus:1429",
+    "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1429-wholesale-sales-internship-programme-2027-paris/en-gb",
+    "title:fidelity international campus:wholesale sales internship programme 2027 paris:paris"
+   ],
+   "first_seen": "2026-10-18T16:14:53+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Wholesale Sales Internship Programme 2027 - Paris",
+   "notified_at": "2026-10-18T16:14:53+00:00",
+   "status": "open",
+   "title": "Wholesale Sales Internship Programme 2027 - Paris",
+   "url": "https://fidelityinternational.tal.net/vx/lang-en-GB/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1429-Wholesale-Sales-Internship-Programme-2027-Paris/en-GB"
+  },
+  "oleeo:Nomura:1449": {
+   "company": "Nomura",
+   "fingerprints": [
+    "id:oleeo:Nomura:1449",
+    "req:nomura:1449",
+    "url:https://nomuracampus.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1449-2027-global-markets-sales-trading-structuring-research-summer-internship-london-for-2028-graduates/en-gb",
+    "title:nomura:2027 global markets sales trading structuring research summer internship london for 2028 graduates:london"
+   ],
+   "first_seen": "2026-10-18T16:14:48+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London",
+   "notified_at": "2026-10-18T16:14:48+00:00",
+   "status": "open",
+   "title": "2027 - Global Markets (Sales, Trading, Structuring & Research) - Summer Internship - London (for 2028 Graduates)",
+   "url": "https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1449-2027-Global-Markets-Sales-Trading-Structuring-Research-Summer-Internship-London-for-2028-Graduates/en-GB"
+  },
+  "oleeo:Nomura:1451": {
+   "company": "Nomura",
+   "fingerprints": [
+    "id:oleeo:Nomura:1451",
+    "req:nomura:1451",
+    "url:https://nomuracampus.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1451-2027-global-markets-digital-office-summer-internship-quants-strats-london-for-2028-graduates/en-gb",
+    "title:nomura:2027 global markets digital office summer internship quants strats london for 2028 graduates:london"
+   ],
+   "first_seen": "2026-10-18T16:14:46+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London",
+   "notified_at": "2026-10-18T16:14:46+00:00",
+   "status": "open",
+   "title": "2027 - Global Markets Digital Office - Summer Internship (Quants & Strats) – London (For 2028 Graduates)",
+   "url": "https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1451-2027-Global-Markets-Digital-Office-Summer-Internship-Quants-Strats-London-For-2028-Graduates/en-GB"
+  },
+  "oleeo:Nomura:1518": {
+   "company": "Nomura",
+   "fingerprints": [
+    "id:oleeo:Nomura:1518",
+    "req:nomura:1518",
+    "url:https://nomuracampus.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1518-2027-global-markets-structured-solution-sales-off-cycle-internship-paris/en-gb",
+    "title:nomura:2027 global markets structured solution sales off cycle internship paris:paris"
+   ],
+   "first_seen": "2026-10-18T16:14:49+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Paris",
+   "notified_at": "2026-10-18T16:14:49+00:00",
+   "status": "open",
+   "title": "2027 - Global Markets - Structured Solution Sales - Off Cycle Internship – Paris",
+   "url": "https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1518-2027-Global-Markets-Structured-Solution-Sales-Off-Cycle-Internship-Paris/en-GB"
+  },
+  "oleeo:Nomura:1520": {
+   "company": "Nomura",
+   "fingerprints": [
+    "id:oleeo:Nomura:1520",
+    "req:nomura:1520",
+    "url:https://nomuracampus.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1520-2027-global-markets-rates-sales-6-month-off-cycle-internship-paris/en-gb",
+    "title:nomura:2027 global markets rates sales 6 month off cycle internship paris:paris"
+   ],
+   "first_seen": "2026-10-18T16:14:50+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Paris",
+   "notified_at": "2026-10-18T16:14:50+00:00",
+   "status": "open",
+   "title": "2027 - Global Markets - Rates Sales - 6 Month Off Cycle Internship – Paris",
+   "url": "https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1520-2027-Global-Markets-Rates-Sales-6-Month-Off-Cycle-Internship-Paris/en-GB"
+  },
+  "oleeo:Nomura:1558": {
+   "company": "Nomura",
+   "fingerprints": [
+    "id:oleeo:Nomura:1558",
+    "req:nomura:1558",
+    "url:https://nomuracampus.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1558-2027-global-markets-rates-structuring-off-cycle-internship-paris/en-gb",
+    "title:nomura:2027 global markets rates structuring off cycle internship paris:paris"
+   ],
+   "first_seen": "2026-10-18T16:14:45+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Paris",
+   "notified_at": "2026-10-18T16:14:45+00:00",
+   "status": "open",
+   "title": "2027 - Global Markets - Rates Structuring - Off Cycle Internship – Paris",
+   "url": "https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1558-2027-Global-Markets-Rates-Structuring-Off-Cycle-Internship-Paris/en-GB"
+  },
+  "oracle:ekbq:2149": {
+   "company": "Schroders",
+   "fingerprints": [
+    "id:oracle:ekbq:2149",
+    "req:schroders:2149",
+    "url:https://ekbq.fa.em2.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_2/job/2149",
+    "title:schroders:2027 cross border sales internship programme hk:hong kong"
+   ],
+   "first_seen": "2026-10-18T16:14:36+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Hong Kong",
+   "notified_at": "2026-10-18T16:14:36+00:00",
+   "status": "open",
+   "title": "2027 Cross Border Sales Internship Programme (HK)",
+   "url": "https://ekbq.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/2149"
+  },
+  "oracle:ekbq:2214": {
+   "company": "Schroders",
+   "fingerprints": [
+    "id:oracle:ekbq:2214",
+    "req:schroders:2214",
+    "url:https://ekbq.fa.em2.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_2/job/2214",
+    "title:schroders:2027 sales internship programme sg:singapore"
+   ],
+   "first_seen": "2026-10-18T16:14:40+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Singapore",
+   "notified_at": "2026-10-18T16:14:40+00:00",
+   "status": "open",
+   "title": "2027 Sales Internship Programme (SG)",
+   "url": "https://ekbq.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/2214"
   },
   "oracle:jpmc:210775295": {
    "company": "JPMorgan",
@@ -589,6 +892,21 @@
    "status": "open",
    "title": "Commercial & Investment Bank, FICC Electronic Sales – Analyst",
    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210797827"
+  },
+  "rss:Amundi:https://jobs.amundi.com/pages/offre/detailoffre.aspx?LCID=2057&idOffre=116550&idOrigine=170287&offerReference=2026-116550": {
+   "company": "Amundi",
+   "fingerprints": [
+    "id:rss:Amundi:https://jobs.amundi.com/pages/offre/detailoffre.aspx?LCID=2057&idOffre=116550&idOrigine=170287&offerReference=2026-116550",
+    "url:https://jobs.amundi.com/pages/offre/detailoffre.aspx?LCID=2057&idOffre=116550&idOrigine=170287&offerReference=2026-116550",
+    "title:amundi:sales executive:singapore"
+   ],
+   "first_seen": "2026-10-18T16:14:30+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Types of Jobs/Sales / Customer Service; VIE Programme; Singapore",
+   "notified_at": "2026-10-18T16:14:30+00:00",
+   "status": "open",
+   "title": "Sales Executive M/F",
+   "url": "https://jobs.amundi.com/Pages/Offre/detailoffre.aspx?idOffre=116550&idOrigine=170287&LCID=2057&offerReference=2026-116550"
   },
   "sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/equity-research-intern-bernstein-hong-kong-summer-2027-26000LB7-en": {
    "company": "Société Générale",
@@ -878,6 +1196,86 @@
    "title": "Structured Finance Sales Intern (f/m/x)",
    "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/Paris/Structured-Finance-Sales-Intern--f-m-x-_R0453676"
   },
+  "workday:ing:REQ-10122531": {
+   "company": "ING",
+   "fingerprints": [
+    "id:workday:ing:REQ-10122531",
+    "req:ing:req-10122531",
+    "url:https://ing.wd3.myworkdayjobs.com/icsgblcor/job/singapore/intern--transaction-services-sales_req-10122531",
+    "title:ing:intern transaction services sales:singapore"
+   ],
+   "first_seen": "2026-10-18T16:14:41+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Singapore",
+   "notified_at": "2026-10-18T16:14:41+00:00",
+   "status": "open",
+   "title": "Intern, Transaction Services Sales",
+   "url": "https://ing.wd3.myworkdayjobs.com/ICSGBLCOR/job/Singapore/Intern--Transaction-Services-Sales_REQ-10122531"
+  },
+  "workday:ing:REQ-10123182": {
+   "company": "ING",
+   "fingerprints": [
+    "id:workday:ing:REQ-10123182",
+    "req:ing:req-10123182",
+    "url:https://ing.wd3.myworkdayjobs.com/icsgblcor/job/singapore/intern--global-securities-finance--gsf--trading--financial-markets_req-10123182-1",
+    "title:ing:intern global securities finance gsf trading financial markets:singapore"
+   ],
+   "first_seen": "2026-10-18T16:14:34+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Singapore",
+   "notified_at": "2026-10-18T16:14:34+00:00",
+   "status": "open",
+   "title": "Intern, Global Securities Finance (GSF) Trading, Financial Markets",
+   "url": "https://ing.wd3.myworkdayjobs.com/ICSGBLCOR/job/Singapore/Intern--Global-Securities-Finance--GSF--Trading--Financial-Markets_REQ-10123182-1"
+  },
+  "workday:ing:REQ-10123253": {
+   "company": "ING",
+   "fingerprints": [
+    "id:workday:ing:REQ-10123253",
+    "req:ing:req-10123253",
+    "url:https://ing.wd3.myworkdayjobs.com/icsgblcor/job/singapore/intern--global-research_req-10123253",
+    "title:ing:intern global research:singapore"
+   ],
+   "first_seen": "2026-10-18T16:14:33+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Singapore",
+   "notified_at": "2026-10-18T16:14:33+00:00",
+   "status": "open",
+   "title": "Intern, Global Research",
+   "url": "https://ing.wd3.myworkdayjobs.com/ICSGBLCOR/job/Singapore/Intern--Global-Research_REQ-10123253"
+  },
+  "workday:ing:REQ-10123324": {
+   "company": "ING",
+   "fingerprints": [
+    "id:workday:ing:REQ-10123324",
+    "req:ing:req-10123324",
+    "url:https://ing.wd3.myworkdayjobs.com/icsgblcor/job/hong-kong/intern--financial-markets-hong-kong_req-10123324-1",
+    "title:ing:intern financial markets hong kong:hong kong"
+   ],
+   "first_seen": "2026-10-18T16:14:32+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Hong Kong",
+   "notified_at": "2026-10-18T16:14:32+00:00",
+   "status": "open",
+   "title": "Intern, Financial Markets Hong Kong",
+   "url": "https://ing.wd3.myworkdayjobs.com/ICSGBLCOR/job/Hong-Kong/Intern--Financial-Markets-Hong-Kong_REQ-10123324-1"
+  },
+  "workday:ing:REQ-10123353": {
+   "company": "ING",
+   "fingerprints": [
+    "id:workday:ing:REQ-10123353",
+    "req:ing:req-10123353",
+    "url:https://ing.wd3.myworkdayjobs.com/icsgblcor/job/singapore/intern--portfolio-management_req-10123353",
+    "title:ing:intern portfolio management:singapore"
+   ],
+   "first_seen": "2026-10-18T16:14:29+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Singapore",
+   "notified_at": "2026-10-18T16:14:29+00:00",
+   "status": "open",
+   "title": "Intern, Portfolio Management",
+   "url": "https://ing.wd3.myworkdayjobs.com/ICSGBLCOR/job/Singapore/Intern--Portfolio-Management_REQ-10123353"
+  },
   "workday:ms:JR036766": {
    "company": "Morgan Stanley",
    "fingerprints": [
@@ -960,6 +1358,22 @@
   }
  },
  "sources": {
+  "ANZ": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Akuna Capital": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Amundi": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "BBVA": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
   "Bank of America": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-18"
@@ -988,11 +1402,31 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-18"
   },
+  "DBS Bank": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
   "DRW": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-18"
   },
   "Deutsche Bank": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Eastspring Investments": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Eclipse Trading": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Fidelity International": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Fidelity International (campus)": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-18"
   },
@@ -1020,6 +1454,14 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-18"
   },
+  "ING": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Invesco": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
   "JPMorgan": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-18"
@@ -1036,11 +1478,31 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-18"
   },
+  "Macquarie": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Mako Trading": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Millennium": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
   "Morgan Stanley": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-18"
   },
   "Nomura": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "OCBC / Bank of Singapore": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Old Mission": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-18"
   },
@@ -1060,6 +1522,14 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-18"
   },
+  "Santander CIB": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Schroders": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
   "Société Générale": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-18"
@@ -1073,6 +1543,14 @@
    "last_ok": "2026-10-18"
   },
   "Tower Research Capital": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Two Sigma": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "UOB": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-18"
   },
