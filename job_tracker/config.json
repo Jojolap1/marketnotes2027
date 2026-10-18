@@ -57,11 +57,6 @@
       "platform": "greenhouse",
       "company": "Flow Traders",
       "board": "flowtraders"
-    },
-    {
-      "platform": "greenhouse",
-      "company": "Wintermute",
-      "board": "wintermute"
     }
   ],
   "entry_title_patterns": [
@@ -76,7 +71,6 @@
     "\\bentry[ -]?level\\b",
     "\\bvie\\b",
     "\\bv\\.i\\.e\\.?\\b",
-    "\\banalyst\\b",
     "\\btrainee\\b",
     "\\bapprentice\\b",
     "\\balternan\\w*\\b",
@@ -104,6 +98,6 @@
     "\\bdesign\\w*\\b",
     "\\bbusiness development\\b"
   ],
-  "max_years_experience": 3,
+  "max_years_experience": 1,
   "require_entry_signal": true
 }
