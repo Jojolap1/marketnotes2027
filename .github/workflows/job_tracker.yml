@@ -27,6 +27,9 @@ jobs:
       - name: Install dependencies
         run: pip install -r job_tracker/requirements.txt
 
+      - name: Run automated filter tests
+        run: cd job_tracker && python -m unittest -v test_tracker.py
+
       - name: Run job tracker
         env:
           DRY_RUN: '1'
