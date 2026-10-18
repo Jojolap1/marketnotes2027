@@ -19,7 +19,7 @@ logging.basicConfig(level=logging.INFO, format='%(levelname)s %(message)s')
 
 
 def fetch(source):
-    company, board = source['company'], source['board']
+    company, board = source['company'], source.get('board', '')
     kind = source['platform'].lower()
     if kind == 'greenhouse':
         url = f'https://boards-api.greenhouse.io/v1/boards/{quote(board, safe="")}/jobs?content=true'
@@ -54,6 +54,9 @@ def fetch(source):
                  'published': j.get('publishedAt') or '',
                  'description': html.unescape(re.sub(r'<[^>]*>', ' ', j.get('descriptionHtml') or j.get('descriptionPlain') or ''))}
                 for j in payload.get('jobs', []) if j.get('isListed', True)]
+    if kind == 'official':
+        from official_sites import fetch_official
+        return fetch_official(source)
     raise ValueError(f'Unknown platform: {kind}')
 
 
