@@ -1,52 +1,690 @@
 {
-  "greenhouse:imc:4787640101": {
-    "company": "IMC Trading",
-    "title": "Quantitative Trader – Equities (Live Trading)",
-    "first_seen": "2026-10-18T10:03:12.964641+00:00"
+ "jobs": {
+  "eightfold:portal.careers.hsbc.com:62245": {
+   "company": "HSBC",
+   "fingerprints": [
+    "id:eightfold:portal.careers.hsbc.com:62245",
+    "req:hsbc:62245",
+    "url:https://portal.careers.hsbc.com/careers/job/563774612392030",
+    "title:hsbc:stage assistant trader desk cash liquidite et portefeuille:paris"
+   ],
+   "first_seen": "2026-10-18T12:30:19+00:00",
+   "last_seen": "2026-10-18",
+   "location": "PARIS, Paris, France",
+   "notified_at": "2026-10-18T12:30:19+00:00",
+   "status": "open",
+   "title": "Stage - Assistant Trader desk Cash & Liquidité et Portefeuille (f/m/d)",
+   "url": "https://portal.careers.hsbc.com/careers/job/563774612392030"
   },
-  "greenhouse:imc:4787639101": {
-    "company": "IMC Trading",
-    "title": "Quantitative Trader – Equities (Strategy Monetization)",
-    "first_seen": "2026-10-18T10:03:12.964641+00:00"
+  "eightfold:portal.careers.hsbc.com:63375": {
+   "company": "HSBC",
+   "fingerprints": [
+    "id:eightfold:portal.careers.hsbc.com:63375",
+    "req:hsbc:63375",
+    "url:https://portal.careers.hsbc.com/careers/job/563774612462815",
+    "title:hsbc:stage en trading delta one equity finance duree 6 mois a partir de decembre 2026:paris"
+   ],
+   "first_seen": "2026-10-18T12:30:00+00:00",
+   "last_seen": "2026-10-18",
+   "location": "PARIS, Paris, France",
+   "notified_at": "2026-10-18T12:30:00+00:00",
+   "status": "open",
+   "title": "Stage en Trading Delta One/Equity Finance, durée 6 mois à partir de décembre 2026 (f/m/d)",
+   "url": "https://portal.careers.hsbc.com/careers/job/563774612462815"
   },
-  "greenhouse:imc:4941205101": {
-    "company": "IMC Trading",
-    "title": "Quantitative Trader Intern 2027",
-    "first_seen": "2026-10-18T10:03:12.964641+00:00"
+  "eightfold:portal.careers.hsbc.com:63379": {
+   "company": "HSBC",
+   "fingerprints": [
+    "id:eightfold:portal.careers.hsbc.com:63379",
+    "req:hsbc:63379",
+    "url:https://portal.careers.hsbc.com/careers/job/563774612462914",
+    "title:hsbc:stage sales trading desk cash equity execution:paris"
+   ],
+   "first_seen": "2026-10-18T12:29:58+00:00",
+   "last_seen": "2026-10-18",
+   "location": "PARIS, Paris, France",
+   "notified_at": "2026-10-18T12:29:58+00:00",
+   "status": "open",
+   "title": "Stage - Sales Trading - Desk Cash Equity Execution (f/m/d)",
+   "url": "https://portal.careers.hsbc.com/careers/job/563774612462914"
   },
-  "greenhouse:flowtraders:7708220": {
-    "company": "Flow Traders",
-    "title": "Delta One Trader ",
-    "first_seen": "2026-10-18T10:03:12.964641+00:00"
+  "eightfold:portal.careers.hsbc.com:63766": {
+   "company": "HSBC",
+   "fingerprints": [
+    "id:eightfold:portal.careers.hsbc.com:63766",
+    "req:hsbc:63766",
+    "url:https://portal.careers.hsbc.com/careers/job/563774612474098",
+    "title:hsbc:stage recherche quantitative equity derivatives:paris"
+   ],
+   "first_seen": "2026-10-18T12:29:52+00:00",
+   "last_seen": "2026-10-18",
+   "location": "PARIS, Paris, France",
+   "notified_at": "2026-10-18T12:29:52+00:00",
+   "status": "open",
+   "title": "Stage Recherche Quantitative Equity Derivatives (f/m/d)",
+   "url": "https://portal.careers.hsbc.com/careers/job/563774612474098"
   },
-  "greenhouse:flowtraders:7770955": {
-    "company": "Flow Traders",
-    "title": "Digital Assets Trader ",
-    "first_seen": "2026-10-18T10:03:12.964641+00:00"
+  "eightfold:portal.careers.hsbc.com:63779": {
+   "company": "HSBC",
+   "fingerprints": [
+    "id:eightfold:portal.careers.hsbc.com:63779",
+    "req:hsbc:63779",
+    "url:https://portal.careers.hsbc.com/careers/job/563774612474489",
+    "title:hsbc:stages en vente sales clients institutionnels:paris"
+   ],
+   "first_seen": "2026-10-18T12:29:51+00:00",
+   "last_seen": "2026-10-18",
+   "location": "PARIS, Paris, France",
+   "notified_at": "2026-10-18T12:29:51+00:00",
+   "status": "open",
+   "title": "Stages en Vente/Sales - Clients Institutionnels (f/m/d)",
+   "url": "https://portal.careers.hsbc.com/careers/job/563774612474489"
+  },
+  "goldman:150689": {
+   "company": "Goldman Sachs",
+   "fingerprints": [
+    "id:goldman:150689",
+    "req:goldman sachs:150689",
+    "url:https://higher.gs.com/roles/150689",
+    "title:goldman sachs:2026 apej singapore ficc and equities sales and trading new analyst:singapore"
+   ],
+   "first_seen": "2026-10-18T12:30:09+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Singapore",
+   "notified_at": "2026-10-18T12:30:09+00:00",
+   "status": "open",
+   "title": "2026 | APEJ | Singapore | FICC and Equities, Sales and Trading | New Analyst",
+   "url": "https://higher.gs.com/roles/150689"
+  },
+  "goldman:174813": {
+   "company": "Goldman Sachs",
+   "fingerprints": [
+    "id:goldman:174813",
+    "req:goldman sachs:174813",
+    "url:https://higher.gs.com/roles/174813",
+    "title:goldman sachs:2027 emea london ficc equities sales trading apprentice programme:london"
+   ],
+   "first_seen": "2026-10-18T12:30:20+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London, Greater London, England, United Kingdom",
+   "notified_at": "2026-10-18T12:30:20+00:00",
+   "status": "open",
+   "title": "2027 | EMEA | London | FICC & Equities, Sales & Trading | Apprentice Programme",
+   "url": "https://higher.gs.com/roles/174813"
+  },
+  "goldman:175424": {
+   "company": "Goldman Sachs",
+   "fingerprints": [
+    "id:goldman:175424",
+    "req:goldman sachs:175424",
+    "url:https://higher.gs.com/roles/175424",
+    "title:goldman sachs:2027 emea london ficc and equities sales and trading quantitative strats internship:london"
+   ],
+   "first_seen": "2026-10-18T12:30:07+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London, Greater London, England, United Kingdom",
+   "notified_at": "2026-10-18T12:30:07+00:00",
+   "status": "open",
+   "title": "2027 | EMEA | London | FICC and Equities (Sales and Trading) Quantitative Strats | Internship",
+   "url": "https://higher.gs.com/roles/175424"
   },
   "greenhouse:flowtraders:4782837": {
-    "company": "Flow Traders",
-    "title": "Graduate Trader",
-    "first_seen": "2026-10-18T10:03:12.964641+00:00"
+   "company": "Flow Traders",
+   "fingerprints": [
+    "id:greenhouse:flowtraders:4782837",
+    "title:flow traders:graduate trader:",
+    "req:flow traders:1060",
+    "url:https://job-boards.greenhouse.io/flowtraders/jobs/4782837",
+    "title:flow traders:graduate trader:hong kong"
+   ],
+   "first_seen": "2026-10-18T10:03:12.964641+00:00",
+   "last_seen": "2026-10-18",
+   "location": "",
+   "migrated_from_v1": true,
+   "notified_at": "2026-10-18T10:03:12.964641+00:00",
+   "status": "open",
+   "title": "Graduate Trader",
+   "url": "https://job-boards.greenhouse.io/flowtraders/jobs/4782837"
   },
   "greenhouse:flowtraders:7064123": {
-    "company": "Flow Traders",
-    "title": "Python Engineer, Trading Automation ",
-    "first_seen": "2026-10-18T10:03:12.964641+00:00"
+   "company": "Flow Traders",
+   "fingerprints": [
+    "id:greenhouse:flowtraders:7064123",
+    "title:flow traders:python engineer trading automation:"
+   ],
+   "first_seen": "2026-10-18T10:03:12.964641+00:00",
+   "last_seen": "",
+   "location": "",
+   "migrated_from_v1": true,
+   "notified_at": "2026-10-18T10:03:12.964641+00:00",
+   "status": "unknown",
+   "title": "Python Engineer, Trading Automation",
+   "url": ""
+  },
+  "greenhouse:flowtraders:7708220": {
+   "company": "Flow Traders",
+   "fingerprints": [
+    "id:greenhouse:flowtraders:7708220",
+    "title:flow traders:delta one trader:"
+   ],
+   "first_seen": "2026-10-18T10:03:12.964641+00:00",
+   "last_seen": "",
+   "location": "",
+   "migrated_from_v1": true,
+   "notified_at": "2026-10-18T10:03:12.964641+00:00",
+   "status": "unknown",
+   "title": "Delta One Trader",
+   "url": ""
+  },
+  "greenhouse:flowtraders:7770955": {
+   "company": "Flow Traders",
+   "fingerprints": [
+    "id:greenhouse:flowtraders:7770955",
+    "title:flow traders:digital assets trader:"
+   ],
+   "first_seen": "2026-10-18T10:03:12.964641+00:00",
+   "last_seen": "",
+   "location": "",
+   "migrated_from_v1": true,
+   "notified_at": "2026-10-18T10:03:12.964641+00:00",
+   "status": "unknown",
+   "title": "Digital Assets Trader",
+   "url": ""
   },
   "greenhouse:flowtraders:8102618": {
-    "company": "Flow Traders",
-    "title": "Trading Intern ",
-    "first_seen": "2026-10-18T10:03:12.964641+00:00"
+   "company": "Flow Traders",
+   "fingerprints": [
+    "id:greenhouse:flowtraders:8102618",
+    "title:flow traders:trading intern:",
+    "req:flow traders:1670",
+    "url:https://job-boards.greenhouse.io/flowtraders/jobs/8102618",
+    "title:flow traders:trading intern:hong kong"
+   ],
+   "first_seen": "2026-10-18T10:03:12.964641+00:00",
+   "last_seen": "2026-10-18",
+   "location": "",
+   "migrated_from_v1": true,
+   "notified_at": "2026-10-18T10:03:12.964641+00:00",
+   "status": "open",
+   "title": "Trading Intern",
+   "url": "https://job-boards.greenhouse.io/flowtraders/jobs/8102618"
   },
-  "greenhouse:imc:4948205101": {
-    "company": "IMC Trading",
-    "title": "Commodities Analyst – China",
-    "first_seen": "2026-10-18T10:18:49.082362+00:00"
+  "greenhouse:imc:4787639101": {
+   "company": "IMC Trading",
+   "fingerprints": [
+    "id:greenhouse:imc:4787639101",
+    "title:imc trading:quantitative trader equities strategy monetization:"
+   ],
+   "first_seen": "2026-10-18T10:03:12.964641+00:00",
+   "last_seen": "",
+   "location": "",
+   "migrated_from_v1": true,
+   "notified_at": "2026-10-18T10:03:12.964641+00:00",
+   "status": "unknown",
+   "title": "Quantitative Trader – Equities (Strategy Monetization)",
+   "url": ""
+  },
+  "greenhouse:imc:4787640101": {
+   "company": "IMC Trading",
+   "fingerprints": [
+    "id:greenhouse:imc:4787640101",
+    "title:imc trading:quantitative trader equities live trading:"
+   ],
+   "first_seen": "2026-10-18T10:03:12.964641+00:00",
+   "last_seen": "",
+   "location": "",
+   "migrated_from_v1": true,
+   "notified_at": "2026-10-18T10:03:12.964641+00:00",
+   "status": "unknown",
+   "title": "Quantitative Trader – Equities (Live Trading)",
+   "url": ""
+  },
+  "greenhouse:imc:4941205101": {
+   "company": "IMC Trading",
+   "fingerprints": [
+    "id:greenhouse:imc:4941205101",
+    "title:imc trading:quantitative trader intern 2027:",
+    "req:imc trading:req-04825",
+    "url:https://job-boards.eu.greenhouse.io/imc/jobs/4941205101",
+    "title:imc trading:quantitative trader intern 2027:hong kong"
+   ],
+   "first_seen": "2026-10-18T10:03:12.964641+00:00",
+   "last_seen": "2026-10-18",
+   "location": "",
+   "migrated_from_v1": true,
+   "notified_at": "2026-10-18T10:03:12.964641+00:00",
+   "status": "open",
+   "title": "Quantitative Trader Intern 2027",
+   "url": "https://job-boards.eu.greenhouse.io/imc/jobs/4941205101"
   },
   "greenhouse:imc:4941208101": {
-    "company": "IMC Trading",
-    "title": "Quantitative Research Intern 2027",
-    "first_seen": "2026-10-18T10:18:49.082362+00:00"
+   "company": "IMC Trading",
+   "fingerprints": [
+    "id:greenhouse:imc:4941208101",
+    "title:imc trading:quantitative research intern 2027:"
+   ],
+   "first_seen": "2026-10-18T10:18:49.082362+00:00",
+   "last_seen": "",
+   "location": "",
+   "migrated_from_v1": true,
+   "notified_at": "2026-10-18T10:18:49.082362+00:00",
+   "status": "unknown",
+   "title": "Quantitative Research Intern 2027",
+   "url": ""
+  },
+  "greenhouse:imc:4948205101": {
+   "company": "IMC Trading",
+   "fingerprints": [
+    "id:greenhouse:imc:4948205101",
+    "title:imc trading:commodities analyst china:"
+   ],
+   "first_seen": "2026-10-18T10:18:49.082362+00:00",
+   "last_seen": "",
+   "location": "",
+   "migrated_from_v1": true,
+   "notified_at": "2026-10-18T10:18:49.082362+00:00",
+   "status": "unknown",
+   "title": "Commodities Analyst – China",
+   "url": ""
+  },
+  "oracle:jpmc:210796987": {
+   "company": "JPMorgan",
+   "fingerprints": [
+    "id:oracle:jpmc:210796987",
+    "req:jpmorgan:210796987",
+    "url:https://jpmc.fa.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/210796987",
+    "title:jpmorgan:currencies and emerging markets sales analyst:singapore"
+   ],
+   "first_seen": "2026-10-18T12:30:14+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Singapore",
+   "notified_at": "2026-10-18T12:30:14+00:00",
+   "status": "open",
+   "title": "Currencies and Emerging Markets Sales – Analyst",
+   "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210796987"
+  },
+  "oracle:jpmc:210796999": {
+   "company": "JPMorgan",
+   "fingerprints": [
+    "id:oracle:jpmc:210796999",
+    "req:jpmorgan:210796999",
+    "url:https://jpmc.fa.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/210796999",
+    "title:jpmorgan:commercial investment bank rates trading analyst:singapore"
+   ],
+   "first_seen": "2026-10-18T12:30:15+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Singapore",
+   "notified_at": "2026-10-18T12:30:15+00:00",
+   "status": "open",
+   "title": "Commercial & Investment Bank - Rates Trading – Analyst",
+   "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210796999"
+  },
+  "oracle:jpmc:210797827": {
+   "company": "JPMorgan",
+   "fingerprints": [
+    "id:oracle:jpmc:210797827",
+    "req:jpmorgan:210797827",
+    "url:https://jpmc.fa.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/210797827",
+    "title:jpmorgan:commercial investment bank ficc electronic sales analyst:singapore"
+   ],
+   "first_seen": "2026-10-18T12:30:10+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Singapore",
+   "notified_at": "2026-10-18T12:30:10+00:00",
+   "status": "open",
+   "title": "Commercial & Investment Bank, FICC Electronic Sales – Analyst",
+   "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210797827"
+  },
+  "sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/equity-research-intern-bernstein-hong-kong-summer-2027-26000LB7-en": {
+   "company": "Société Générale",
+   "fingerprints": [
+    "id:sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/equity-research-intern-bernstein-hong-kong-summer-2027-26000LB7-en",
+    "req:societe generale:26000lb7",
+    "url:https://careers.societegenerale.com/en/job-offers/equity-research-intern-bernstein-hong-kong-summer-2027-26000lb7",
+    "title:societe generale:equity research intern bernstein hong kong summer 2027:hong kong"
+   ],
+   "first_seen": "2026-10-18T12:30:11+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Hong Kong, Hong Kong",
+   "notified_at": "2026-10-18T12:30:11+00:00",
+   "status": "open",
+   "title": "Equity Research Intern (Bernstein - Hong Kong Summer 2027)",
+   "url": "https://careers.societegenerale.com/en/job-offers/equity-research-intern-bernstein-hong-kong-summer-2027-26000LB7-en"
+  },
+  "sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/trainee-12-months-contract-fixed-income-esales-26000L5L-en": {
+   "company": "Société Générale",
+   "fingerprints": [
+    "id:sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/trainee-12-months-contract-fixed-income-esales-26000L5L-en",
+    "req:societe generale:26000l5l",
+    "url:https://careers.societegenerale.com/en/job-offers/trainee-12-months-contract-fixed-income-esales-26000l5l",
+    "title:societe generale:trainee 12 months contract fixed income esales:singapore"
+   ],
+   "first_seen": "2026-10-18T12:30:18+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Singapore, Singapore",
+   "notified_at": "2026-10-18T12:30:18+00:00",
+   "status": "open",
+   "title": "Trainee - 12 months contract - Fixed Income eSales",
+   "url": "https://careers.societegenerale.com/en/job-offers/trainee-12-months-contract-fixed-income-esales-26000L5L-en"
+  },
+  "sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/trainee-12-months-contract-global-markets-research-strategy-26000LB5-en": {
+   "company": "Société Générale",
+   "fingerprints": [
+    "id:sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/trainee-12-months-contract-global-markets-research-strategy-26000LB5-en",
+    "req:societe generale:26000lb5",
+    "url:https://careers.societegenerale.com/en/job-offers/trainee-12-months-contract-global-markets-research-strategy-26000lb5",
+    "title:societe generale:trainee 12 months contract global markets research strategy:singapore"
+   ],
+   "first_seen": "2026-10-18T12:30:12+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Singapore, Singapore",
+   "notified_at": "2026-10-18T12:30:12+00:00",
+   "status": "open",
+   "title": "Trainee – 12 months’ Contract – Global Markets Research & Strategy",
+   "url": "https://careers.societegenerale.com/en/job-offers/trainee-12-months-contract-global-markets-research-strategy-26000LB5-en"
+  },
+  "sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/trainee-deltaone-trader-assistant-26000LFW-en": {
+   "company": "Société Générale",
+   "fingerprints": [
+    "id:sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/trainee-deltaone-trader-assistant-26000LFW-en",
+    "req:societe generale:26000lfw",
+    "url:https://careers.societegenerale.com/en/job-offers/trainee-deltaone-trader-assistant-26000lfw",
+    "title:societe generale:trainee deltaone trader assistant:hong kong"
+   ],
+   "first_seen": "2026-10-18T12:30:06+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Hong Kong, Hong Kong",
+   "notified_at": "2026-10-18T12:30:06+00:00",
+   "status": "open",
+   "title": "TRAINEE: Deltaone Trader Assistant",
+   "url": "https://careers.societegenerale.com/en/job-offers/trainee-deltaone-trader-assistant-26000LFW-en"
+  },
+  "sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/trainee-sales-assistant-26000M1T-en": {
+   "company": "Société Générale",
+   "fingerprints": [
+    "id:sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/trainee-sales-assistant-26000M1T-en",
+    "req:societe generale:26000m1t",
+    "url:https://careers.societegenerale.com/en/job-offers/trainee-sales-assistant-26000m1t",
+    "title:societe generale:trainee sales assistant:hong kong"
+   ],
+   "first_seen": "2026-10-18T12:29:57+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Hong Kong, Hong Kong",
+   "notified_at": "2026-10-18T12:29:57+00:00",
+   "status": "open",
+   "title": "TRAINEE: Sales Assistant",
+   "url": "https://careers.societegenerale.com/en/job-offers/trainee-sales-assistant-26000M1T-en"
+  },
+  "workday:barclays:JR-0000133325": {
+   "company": "Barclays",
+   "fingerprints": [
+    "id:workday:barclays:JR-0000133325",
+    "req:barclays:jr-0000133325",
+    "url:https://barclays.wd3.myworkdayjobs.com/external_career_site_barclays/job/canary-wharf-1-churchill-place/trading---sales-assistant---macro_jr-0000133325",
+    "title:barclays:trading sales assistant macro:london"
+   ],
+   "first_seen": "2026-10-18T12:29:49+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Canary Wharf, 1 Churchill Place",
+   "notified_at": "2026-10-18T12:29:49+00:00",
+   "status": "open",
+   "title": "Trading & Sales Assistant - Macro",
+   "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays/job/Canary-Wharf-1-Churchill-Place/Trading---Sales-Assistant---Macro_JR-0000133325"
+  },
+  "workday:citi:26984811": {
+   "company": "Citi",
+   "fingerprints": [
+    "id:workday:citi:26984811",
+    "req:citi:26984811",
+    "url:https://citi.wd5.myworkdayjobs.com/2/job/london--united-kingdom/markets---sales-and-trading--full-time-analyst--london---united-kingdom--2027_26984811",
+    "title:citi:markets sales and trading full time analyst london united kingdom 2027:london"
+   ],
+   "first_seen": "2026-10-18T12:29:55+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London United Kingdom",
+   "notified_at": "2026-10-18T12:29:55+00:00",
+   "status": "open",
+   "title": "Markets – Sales and Trading, Full Time Analyst, London – United Kingdom, 2027",
+   "url": "https://citi.wd5.myworkdayjobs.com/2/job/London--United-Kingdom/Markets---Sales-and-Trading--Full-Time-Analyst--London---United-Kingdom--2027_26984811"
+  },
+  "workday:citi:26987141": {
+   "company": "Citi",
+   "fingerprints": [
+    "id:workday:citi:26987141",
+    "req:citi:26987141",
+    "url:https://citi.wd5.myworkdayjobs.com/2/job/london--united-kingdom/markets---sales-and-trading--summer-analyst--london---united-kingdom--2027_26987141",
+    "title:citi:markets sales and trading summer analyst london united kingdom 2027:london"
+   ],
+   "first_seen": "2026-10-18T12:29:53+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London United Kingdom",
+   "notified_at": "2026-10-18T12:29:53+00:00",
+   "status": "open",
+   "title": "Markets – Sales and Trading, Summer Analyst, London – United Kingdom, 2027",
+   "url": "https://citi.wd5.myworkdayjobs.com/2/job/London--United-Kingdom/Markets---Sales-and-Trading--Summer-Analyst--London---United-Kingdom--2027_26987141"
+  },
+  "workday:db:R0446171": {
+   "company": "Deutsche Bank",
+   "fingerprints": [
+    "id:workday:db:R0446171",
+    "req:deutsche bank:r0446171",
+    "url:https://db.wd3.myworkdayjobs.com/dbwebsite/job/paris/credit-sales-intern-france--f-m-x-_r0446171",
+    "title:deutsche bank:credit sales intern france:paris"
+   ],
+   "first_seen": "2026-10-18T12:30:02+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Paris",
+   "notified_at": "2026-10-18T12:30:02+00:00",
+   "status": "open",
+   "title": "Credit Sales Intern France (f/m/x)",
+   "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/Paris/Credit-Sales-Intern-France--f-m-x-_R0446171"
+  },
+  "workday:db:R0453173": {
+   "company": "Deutsche Bank",
+   "fingerprints": [
+    "id:workday:db:R0453173",
+    "req:deutsche bank:r0453173",
+    "url:https://db.wd3.myworkdayjobs.com/dbwebsite/job/paris/cross-asset-structured-products-sales-intern--f-m-x-_r0453173",
+    "title:deutsche bank:cross asset structured products sales intern:paris"
+   ],
+   "first_seen": "2026-10-18T12:30:05+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Paris",
+   "notified_at": "2026-10-18T12:30:05+00:00",
+   "status": "open",
+   "title": "Cross-Asset Structured Products Sales Intern (f/m/x)",
+   "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/Paris/Cross-Asset-Structured-Products-Sales-Intern--f-m-x-_R0453173"
+  },
+  "workday:db:R0453673": {
+   "company": "Deutsche Bank",
+   "fingerprints": [
+    "id:workday:db:R0453673",
+    "req:deutsche bank:r0453673",
+    "url:https://db.wd3.myworkdayjobs.com/dbwebsite/job/paris/rates-flow---solutions-sales-intern--f-m-x-_r0453673",
+    "title:deutsche bank:rates flow solutions sales intern:paris"
+   ],
+   "first_seen": "2026-10-18T12:30:01+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Paris",
+   "notified_at": "2026-10-18T12:30:01+00:00",
+   "status": "open",
+   "title": "Rates Flow & Solutions Sales Intern (f/m/x)",
+   "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/Paris/Rates-Flow---Solutions-Sales-Intern--f-m-x-_R0453673"
+  },
+  "workday:db:R0453676": {
+   "company": "Deutsche Bank",
+   "fingerprints": [
+    "id:workday:db:R0453676",
+    "req:deutsche bank:r0453676",
+    "url:https://db.wd3.myworkdayjobs.com/dbwebsite/job/paris/structured-finance-sales-intern--f-m-x-_r0453676",
+    "title:deutsche bank:structured finance sales intern:paris"
+   ],
+   "first_seen": "2026-10-18T12:30:03+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Paris",
+   "notified_at": "2026-10-18T12:30:03+00:00",
+   "status": "open",
+   "title": "Structured Finance Sales Intern (f/m/x)",
+   "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/Paris/Structured-Finance-Sales-Intern--f-m-x-_R0453676"
+  },
+  "workday:ms:JR036766": {
+   "company": "Morgan Stanley",
+   "fingerprints": [
+    "id:workday:ms:JR036766",
+    "req:morgan stanley:jr036766",
+    "url:https://ms.wd5.myworkdayjobs.com/external/job/london-united-kingdom/investment-management---trading-assistant---analyst_jr036766",
+    "title:morgan stanley:investment management trading assistant analyst:london"
+   ],
+   "first_seen": "2026-10-18T12:30:16+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London, United Kingdom",
+   "notified_at": "2026-10-18T12:30:16+00:00",
+   "status": "open",
+   "title": "Investment Management - Trading Assistant - Analyst",
+   "url": "https://ms.wd5.myworkdayjobs.com/External/job/London-United-Kingdom/Investment-Management---Trading-Assistant---Analyst_JR036766"
+  },
+  "workday:mufgub:10079356-WD": {
+   "company": "MUFG",
+   "fingerprints": [
+    "id:workday:mufgub:10079356-WD",
+    "req:mufg:10079356-wd",
+    "url:https://mufgub.wd3.myworkdayjobs.com/mufg-careers/job/london/xmlname-2027-mufg-uk-summer-analyst-programme--structured-trading-group_10079356-wd-1",
+    "title:mufg:2027 mufg uk summer analyst programme structured trading group:london"
+   ],
+   "first_seen": "2026-10-18T12:29:56+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London",
+   "notified_at": "2026-10-18T12:29:56+00:00",
+   "status": "open",
+   "title": "2027 MUFG UK Summer Analyst Programme: Structured Trading Group",
+   "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/London/XMLNAME-2027-MUFG-UK-Summer-Analyst-Programme--Structured-Trading-Group_10079356-WD-1"
   }
+ },
+ "sources": {
+  "Bank of America": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Barclays": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "BlackRock": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "CIBC": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "CITIC CLSA (CITIC Securities)": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Citi": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Crédit Agricole CIB": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "DRW": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Deutsche Bank": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Flow Traders": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Goldman Sachs": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "HSBC": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Haitong International": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Hudson River Trading": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "IMC Trading": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "JPMorgan": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Jane Street": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Jump Trading": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "MUFG": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Morgan Stanley": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Nomura": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Optiver": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Pictet": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Point72": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "RBC": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Société Générale": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Squarepoint Capital": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Standard Chartered": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Tower Research Capital": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "Virtu Financial": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  },
+  "XTX Markets": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-18"
+  }
+ },
+ "version": 2
 }
