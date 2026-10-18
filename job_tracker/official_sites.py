@@ -155,7 +155,7 @@ def fetch_sitemap_jobs(source):
                 rejected['closed'] += 1
                 continue
             # A title and relevant slug alone are insufficient to validate a posting.
-            if not re.search(r'(?i)(?:apply now|apply for this|job description|job reference|requisition id|job id)', body[:6000]):
+            if not (re.search(r'(?i)(?:apply now|apply for this|job description|job reference|requisition id|job id|apply to this job|apply for job|postuler|candidater)', body) or soup.select_one('a[href*="apply"], button[class*="apply"], [data-automation-id*="apply"]')):
                 rejected['no_job_detail'] += 1
                 if len(samples) < 3:
                     samples.append({'reason':'no_job_detail','url':link,'h1':title[:100], 'page_title':(soup.title.get_text(' ',strip=True) if soup.title else '')[:120], 'text_excerpt':body[:160]})
@@ -184,6 +184,14 @@ def fetch_sitemap_jobs(source):
                             addr = entry.get('address') or {}
                             if isinstance(addr, dict):
                                 location_text += ' ' + ' '.join(str(addr.get(k) or '') for k in ('addressLocality','addressRegion','addressCountry'))
+            # Vacancy title and Citi URL location segments are authoritative fallbacks;
+            # never infer location from global page navigation.
+            if not location_text:
+                location_text = (soup.title.get_text(' ', strip=True) if soup.title else '')
+            if source['company'].lower() == 'citi':
+                segments = urlparse(link).path.strip('/').split('/')
+                if len(segments) > 2 and segments[0] == 'job':
+                    location_text += ' ' + segments[1].replace('-', ' ')
             locs = sorted(set(re.findall(r'(?i)\\b(?:Hong Kong|Singapore|Paris|London|Kowloon)\\b', location_text)))
             if not locs:
                 rejected['no_location'] += 1
