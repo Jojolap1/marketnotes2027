@@ -2,6 +2,8 @@
 name: Sales Trading Job Tracker
 
 on:
+  push:
+    branches: [feature/official-bank-careers]
   workflow_dispatch:
   schedule:
     - cron: "0 * * * *"
