@@ -77,7 +77,9 @@ def matches(job):
         return False
     entry_signal = any(re.search(p, title, re.I) for p in CONFIG['entry_title_patterns'])
     # Keep junior / internships / VIE; do not assume an unqualified "Trader" is junior.
-    if CONFIG.get('require_entry_signal', True) and not entry_signal:
+    # An otherwise unqualified Analyst may qualify only with explicit entry-level evidence.
+    explicit_entry = bool(re.search(r'(?i)\b(?:entry[ -]?level|no (?:prior|previous) experience|recent graduate|0\s*(?:-|–|to|or)\s*1\s+years?)\b', description))
+    if CONFIG.get('require_entry_signal', True) and not (entry_signal or (re.search(r'(?i)\banalyst\b', title) and explicit_entry)):
         return False
     # Reject explicit requirements above the user's maximum, including ranges.
     # Avoid treating years in company histories as job requirements.
