@@ -1,0 +1,109 @@
+{
+  "location_patterns": [
+    "hong\\s*kong",
+    "singapore",
+    "paris",
+    "london",
+    "greater london"
+  ],
+  "include_title_patterns": [
+    "\\bsales\\b",
+    "\\bsalesperson\\b",
+    "\\btrading\\b",
+    "\\btrader\\b",
+    "\\bstructur\\w*",
+    "\\bmarket mak\\w*",
+    "\\bportfolio manag\\w*",
+    "\\basset manag\\w*",
+    "\\binvestment manag\\w*",
+    "\\binvestment analyst\\b",
+    "\\bresearch analyst\\b",
+    "\\bquantitative research\\b",
+    "\\bquantitative trader\\b",
+    "\\bexecution\\s+(?:trader|trading)\\b",
+    "\\b(?:fx|equity|equities|credit|rates|fixed income|macro|commodit\\w*|derivatives|multi.asset|etf|bonds?|fic)\\b"
+  ],
+  "exclude_title_patterns": [
+    "\\bsenior\\b",
+    "\\bsr\\.?\\b",
+    "\\bdirector\\b",
+    "\\bvice president\\b",
+    "\\b(?:svp|evp|avp|vp)\\b",
+    "\\bhead of\\b",
+    "\\bprincipal\\b",
+    "\\bmanaging director\\b",
+    "\\bteam lead\\b",
+    "\\blead (?:trader|analyst|portfolio|sales)\\b",
+    "\\bassociate director\\b"
+  ],
+  "max_notifications_per_run": 20,
+  "sources": [
+    {
+      "platform": "greenhouse",
+      "company": "Citadel",
+      "board": "citadel"
+    },
+    {
+      "platform": "greenhouse",
+      "company": "IMC Trading",
+      "board": "imc"
+    },
+    {
+      "platform": "greenhouse",
+      "company": "Optiver",
+      "board": "optiver"
+    },
+    {
+      "platform": "greenhouse",
+      "company": "Flow Traders",
+      "board": "flowtraders"
+    },
+    {
+      "platform": "greenhouse",
+      "company": "Wintermute",
+      "board": "wintermute"
+    }
+  ],
+  "entry_title_patterns": [
+    "\\bintern\\w*\\b",
+    "\\bstagiaire\\b",
+    "\\bstage\\b",
+    "\\boff[ -]?cycle\\b",
+    "\\bsummer\\b",
+    "\\bgraduate\\b",
+    "\\bnew grad\\b",
+    "\\bjunior\\b",
+    "\\bentry[ -]?level\\b",
+    "\\bvie\\b",
+    "\\bv\\.i\\.e\\.?\\b",
+    "\\banalyst\\b",
+    "\\btrainee\\b",
+    "\\bapprentice\\b",
+    "\\balternan\\w*\\b",
+    "\\bworking student\\b"
+  ],
+  "senior_description_patterns": [
+    "\\b(?:minimum|at least|more than|over|minimum of)\\s+(?:[4-9]|\\d{2,})\\+?\\s+years?\\b",
+    "\\b(?:[4-9]|\\d{2,})\\+\\s+years?\\s+(?:of\\s+)?(?:relevant\\s+)?experience\\b",
+    "\\b(?:[4-9]|\\d{2,})\\s*(?:-|to)\\s*\\d+\\s+years?\\b",
+    "\\b(?:required|requires?)\\s+(?:a\\s+minimum\\s+of\\s+)?(?:[4-9]|\\d{2,})\\+?\\s+years?\\b"
+  ],
+  "non_finance_title_patterns": [
+    "\\bsoftware\\b",
+    "\\bengineer(?:ing)?\\b",
+    "\\bdeveloper\\b",
+    "\\bproduct manager\\b",
+    "\\bmarketing\\b",
+    "\\bhuman resources\\b",
+    "\\brecruit\\w*\\b",
+    "\\bcompliance\\b",
+    "\\blegal\\b",
+    "\\baccounting\\b",
+    "\\boperations\\b",
+    "\\bdata engineer\\b",
+    "\\bdesign\\w*\\b",
+    "\\bbusiness development\\b"
+  ],
+  "max_years_experience": 3,
+  "require_entry_signal": true
+}
