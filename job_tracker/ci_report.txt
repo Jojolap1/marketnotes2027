@@ -1,6 +1,6 @@
 # Automated tracker validation
-Commit: b974cd7260f80b70d3975413a867f0204df6570b
-Run: 39122850489
+Commit: 832e6367ac54fc75ca21734c5342e7d5e1ff568b
+Run: 39122998625
 
 ## Unit tests
 test_analyst_explicit_entry_allowed (test_tracker.JobFilterTests.test_analyst_explicit_entry_allowed) ... ok
@@ -16,18 +16,16 @@ test_unqualified_analyst_rejected (test_tracker.JobFilterTests.test_unqualified_
 test_vp_rejected (test_tracker.JobFilterTests.test_vp_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 11 tests in 0.006s
+Ran 11 tests in 0.005s
 
 OK
 
 ## Tracker summary
-WARNING Source unavailable (JPMorgan Chase): ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 WARNING Source unavailable (BNP Paribas): 403 Client Error: Forbidden for url: https://group.bnpparibas/en/careers
 INFO Société Générale sitemap: 653 URLs discovered, 48 junior finance slug candidates, 48 selected
 INFO Société Générale sitemap result: 9 verified candidates; 0 HTTP errors; rejected={'no_title': 0, 'closed': 0, 'no_job_detail': 0, 'no_location': 39}
-INFO Citi sitemap: 3051 URLs discovered, 94 junior finance slug candidates, 80 selected
-INFO Citi sitemap result: 15 verified candidates; 0 HTTP errors; rejected={'no_title': 0, 'closed': 0, 'no_job_detail': 0, 'no_location': 65}
-INFO Citi rejection sample: {'reason': 'no_location', 'url': 'https://jobs.citi.com/job/new-york/investment-banking-analyst-equity-capital-markets/287/102007423536', 'h1': 'Investment Banking Analyst - Equity Capital Markets', 'page_title': 'Investment Banking Analyst - Equity Capital Markets | Citi Careers', 'text_excerpt': 'Investment Banking Analyst - Equity Capital Markets | Citi Careers Skip to main content Menu Careers Search Jobs Saved Jobs Search Jobs Why Citi About Us People'}
+INFO Citi sitemap: 3051 URLs discovered, 15 junior finance slug candidates, 15 selected
+INFO Citi sitemap result: 15 verified candidates; 0 HTTP errors; rejected={'no_title': 0, 'closed': 0, 'no_job_detail': 0, 'no_location': 0}
 WARNING Source unavailable (UBS): 403 Client Error: Forbidden for url: https://www.ubs.com/global/en/careers.html
 WARNING Source unavailable (CICC): 521 Server Error:  for url: https://www.cicc.com/
 INFO 15 matching jobs, 11 new
