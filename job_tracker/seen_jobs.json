@@ -96,6 +96,54 @@
    "title": "2026 | APEJ | Singapore | FICC and Equities, Sales and Trading | New Analyst",
    "url": "https://higher.gs.com/roles/150689"
   },
+  "goldman:150792": {
+   "company": "Goldman Sachs",
+   "fingerprints": [
+    "id:goldman:150792",
+    "req:goldman sachs:150792",
+    "url:https://higher.gs.com/roles/150792",
+    "title:goldman sachs:2026 emea paris ficc equities sales trading seasonal off cycle internship july december:paris"
+   ],
+   "first_seen": "2026-10-18T15:01:47+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Paris, Ile-de-France, France",
+   "notified_at": "2026-10-18T15:01:47+00:00",
+   "status": "open",
+   "title": "2026 | EMEA | Paris | FICC & Equities (Sales & Trading) | Seasonal/Off Cycle Internship, July - December",
+   "url": "https://higher.gs.com/roles/150792"
+  },
+  "goldman:171437": {
+   "company": "Goldman Sachs",
+   "fingerprints": [
+    "id:goldman:171437",
+    "req:goldman sachs:171437",
+    "url:https://higher.gs.com/roles/171437",
+    "title:goldman sachs:2027 emea london ficc equities sales trading seasonal offcycle:london"
+   ],
+   "first_seen": "2026-10-18T15:01:16+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London, Greater London, England, United Kingdom",
+   "notified_at": "2026-10-18T15:01:16+00:00",
+   "status": "open",
+   "title": "2027 | EMEA | London | FICC & Equities (Sales & Trading) | Seasonal/OffCycle",
+   "url": "https://higher.gs.com/roles/171437"
+  },
+  "goldman:171438": {
+   "company": "Goldman Sachs",
+   "fingerprints": [
+    "id:goldman:171438",
+    "req:goldman sachs:171438",
+    "url:https://higher.gs.com/roles/171438",
+    "title:goldman sachs:2027 emea paris ficc equities sales trading seasonal offcycle:paris"
+   ],
+   "first_seen": "2026-10-18T15:01:15+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Paris, Ile-de-France, France",
+   "notified_at": "2026-10-18T15:01:15+00:00",
+   "status": "open",
+   "title": "2027 | EMEA | Paris | FICC & Equities (Sales & Trading) | Seasonal/OffCycle",
+   "url": "https://higher.gs.com/roles/171438"
+  },
   "goldman:174813": {
    "company": "Goldman Sachs",
    "fingerprints": [
@@ -127,6 +175,38 @@
    "status": "open",
    "title": "2027 | EMEA | London | FICC and Equities (Sales and Trading) Quantitative Strats | Internship",
    "url": "https://higher.gs.com/roles/175424"
+  },
+  "goldman:180086": {
+   "company": "Goldman Sachs",
+   "fingerprints": [
+    "id:goldman:180086",
+    "req:goldman sachs:180086",
+    "url:https://higher.gs.com/roles/180086",
+    "title:goldman sachs:2027 apej hong kong global investment research macro research economics seasonal off cycle internship:hong kong"
+   ],
+   "first_seen": "2026-10-18T15:01:18+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Hong Kong, Hong Kong",
+   "notified_at": "2026-10-18T15:01:18+00:00",
+   "status": "open",
+   "title": "2027 | APEJ | Hong Kong | Global Investment Research, Macro Research, Economics | Seasonal / Off-cycle Internship",
+   "url": "https://higher.gs.com/roles/180086"
+  },
+  "goldman:183898": {
+   "company": "Goldman Sachs",
+   "fingerprints": [
+    "id:goldman:183898",
+    "req:goldman sachs:183898",
+    "url:https://higher.gs.com/roles/183898",
+    "title:goldman sachs:2026 apej hong kong global investment research macro portfolio strategy seasonal off cycle internship:hong kong"
+   ],
+   "first_seen": "2026-10-18T15:01:19+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Hong Kong, Hong Kong",
+   "notified_at": "2026-10-18T15:01:19+00:00",
+   "status": "open",
+   "title": "2026 | APEJ | Hong Kong | Global Investment Research, Macro, Portfolio Strategy | Seasonal / Off-cycle Internship",
+   "url": "https://higher.gs.com/roles/183898"
   },
   "greenhouse:flowtraders:4782837": {
    "company": "Flow Traders",
@@ -287,6 +367,181 @@
    "title": "Commodities Analyst – China",
    "url": ""
   },
+  "greenhouse:jumptrading:8027922": {
+   "company": "Jump Trading",
+   "fingerprints": [
+    "id:greenhouse:jumptrading:8027922",
+    "url:https://jumptrading.com/hr/job?gh_jid=8027922",
+    "title:jump trading:campus quantitative trader intern:hong kong"
+   ],
+   "first_seen": "2026-10-18T15:01:45+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Hong Kong; Shanghai",
+   "notified_at": "2026-10-18T15:01:45+00:00",
+   "status": "open",
+   "title": "Campus Quantitative Trader (Intern)",
+   "url": "https://www.jumptrading.com/hr/job?gh_jid=8027922"
+  },
+  "greenhouse:squarepointcapital:8143287": {
+   "company": "Squarepoint Capital",
+   "fingerprints": [
+    "id:greenhouse:squarepointcapital:8143287",
+    "req:squarepoint capital:101948",
+    "url:https://squarepoint-capital.com/open-opportunities?gh_jid=8143287&id=8143287",
+    "title:squarepoint capital:junior execution trader equity:singapore"
+   ],
+   "first_seen": "2026-10-18T15:01:23+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Singapore",
+   "notified_at": "2026-10-18T15:01:23+00:00",
+   "status": "open",
+   "title": "Junior Execution Trader - Equity",
+   "url": "https://www.squarepoint-capital.com/open-opportunities?id=8143287&gh_jid=8143287"
+  },
+  "greenhouse:towerresearchcapital:8037824": {
+   "company": "Tower Research Capital",
+   "fingerprints": [
+    "id:greenhouse:towerresearchcapital:8037824",
+    "req:tower research capital:1486",
+    "url:https://tower-research.com/open-positions?gh_jid=8037824",
+    "title:tower research capital:quantitative trader researcher graduate programme 2027:london"
+   ],
+   "first_seen": "2026-10-18T15:01:37+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London",
+   "notified_at": "2026-10-18T15:01:37+00:00",
+   "status": "open",
+   "title": "Quantitative Trader/Researcher Graduate Programme 2027",
+   "url": "https://www.tower-research.com/open-positions/?gh_jid=8037824"
+  },
+  "greenhouse:towerresearchcapital:8037860": {
+   "company": "Tower Research Capital",
+   "fingerprints": [
+    "id:greenhouse:towerresearchcapital:8037860",
+    "req:tower research capital:1487",
+    "url:https://tower-research.com/open-positions?gh_jid=8037860",
+    "title:tower research capital:quantitative trader researcher summer internship 2027 2028 graduates:london"
+   ],
+   "first_seen": "2026-10-18T15:01:39+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London",
+   "notified_at": "2026-10-18T15:01:39+00:00",
+   "status": "open",
+   "title": "Quantitative Trader/Researcher Summer Internship 2027 (2028 Graduates)",
+   "url": "https://www.tower-research.com/open-positions/?gh_jid=8037860"
+  },
+  "oracle:jpmc:210775295": {
+   "company": "JPMorgan",
+   "fingerprints": [
+    "id:oracle:jpmc:210775295",
+    "req:jpmorgan:210775295",
+    "url:https://jpmc.fa.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/210775295",
+    "title:jpmorgan:2027 asset management investments summer internship program london:london"
+   ],
+   "first_seen": "2026-10-18T15:01:40+00:00",
+   "last_seen": "2026-10-18",
+   "location": "LONDON, LONDON, United Kingdom",
+   "notified_at": "2026-10-18T15:01:40+00:00",
+   "status": "open",
+   "title": "2027 Asset Management Investments - Summer Internship Program - London",
+   "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210775295"
+  },
+  "oracle:jpmc:210780517": {
+   "company": "JPMorgan",
+   "fingerprints": [
+    "id:oracle:jpmc:210780517",
+    "req:jpmorgan:210780517",
+    "url:https://jpmc.fa.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/210780517",
+    "title:jpmorgan:2027 global markets summer internship london:london"
+   ],
+   "first_seen": "2026-10-18T15:01:41+00:00",
+   "last_seen": "2026-10-18",
+   "location": "LONDON, LONDON, United Kingdom",
+   "notified_at": "2026-10-18T15:01:41+00:00",
+   "status": "open",
+   "title": "2027 – Global Markets – Summer Internship - London",
+   "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210780517"
+  },
+  "oracle:jpmc:210780555": {
+   "company": "JPMorgan",
+   "fingerprints": [
+    "id:oracle:jpmc:210780555",
+    "req:jpmorgan:210780555",
+    "url:https://jpmc.fa.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/210780555",
+    "title:jpmorgan:2027 sales summer internship london:london"
+   ],
+   "first_seen": "2026-10-18T15:01:43+00:00",
+   "last_seen": "2026-10-18",
+   "location": "LONDON, LONDON, United Kingdom",
+   "notified_at": "2026-10-18T15:01:43+00:00",
+   "status": "open",
+   "title": "2027 – Sales – Summer Internship - London",
+   "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210780555"
+  },
+  "oracle:jpmc:210784366": {
+   "company": "JPMorgan",
+   "fingerprints": [
+    "id:oracle:jpmc:210784366",
+    "req:jpmorgan:210784366",
+    "url:https://jpmc.fa.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/210784366",
+    "title:jpmorgan:2027 markets quantitative trading research analyst program off cycle internship singapore:singapore"
+   ],
+   "first_seen": "2026-10-18T15:01:24+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Singapore",
+   "notified_at": "2026-10-18T15:01:24+00:00",
+   "status": "open",
+   "title": "2027 Markets Quantitative Trading & Research Analyst Program – Off-Cycle Internship - Singapore",
+   "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210784366"
+  },
+  "oracle:jpmc:210784371": {
+   "company": "JPMorgan",
+   "fingerprints": [
+    "id:oracle:jpmc:210784371",
+    "req:jpmorgan:210784371",
+    "url:https://jpmc.fa.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/210784371",
+    "title:jpmorgan:2027 markets quantitative trading research analyst program off cycle internship hong kong:hong kong"
+   ],
+   "first_seen": "2026-10-18T15:01:20+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Hong Kong",
+   "notified_at": "2026-10-18T15:01:20+00:00",
+   "status": "open",
+   "title": "2027 Markets Quantitative Trading & Research Analyst Program – Off-Cycle Internship - Hong Kong",
+   "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210784371"
+  },
+  "oracle:jpmc:210784384": {
+   "company": "JPMorgan",
+   "fingerprints": [
+    "id:oracle:jpmc:210784384",
+    "req:jpmorgan:210784384",
+    "url:https://jpmc.fa.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/210784384",
+    "title:jpmorgan:energy trading assistant analyst 6 months contract:singapore"
+   ],
+   "first_seen": "2026-10-18T15:01:44+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Singapore",
+   "notified_at": "2026-10-18T15:01:44+00:00",
+   "status": "open",
+   "title": "Energy Trading Assistant, Analyst (6 Months Contract)",
+   "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210784384"
+  },
+  "oracle:jpmc:210794823": {
+   "company": "JPMorgan",
+   "fingerprints": [
+    "id:oracle:jpmc:210794823",
+    "req:jpmorgan:210794823",
+    "url:https://jpmc.fa.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/210794823",
+    "title:jpmorgan:quantitative trading research cross asset analyst:singapore"
+   ],
+   "first_seen": "2026-10-18T15:01:12+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Singapore",
+   "notified_at": "2026-10-18T15:01:12+00:00",
+   "status": "open",
+   "title": "Quantitative Trading & Research, Cross-Asset – Analyst",
+   "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210794823"
+  },
   "oracle:jpmc:210796987": {
    "company": "JPMorgan",
    "fingerprints": [
@@ -415,6 +670,86 @@
    "title": "TRAINEE: Sales Assistant",
    "url": "https://careers.societegenerale.com/en/job-offers/trainee-sales-assistant-26000M1T-en"
   },
+  "workday:barclays:JR-0000124692": {
+   "company": "Barclays",
+   "fingerprints": [
+    "id:workday:barclays:JR-0000124692",
+    "req:barclays:jr-0000124692",
+    "url:https://barclays.wd3.myworkdayjobs.com/external_career_site_barclays/job/canary-wharf-1-churchill-place/sales--trading-and-structuring-summer-internship-programme-2027-london_jr-0000124692",
+    "title:barclays:sales trading and structuring summer internship programme 2027 london:london"
+   ],
+   "first_seen": "2026-10-18T15:01:28+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Canary Wharf, 1 Churchill Place",
+   "notified_at": "2026-10-18T15:01:28+00:00",
+   "status": "open",
+   "title": "Sales, Trading and Structuring Summer Internship Programme 2027 London",
+   "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays/job/Canary-Wharf-1-Churchill-Place/Sales--Trading-and-Structuring-Summer-Internship-Programme-2027-London_JR-0000124692"
+  },
+  "workday:barclays:JR-0000124716": {
+   "company": "Barclays",
+   "fingerprints": [
+    "id:workday:barclays:JR-0000124716",
+    "req:barclays:jr-0000124716",
+    "url:https://barclays.wd3.myworkdayjobs.com/external_career_site_barclays/job/canary-wharf-1-churchill-place/sales--trading-and-structuring-off-cycle-internship-programme-2027-london_jr-0000124716",
+    "title:barclays:sales trading and structuring off cycle internship programme 2027 london:london"
+   ],
+   "first_seen": "2026-10-18T15:01:27+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Canary Wharf, 1 Churchill Place",
+   "notified_at": "2026-10-18T15:01:27+00:00",
+   "status": "open",
+   "title": "Sales, Trading and Structuring Off Cycle Internship Programme 2027 London",
+   "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays/job/Canary-Wharf-1-Churchill-Place/Sales--Trading-and-Structuring-Off-Cycle-Internship-Programme-2027-London_JR-0000124716"
+  },
+  "workday:barclays:JR-0000124763": {
+   "company": "Barclays",
+   "fingerprints": [
+    "id:workday:barclays:JR-0000124763",
+    "req:barclays:jr-0000124763",
+    "url:https://barclays.wd3.myworkdayjobs.com/external_career_site_barclays/job/paris-52-avenue-hoche/sales--trading-and-structuring-off-cycle-internship-programme-2027-paris_jr-0000124763",
+    "title:barclays:sales trading and structuring off cycle internship programme 2027 paris:paris"
+   ],
+   "first_seen": "2026-10-18T15:01:31+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Paris, 52 avenue Hoche",
+   "notified_at": "2026-10-18T15:01:31+00:00",
+   "status": "open",
+   "title": "Sales, Trading and Structuring Off Cycle Internship Programme 2027 Paris",
+   "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays/job/Paris-52-avenue-Hoche/Sales--Trading-and-Structuring-Off-Cycle-Internship-Programme-2027-Paris_JR-0000124763"
+  },
+  "workday:barclays:JR-0000128133": {
+   "company": "Barclays",
+   "fingerprints": [
+    "id:workday:barclays:JR-0000128133",
+    "req:barclays:jr-0000128133",
+    "url:https://barclays.wd3.myworkdayjobs.com/external_career_site_barclays/job/hong-kong-cheung-kong-center/sales--trading-and-structuring-graduate-programme-2027-hong-kong_jr-0000128133",
+    "title:barclays:sales trading and structuring graduate programme 2027 hong kong:hong kong"
+   ],
+   "first_seen": "2026-10-18T15:01:48+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Hong Kong, Cheung Kong Center",
+   "notified_at": "2026-10-18T15:01:48+00:00",
+   "status": "open",
+   "title": "Sales, Trading and Structuring Graduate Programme 2027 Hong Kong",
+   "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays/job/Hong-Kong-Cheung-Kong-Center/Sales--Trading-and-Structuring-Graduate-Programme-2027-Hong-Kong_JR-0000128133"
+  },
+  "workday:barclays:JR-0000130288": {
+   "company": "Barclays",
+   "fingerprints": [
+    "id:workday:barclays:JR-0000130288",
+    "req:barclays:jr-0000130288",
+    "url:https://barclays.wd3.myworkdayjobs.com/external_career_site_barclays/job/canary-wharf-1-churchill-place/sales--trading-and-structuring-graduate-programme-2027-london_jr-0000130288-1",
+    "title:barclays:sales trading and structuring graduate programme 2027 london:london"
+   ],
+   "first_seen": "2026-10-18T15:01:25+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Canary Wharf, 1 Churchill Place",
+   "notified_at": "2026-10-18T15:01:25+00:00",
+   "status": "open",
+   "title": "Sales, Trading and Structuring Graduate Programme 2027 London",
+   "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays/job/Canary-Wharf-1-Churchill-Place/Sales--Trading-and-Structuring-Graduate-Programme-2027-London_JR-0000130288-1"
+  },
   "workday:barclays:JR-0000133325": {
    "company": "Barclays",
    "fingerprints": [
@@ -462,6 +797,22 @@
    "status": "open",
    "title": "Markets – Sales and Trading, Summer Analyst, London – United Kingdom, 2027",
    "url": "https://citi.wd5.myworkdayjobs.com/2/job/London--United-Kingdom/Markets---Sales-and-Trading--Summer-Analyst--London---United-Kingdom--2027_26987141"
+  },
+  "workday:citi:26992518": {
+   "company": "Citi",
+   "fingerprints": [
+    "id:workday:citi:26992518",
+    "req:citi:26992518",
+    "url:https://citi.wd5.myworkdayjobs.com/2/job/paris--france/markets---sales-and-trading--off-cycle-internship--paris---france--2027_26992518",
+    "title:citi:markets sales and trading off cycle internship paris france 2027:paris"
+   ],
+   "first_seen": "2026-10-18T15:01:14+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Paris France",
+   "notified_at": "2026-10-18T15:01:14+00:00",
+   "status": "open",
+   "title": "Markets – Sales and Trading, Off-Cycle Internship, Paris – France, 2027",
+   "url": "https://citi.wd5.myworkdayjobs.com/2/job/Paris--France/Markets---Sales-and-Trading--Off-Cycle-Internship--Paris---France--2027_26992518"
   },
   "workday:db:R0446171": {
    "company": "Deutsche Bank",
@@ -543,6 +894,22 @@
    "title": "Investment Management - Trading Assistant - Analyst",
    "url": "https://ms.wd5.myworkdayjobs.com/External/job/London-United-Kingdom/Investment-Management---Trading-Assistant---Analyst_JR036766"
   },
+  "workday:mufgub:10079355-WD": {
+   "company": "MUFG",
+   "fingerprints": [
+    "id:workday:mufgub:10079355-WD",
+    "req:mufg:10079355-wd",
+    "url:https://mufgub.wd3.myworkdayjobs.com/mufg-careers/job/london/xmlname-2027-mufg-uk-summer-analyst-programme--credit-sales-and-trading_10079355-wd-1",
+    "title:mufg:2027 mufg uk summer analyst programme credit sales and trading:london"
+   ],
+   "first_seen": "2026-10-18T15:01:29+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London",
+   "notified_at": "2026-10-18T15:01:29+00:00",
+   "status": "open",
+   "title": "2027 MUFG UK Summer Analyst Programme: Credit Sales and Trading",
+   "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/London/XMLNAME-2027-MUFG-UK-Summer-Analyst-Programme--Credit-Sales-and-Trading_10079355-WD-1"
+  },
   "workday:mufgub:10079356-WD": {
    "company": "MUFG",
    "fingerprints": [
@@ -558,6 +925,38 @@
    "status": "open",
    "title": "2027 MUFG UK Summer Analyst Programme: Structured Trading Group",
    "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/London/XMLNAME-2027-MUFG-UK-Summer-Analyst-Programme--Structured-Trading-Group_10079356-WD-1"
+  },
+  "workday:mufgub:10079448-WD": {
+   "company": "MUFG",
+   "fingerprints": [
+    "id:workday:mufgub:10079448-WD",
+    "req:mufg:10079448-wd",
+    "url:https://mufgub.wd3.myworkdayjobs.com/mufg-careers/job/hong-kong---airside/summer-internship-programme-2027---global-markets_10079448-wd-2",
+    "title:mufg:summer internship programme 2027 global markets:hong kong"
+   ],
+   "first_seen": "2026-10-18T15:01:22+00:00",
+   "last_seen": "2026-10-18",
+   "location": "Hong Kong - Airside",
+   "notified_at": "2026-10-18T15:01:22+00:00",
+   "status": "open",
+   "title": "Summer Internship Programme 2027 – Global Markets",
+   "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/Hong-Kong---Airside/Summer-Internship-Programme-2027---Global-Markets_10079448-WD-2"
+  },
+  "workday:mufgub:10079834-WD": {
+   "company": "MUFG",
+   "fingerprints": [
+    "id:workday:mufgub:10079834-WD",
+    "req:mufg:10079834-wd",
+    "url:https://mufgub.wd3.myworkdayjobs.com/mufg-careers/job/london/xmlname-2027-mufg-uk-summer-analyst-programme--global-client-sales_10079834-wd",
+    "title:mufg:2027 mufg uk summer analyst programme global client sales:london"
+   ],
+   "first_seen": "2026-10-18T15:01:11+00:00",
+   "last_seen": "2026-10-18",
+   "location": "London",
+   "notified_at": "2026-10-18T15:01:11+00:00",
+   "status": "open",
+   "title": "2027 MUFG UK Summer Analyst Programme: Global Client Sales",
+   "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/London/XMLNAME-2027-MUFG-UK-Summer-Analyst-Programme--Global-Client-Sales_10079834-WD"
   }
  },
  "sources": {
