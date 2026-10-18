@@ -248,6 +248,122 @@ P('DB beesite', lambda: summarize_json(get('https://api-deutschebank.beesite.de/
 P('Jane Street json', lambda: summarize_json(get('https://www.janestreet.com/jobs/main.json'), lambda d: (len(d), [(j.get('position'), j.get('city')) for j in d])))
 P('BofA servlet', lambda: get('https://careers.bankofamerica.com/services/jobssearchservlet?start=0&rows=10&search=getAllJobs').text[:400])
 
+
+# ---------------- Round 2 ----------------
+def links(url, pattern, n=12):
+    r = get(url)
+    found = sorted(set(re.findall(pattern, r.text, re.I)))
+    return f'HTTP {r.status_code} final={r.url} len={len(r.text)} matches={found[:n]}'
+
+
+def oracle_facets(host, site):
+    url = (f'https://{host}/hcmRestApi/resources/latest/recruitingCEJobRequisitions?onlyData=true'
+           f'&expand=requisitionList.secondaryLocations,flexFieldsFacet.values&finder=findReqs;siteNumber={site},facetsList=LOCATIONS%3BTITLES%3BCATEGORIES,limit=1')
+    d = get(url, headers={'Accept': 'application/json'}).json()
+    it = d['items'][0]
+    locs = [(l.get('Id'), l.get('Name'), l.get('TotalCount')) for l in it.get('locationsFacet', [])]
+    hits = [l for l in locs if re.search('London|Hong Kong|Singapore|Paris|United Kingdom|France', str(l[1]))]
+    cats = [(c.get('Id'), c.get('Name'), c.get('TotalCount')) for c in it.get('categoriesFacet', [])]
+    return f'locations={len(locs)} hits={hits} categories={cats[:40]} keys={list(it.keys())}'
+
+
+def oracle_loc(host, site, loc_id):
+    url = (f'https://{host}/hcmRestApi/resources/latest/recruitingCEJobRequisitions?onlyData=true'
+           f'&expand=requisitionList.secondaryLocations&finder=findReqs;siteNumber={site},selectedLocationsFacet={loc_id},limit=25,offset=0,sortBy=POSTING_DATES_DESC')
+    d = get(url, headers={'Accept': 'application/json'}).json()
+    it = d['items'][0]
+    reqs = it.get('requisitionList', [])
+    return f'total={it.get("TotalJobsCount")} n={len(reqs)} sample={[(q["Title"], q["PrimaryLocation"], q["PostedDate"], q.get("PostingEndDate"), q.get("JobFamily"), q.get("ShortDescriptionStr", "")[:60]) for q in reqs[:8]]}'
+
+
+def oracle_detail(host, site, req_id):
+    url = (f'https://{host}/hcmRestApi/resources/latest/recruitingCEJobRequisitionDetails?expand=all&onlyData=true'
+           f'&finder=ById;Id=%22{req_id}%22,siteNumber={site}')
+    d = get(url, headers={'Accept': 'application/json'}).json()
+    it = (d.get('items') or [{}])[0]
+    return f'keys={list(it.keys())} title={it.get("Title")} desc_len={len(it.get("ExternalDescriptionStr") or "")} qual={str(it.get("ExternalQualificationsStr"))[:200]} end={it.get("ExternalPostedEndDate")} start={it.get("ExternalPostedStartDate")}'
+
+
+def workday_facets(host, tenant, site):
+    url = f'https://{host}/wday/cxs/{tenant}/{site}/jobs'
+    d = S.post(url, json={'appliedFacets': {}, 'limit': 1, 'offset': 0, 'searchText': ''}, timeout=25).json()
+    out = []
+    def walk(facets, depth=0):
+        for f in facets:
+            vals = f.get('values', [])
+            if vals and 'facetParameter' in vals[0]:
+                walk(vals, depth + 1)
+                continue
+            hits = [(v.get('id'), v.get('descriptor'), v.get('count')) for v in vals if re.search('London|Hong Kong|Singapore|Paris|United Kingdom|France|Intern|Graduate|Analyst|Student|Campus|Early', str(v.get('descriptor')), re.I)]
+            out.append((f.get('facetParameter'), len(vals), hits[:12]))
+    walk(d.get('facets', []))
+    return f'total={d.get("total")} facets={out}'
+
+
+def workday_detail(host, tenant, site, text):
+    url = f'https://{host}/wday/cxs/{tenant}/{site}/jobs'
+    d = S.post(url, json={'appliedFacets': {}, 'limit': 5, 'offset': 0, 'searchText': text}, timeout=25).json()
+    jp = d.get('jobPostings', [])
+    if not jp:
+        return f'total={d.get("total")} none'
+    path = jp[0]['externalPath']
+    det = get(f'https://{host}/wday/cxs/{tenant}/{site}{path}', headers={'Accept': 'application/json'}).json()
+    info = det.get('jobPostingInfo', {})
+    return f'total={d.get("total")} list0={jp[0]} detail_keys={list(info.keys())} startDate={info.get("startDate")} endDate={info.get("endDate")} timeType={info.get("timeType")} canApply={info.get("canApply")} location={info.get("location")} addl={info.get("additionalLocations")} jobReqId={info.get("jobReqId")} url={info.get("externalUrl")} desc={len(info.get("jobDescription",""))}'
+
+
+def eightfold_loc(host, domain, location, q=''):
+    url = f'https://{host}/api/apply/v2/jobs?domain={domain}&start=0&num=10&location={requests.utils.quote(location)}&query={q}&sort_by=timestamp'
+    d = get(url).json()
+    return f'count={d.get("count")} sample={[(p.get("name"), p.get("location"), p.get("t_create"), p.get("display_job_id"), p.get("department")) for p in d.get("positions", [])[:8]]}'
+
+
+R2 = []
+def Q(name, fn, *a):
+    R2.append(('R2 ' + name, lambda: fn(*a)))
+
+Q('JPM oracle facets', oracle_facets, 'jpmc.fa.oraclecloud.com', 'CX_1001')
+Q('JPM oracle detail', oracle_detail, 'jpmc.fa.oraclecloud.com', 'CX_1001', '210801318')
+Q('MS workday facets', workday_facets, 'ms.wd5.myworkdayjobs.com', 'ms', 'External')
+Q('Citi workday facets', workday_facets, 'citi.wd5.myworkdayjobs.com', 'citi', '2')
+Q('Citi workday detail', workday_detail, 'citi.wd5.myworkdayjobs.com', 'citi', '2', 'Sales and Trading Summer Analyst London')
+Q('DB workday facets', workday_facets, 'db.wd3.myworkdayjobs.com', 'db', 'DBWebsite')
+Q('Barclays workday', workday, 'barclays.wd3.myworkdayjobs.com', 'barclays', 'External_Career_Site_Barclays')
+Q('Barclays workday facets', workday_facets, 'barclays.wd3.myworkdayjobs.com', 'barclays', 'External_Career_Site_Barclays')
+Q('CLSA workday', workday_facets, 'citicclsa.wd3.myworkdayjobs.com', 'citicclsa', 'External')
+Q('HSBC eightfold London', eightfold_loc, 'portal.careers.hsbc.com', 'hsbc.com', 'London, United Kingdom', 'graduate')
+Q('HSBC eightfold HK', eightfold_loc, 'portal.careers.hsbc.com', 'hsbc.com', 'Hong Kong', '')
+Q('Citi eightfold', eightfold, 'citi.eightfold.ai', 'citi.com')
+Q('Haitong workday link', links, 'https://www.htisec.com/en-us/careers', r'https://htisec\.wd3\.myworkdayjobs\.com[^"\'\s<>]*')
+Q('BofA ghr links', links, 'https://careers.bankofamerica.com/en-us', r'https://ghr\.wd1\.myworkdayjobs\.com[^"\'\s<>]*|https://bankcampuscareers\.tal\.net[^"\'\s<>]*')
+Q('BofA servlet search', lambda: get('https://careers.bankofamerica.com/services/jobssearchservlet?start=0&rows=5&search=getAllJobs&location=London').text[:1500])
+Q('BofA sitemap jobs', lambda: str([l for l in re.findall(r'<loc>\s*([^<]+?)\s*</loc>', get('https://careers.bankofamerica.com/sitemap.xml').text) if 'job' in l.lower()][:15]))
+Q('Nomura tal links', links, 'https://www.nomura.com/europe/careers/', r'https://nomuracampus\.tal\.net[^"\'\s<>]*')
+Q('Nomura tal board', links, 'https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/jobboard/vacancy/1/adv/', r'opp/\d+[^"\'<>]*|<title>[^<]*')
+Q('CA-CIB handlers', links, 'https://jobs.ca-cib.com/accueil.aspx?LCID=2057', r'https://jobs\.ca-cib\.com/Handlers[^"\'\s<>]*|/[a-z-]+/[a-z-]*offre[^"\'\s<>]*|rss[^"\'\s<>]*')
+Q('CA-CIB rss', lambda: get('https://jobs.ca-cib.com/handlers/offerRss.ashx?LCID=2057').text[:1200])
+Q('CA-CIB list', links, 'https://jobs.ca-cib.com/offre-de-emploi/liste-toutes-offres.aspx?LCID=2057', r'/offre-de-emploi/emploi-[^"\'\s<>]*')
+Q('SC rss', lambda: get('https://jobs.standardchartered.com/services/rss/job/?locale=en_GB&keywords=graduate').text[:1500])
+Q('SC job page', jsonld_page, 'https://jobs.standardchartered.com/job/Kwun-Tong-Associate-Director%2C-Team-Manager%2C-Insurance-Specialists/1360744257/')
+Q('SC sitemap HK/SG samples', lambda: str([l for l in re.findall(r'<loc>\s*([^<]+?)\s*</loc>', get('https://jobs.standardchartered.com/sitemap.xml').text) if re.search('intern|graduate|trainee|sales|trad', l, re.I)][:25]))
+Q('Barclays sitemap samples', lambda: str([l for l in re.findall(r'<loc>\s*([^<]+?)\s*</loc>', get('https://search.jobs.barclays/sitemap.xml').text) if '/job/' in l][:8]))
+Q('Optiver job page', jsonld_page, 'https://www.optiver.com/join-us/jobs/technology/amsterdam/ai-engineer/')
+Q('Optiver sitemap trading', lambda: str([l for l in re.findall(r'<loc>\s*([^<]+?)\s*</loc>', get('https://optiver.com/sitemap.xml').text) if re.search('trad|intern|graduate', l)][:30]))
+Q('Natixis sitemaps', lambda: str(re.findall(r'<loc>\s*([^<]+?)\s*</loc>', get('https://natixis.groupebpce.com/sitemap.xml').text)))
+Q('Natixis offers page', links, 'https://natixis.groupebpce.com/?lang=en', r'https?://[^"\'\s<>]*(?:offre|offer|job|career|recrut)[^"\'\s<>]*')
+Q('GS higher scripts', links, 'https://higher.gs.com/results', r'https?://[a-z0-9.-]*gs\.com[^"\'\s<>]*api[^"\'\s<>]*|"/_next/static/[^"]+\.js"|graphql[^"\'\s<>]*')
+Q('GS higher role page', jsonld_page, 'https://higher.gs.com/roles/134685')
+Q('UBS page links', links, 'https://www.ubs.com/global/en/careers/search-jobs.html', r'https?://[a-z0-9.-]*(?:brassring|ubs)\.com[^"\'\s<>]*(?:TGnewUI|jobs|search)[^"\'\s<>]*')
+Q('UBS brassring', links, 'https://jobs.ubs.com/TGnewUI/Search/Home/Home?partnerid=25008&siteid=5012', r'<title>[^<]*|RFT[^"]{0,40}|PowerSearch[^"\'\s<>]*')
+Q('SMBC careers links', links, 'https://www.smbcgroup.com/emea/careers', r'https?://[^"\'\s<>]*(?:workday|taleo|oracle|tal\.net|successfactors|avature|job|vacanc)[^"\'\s<>]*')
+Q('Pictet career link', links, 'https://www.pictet.com/us/en/careers', r'https://career012\.successfactors\.eu[^"\'\s<>]*')
+Q('BNP workday', workday, 'bnpparibas.wd3.myworkdayjobs.com', 'bnpparibas', 'BNPP')
+Q('BlackRock sitemap jobs', lambda: str([l for l in re.findall(r'<loc>\s*([^<]+?)\s*</loc>', get('https://careers.blackrock.com/sitemap.xml').text) if '/job/' in l][:6]))
+Q('Point72 detail', lambda: str([(j['title'], j['location']['name'], j.get('updated_at'), j.get('first_published')) for j in get('https://boards-api.greenhouse.io/v1/boards/point72/jobs').json()['jobs'] if re.search('Hong Kong|Singapore|London|Paris', j['location']['name'])][:30]))
+Q('MS students tal', links, 'https://www.morganstanley.com/people-opportunities/students-graduates/programs', r'https?://[^"\'\s<>]*(?:tal\.net|workday|oracle|eightfold|apply)[^"\'\s<>]*')
+Q('GS students links', links, 'https://www.goldmansachs.com/careers/students/programs-and-internships', r'https?://[^"\'\s<>]*(?:higher\.gs|apply|oracle|tal\.net|workday)[^"\'\s<>]*')
+PROBES = PROBES + R2
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
