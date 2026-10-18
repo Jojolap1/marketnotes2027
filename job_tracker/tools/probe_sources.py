@@ -120,8 +120,8 @@ def jsonld_page(url):
             if isinstance(o, dict):
                 info.append({k: (str(v)[:80]) for k, v in o.items() if k in ('@type', 'title', 'datePosted', 'validThrough', 'employmentType', 'jobLocation', 'identifier', 'hiringOrganization')})
     applies = sorted(set(m for m in re.findall(r'href="([^"]*(?:apply|postul|candidat)[^"]*)"', r.text, re.I)))[:6]
-    h1 = re.findall(r'<h1[^>]*>(.*?)</h1>', r.text, re.S)
-    return f'HTTP {r.status_code} final={r.url} h1={[re.sub("<[^>]+>|\\s+", " ", h)[:80] for h in h1[:2]]} jsonld={info[:3]} apply_links={applies} ats={sorted(set(urlparse(m).netloc for m in ATS.findall(r.text)))[:10]}'
+    h1 = [re.sub(r'<[^>]+>|\s+', ' ', h)[:80] for h in re.findall(r'<h1[^>]*>(.*?)</h1>', r.text, re.S)[:2]]
+    return f'HTTP {r.status_code} final={r.url} h1={h1} jsonld={info[:3]} apply_links={applies} ats={sorted(set(urlparse(m).netloc for m in ATS.findall(r.text)))[:10]}'
 
 
 PROBES = []

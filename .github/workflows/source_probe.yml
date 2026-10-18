@@ -25,7 +25,7 @@ jobs:
           python-version: "3.11"
       - run: pip install -r job_tracker/requirements.txt
       - name: Probe candidate public career feeds
-        run: python job_tracker/tools/probe_sources.py "${{ github.event.inputs.filter }}" 2>&1 | tee probe.log
+        run: set -o pipefail; python job_tracker/tools/probe_sources.py "${{ github.event.inputs.filter }}" 2>&1 | tee probe.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
