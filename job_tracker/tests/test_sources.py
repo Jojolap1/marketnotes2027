@@ -110,6 +110,28 @@ class AtsTests(unittest.TestCase):
         self.assertEqual(jobs[0]['description'], 'Graduates')
         self.assertEqual(jobs[0]['status'], 'open')
 
+    def test_bpce_natixis_search_api(self):
+        def route(method, url, payload):
+            items = [
+                {'job_number': '22301', 'title': 'Internship - 6 months - Equity Derivatives Sales F/H', 'date': '2026-10-12',
+                 'link': {'url': '/en/job/internship-equity-derivatives-sales'}, 'contract': ['Internship'],
+                 'brand': ['Natixis CIB France'], 'description': '<p>Students in Master 2.</p>',
+                 'postulate_link': {'url': 'https://ekez.fa.em2.oraclecloud.com/apply/22301'},
+                 'localisations': [{'city': 'Paris', 'country': 'France'}]},
+                {'job_number': '22255', 'title': 'Internal Audit - Data investigation', 'date': '2026-10-07',
+                 'link': {'url': '/en/job/audit'}, 'localisations': [{'city': 'Paris', 'country': 'France'}]},
+                {'job_number': '22400', 'title': 'Rates Trading Intern', 'date': '2026-10-07',
+                 'link': {'url': '/en/job/ny'}, 'localisations': [{'city': 'New York', 'country': 'United States'}]},
+            ] if payload['from'] == 0 else []
+            return {'data': {'total': 3, 'items': items}}
+        ctx = context({'recrutement.natixis.com': route})
+        jobs = fetch_source({'company': 'Natixis CIB', 'platform': 'bpce', 'base_url': 'https://recrutement.natixis.com'}, ctx)
+        self.assertEqual([j['id'] for j in jobs], ['bpce:22301'])
+        self.assertEqual(jobs[0]['url'], 'https://recrutement.natixis.com/en/job/internship-equity-derivatives-sales')
+        self.assertEqual(jobs[0]['location'], 'Paris, France')
+        self.assertEqual(jobs[0]['published'], '2026-10-12')
+        self.assertEqual(jobs[0]['employment_type'], 'Internship')
+
     def test_eightfold_pagination(self):
         def route(method, url, payload):
             if '/jobs/77' in url:

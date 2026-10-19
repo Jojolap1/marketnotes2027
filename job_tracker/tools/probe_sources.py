@@ -1320,6 +1320,23 @@ def bnp_robots():
 R17 = [('R17 BNP robots portals', bnp_robots)]
 PROBES = PROBES + R17
 
+
+# ---------------- Round 18 ----------------
+def bnp_pages_list():
+    locs = re.findall(r'<loc>\s*([^<]+?)\s*</loc>', get('https://bwelcome.hr.bnpparibas/en_US/externalcareers/sitemap.xml').text)
+    out = ['ALL=' + str([l.rsplit('/', 1)[-1] for l in locs])]
+    for l in locs:
+        name = l.rsplit('/', 1)[-1]
+        if re.search(r'Search|Jobs|List|Data|Feed|Widget|Related|Home', name, re.I):
+            r = get(l)
+            jd = sorted(set(re.findall(r'JobDetail/[^"\'\s<>]+', r.text)))
+            out.append(f'{name} -> {r.status_code} {r.headers.get("content-type")} len={len(r.text)} jobdetail={len(jd)} {jd[:4]}')
+    return '\n'.join(out)
+
+
+R18 = [('R18 BNP externalcareers pages', bnp_pages_list)]
+PROBES = PROBES + R18
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

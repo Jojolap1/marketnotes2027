@@ -142,3 +142,42 @@ def zhiye(source, ctx):
             source='official recruitment portal (Beisen)', requisition_id=str(ad.get('JobAdId') or ''),
             status=status, status_evidence=evidence))
     return jobs
+
+
+def bpce(source, ctx):
+    """BPCE group recruitment sites (Natixis): the site's own job-search API.
+
+    POST {base}/app/wp-json/bpce/v1/search/jobs  {lang, external, from, size}
+    Each item carries its city/country ('localisations'), date and contract."""
+    company, base = source['company'], source['base_url'].rstrip('/')
+    items, start, total = [], 0, None
+    while total is None or start < min(total, int(source.get('max_results', 2000))):
+        data = ctx.http.post_json(f'{base}/app/wp-json/bpce/v1/search/jobs',
+                                  {'lang': source.get('lang', 'en'), 'external': bool(source.get('external', False)),
+                                   'from': start, 'size': 50}).get('data') or {}
+        batch = data.get('items') or []
+        total = int(data.get('total') or 0)
+        items += batch
+        start += 50
+        if not batch:
+            break
+    ctx.stat(company, 'listed', len(items))
+    jobs = []
+    for it in items:
+        title = html_to_text(it.get('title'))
+        places = it.get('localisations') or []
+        location = '; '.join(', '.join(filter(None, [p.get('city'), p.get('country')])) for p in places) or it.get('localisation') or ''
+        if not ctx.screen(company, title, location):
+            continue
+        ctx.stat(company, 'candidates')
+        link = (it.get('link') or {}).get('url') or ''
+        apply = (it.get('postulate_link') or {}).get('url') or ''
+        jobs.append(make_job(
+            id=f'bpce:{it.get("job_number") or it.get("post_id")}', company=company, title=title, location=location,
+            url=link if link.startswith('http') else base + link, apply_url=apply, published=it.get('date') or '',
+            description=' '.join([html_to_text(it.get('description')), 'Entity: ' + ', '.join(it.get('brand') or []),
+                                  'Experience: ' + ', '.join(it.get('experience') or [])]),
+            employment_type=', '.join(it.get('contract') or []), source='official recruitment site search API',
+            requisition_id=str(it.get('job_number') or ''),
+            status=OPEN, status_evidence='listed in the official recruitment site search (live offers only)'))
+    return jobs

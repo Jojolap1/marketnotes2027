@@ -827,9 +827,10 @@
     },
     {
       "company": "Natixis CIB",
-      "platform": "official",
-      "enabled": false,
-      "disabled_reason": "recrutement.natixis.com is a JavaScript app; its job search is rendered in the browser and no public data endpoint answers (wp-json/bpce returns the app shell, probe 2026-10-19). Use recrutement.natixis.com alerts."
+      "platform": "bpce",
+      "base_url": "https://recrutement.natixis.com",
+      "lang": "en",
+      "external": false
     }
   ]
 }
