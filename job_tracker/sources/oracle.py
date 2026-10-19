@@ -70,9 +70,16 @@ def _detail(source, ctx, req_id):
 
 def fetch(source, ctx):
     if source.get('sites'):
-        jobs = []
+        # Sites without any target-city vacancy are skipped; the source fails
+        # only when none of its sites has one.
+        jobs, without_city = [], []
         for site in source['sites']:
-            jobs += fetch(dict(source, site=site, sites=None), ctx)
+            try:
+                jobs += fetch(dict(source, site=site, sites=None), ctx)
+            except ValueError:
+                without_city.append(site)
+        if len(without_city) == len(source['sites']):
+            raise ValueError(f'no target-city location facets on any of the {len(without_city)} career sites')
         return jobs
     host, site, company = source['host'], source['site'], source['company']
     page = int(source.get('page_size', 25))

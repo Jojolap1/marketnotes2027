@@ -195,7 +195,7 @@ class SeniorityAndRoleTests(unittest.TestCase):
                       'Market Risk Intern', 'Trade Support Graduate', 'Investment Banking Summer Analyst',
                       'Software Developer Intern - Trading Systems', 'HR Graduate Programme', 'Private Banking Graduate',
                       'Global Technology Summer Analyst', 'Business Analyst Intern', 'Graduate Trading Applications Specialist',
-                      'Intern, Financial Markets Business Management',
+                      'Intern, Financial Markets Business Management', 'Admin Assistant, FICC Trading, Singapore',
                       'Internship: Global Consumer Financial Services, Consumer Secured Lending, Home Financing & Secured Lending Portfolio Management']:
             self.assertFalse(classify(title).eligible, title)
 
@@ -208,7 +208,8 @@ class SeniorityAndRoleTests(unittest.TestCase):
                               ('Equity Research Summer Analyst', 'Markets / Investment Analyst'),
                               ('Investment Analyst Intern', 'Markets / Investment Analyst'),
                               ('Global Markets Summer Analyst 2027', 'Sales & Trading'),
-                              ('Stage en Vente/Sales - Clients Institutionnels', 'Sales & Trading')]:
+                              ('Stage en Vente/Sales - Clients Institutionnels', 'Sales & Trading'),
+                              ('【2027】衍生品交易员岗(J19701)', 'Sales & Trading')]:
             c = classify(title)
             self.assertTrue(c.eligible, (title, c.reject_reason))
             self.assertEqual(c.role_family, family, title)

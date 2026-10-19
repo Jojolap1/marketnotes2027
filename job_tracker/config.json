@@ -230,7 +230,8 @@
       "\\bconsumer\\b",
       "\\blending\\b",
       "\\bhome financing\\b",
-      "行政|人力资源|人力資源|合规|合規|风险管理|風險管理|运营|運營|信息技术|資訊科技|开发工程师|開發工程師|财务|財務|党建|黨建|审计|審計|法务|法務"
+      "行政|人力资源|人力資源|合规|合規|风险管理|風險管理|运营|運營|信息技术|資訊科技|开发工程师|開發工程師|财务|財務|党建|黨建|审计|審計|法务|法務",
+      "\\badmin(?:istrative)? assistant\\b|\\bassistant administratif\\b|\\bexecutive assistant\\b|\\bpersonal assistant\\b"
     ],
     "entry_types": {
       "vie": [
@@ -273,7 +274,8 @@
         "\\bfull[- ]time analyst\\b",
         "\\b20\\d\\d analyst\\b",
         "\\banalyst,? 20\\d\\d\\b",
-        "校园招聘|校園招聘|应届|應屆|管培生|管理培训生|毕业生|畢業生"
+        "校园招聘|校園招聘|应届|應屆|管培生|管理培训生|毕业生|畢業生",
+        "【20\\d\\d】"
       ],
       "entry_level": [
         "\\bjunior\\b",
@@ -827,7 +829,7 @@
       "company": "Natixis CIB",
       "platform": "official",
       "enabled": false,
-      "disabled_reason": "recrutement.natixis.com is a JavaScript app; its search API (wp-json/bpce) is being probed - not yet validated, so not enabled."
+      "disabled_reason": "recrutement.natixis.com is a JavaScript app; its job search is rendered in the browser and no public data endpoint answers (wp-json/bpce returns the app shell, probe 2026-10-19). Use recrutement.natixis.com alerts."
     }
   ]
 }

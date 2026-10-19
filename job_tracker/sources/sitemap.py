@@ -163,8 +163,6 @@ def parse_detail(html, url, source):
                      or _labelled_date(visible, r'(?<![A-Za-z] )\bDate'))  # SuccessFactors RMK 'Date: 16 Oct 2026'
     if not valid_through:
         valid_through = _labelled_date(visible, r'Posting End Date|Closing Date|Application Deadline|Apply by')
-    if source.get('location_from_slug'):
-        location = (location + '; ' + slug_words(unquote(urlparse(url).path))).strip('; ')
     status, evidence = assess_page(visible, valid_through)
     return {'title': title, 'description': description, 'location': location, 'published': published,
             'valid_through': valid_through, 'employment_type': employment, 'req_id': req_id,
@@ -205,8 +203,16 @@ def fetch(source, ctx):
         if value.get('reject'):
             ctx.stat(company, 'rejected_' + value['reject'])
             continue
+        location = value['location']
+        if source.get('location_from_slug'):
+            # The page gives no location: take the target city named in the URL.
+            slug = slug_words(unquote(urlparse(url).path))
+            location = location.replace(slug, '').strip('; ')
+            city = ctx.city_of(slug)
+            if city and not ctx.city_of(location):
+                location = (location + '; ' + f'{city} (from job URL)').strip('; ')
         jobs.append(make_job(
-            id=f'sitemap:{company}:{url}', company=company, title=value['title'], location=value['location'],
+            id=f'sitemap:{company}:{url}', company=company, title=value['title'], location=location,
             url=url, published=value['published'], description=value['description'],
             employment_type=value['employment_type'], requisition_id=value['req_id'],
             source='official sitemap + vacancy page', status=value['status'],
