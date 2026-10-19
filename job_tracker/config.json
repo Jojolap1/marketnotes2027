@@ -99,7 +99,8 @@
         "研究员|研究員|分析师|分析師|投资分析|投資分析",
         "\\b(?:commodit\\w*|energy|[ée]nergie|power|electricity|[ée]lectricit[ée]|gas|gaz|oil|p[ée]trole|crude|lng|metals?|m[ée]taux|agri\\w*|freight|shipping|carbon|emissions|softs|grains?)\\s+(?:market\\s+|markets\\s+|trading\\s+)?analyst\\b",
         "\\banalyste\\s+(?:de\\s+)?march[ée]s?\\b",
-        "\\bmarket (?:analyst|analysis|intelligence)\\b"
+        "\\bmarket (?:analyst|analysis|intelligence)\\b",
+        "\\bpricing analyst\\b"
       ]
     },
     "role_exclusion_patterns": [
@@ -962,6 +963,16 @@
         "United Kingdom",
         "Singapore",
         "Hong Kong"
+      ]
+    },
+    {
+      "company": "Business France (VIE)",
+      "platform": "business_france",
+      "countries": [
+        "United Kingdom",
+        "Singapore",
+        "Hong Kong",
+        "France"
       ]
     }
   ],

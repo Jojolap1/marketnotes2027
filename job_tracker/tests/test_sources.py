@@ -131,6 +131,32 @@ class AtsTests(unittest.TestCase):
         self.assertEqual(jobs[0]['employment_type'], 'Graduate')
         self.assertIn('Experience: Less than 1 year', jobs[0]['description'])
 
+    def test_business_france_vie(self):
+        page = '<script>window.__NUXT__={config:{MAPS:{API_KEY:"AIzaXYZ"},API_KEY:"pub\\u002Fkey="}}</script>'
+        def api(method, url, payload):
+            items = [
+                {'id': 245487, 'organizationName': 'SOCIETE GENERALE', 'missionTitle': 'Assistant Trader Equity Derivatives (H/F)',
+                 'missionDuration': 12, 'cityNameEn': 'LONDRES', 'countryNameEn': 'UNITED KINGDOM', 'reference': 'VIE245487',
+                 'startBroadcastDate': '2026-10-15T00:00:00', 'endBroadcastDate': '2099-01-13T00:00:00',
+                 'missionDescription': 'Support the trading desk.'},
+                {'id': 2, 'organizationName': 'X', 'missionTitle': 'Junior Trader', 'cityNameEn': 'NEW YORK', 'countryNameEn': 'UNITED STATES'},
+            ] if payload['skip'] == 0 else []
+            return {'result': items}
+        ctx = context([('mon-vie-via.businessfrance.fr/en/offres/recherche', page), ('civiweb-api-prd', api)])
+        jobs = fetch_source({'company': 'Business France (VIE)', 'platform': 'business_france',
+                             'countries': ['United Kingdom', 'Singapore']}, ctx)
+        self.assertEqual(len(jobs), 1)
+        job = jobs[0]
+        self.assertEqual(job['company'], 'Societe Generale')
+        self.assertEqual(job['title'], 'Assistant Trader Equity Derivatives (H/F) (VIE)')
+        self.assertEqual(job['location'], 'Londres, United Kingdom')
+        self.assertEqual(job['published'], '2026-10-15')
+        self.assertEqual(job['url'], 'https://mon-vie-via.businessfrance.fr/offres/245487')
+        self.assertEqual(ctx.http.calls[1][2], {'limit': 100, 'skip': 0})
+        from filters import Classifier
+        import tracker
+        self.assertTrue(Classifier(tracker.CONFIG).classify(job).eligible)
+
     def test_bpce_natixis_search_api(self):
         def route(method, url, payload):
             items = [

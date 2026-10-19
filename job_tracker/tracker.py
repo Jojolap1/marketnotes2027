@@ -165,6 +165,13 @@ def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT
     ctx = Context(http, classifier, DetailCache(Path(cache_path) if cache_path else None))
     report = Report(dry_run=dry_run)
 
+    if scheduled and not dry_run and too_soon(state, notif, now):
+        # Extra scheduled triggers only cover runs GitHub drops: skip all
+        # source requests until the next send slot is due.
+        report.notifications(0, 0, f'skipped: last send slot less than {notif["min_minutes_between_sends"]} min ago')
+        report.write(report_path, http)
+        return 0, report
+
     jobs = collect(config, ctx, state, report)
     if not report.any_source_ok:
         report.write(report_path, http)
@@ -181,12 +188,6 @@ def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT
         report.notifications(0, len(new), 'dry run: nothing sent, state not saved')
     elif not in_send_window(notif.get('send_window'), now):
         report.notifications(0, len(new), f'outside the send window ({describe_window(notif["send_window"])}): '
-                                          f'{len(new)} pending for the next slot')
-        state.save(Path(state_path))
-    elif scheduled and too_soon(state, notif, now):
-        # GitHub drops some scheduled runs, so the workflow is triggered more
-        # often than alerts are wanted; scheduled sends stay this far apart.
-        report.notifications(0, len(new), f'last send slot less than {notif["min_minutes_between_sends"]} min ago: '
                                           f'{len(new)} pending for the next slot')
         state.save(Path(state_path))
     else:
