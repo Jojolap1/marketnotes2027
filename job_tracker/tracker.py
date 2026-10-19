@@ -23,7 +23,7 @@ from zoneinfo import ZoneInfo
 
 from filters import Classifier
 from http_client import AccessDenied, HttpClient
-from jobs import fingerprints
+from jobs import configure_companies, fingerprints
 from notifier import Telegram, format_message
 from report import Report
 from sources import fetch_source
@@ -156,6 +156,7 @@ def describe_window(window):
 def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT_FILE,
         dry_run=False, http=None, telegram=None, now=None, scheduled=False):
     notif = config.get('notifications', {})
+    configure_companies([s['company'] for s in config['sources']] + config.get('company_aliases', []))
     classifier = Classifier(config)
     state = State.load(Path(state_path), title_dedup_days=int(notif.get('title_dedup_days', 180)))
     http = http or HttpClient(min_interval=float(config.get('http', {}).get('min_interval_seconds', 1.0)))

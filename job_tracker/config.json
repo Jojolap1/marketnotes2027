@@ -833,5 +833,29 @@
       "lang": "en",
       "external": false
     }
+  ],
+  "company_aliases": [
+    "Natixis",
+    "Crédit Agricole",
+    "Société Générale",
+    "BNP Paribas",
+    "HSBC",
+    "Standard Chartered",
+    "TotalEnergies",
+    "EDF",
+    "Engie",
+    "Glencore",
+    "Trafigura",
+    "Vitol",
+    "Gunvor",
+    "Mercuria",
+    "Sucden",
+    "Louis Dreyfus",
+    "Cargill",
+    "Shell",
+    "ExxonMobil",
+    "Amundi",
+    "AXA",
+    "Natixis Investment Managers"
   ]
 }

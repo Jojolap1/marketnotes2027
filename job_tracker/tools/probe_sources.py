@@ -1398,6 +1398,71 @@ for c in ['Gunvor', 'GunvorGroup', 'Mercuria', 'Sucden', 'Glencore', 'TotalEnerg
     R19.append((f'R19 SR {c}', (lambda c=c: smartrecruiters(c))))
 PROBES = PROBES + R19
 
+
+# ---------------- Round 20 ----------------
+def avature_search(base):
+    out = []
+    for u in [f'{base}/SearchJobs/?jobRecordsPerPage=50&jobOffset=0', f'{base}/SearchJobs/feed/']:
+        r = get(u)
+        jd = sorted(set(re.findall(r'href="([^"]*JobDetail/[^"]+)"', r.text)))
+        vis = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', re.sub(r'(?s)<(script|style).*?</\1>', ' ', r.text)))
+        out.append(f'{u} -> {r.status_code} {r.headers.get("content-type")} len={len(r.text)} jobdetail={len(jd)} {jd[:3]}')
+        out.append('   counts: ' + str(re.findall(r'.{30}(?:results|jobs found|of \d+|résultats).{30}', vis, re.I)[:3]))
+        if 'feed' in u:
+            out.append('   feed: ' + repr(r.text[:800]))
+        elif jd:
+            d = get(jd[0] if jd[0].startswith('http') else base.split('/en_US')[0] + jd[0])
+            dv = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', re.sub(r'(?s)<(script|style).*?</\1>', ' ', d.text)))
+            out.append(f'   detail {d.status_code} ld={"ld+json" in d.text} text={dv[:700]!r}')
+    return '\n'.join(out)
+
+
+def bf_page():
+    r = get('https://mon-vie-via.businessfrance.fr/en/offres/recherche')
+    t = r.text
+    offers = sorted(set(re.findall(r'href="([^"]*/offres/\d+[^"]*)"', t)))
+    scripts = re.findall(r'src="([^"]+\.js[^"]*)"', t)
+    out = [f'status={r.status_code} offers_links={len(offers)} sample={offers[:5]} scripts={scripts[:8]}']
+    out.append('nuxt/state: ' + str(re.findall(r'(?:__NUXT__|__NEXT_DATA__|window\.__[A-Z_]+)', t)[:5]))
+    hosts = set()
+    for s in scripts[:8]:
+        u = s if s.startswith('http') else 'https://mon-vie-via.businessfrance.fr' + ('' if s.startswith('/') else '/') + s
+        js = get(u).text
+        for m in re.findall(r'https?://[a-zA-Z0-9.-]+(?:/[a-zA-Z0-9_./-]*)?', js):
+            if re.search(r'api|offer|azure|civiweb|search', m, re.I):
+                hosts.add(m[:120])
+        for m in re.findall(r'.{80}(?:Offers/search|api/Offers|Authorization|Bearer|apiKey|subscription-key).{120}', js):
+            hosts.add('CTX ' + m[:220])
+    out.append('api refs: ' + str(sorted(hosts)[:30]))
+    if offers:
+        d = get(offers[0] if offers[0].startswith('http') else 'https://mon-vie-via.businessfrance.fr' + offers[0])
+        out.append(f'detail {d.status_code} ld={"ld+json" in d.text} len={len(d.text)} title={re.findall(r"<title>([^<]*)", d.text)[:1]}')
+    return '\n'.join(out)
+
+
+R20 = [('R20 BF page', bf_page),
+       ('R20 Avature TotalEnergies', lambda: avature_search('https://jobs.totalenergies.com/en_US/careers')),
+       ('R20 Avature Koch', lambda: avature_search('https://koch.avature.net/en_US/careers')),
+       ('R20 SR Vitol', lambda: smartrecruiters('Vitol')),
+       ('R20 Glencore jobs page', lambda: discover('https://www.glencore.com/en/careers/jobs')),
+       ('R20 Glencore jobs links', lambda: grep_page('https://www.glencore.com/en/careers/jobs', r'href="([^"]*(?:job|career|vacanc|apply)[^"]*)"', 25, 160)),
+       ('R20 Sucden crawl', lambda: crawl('https://www.sucden.com/', depth=1, max_pages=6)),
+       ('R20 Mercuria crawl', lambda: crawl('https://www.mercuria.com/careers/', depth=1, max_pages=6)),
+       ('R20 Olam opportunities', lambda: grep_page('https://www.olamgroup.com/careers/opportunities.html', r'href="(https?://[^"]+)"', 30, 140)),
+       ('R20 Cargill links', lambda: grep_page('https://careers.cargill.com/en', r'(https?://career2\.successfactors\.eu[^"\'\s<>]*)', 10, 200)),
+       ('R20 RWE links', lambda: grep_page('https://www.rwe.com/en/rwe-careers-portal/job-offers/', r'(https?://career5\.successfactors\.eu[^"\'\s<>]*)', 10, 200)),
+       ('R20 Exxon links', lambda: grep_page('https://jobs.exxonmobil.com/', r'(https?://career4\.successfactors\.com[^"\'\s<>]*)', 10, 200))]
+for sm in ['https://jobs.exxonmobil.com/sitemap.xml', 'https://jobs.engie.com/sitemap.xml', 'https://jobs.bunge.com/sitemap.xml',
+           'https://careers.cargill.com/sitemap.xml', 'https://jobs.totalenergies.com/sitemap.xml']:
+    R20.append((f'R20 SITEMAP {sm}', (lambda sm=sm: sitemap(sm))))
+for host, tenant, site in [('edftrading.wd1.myworkdayjobs.com', 'edftrading', 'EDFTrading'), ('gunvor.wd3.myworkdayjobs.com', 'gunvor', 'Gunvor_Careers'),
+                           ('equinor.wd3.myworkdayjobs.com', 'equinor', 'EQNR'), ('osv-cci.wd1.myworkdayjobs.com', 'osv-cci', 'CCICareers'),
+                           ('bpinternational.wd3.myworkdayjobs.com', 'bpinternational', 'bpCareers'),
+                           ('ldc.wd3.myworkdayjobs.com', 'ldc', 'LDC'), ('ldc.wd3.myworkdayjobs.com', 'ldc', 'LDCCareers'),
+                           ('ldc.wd3.myworkdayjobs.com', 'ldc', 'LDC_External_Careers')]:
+    R20.append((f'R20 WD {tenant}/{site}', (lambda h=host, te=tenant, si=site: workday(h, te, si))))
+PROBES = PROBES + R20
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
