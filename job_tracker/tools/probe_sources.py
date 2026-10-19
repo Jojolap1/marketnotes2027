@@ -1566,6 +1566,18 @@ def bf_fields():
 R24 = [('R24 BF fields', bf_fields)]
 PROBES = PROBES + R24
 
+
+# ---------------- Round 25 ----------------
+def rwe_lines():
+    raw = get('https://career5.successfactors.eu/career?company=rweProd&career_ns=job_listing_summary&resultType=XML').content
+    lines = raw.split(b'\n')
+    return (f'len={len(raw)} lines={len(lines)} head={raw[:300]!r}\n' + '\n'.join(f'{i + 1}: {lines[i][:300]!r}' for i in range(54, min(62, len(lines))))
+            + f'\nJob tags={raw.count(b"<Job>")} Job-attr={raw.count(b"<Job ")}')
+
+
+R25 = [('R25 RWE raw lines', rwe_lines)]
+PROBES = PROBES + R25
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
