@@ -1119,6 +1119,58 @@ R12 = [
 ]
 PROBES = PROBES + R12
 
+
+# ---------------- Round 13: BNP Paribas and Natixis (user-supplied pages) ----------------
+def all_js(page_url):
+    """Main scripts of a React app plus its lazily loaded chunks."""
+    base = '{0.scheme}://{0.netloc}'.format(urlparse(page_url))
+    page = get(page_url).text
+    srcs = [s if s.startswith('http') else base + ('' if s.startswith('/') else '/') + s
+            for s in re.findall(r'src="([^"]+\.js[^"]*)"', page)]
+    texts = [page] + [get(u).text for u in srcs[:10]]
+    chunk_map = {}
+    for t in texts:
+        for m in re.finditer(r'\{((?:\d+:"[0-9a-f]{6,}",?)+)\}\[e\]\+"\.chunk\.js"', t):
+            chunk_map.update(dict(re.findall(r'(\d+):"([0-9a-f]+)"', m.group(1))))
+    for num, h in list(chunk_map.items())[:25]:
+        texts.append(get(f'{base}/static/js/{num}.{h}.chunk.js').text)
+    return srcs, chunk_map, texts
+
+
+def natixis_api():
+    srcs, chunk_map, texts = all_js('https://recrutement.natixis.com/en/our-job-offers?external=false')
+    js = '\n'.join(texts[1:])
+    urls = sorted(set(re.findall(r'https?://[a-zA-Z0-9.-]+(?:/[a-zA-Z0-9_./${}-]*)?', js)))
+    ctx = sorted(set(m[:260] for m in re.findall(r'.{100}(?:wp-json|job-offers|jobOffers|offres|region|getOffers|search/).{150}', js)))
+    env = sorted(set(re.findall(r'REACT_APP_[A-Z_]+:"[^"]*"', js)))
+    return f'scripts={srcs} chunks={len(chunk_map)} js_len={len(js)}\nENV={env}\nURLS={urls[:80]}\nCTX=' + '\n'.join(ctx[:40])
+
+
+def bnp_pages():
+    out = []
+    for u in ['https://group.bnpparibas/en/careers/all-job-offers',
+              'https://group.bnpparibas/en/careers/all-job-offers?q=&locations=paris',
+              'https://group.bnpparibas/robots.txt', 'https://group.bnpparibas/sitemap.xml',
+              'https://bwelcome.hr.bnpparibas/', 'https://bwelcome.hr.bnpparibas/robots.txt',
+              'https://careers.bnpparibas.com/', 'https://cib.bnpparibas/careers/']:
+        try:
+            r = get(u)
+            snippet = re.sub(r'\s+', ' ', r.text[:600])
+            out.append(f'{u} -> {r.status_code} server={r.headers.get("server")} final={r.url} len={len(r.text)} {snippet!r}')
+            if r.status_code == 200:
+                links_ = sorted(set(re.findall(r'https?://[a-zA-Z0-9.-]*bnpparibas[a-zA-Z0-9./_-]*(?:offer|job|career|emploi|api)[^"\'\s<>]*', r.text)))[:15]
+                out.append(f'    links={links_}')
+        except Exception as exc:
+            out.append(f'{u} -> {type(exc).__name__}: {exc}')
+    return '\n'.join(out)
+
+
+R13 = [
+    ('R13 Natixis API discovery', natixis_api),
+    ('R13 BNP pages', bnp_pages),
+]
+PROBES = PROBES + R13
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
