@@ -63,7 +63,8 @@
         "\\bvendeur\\b",
         "\\bn[ée]gociat(?:eur|ion)\\b",
         "\\b(?:fx|forex|foreign exchange|rates|credit|equit(?:y|ies)|fixed income|fic|ficc|commodit(?:y|ies)|macro|emerging markets|securitized products|repo|bonds?|delta one|prime)\\b.{0,30}\\b(?:sales|trad(?:ing|er)|desk|markets)\\b",
-        "销售交易|銷售交易|交易员|交易員|交易岗|交易崗|销售岗|機構銷售|机构销售|固定收益|外汇|外匯|衍生品"
+        "销售交易|銷售交易|交易员|交易員|交易岗|交易崗|销售岗|機構銷售|机构销售|固定收益|外汇|外匯|衍生品",
+        "\\b(?:commodit\\w*|energy|[ée]nergie|power|electricity|[ée]lectricit[ée]|gas|gaz|oil|p[ée]trole|crude|lng|metals?|m[ée]taux|agri\\w*|freight|shipping|carbon|emissions|softs|grains?)\\b.{0,25}\\borigination\\b|\\borigination\\b.{0,25}\\b(?:commodit\\w*|energy|[ée]nergie|power|electricity|[ée]lectricit[ée]|gas|gaz|oil|p[ée]trole|crude|lng|metals?|m[ée]taux|agri\\w*|freight|shipping|carbon|emissions|softs|grains?)\\b"
       ],
       "Derivatives": [
         "\\bderivatives?\\b",
@@ -95,7 +96,11 @@
         "\\bresearch analyst\\b",
         "\\banalyste (?:financier|investissement|march[ée]s|actions|cr[ée]dit)\\b",
         "\\bmarkets\\b",
-        "研究员|研究員|分析师|分析師|投资分析|投資分析"
+        "研究员|研究員|分析师|分析師|投资分析|投資分析",
+        "\\b(?:commodit\\w*|energy|[ée]nergie|power|electricity|[ée]lectricit[ée]|gas|gaz|oil|p[ée]trole|crude|lng|metals?|m[ée]taux|agri\\w*|freight|shipping|carbon|emissions|softs|grains?)\\s+(?:market\\s+|markets\\s+|trading\\s+)?analyst\\b",
+        "\\banalyste\\s+(?:de\\s+)?march[ée]s?\\b",
+        "\\bmarket (?:analyst|analysis|intelligence)\\b",
+        "\\bpricing analyst\\b"
       ]
     },
     "role_exclusion_patterns": [
@@ -832,6 +837,167 @@
       "base_url": "https://recrutement.natixis.com",
       "lang": "en",
       "external": false
+    },
+    {
+      "company": "Shell",
+      "platform": "workday",
+      "host": "shell.wd3.myworkdayjobs.com",
+      "tenant": "shell",
+      "site": "ShellCareers"
+    },
+    {
+      "company": "BP",
+      "platform": "workday",
+      "host": "bpinternational.wd3.myworkdayjobs.com",
+      "tenant": "bpinternational",
+      "site": "bpCareers"
+    },
+    {
+      "company": "Trafigura",
+      "platform": "workday",
+      "host": "trafigura.wd3.myworkdayjobs.com",
+      "tenant": "trafigura",
+      "site": "TrafiguraCareerSite"
+    },
+    {
+      "company": "EDF Trading",
+      "platform": "workday",
+      "host": "edftrading.wd1.myworkdayjobs.com",
+      "tenant": "edftrading",
+      "site": "EDFTrading"
+    },
+    {
+      "company": "Gunvor",
+      "platform": "workday",
+      "host": "gunvor.wd3.myworkdayjobs.com",
+      "tenant": "gunvor",
+      "site": "Gunvor_Careers"
+    },
+    {
+      "company": "Equinor",
+      "platform": "workday",
+      "host": "equinor.wd3.myworkdayjobs.com",
+      "tenant": "equinor",
+      "site": "EQNR"
+    },
+    {
+      "company": "Vitol",
+      "platform": "smartrecruiters",
+      "board": "Vitol"
+    },
+    {
+      "company": "EDF (group)",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "edf.fr careers pages answer HTTP 403 to automated requests (2026-10-19); EDF Trading (London, Singapore) is covered via its Workday site."
+    },
+    {
+      "company": "Hartree Partners",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "hartreepartners.com answers HTTP 403 to automated requests (2026-10-19)."
+    },
+    {
+      "company": "Uniper",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "uniper.energy careers answers HTTP 403 to automated requests (2026-10-19)."
+    },
+    {
+      "company": "Mercuria",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "mercuria.com careers fails TLS certificate validation (2026-10-19); no other public job feed found."
+    },
+    {
+      "company": "Glencore",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "glencore.com/careers/jobs shows no public job feed or ATS link (2026-10-19)."
+    },
+    {
+      "company": "Louis Dreyfus Company",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "ldc.com careers pages answer HTTP 403; its Workday tenant requires a site name that is not published (HTTP 401) (2026-10-19)."
+    },
+    {
+      "company": "RWE Supply & Trading",
+      "platform": "successfactors_xml",
+      "host": "career5.successfactors.eu",
+      "sf_company": "rweProd"
+    },
+    {
+      "company": "ExxonMobil",
+      "platform": "successfactors_xml",
+      "host": "career4.successfactors.com",
+      "sf_company": "exxonmobilP"
+    },
+    {
+      "company": "Bunge",
+      "platform": "successfactors_xml",
+      "host": "career5.successfactors.eu",
+      "sf_company": "Bunge"
+    },
+    {
+      "company": "Cargill",
+      "platform": "successfactors_xml",
+      "host": "career2.successfactors.eu",
+      "sf_company": "cargill"
+    },
+    {
+      "company": "Engie",
+      "platform": "sitemap",
+      "sitemap_url": "https://jobs.engie.com/sitemap.xml",
+      "job_url_pattern": "^/job/",
+      "slug_has_city": true,
+      "location_from_slug": true,
+      "max_fetch_per_run": 40
+    },
+    {
+      "company": "TotalEnergies",
+      "platform": "avature",
+      "base_url": "https://jobs.totalenergies.com/en_US/careers",
+      "countries": [
+        "France",
+        "United Kingdom",
+        "Singapore",
+        "Hong Kong"
+      ]
+    },
+    {
+      "company": "Business France (VIE)",
+      "platform": "business_france",
+      "countries": [
+        "United Kingdom",
+        "Singapore",
+        "Hong Kong",
+        "France"
+      ]
     }
+  ],
+  "company_aliases": [
+    "Natixis",
+    "Crédit Agricole",
+    "Société Générale",
+    "BNP Paribas",
+    "HSBC",
+    "Standard Chartered",
+    "TotalEnergies",
+    "EDF",
+    "Engie",
+    "Glencore",
+    "Trafigura",
+    "Vitol",
+    "Gunvor",
+    "Mercuria",
+    "Sucden",
+    "Louis Dreyfus",
+    "Cargill",
+    "Shell",
+    "ExxonMobil",
+    "Amundi",
+    "AXA",
+    "Natixis Investment Managers"
   ]
 }

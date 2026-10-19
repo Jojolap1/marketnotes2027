@@ -48,7 +48,7 @@ A job whose source gives no publication date (e.g. Oleeo boards, Standard Charte
 marked "date not provided by the source". Dates come from the feeds (Workday posting date or
 "Posted N days ago", Oracle `PostedDate`, Greenhouse `first_published`, JSON-LD `datePosted`, RSS `pubDate`…).
 
-**Send window:** GitHub drops many scheduled runs, so the workflow is triggered every 30 min from 11:07 to 22:37 Vietnam time; a scheduled run sends only if the last send slot is at least `notifications.min_minutes_between_sends` (100) min old (manual runs always send), and
+**Send window:** GitHub drops many scheduled runs, so the workflow is triggered every 30 min from 11:07 to 22:37 Vietnam time; a scheduled run sends only if the last send slot is at least `notifications.min_minutes_between_sends` (100) min old (manual runs always send); scheduled runs that are too early stop before any source request, and
 `notifications.send_window` (Asia/Ho_Chi_Minh, 11h-22h) stops any run outside that window from
 sending; new jobs then wait for the next slot.
 
@@ -124,6 +124,20 @@ Greenhouse board), Mako, Akuna, Old Mission, Eclipse Trading (Greenhouse).
 | CICC / China Galaxy (Chinastock) | Beisen zhiye job-ad API (Chinese ads) | 483 / 105 | Chinese city/role keywords |
 | Natixis CIB | recrutement.natixis.com search API (the site's own JSON search) | 179 | Paris, Hong Kong, Singapore, London offers |
 | Standard Chartered | vacancy pages now give "Posting Start/End Date" | 1,185 | dates + closing date parsed |
+
+**Added 2026-10-19 (commodities / energy and V.I.E):**
+
+| Employer | Official source |
+|---|---|
+| Business France V.I.E | mon-vie-via.businessfrance.fr search API (public key read from the site's own page each run); offers name the real employer and share its fingerprint, so a V.I.E listed both there and on the employer's site alerts once |
+| Shell, BP, Trafigura, EDF Trading, Gunvor, Equinor | Workday |
+| Vitol | SmartRecruiters |
+| RWE Supply & Trading, ExxonMobil, Bunge, Cargill | SuccessFactors XML |
+| Engie | jobs.engie.com sitemap |
+| TotalEnergies | jobs.totalenergies.com search (Avature): listing + detail pages for target countries |
+
+Not covered: EDF group, Hartree, Uniper (HTTP 403), Mercuria (TLS certificate error), Glencore (no public
+job feed), Louis Dreyfus (HTTP 403 / unpublished Workday site).
 
 **Not covered (documented, not bypassed):** BNP Paribas, Citadel Securities, NatWest Markets, Huatai
 (HTTP 403 to automated requests — anti-bot protection, not bypassed; BNP's candidate portal

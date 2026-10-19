@@ -23,7 +23,7 @@ from zoneinfo import ZoneInfo
 
 from filters import Classifier
 from http_client import AccessDenied, HttpClient
-from jobs import fingerprints
+from jobs import configure_companies, fingerprints
 from notifier import Telegram, format_message
 from report import Report
 from sources import fetch_source
@@ -156,6 +156,7 @@ def describe_window(window):
 def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT_FILE,
         dry_run=False, http=None, telegram=None, now=None, scheduled=False):
     notif = config.get('notifications', {})
+    configure_companies([s['company'] for s in config['sources']] + config.get('company_aliases', []))
     classifier = Classifier(config)
     state = State.load(Path(state_path), title_dedup_days=int(notif.get('title_dedup_days', 180)))
     http = http or HttpClient(min_interval=float(config.get('http', {}).get('min_interval_seconds', 1.0)))
@@ -163,6 +164,13 @@ def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT
         http.set_host_interval(host, seconds)
     ctx = Context(http, classifier, DetailCache(Path(cache_path) if cache_path else None))
     report = Report(dry_run=dry_run)
+
+    if scheduled and not dry_run and too_soon(state, notif, now):
+        # Extra scheduled triggers only cover runs GitHub drops: skip all
+        # source requests until the next send slot is due.
+        report.notifications(0, 0, f'skipped: last send slot less than {notif["min_minutes_between_sends"]} min ago')
+        report.write(report_path, http)
+        return 0, report
 
     jobs = collect(config, ctx, state, report)
     if not report.any_source_ok:
@@ -180,12 +188,6 @@ def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT
         report.notifications(0, len(new), 'dry run: nothing sent, state not saved')
     elif not in_send_window(notif.get('send_window'), now):
         report.notifications(0, len(new), f'outside the send window ({describe_window(notif["send_window"])}): '
-                                          f'{len(new)} pending for the next slot')
-        state.save(Path(state_path))
-    elif scheduled and too_soon(state, notif, now):
-        # GitHub drops some scheduled runs, so the workflow is triggered more
-        # often than alerts are wanted; scheduled sends stay this far apart.
-        report.notifications(0, len(new), f'last send slot less than {notif["min_minutes_between_sends"]} min ago: '
                                           f'{len(new)} pending for the next slot')
         state.save(Path(state_path))
     else:

@@ -1337,6 +1337,247 @@ def bnp_pages_list():
 R18 = [('R18 BNP externalcareers pages', bnp_pages_list)]
 PROBES = PROBES + R18
 
+
+# ---------------- Round 19: Business France VIE + commodities / energy traders ----------------
+def bf_api():
+    out = []
+    for u, body in [('https://civiweb-api-prd.azurewebsites.net/api/Offers/search', {'limit': 5, 'skip': 0}),
+                    ('https://civiweb-api-prd.azurewebsites.net/api/Offers/search', {'limit': 5, 'skip': 0, 'query': 'trading'})]:
+        try:
+            r = S.post(u, json=body, timeout=25)
+            out.append(f'POST {u} {body} -> {r.status_code} {r.headers.get("content-type")} {r.text[:1500]!r}')
+        except Exception as exc:
+            out.append(f'POST {u} -> {type(exc).__name__}: {exc}')
+    return '\n'.join(out)
+
+
+COMMO_ROOTS = {
+    'TotalEnergies': 'https://jobs.totalenergies.com/en_US/careers',
+    'EDF Trading': 'https://www.edftrading.com/careers/',
+    'Glencore': 'https://www.glencore.com/careers',
+    'Sucden': 'https://www.sucden.com/en/careers/',
+    'ExxonMobil': 'https://jobs.exxonmobil.com/',
+    'Shell': 'https://www.shell.com/careers.html',
+    'BP': 'https://www.bp.com/en/global/corporate/careers.html',
+    'Trafigura': 'https://www.trafigura.com/careers/',
+    'Vitol': 'https://www.vitol.com/careers/',
+    'Gunvor': 'https://gunvorgroup.com/careers/',
+    'Mercuria': 'https://mercuria.com/careers/',
+    'Engie': 'https://jobs.engie.com/',
+    'Equinor': 'https://www.equinor.com/careers',
+    'RWE Supply & Trading': 'https://www.rwe.com/en/careers/',
+    'Uniper': 'https://www.uniper.energy/careers',
+    'Cargill': 'https://careers.cargill.com/en',
+    'Louis Dreyfus': 'https://www.ldc.com/careers/',
+    'Bunge': 'https://jobs.bunge.com/',
+    'ADM': 'https://careers.adm.com/',
+    'Olam / ofi': 'https://www.olamgroup.com/careers.html',
+    'Wilmar': 'https://www.wilmar-international.com/careers',
+    'Castleton Commodities': 'https://www.cci.com/careers/',
+    'Hartree Partners': 'https://www.hartreepartners.com/careers/',
+    'Freepoint': 'https://freepoint.com/careers/',
+    'Koch Supply & Trading': 'https://www.kochcareers.com/',
+    'Pavilion Energy': 'https://www.pavilionenergy.com/careers',
+    'Engie GEMS': 'https://www.engie.com/en/careers',
+    'EDF': 'https://www.edf.fr/en/the-edf-group/edf-recruits',
+    'Business France VIE': 'https://mon-vie-via.businessfrance.fr/offres/recherche',
+}
+R19 = [('R19 Business France API', bf_api)]
+for name, u in COMMO_ROOTS.items():
+    R19.append((f'R19 CRAWL {name}', (lambda u=u: crawl(u, depth=1, max_pages=6))))
+for tenant, wd, sites in [('shell', 'wd3', ['ShellCareers']), ('bp', 'wd3', ['bpCareers']), ('trafigura', 'wd3', ['TrafiguraCareerSite', 'Trafigura']),
+                          ('bunge', 'wd1', ['Bunge_Careers']), ('adm', 'wd5', ['External']), ('cargill', 'wd5', ['External']),
+                          ('ldc', 'wd3', ['LDC_Careers', 'External']), ('glencore', 'wd3', ['Glencore', 'External', 'GlencoreCareers']),
+                          ('edftrading', 'wd3', ['EDFTrading', 'External']), ('vitol', 'wd3', ['Vitol', 'External']),
+                          ('totalenergies', 'wd3', ['TotalEnergies', 'External'])]:
+    for site in sites:
+        R19.append((f'R19 WD {tenant}/{site}', (lambda t=tenant, w=wd, si=site: workday(f'{t}.{w}.myworkdayjobs.com', t, si))))
+for b in ['castletoncommodities', 'hartreepartners', 'freepoint', 'mercuria', 'gunvor', 'vitol', 'trafigura', 'sucden', 'glencore']:
+    R19.append((f'R19 GH {b}', (lambda b=b: greenhouse(b))))
+for c in ['Gunvor', 'GunvorGroup', 'Mercuria', 'Sucden', 'Glencore', 'TotalEnergies', 'EDFTrading']:
+    R19.append((f'R19 SR {c}', (lambda c=c: smartrecruiters(c))))
+PROBES = PROBES + R19
+
+
+# ---------------- Round 20 ----------------
+def avature_search(base):
+    out = []
+    for u in [f'{base}/SearchJobs/?jobRecordsPerPage=50&jobOffset=0', f'{base}/SearchJobs/feed/']:
+        r = get(u)
+        jd = sorted(set(re.findall(r'href="([^"]*JobDetail/[^"]+)"', r.text)))
+        vis = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', re.sub(r'(?s)<(script|style).*?</\1>', ' ', r.text)))
+        out.append(f'{u} -> {r.status_code} {r.headers.get("content-type")} len={len(r.text)} jobdetail={len(jd)} {jd[:3]}')
+        out.append('   counts: ' + str(re.findall(r'.{30}(?:results|jobs found|of \d+|résultats).{30}', vis, re.I)[:3]))
+        if 'feed' in u:
+            out.append('   feed: ' + repr(r.text[:800]))
+        elif jd:
+            d = get(jd[0] if jd[0].startswith('http') else base.split('/en_US')[0] + jd[0])
+            dv = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', re.sub(r'(?s)<(script|style).*?</\1>', ' ', d.text)))
+            out.append(f'   detail {d.status_code} ld={"ld+json" in d.text} text={dv[:700]!r}')
+    return '\n'.join(out)
+
+
+def bf_page():
+    r = get('https://mon-vie-via.businessfrance.fr/en/offres/recherche')
+    t = r.text
+    offers = sorted(set(re.findall(r'href="([^"]*/offres/\d+[^"]*)"', t)))
+    scripts = re.findall(r'src="([^"]+\.js[^"]*)"', t)
+    out = [f'status={r.status_code} offers_links={len(offers)} sample={offers[:5]} scripts={scripts[:8]}']
+    out.append('nuxt/state: ' + str(re.findall(r'(?:__NUXT__|__NEXT_DATA__|window\.__[A-Z_]+)', t)[:5]))
+    hosts = set()
+    for s in scripts[:8]:
+        u = s if s.startswith('http') else 'https://mon-vie-via.businessfrance.fr' + ('' if s.startswith('/') else '/') + s
+        js = get(u).text
+        for m in re.findall(r'https?://[a-zA-Z0-9.-]+(?:/[a-zA-Z0-9_./-]*)?', js):
+            if re.search(r'api|offer|azure|civiweb|search', m, re.I):
+                hosts.add(m[:120])
+        for m in re.findall(r'.{80}(?:Offers/search|api/Offers|Authorization|Bearer|apiKey|subscription-key).{120}', js):
+            hosts.add('CTX ' + m[:220])
+    out.append('api refs: ' + str(sorted(hosts)[:30]))
+    if offers:
+        d = get(offers[0] if offers[0].startswith('http') else 'https://mon-vie-via.businessfrance.fr' + offers[0])
+        out.append(f'detail {d.status_code} ld={"ld+json" in d.text} len={len(d.text)} title={re.findall(r"<title>([^<]*)", d.text)[:1]}')
+    return '\n'.join(out)
+
+
+R20 = [('R20 BF page', bf_page),
+       ('R20 Avature TotalEnergies', lambda: avature_search('https://jobs.totalenergies.com/en_US/careers')),
+       ('R20 Avature Koch', lambda: avature_search('https://koch.avature.net/en_US/careers')),
+       ('R20 SR Vitol', lambda: smartrecruiters('Vitol')),
+       ('R20 Glencore jobs page', lambda: discover('https://www.glencore.com/en/careers/jobs')),
+       ('R20 Glencore jobs links', lambda: grep_page('https://www.glencore.com/en/careers/jobs', r'href="([^"]*(?:job|career|vacanc|apply)[^"]*)"', 25, 160)),
+       ('R20 Sucden crawl', lambda: crawl('https://www.sucden.com/', depth=1, max_pages=6)),
+       ('R20 Mercuria crawl', lambda: crawl('https://www.mercuria.com/careers/', depth=1, max_pages=6)),
+       ('R20 Olam opportunities', lambda: grep_page('https://www.olamgroup.com/careers/opportunities.html', r'href="(https?://[^"]+)"', 30, 140)),
+       ('R20 Cargill links', lambda: grep_page('https://careers.cargill.com/en', r'(https?://career2\.successfactors\.eu[^"\'\s<>]*)', 10, 200)),
+       ('R20 RWE links', lambda: grep_page('https://www.rwe.com/en/rwe-careers-portal/job-offers/', r'(https?://career5\.successfactors\.eu[^"\'\s<>]*)', 10, 200)),
+       ('R20 Exxon links', lambda: grep_page('https://jobs.exxonmobil.com/', r'(https?://career4\.successfactors\.com[^"\'\s<>]*)', 10, 200))]
+for sm in ['https://jobs.exxonmobil.com/sitemap.xml', 'https://jobs.engie.com/sitemap.xml', 'https://jobs.bunge.com/sitemap.xml',
+           'https://careers.cargill.com/sitemap.xml', 'https://jobs.totalenergies.com/sitemap.xml']:
+    R20.append((f'R20 SITEMAP {sm}', (lambda sm=sm: sitemap(sm))))
+for host, tenant, site in [('edftrading.wd1.myworkdayjobs.com', 'edftrading', 'EDFTrading'), ('gunvor.wd3.myworkdayjobs.com', 'gunvor', 'Gunvor_Careers'),
+                           ('equinor.wd3.myworkdayjobs.com', 'equinor', 'EQNR'), ('osv-cci.wd1.myworkdayjobs.com', 'osv-cci', 'CCICareers'),
+                           ('bpinternational.wd3.myworkdayjobs.com', 'bpinternational', 'bpCareers'),
+                           ('ldc.wd3.myworkdayjobs.com', 'ldc', 'LDC'), ('ldc.wd3.myworkdayjobs.com', 'ldc', 'LDCCareers'),
+                           ('ldc.wd3.myworkdayjobs.com', 'ldc', 'LDC_External_Careers')]:
+    R20.append((f'R20 WD {tenant}/{site}', (lambda h=host, te=tenant, si=site: workday(h, te, si))))
+PROBES = PROBES + R20
+
+
+# ---------------- Round 21 ----------------
+def bf_meta():
+    out = []
+    for u in ['https://mon-vie-via.businessfrance.fr/robots.txt', 'https://mon-vie-via.businessfrance.fr/sitemap.xml']:
+        r = get(u)
+        out.append(f'{u} -> {r.status_code} {r.text[:600]!r}')
+    page = get('https://mon-vie-via.businessfrance.fr/en/offres/recherche').text
+    metas = re.findall(r'<meta[^>]+name="([^"]+)"[^>]*>', page)
+    out.append('meta names: ' + str(metas[:30]))
+    key = re.search(r'<meta[^>]+name="[^"]*(?:api|key)[^"]*"[^>]+content="([^"]+)"', page, re.I) or re.search(r'<meta[^>]+content="([^"]+)"[^>]+name="[^"]*(?:api|key)[^"]*"', page, re.I)
+    out.append(f'api meta present={bool(key)}')
+    if key:
+        r = S.post('https://civiweb-api-prd.azurewebsites.net/api/Offers/search', json={'limit': 3, 'skip': 0},
+                   headers={'X-API-KEY': key.group(1)}, timeout=25)
+        out.append(f'search with page key -> {r.status_code} {r.text[:1500]!r}')
+    return '\n'.join(out)
+
+
+def avature_listing(url):
+    r = get(url)
+    i = r.text.find('JobDetail/')
+    return f'{r.status_code} block={r.text[max(0, i - 1500):i + 1500]!r}'
+
+
+R21 = [('R21 BF meta/sitemap', bf_meta),
+       ('R21 Avature TotalEnergies listing', lambda: avature_listing('https://jobs.totalenergies.com/en_US/careers/SearchJobs/?jobRecordsPerPage=20&jobOffset=20')),
+       ('R21 SF rweProd', lambda: sf_xml('career5.successfactors.eu', 'rweProd')),
+       ('R21 SF exxonmobilP', lambda: sf_xml('career4.successfactors.com', 'exxonmobilP')),
+       ('R21 SF Bunge', lambda: sf_xml('career5.successfactors.eu', 'Bunge')),
+       ('R21 SF cargill', lambda: sf_xml('career2.successfactors.eu', 'cargill')),
+       ('R21 Cargill job page', lambda: validate_page('https://careers.cargill.com/en/job/geneva/senior-software-engineer-agriculture-and-trading-m-f-d/23251/75952677504')),
+       ('R21 Engie job page', lambda: validate_page('https://jobs.engie.com/job/Katowice-HR-DIRECTOR-%28fm%29-40-007/1355999755/')),
+       ('R21 Olam careers', lambda: discover('https://careers.olamgroup.com/')),
+       ('R21 ofi careers', lambda: discover('https://www.oficareers.com/')),
+       ('R21 Sucden jobs', lambda: grep_page('https://www.sucden.com/en/human-resources/job-opportunities/', r'href="([^"]*(?:job|opportunit|vacanc|career|apply|pdf)[^"]*)"', 30, 160)),
+       ('R21 Castleton page', lambda: grep_page('https://cci.com/careers/', r'(https?://osv-cci\.wd1\.myworkdayjobs\.com/[^"\'\s<>]*)', 10, 200))]
+PROBES = PROBES + R21
+
+
+# ---------------- Round 22 ----------------
+def bf_key_source():
+    page = get('https://mon-vie-via.businessfrance.fr/en/offres/recherche').text
+    out = []
+    nuxt = re.search(r'window\.__NUXT__=(.{0,4000})', page, re.S)
+    out.append('NUXT head: ' + (repr(nuxt.group(1)[:1500]) if nuxt else 'none'))
+    out.append('config keys: ' + str(re.findall(r'(?:apiKey|api_key|API_KEY|xApiKey|apiUrl|baseURL|API_URL)["\']?\s*[:=]\s*["\'][^"\']{0,80}', page)[:10]))
+    scripts = re.findall(r'src="(/_nuxt/[^"]+\.js)"', page)
+    for s in scripts:
+        js = get('https://mon-vie-via.businessfrance.fr' + s).text
+        for m in re.findall(r'.{160}X-API-KEY.{60}', js):
+            out.append(f'{s} KEYCTX ' + m[:240])
+        for m in re.findall(r'.{120}Offers/search.{200}', js):
+            out.append(f'{s} SEARCHCTX ' + m[:340])
+        for m in re.findall(r'(?:apiKey|API_KEY|xApiKey)["\']?\s*[:=]\s*["\'][^"\']{0,10}', js):
+            out.append(f'{s} KEYDEF ' + m)
+    return '\n'.join(out)
+
+
+R22 = [('R22 BF key source', bf_key_source)]
+PROBES = PROBES + R22
+
+
+# ---------------- Round 23 ----------------
+def bf_search():
+    page = get('https://mon-vie-via.businessfrance.fr/en/offres/recherche').text
+    keys = re.findall(r'API_KEY:"([^"]+)"', page)
+    key = next((k.encode().decode('unicode_escape') for k in keys if not k.startswith('AIza')), None)
+    out = [f'key found={bool(key)}']
+    if not key:
+        return out[0]
+    h = {'X-API-KEY': key, 'Content-Type': 'application/json'}
+    base = 'https://civiweb-api-prd.azurewebsites.net/api/Offers'
+    for body in [{'limit': 3, 'skip': 0},
+                 {'limit': 3, 'skip': 0, 'query': 'trading', 'activitySectorId': [], 'missionsTypesIds': [], 'missionsDurations': [],
+                  'gerographicZones': [], 'countriesIds': [], 'studiesLevelId': [], 'companiesSizes': [], 'specializationsIds': [],
+                  'entreprisesIds': [0], 'missionStartDate': None}]:
+        r = S.post(base + '/search', json=body, headers=h, timeout=25)
+        out.append(f'POST search {list(body)} -> {r.status_code} {r.text[:2500]!r}')
+    r = S.get(base + '/repository/countries', headers=h, timeout=25) if False else None
+    return '\n'.join(out)
+
+
+R23 = [('R23 BF search', bf_search)]
+PROBES = PROBES + R23
+
+
+# ---------------- Round 24 ----------------
+def bf_fields():
+    page = get('https://mon-vie-via.businessfrance.fr/en/offres/recherche').text
+    key = next(k.encode().decode('unicode_escape') for k in re.findall(r'API_KEY:"([^"]+)"', page) if not k.startswith('AIza'))
+    r = S.post('https://civiweb-api-prd.azurewebsites.net/api/Offers/search', json={'limit': 100, 'skip': 0, 'query': 'trader'},
+               headers={'X-API-KEY': key}, timeout=25).json()
+    items = r.get('result') or []
+    it = items[0] if items else {}
+    small = {k: v for k, v in it.items() if not isinstance(v, str) or len(v) < 80}
+    return (f'top={ {k: (v if not isinstance(v, list) else len(v)) for k, v in r.items()} }\nitem={json.dumps(small, ensure_ascii=False)[:2500]}\n'
+            f'sample={[(i.get("organizationName"), i.get("missionTitle"), i.get("cityNameEn"), i.get("countryNameEn")) for i in items[:15]]}')
+
+
+R24 = [('R24 BF fields', bf_fields)]
+PROBES = PROBES + R24
+
+
+# ---------------- Round 25 ----------------
+def rwe_lines():
+    raw = get('https://career5.successfactors.eu/career?company=rweProd&career_ns=job_listing_summary&resultType=XML').content
+    lines = raw.split(b'\n')
+    return (f'len={len(raw)} lines={len(lines)} head={raw[:300]!r}\n' + '\n'.join(f'{i + 1}: {lines[i][:300]!r}' for i in range(54, min(62, len(lines))))
+            + f'\nJob tags={raw.count(b"<Job>")} Job-attr={raw.count(b"<Job ")}')
+
+
+R25 = [('R25 RWE raw lines', rwe_lines)]
+PROBES = PROBES + R25
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

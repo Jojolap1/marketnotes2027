@@ -167,3 +167,14 @@ class NotifierTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class CrossSourceDedupTests(unittest.TestCase):
+    def test_business_france_offer_matches_employer_site(self):
+        from jobs import configure_companies, fingerprints
+        configure_companies(['Société Générale', 'Natixis CIB', 'Natixis'])
+        bank = {'id': 'sitemap:sg:1', 'company': 'Société Générale', 'title': 'V.I.E - Assistant Trader Equity Derivatives (H/F)'}
+        vie = {'id': 'businessfrance:9', 'company': 'Societe Generale', 'title': 'Assistant Trader Equity Derivatives (H/F) (VIE)'}
+        self.assertTrue(set(fingerprints(bank, 'London')) & set(fingerprints(vie, 'London')))
+        other = {'id': 'businessfrance:10', 'company': 'NATIXIS', 'title': 'Assistant Trader Equity Derivatives (H/F) (VIE)'}
+        self.assertFalse(set(fingerprints(bank, 'London')) & set(fingerprints(other, 'London')))

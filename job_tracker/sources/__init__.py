@@ -7,7 +7,7 @@ feeds, Oleeo campus boards
 and official XML sitemaps + vacancy pages. None logs in or bypasses access
 controls; HTTP 401/403 surfaces as an AccessDenied source failure.
 """
-from sources import ats, banks, eightfold, feeds, oracle, sitemap, workday
+from sources import ats, avature, banks, business_france, eightfold, feeds, oracle, sitemap, workday
 
 ADAPTERS = {
     'greenhouse': ats.greenhouse,
@@ -24,7 +24,7 @@ ADAPTERS = {
     'oleeo': feeds.oleeo,
     'bank_of_america': banks.bank_of_america,
     'brassring': banks.brassring,
-    'zhiye': banks.zhiye, 'bpce': banks.bpce,
+    'zhiye': banks.zhiye, 'bpce': banks.bpce, 'avature': avature.fetch, 'business_france': business_france.fetch,
 }
 
 

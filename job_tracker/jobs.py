@@ -57,17 +57,38 @@ def normalized_title(title):
     return re.sub(r'\s+', ' ', title).strip()
 
 
+_COMPANY_BASES = []
+
+
+def configure_companies(names):
+    """Known employer names: an aggregator (Business France) naming 'SOCIETE
+    GENERALE SA' maps to the same company key as the bank's own source."""
+    bases = {normalized_title(re.sub(r'\(.*?\)', ' ', n or '')) for n in names}
+    _COMPANY_BASES[:] = sorted((b for b in bases if len(b) >= 3), key=len)  # shortest first: "natixis" covers "natixis cib"
+
+
+def company_key(name):
+    plain = normalized_title(re.sub(r'\(.*?\)', ' ', name or ''))
+    for base in _COMPANY_BASES:
+        if re.search(r'\b' + re.escape(base) + r'\b', plain):
+            return base
+    return plain
+
+
+VIE_MARK = re.compile(r'^(?:v i e|vie)\b\s*|\s*\b(?:v i e|vie)$')
+
+
 def fingerprints(job, city=''):
     """All identity keys for a job. Any match against history means 'seen'."""
     keys = []
     if job.get('id'):
         keys.append('id:' + job['id'])
-    company = normalized_title(job.get('company'))
+    company = company_key(job.get('company'))
     if job.get('requisition_id'):
         keys.append(f'req:{company}:{normalize_text(job["requisition_id"])}')
     if job.get('url'):
         keys.append('url:' + canonical_url(job['url']))
-    title = normalized_title(job.get('title'))
+    title = VIE_MARK.sub('', normalized_title(job.get('title'))).strip()
     if title:
         keys.append(f'title:{company}:{title}:{normalize_text(city)}')
     return keys

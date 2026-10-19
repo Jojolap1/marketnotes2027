@@ -110,6 +110,64 @@ class AtsTests(unittest.TestCase):
         self.assertEqual(jobs[0]['description'], 'Graduates')
         self.assertEqual(jobs[0]['status'], 'open')
 
+    def test_avature_listing_and_detail(self):
+        def art(n, title, country, date='16-10-2026'):
+            return (f'<div class="article article--result" id="article--{n}"><h3><a class="link" '
+                    f'href="https://jobs.totalenergies.com/en_US/careers/JobDetail/x/{n}">\n {title}\n</a></h3>'
+                    f'<ul><li class="list-item list-item-jobCreationDate">{date}</li> '
+                    f'<li class="list-item list-item-jobCountry">{country}</li></ul></div>')
+        listing = ('<section id="jobs">' + art(1, 'Graduate Programme - Trading Analyst', 'United Kingdom')
+                   + art(2, 'Technicien maintenance', 'France') + art(3, 'Trading Intern', 'Brazil') + '</section>')
+        detail = ('<html><body>Job Description Graduate Programme - Trading Analyst Country United Kingdom City LONDON '
+                  'Area London Employer company TotalEnergies Gas & Power Ltd Domain Trading Type of contract Graduate '
+                  'Experience Less than 1 year Context & Environment Join our trading floor.</body></html>')
+        ctx = context([('SearchJobs/?jobRecordsPerPage=20&jobOffset=0', listing), ('SearchJobs/', '<section></section>'),
+                       ('JobDetail/x/1', detail)])
+        jobs = fetch_source({'company': 'TotalEnergies', 'platform': 'avature', 'base_url': 'https://jobs.totalenergies.com/en_US/careers',
+                             'countries': ['United Kingdom', 'France']}, ctx)
+        self.assertEqual([j['title'] for j in jobs], ['Graduate Programme - Trading Analyst'])
+        self.assertEqual(jobs[0]['location'], 'London, United Kingdom')
+        self.assertEqual(jobs[0]['published'], '2026-10-16')
+        self.assertEqual(jobs[0]['employment_type'], 'Graduate')
+        self.assertIn('Experience: Less than 1 year', jobs[0]['description'])
+
+    def test_business_france_vie(self):
+        page = '<script>window.__NUXT__={config:{MAPS:{API_KEY:"AIzaXYZ"},API_KEY:"pub\\u002Fkey="}}</script>'
+        def api(method, url, payload):
+            items = [
+                {'id': 245487, 'organizationName': 'SOCIETE GENERALE', 'missionTitle': 'Assistant Trader Equity Derivatives (H/F)',
+                 'missionDuration': 12, 'cityNameEn': 'LONDRES', 'countryNameEn': 'UNITED KINGDOM', 'reference': 'VIE245487',
+                 'startBroadcastDate': '2026-10-15T00:00:00', 'endBroadcastDate': '2099-01-13T00:00:00',
+                 'missionDescription': 'Support the trading desk.'},
+                {'id': 2, 'organizationName': 'X', 'missionTitle': 'Junior Trader', 'cityNameEn': 'NEW YORK', 'countryNameEn': 'UNITED STATES'},
+            ] if payload['skip'] == 0 else []
+            return {'result': items}
+        ctx = context([('mon-vie-via.businessfrance.fr/en/offres/recherche', page), ('civiweb-api-prd', api)])
+        jobs = fetch_source({'company': 'Business France (VIE)', 'platform': 'business_france',
+                             'countries': ['United Kingdom', 'Singapore']}, ctx)
+        self.assertEqual(len(jobs), 1)
+        job = jobs[0]
+        self.assertEqual(job['company'], 'Societe Generale')
+        self.assertEqual(job['title'], 'Assistant Trader Equity Derivatives (H/F) (VIE)')
+        self.assertEqual(job['location'], 'Londres, United Kingdom')
+        self.assertEqual(job['published'], '2026-10-15')
+        self.assertEqual(job['url'], 'https://mon-vie-via.businessfrance.fr/offres/245487')
+        self.assertEqual(ctx.http.calls[1][2], {'limit': 100, 'skip': 0})
+        from filters import Classifier
+        import tracker
+        self.assertTrue(Classifier(tracker.CONFIG).classify(job).eligible)
+
+    def test_successfactors_xml_skips_broken_job(self):
+        xml = ('<?xml version="1.0"?><Jobs>'
+               '<Job><JobTitle>Graduate Trader R&D</JobTitle><ReqId>1</ReqId><>213</><Location>London</Location>'
+               '<Job-Description>Graduate programme.</Job-Description></Job>'
+               '<Job><JobTitle>Graduate Trading Analyst</JobTitle><ReqId>2</ReqId><>9</><Location>Paris</Location></Job>'
+               '<Job><JobTitle>Broken <b></JobTitle></Job></Jobs>')
+        ctx = context({'career5.successfactors.eu': xml})
+        jobs = fetch_source({'company': 'RWE', 'platform': 'successfactors_xml', 'host': 'career5.successfactors.eu',
+                             'sf_company': 'rweProd'}, ctx)
+        self.assertEqual(sorted(j['title'] for j in jobs), ['Graduate Trader R&D', 'Graduate Trading Analyst'])
+
     def test_bpce_natixis_search_api(self):
         def route(method, url, payload):
             items = [
