@@ -1734,6 +1734,34 @@ def sg_proxy_usage():
 R31 = [('R31 SG proxy usage', sg_proxy_usage)]
 PROBES = PROBES + R31
 
+
+# ---------------- Round 32: SG refs -> pages ----------------
+def sg_refs():
+    page = get('https://careers.societegenerale.com/en/search').text
+    m = re.search(r'<script[^>]+data-drupal-selector="drupal-settings-json"[^>]*>(.*?)</script>', page, re.S)
+    q = json.loads(m.group(1)).get('quantum', {})
+    allo = q.get('all_offers') or {}
+    locs = ((q.get('quantum_filters') or {}).get('refLocation') or {}).get('id') or {}
+    out = [f'all_offers={len(allo)} has_26000KN1={"26000KN1" in allo} entry={allo.get("26000KN1")}']
+    out.append('refLocation sample: ' + json.dumps(dict(list(locs.items())[:5]), ensure_ascii=False)[:600])
+    names = {}
+    for ref, v in allo.items():
+        n = (locs.get(v.get('city') or '', {}) or {}).get('en') or (locs.get(v.get('region') or '', {}) or {}).get('en') or v.get('country')
+        names[n] = names.get(n, 0) + 1
+    out.append('top locations: ' + str(sorted(names.items(), key=lambda x: -x[1])[:25]))
+    for u in ['https://careers.societegenerale.com/en/job-offers/26000KN1', 'https://careers.societegenerale.com/en/job-offers/x-26000KN1-en',
+              'https://careers.societegenerale.com/job-offers/26000KN1', 'https://careers.societegenerale.com/en/node?ref=26000KN1']:
+        r = get(u, allow_redirects=True)
+        out.append(f'{u} -> {r.status_code} final={r.url}')
+    js = get('https://careers.societegenerale.com/themes/custom/sg_careers/js/quantum/search-page-quantum.js').text
+    for mm in list(re.finditer(r'proxy_fetch\(', js))[:3]:
+        out.append('[proxy_fetch] ' + repr(js[max(0, mm.start() - 900):mm.start() + 300]))
+    return '\n'.join(out)
+
+
+R32 = [('R32 SG refs', sg_refs)]
+PROBES = PROBES + R32
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
