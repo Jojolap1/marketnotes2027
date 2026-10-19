@@ -169,9 +169,24 @@ def parse_detail(html, url, source):
             'status': status, 'status_evidence': evidence}
 
 
+def drop_translations(urls, ref_pattern, preferred):
+    """Keep one URL per offer reference when a site lists each offer in several
+    languages (SG: '...-26000KN1-en' and '...-26000KN1-fr'), preferring `preferred`."""
+    best = {}
+    for url in urls:
+        m = re.search(ref_pattern, url)
+        key = m.group(1) if m else url
+        if key not in best or (preferred in url and preferred not in best[key]):
+            best[key] = url
+    keep = set(best.values())
+    return {u: lm for u, lm in urls.items() if u in keep}
+
+
 def fetch(source, ctx):
     company = source['company']
     urls = read_sitemaps(source, ctx)
+    if source.get('offer_ref_pattern'):
+        urls = drop_translations(urls, source['offer_ref_pattern'], source.get('preferred_language_marker', '-en'))
     ctx.stat(company, 'listed', len(urls))
     candidates = [u for u in urls if slug_candidate(u, source, ctx)]
     ctx.stat(company, 'candidates', len(candidates))
