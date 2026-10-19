@@ -1777,6 +1777,31 @@ def sg_search_request():
 R33 = [('R33 SG search request', sg_search_request)]
 PROBES = PROBES + R33
 
+
+# ---------------- Round 34: SG sitemap languages ----------------
+def sg_sitemap_langs():
+    idx = get('https://careers.societegenerale.com/sitemap.xml').text
+    subs = re.findall(r'<loc>\s*([^<]+?)\s*</loc>', idx)
+    out = [f'index locs={len(subs)} sample={subs[:5]}']
+    urls = {}
+    targets = subs if all('sitemap' in s for s in subs[:3]) else ['https://careers.societegenerale.com/sitemap.xml']
+    for s in targets[:12]:
+        body = get(s).text
+        for loc, lm in re.findall(r'<loc>\s*([^<]+?)\s*</loc>\s*(?:<lastmod>([^<]*)</lastmod>)?', body):
+            urls[loc] = lm
+    en = [u for u in urls if '/en/job-offers/' in u]
+    fr = [u for u in urls if '/offres-d-emploi/' in u]
+    out.append(f'total={len(urls)} en_offers={len(en)} fr_offers={len(fr)}')
+    refs = lambda L: {re.search(r'-([0-9A-Z]{8})-(?:en|fr)$', u).group(1) for u in L if re.search(r'-([0-9A-Z]{8})-(?:en|fr)$', u)}
+    e, f = refs(en), refs(fr)
+    out.append(f'refs en={len(e)} fr={len(f)} union={len(e | f)} fr_only={len(f - e)}')
+    out.append('KN1: ' + str([(u, urls[u]) for u in urls if '26000KN1' in u]))
+    return '\n'.join(out)
+
+
+R34 = [('R34 SG sitemap langs', sg_sitemap_langs)]
+PROBES = PROBES + R34
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
