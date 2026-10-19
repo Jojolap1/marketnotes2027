@@ -1337,6 +1337,67 @@ def bnp_pages_list():
 R18 = [('R18 BNP externalcareers pages', bnp_pages_list)]
 PROBES = PROBES + R18
 
+
+# ---------------- Round 19: Business France VIE + commodities / energy traders ----------------
+def bf_api():
+    out = []
+    for u, body in [('https://civiweb-api-prd.azurewebsites.net/api/Offers/search', {'limit': 5, 'skip': 0}),
+                    ('https://civiweb-api-prd.azurewebsites.net/api/Offers/search', {'limit': 5, 'skip': 0, 'query': 'trading'})]:
+        try:
+            r = S.post(u, json=body, timeout=25)
+            out.append(f'POST {u} {body} -> {r.status_code} {r.headers.get("content-type")} {r.text[:1500]!r}')
+        except Exception as exc:
+            out.append(f'POST {u} -> {type(exc).__name__}: {exc}')
+    return '\n'.join(out)
+
+
+COMMO_ROOTS = {
+    'TotalEnergies': 'https://jobs.totalenergies.com/en_US/careers',
+    'EDF Trading': 'https://www.edftrading.com/careers/',
+    'Glencore': 'https://www.glencore.com/careers',
+    'Sucden': 'https://www.sucden.com/en/careers/',
+    'ExxonMobil': 'https://jobs.exxonmobil.com/',
+    'Shell': 'https://www.shell.com/careers.html',
+    'BP': 'https://www.bp.com/en/global/corporate/careers.html',
+    'Trafigura': 'https://www.trafigura.com/careers/',
+    'Vitol': 'https://www.vitol.com/careers/',
+    'Gunvor': 'https://gunvorgroup.com/careers/',
+    'Mercuria': 'https://mercuria.com/careers/',
+    'Engie': 'https://jobs.engie.com/',
+    'Equinor': 'https://www.equinor.com/careers',
+    'RWE Supply & Trading': 'https://www.rwe.com/en/careers/',
+    'Uniper': 'https://www.uniper.energy/careers',
+    'Cargill': 'https://careers.cargill.com/en',
+    'Louis Dreyfus': 'https://www.ldc.com/careers/',
+    'Bunge': 'https://jobs.bunge.com/',
+    'ADM': 'https://careers.adm.com/',
+    'Olam / ofi': 'https://www.olamgroup.com/careers.html',
+    'Wilmar': 'https://www.wilmar-international.com/careers',
+    'Castleton Commodities': 'https://www.cci.com/careers/',
+    'Hartree Partners': 'https://www.hartreepartners.com/careers/',
+    'Freepoint': 'https://freepoint.com/careers/',
+    'Koch Supply & Trading': 'https://www.kochcareers.com/',
+    'Pavilion Energy': 'https://www.pavilionenergy.com/careers',
+    'Engie GEMS': 'https://www.engie.com/en/careers',
+    'EDF': 'https://www.edf.fr/en/the-edf-group/edf-recruits',
+    'Business France VIE': 'https://mon-vie-via.businessfrance.fr/offres/recherche',
+}
+R19 = [('R19 Business France API', bf_api)]
+for name, u in COMMO_ROOTS.items():
+    R19.append((f'R19 CRAWL {name}', (lambda u=u: crawl(u, depth=1, max_pages=6))))
+for tenant, wd, sites in [('shell', 'wd3', ['ShellCareers']), ('bp', 'wd3', ['bpCareers']), ('trafigura', 'wd3', ['TrafiguraCareerSite', 'Trafigura']),
+                          ('bunge', 'wd1', ['Bunge_Careers']), ('adm', 'wd5', ['External']), ('cargill', 'wd5', ['External']),
+                          ('ldc', 'wd3', ['LDC_Careers', 'External']), ('glencore', 'wd3', ['Glencore', 'External', 'GlencoreCareers']),
+                          ('edftrading', 'wd3', ['EDFTrading', 'External']), ('vitol', 'wd3', ['Vitol', 'External']),
+                          ('totalenergies', 'wd3', ['TotalEnergies', 'External'])]:
+    for site in sites:
+        R19.append((f'R19 WD {tenant}/{site}', (lambda t=tenant, w=wd, si=site: workday(f'{t}.{w}.myworkdayjobs.com', t, si))))
+for b in ['castletoncommodities', 'hartreepartners', 'freepoint', 'mercuria', 'gunvor', 'vitol', 'trafigura', 'sucden', 'glencore']:
+    R19.append((f'R19 GH {b}', (lambda b=b: greenhouse(b))))
+for c in ['Gunvor', 'GunvorGroup', 'Mercuria', 'Sucden', 'Glencore', 'TotalEnergies', 'EDFTrading']:
+    R19.append((f'R19 SR {c}', (lambda c=c: smartrecruiters(c))))
+PROBES = PROBES + R19
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
