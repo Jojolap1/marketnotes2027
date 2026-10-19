@@ -30,8 +30,9 @@ class PipelineTests(unittest.TestCase):
     def tearDown(self):
         self.dir.cleanup()
 
-    def run_tracker(self, telegram=None, dry_run=False, sources=SOURCES, now=None, scheduled=False, **notif):
+    def run_tracker(self, telegram=None, dry_run=False, sources=SOURCES, now=None, scheduled=False, page_watches=None, **notif):
         config = config_with(sources)
+        config['page_watches'] = page_watches or []
         notif.setdefault('send_window', None)  # window behaviour is tested separately
         config['notifications'] = dict(config['notifications'], **notif)
         return tracker.run(config, self.state, self.cache, self.report, dry_run=dry_run, http=self.http,
@@ -174,6 +175,25 @@ class PipelineTests(unittest.TestCase):
         tg = FakeTelegram()
         self.run_tracker(tg, now=datetime(2026, 10, 19, 6, 20, tzinfo=timezone.utc), scheduled=False, **kw)
         self.assertEqual(len(tg.sent), 1)
+
+    def test_page_watch_alerts_once_on_change(self):
+        page = {'html': '<main>Current job offers All offers are on LinkedIn. Spontaneous application</main>'}
+        self.http.routes.insert(0, ('sucden.com', lambda m, u, p: page['html']))
+        watch = [{'name': 'Sucden', 'url': 'https://www.sucden.com/en/jobs/', 'section_start': 'Current job offers',
+                  'section_end': 'Spontaneous application'}]
+        tg = FakeTelegram()
+        self.run_tracker(tg, page_watches=watch)
+        self.assertFalse(any('Sucden' in m for m in tg.sent))          # baseline only
+        page['html'] = '<main>Current job offers Junior Sugar Trader - Paris. Spontaneous application</main>'
+        tg2 = FakeTelegram()
+        self.run_tracker(tg2, page_watches=watch)
+        alerts = [m for m in tg2.sent if 'Sucden' in m]
+        self.assertEqual(len(alerts), 1)
+        self.assertIn('Junior Sugar Trader', alerts[0])
+        tg3 = FakeTelegram()
+        self.run_tracker(tg3, page_watches=watch)
+        self.assertFalse(any('Sucden' in m for m in tg3.sent))         # not repeated
+        self.assertIn('Sucden: unchanged', self.report.read_text())
 
     def test_window_bounds(self):
         from datetime import datetime, timezone

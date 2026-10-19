@@ -1578,6 +1578,26 @@ def rwe_lines():
 R25 = [('R25 RWE raw lines', rwe_lines)]
 PROBES = PROBES + R25
 
+
+# ---------------- Round 26: Sucden ----------------
+def page_text(url):
+    r = get(url)
+    body = re.sub(r'(?s)<(script|style|nav|footer|header)\b.*?</\1>', ' ', r.text)
+    main = re.search(r'(?s)<main\b.*?</main>', body) or re.search(r'(?s)<article\b.*?</article>', body)
+    chunk = main.group(0) if main else body
+    heads = re.findall(r'(?s)<(h[1-5])[^>]*>(.*?)</\1>', chunk)
+    links = re.findall(r'(?s)<a [^>]*href="([^"]+)"[^>]*>(.*?)</a>', chunk)
+    vis = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', chunk))
+    clean = lambda s: re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', s)).strip()
+    hs = [clean(h[1])[:90] for h in heads][:40]
+    ls = [(u[:120], clean(x)[:60]) for u, x in links][:40]
+    return f'{r.status_code} final={r.url} main={bool(main)}\nHEADINGS={hs}\nLINKS={ls}\nTEXT={vis[:3500]!r}'
+
+
+R26 = [('R26 Sucden jobs page', lambda: page_text('https://www.sucden.com/en/human-resources/job-opportunities/')),
+       ('R26 Sucden Financial careers', lambda: page_text('https://www.sucdenfinancial.com/en/about/careers'))]
+PROBES = PROBES + R26
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

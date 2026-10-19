@@ -20,6 +20,7 @@ config.json ──► sources/* (one adapter per feed type) ──► filters.py
 | `filters.py` | City, role family, entry type, seniority, experience requirement (English + French) |
 | `status.py` | Application status evidence |
 | `state.py` | `seen_jobs.json` history (v2), duplicate fingerprints, source health |
+| `watches.py` | Page watches: Telegram message when a watched careers-page section changes |
 | `notifier.py` | Telegram formatting/sending, `--check-telegram` |
 | `tools/probe_sources.py` | Manual discovery probe for new feeds (workflow "Source probe") |
 
@@ -53,6 +54,12 @@ marked "date not provided by the source". Dates come from the feeds (Workday pos
 sending; new jobs then wait for the next slot.
 
 `notifications.statuses` controls which statuses alert (default `open` and `unknown`; unknown alerts are labelled *Unknown (not confirmed)*). Closed jobs never alert.
+
+## Page watches (employers without a job list)
+
+`page_watches` in `config.json` lists careers pages that publish no job list (Sucden: offers go to
+LinkedIn). The text of one section ("Current job offers") is fingerprinted each run; when it changes,
+a short Telegram message quotes the new text (no link needed). The first run only records a baseline.
 
 ## Duplicate prevention
 
