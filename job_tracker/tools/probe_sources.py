@@ -1034,6 +1034,61 @@ def sc_like(url):
 
 PROBES = PROBES + R10
 
+
+# ---------------- Round 11 ----------------
+def zhiye_items(host):
+    r = S.post(f'https://{host}/api/Jobad/GetJobAdPageList', json={'PageIndex': 0, 'PageSize': 30, 'KeyWords': '', 'SpecialType': 0}, timeout=25)
+    d = r.json()
+    data = d.get('Data') or []
+    first = {k: str(v)[:100] for k, v in (data[0].items() if data else [])}
+    locs = {}
+    for it in data:
+        for k, v in it.items():
+            if re.search('(?i)loc|place|city|addr|area', k) and v:
+                locs.setdefault(k, set()).add(str(v)[:40])
+    return f'count={d.get("Count")} n={len(data)} first={first} loc_fields={ {k: sorted(v)[:12] for k, v in locs.items()} }'
+
+
+def natixis_calls():
+    js = get('https://recrutement.natixis.com/static/js/main.c48280da.chunk.js').text
+    hits = re.findall(r'.{60}(?:fetch\(|axios|\.get\(|\.post\(|XMLHttpRequest|baseURL|/wp-json|/api).{140}', js)
+    return str(hits[:15])
+
+
+def ubs_sites():
+    out = []
+    for site in ['5012', '5054', '5131']:
+        s2 = requests.Session(); s2.headers.update(S.headers)
+        page = s2.get(f'https://jobs.ubs.com/TGnewUI/Search/Home/Home?partnerid=25008&siteid={site}', timeout=25).text
+        tok = re.search(r'name="__RequestVerificationToken"[^>]*value="([^"]+)"', page)
+        if not tok:
+            out.append(f'{site}: no token'); continue
+        body = {'partnerId': 25008, 'siteId': int(site), 'keyword': '', 'location': '', 'Latitude': 0, 'Longitude': 0, 'pageNumber': 1,
+                'FacetFilterFields': {'Facet': []}, 'PowerSearchOptions': {'PowerSearchOption': []}, 'SortType': 'LastUpdated',
+                'encryptedSessionValue': '', 'KeywordCustomSolrFields': 'AutoReq,JobTitle,Description', 'LocationCustomSolrFields': 'FORMTEXT2,FORMTEXT1'}
+        d = s2.post('https://jobs.ubs.com/TgNewUI/Search/Ajax/PowerSearchJobs', json=body, headers={'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest', 'RFT': tok.group(1)}, timeout=25).json()
+        jobs = d['Jobs']['Job']
+        qn = sorted({q['QuestionName'] for j in jobs[:5] for q in j['Questions']})
+        sample = [({q['QuestionName']: q['Value'] for q in j['Questions'] if q['QuestionName'] in ('jobtitle', 'formtext23', 'formtext2', 'formtext1', 'lastupdated')}) for j in jobs[:4]]
+        out.append(f'{site}: count={d.get("JobsCount")} questions={qn} sample={sample}')
+    return '\n'.join(out)
+
+
+R11 = [
+    ('R11 zhiye cicc items', lambda: zhiye_items('cicc.zhiye.com')),
+    ('R11 zhiye chinastock items', lambda: zhiye_items('chinastock.zhiye.com')),
+    ('R11 Natixis calls', natixis_calls),
+    ('R11 UBS sites', ubs_sites),
+    ('R11 BofA window', lambda: str([(q, len(get('https://careers.bankofamerica.com/services/jobssearchservlet?' + q).json().get('jobsList') or [])) for q in ['start=200&rows=400&search=getAllJobs', 'start=0&rows=1000&search=getAllJobs', 'start=2000&rows=2200&search=getAllJobs']])),
+    ('R11 Nomura careers host', lambda: crawl('https://careers.nomura.com/', depth=1, max_pages=4)),
+    ('R11 Nomura holdings careers', lambda: crawl('https://www.nomuraholdings.com/en/careers/', depth=1, max_pages=6)),
+    ('R11 Nomura taleo', lambda: discover('https://nomura.taleo.net/careersection/')),
+    ('R11 BoC UK list', lambda: grep_page('https://bankofchina.current-vacancies.com/', r'href="([^"]*(?:Jobs/Advert|Jobs/[A-Za-z]+/\d+)[^"]*)"[^>]*>([^<]{0,100})|<h\d[^>]*>[^<]{0,100}', 20, 200)),
+    ('R11 ICBC London', lambda: crawl('https://www.icbc-uk.com/', depth=1, max_pages=6)),
+    ('R11 BOCHK careers', lambda: crawl('https://www.bochk.com/en/aboutus/career.html', depth=1, max_pages=6)),
+]
+PROBES = PROBES + R11
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
