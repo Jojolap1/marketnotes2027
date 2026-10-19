@@ -1598,6 +1598,42 @@ R26 = [('R26 Sucden jobs page', lambda: page_text('https://www.sucden.com/en/hum
        ('R26 Sucden Financial careers', lambda: page_text('https://www.sucdenfinancial.com/en/about/careers'))]
 PROBES = PROBES + R26
 
+
+# ---------------- Round 27: Societe Generale search ----------------
+def sg_search():
+    out = []
+    for u in ['https://careers.societegenerale.com/en/search', 'https://careers.societegenerale.com/en/job-offers',
+              'https://careers.societegenerale.com/en/search?refinementList%5BjobType%5D%5B0%5D=VIE',
+              'https://careers.societegenerale.com/robots.txt']:
+        try:
+            r = get(u)
+        except Exception as exc:
+            out.append(f'{u} -> {type(exc).__name__}')
+            continue
+        offers = sorted(set(re.findall(r'/en/job-offers/[a-z0-9-]+-en', r.text)))
+        out.append(f'{u} -> {r.status_code} final={r.url} len={len(r.text)} offers_in_html={len(offers)} sample={offers[:3]}')
+        if 'robots' in u:
+            out.append('   ' + repr(r.text[:800]))
+            continue
+        scripts = re.findall(r'src="([^"]+\.js[^"]*)"', r.text)
+        out.append(f'   scripts={scripts[:10]}')
+        out.append('   inline refs: ' + str(sorted(set(re.findall(r'(?:algolia|elastic|searchUrl|apiUrl|api/[a-zA-Z/_-]+|appId|indexName|X-Algolia[^"\']*)["\']?\s*[:=]?\s*["\']?[^"\'\s,]{0,60}', r.text, re.I)))[:20]))
+    page = get('https://careers.societegenerale.com/en/search').text
+    for s in re.findall(r'src="([^"]+\.js[^"]*)"', page)[:12]:
+        u = s if s.startswith('http') else 'https://careers.societegenerale.com' + ('' if s.startswith('/') else '/') + s
+        try:
+            js = get(u).text
+        except Exception:
+            continue
+        hits = sorted(set(m[:200] for m in re.findall(r'.{60}(?:algolia|elasticsearch|/api/|search-api|indexName|appId|apiKey).{120}', js, re.I)))
+        if hits:
+            out.append(f'JS {u[:100]}: ' + ' || '.join(hits[:6]))
+    return '\n'.join(out)
+
+
+R27 = [('R27 SG search', sg_search)]
+PROBES = PROBES + R27
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
