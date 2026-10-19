@@ -1267,6 +1267,40 @@ def natixis_app():
 R15 = [('R15 BNP Avature search', bnp_avature), ('R15 Natixis app API', natixis_app)]
 PROBES = PROBES + R15
 
+
+# ---------------- Round 16 ----------------
+def natixis_items():
+    base = 'https://recrutement.natixis.com/app/wp-json/bpce/v1/search/jobs'
+    out = []
+    for ext in [False, True, None]:
+        body = {'lang': 'en', 'from': 0, 'size': 50}
+        if ext is not None:
+            body['external'] = ext
+        d = S.post(base, json=body, timeout=25).json()['data']
+        out.append(f'external={ext} total={d.get("total")} items={len(d.get("items") or [])}')
+    items = S.post(base, json={'lang': 'en', 'external': False, 'from': 50, 'size': 50}, timeout=25).json()['data']['items']
+    it = items[0]
+    out.append('keys=' + str(sorted(it)))
+    out.append('sample=' + json.dumps({k: v for k, v in it.items() if k != 'description'}, ensure_ascii=False)[:1500])
+    out.append('locs=' + str([(i.get('title'), i.get('city'), i.get('country'), i.get('place'), i.get('brand')) for i in items[:12]]))
+    return '\n'.join(out)
+
+
+def bnp_variants():
+    out = []
+    for u in ['https://bwelcome.hr.bnpparibas/externalcareers/SearchJobs', 'https://bwelcome.hr.bnpparibas/en_GB/externalcareers/SearchJobs',
+              'https://bwelcome.hr.bnpparibas/fr_FR/externalcareers/SearchJobs', 'https://bwelcome.hr.bnpparibas/externalcareers',
+              'https://bwelcome.hr.bnpparibas/portal/15', 'https://bwelcome.hr.bnpparibas/en_US/externalcareers/SearchJobs']:
+        r = get(u)
+        links = sorted(set(re.findall(r'(?:href|data-url)="([^"]*(?:JobDetail|jobId|SearchJobs)[^"]*)"', r.text)))
+        vis = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', re.sub(r'(?s)<(script|style).*?</\1>', ' ', r.text)))
+        out.append(f'{u} -> {r.status_code} final={r.url} len={len(r.text)} links={links[:8]} text={vis[:400]!r}')
+    return '\n'.join(out)
+
+
+R16 = [('R16 Natixis items', natixis_items), ('R16 BNP variants', bnp_variants)]
+PROBES = PROBES + R16
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
