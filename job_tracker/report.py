@@ -92,6 +92,8 @@ class Report:
             lines += ['', '## Exclusion reasons (all screened jobs)', '']
             for reason, n in sorted(self.reasons.items(), key=lambda x: -x[1]):
                 lines.append(f'- {reason}: {n}')
+        if getattr(self, 'watch_notes', None):
+            lines += ['', '## Page watches (employers without a job list)', ''] + [f'- {n}' for n in self.watch_notes]
         if http is not None:
             lines += ['', '## Requests per host', '']
             for host, n in http.requests_per_host.most_common():

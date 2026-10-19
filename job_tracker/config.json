@@ -974,6 +974,12 @@
         "Hong Kong",
         "France"
       ]
+    },
+    {
+      "company": "Sucden",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "sucden.com publishes no job list (offers are posted on LinkedIn, UK roles via Sucden Financial, whose site serves a Cloudflare challenge); the page's 'Current job offers' section is watched instead (page_watches) and any change is sent to Telegram."
     }
   ],
   "company_aliases": [
@@ -999,5 +1005,13 @@
     "Amundi",
     "AXA",
     "Natixis Investment Managers"
+  ],
+  "page_watches": [
+    {
+      "name": "Sucden",
+      "url": "https://www.sucden.com/en/human-resources/job-opportunities/",
+      "section_start": "Current job offers",
+      "section_end": "Spontaneous application"
+    }
   ]
 }

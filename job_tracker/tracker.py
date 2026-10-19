@@ -30,6 +30,7 @@ from sources import fetch_source
 from sources.context import Context, DetailCache
 from state import State
 from status import CLOSED, age_days, parse_date
+import watches
 
 ROOT = Path(__file__).resolve().parent
 CONFIG_FILE = ROOT / 'config.json'
@@ -177,6 +178,7 @@ def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT
         report.write(report_path, http)
         raise RuntimeError('All job sources failed; preserving existing state')
     matched, new = select(jobs, classifier, state, config, report)
+    changes, report.watch_notes = watches.check(config.get('page_watches'), http, state)
 
     max_per_run = int(notif.get('max_per_run', 15))
     exit_code = 0
@@ -185,6 +187,8 @@ def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT
             LOG.info('DRY RUN NEW: %s | %s | %s | %s | %s', job['company'], job['title'], job['location'][:60], job['status'], job['url'])
         for job, c in new[:2]:
             LOG.info('DRY RUN sample alert:\n%s', format_message(job, c))
+        for watch, _, text in changes:
+            LOG.info('DRY RUN page watch alert:\n%s', watches.message(watch, text))
         report.notifications(0, len(new), 'dry run: nothing sent, state not saved')
     elif not in_send_window(notif.get('send_window'), now):
         report.notifications(0, len(new), f'outside the send window ({describe_window(notif["send_window"])}): '
@@ -206,6 +210,11 @@ def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT
                     failures += 1
                     if failures >= 3:
                         break
+            for watch, digest, text in changes:
+                if telegram.send(watches.message(watch, text)):
+                    watches.mark_sent(state, watch, digest)
+                else:
+                    failures += 1
             note = f'{max(0, len(new) - sent)} pending for the next run' if len(new) > sent else 'all sent'
             report.notifications(sent, len(new), note + (f'; {failures} send failures' if failures else ''))
             if failures:
