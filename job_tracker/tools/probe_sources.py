@@ -1525,6 +1525,30 @@ def bf_key_source():
 R22 = [('R22 BF key source', bf_key_source)]
 PROBES = PROBES + R22
 
+
+# ---------------- Round 23 ----------------
+def bf_search():
+    page = get('https://mon-vie-via.businessfrance.fr/en/offres/recherche').text
+    keys = re.findall(r'API_KEY:"([^"]+)"', page)
+    key = next((k.encode().decode('unicode_escape') for k in keys if not k.startswith('AIza')), None)
+    out = [f'key found={bool(key)}']
+    if not key:
+        return out[0]
+    h = {'X-API-KEY': key, 'Content-Type': 'application/json'}
+    base = 'https://civiweb-api-prd.azurewebsites.net/api/Offers'
+    for body in [{'limit': 3, 'skip': 0},
+                 {'limit': 3, 'skip': 0, 'query': 'trading', 'activitySectorId': [], 'missionsTypesIds': [], 'missionsDurations': [],
+                  'gerographicZones': [], 'countriesIds': [], 'studiesLevelId': [], 'companiesSizes': [], 'specializationsIds': [],
+                  'entreprisesIds': [0], 'missionStartDate': None}]:
+        r = S.post(base + '/search', json=body, headers=h, timeout=25)
+        out.append(f'POST search {list(body)} -> {r.status_code} {r.text[:2500]!r}')
+    r = S.get(base + '/repository/countries', headers=h, timeout=25) if False else None
+    return '\n'.join(out)
+
+
+R23 = [('R23 BF search', bf_search)]
+PROBES = PROBES + R23
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

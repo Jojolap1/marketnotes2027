@@ -110,6 +110,27 @@ class AtsTests(unittest.TestCase):
         self.assertEqual(jobs[0]['description'], 'Graduates')
         self.assertEqual(jobs[0]['status'], 'open')
 
+    def test_avature_listing_and_detail(self):
+        def art(n, title, country, date='16-10-2026'):
+            return (f'<div class="article article--result" id="article--{n}"><h3><a class="link" '
+                    f'href="https://jobs.totalenergies.com/en_US/careers/JobDetail/x/{n}">\n {title}\n</a></h3>'
+                    f'<ul><li class="list-item list-item-jobCreationDate">{date}</li> '
+                    f'<li class="list-item list-item-jobCountry">{country}</li></ul></div>')
+        listing = ('<section id="jobs">' + art(1, 'Graduate Programme - Trading Analyst', 'United Kingdom')
+                   + art(2, 'Technicien maintenance', 'France') + art(3, 'Trading Intern', 'Brazil') + '</section>')
+        detail = ('<html><body>Job Description Graduate Programme - Trading Analyst Country United Kingdom City LONDON '
+                  'Area London Employer company TotalEnergies Gas & Power Ltd Domain Trading Type of contract Graduate '
+                  'Experience Less than 1 year Context & Environment Join our trading floor.</body></html>')
+        ctx = context([('SearchJobs/?jobRecordsPerPage=20&jobOffset=0', listing), ('SearchJobs/', '<section></section>'),
+                       ('JobDetail/x/1', detail)])
+        jobs = fetch_source({'company': 'TotalEnergies', 'platform': 'avature', 'base_url': 'https://jobs.totalenergies.com/en_US/careers',
+                             'countries': ['United Kingdom', 'France']}, ctx)
+        self.assertEqual([j['title'] for j in jobs], ['Graduate Programme - Trading Analyst'])
+        self.assertEqual(jobs[0]['location'], 'London, United Kingdom')
+        self.assertEqual(jobs[0]['published'], '2026-10-16')
+        self.assertEqual(jobs[0]['employment_type'], 'Graduate')
+        self.assertIn('Experience: Less than 1 year', jobs[0]['description'])
+
     def test_bpce_natixis_search_api(self):
         def route(method, url, payload):
             items = [

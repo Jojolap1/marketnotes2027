@@ -919,6 +919,50 @@
       "platform": "official",
       "enabled": false,
       "disabled_reason": "ldc.com careers pages answer HTTP 403; its Workday tenant requires a site name that is not published (HTTP 401) (2026-10-19)."
+    },
+    {
+      "company": "RWE Supply & Trading",
+      "platform": "successfactors_xml",
+      "host": "career5.successfactors.eu",
+      "sf_company": "rweProd"
+    },
+    {
+      "company": "ExxonMobil",
+      "platform": "successfactors_xml",
+      "host": "career4.successfactors.com",
+      "sf_company": "exxonmobilP"
+    },
+    {
+      "company": "Bunge",
+      "platform": "successfactors_xml",
+      "host": "career5.successfactors.eu",
+      "sf_company": "Bunge"
+    },
+    {
+      "company": "Cargill",
+      "platform": "successfactors_xml",
+      "host": "career2.successfactors.eu",
+      "sf_company": "cargill"
+    },
+    {
+      "company": "Engie",
+      "platform": "sitemap",
+      "sitemap_url": "https://jobs.engie.com/sitemap.xml",
+      "job_url_pattern": "^/job/",
+      "slug_has_city": true,
+      "location_from_slug": true,
+      "max_fetch_per_run": 40
+    },
+    {
+      "company": "TotalEnergies",
+      "platform": "avature",
+      "base_url": "https://jobs.totalenergies.com/en_US/careers",
+      "countries": [
+        "France",
+        "United Kingdom",
+        "Singapore",
+        "Hong Kong"
+      ]
     }
   ],
   "company_aliases": [
