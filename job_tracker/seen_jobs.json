@@ -6,7 +6,9 @@
     "id:bpce:22286",
     "req:natixis cib:22286",
     "url:https://recrutement.natixis.com/en/job/internship-6-months-sales-commodities-markets-assistant-f-m",
-    "title:natixis cib:internship 6 months sales commodities markets assistant f m:paris"
+    "title:natixis cib:internship 6 months sales commodities markets assistant f m:paris",
+    "req:natixis:22286",
+    "title:natixis:internship 6 months sales commodities markets assistant f m:paris"
    ],
    "first_seen": "2026-10-19T08:22:06+00:00",
    "last_seen": "2026-10-19",
@@ -47,6 +49,22 @@
    "status": "open",
    "title": "Investment Specialist – Traditional & Alternative Investments (stage)",
    "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5132&PageType=JobDetails&jobid=352672&frmSiteId=5131"
+  },
+  "businessfrance:245487": {
+   "company": "Blue Cube (France)",
+   "fingerprints": [
+    "id:businessfrance:245487",
+    "req:blue cube:vie245487",
+    "url:https://mon-vie-via.businessfrance.fr/offres/245487",
+    "title:blue cube:junior trader:london"
+   ],
+   "first_seen": "2026-10-19T10:04:41+00:00",
+   "last_seen": "2026-10-19",
+   "location": "Londres, United Kingdom",
+   "notified_at": "2026-10-19T10:04:41+00:00",
+   "status": "open",
+   "title": "Junior Trader (H/F) (VIE)",
+   "url": "https://mon-vie-via.businessfrance.fr/offres/245487"
   },
   "eightfold:portal.careers.hsbc.com:62245": {
    "company": "HSBC",
@@ -550,7 +568,9 @@
     "id:oleeo:Fidelity International (campus):1393",
     "req:fidelity international campus:1393",
     "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1393-equity-research-summer-internship-programme-2027-singapore/en-gb",
-    "title:fidelity international campus:equity research summer internship programme 2027 singapore:singapore"
+    "title:fidelity international campus:equity research summer internship programme 2027 singapore:singapore",
+    "req:fidelity international:1393",
+    "title:fidelity international:equity research summer internship programme 2027 singapore:singapore"
    ],
    "first_seen": "2026-10-18T16:14:59+00:00",
    "last_seen": "2026-10-19",
@@ -566,7 +586,9 @@
     "id:oleeo:Fidelity International (campus):1394",
     "req:fidelity international campus:1394",
     "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1394-equity-research-summer-internship-programme-2027-hong-kong/en-gb",
-    "title:fidelity international campus:equity research summer internship programme 2027 hong kong:hong kong"
+    "title:fidelity international campus:equity research summer internship programme 2027 hong kong:hong kong",
+    "req:fidelity international:1394",
+    "title:fidelity international:equity research summer internship programme 2027 hong kong:hong kong"
    ],
    "first_seen": "2026-10-18T16:14:58+00:00",
    "last_seen": "2026-10-19",
@@ -582,7 +604,9 @@
     "id:oleeo:Fidelity International (campus):1397",
     "req:fidelity international campus:1397",
     "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1397-multi-asset-summer-internship-programme-2027-hong-kong/en-gb",
-    "title:fidelity international campus:multi asset summer internship programme 2027 hong kong:hong kong"
+    "title:fidelity international campus:multi asset summer internship programme 2027 hong kong:hong kong",
+    "req:fidelity international:1397",
+    "title:fidelity international:multi asset summer internship programme 2027 hong kong:hong kong"
    ],
    "first_seen": "2026-10-18T16:15:01+00:00",
    "last_seen": "2026-10-19",
@@ -598,7 +622,9 @@
     "id:oleeo:Fidelity International (campus):1405",
     "req:fidelity international campus:1405",
     "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1405-equity-research-summer-internship-programme-2027-london/en-gb",
-    "title:fidelity international campus:equity research summer internship programme 2027 london:london"
+    "title:fidelity international campus:equity research summer internship programme 2027 london:london",
+    "req:fidelity international:1405",
+    "title:fidelity international:equity research summer internship programme 2027 london:london"
    ],
    "first_seen": "2026-10-18T16:14:54+00:00",
    "last_seen": "2026-10-19",
@@ -614,7 +640,9 @@
     "id:oleeo:Fidelity International (campus):1406",
     "req:fidelity international campus:1406",
     "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1406-equity-research-graduate-programme-2027-london/en-gb",
-    "title:fidelity international campus:equity research graduate programme 2027 london:london"
+    "title:fidelity international campus:equity research graduate programme 2027 london:london",
+    "req:fidelity international:1406",
+    "title:fidelity international:equity research graduate programme 2027 london:london"
    ],
    "first_seen": "2026-10-18T16:14:56+00:00",
    "last_seen": "2026-10-19",
@@ -630,7 +658,9 @@
     "id:oleeo:Fidelity International (campus):1407",
     "req:fidelity international campus:1407",
     "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1407-multi-asset-summer-internship-programme-2027-london/en-gb",
-    "title:fidelity international campus:multi asset summer internship programme 2027 london:london"
+    "title:fidelity international campus:multi asset summer internship programme 2027 london:london",
+    "req:fidelity international:1407",
+    "title:fidelity international:multi asset summer internship programme 2027 london:london"
    ],
    "first_seen": "2026-10-18T16:14:57+00:00",
    "last_seen": "2026-10-19",
@@ -646,7 +676,9 @@
     "id:oleeo:Fidelity International (campus):1422",
     "req:fidelity international campus:1422",
     "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1422-institutional-sales-intern-programme-2027-paris/en-gb",
-    "title:fidelity international campus:institutional sales intern programme 2027 paris:paris"
+    "title:fidelity international campus:institutional sales intern programme 2027 paris:paris",
+    "req:fidelity international:1422",
+    "title:fidelity international:institutional sales intern programme 2027 paris:paris"
    ],
    "first_seen": "2026-10-18T16:14:52+00:00",
    "last_seen": "2026-10-19",
@@ -662,7 +694,9 @@
     "id:oleeo:Fidelity International (campus):1429",
     "req:fidelity international campus:1429",
     "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1429-wholesale-sales-internship-programme-2027-paris/en-gb",
-    "title:fidelity international campus:wholesale sales internship programme 2027 paris:paris"
+    "title:fidelity international campus:wholesale sales internship programme 2027 paris:paris",
+    "req:fidelity international:1429",
+    "title:fidelity international:wholesale sales internship programme 2027 paris:paris"
    ],
    "first_seen": "2026-10-18T16:14:53+00:00",
    "last_seen": "2026-10-19",
@@ -1337,6 +1371,22 @@
    "title": "Structured Finance Sales Intern (f/m/x)",
    "url": "https://db.wd3.myworkdayjobs.com/DBWebsite/job/Paris/Structured-Finance-Sales-Intern--f-m-x-_R0453676"
   },
+  "workday:edftrading:JR1001483": {
+   "company": "EDF Trading",
+   "fingerprints": [
+    "id:workday:edftrading:JR1001483",
+    "req:edf:jr1001483",
+    "url:https://edftrading.wd1.myworkdayjobs.com/edftrading/job/london/junior-pricing-analyst_jr1001483",
+    "title:edf:junior pricing analyst:london"
+   ],
+   "first_seen": "2026-10-19T10:04:39+00:00",
+   "last_seen": "2026-10-19",
+   "location": "London",
+   "notified_at": "2026-10-19T10:04:39+00:00",
+   "status": "open",
+   "title": "Junior Pricing Analyst",
+   "url": "https://edftrading.wd1.myworkdayjobs.com/EDFTrading/job/London/Junior-Pricing-Analyst_JR1001483"
+  },
   "workday:ing:REQ-10122531": {
    "company": "ING",
    "fingerprints": [
@@ -1530,6 +1580,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
+ "last_send_slot": "2026-10-19T10:04:38.198380+00:00",
  "sources": {
   "ANZ": {
    "consecutive_failures": 0,
@@ -1544,6 +1595,10 @@
    "last_ok": "2026-10-19"
   },
   "BBVA": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
+  "BP": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
@@ -1563,6 +1618,14 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
+  "Bunge": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
+  "Business France (VIE)": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
   "CIBC": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
@@ -1576,6 +1639,10 @@
    "last_ok": "2026-10-19"
   },
   "CITIC CLSA (CITIC Securities)": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
+  "Cargill": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
@@ -1603,11 +1670,27 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
+  "EDF Trading": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
   "Eastspring Investments": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
   "Eclipse Trading": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
+  "Engie": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
+  "Equinor": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
+  "ExxonMobil": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
@@ -1624,6 +1707,10 @@
    "last_ok": "2026-10-19"
   },
   "Goldman Sachs": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
+  "Gunvor": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
@@ -1723,6 +1810,10 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
+  "RWE Supply & Trading": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
@@ -1739,6 +1830,10 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
+  "Shell": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
   "Société Générale": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
@@ -1751,7 +1846,15 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
+  "TotalEnergies": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
   "Tower Research Capital": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
+  "Trafigura": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
@@ -1768,6 +1871,10 @@
    "last_ok": "2026-10-19"
   },
   "Virtu Financial": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
+  "Vitol": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
