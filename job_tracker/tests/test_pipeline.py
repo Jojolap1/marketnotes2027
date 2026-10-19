@@ -30,12 +30,12 @@ class PipelineTests(unittest.TestCase):
     def tearDown(self):
         self.dir.cleanup()
 
-    def run_tracker(self, telegram=None, dry_run=False, sources=SOURCES, now=None, **notif):
+    def run_tracker(self, telegram=None, dry_run=False, sources=SOURCES, now=None, scheduled=False, **notif):
         config = config_with(sources)
         notif.setdefault('send_window', None)  # window behaviour is tested separately
         config['notifications'] = dict(config['notifications'], **notif)
         return tracker.run(config, self.state, self.cache, self.report, dry_run=dry_run, http=self.http,
-                           telegram=telegram or FakeTelegram(), now=now)
+                           telegram=telegram or FakeTelegram(), now=now, scheduled=scheduled)
 
     def test_first_run_alerts_then_no_duplicates(self):
         tg = FakeTelegram()
@@ -154,6 +154,26 @@ class PipelineTests(unittest.TestCase):
         tg2 = FakeTelegram()
         self.run_tracker(tg2, now=day, send_window=window)
         self.assertEqual(len(tg2.sent), 2)
+
+    def test_scheduled_sends_stay_spaced(self):
+        from datetime import datetime, timezone
+        at = lambda h, m: datetime(2026, 10, 19, h, m, tzinfo=timezone.utc)
+        kw = {'max_per_run': 1, 'min_minutes_between_sends': 100}
+        sent = []
+        for now, scheduled in [(at(6, 7), True), (at(6, 37), True), (at(8, 7), True)]:
+            tg = FakeTelegram()
+            self.run_tracker(tg, now=now, scheduled=scheduled, **kw)
+            sent.append(len(tg.sent))
+        self.assertEqual(sent, [1, 0, 1])
+        self.assertIn('less than 100 min ago', self.run_tracker(now=at(8, 37), scheduled=True, **kw)[1].note)
+
+    def test_manual_run_ignores_spacing(self):
+        from datetime import datetime, timezone
+        kw = {'max_per_run': 1, 'min_minutes_between_sends': 100}
+        self.run_tracker(now=datetime(2026, 10, 19, 6, 7, tzinfo=timezone.utc), scheduled=True, **kw)
+        tg = FakeTelegram()
+        self.run_tracker(tg, now=datetime(2026, 10, 19, 6, 20, tzinfo=timezone.utc), scheduled=False, **kw)
+        self.assertEqual(len(tg.sent), 1)
 
     def test_window_bounds(self):
         from datetime import datetime, timezone

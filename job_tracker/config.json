@@ -308,7 +308,8 @@
       "timezone": "Asia/Ho_Chi_Minh",
       "start_hour": 11,
       "end_hour": 22
-    }
+    },
+    "min_minutes_between_sends": 100
   },
   "http": {
     "min_interval_seconds": 0.8,
