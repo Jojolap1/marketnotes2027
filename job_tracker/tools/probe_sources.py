@@ -1220,6 +1220,53 @@ def natixis_search():
 R14 = [('R14 BNP bwelcome sitemap', bnp_sitemap), ('R14 Natixis search API', natixis_search)]
 PROBES = PROBES + R14
 
+
+# ---------------- Round 15 ----------------
+def bnp_avature():
+    out = []
+    base = 'https://bwelcome.hr.bnpparibas/en_US/externalcareers'
+    for u in [f'{base}/SearchJobs/?jobRecordsPerPage=20&jobOffset=0', f'{base}/SearchJobs/feed/',
+              f'{base}/SearchJobs/feed/?jobRecordsPerPage=50', f'{base}/SearchJobs/?search=paris']:
+        r = get(u)
+        text = r.text
+        jobs = sorted(set(re.findall(r'href="(https?://[^"]*JobDetail/[^"]+)"', text)))
+        out.append(f'{u} -> {r.status_code} {r.headers.get("content-type")} len={len(text)} jobdetail_links={len(jobs)} sample={jobs[:4]}')
+        out.append('   total? ' + str(re.findall(r'.{60}(?:results|résultats|of \d+|jobs found).{60}', re.sub(r'<[^>]+>', ' ', text), re.I)[:3]))
+        if 'feed' in u:
+            out.append('   feed head: ' + repr(text[:1200]))
+        if jobs and 'search=' not in u:
+            d = get(jobs[0])
+            vis = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', re.sub(r'(?s)<script.*?</script>', ' ', d.text)))
+            out.append(f'   DETAIL {d.status_code} jsonld={"ld+json" in d.text} title={re.findall(r"<title>([^<]*)", d.text)[:1]}')
+            for lab in ['Location', 'City', 'Country', 'Date', 'Contract', 'Experience', 'Job Reference', 'Posted', 'Primary']:
+                m = re.search(r'.{0,40}' + lab + r'.{0,140}', vis)
+                if m:
+                    out.append(f'     [{lab}] {m.group(0)}')
+    return '\n'.join(out)
+
+
+def natixis_app():
+    srcs, chunk_map, texts = all_js('https://recrutement.natixis.com/en/our-job-offers?external=false')
+    js = '\n'.join(texts[1:])
+    out = ['DEFAULTS: ' + ' || '.join(sorted(set(m[:600] for m in re.findall(r'.{450}from:0,size:9\}', js)))[:2])]
+    out.append('JE def: ' + ' || '.join(sorted(set(m[:500] for m in re.findall(r'.{120}"/wp-json/"\)\.concat\("bpce","/v1/"\)\.concat\(e\).{300}', js)))[:2]))
+    base = 'https://recrutement.natixis.com/app/wp-json/bpce/v1'
+    for kind, kw in [('json-params', {'json': {'params': {'from': 0, 'size': 9}}}), ('json-flat', {'json': {'from': 0, 'size': 9}}),
+                     ('form', {'data': {'from': 0, 'size': 9}})]:
+        try:
+            r = S.post(f'{base}/search/jobs', timeout=25, **kw)
+            out.append(f'POST {kind} -> {r.status_code} {r.headers.get("content-type")} {r.text[:900]!r}')
+        except Exception as exc:
+            out.append(f'POST {kind} -> {type(exc).__name__}')
+    for u in ['https://recrutement.natixis.com/app/wp-json/', f'{base}/search/trader/from/0']:
+        r = get(u)
+        out.append(f'GET {u} -> {r.status_code} {r.headers.get("content-type")} {r.text[:500]!r}')
+    return '\n'.join(out)
+
+
+R15 = [('R15 BNP Avature search', bnp_avature), ('R15 Natixis app API', natixis_app)]
+PROBES = PROBES + R15
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
