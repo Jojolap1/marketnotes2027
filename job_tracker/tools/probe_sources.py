@@ -1171,6 +1171,55 @@ R13 = [
 ]
 PROBES = PROBES + R13
 
+
+# ---------------- Round 14 ----------------
+def bnp_sitemap():
+    out = []
+    idx = get('https://bwelcome.hr.bnpparibas/externalcareers/sitemap_index.xml')
+    subs = re.findall(r'<loc>\s*([^<]+?)\s*</loc>', idx.text)
+    out.append(f'index {idx.status_code} subs={subs[:10]} n={len(subs)}')
+    locs = []
+    for s in subs[:6]:
+        r = get(s)
+        l = re.findall(r'<loc>\s*([^<]+?)\s*</loc>', r.text)
+        lm = re.findall(r'<lastmod>\s*([^<]+?)\s*</lastmod>', r.text)
+        out.append(f'  {s} -> {r.status_code} locs={len(l)} sample={l[:4]} lastmod={lm[:2]}')
+        locs += l
+    jobs = [u for u in locs if re.search(r'JobDetail|/job/|jobid|Job', u, re.I)]
+    out.append(f'job-like={len(jobs)} sample={jobs[:5]}')
+    for u in jobs[:2]:
+        r = get(u)
+        text = re.sub(r'<[^>]+>', ' ', r.text)
+        text = re.sub(r'\s+', ' ', text)
+        ld = 'application/ld+json' in r.text
+        out.append(f'  PAGE {u} -> {r.status_code} len={len(r.text)} jsonld={ld} title={re.findall(r"<title>([^<]*)", r.text)[:1]}')
+        for lab in ['Location', 'Lieu', 'City', 'Ville', 'Country', 'Pays', 'Date', 'Contract', 'Contrat', 'Experience', 'Expérience', 'Publication']:
+            m = re.search(r'.{0,60}' + lab + r'.{0,120}', text)
+            if m:
+                out.append(f'     [{lab}] {m.group(0)}')
+    return '\n'.join(out)
+
+
+def natixis_search():
+    srcs, chunk_map, texts = all_js('https://recrutement.natixis.com/en/our-job-offers?external=false')
+    js = '\n'.join(texts[1:])
+    out = []
+    out.append('NATIXIS ctx: ' + ' || '.join(sorted(set(m[:220] for m in re.findall(r'.{80}natixis.{120}', js, re.I)))[:12]))
+    out.append('JE ctx: ' + ' || '.join(sorted(set(m[:400] for m in re.findall(r'.{200}je\("search/jobs".{180}', js)))[:4]))
+    out.append('PARAMS ctx: ' + ' || '.join(sorted(set(m[:500] for m in re.findall(r'.{250}offre_region.{230}', js)))[:3]))
+    for base in ['https://recrutement.natixis.com', 'https://recrutement.bpce.fr', 'https://natixis.recrutement.bpce.fr']:
+        for kind, kw in [('json', {'json': {'params': {}}}), ('form', {'data': {}})]:
+            try:
+                r = S.post(f'{base}/wp-json/bpce/v1/search/jobs', timeout=25, **kw)
+                out.append(f'POST {base} {kind} -> {r.status_code} {r.headers.get("content-type")} {r.text[:700]!r}')
+            except Exception as exc:
+                out.append(f'POST {base} {kind} -> {type(exc).__name__}')
+    return '\n'.join(out)
+
+
+R14 = [('R14 BNP bwelcome sitemap', bnp_sitemap), ('R14 Natixis search API', natixis_search)]
+PROBES = PROBES + R14
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
