@@ -1,5 +1,53 @@
 {
  "jobs": {
+  "bpce:22286": {
+   "company": "Natixis CIB",
+   "fingerprints": [
+    "id:bpce:22286",
+    "req:natixis cib:22286",
+    "url:https://recrutement.natixis.com/en/job/internship-6-months-sales-commodities-markets-assistant-f-m",
+    "title:natixis cib:internship 6 months sales commodities markets assistant f m:paris"
+   ],
+   "first_seen": "2026-10-19T08:22:06+00:00",
+   "last_seen": "2026-10-19",
+   "location": "Paris, France",
+   "notified_at": "2026-10-19T08:22:06+00:00",
+   "status": "open",
+   "title": "Internship - 6 months - Sales Commodities Markets Assistant F/M",
+   "url": "https://recrutement.natixis.com/en/job/internship-6-months-sales-commodities-markets-assistant-f-m"
+  },
+  "brassring:25008:350394": {
+   "company": "UBS",
+   "fingerprints": [
+    "id:brassring:25008:350394",
+    "req:ubs:350394",
+    "url:https://jobs.ubs.com/tgnewui/search/home/homewithpreload?PageType=JobDetails&jobid=350394&partnerid=25008&siteid=5012",
+    "title:ubs:trader assistant:london"
+   ],
+   "first_seen": "2026-10-19T08:22:07+00:00",
+   "last_seen": "2026-10-19",
+   "location": "United Kingdom (London office assumed: city not given)",
+   "notified_at": "2026-10-19T08:22:07+00:00",
+   "status": "open",
+   "title": "Trader Assistant",
+   "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=350394"
+  },
+  "brassring:25008:352672": {
+   "company": "UBS",
+   "fingerprints": [
+    "id:brassring:25008:352672",
+    "req:ubs:352672",
+    "url:https://jobs.ubs.com/tgnewui/search/home/homewithpreload?PageType=JobDetails&frmSiteId=5131&jobid=352672&partnerid=25008&siteid=5132",
+    "title:ubs:investment specialist traditional alternative investments stage:paris"
+   ],
+   "first_seen": "2026-10-19T08:22:05+00:00",
+   "last_seen": "2026-10-19",
+   "location": "France (Paris office assumed: city not given)",
+   "notified_at": "2026-10-19T08:22:05+00:00",
+   "status": "open",
+   "title": "Investment Specialist – Traditional & Alternative Investments (stage)",
+   "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5132&PageType=JobDetails&jobid=352672&frmSiteId=5131"
+  },
   "eightfold:portal.careers.hsbc.com:62245": {
    "company": "HSBC",
    "fingerprints": [
@@ -483,7 +531,10 @@
     "id:oleeo:Bank of America:14720",
     "req:bank of america:14720",
     "url:https://bankcampuscareers.tal.net/vx/lang-en-gb/mobile-0/brand-4/candidate/so/pm/1/pl/1/opp/14720-global-research-2027-summer-analyst-london/en-gb",
-    "title:bank of america:global research 2027 summer analyst london:london"
+    "title:bank of america:global research 2027 summer analyst london:london",
+    "id:oleeo:Bank of America (campus):14720",
+    "req:bank of america campus:14720",
+    "title:bank of america campus:global research 2027 summer analyst london:london"
    ],
    "first_seen": "2026-10-18T16:14:42+00:00",
    "last_seen": "2026-10-19",
@@ -627,7 +678,10 @@
     "id:oleeo:Nomura:1449",
     "req:nomura:1449",
     "url:https://nomuracampus.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1449-2027-global-markets-sales-trading-structuring-research-summer-internship-london-for-2028-graduates/en-gb",
-    "title:nomura:2027 global markets sales trading structuring research summer internship london for 2028 graduates:london"
+    "title:nomura:2027 global markets sales trading structuring research summer internship london for 2028 graduates:london",
+    "id:oleeo:Nomura (campus):1449",
+    "req:nomura campus:1449",
+    "title:nomura campus:2027 global markets sales trading structuring research summer internship london for 2028 graduates:london"
    ],
    "first_seen": "2026-10-18T16:14:48+00:00",
    "last_seen": "2026-10-19",
@@ -643,7 +697,10 @@
     "id:oleeo:Nomura:1451",
     "req:nomura:1451",
     "url:https://nomuracampus.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1451-2027-global-markets-digital-office-summer-internship-quants-strats-london-for-2028-graduates/en-gb",
-    "title:nomura:2027 global markets digital office summer internship quants strats london for 2028 graduates:london"
+    "title:nomura:2027 global markets digital office summer internship quants strats london for 2028 graduates:london",
+    "id:oleeo:Nomura (campus):1451",
+    "req:nomura campus:1451",
+    "title:nomura campus:2027 global markets digital office summer internship quants strats london for 2028 graduates:london"
    ],
    "first_seen": "2026-10-18T16:14:46+00:00",
    "last_seen": "2026-10-19",
@@ -659,7 +716,10 @@
     "id:oleeo:Nomura:1518",
     "req:nomura:1518",
     "url:https://nomuracampus.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1518-2027-global-markets-structured-solution-sales-off-cycle-internship-paris/en-gb",
-    "title:nomura:2027 global markets structured solution sales off cycle internship paris:paris"
+    "title:nomura:2027 global markets structured solution sales off cycle internship paris:paris",
+    "id:oleeo:Nomura (campus):1518",
+    "req:nomura campus:1518",
+    "title:nomura campus:2027 global markets structured solution sales off cycle internship paris:paris"
    ],
    "first_seen": "2026-10-18T16:14:49+00:00",
    "last_seen": "2026-10-19",
@@ -675,7 +735,10 @@
     "id:oleeo:Nomura:1520",
     "req:nomura:1520",
     "url:https://nomuracampus.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1520-2027-global-markets-rates-sales-6-month-off-cycle-internship-paris/en-gb",
-    "title:nomura:2027 global markets rates sales 6 month off cycle internship paris:paris"
+    "title:nomura:2027 global markets rates sales 6 month off cycle internship paris:paris",
+    "id:oleeo:Nomura (campus):1520",
+    "req:nomura campus:1520",
+    "title:nomura campus:2027 global markets rates sales 6 month off cycle internship paris:paris"
    ],
    "first_seen": "2026-10-18T16:14:50+00:00",
    "last_seen": "2026-10-19",
@@ -691,7 +754,10 @@
     "id:oleeo:Nomura:1558",
     "req:nomura:1558",
     "url:https://nomuracampus.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1558-2027-global-markets-rates-structuring-off-cycle-internship-paris/en-gb",
-    "title:nomura:2027 global markets rates structuring off cycle internship paris:paris"
+    "title:nomura:2027 global markets rates structuring off cycle internship paris:paris",
+    "id:oleeo:Nomura (campus):1558",
+    "req:nomura campus:1558",
+    "title:nomura campus:2027 global markets rates structuring off cycle internship paris:paris"
    ],
    "first_seen": "2026-10-18T16:14:45+00:00",
    "last_seen": "2026-10-19",
@@ -999,7 +1065,7 @@
    "last_seen": "2026-10-19",
    "location": "job central markets intern hong kong 0 7 13706 3857",
    "notified_at": "2026-10-18T16:40:18+00:00",
-   "status": "unknown",
+   "status": "open",
    "title": "Markets Intern Hong Kong 2027",
    "url": "https://jobs.standardchartered.com/job/Central-Markets-Intern-Hong-Kong-2027/1370623857/"
   },
@@ -1014,7 +1080,7 @@
    "last_seen": "2026-10-19",
    "location": "job central syndicate & portfolio management intern hong kong 0 7 1374336057",
    "notified_at": "2026-10-18T16:40:15+00:00",
-   "status": "unknown",
+   "status": "open",
    "title": "Syndicate & Portfolio Management Intern Hong Kong 2027",
    "url": "https://jobs.standardchartered.com/job/Central-Syndicate-&-Portfolio-Management-Intern-Hong-Kong-2027/1374336057/"
   },
@@ -1029,7 +1095,7 @@
    "last_seen": "2026-10-19",
    "location": "job london markets intern uk 0 7 13706 1 57",
    "notified_at": "2026-10-18T16:40:17+00:00",
-   "status": "unknown",
+   "status": "open",
    "title": "Markets Intern UK 2027",
    "url": "https://jobs.standardchartered.com/job/London-Markets-Intern-UK-2027/1370621257/"
   },
@@ -1044,7 +1110,7 @@
    "last_seen": "2026-10-19",
    "location": "job london syndicate and portfolio management graduate programme 0 7 1373604557",
    "notified_at": "2026-10-18T16:40:20+00:00",
-   "status": "unknown",
+   "status": "open",
    "title": "Syndicate and Portfolio Management Graduate Programme 2027",
    "url": "https://jobs.standardchartered.com/job/London-Syndicate-and-Portfolio-Management%E2%80%AFGraduate-Programme-2027/1373604557/"
   },
@@ -1059,7 +1125,7 @@
    "last_seen": "2026-10-19",
    "location": "job singapore markets intern sg 0 7 13706 4 57",
    "notified_at": "2026-10-18T16:40:19+00:00",
-   "status": "unknown",
+   "status": "open",
    "title": "Markets Intern SG 2027",
    "url": "https://jobs.standardchartered.com/job/Singapore-Markets-Intern-SG-2027/1370624257/"
   },
@@ -1430,6 +1496,38 @@
    "status": "open",
    "title": "2027 MUFG UK Summer Analyst Programme: Global Client Sales",
    "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/London/XMLNAME-2027-MUFG-UK-Summer-Analyst-Programme--Global-Client-Sales_10079834-WD"
+  },
+  "zhiye:cicc.zhiye.com:151241030": {
+   "company": "CICC",
+   "fingerprints": [
+    "id:zhiye:cicc.zhiye.com:151241030",
+    "req:cicc:151241030",
+    "url:https://cicc.zhiye.com/zpdetail/151241030",
+    "title:cicc:2027 j19701:singapore"
+   ],
+   "first_seen": "2026-10-19T08:22:10+00:00",
+   "last_seen": "2026-10-19",
+   "location": "新加坡",
+   "notified_at": "2026-10-19T08:22:10+00:00",
+   "status": "open",
+   "title": "【2027】衍生品交易员岗(J19701)",
+   "url": "https://cicc.zhiye.com/zpdetail/151241030"
+  },
+  "zhiye:cicc.zhiye.com:151241150": {
+   "company": "CICC",
+   "fingerprints": [
+    "id:zhiye:cicc.zhiye.com:151241150",
+    "req:cicc:151241150",
+    "url:https://cicc.zhiye.com/zpdetail/151241150",
+    "title:cicc:2027 equity derivatives trainee j19632:hong kong"
+   ],
+   "first_seen": "2026-10-19T08:22:09+00:00",
+   "last_seen": "2026-10-19",
+   "location": "Hong Kong",
+   "notified_at": "2026-10-19T08:22:09+00:00",
+   "status": "open",
+   "title": "【2027】Equity Derivatives Trainee(J19632)",
+   "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
  "sources": {
@@ -1453,6 +1551,10 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
+  "Bank of America (campus)": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
   "Barclays": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
@@ -1465,7 +1567,19 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
+  "CICC": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
+  "CIMB (incl. CIMB Securities)": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
   "CITIC CLSA (CITIC Securities)": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
+  "China Galaxy (Chinastock)": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
@@ -1565,11 +1679,23 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
+  "Mizuho (EMEA)": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
   "Morgan Stanley": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
+  "Natixis CIB": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
   "Nomura": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
+  "Nomura (campus)": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
@@ -1594,6 +1720,14 @@
    "last_ok": "2026-10-19"
   },
   "RBC": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
+  "SMBC (Asia)": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
+  "SMBC (EMEA)": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
@@ -1622,6 +1756,10 @@
    "last_ok": "2026-10-19"
   },
   "Two Sigma": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-19"
+  },
+  "UBS": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-19"
   },
