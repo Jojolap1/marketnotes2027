@@ -146,6 +146,22 @@
    "title": "Stages en Vente/Sales - Clients Institutionnels (f/m/d)",
    "url": "https://portal.careers.hsbc.com/careers/job/563774612474489"
   },
+  "eightfold:portal.careers.hsbc.com:63889": {
+   "company": "HSBC",
+   "fingerprints": [
+    "id:eightfold:portal.careers.hsbc.com:63889",
+    "req:hsbc:63889",
+    "url:https://portal.careers.hsbc.com/careers/job/563774612508665",
+    "title:hsbc:stage charge d affaires coverage asset managers:paris"
+   ],
+   "first_seen": "2026-10-19T15:05:50+00:00",
+   "last_seen": "2026-10-19",
+   "location": "PARIS, Paris, France",
+   "notified_at": "2026-10-19T15:05:50+00:00",
+   "status": "open",
+   "title": "Stage - Chargé d'affaires / Coverage Asset Managers (f/m/d)",
+   "url": "https://portal.careers.hsbc.com/careers/job/563774612508665"
+  },
   "goldman:150689": {
    "company": "Goldman Sachs",
    "fingerprints": [
@@ -1088,6 +1104,22 @@
    "title": "TRAINEE: Sales Assistant",
    "url": "https://careers.societegenerale.com/en/job-offers/trainee-sales-assistant-26000M1T-en"
   },
+  "sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/vie-fixed-income-esales-26000KN1-en": {
+   "company": "Société Générale",
+   "fingerprints": [
+    "id:sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/vie-fixed-income-esales-26000KN1-en",
+    "req:societe generale:26000kn1",
+    "url:https://careers.societegenerale.com/en/job-offers/vie-fixed-income-esales-26000kn1",
+    "title:societe generale:fixed income esales:singapore"
+   ],
+   "first_seen": "2026-10-19T15:05:51+00:00",
+   "last_seen": "2026-10-19",
+   "location": "Singapore, Singapore",
+   "notified_at": "2026-10-19T15:05:51+00:00",
+   "status": "open",
+   "title": "V.I.E. Fixed Income eSales",
+   "url": "https://careers.societegenerale.com/en/job-offers/vie-fixed-income-esales-26000KN1-en"
+  },
   "sitemap:Standard Chartered:https://jobs.standardchartered.com/job/Central-Markets-Intern-Hong-Kong-2027/1370623857/": {
    "company": "Standard Chartered",
    "fingerprints": [
@@ -1274,6 +1306,22 @@
    "status": "open",
    "title": "Markets – Sales and Trading, Full Time Analyst, London – United Kingdom, 2027",
    "url": "https://citi.wd5.myworkdayjobs.com/2/job/London--United-Kingdom/Markets---Sales-and-Trading--Full-Time-Analyst--London---United-Kingdom--2027_26984811"
+  },
+  "workday:citi:26987134": {
+   "company": "Citi",
+   "fingerprints": [
+    "id:workday:citi:26987134",
+    "req:citi:26987134",
+    "url:https://citi.wd5.myworkdayjobs.com/2/job/london--united-kingdom/markets--quantitative-analysis--off-cycle-placement---london--uk--2027_26987134",
+    "title:citi:markets quantitative analysis off cycle placement london uk 2027:london"
+   ],
+   "first_seen": "2026-10-19T15:05:49+00:00",
+   "last_seen": "2026-10-19",
+   "location": "London United Kingdom",
+   "notified_at": "2026-10-19T15:05:49+00:00",
+   "status": "open",
+   "title": "Markets, Quantitative Analysis, Off Cycle Placement , London, UK, 2027",
+   "url": "https://citi.wd5.myworkdayjobs.com/2/job/London--United-Kingdom/Markets--Quantitative-Analysis--Off-Cycle-Placement---London--UK--2027_26987134"
   },
   "workday:citi:26987141": {
    "company": "Citi",
@@ -1580,7 +1628,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-19T11:11:00.237104+00:00",
+ "last_send_slot": "2026-10-19T15:05:47.843417+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
