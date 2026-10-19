@@ -280,6 +280,15 @@ SG_PAGE = '''<html><head><title>Trainee</title><script type="application/ld+json
 
 
 class SitemapTests(unittest.TestCase):
+    def test_sitemap_keeps_one_language_per_offer(self):
+        from sources.sitemap import drop_translations
+        urls = {'https://x/en/job-offers/vie-fixed-income-esales-26000KN1-en': '2026-10-19',
+                'https://x/offres-d-emploi/vie-fixed-income-esales-26000KN1-fr': '2026-10-19',
+                'https://x/offres-d-emploi/stage-vendeur-actions-26000ZZ9-fr': '2026-10-13'}
+        kept = drop_translations(urls, r'-([0-9A-Z]{8})-(?:en|fr)/?$', '-en')
+        self.assertEqual(sorted(kept), ['https://x/en/job-offers/vie-fixed-income-esales-26000KN1-en',
+                                        'https://x/offres-d-emploi/stage-vendeur-actions-26000ZZ9-fr'])
+
     def test_jsonld_detail_ignores_navigation(self):
         d = parse_detail(SG_PAGE, 'https://careers.societegenerale.com/en/job-offers/trainee-sales-assistant-26000M1T-en', {})
         self.assertEqual(d['title'], 'TRAINEE: Sales Assistant')

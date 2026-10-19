@@ -196,6 +196,7 @@ class SeniorityAndRoleTests(unittest.TestCase):
                       'Software Developer Intern - Trading Systems', 'HR Graduate Programme', 'Private Banking Graduate',
                       'Global Technology Summer Analyst', 'Business Analyst Intern', 'Graduate Trading Applications Specialist',
                       'Intern, Financial Markets Business Management', 'Admin Assistant, FICC Trading, Singapore',
+                      'Analyste Crédit - Financements de projets', 'Stage - Analyste Marchés de Capitaux Dette',
                       'Internship: Global Consumer Financial Services, Consumer Secured Lending, Home Financing & Secured Lending Portfolio Management']:
             self.assertFalse(classify(title).eligible, title)
 

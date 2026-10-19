@@ -1598,6 +1598,210 @@ R26 = [('R26 Sucden jobs page', lambda: page_text('https://www.sucden.com/en/hum
        ('R26 Sucden Financial careers', lambda: page_text('https://www.sucdenfinancial.com/en/about/careers'))]
 PROBES = PROBES + R26
 
+
+# ---------------- Round 27: Societe Generale search ----------------
+def sg_search():
+    out = []
+    for u in ['https://careers.societegenerale.com/en/search', 'https://careers.societegenerale.com/en/job-offers',
+              'https://careers.societegenerale.com/en/search?refinementList%5BjobType%5D%5B0%5D=VIE',
+              'https://careers.societegenerale.com/robots.txt']:
+        try:
+            r = get(u)
+        except Exception as exc:
+            out.append(f'{u} -> {type(exc).__name__}')
+            continue
+        offers = sorted(set(re.findall(r'/en/job-offers/[a-z0-9-]+-en', r.text)))
+        out.append(f'{u} -> {r.status_code} final={r.url} len={len(r.text)} offers_in_html={len(offers)} sample={offers[:3]}')
+        if 'robots' in u:
+            out.append('   ' + repr(r.text[:800]))
+            continue
+        scripts = re.findall(r'src="([^"]+\.js[^"]*)"', r.text)
+        out.append(f'   scripts={scripts[:10]}')
+        out.append('   inline refs: ' + str(sorted(set(re.findall(r'(?:algolia|elastic|searchUrl|apiUrl|api/[a-zA-Z/_-]+|appId|indexName|X-Algolia[^"\']*)["\']?\s*[:=]?\s*["\']?[^"\'\s,]{0,60}', r.text, re.I)))[:20]))
+    page = get('https://careers.societegenerale.com/en/search').text
+    for s in re.findall(r'src="([^"]+\.js[^"]*)"', page)[:12]:
+        u = s if s.startswith('http') else 'https://careers.societegenerale.com' + ('' if s.startswith('/') else '/') + s
+        try:
+            js = get(u).text
+        except Exception:
+            continue
+        hits = sorted(set(m[:200] for m in re.findall(r'.{60}(?:algolia|elasticsearch|/api/|search-api|indexName|appId|apiKey).{120}', js, re.I)))
+        if hits:
+            out.append(f'JS {u[:100]}: ' + ' || '.join(hits[:6]))
+    return '\n'.join(out)
+
+
+R27 = [('R27 SG search', sg_search)]
+PROBES = PROBES + R27
+
+
+# ---------------- Round 28: SG Algolia ----------------
+def sg_algolia():
+    page = get('https://careers.societegenerale.com/en/search').text
+    m = re.search(r'<script[^>]+data-drupal-selector="drupal-settings-json"[^>]*>(.*?)</script>', page, re.S)
+    out = [f'settings json found={bool(m)}']
+    if not m:
+        return out[0]
+    settings = json.loads(m.group(1))
+    def walk(o, path=''):
+        if isinstance(o, dict):
+            for k, v in o.items():
+                yield from walk(v, f'{path}.{k}')
+        elif isinstance(o, list):
+            for i, v in enumerate(o[:3]):
+                yield from walk(v, f'{path}[{i}]')
+        else:
+            yield path, o
+    hits = [(p, v) for p, v in walk(settings) if re.search(r'algolia|index|app_?id|api_?key|search', p, re.I)]
+    out.append('settings: ' + str([(p, str(v)[:60]) for p, v in hits][:30]))
+    app = next((v for p, v in hits if re.search(r'app(lication)?_?id', p, re.I) and v), None)
+    key = next((v for p, v in hits if re.search(r'(search_?)?api_?key', p, re.I) and v), None)
+    idx = [v for p, v in hits if re.search(r'index', p, re.I) and isinstance(v, str) and v]
+    out.append(f'app={app} key_present={bool(key)} indexes={idx[:6]}')
+    if app and key:
+        for ix in idx[:4]:
+            r = S.post(f'https://{app}-dsn.algolia.net/1/indexes/{ix}/query', json={'params': 'hitsPerPage=3&query='},
+                       headers={'X-Algolia-Application-Id': app, 'X-Algolia-API-Key': key}, timeout=25)
+            body = r.json() if r.headers.get('content-type', '').startswith('application/json') else {}
+            hit = (body.get('hits') or [{}])[0]
+            small = {k: (v if not isinstance(v, str) else v[:80]) for k, v in hit.items() if k not in ('_highlightResult', '_snippetResult')}
+            out.append(f'{ix} -> {r.status_code} nbHits={body.get("nbHits")} keys={sorted(hit)[:40]}\n   sample={json.dumps(small, ensure_ascii=False)[:1500]}')
+    return '\n'.join(out)
+
+
+R28 = [('R28 SG algolia', sg_algolia)]
+PROBES = PROBES + R28
+
+
+# ---------------- Round 29: SG quantum scripts ----------------
+def sg_quantum():
+    page = get('https://careers.societegenerale.com/en/search').text
+    out = []
+    m = re.search(r'<script[^>]+data-drupal-selector="drupal-settings-json"[^>]*>(.*?)</script>', page, re.S)
+    if m:
+        st = json.loads(m.group(1))
+        q = st.get('quantum') or {}
+        out.append('quantum settings: ' + json.dumps(q, ensure_ascii=False)[:1500])
+        out.append('top-level keys: ' + str(sorted(st)[:60]))
+    srcs = [s for s in re.findall(r'src="([^"]+\.js[^"]*)"', page) if 'sg_careers' in s or 'modules/custom' in s]
+    out.append('custom scripts: ' + str(srcs))
+    for s in srcs:
+        js = get('https://careers.societegenerale.com' + s).text
+        hits = sorted(set(x[:260] for x in re.findall(r'.{90}(?:\$\.ajax|fetch\(|\.get\(|\.post\(|url\s*:|/api/|quantum[A-Za-z]*Url|endpoint|offers?Search|search[A-Z][a-zA-Z]*Url).{150}', js)))
+        if hits:
+            out.append(f'--- {s} ---\n' + '\n'.join(hits[:12]))
+    return '\n'.join(out)
+
+
+R29 = [('R29 SG quantum', sg_quantum)]
+PROBES = PROBES + R29
+
+
+# ---------------- Round 30: SG quantum calls ----------------
+def sg_quantum_calls():
+    out = []
+    for s in ['/themes/custom/sg_careers/js/quantum/search-page-quantum.js', '/themes/custom/sg_careers/js/quantum/global-quantum.js',
+              '/themes/custom/sg_careers/assets/js/recent-jobs.js']:
+        js = get('https://careers.societegenerale.com' + s).text
+        out.append(f'--- {s} len={len(js)}')
+        for m in re.finditer(r'base_url', js):
+            out.append('  ' + repr(js[max(0, m.start() - 300):m.start() + 700]))
+            if len(out) > 12:
+                break
+    return '\n'.join(out)
+
+
+R30 = [('R30 SG quantum calls', sg_quantum_calls)]
+PROBES = PROBES + R30
+
+
+# ---------------- Round 31: SG proxy usage ----------------
+def sg_proxy_usage():
+    out = []
+    page = get('https://careers.societegenerale.com/en/search').text
+    m = re.search(r'<script[^>]+data-drupal-selector="drupal-settings-json"[^>]*>(.*?)</script>', page, re.S)
+    q = json.loads(m.group(1)).get('quantum', {}) if m else {}
+    for k in ('last_offers', 'all_offers', 'quantum_filters'):
+        v = q.get(k)
+        out.append(f'{k}: type={type(v).__name__} {json.dumps(v, ensure_ascii=False)[:600]}')
+    js = get('https://careers.societegenerale.com/themes/custom/sg_careers/js/quantum/global-quantum.js').text
+    for name in ('PROXY_URL', 'AUTH_URL', 'LAST_OFFERS', 'ALL_OFFERS'):
+        for mm in list(re.finditer(name, js))[1:4]:
+            out.append(f'[{name}] ' + repr(js[max(0, mm.start() - 250):mm.start() + 450]))
+    return '\n'.join(out)
+
+
+R31 = [('R31 SG proxy usage', sg_proxy_usage)]
+PROBES = PROBES + R31
+
+
+# ---------------- Round 32: SG refs -> pages ----------------
+def sg_refs():
+    page = get('https://careers.societegenerale.com/en/search').text
+    m = re.search(r'<script[^>]+data-drupal-selector="drupal-settings-json"[^>]*>(.*?)</script>', page, re.S)
+    q = json.loads(m.group(1)).get('quantum', {})
+    allo = q.get('all_offers') or {}
+    locs = ((q.get('quantum_filters') or {}).get('refLocation') or {}).get('id') or {}
+    out = [f'all_offers={len(allo)} has_26000KN1={"26000KN1" in allo} entry={allo.get("26000KN1")}']
+    out.append('refLocation sample: ' + json.dumps(dict(list(locs.items())[:5]), ensure_ascii=False)[:600])
+    names = {}
+    for ref, v in allo.items():
+        n = (locs.get(v.get('city') or '', {}) or {}).get('en') or (locs.get(v.get('region') or '', {}) or {}).get('en') or v.get('country')
+        names[n] = names.get(n, 0) + 1
+    out.append('top locations: ' + str(sorted(names.items(), key=lambda x: -x[1])[:25]))
+    for u in ['https://careers.societegenerale.com/en/job-offers/26000KN1', 'https://careers.societegenerale.com/en/job-offers/x-26000KN1-en',
+              'https://careers.societegenerale.com/job-offers/26000KN1', 'https://careers.societegenerale.com/en/node?ref=26000KN1']:
+        r = get(u, allow_redirects=True)
+        out.append(f'{u} -> {r.status_code} final={r.url}')
+    js = get('https://careers.societegenerale.com/themes/custom/sg_careers/js/quantum/search-page-quantum.js').text
+    for mm in list(re.finditer(r'proxy_fetch\(', js))[:3]:
+        out.append('[proxy_fetch] ' + repr(js[max(0, mm.start() - 900):mm.start() + 300]))
+    return '\n'.join(out)
+
+
+R32 = [('R32 SG refs', sg_refs)]
+PROBES = PROBES + R32
+
+
+# ---------------- Round 33: SG search request ----------------
+def sg_search_request():
+    out = []
+    for s in ['search-page-quantum.js', 'global-quantum.js']:
+        js = get('https://careers.societegenerale.com/themes/custom/sg_careers/js/quantum/' + s).text
+        for pat in [r'BASE_URL\s*\+', r'proxy_fetch', r'search-query|searchQuery|/search[\'"]', r'method:\s*[\'"]POST']:
+            for mm in list(re.finditer(pat, js))[:2]:
+                out.append(f'[{s} {pat}] ' + repr(js[max(0, mm.start() - 500):mm.start() + 700]))
+    return '\n'.join(out[:14])
+
+
+R33 = [('R33 SG search request', sg_search_request)]
+PROBES = PROBES + R33
+
+
+# ---------------- Round 34: SG sitemap languages ----------------
+def sg_sitemap_langs():
+    idx = get('https://careers.societegenerale.com/sitemap.xml').text
+    subs = re.findall(r'<loc>\s*([^<]+?)\s*</loc>', idx)
+    out = [f'index locs={len(subs)} sample={subs[:5]}']
+    urls = {}
+    targets = subs if all('sitemap' in s for s in subs[:3]) else ['https://careers.societegenerale.com/sitemap.xml']
+    for s in targets[:12]:
+        body = get(s).text
+        for loc, lm in re.findall(r'<loc>\s*([^<]+?)\s*</loc>\s*(?:<lastmod>([^<]*)</lastmod>)?', body):
+            urls[loc] = lm
+    en = [u for u in urls if '/en/job-offers/' in u]
+    fr = [u for u in urls if '/offres-d-emploi/' in u]
+    out.append(f'total={len(urls)} en_offers={len(en)} fr_offers={len(fr)}')
+    refs = lambda L: {re.search(r'-([0-9A-Z]{8})-(?:en|fr)$', u).group(1) for u in L if re.search(r'-([0-9A-Z]{8})-(?:en|fr)$', u)}
+    e, f = refs(en), refs(fr)
+    out.append(f'refs en={len(e)} fr={len(f)} union={len(e | f)} fr_only={len(f - e)}')
+    out.append('KN1: ' + str([(u, urls[u]) for u in urls if '26000KN1' in u]))
+    return '\n'.join(out)
+
+
+R34 = [('R34 SG sitemap langs', sg_sitemap_langs)]
+PROBES = PROBES + R34
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

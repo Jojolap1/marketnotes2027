@@ -236,7 +236,9 @@
       "\\blending\\b",
       "\\bhome financing\\b",
       "行政|人力资源|人力資源|合规|合規|风险管理|風險管理|运营|運營|信息技术|資訊科技|开发工程师|開發工程師|财务|財務|党建|黨建|审计|審計|法务|法務",
-      "\\badmin(?:istrative)? assistant\\b|\\bassistant administratif\\b|\\bexecutive assistant\\b|\\bpersonal assistant\\b"
+      "\\badmin(?:istrative)? assistant\\b|\\bassistant administratif\\b|\\bexecutive assistant\\b|\\bpersonal assistant\\b",
+      "\\bmarch[ée]s de capitaux\\b(?!.{0,30}\\b(?:vente|vendeur|sales|trad(?:ing|er)|structur))",
+      "\\b(?:project|acquisition|real estate|asset|export|trade|leveraged) financ\\w*\\b|\\bfinancements? (?:de projets?|d'acquisition|immobiliers?|export)\\b"
     ],
     "entry_types": {
       "vie": [
@@ -400,8 +402,10 @@
       "company": "Société Générale",
       "platform": "sitemap",
       "sitemap_url": "https://careers.societegenerale.com/sitemap.xml",
-      "job_url_pattern": "^/en/job-offers/",
-      "max_fetch_per_run": 60
+      "job_url_pattern": "^/(?:en/job-offers|offres-d-emploi)/",
+      "max_fetch_per_run": 120,
+      "offer_ref_pattern": "-([0-9A-Z]{8})-(?:en|fr)/?$",
+      "preferred_language_marker": "-en"
     },
     {
       "company": "Crédit Agricole CIB",
