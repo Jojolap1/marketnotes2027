@@ -74,11 +74,22 @@ def successfactors_xml(source, ctx):
     company, sf_company, host = source['company'], source['sf_company'], source['host']
     response = ctx.http.get(f'https://{host}/career?company={sf_company}&career_ns=job_listing_summary&resultType=XML')
     response.raise_for_status()
-    # Some tenants (RWE) emit control characters that are not valid XML.
-    root = ET.fromstring(re.sub(rb'[\x00-\x08\x0b\x0c\x0e-\x1f]', b' ', response.content))
+    # Some tenants (RWE) emit control characters or bare '&' that are not valid XML.
+    content = re.sub(rb'[\x00-\x08\x0b\x0c\x0e-\x1f]', b' ', response.content)
+    content = re.sub(rb'&(?!#?\w+;)', b'&amp;', content)
+    try:
+        nodes = list(ET.fromstring(content).iter('Job'))
+    except ET.ParseError:
+        # Still malformed: parse each <Job> on its own and drop only the broken ones.
+        nodes = []
+        for block in re.findall(rb'<Job>.*?</Job>', content, re.S):
+            try:
+                nodes.append(ET.fromstring(block))
+            except ET.ParseError:
+                ctx.stat(company, 'unparsable_jobs')
     jobs = []
     listed = 0
-    for node in root.iter('Job'):
+    for node in nodes:
         listed += 1
         fields = {}
         for child in node:

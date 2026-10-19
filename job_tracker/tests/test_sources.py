@@ -157,6 +157,15 @@ class AtsTests(unittest.TestCase):
         import tracker
         self.assertTrue(Classifier(tracker.CONFIG).classify(job).eligible)
 
+    def test_successfactors_xml_skips_broken_job(self):
+        xml = ('<?xml version="1.0"?><Jobs><Job><JobTitle>Graduate Trader R&D</JobTitle><ReqId>1</ReqId>'
+               '<Location>London</Location><Job-Description>Graduate programme.</Job-Description></Job>'
+               '<Job><JobTitle>Broken <b></JobTitle></Job></Jobs>')
+        ctx = context({'career5.successfactors.eu': xml})
+        jobs = fetch_source({'company': 'RWE', 'platform': 'successfactors_xml', 'host': 'career5.successfactors.eu',
+                             'sf_company': 'rweProd'}, ctx)
+        self.assertEqual([j['title'] for j in jobs], ['Graduate Trader R&D'])
+
     def test_bpce_natixis_search_api(self):
         def route(method, url, payload):
             items = [
