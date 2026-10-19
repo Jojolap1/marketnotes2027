@@ -17,7 +17,7 @@ import os
 import sys
 import time
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -140,12 +140,21 @@ def in_send_window(window, now=None):
     return int(window.get('start_hour', 0)) <= local.hour <= int(window.get('end_hour', 23))
 
 
+def too_soon(state, notif, now=None):
+    minutes = notif.get('min_minutes_between_sends')
+    last = state.data.get('last_send_slot')
+    if not minutes or not last:
+        return False
+    last = datetime.fromisoformat(last)
+    return (now or datetime.now(timezone.utc)) - last < timedelta(minutes=int(minutes))
+
+
 def describe_window(window):
     return f"{window.get('start_hour')}h-{window.get('end_hour')}h {window.get('timezone')}"
 
 
 def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT_FILE,
-        dry_run=False, http=None, telegram=None, now=None):
+        dry_run=False, http=None, telegram=None, now=None, scheduled=False):
     notif = config.get('notifications', {})
     classifier = Classifier(config)
     state = State.load(Path(state_path), title_dedup_days=int(notif.get('title_dedup_days', 180)))
@@ -173,7 +182,14 @@ def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT
         report.notifications(0, len(new), f'outside the send window ({describe_window(notif["send_window"])}): '
                                           f'{len(new)} pending for the next slot')
         state.save(Path(state_path))
+    elif scheduled and too_soon(state, notif, now):
+        # GitHub drops some scheduled runs, so the workflow is triggered more
+        # often than alerts are wanted; scheduled sends stay this far apart.
+        report.notifications(0, len(new), f'last send slot less than {notif["min_minutes_between_sends"]} min ago: '
+                                          f'{len(new)} pending for the next slot')
+        state.save(Path(state_path))
     else:
+        state.data['last_send_slot'] = (now or datetime.now(timezone.utc)).isoformat()
         telegram = telegram or Telegram()
         if not telegram.configured:
             report.notifications(0, len(new), 'TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID missing: nothing sent')
@@ -210,7 +226,7 @@ def main(argv=None):
         LOG.info('Telegram check: %s', message)
         return 0 if ok else 1
     dry_run = args.dry_run or os.environ.get('DRY_RUN') == '1'
-    exit_code, _ = run(CONFIG, dry_run=dry_run)
+    exit_code, _ = run(CONFIG, dry_run=dry_run, scheduled=os.environ.get('GITHUB_EVENT_NAME') == 'schedule')
     return exit_code
 
 
