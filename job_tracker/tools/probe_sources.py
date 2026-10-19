@@ -1502,6 +1502,29 @@ R21 = [('R21 BF meta/sitemap', bf_meta),
        ('R21 Castleton page', lambda: grep_page('https://cci.com/careers/', r'(https?://osv-cci\.wd1\.myworkdayjobs\.com/[^"\'\s<>]*)', 10, 200))]
 PROBES = PROBES + R21
 
+
+# ---------------- Round 22 ----------------
+def bf_key_source():
+    page = get('https://mon-vie-via.businessfrance.fr/en/offres/recherche').text
+    out = []
+    nuxt = re.search(r'window\.__NUXT__=(.{0,4000})', page, re.S)
+    out.append('NUXT head: ' + (repr(nuxt.group(1)[:1500]) if nuxt else 'none'))
+    out.append('config keys: ' + str(re.findall(r'(?:apiKey|api_key|API_KEY|xApiKey|apiUrl|baseURL|API_URL)["\']?\s*[:=]\s*["\'][^"\']{0,80}', page)[:10]))
+    scripts = re.findall(r'src="(/_nuxt/[^"]+\.js)"', page)
+    for s in scripts:
+        js = get('https://mon-vie-via.businessfrance.fr' + s).text
+        for m in re.findall(r'.{160}X-API-KEY.{60}', js):
+            out.append(f'{s} KEYCTX ' + m[:240])
+        for m in re.findall(r'.{120}Offers/search.{200}', js):
+            out.append(f'{s} SEARCHCTX ' + m[:340])
+        for m in re.findall(r'(?:apiKey|API_KEY|xApiKey)["\']?\s*[:=]\s*["\'][^"\']{0,10}', js):
+            out.append(f'{s} KEYDEF ' + m)
+    return '\n'.join(out)
+
+
+R22 = [('R22 BF key source', bf_key_source)]
+PROBES = PROBES + R22
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

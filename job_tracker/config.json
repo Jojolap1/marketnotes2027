@@ -836,6 +836,89 @@
       "base_url": "https://recrutement.natixis.com",
       "lang": "en",
       "external": false
+    },
+    {
+      "company": "Shell",
+      "platform": "workday",
+      "host": "shell.wd3.myworkdayjobs.com",
+      "tenant": "shell",
+      "site": "ShellCareers"
+    },
+    {
+      "company": "BP",
+      "platform": "workday",
+      "host": "bpinternational.wd3.myworkdayjobs.com",
+      "tenant": "bpinternational",
+      "site": "bpCareers"
+    },
+    {
+      "company": "Trafigura",
+      "platform": "workday",
+      "host": "trafigura.wd3.myworkdayjobs.com",
+      "tenant": "trafigura",
+      "site": "TrafiguraCareerSite"
+    },
+    {
+      "company": "EDF Trading",
+      "platform": "workday",
+      "host": "edftrading.wd1.myworkdayjobs.com",
+      "tenant": "edftrading",
+      "site": "EDFTrading"
+    },
+    {
+      "company": "Gunvor",
+      "platform": "workday",
+      "host": "gunvor.wd3.myworkdayjobs.com",
+      "tenant": "gunvor",
+      "site": "Gunvor_Careers"
+    },
+    {
+      "company": "Equinor",
+      "platform": "workday",
+      "host": "equinor.wd3.myworkdayjobs.com",
+      "tenant": "equinor",
+      "site": "EQNR"
+    },
+    {
+      "company": "Vitol",
+      "platform": "smartrecruiters",
+      "board": "Vitol"
+    },
+    {
+      "company": "EDF (group)",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "edf.fr careers pages answer HTTP 403 to automated requests (2026-10-19); EDF Trading (London, Singapore) is covered via its Workday site."
+    },
+    {
+      "company": "Hartree Partners",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "hartreepartners.com answers HTTP 403 to automated requests (2026-10-19)."
+    },
+    {
+      "company": "Uniper",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "uniper.energy careers answers HTTP 403 to automated requests (2026-10-19)."
+    },
+    {
+      "company": "Mercuria",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "mercuria.com careers fails TLS certificate validation (2026-10-19); no other public job feed found."
+    },
+    {
+      "company": "Glencore",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "glencore.com/careers/jobs shows no public job feed or ATS link (2026-10-19)."
+    },
+    {
+      "company": "Louis Dreyfus Company",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "ldc.com careers pages answer HTTP 403; its Workday tenant requires a site name that is not published (HTTP 401) (2026-10-19)."
     }
   ],
   "company_aliases": [
