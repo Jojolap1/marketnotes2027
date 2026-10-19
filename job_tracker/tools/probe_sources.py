@@ -848,6 +848,87 @@ for z in ['cicc', 'cicchk', 'htsc', 'huatai', 'gtja', 'gtjai', 'citics', 'cmschi
     R8.append((f'R8 zhiye {z}', (lambda z=z: discover(f'https://{z}.zhiye.com/'))))
 PROBES = PROBES + R8
 
+
+# ---------------- Round 9 ----------------
+def grep_page(url, pattern, n=15, width=220):
+    r = get(url)
+    t = r.text.replace('\\/', '/').replace('&amp;', '&')
+    return f'HTTP {r.status_code} final={r.url} len={len(t)} hits={sorted(set(m[:width] for m in re.findall(pattern, t, re.I)))[:n]}'
+
+
+def sf_xml(host, company):
+    r = get(f'https://{host}/career?company={company}&career_ns=job_listing_summary&resultType=XML')
+    titles = re.findall(r'<JobTitle><!\[CDATA\[(.*?)\]\]>', r.text)
+    vals = re.findall(r'<value>([^<]*)</value>', r.text)
+    return f'HTTP {r.status_code} jobs={r.text.count("<Job>")} titles={titles[:8]} values={sorted(set(vals))[:30]}'
+
+
+def zhiye(host):
+    r = get(f'https://{host}/')
+    t = r.text
+    scripts = re.findall(r'src="([^"]+\.js[^"]*)"', t)
+    apis = set(re.findall(r'["\'](/api/[A-Za-z0-9_/]+)', t))
+    for sc in scripts[:6]:
+        u = sc if sc.startswith('http') else f'https://{host}' + ('' if sc.startswith('/') else '/') + sc
+        try:
+            js = get(u).text
+        except Exception:
+            continue
+        apis |= set(re.findall(r'["\'](/api/[A-Za-z0-9_/]+)', js))
+    links = sorted(set(re.findall(r'href="(/[^"]*(?:job|social|campus|position|zhaopin|list)[^"]*)"', t, re.I)))[:15]
+    return f'HTTP {r.status_code} len={len(t)} title={re.findall(r"<title>([^<]*)", t)[:1]} apis={sorted(apis)[:30]} links={links}'
+
+
+def bofa_all():
+    out = []
+    for q in ['start=0&rows=200&search=getAllJobs', 'start=200&rows=200&search=getAllJobs']:
+        d = get('https://careers.bankofamerica.com/services/jobssearchservlet?' + q).json()
+        jl = d.get('jobsList') or []
+        locs = {}
+        for j in jl:
+            for k in ('location', 'additionalLocations', 'city', 'country'):
+                if j.get(k):
+                    locs[str(j.get(k))[:40]] = locs.get(str(j.get(k))[:40], 0) + 1
+        out.append(f'{q}: total={d.get("totalMatches")} n={len(jl)} keys={list(jl[0].keys()) if jl else []} sample_locs={sorted(locs.items(), key=lambda x:-x[1])[:12]}')
+    return ' || '.join(out)
+
+
+def ubs_preload():
+    s2 = requests.Session(); s2.headers.update(S.headers)
+    page = s2.get('https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=searchResults&SearchType=linkquery&LinkID=15231', timeout=25).text
+    m = re.search(r'id="preLoadJSON"[^>]*value="([^"]*)"', page) or re.search(r'preLoad\w*\s*=\s*(\{.{0,400})', page)
+    token = re.search(r'name="__RequestVerificationToken"[^>]*value="([^"]+)"', page)
+    hits = re.findall(r'.{60}(?:"JobTitle"|Questions|TotalJobsCount|preLoad).{160}', page)[:6]
+    out = f'preload={bool(m)} token={bool(token)} hits={hits}'
+    headers = {'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest'}
+    if token:
+        headers['RFT'] = token.group(1)
+    for body in [{'partnerId': 25008, 'siteId': 5012, 'keyword': '', 'location': '', 'Latitude': 0, 'Longitude': 0, 'pageNumber': 1, 'FacetFilterFields': {'Facet': []}, 'PowerSearchOptions': {'PowerSearchOption': []}, 'SortType': 'LastUpdated', 'encryptedSessionValue': '', 'KeywordCustomSolrFields': 'AutoReq,JobTitle,Description', 'LocationCustomSolrFields': 'FORMTEXT2,FORMTEXT1'}]:
+        r = s2.post('https://jobs.ubs.com/TgNewUI/Search/Ajax/PowerSearchJobs', json=body, headers=headers, timeout=25)
+        out += f' || PowerSearch: {r.status_code} {r.text[:500]!r}'
+    return out
+
+
+R9 = [
+    ('R9 SMBC sf links', lambda: grep_page('https://www.smbcgroup.com/emea/careers', r'https?://career\d*\.successfactors\.eu/[^"\'\s<>]*')),
+    ('R9 Nomura asia sf links', lambda: grep_page('https://www.nomura.com/asia/careers/', r'https?://career\d*\.successfactors\.com/[^"\'\s<>]*')),
+    ('R9 CIMB oracle links', lambda: grep_page('https://www.cimb.com/en/careers.html', r'https?://ejox\.fa\.ap1\.oraclecloud\.com/[^"\'\s<>]*')),
+    ('R9 Mizuho EMEA careers', lambda: crawl('https://careers.mizuhoemea.com/')),
+    ('R9 Mizuho APAC FO', lambda: grep_page('https://www.mizuhogroup.com/asia-pacific/careers', r'https?://mizuhobank\.recruitmentplatform\.com/[^"\'\s<>]*')),
+    ('R9 BoC UK vacancies', lambda: crawl('https://bankofchina.current-vacancies.com/Careers')),
+    ('R9 CITIC careers', lambda: crawl('https://careers.citics.com/')),
+    ('R9 zhiye cicc', lambda: zhiye('cicc.zhiye.com')),
+    ('R9 zhiye chinastock', lambda: zhiye('chinastock.zhiye.com')),
+    ('R9 BofA all jobs', bofa_all),
+    ('R9 UBS preload', ubs_preload),
+    ('R9 Natixis bpce', lambda: grep_page('https://recrutement.natixis.com/static/js/main.c48280da.chunk.js', r'https?://[a-z0-9.-]*(?:natixis|bpce)[a-z0-9.-]*\.[a-z]+/?[a-zA-Z0-9_/.-]*', 40, 120)),
+    ('R9 HK Talent Engage job', lambda: grep_page('https://www.hkengage.gov.hk/en/jobs/7121213', r'<title>[^<]*|api[^"\'\s<>]{0,80}|"(?:/[a-z]+)*/api/[^"]*"', 20, 160)),
+    ('R9 HK Talent Engage search', lambda: crawl('https://www.hkengage.gov.hk/en/jobs', depth=1, max_pages=3)),
+]
+for host, comp in [('career5.successfactors.eu', 'smbcP'), ('career5.successfactors.eu', 'SMBC'), ('career5.successfactors.eu', 'smbceurope'), ('career4.successfactors.com', 'nomuraP'), ('career4.successfactors.com', 'nomura')]:
+    R9.append((f'R9 SF {host} {comp}', (lambda h=host, c=comp: sf_xml(h, c))))
+PROBES = PROBES + R9
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
