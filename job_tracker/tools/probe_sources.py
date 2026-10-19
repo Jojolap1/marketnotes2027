@@ -1301,6 +1301,25 @@ def bnp_variants():
 R16 = [('R16 Natixis items', natixis_items), ('R16 BNP variants', bnp_variants)]
 PROBES = PROBES + R16
 
+
+# ---------------- Round 17 ----------------
+def bnp_robots():
+    r = get('https://bwelcome.hr.bnpparibas/robots.txt')
+    out = ['ROBOTS:\n' + r.text]
+    for sm in re.findall(r'Sitemap:\s*(\S+)', r.text):
+        idx = get(sm)
+        subs = re.findall(r'<loc>\s*([^<]+?)\s*</loc>', idx.text)
+        en = [s for s in subs if 'en_' in s or s.count('/') <= 4] or subs[:1]
+        for s in en[:2]:
+            locs = re.findall(r'<loc>\s*([^<]+?)\s*</loc>', get(s).text)
+            jobs = [l for l in locs if re.search(r'/\d{3,}', l)]
+            out.append(f'{sm} -> {s}: locs={len(locs)} with-id={len(jobs)} sample={jobs[:5] or locs[:6]}')
+    return '\n'.join(out)
+
+
+R17 = [('R17 BNP robots portals', bnp_robots)]
+PROBES = PROBES + R17
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
