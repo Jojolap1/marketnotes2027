@@ -63,7 +63,8 @@
         "\\bvendeur\\b",
         "\\bn[ée]gociat(?:eur|ion)\\b",
         "\\b(?:fx|forex|foreign exchange|rates|credit|equit(?:y|ies)|fixed income|fic|ficc|commodit(?:y|ies)|macro|emerging markets|securitized products|repo|bonds?|delta one|prime)\\b.{0,30}\\b(?:sales|trad(?:ing|er)|desk|markets)\\b",
-        "销售交易|銷售交易|交易员|交易員|交易岗|交易崗|销售岗|機構銷售|机构销售|固定收益|外汇|外匯|衍生品"
+        "销售交易|銷售交易|交易员|交易員|交易岗|交易崗|销售岗|機構銷售|机构销售|固定收益|外汇|外匯|衍生品",
+        "\\b(?:commodit\\w*|energy|[ée]nergie|power|electricity|[ée]lectricit[ée]|gas|gaz|oil|p[ée]trole|crude|lng|metals?|m[ée]taux|agri\\w*|freight|shipping|carbon|emissions|softs|grains?)\\b.{0,25}\\borigination\\b|\\borigination\\b.{0,25}\\b(?:commodit\\w*|energy|[ée]nergie|power|electricity|[ée]lectricit[ée]|gas|gaz|oil|p[ée]trole|crude|lng|metals?|m[ée]taux|agri\\w*|freight|shipping|carbon|emissions|softs|grains?)\\b"
       ],
       "Derivatives": [
         "\\bderivatives?\\b",
@@ -95,7 +96,10 @@
         "\\bresearch analyst\\b",
         "\\banalyste (?:financier|investissement|march[ée]s|actions|cr[ée]dit)\\b",
         "\\bmarkets\\b",
-        "研究员|研究員|分析师|分析師|投资分析|投資分析"
+        "研究员|研究員|分析师|分析師|投资分析|投資分析",
+        "\\b(?:commodit\\w*|energy|[ée]nergie|power|electricity|[ée]lectricit[ée]|gas|gaz|oil|p[ée]trole|crude|lng|metals?|m[ée]taux|agri\\w*|freight|shipping|carbon|emissions|softs|grains?)\\s+(?:market\\s+|markets\\s+|trading\\s+)?analyst\\b",
+        "\\banalyste\\s+(?:de\\s+)?march[ée]s?\\b",
+        "\\bmarket (?:analyst|analysis|intelligence)\\b"
       ]
     },
     "role_exclusion_patterns": [

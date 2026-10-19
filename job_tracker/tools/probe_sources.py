@@ -1463,6 +1463,45 @@ for host, tenant, site in [('edftrading.wd1.myworkdayjobs.com', 'edftrading', 'E
     R20.append((f'R20 WD {tenant}/{site}', (lambda h=host, te=tenant, si=site: workday(h, te, si))))
 PROBES = PROBES + R20
 
+
+# ---------------- Round 21 ----------------
+def bf_meta():
+    out = []
+    for u in ['https://mon-vie-via.businessfrance.fr/robots.txt', 'https://mon-vie-via.businessfrance.fr/sitemap.xml']:
+        r = get(u)
+        out.append(f'{u} -> {r.status_code} {r.text[:600]!r}')
+    page = get('https://mon-vie-via.businessfrance.fr/en/offres/recherche').text
+    metas = re.findall(r'<meta[^>]+name="([^"]+)"[^>]*>', page)
+    out.append('meta names: ' + str(metas[:30]))
+    key = re.search(r'<meta[^>]+name="[^"]*(?:api|key)[^"]*"[^>]+content="([^"]+)"', page, re.I) or re.search(r'<meta[^>]+content="([^"]+)"[^>]+name="[^"]*(?:api|key)[^"]*"', page, re.I)
+    out.append(f'api meta present={bool(key)}')
+    if key:
+        r = S.post('https://civiweb-api-prd.azurewebsites.net/api/Offers/search', json={'limit': 3, 'skip': 0},
+                   headers={'X-API-KEY': key.group(1)}, timeout=25)
+        out.append(f'search with page key -> {r.status_code} {r.text[:1500]!r}')
+    return '\n'.join(out)
+
+
+def avature_listing(url):
+    r = get(url)
+    i = r.text.find('JobDetail/')
+    return f'{r.status_code} block={r.text[max(0, i - 1500):i + 1500]!r}'
+
+
+R21 = [('R21 BF meta/sitemap', bf_meta),
+       ('R21 Avature TotalEnergies listing', lambda: avature_listing('https://jobs.totalenergies.com/en_US/careers/SearchJobs/?jobRecordsPerPage=20&jobOffset=20')),
+       ('R21 SF rweProd', lambda: sf_xml('career5.successfactors.eu', 'rweProd')),
+       ('R21 SF exxonmobilP', lambda: sf_xml('career4.successfactors.com', 'exxonmobilP')),
+       ('R21 SF Bunge', lambda: sf_xml('career5.successfactors.eu', 'Bunge')),
+       ('R21 SF cargill', lambda: sf_xml('career2.successfactors.eu', 'cargill')),
+       ('R21 Cargill job page', lambda: validate_page('https://careers.cargill.com/en/job/geneva/senior-software-engineer-agriculture-and-trading-m-f-d/23251/75952677504')),
+       ('R21 Engie job page', lambda: validate_page('https://jobs.engie.com/job/Katowice-HR-DIRECTOR-%28fm%29-40-007/1355999755/')),
+       ('R21 Olam careers', lambda: discover('https://careers.olamgroup.com/')),
+       ('R21 ofi careers', lambda: discover('https://www.oficareers.com/')),
+       ('R21 Sucden jobs', lambda: grep_page('https://www.sucden.com/en/human-resources/job-opportunities/', r'href="([^"]*(?:job|opportunit|vacanc|career|apply|pdf)[^"]*)"', 30, 160)),
+       ('R21 Castleton page', lambda: grep_page('https://cci.com/careers/', r'(https?://osv-cci\.wd1\.myworkdayjobs\.com/[^"\'\s<>]*)', 10, 200))]
+PROBES = PROBES + R21
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
