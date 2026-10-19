@@ -1714,6 +1714,26 @@ def sg_quantum_calls():
 R30 = [('R30 SG quantum calls', sg_quantum_calls)]
 PROBES = PROBES + R30
 
+
+# ---------------- Round 31: SG proxy usage ----------------
+def sg_proxy_usage():
+    out = []
+    page = get('https://careers.societegenerale.com/en/search').text
+    m = re.search(r'<script[^>]+data-drupal-selector="drupal-settings-json"[^>]*>(.*?)</script>', page, re.S)
+    q = json.loads(m.group(1)).get('quantum', {}) if m else {}
+    for k in ('last_offers', 'all_offers', 'quantum_filters'):
+        v = q.get(k)
+        out.append(f'{k}: type={type(v).__name__} {json.dumps(v, ensure_ascii=False)[:600]}')
+    js = get('https://careers.societegenerale.com/themes/custom/sg_careers/js/quantum/global-quantum.js').text
+    for name in ('PROXY_URL', 'AUTH_URL', 'LAST_OFFERS', 'ALL_OFFERS'):
+        for mm in list(re.finditer(name, js))[1:4]:
+            out.append(f'[{name}] ' + repr(js[max(0, mm.start() - 250):mm.start() + 450]))
+    return '\n'.join(out)
+
+
+R31 = [('R31 SG proxy usage', sg_proxy_usage)]
+PROBES = PROBES + R31
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
