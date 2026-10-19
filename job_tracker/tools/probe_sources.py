@@ -1089,6 +1089,36 @@ R11 = [
 ]
 PROBES = PROBES + R11
 
+
+def natixis_wp():
+    out = []
+    for u in ['https://recrutement.natixis.com/wp-json/bpce/v1/search/trading/from/0',
+              'https://recrutement.natixis.com/wp-json/bpce/v1/search/stage/from/0',
+              'https://recrutement.natixis.com/wp-json/bpce/v1/search/%20/from/0',
+              'https://recrutement.natixis.com/wp-json/bpce/v1/']:
+        try:
+            r = get(u)
+            out.append(f'{u} -> {r.status_code} {r.headers.get("content-type")} {r.text[:1500]!r}')
+        except Exception as exc:
+            out.append(f'{u} -> {type(exc).__name__}: {exc}')
+    return '\n'.join(out)
+
+
+def zhiye_detail(host):
+    ad = requests.post(f'https://{host}/api/Jobad/GetJobAdPageList', json={'PageIndex': 0, 'PageSize': 2, 'KeyWords': '', 'SpecialType': 0}, headers=S.headers, timeout=25).json()['Data'][0]
+    out = [f'keys={sorted(ad)}']
+    for path in [f'/zpdetail/{ad.get("JobAdId")}', f'/zpdetail/{ad.get("Id")}', f'/jobdetail/{ad.get("JobAdId")}']:
+        r = get(f'https://{host}{path}')
+        out.append(f'{path} -> {r.status_code} len={len(r.text)} title_in_page={(ad.get("JobAdName") or "")[:20] in r.text}')
+    return '\n'.join(out)
+
+
+R12 = [
+    ('R12 Natixis WP API', natixis_wp),
+    ('R12 zhiye detail cicc', lambda: zhiye_detail('cicc.zhiye.com')),
+]
+PROBES = PROBES + R12
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

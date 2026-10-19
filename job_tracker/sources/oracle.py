@@ -7,6 +7,7 @@ These are the anonymous endpoints the official career site uses. Searches
 are restricted to the target cities through the site's own location facet.
 """
 import logging
+from urllib.parse import quote
 
 from jobs import html_to_text, make_job
 from status import CLOSED, OPEN, from_end_date
@@ -20,10 +21,23 @@ def _get(ctx, host, resource, finder, expand=''):
     return ctx.http.get_json(url, headers={'Accept': 'application/json'})
 
 
+CITY_KEYWORDS = {'Hong Kong': 'Hong Kong', 'Singapore': 'Singapore', 'London': 'London', 'Paris': 'Paris'}
+
+
 def location_ids(source, ctx):
+    """Location-facet id per target city.
+
+    The unfiltered facet list only returns the ~40 busiest locations (Paris is
+    missing for JPMorgan), so each city is also looked up with a keyword
+    search, whose facet list then contains that city."""
     host, site = source['host'], source['site']
-    data = _get(ctx, host, 'recruitingCEJobRequisitions', f'findReqs;siteNumber={site},facetsList=LOCATIONS,limit=1')
-    facets = (data.get('items') or [{}])[0].get('locationsFacet') or []
+    facets = []
+    for keyword in [None] + list(CITY_KEYWORDS.values()):
+        finder = f'findReqs;siteNumber={site},facetsList=LOCATIONS,limit=1'
+        if keyword:
+            finder += f',keyword=%22{quote(keyword)}%22'
+        data = _get(ctx, host, 'recruitingCEJobRequisitions', finder)
+        facets += (data.get('items') or [{}])[0].get('locationsFacet') or []
     chosen = {}
     for facet in facets:
         city = ctx.city_of(facet.get('Name'))
@@ -55,6 +69,11 @@ def _detail(source, ctx, req_id):
 
 
 def fetch(source, ctx):
+    if source.get('sites'):
+        jobs = []
+        for site in source['sites']:
+            jobs += fetch(dict(source, site=site, sites=None), ctx)
+        return jobs
     host, site, company = source['host'], source['site'], source['company']
     page = int(source.get('page_size', 25))
     max_results = int(source.get('max_results', 1500))

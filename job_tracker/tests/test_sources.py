@@ -213,6 +213,13 @@ class SitemapTests(unittest.TestCase):
         d = parse_detail(page, 'u', {})
         self.assertEqual(d['title'], 'TRAINEE: Sales Assistant')
 
+    def test_successfactors_text_dates(self):
+        page = ('<html><body><span itemprop="title">Markets Intern SG 2027</span><div itemprop="description">'
+                'Employment Type: Intern Posting Start Date: 27/08/2026 Posting End Date: 31/12/2099 Job Description: x</div></body></html>')
+        d = parse_detail(page, 'https://jobs.standardchartered.com/job/Singapore-Markets-Intern-SG-2027/1/', {'location_from_slug': True})
+        self.assertEqual((d['published'], d['valid_through']), ('2026-08-27', '2099-12-31'))
+        self.assertEqual(d['status'], 'open')
+
     def test_closed_page_detected(self):
         page = SG_PAGE.replace('<h1>', '<p>This job is no longer available</p><h1>')
         self.assertEqual(parse_detail(page, 'u', {})['status'], 'closed')

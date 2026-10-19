@@ -25,7 +25,7 @@ from status import CLOSED, assess_page
 
 LOG = logging.getLogger(__name__)
 # Bump when parse_detail output changes so cached pages are re-parsed.
-PAGE_KEY = 'page:v2:'
+PAGE_KEY = 'page:v3:'
 LOCATION_SELECTORS = ('[itemprop="jobLocation"]', '[data-testid*="location"]', '.job-location', '.jobLocation',
                       '[class*="job-location"]', '[class*="jobGeoLocation"]', '[itemprop="addressLocality"]')
 
@@ -103,6 +103,14 @@ def _places(posting):
     return '; '.join(filter(None, out))
 
 
+def _labelled_date(text, label):
+    m = re.search(r'(?:' + label + r')\s*:?\s*(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})', text, re.I)
+    if m:
+        return f'{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}'  # day/month/year
+    m = re.search(r'(?:' + label + r')\s*:?\s*(\d{4}-\d{2}-\d{2}|\d{1,2} [A-Z][a-z]{2,8} \d{4})', text, re.I)
+    return m.group(1) if m else ''
+
+
 def parse_detail(html, url, source):
     """Parse one vacancy page into a dict, or {'reject': reason}."""
     soup = BeautifulSoup(html, 'html.parser')
@@ -148,6 +156,13 @@ def parse_detail(html, url, source):
         idx = int(source['url_location_segment'])
         if len(segments) > idx:
             location = (location + '; ' + segments[idx].replace('-', ' ')).strip('; ')
+    # SuccessFactors career pages (Standard Chartered) print the dates as text:
+    # 'Posting Start Date: 27/08/2026 Posting End Date: 31/12/2026'.
+    if not published:
+        published = (_labelled_date(visible, r'Posting Start Date|Date Posted|Posted (?:on|date)')
+                     or _labelled_date(visible, r'(?<![A-Za-z] )\bDate'))  # SuccessFactors RMK 'Date: 16 Oct 2026'
+    if not valid_through:
+        valid_through = _labelled_date(visible, r'Posting End Date|Closing Date|Application Deadline|Apply by')
     if source.get('location_from_slug'):
         location = (location + '; ' + slug_words(unquote(urlparse(url).path))).strip('; ')
     status, evidence = assess_page(visible, valid_through)

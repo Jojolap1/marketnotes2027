@@ -30,18 +30,22 @@
         "\\bcourbevoie\\b",
         "\\bnanterre\\b",
         "\\bfontenay[\\s-]sous[\\s-]bois\\b",
-        "[iî]le[- ]de[- ]france"
+        "[iî]le[- ]de[- ]france",
+        "巴黎"
       ],
       "London": [
         "(?<!new )\\blondon\\b(?!,? (?:ontario|on\\b|ct\\b|connecticut|kentucky|ky\\b|ohio))",
         "\\blondres\\b",
         "canary wharf",
-        "\\bldn\\b"
+        "\\bldn\\b",
+        "伦敦",
+        "倫敦"
       ]
     },
     "role_families": {
       "Structuring": [
-        "\\bstructur(?:er|ing|ation|eur)\\b"
+        "\\bstructur(?:er|ing|ation|eur)\\b",
+        "结构化|結構化|产品设计"
       ],
       "Sales & Trading": [
         "\\bsales\\s*(?:&|and|-|/)?\\s*trad(?:ing|er)\\b",
@@ -58,7 +62,8 @@
         "\\bvente(?:s)?\\b",
         "\\bvendeur\\b",
         "\\bn[ée]gociat(?:eur|ion)\\b",
-        "\\b(?:fx|forex|foreign exchange|rates|credit|equit(?:y|ies)|fixed income|fic|ficc|commodit(?:y|ies)|macro|emerging markets|securitized products|repo|bonds?|delta one|prime)\\b.{0,30}\\b(?:sales|trad(?:ing|er)|desk|markets)\\b"
+        "\\b(?:fx|forex|foreign exchange|rates|credit|equit(?:y|ies)|fixed income|fic|ficc|commodit(?:y|ies)|macro|emerging markets|securitized products|repo|bonds?|delta one|prime)\\b.{0,30}\\b(?:sales|trad(?:ing|er)|desk|markets)\\b",
+        "销售交易|銷售交易|交易员|交易員|交易岗|交易崗|销售岗|機構銷售|机构销售|固定收益|外汇|外匯|衍生品"
       ],
       "Derivatives": [
         "\\bderivatives?\\b",
@@ -75,7 +80,8 @@
         "\\bg[ée]rant\\b",
         "\\bmulti[- ]asset\\b",
         "\\binvestment (?:team|management|solutions|specialist)\\b",
-        "\\bportfolio (?:analyst|construction|solutions)\\b"
+        "\\bportfolio (?:analyst|construction|solutions)\\b",
+        "资产管理|資產管理|投资经理|投資經理|组合管理|組合管理"
       ],
       "Markets / Investment Analyst": [
         "\\b(?:global|markets?|investment|fixed income|credit|equity|macro) research\\b",
@@ -88,7 +94,8 @@
         "\\bmacro research\\b",
         "\\bresearch analyst\\b",
         "\\banalyste (?:financier|investissement|march[ée]s|actions|cr[ée]dit)\\b",
-        "\\bmarkets\\b"
+        "\\bmarkets\\b",
+        "研究员|研究員|分析师|分析師|投资分析|投資分析"
       ]
     },
     "role_exclusion_patterns": [
@@ -129,7 +136,8 @@
       "\\bsummer associate\\b",
       "\\bassociate program(?:me)?\\b",
       "\\bmba\\b",
-      "\\bpost[- ]?doc\\w*\\b"
+      "\\bpost[- ]?doc\\w*\\b",
+      "总监|總監|董事总经理|董事總經理|副总裁|副總裁|负责人|負責人"
     ],
     "non_front_office_patterns": [
       "\\bsoftware\\b",
@@ -221,7 +229,8 @@
       "\\bstrategy,? planning\\b",
       "\\bconsumer\\b",
       "\\blending\\b",
-      "\\bhome financing\\b"
+      "\\bhome financing\\b",
+      "行政|人力资源|人力資源|合规|合規|风险管理|風險管理|运营|運營|信息技术|資訊科技|开发工程师|開發工程師|财务|財務|党建|黨建|审计|審計|法务|法務"
     ],
     "entry_types": {
       "vie": [
@@ -250,7 +259,8 @@
         "\\bwinter (?:analyst|internship|programme)\\b",
         "\\bINTERN\\b",
         "\\bINTERNSHIP\\b",
-        "\\bstages?\\b"
+        "\\bstages?\\b",
+        "实习|實習"
       ],
       "graduate_programme": [
         "\\bgraduates?\\b",
@@ -262,7 +272,8 @@
         "\\b(?:analyst|graduate) (?:programme|program)\\b",
         "\\bfull[- ]time analyst\\b",
         "\\b20\\d\\d analyst\\b",
-        "\\banalyst,? 20\\d\\d\\b"
+        "\\banalyst,? 20\\d\\d\\b",
+        "校园招聘|校園招聘|应届|應屆|管培生|管理培训生|毕业生|畢業生"
       ],
       "entry_level": [
         "\\bjunior\\b",
@@ -335,7 +346,7 @@
       "site": "2"
     },
     {
-      "company": "Bank of America",
+      "company": "Bank of America (campus)",
       "platform": "oleeo",
       "boards": [
         "https://bankcampuscareers.tal.net/vx/lang-en-GB/mobile-0/brand-4/candidate/jobboard/vacancy/1/adv/"
@@ -393,7 +404,7 @@
       "note": "RSS exposes the 20 most recent offers; hourly polling catches new ones, older backlog is not visible"
     },
     {
-      "company": "Nomura",
+      "company": "Nomura (campus)",
       "platform": "oleeo",
       "boards": [
         "https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/jobboard/vacancy/1/adv/"
@@ -649,34 +660,90 @@
       "note": "Avature RSS: 20 most recent offers only"
     },
     {
+      "company": "Bank of America",
+      "platform": "bank_of_america"
+    },
+    {
+      "company": "UBS",
+      "platform": "brassring",
+      "host": "jobs.ubs.com",
+      "partner_id": "25008",
+      "site_ids": [
+        "5012",
+        "5131"
+      ],
+      "country_city": {
+        "United Kingdom": "London",
+        "France": "Paris",
+        "Hong Kong SAR": "Hong Kong",
+        "Singapore": "Singapore"
+      }
+    },
+    {
+      "company": "SMBC (EMEA)",
+      "platform": "successfactors_xml",
+      "host": "career5.successfactors.eu",
+      "sf_company": "smbcP",
+      "location_from_description": true
+    },
+    {
+      "company": "SMBC (Asia)",
+      "platform": "successfactors_xml",
+      "host": "career5.successfactors.eu",
+      "sf_company": "SMBC",
+      "location_from_description": true
+    },
+    {
+      "company": "Mizuho (EMEA)",
+      "platform": "sitemap",
+      "sitemap_url": "https://careers.mizuhoemea.com/sitemap.xml",
+      "job_url_pattern": "^/job/",
+      "slug_has_city": true,
+      "location_from_slug": true,
+      "max_fetch_per_run": 40
+    },
+    {
+      "company": "Nomura",
+      "platform": "sitemap",
+      "sitemap_url": "https://careers.nomura.com/sitemap.xml",
+      "job_url_pattern": "^/(?:[A-Za-z]+/)?job/",
+      "slug_has_city": true,
+      "location_from_slug": true,
+      "max_fetch_per_run": 40
+    },
+    {
+      "company": "CIMB (incl. CIMB Securities)",
+      "platform": "oracle",
+      "host": "ejox.fa.ap1.oraclecloud.com",
+      "sites": [
+        "CX_1",
+        "CX_2",
+        "CX_3",
+        "CX_4",
+        "CX_5",
+        "CX_6",
+        "CX_7",
+        "CX_8",
+        "CX_9",
+        "CX_10",
+        "CX_11"
+      ]
+    },
+    {
+      "company": "CICC",
+      "platform": "zhiye",
+      "host": "cicc.zhiye.com"
+    },
+    {
+      "company": "China Galaxy (Chinastock)",
+      "platform": "zhiye",
+      "host": "chinastock.zhiye.com"
+    },
+    {
       "company": "BNP Paribas",
       "platform": "official",
       "enabled": false,
       "disabled_reason": "group.bnpparibas returns HTTP 403 (Akamai 'Access Denied') to automated requests, including its sitemap; no public ATS feed found. Not bypassed."
-    },
-    {
-      "company": "UBS",
-      "platform": "official",
-      "enabled": false,
-      "disabled_reason": "jobs.ubs.com is a Kenexa BrassRing JavaScript app; no public sitemap/feed (sitemap 404) and results require a session token. Not scraped."
-    },
-    {
-      "company": "Natixis CIB",
-      "platform": "official",
-      "enabled": false,
-      "disabled_reason": "recrutement.natixis.com is a JavaScript-only shell (3 KB HTML), empty sitemap, no public ATS feed found."
-    },
-    {
-      "company": "SMBC",
-      "platform": "official",
-      "enabled": false,
-      "disabled_reason": "smbcgroup.com careers pages link to no discoverable public job feed; tested Workday/SmartRecruiters guesses failed."
-    },
-    {
-      "company": "CICC",
-      "platform": "official",
-      "enabled": false,
-      "disabled_reason": "www.cicc.com returns HTTP 521 (origin down / blocked)."
     },
     {
       "company": "Huatai Securities",
@@ -703,12 +770,6 @@
       "disabled_reason": "jobs.natwestgroup.com returns HTTP 403; no public Workday site found."
     },
     {
-      "company": "Mizuho",
-      "platform": "official",
-      "enabled": false,
-      "disabled_reason": "EMEA/APAC careers pages link to no public feed (internships advertised via a third-party board); the public Workday site mizuhoamericas lists US roles only."
-    },
-    {
       "company": "Daiwa Securities",
       "platform": "official",
       "enabled": false,
@@ -725,12 +786,6 @@
       "platform": "official",
       "enabled": false,
       "disabled_reason": "maybank.com careers URLs return 404; no public feed found (Workday/SmartRecruiters guesses failed)."
-    },
-    {
-      "company": "CIMB Securities",
-      "platform": "official",
-      "enabled": false,
-      "disabled_reason": "cimb.com careers pages link to no public job feed (Workday/SmartRecruiters guesses failed)."
     },
     {
       "company": "Guotai Junan International",
@@ -769,10 +824,10 @@
       "disabled_reason": "swhyhk.com careers URL 404; no job feed."
     },
     {
-      "company": "China Galaxy International",
+      "company": "Natixis CIB",
       "platform": "official",
       "enabled": false,
-      "disabled_reason": "chinastock.com.hk careers URL 404; no job feed."
+      "disabled_reason": "recrutement.natixis.com is a JavaScript app; its search API (wp-json/bpce) is being probed - not yet validated, so not enabled."
     }
   ]
 }

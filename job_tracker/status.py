@@ -14,6 +14,7 @@ from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 
 OPEN, CLOSED, UNKNOWN = 'open', 'closed', 'unknown'
+MONTHS = {m: i for i, m in enumerate(['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'], 1)}
 
 CLOSURE_TEXT = re.compile(
     r"no longer (?:accepting|taking) applications|(?:this|the) (?:job|position|vacancy|role|posting|offer) "
@@ -44,6 +45,16 @@ def parse_date(value):
             return parsedate_to_datetime(raw).astimezone(timezone.utc)
         except (TypeError, ValueError):
             return None
+    named = re.match(r'(\d{1,2})[-\s]([A-Za-z]{3})[A-Za-z]*[-\s,]+(\d{4})', raw) or re.match(r'([A-Za-z]{3})[A-Za-z]*\s+(\d{1,2}),?\s+(\d{4})', raw)
+    if named:
+        a, b, year = named.groups()
+        day, mon = (a, b) if a.isdigit() else (b, a)
+        month = MONTHS.get(mon[:3].lower())
+        if month:
+            try:
+                return datetime(int(year), month, int(day), 23, 59, tzinfo=timezone.utc)
+            except ValueError:
+                return None
     text = raw.replace('/', '-')
     m = re.match(r'(\d{4})-(\d{1,2})-(\d{1,2})', text)
     if not m:

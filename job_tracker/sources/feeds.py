@@ -89,13 +89,24 @@ def successfactors_xml(source, ctx):
         location = ', '.join(filter(None, [fields.get('City'), fields.get('Country')]))
         if not location:  # tenants label their location fields differently
             location = ', '.join(v for k, v in fields.items() if re.search(r'(?i)city|country|location|state', k))
+        location = location or (node.findtext('Location') or '').strip()
+        description_text = html_to_text(node.findtext('Job-Description'))
+        if not location and source.get('location_from_description'):
+            # SMBC leaves <Location> empty: use the target cities named in the advert.
+            found = [city for city in ('London', 'Paris', 'Hong Kong', 'Singapore')
+                     if re.search(r'\b' + city + r'\b', description_text[:3000], re.I)]
+            location = ', '.join(found) + (' (from job description)' if found else '')
+        posted = (node.findtext('Posted-Date') or '').strip()
+        m = re.match(r'(\d{1,2})/(\d{1,2})/(\d{4})$', posted)
+        if m:
+            posted = f'{m.group(3)}-{int(m.group(2)):02d}-{int(m.group(1)):02d}'
         if not ctx.title_worth_fetching(title) or not ctx.city_of(location):
             continue
         experience = fields.get('Experience level', '')
         jobs.append(make_job(
             id=f'successfactors:{sf_company}:{req_id}', company=company, title=title, location=location,
             url=f'https://{host}/career?company={sf_company}&career_job_req_id={req_id}&career_ns=job_listing',
-            description=html_to_text(node.findtext('Job-Description')) + f' Experience level: {experience}.',
+            description=description_text + (f' Experience level: {experience}.' if experience else ''), published=posted,
             employment_type=experience, source='SuccessFactors job listing XML', requisition_id=req_id,
             status=OPEN, status_evidence='listed in the official SuccessFactors job feed (live postings only)'))
     ctx.stat(company, 'listed', listed)
