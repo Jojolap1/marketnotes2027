@@ -1696,6 +1696,24 @@ def sg_quantum():
 R29 = [('R29 SG quantum', sg_quantum)]
 PROBES = PROBES + R29
 
+
+# ---------------- Round 30: SG quantum calls ----------------
+def sg_quantum_calls():
+    out = []
+    for s in ['/themes/custom/sg_careers/js/quantum/search-page-quantum.js', '/themes/custom/sg_careers/js/quantum/global-quantum.js',
+              '/themes/custom/sg_careers/assets/js/recent-jobs.js']:
+        js = get('https://careers.societegenerale.com' + s).text
+        out.append(f'--- {s} len={len(js)}')
+        for m in re.finditer(r'base_url', js):
+            out.append('  ' + repr(js[max(0, m.start() - 300):m.start() + 700]))
+            if len(out) > 12:
+                break
+    return '\n'.join(out)
+
+
+R30 = [('R30 SG quantum calls', sg_quantum_calls)]
+PROBES = PROBES + R30
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
