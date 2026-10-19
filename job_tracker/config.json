@@ -237,7 +237,8 @@
       "\\bhome financing\\b",
       "行政|人力资源|人力資源|合规|合規|风险管理|風險管理|运营|運營|信息技术|資訊科技|开发工程师|開發工程師|财务|財務|党建|黨建|审计|審計|法务|法務",
       "\\badmin(?:istrative)? assistant\\b|\\bassistant administratif\\b|\\bexecutive assistant\\b|\\bpersonal assistant\\b",
-      "\\bmarch[ée]s de capitaux\\b(?!.{0,30}\\b(?:vente|vendeur|sales|trad(?:ing|er)|structur))"
+      "\\bmarch[ée]s de capitaux\\b(?!.{0,30}\\b(?:vente|vendeur|sales|trad(?:ing|er)|structur))",
+      "\\b(?:project|acquisition|real estate|asset|export|trade|leveraged) financ\\w*\\b|\\bfinancements? (?:de projets?|d'acquisition|immobiliers?|export)\\b"
     ],
     "entry_types": {
       "vie": [
