@@ -1549,6 +1549,23 @@ def bf_search():
 R23 = [('R23 BF search', bf_search)]
 PROBES = PROBES + R23
 
+
+# ---------------- Round 24 ----------------
+def bf_fields():
+    page = get('https://mon-vie-via.businessfrance.fr/en/offres/recherche').text
+    key = next(k.encode().decode('unicode_escape') for k in re.findall(r'API_KEY:"([^"]+)"', page) if not k.startswith('AIza'))
+    r = S.post('https://civiweb-api-prd.azurewebsites.net/api/Offers/search', json={'limit': 100, 'skip': 0, 'query': 'trader'},
+               headers={'X-API-KEY': key}, timeout=25).json()
+    items = r.get('result') or []
+    it = items[0] if items else {}
+    small = {k: v for k, v in it.items() if not isinstance(v, str) or len(v) < 80}
+    return (f'top={ {k: (v if not isinstance(v, list) else len(v)) for k, v in r.items()} }\nitem={json.dumps(small, ensure_ascii=False)[:2500]}\n'
+            f'sample={[(i.get("organizationName"), i.get("missionTitle"), i.get("cityNameEn"), i.get("countryNameEn")) for i in items[:15]]}')
+
+
+R24 = [('R24 BF fields', bf_fields)]
+PROBES = PROBES + R24
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
