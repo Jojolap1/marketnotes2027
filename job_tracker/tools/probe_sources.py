@@ -1762,6 +1762,21 @@ def sg_refs():
 R32 = [('R32 SG refs', sg_refs)]
 PROBES = PROBES + R32
 
+
+# ---------------- Round 33: SG search request ----------------
+def sg_search_request():
+    out = []
+    for s in ['search-page-quantum.js', 'global-quantum.js']:
+        js = get('https://careers.societegenerale.com/themes/custom/sg_careers/js/quantum/' + s).text
+        for pat in [r'BASE_URL\s*\+', r'proxy_fetch', r'search-query|searchQuery|/search[\'"]', r'method:\s*[\'"]POST']:
+            for mm in list(re.finditer(pat, js))[:2]:
+                out.append(f'[{s} {pat}] ' + repr(js[max(0, mm.start() - 500):mm.start() + 700]))
+    return '\n'.join(out[:14])
+
+
+R33 = [('R33 SG search request', sg_search_request)]
+PROBES = PROBES + R33
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
