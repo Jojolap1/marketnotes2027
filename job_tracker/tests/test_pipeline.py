@@ -171,7 +171,7 @@ class ConfigTests(unittest.TestCase):
                 'workday': ['host', 'tenant', 'site'], 'oracle': ['host'], 'eightfold': ['host', 'domain'],
                 'sitemap': ['sitemap_url', 'job_url_pattern'], 'goldman': [], 'successfactors_xml': ['host', 'sf_company'],
                 'rss': ['feeds'], 'oleeo': ['boards'],
-                'bank_of_america': [], 'brassring': ['host', 'partner_id', 'site_ids'], 'zhiye': ['host']}
+                'bank_of_america': [], 'brassring': ['host', 'partner_id', 'site_ids'], 'zhiye': ['host'], 'bpce': ['base_url']}
 
     def test_sources_are_valid(self):
         import re

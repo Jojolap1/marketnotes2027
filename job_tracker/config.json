@@ -745,7 +745,7 @@
       "company": "BNP Paribas",
       "platform": "official",
       "enabled": false,
-      "disabled_reason": "group.bnpparibas returns HTTP 403 (Akamai 'Access Denied') to automated requests, including its sitemap; no public ATS feed found. Not bypassed."
+      "disabled_reason": "group.bnpparibas (the only page listing BNP offers) answers HTTP 403 'Access Denied' (Akamai) to this tracker's identified requests, robots.txt and sitemap included; the BNP candidate portal bwelcome.hr.bnpparibas (Avature) has no public job list (search page 404, sitemaps list templates only). Re-checked 2026-10-19."
     },
     {
       "company": "Huatai Securities",
@@ -827,9 +827,10 @@
     },
     {
       "company": "Natixis CIB",
-      "platform": "official",
-      "enabled": false,
-      "disabled_reason": "recrutement.natixis.com is a JavaScript app; its job search is rendered in the browser and no public data endpoint answers (wp-json/bpce returns the app shell, probe 2026-10-19). Use recrutement.natixis.com alerts."
+      "platform": "bpce",
+      "base_url": "https://recrutement.natixis.com",
+      "lang": "en",
+      "external": false
     }
   ]
 }

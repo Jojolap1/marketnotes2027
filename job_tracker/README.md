@@ -15,7 +15,7 @@ config.json ──► sources/* (one adapter per feed type) ──► filters.py
 | `sources/eightfold.py` | Eightfold portal (HSBC), per-city pagination |
 | `sources/feeds.py` | Goldman Sachs role search, SuccessFactors XML (Pictet), RSS (CA-CIB), Oleeo boards (Nomura, BofA) |
 | `sources/sitemap.py` | Sitemap + JSON-LD vacancy pages (Société Générale, Standard Chartered, Optiver), incremental |
-| `sources/banks.py` | Bank of America search service, UBS BrassRing, Beisen zhiye (CICC, China Galaxy) |
+| `sources/banks.py` | Bank of America search service, UBS BrassRing, Beisen zhiye (CICC, China Galaxy), BPCE search API (Natixis) |
 | `sources/ats.py` | Greenhouse / Lever / Ashby / SmartRecruiters |
 | `filters.py` | City, role family, entry type, seniority, experience requirement (English + French) |
 | `status.py` | Application status evidence |
@@ -122,11 +122,12 @@ Greenhouse board), Mako, Akuna, Old Mission, Eclipse Trading (Greenhouse).
 | Mizuho (EMEA) | careers.mizuhoemea.com sitemap | 32 | |
 | CIMB (incl. CIMB Securities) | Oracle Recruiting Cloud (11 career sites) | — | Malaysia-heavy; only target cities kept |
 | CICC / China Galaxy (Chinastock) | Beisen zhiye job-ad API (Chinese ads) | 483 / 105 | Chinese city/role keywords |
+| Natixis CIB | recrutement.natixis.com search API (the site's own JSON search) | 179 | Paris, Hong Kong, Singapore, London offers |
 | Standard Chartered | vacancy pages now give "Posting Start/End Date" | 1,185 | dates + closing date parsed |
 
 **Not covered (documented, not bypassed):** BNP Paribas, Citadel Securities, NatWest Markets, Huatai
-(HTTP 403 to automated requests — anti-bot protection, not bypassed); Natixis CIB (job search rendered
-in the browser, no public data endpoint answers); Daiwa, UOB Kay Hian, Maybank IB, Guotai Junan
+(HTTP 403 to automated requests — anti-bot protection, not bypassed; BNP's candidate portal
+bwelcome.hr.bnpparibas has no public job list either); Daiwa, UOB Kay Hian, Maybank IB, Guotai Junan
 International, CMBI, BOC International, ICBC International, GF Securities (HK), Shenwan Hongyuan (HK),
 ICBC / Bank of China / CCB (no online job portal with listings — static pages or email applications).
 They stay in `config.json` as disabled sources, so every report lists them.

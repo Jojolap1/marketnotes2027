@@ -24,7 +24,7 @@ ADAPTERS = {
     'oleeo': feeds.oleeo,
     'bank_of_america': banks.bank_of_america,
     'brassring': banks.brassring,
-    'zhiye': banks.zhiye,
+    'zhiye': banks.zhiye, 'bpce': banks.bpce,
 }
 
 
