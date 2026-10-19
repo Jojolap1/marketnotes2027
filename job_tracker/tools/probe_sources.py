@@ -1672,6 +1672,30 @@ def sg_algolia():
 R28 = [('R28 SG algolia', sg_algolia)]
 PROBES = PROBES + R28
 
+
+# ---------------- Round 29: SG quantum scripts ----------------
+def sg_quantum():
+    page = get('https://careers.societegenerale.com/en/search').text
+    out = []
+    m = re.search(r'<script[^>]+data-drupal-selector="drupal-settings-json"[^>]*>(.*?)</script>', page, re.S)
+    if m:
+        st = json.loads(m.group(1))
+        q = st.get('quantum') or {}
+        out.append('quantum settings: ' + json.dumps(q, ensure_ascii=False)[:1500])
+        out.append('top-level keys: ' + str(sorted(st)[:60]))
+    srcs = [s for s in re.findall(r'src="([^"]+\.js[^"]*)"', page) if 'sg_careers' in s or 'modules/custom' in s]
+    out.append('custom scripts: ' + str(srcs))
+    for s in srcs:
+        js = get('https://careers.societegenerale.com' + s).text
+        hits = sorted(set(x[:260] for x in re.findall(r'.{90}(?:\$\.ajax|fetch\(|\.get\(|\.post\(|url\s*:|/api/|quantum[A-Za-z]*Url|endpoint|offers?Search|search[A-Z][a-zA-Z]*Url).{150}', js)))
+        if hits:
+            out.append(f'--- {s} ---\n' + '\n'.join(hits[:12]))
+    return '\n'.join(out)
+
+
+R29 = [('R29 SG quantum', sg_quantum)]
+PROBES = PROBES + R29
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
