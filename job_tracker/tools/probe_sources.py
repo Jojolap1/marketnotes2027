@@ -1634,6 +1634,44 @@ def sg_search():
 R27 = [('R27 SG search', sg_search)]
 PROBES = PROBES + R27
 
+
+# ---------------- Round 28: SG Algolia ----------------
+def sg_algolia():
+    page = get('https://careers.societegenerale.com/en/search').text
+    m = re.search(r'<script[^>]+data-drupal-selector="drupal-settings-json"[^>]*>(.*?)</script>', page, re.S)
+    out = [f'settings json found={bool(m)}']
+    if not m:
+        return out[0]
+    settings = json.loads(m.group(1))
+    def walk(o, path=''):
+        if isinstance(o, dict):
+            for k, v in o.items():
+                yield from walk(v, f'{path}.{k}')
+        elif isinstance(o, list):
+            for i, v in enumerate(o[:3]):
+                yield from walk(v, f'{path}[{i}]')
+        else:
+            yield path, o
+    hits = [(p, v) for p, v in walk(settings) if re.search(r'algolia|index|app_?id|api_?key|search', p, re.I)]
+    out.append('settings: ' + str([(p, str(v)[:60]) for p, v in hits][:30]))
+    app = next((v for p, v in hits if re.search(r'app(lication)?_?id', p, re.I) and v), None)
+    key = next((v for p, v in hits if re.search(r'(search_?)?api_?key', p, re.I) and v), None)
+    idx = [v for p, v in hits if re.search(r'index', p, re.I) and isinstance(v, str) and v]
+    out.append(f'app={app} key_present={bool(key)} indexes={idx[:6]}')
+    if app and key:
+        for ix in idx[:4]:
+            r = S.post(f'https://{app}-dsn.algolia.net/1/indexes/{ix}/query', json={'params': 'hitsPerPage=3&query='},
+                       headers={'X-Algolia-Application-Id': app, 'X-Algolia-API-Key': key}, timeout=25)
+            body = r.json() if r.headers.get('content-type', '').startswith('application/json') else {}
+            hit = (body.get('hits') or [{}])[0]
+            small = {k: (v if not isinstance(v, str) else v[:80]) for k, v in hit.items() if k not in ('_highlightResult', '_snippetResult')}
+            out.append(f'{ix} -> {r.status_code} nbHits={body.get("nbHits")} keys={sorted(hit)[:40]}\n   sample={json.dumps(small, ensure_ascii=False)[:1500]}')
+    return '\n'.join(out)
+
+
+R28 = [('R28 SG algolia', sg_algolia)]
+PROBES = PROBES + R28
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
