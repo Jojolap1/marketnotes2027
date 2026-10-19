@@ -929,6 +929,111 @@ for host, comp in [('career5.successfactors.eu', 'smbcP'), ('career5.successfact
     R9.append((f'R9 SF {host} {comp}', (lambda h=host, c=comp: sf_xml(h, c))))
 PROBES = PROBES + R9
 
+
+# ---------------- Round 10 ----------------
+def sf_raw(host, company):
+    t = get(f'https://{host}/career?company={company}&career_ns=job_listing_summary&resultType=XML').text
+    jobs = re.findall(r'<Job>.*?</Job>', t, re.S)
+    sample = [re.sub(r'<Job-Description>.*?</Job-Description>', '', j, flags=re.S)[:900] for j in jobs[:2]]
+    tags = sorted(set(re.findall(r'<([A-Za-z][\w-]*)>', ''.join(jobs[:20]))))
+    return f'jobs={len(jobs)} tags={tags} sample={sample}'
+
+
+def bofa_paging():
+    out = []
+    for q in ['start=1&rows=100&search=getAllJobs', 'start=100&rows=100&search=getAllJobs', 'start=2&rows=100&search=getAllJobs', 'start=0&rows=100&search=getAllJobs&country=United%20Kingdom', 'start=0&rows=100&search=getAllJobs&keyword=London']:
+        d = get('https://careers.bankofamerica.com/services/jobssearchservlet?' + q).json()
+        jl = d.get('jobsList') or []
+        out.append(f'{q}: total={d.get("totalMatches")} n={len(jl)} first={[ (j.get("postingTitle"), j.get("city"), j.get("country")) for j in jl[:2]]}')
+    d = get('https://careers.bankofamerica.com/services/jobssearchservlet?start=0&rows=200&search=getAllJobs').json()
+    j = next((x for x in d['jobsList'] if x.get('country') not in ('United States', None)), d['jobsList'][0])
+    out.append('SAMPLE ' + str({k: (str(v)[:120]) for k, v in j.items() if k not in ('jobDescriptionInternal', 'benefits_internal_text', 'benefits_external_text')}))
+    return '\n'.join(out)
+
+
+def ubs_power(location=''):
+    s2 = requests.Session(); s2.headers.update(S.headers)
+    page = s2.get('https://jobs.ubs.com/TGnewUI/Search/Home/Home?partnerid=25008&siteid=5012', timeout=25).text
+    token = re.search(r'name="__RequestVerificationToken"[^>]*value="([^"]+)"', page).group(1)
+    headers = {'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest', 'RFT': token}
+    body = {'partnerId': 25008, 'siteId': 5012, 'keyword': '', 'location': location, 'Latitude': 0, 'Longitude': 0, 'pageNumber': 1,
+            'FacetFilterFields': {'Facet': []}, 'PowerSearchOptions': {'PowerSearchOption': []}, 'SortType': 'LastUpdated',
+            'encryptedSessionValue': '', 'KeywordCustomSolrFields': 'AutoReq,JobTitle,Description', 'LocationCustomSolrFields': 'FORMTEXT2,FORMTEXT1'}
+    d = s2.post('https://jobs.ubs.com/TgNewUI/Search/Ajax/PowerSearchJobs', json=body, headers=headers, timeout=25).json()
+    jobs = d['Jobs']['Job']
+    first = {q['QuestionName']: q['Value'] for q in jobs[0]['Questions']} if jobs else {}
+    body['pageNumber'] = 2
+    d2 = s2.post('https://jobs.ubs.com/TgNewUI/Search/Ajax/ProcessSortAndShowMoreJobs', json=body, headers=headers, timeout=25).json()
+    facets = [(f.get('Name'), [o.get('OptionName') for o in (f.get('Options') or [])][:15]) for f in ((d.get('Facets') or {}).get('Facet') or [])][:8]
+    return f'total={d.get("TotalJobsCount")} count={d.get("JobsCount")} pagesize={len(jobs)} page2={len(d2["Jobs"]["Job"])} first={first} link={jobs[0].get("Link") if jobs else None} facets={facets}'
+
+
+def deep_links(root, pattern, max_pages=20):
+    from bs4 import BeautifulSoup as BS
+    from urllib.parse import urljoin
+    seen, queue, found = set(), [root], set()
+    host = urlparse(root).hostname
+    while queue and len(seen) < max_pages:
+        u = queue.pop(0)
+        if u in seen:
+            continue
+        seen.add(u)
+        try:
+            r = get(u)
+        except Exception:
+            continue
+        t = r.text.replace('\\/', '/').replace('&amp;', '&')
+        found |= set(m[:200] for m in re.findall(pattern, t, re.I))
+        for a in BS(t, 'html.parser').find_all('a', href=True):
+            h = urljoin(r.url, a['href']).split('#')[0]
+            if urlparse(h).hostname == host and CAREER_LINK.search(h):
+                queue.append(h)
+    return f'pages={len(seen)} found={sorted(found)[:15]}'
+
+
+def zhiye_api(host):
+    out = []
+    tries = [('POST', '/api/Jobad/GetJobAdPageList', {'PageIndex': 0, 'PageSize': 10, 'KeyWords': '', 'SpecialType': 0}),
+             ('POST', '/api/Jobad/GetJobAdPageList', {'pageIndex': 1, 'pageSize': 10}),
+             ('GET', '/api/Jobad/GetJobAdPageList?PageIndex=0&PageSize=10', None),
+             ('GET', '/social/jobs', None), ('GET', '/campus/jobs', None), ('GET', '/sitemap.xml', None)]
+    for m, path, body in tries:
+        try:
+            r = S.request(m, f'https://{host}{path}', json=body, timeout=20, headers={'Content-Type': 'application/json'})
+            out.append(f'{m} {path}: {r.status_code} {r.text[:200]!r}')
+        except Exception as exc:
+            out.append(f'{m} {path}: EXC {exc}')
+    return ' || '.join(out)
+
+
+R10 = [
+    ('R10 SF smbcP raw', lambda: sf_raw('career5.successfactors.eu', 'smbcP')),
+    ('R10 SF SMBC raw', lambda: sf_raw('career5.successfactors.eu', 'SMBC')),
+    ('R10 BofA paging', bofa_paging),
+    ('R10 UBS power all', lambda: ubs_power('')),
+    ('R10 UBS power London', lambda: ubs_power('London')),
+    ('R10 Natixis bundle natixis', lambda: grep_page('https://recrutement.natixis.com/static/js/main.c48280da.chunk.js', r'.{40}(?:natixis\.(?:recrutement|mobilite)|/api/|apiUrl|baseURL|offers).{80}', 25, 200)),
+    ('R10 Nomura SF deep', lambda: deep_links('https://www.nomura.com/asia/careers/', r'https?://career\d*\.successfactors\.(?:com|eu)/[^"\'\s<>]*')),
+    ('R10 Nomura EMEA deep', lambda: deep_links('https://www.nomura.com/europe/careers/', r'https?://[a-z0-9.-]*(?:successfactors|workday|oraclecloud|taleo|avature)[^"\'\s<>]*')),
+    ('R10 CIMB oracle deep', lambda: deep_links('https://www.cimb.com/en/careers.html', r'https?://ejox\.fa\.ap1\.oraclecloud\.com/[^"\'\s<>]*')),
+    ('R10 Mizuho EMEA sitemap', lambda: sitemap('https://careers.mizuhoemea.com/sitemap.xml')),
+    ('R10 Mizuho EMEA job', lambda: sc_like('https://careers.mizuhoemea.com/job/London-FX-GroupFI-Sales-Desk-Analyst-Lond/1375125057/')),
+    ('R10 zhiye cicc api', lambda: zhiye_api('cicc.zhiye.com')),
+    ('R10 HKTE page apis', lambda: grep_page('https://www.hkengage.gov.hk/en/jobs/7121213', r'["\'](?:https://[a-z.]*hkengage[a-z.]*)?/(?:api|_next|graphql)[^"\']{0,120}["\']|companyName[^,]{0,80}|"employer[^,]{0,80}', 25, 160)),
+    ('R10 HKTE search', lambda: grep_page('https://www.hkengage.gov.hk/en/jobs?keyword=CICC', r'/en/jobs/\d+|<title>[^<]*', 20, 80)),
+    ('R10 SF maybank', lambda: sf_raw('career2.successfactors.eu', 'maybank')),
+    ('R10 UOBKH text', lambda: grep_page('https://www.uobkh.com/careers', r'(?:Position|Job Title|Vacanc|Opening|Hiring)[^<]{0,120}', 15, 160)),
+]
+
+
+def sc_like(url):
+    r = get(url)
+    t = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', r.text))
+    return f'HTTP {r.status_code} hits={re.findall(r".{0,40}(?:Posting Start Date|Posting End Date|Location|Date).{0,60}", t)[:8]}'
+
+
+PROBES = PROBES + R10
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
