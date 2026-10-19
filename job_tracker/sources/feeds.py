@@ -74,8 +74,10 @@ def successfactors_xml(source, ctx):
     company, sf_company, host = source['company'], source['sf_company'], source['host']
     response = ctx.http.get(f'https://{host}/career?company={sf_company}&career_ns=job_listing_summary&resultType=XML')
     response.raise_for_status()
-    # Some tenants (RWE) emit control characters or bare '&' that are not valid XML.
-    content = re.sub(rb'[\x00-\x08\x0b\x0c\x0e-\x1f]', b' ', response.content)
+    # Some tenants (RWE) emit nameless tags ('<>213</>'), control characters or
+    # bare '&', none of which is valid XML.
+    content = re.sub(rb'<>[^<]*</>', b'', response.content)
+    content = re.sub(rb'[\x00-\x08\x0b\x0c\x0e-\x1f]', b' ', content)
     content = re.sub(rb'&(?!#?\w+;)', b'&amp;', content)
     try:
         nodes = list(ET.fromstring(content).iter('Job'))
