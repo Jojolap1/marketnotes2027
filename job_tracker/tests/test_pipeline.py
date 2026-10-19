@@ -168,9 +168,10 @@ class PipelineTests(unittest.TestCase):
 
 class ConfigTests(unittest.TestCase):
     REQUIRED = {'greenhouse': ['board'], 'lever': ['board'], 'ashby': ['board'], 'smartrecruiters': ['board'],
-                'workday': ['host', 'tenant', 'site'], 'oracle': ['host', 'site'], 'eightfold': ['host', 'domain'],
+                'workday': ['host', 'tenant', 'site'], 'oracle': ['host'], 'eightfold': ['host', 'domain'],
                 'sitemap': ['sitemap_url', 'job_url_pattern'], 'goldman': [], 'successfactors_xml': ['host', 'sf_company'],
-                'rss': ['feeds'], 'oleeo': ['boards']}
+                'rss': ['feeds'], 'oleeo': ['boards'],
+                'bank_of_america': [], 'brassring': ['host', 'partner_id', 'site_ids'], 'zhiye': ['host']}
 
     def test_sources_are_valid(self):
         import re

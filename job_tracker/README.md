@@ -11,10 +11,11 @@ config.json ──► sources/* (one adapter per feed type) ──► filters.py
 |---|---|
 | `tracker.py` | Orchestrates one run; `matches(job)` kept for compatibility |
 | `sources/workday.py` | Workday CXS API: city/country facets, full pagination, cached details |
-| `sources/oracle.py` | Oracle Recruiting Cloud (JPMorgan) by target-city location facets |
+| `sources/oracle.py` | Oracle Recruiting Cloud (JPMorgan, Schroders, CIMB) by target-city location facets |
 | `sources/eightfold.py` | Eightfold portal (HSBC), per-city pagination |
 | `sources/feeds.py` | Goldman Sachs role search, SuccessFactors XML (Pictet), RSS (CA-CIB), Oleeo boards (Nomura, BofA) |
 | `sources/sitemap.py` | Sitemap + JSON-LD vacancy pages (Société Générale, Standard Chartered, Optiver), incremental |
+| `sources/banks.py` | Bank of America search service, UBS BrassRing, Beisen zhiye (CICC, China Galaxy) |
 | `sources/ats.py` | Greenhouse / Lever / Ashby / SmartRecruiters |
 | `filters.py` | City, role family, entry type, seniority, experience requirement (English + French) |
 | `status.py` | Application status evidence |
@@ -109,15 +110,26 @@ DBS Bank, OCBC / Bank of Singapore, UOB, Santander CIB, ING, BBVA, Invesco, Fide
 Millennium (Eightfold); Amundi, Macquarie, Two Sigma (RSS, 20 latest offers only); Optiver (now its
 Greenhouse board), Mako, Akuna, Old Mission, Eclipse Trading (Greenhouse).
 
-**Not covered (documented, not bypassed):** Citadel Securities (HTTP 403), NatWest Markets (HTTP 403),
-Mizuho (EMEA/APAC: no public feed; public Workday site is US-only), Daiwa, UOB Kay Hian, Maybank IB,
-CIMB, Guotai Junan International, China Merchants Securities International / CMBI, BOC International,
-ICBC International, GF Securities (HK), Shenwan Hongyuan (HK), China Galaxy International (no public
-job feed — static pages, 404 or JavaScript-only); BNP Paribas (HTTP 403 Akamai), UBS (BrassRing app,
-no public feed), Natixis CIB (JavaScript-only site), SMBC (no discoverable feed), CICC (HTTP 521),
-Huatai (HTTP 403), ICBC / Bank of China / CCB (no public English feed). They stay in
-`config.json` as disabled sources, so every report lists them.
+**Added 2026-10-19 (third batch, validated by a live dry run):**
 
-**Partial:** Bank of America and Nomura (campus programmes only; BofA's public Workday site lists
-US roles only), Crédit Agricole CIB (RSS shows only the 20 latest offers — new ones are caught
-hourly, older backlog is not), JPMorgan Paris (no Paris location facet exposed; London/HK/SG covered).
+| Employer | Official source | Listed | Notes |
+|---|---|---|---|
+| JPMorgan Paris | Oracle facets found by keyword search (Paris was missing from the default facet list) | — | Paris S&T internships now found |
+| Bank of America (all roles, worldwide) | careers.bankofamerica.com search service | 2,079 | London/Paris/HK/SG; plus the Oleeo campus board |
+| UBS | jobs.ubs.com BrassRing search (experienced + graduates/interns sites) | 598 | country-only adverts labelled "office assumed" |
+| Nomura (experienced) | careers.nomura.com sitemap | 499 | plus the Oleeo campus board |
+| SMBC (EMEA) / SMBC (Asia) | SuccessFactors XML | 175 / 262 | |
+| Mizuho (EMEA) | careers.mizuhoemea.com sitemap | 32 | |
+| CIMB (incl. CIMB Securities) | Oracle Recruiting Cloud (11 career sites) | — | Malaysia-heavy; only target cities kept |
+| CICC / China Galaxy (Chinastock) | Beisen zhiye job-ad API (Chinese ads) | 483 / 105 | Chinese city/role keywords |
+| Standard Chartered | vacancy pages now give "Posting Start/End Date" | 1,185 | dates + closing date parsed |
+
+**Not covered (documented, not bypassed):** BNP Paribas, Citadel Securities, NatWest Markets, Huatai
+(HTTP 403 to automated requests — anti-bot protection, not bypassed); Natixis CIB (job search rendered
+in the browser, no public data endpoint answers); Daiwa, UOB Kay Hian, Maybank IB, Guotai Junan
+International, CMBI, BOC International, ICBC International, GF Securities (HK), Shenwan Hongyuan (HK),
+ICBC / Bank of China / CCB (no online job portal with listings — static pages or email applications).
+They stay in `config.json` as disabled sources, so every report lists them.
+
+**Partial:** Crédit Agricole CIB, Amundi, Macquarie, Two Sigma (RSS shows only the 20 latest offers —
+new ones are caught every run, older backlog is not).
