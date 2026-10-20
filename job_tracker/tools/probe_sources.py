@@ -1847,6 +1847,25 @@ R36 = [('R36 Macquarie feed paging', lambda: feed_paging('https://recruitment.ma
        ('R36 Two Sigma feed paging', lambda: feed_paging('https://careers.twosigma.com/careers/OpenRoles/feed/'))]
 PROBES = PROBES + R36
 
+
+# ---------------- Round 37: Macquarie / Two Sigma listings ----------------
+def avature_listing_shape(url):
+    r = get(url)
+    t = r.text
+    vis = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', re.sub(r'(?s)<(script|style).*?</\1>', ' ', t)))
+    jd = sorted(set(re.findall(r'href="([^"]*JobDetail/[^"]+)"', t)))
+    i = t.find('JobDetail/')
+    counts = re.findall(r'.{25}(?:results|of \d+|jobs found|Open Roles).{25}', vis, re.I)[:4]
+    sorts = sorted(set(re.findall(r'href="([^"]*(?:sort|order)[^"]*)"', t, re.I)))[:6]
+    block = t[max(0, i - 1200):i + 900]
+    return f'{url} -> {r.status_code} len={len(t)} jobdetail_links={len(jd)} sample={jd[:3]}\n  counts: {counts}\n  sort links: {sorts}\n  block: {block!r}'
+
+
+R37 = [('R37 Macquarie listing', lambda: avature_listing_shape('https://recruitment.macquarie.com/en_US/careers/SearchJobs/?jobRecordsPerPage=20&jobOffset=0')),
+       ('R37 Two Sigma listing', lambda: avature_listing_shape('https://careers.twosigma.com/careers/OpenRoles')),
+       ('R37 Two Sigma SearchJobs', lambda: avature_listing_shape('https://careers.twosigma.com/careers/SearchJobs'))]
+PROBES = PROBES + R37
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

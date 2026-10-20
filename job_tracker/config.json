@@ -972,7 +972,7 @@
         "Singapore",
         "Hong Kong"
       ],
-      "max_pages": 10
+      "read_back_days": 16
     },
     {
       "company": "Business France (VIE)",

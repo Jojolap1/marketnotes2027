@@ -110,6 +110,17 @@ class AtsTests(unittest.TestCase):
         self.assertEqual(jobs[0]['description'], 'Graduates')
         self.assertEqual(jobs[0]['status'], 'open')
 
+    def test_avature_stops_at_date_horizon(self):
+        def page(dates):
+            return '<section>' + ''.join(
+                f'<div class="article article--result"><h3><a class="link" href="https://t/JobDetail/x/{d}{i}">Ops {i}</a></h3>'
+                f'<ul><li class="list-item list-item-jobCreationDate">{d}</li></ul></div>' for i, d in enumerate(dates)) + '</section>'
+        ctx = context([('jobOffset=0', page(['15-10-2026'] * 20)), ('jobOffset=20', page(['20-09-2026'] * 20)),
+                       ('jobOffset=40', page(['01-09-2026'] * 20))], now=NOW)
+        fetch_source({'company': 'TotalEnergies', 'platform': 'avature', 'base_url': 'https://t'}, ctx)
+        requested = [u for _, u, _ in ctx.http.calls if 'SearchJobs' in u]
+        self.assertEqual(len(requested), 2)          # page 2 is all older than 16 days: stop there
+
     def test_avature_listing_and_detail(self):
         def art(n, title, country, date='16-10-2026'):
             return (f'<div class="article article--result" id="article--{n}"><h3><a class="link" '

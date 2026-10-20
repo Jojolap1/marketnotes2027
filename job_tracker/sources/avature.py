@@ -3,14 +3,15 @@
   GET {base}/SearchJobs/?jobOffset=N   20 results per page, newest first: title, date, country
   GET {base}/JobDetail/{slug}/{id}     country, city, contract, experience, text
 
-Only adverts in a target country with a promising title are opened, and only
-the first `max_pages` pages are read each run (older adverts were seen by
-earlier runs): the site answers 406 when crawled too fast or too deep.
+Only adverts in a target country with a promising title are opened. The listing
+is newest first, so pages are read only back to `read_back_days` (older adverts
+can no longer be alerted): the site answers 406 when crawled too deep or fast.
 """
 import re
+from datetime import timedelta
 
 from jobs import html_to_text, make_job
-from status import OPEN
+from status import OPEN, parse_date
 
 PAGE = 20
 ARTICLE = re.compile(r'<div class="article article--result".*?(?=<div class="article article--result"|</section>)', re.S)
@@ -52,8 +53,11 @@ def _detail(source, ctx, url):
 def fetch(source, ctx):
     company, base = source['company'], source['base_url'].rstrip('/')
     countries = set(source.get('countries', []))
-    adverts = {}
-    for page in range(int(source.get('max_pages', 60))):
+    # The listing is newest first: read until a whole page is older than
+    # `read_back_days` (beyond the alert age limit), so no recent advert is skipped.
+    horizon = ctx.now - timedelta(days=int(source.get('read_back_days', 16)))
+    adverts, reached_horizon = {}, False
+    for page in range(int(source.get('max_pages', 40))):
         response = ctx.http.get(f'{base}/SearchJobs/?jobRecordsPerPage={PAGE}&jobOffset={page * PAGE}')
         response.raise_for_status()
         blocks = ARTICLE.findall(response.text)
@@ -62,8 +66,12 @@ def fetch(source, ctx):
             if link:
                 fields = {k: html_to_text(v) for k, v in FIELD.findall(block)}
                 adverts[link.group(1)] = (html_to_text(link.group(2)), fields)
-        if len(blocks) < PAGE:
+        dates = [parse_date(_dmy(f)) for f in re.findall(r'list-item-jobCreationDate">([^<]+)<', response.text)]
+        if len(blocks) < PAGE or (dates and all(d and d < horizon for d in dates)):
+            reached_horizon = True
             break
+    if not reached_horizon:
+        ctx.stat(company, 'pages_cap_reached')  # shown in the report: raise max_pages
     ctx.stat(company, 'listed', len(adverts))
     jobs = []
     for url, (title, fields) in adverts.items():
