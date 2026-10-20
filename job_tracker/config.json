@@ -320,7 +320,11 @@
   },
   "http": {
     "min_interval_seconds": 0.8,
-    "host_intervals": {}
+    "host_intervals": {
+      "jobs.totalenergies.com": 3.0,
+      "recruitment.macquarie.com": 3.0,
+      "careers.twosigma.com": 3.0
+    }
   },
   "sources": [
     {
@@ -967,7 +971,8 @@
         "United Kingdom",
         "Singapore",
         "Hong Kong"
-      ]
+      ],
+      "max_pages": 10
     },
     {
       "company": "Business France (VIE)",
