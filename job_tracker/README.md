@@ -104,7 +104,7 @@ report shows the gap.
 | Bank of America | Oleeo campus board (campus programmes only) | 50 | 1 | board |
 | Société Générale | sitemap + JSON-LD | 653 | 5 open, 4 closed | `validThrough` |
 | Standard Chartered | sitemap + vacancy pages | 1201 | 5 | unknown (no closing date published) |
-| Crédit Agricole CIB | Talentsoft RSS (20 most recent) | 20 | 0 | feed |
+| Crédit Agricole CIB | Talentsoft full offer list (all pages; was RSS with the 20 latest only until 2026-10-20) | — | — | list = published offers |
 | CITIC CLSA (CITIC Securities) | Workday `citicclsa/External` | 213 | 0 | Workday |
 | RBC, CIBC, Haitong Intl, BlackRock | Workday | 28 / 8 / 1 / 37 | 0 | Workday |
 | Pictet | SuccessFactors XML | 54 | 0 | feed |
@@ -114,7 +114,7 @@ report shows the gap.
 **Added 2026-10-18 (second batch, validated by a live dry run — 51 sources ok, 0 failed):**
 DBS Bank, OCBC / Bank of Singapore, UOB, Santander CIB, ING, BBVA, Invesco, Fidelity International
 (Workday + Oleeo campus board), Eastspring (Workday); Schroders (Oracle); ANZ (SuccessFactors XML);
-Millennium (Eightfold); Amundi, Macquarie, Two Sigma (RSS, 20 latest offers only); Optiver (now its
+Millennium (Eightfold); Amundi (Talentsoft full offer list since 2026-10-20), Macquarie, Two Sigma (Avature listings since 2026-10-19); Optiver (now its
 Greenhouse board), Mako, Akuna, Old Mission, Eclipse Trading (Greenhouse).
 
 **Added 2026-10-19 (third batch, validated by a live dry run):**
