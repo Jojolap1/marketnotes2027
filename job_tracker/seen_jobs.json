@@ -82,6 +82,22 @@
    "title": "Internship - 6 months - Sales Commodities Markets Assistant F/M",
    "url": "https://recrutement.natixis.com/en/job/internship-6-months-sales-commodities-markets-assistant-f-m"
   },
+  "bpce:22385": {
+   "company": "Natixis CIB",
+   "fingerprints": [
+    "id:bpce:22385",
+    "req:natixis:22385",
+    "url:https://recrutement.natixis.com/en/job/internship-6-months-forex-sales-assistant-f-m",
+    "title:natixis:internship 6 months forex sales assistant f m:paris"
+   ],
+   "first_seen": "2026-10-20T14:12:47+00:00",
+   "last_seen": "2026-10-20",
+   "location": "Paris, France",
+   "notified_at": "2026-10-20T14:12:47+00:00",
+   "status": "open",
+   "title": "Internship - 6 months - Forex Sales Assistant F/M",
+   "url": "https://recrutement.natixis.com/en/job/internship-6-months-forex-sales-assistant-f-m"
+  },
   "brassring:25008:350394": {
    "company": "UBS",
    "fingerprints": [
@@ -1801,7 +1817,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-20T12:08:58.613881+00:00",
+ "last_send_slot": "2026-10-20T14:12:45.424347+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
