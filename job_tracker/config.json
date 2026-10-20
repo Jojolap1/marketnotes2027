@@ -1061,6 +1061,30 @@
       "board": "panmure"
     },
     {
+      "company": "Pareto Securities",
+      "platform": "rss",
+      "feeds": [
+        "https://paretosecurities.teamtailor.com/jobs.rss"
+      ]
+    },
+    {
+      "company": "Investec",
+      "platform": "rss",
+      "feeds": [
+        "https://careers.investec.co.uk/jobs/rss"
+      ],
+      "location_in_link": true,
+      "note": "eArcu RSS of all live vacancies; the city is only in the vacancy link"
+    },
+    {
+      "company": "ICBC Standard Bank",
+      "platform": "oleeo",
+      "boards": [
+        "https://icbcs.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/candidate/jobboard/vacancy/2/adv/",
+        "https://icbcs.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/candidate/jobboard/vacancy/3/adv/"
+      ]
+    },
+    {
       "company": "AIB",
       "platform": "official",
       "enabled": false,

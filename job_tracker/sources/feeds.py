@@ -1,7 +1,7 @@
 """Smaller official feeds: Goldman Sachs role search, SuccessFactors XML,
 RSS vacancy feeds (Talentsoft / SuccessFactors) and Oleeo (tal.net) boards."""
 import re
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlsplit
 from xml.etree import ElementTree as ET
 
 from bs4 import BeautifulSoup
@@ -146,7 +146,11 @@ def rss(source, ctx):
         title = re.sub(r'^\d{4}-\d+\s*-\s*', '', (item.findtext('title') or '').strip())
         categories = [c.text or '' for c in item.findall('category')]
         suffix = re.search(r'\(([^()]+)\)\s*$', title)
-        location = '; '.join(filter(None, categories + [suffix.group(1) if suffix else '']))
+        # Teamtailor: <tt:locations><tt:location><tt:city>; eArcu (Investec): city only in the link slug
+        places = [e.text.strip() for e in item.iter() if re.search(r'(?:city|country)$', e.tag.lower()) and (e.text or '').strip()]
+        location = '; '.join(filter(None, categories + places + [suffix.group(1) if suffix else '']))
+        if not ctx.city_of(location) and source.get('location_in_link'):
+            location = '; '.join(filter(None, [location, urlsplit(link).path.replace('-', ' ')]))
         if not ctx.city_of(location) and source.get('location_in_title'):
             location = '; '.join(filter(None, [location, title]))  # e.g. '... - Hong Kong'
         if not ctx.title_worth_fetching(title) or not ctx.city_of(location):

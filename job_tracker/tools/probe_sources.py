@@ -1983,6 +1983,23 @@ R44 = [
 ]
 PROBES = PROBES + R44
 
+
+# ---------------- Round 45: page structure for the last batch-1 banks ----------------
+R45 = [
+    ('R45 Stifel row', lambda: grep_page('https://careers-stifel.icims.com/jobs/search?pr=0&in_iframe=1', r'(?s)(href="https://careers-stifel\.icims\.com/jobs/10014/.{0,1500})', 1, 1500)),
+    ('R45 Stifel London', lambda: grep_page('https://careers-stifel.icims.com/jobs/search?pr=0&searchLocation=-12828-London&in_iframe=1', r'href="(https://careers-stifel\.icims\.com/jobs/\d+/[^"]+)"', 15, 160)),
+    ('R45 Stifel count', lambda: grep_page('https://careers-stifel.icims.com/jobs/search?pr=0&in_iframe=1', r'((?:Page|of|results)[^<]{0,60})', 8, 80)),
+    ('R45 Handelsbanken card', lambda: grep_page('https://jobs.handelsbanken.co.uk/jobs', r'(?s)(href="https://jobs\.handelsbanken\.co\.uk/jobs/job/[^"]+".{0,700})', 2, 700)),
+    ('R45 Handelsbanken rss', lambda: validate_page('https://jobs.handelsbanken.co.uk/jobs/rss')),
+    ('R45 Commerzbank ids', lambda: grep_page('https://jobs.commerzbank.com/index.php?ac=search_result&search_criterion_channel%5B%5D=12', r'((?:jobad|job_id|jobId|"id")[^<]{0,120})', 10, 160)),
+    ('R45 Commerzbank api', lambda: grep_page('https://jobs.commerzbank.com/index.php?ac=search_result&search_criterion_channel%5B%5D=12', r'((?:api|ajax|json|fetch\()[^<"]{0,120})', 12, 160)),
+    ('R45 Scotiabank SF guesses', lambda: ' | '.join(sf_xml(h, c)[:120] for h in ('career4.successfactors.com', 'career8.successfactors.com', 'career10.successfactors.com') for c in ('scotiabank', 'scotiabankP', 'bns'))),
+    ('R45 AIB SF guesses', lambda: ' | '.join(sf_xml(h, c)[:120] for h in ('career2.successfactors.eu', 'career5.successfactors.eu', 'career012.successfactors.eu') for c in ('aib', 'aibgroup', 'aibgroupP'))),
+    ('R45 Scotiabank RMK job link', lambda: grep_page('https://jobs.scotiabank.com/search/?q=trader', r'href="(/job/[^"]+)"', 10, 160)),
+    ('R45 Goodbody RMK', lambda: grep_page('https://jobs.aib.ie/search/?q=&locationsearch=London', r'href="(/job/[^"]+)"', 10, 160)),
+]
+PROBES = PROBES + R45
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

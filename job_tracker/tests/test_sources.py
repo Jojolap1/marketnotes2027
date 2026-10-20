@@ -313,6 +313,20 @@ class AtsTests(unittest.TestCase):
         self.assertEqual(jobs[0]['title'], 'VIE - Credit Trading Assistant H/F')
         self.assertIn('VIE', jobs[0]['employment_type'])
 
+    def test_rss_location_from_teamtailor_tags_and_link_slug(self):
+        tt = ('<rss xmlns:tt="https://teamtailor.com/locations"><channel><item><title>Equity Sales Trader Graduate</title>'
+              '<link>https://pareto.teamtailor.com/jobs/1-equity</link><tt:locations><tt:location><tt:city>London</tt:city>'
+              '</tt:location></tt:locations></item></channel></rss>')
+        earcu = ('<rss><channel><item><title>Graduate Sales Trader</title>'
+                 '<link>https://careers.investec.co.uk/jobs/vacancy/graduate-sales-trader-14238-london---30-gresham-street/14256/description/</link>'
+                 '</item></channel></rss>')
+        ctx = context({'teamtailor': tt, 'investec': earcu})
+        jobs = fetch_source({'company': 'Pareto Securities', 'platform': 'rss', 'feeds': ['https://pareto.teamtailor.com/jobs.rss']}, ctx)
+        self.assertEqual(jobs[0]['location'], 'London')
+        src = {'company': 'Investec', 'platform': 'rss', 'feeds': ['https://careers.investec.co.uk/jobs/rss'], 'location_in_link': True}
+        self.assertEqual(len(fetch_source(src, ctx)), 1)
+        self.assertEqual(fetch_source(dict(src, location_in_link=False), ctx), [])
+
     def test_oleeo(self):
         board = ('<a href="/vx/x/opp/1449-2027-Global-Markets-Summer-Internship-London/en-GB">2027 Global Markets Summer Internship - London</a>'
                  '<a href="/vx/x/opp/1450-2027-IB-Summer-Internship-London/en-GB">2027 Investment Banking Summer Internship - London</a>'
