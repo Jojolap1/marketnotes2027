@@ -1802,6 +1802,92 @@ def sg_sitemap_langs():
 R34 = [('R34 SG sitemap langs', sg_sitemap_langs)]
 PROBES = PROBES + R34
 
+
+# ---------------- Round 35: Avature order + filters ----------------
+def avature_order_filters(base, pages=(0, 1, 4, 9, 20)):
+    out = []
+    first = get(f'{base}/SearchJobs/?jobRecordsPerPage=20&jobOffset=0').text
+    # filter controls in the search form
+    selects = re.findall(r'(?s)<select[^>]*name="([^"]+)"[^>]*>(.*?)</select>', first)
+    for name, body in selects[:12]:
+        opts = re.findall(r'<option[^>]*value="([^"]*)"[^>]*>([^<]*)<', body)
+        out.append(f'SELECT {name}: {len(opts)} opts sample={[(v, x.strip()) for v, x in opts if re.search(r"France|United Kingdom|Singapore|Hong Kong|Paris|London", x)][:6]}')
+    checks = sorted(set(re.findall(r'name="([^"]*(?:ountry|ocation|ity)[^"]*)"\s+value="([^"]*)"', first)))[:20]
+    out.append('checkbox/hidden location fields: ' + str(checks))
+    links = sorted(set(re.findall(r'href="([^"]*SearchJobs/?\?[^"]*(?:ountry|ocation|_)[^"]*)"', first)))[:10]
+    out.append('filter links: ' + str(links))
+    for p in pages:
+        html = get(f'{base}/SearchJobs/?jobRecordsPerPage=20&jobOffset={p * 20}').text
+        dates = re.findall(r'list-item-jobCreationDate">([^<]+)<', html) or re.findall(r'(\d{1,2}[-/]\d{1,2}[-/]\d{4})', html)[:20]
+        out.append(f'page {p + 1}: n={len(re.findall("article--result", html))} dates={dates[:3]}...{dates[-2:]}')
+        time.sleep(3)
+    return '\n'.join(out)
+
+
+R35 = [('R35 Avature TotalEnergies', lambda: avature_order_filters('https://jobs.totalenergies.com/en_US/careers')),
+       ('R35 Avature Macquarie', lambda: avature_order_filters('https://recruitment.macquarie.com/en_US/careers', pages=(0, 1))),
+       ('R35 Avature Two Sigma', lambda: avature_order_filters('https://careers.twosigma.com/careers', pages=(0, 1)))]
+PROBES = PROBES + R35
+
+
+# ---------------- Round 36: Avature feed paging ----------------
+def feed_paging(feed):
+    out = []
+    for q in ['', '?jobRecordsPerPage=100', '?jobOffset=20', '?jobRecordsPerPage=50&jobOffset=0']:
+        r = get(feed + q)
+        items = re.findall(r'<item>(.*?)</item>', r.text, re.S)
+        guids = [re.search(r'<guid[^>]*>([^<]+)', i).group(1)[-12:] for i in items if re.search(r'<guid[^>]*>([^<]+)', i)]
+        dates = [d.strip() for d in re.findall(r'<pubDate>([^<]+)</pubDate>', r.text)]
+        out.append(f'{q or "(none)"} -> {r.status_code} items={len(items)} first={guids[:2]} last={guids[-1:]} dates={dates[:1]}..{dates[-1:]}')
+        time.sleep(3)
+    return '\n'.join(out)
+
+
+R36 = [('R36 Macquarie feed paging', lambda: feed_paging('https://recruitment.macquarie.com/en_US/careers/SearchJobs/feed/')),
+       ('R36 Two Sigma feed paging', lambda: feed_paging('https://careers.twosigma.com/careers/OpenRoles/feed/'))]
+PROBES = PROBES + R36
+
+
+# ---------------- Round 37: Macquarie / Two Sigma listings ----------------
+def avature_listing_shape(url):
+    r = get(url)
+    t = r.text
+    vis = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', re.sub(r'(?s)<(script|style).*?</\1>', ' ', t)))
+    jd = sorted(set(re.findall(r'href="([^"]*JobDetail/[^"]+)"', t)))
+    i = t.find('JobDetail/')
+    counts = re.findall(r'.{25}(?:results|of \d+|jobs found|Open Roles).{25}', vis, re.I)[:4]
+    sorts = sorted(set(re.findall(r'href="([^"]*(?:sort|order)[^"]*)"', t, re.I)))[:6]
+    block = t[max(0, i - 1200):i + 900]
+    return f'{url} -> {r.status_code} len={len(t)} jobdetail_links={len(jd)} sample={jd[:3]}\n  counts: {counts}\n  sort links: {sorts}\n  block: {block!r}'
+
+
+R37 = [('R37 Macquarie listing', lambda: avature_listing_shape('https://recruitment.macquarie.com/en_US/careers/SearchJobs/?jobRecordsPerPage=20&jobOffset=0')),
+       ('R37 Two Sigma listing', lambda: avature_listing_shape('https://careers.twosigma.com/careers/OpenRoles')),
+       ('R37 Two Sigma SearchJobs', lambda: avature_listing_shape('https://careers.twosigma.com/careers/SearchJobs'))]
+PROBES = PROBES + R37
+
+
+# ---------------- Round 38: Macquarie / Two Sigma structure ----------------
+def mq_struct():
+    out = []
+    t = get('https://recruitment.macquarie.com/en_US/careers/SearchJobs/?jobOffset=0').text
+    i = t.find('article--result')
+    out.append('MQ block: ' + repr(re.sub(r'\s+', ' ', t[i - 100:i + 2500])))
+    out.append('MQ sort options: ' + str(re.findall(r'(?s)Sort.{0,40}<select[^>]*name="([^"]+)"[^>]*>(.*?)</select>', t)[:2])[:800])
+    out.append('MQ sort hrefs: ' + str(sorted(set(re.findall(r'href="([^"]*(?:sortBy|orderBy|sort=)[^"]*)"', t)))[:8]))
+    t2 = get('https://careers.twosigma.com/careers/OpenRoles/?jobOffset=10').text
+    jd = re.findall(r'href="([^"]*JobDetail/[^"]+)"', t2)
+    vis = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', t2))
+    counts = re.findall(r'.{20}(?:of \d+|results).{20}', vis)[:3]
+    out.append(f'TS page2 links={len(set(jd))} sample={sorted(set(jd))[:2]} counts={counts}')
+    i = t2.find('article--result')
+    out.append('TS block: ' + repr(re.sub(r'\s+', ' ', t2[i:i + 1800])))
+    return '\n'.join(out)
+
+
+R38 = [('R38 MQ TS structure', mq_struct)]
+PROBES = PROBES + R38
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

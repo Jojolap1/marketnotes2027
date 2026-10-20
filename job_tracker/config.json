@@ -626,12 +626,10 @@
     },
     {
       "company": "Macquarie",
-      "platform": "rss",
-      "feeds": [
-        "https://recruitment.macquarie.com/en_US/careers/SearchJobs/feed/"
-      ],
-      "location_in_title": true,
-      "note": "Avature RSS: 20 most recent offers only"
+      "platform": "avature",
+      "base_url": "https://recruitment.macquarie.com/en_US/careers",
+      "listing_refresh_hours": 4,
+      "max_pages": 90
     },
     {
       "company": "Schroders",
@@ -668,12 +666,11 @@
     },
     {
       "company": "Two Sigma",
-      "platform": "rss",
-      "feeds": [
-        "https://careers.twosigma.com/careers/OpenRoles/feed/"
-      ],
-      "location_in_title": true,
-      "note": "Avature RSS: 20 most recent offers only"
+      "platform": "avature",
+      "base_url": "https://careers.twosigma.com/careers",
+      "listing_path": "OpenRoles",
+      "listing_refresh_hours": 4,
+      "max_pages": 60
     },
     {
       "company": "Bank of America",
@@ -972,7 +969,7 @@
         "Singapore",
         "Hong Kong"
       ],
-      "max_pages": 10
+      "read_back_days": 16
     },
     {
       "company": "Business France (VIE)",
