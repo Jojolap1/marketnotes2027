@@ -52,6 +52,7 @@
         "\\btrad(?:er|ers|ing)\\b",
         "\\b(?:e-?)?sales\\b",
         "\\bsalesperson\\b",
+          "\\bprime (?:services|brokerage|finance)\\b",
         "\\bmarket[- ]?mak(?:er|ing)\\b",
         "\\bdelta[- ]?one\\b",
         "\\bglobal (?:banking and )?markets\\b",
@@ -1179,10 +1180,24 @@
       "disabled_reason": "careers sites answer HTTP 403 to automated requests (2026-10-20)."
     },
     {
-      "company": "Rokos / Balyasny / SIG / Marshall Wace / Mediobanca / ODDO BHF / Intesa Sanpaolo / SEB / LBBW / DZ Bank",
+      "company": "Rokos / Balyasny / SIG / Marshall Wace / Mediobanca / ODDO BHF / Intesa Sanpaolo / SEB / LBBW / DZ Bank / Nordea",
       "platform": "official",
       "enabled": false,
       "disabled_reason": "no public vacancy feed found (email applications, JavaScript-only pages, or no target-city listings) (2026-10-20)."
+    },
+    {
+      "company": "G-Research",
+      "platform": "workday",
+      "host": "gresearch.wd103.myworkdayjobs.com",
+      "tenant": "gresearch",
+      "site": "G-Research"
+    },
+    {
+      "company": "Marex",
+      "platform": "html_cards",
+      "listing_url": "https://www.marex.com/careers/career-opportunities",
+      "card_pattern": "href=\"(?P<url>/careers/career-opportunities/[^\"]+)\"><div[^>]*><h4[^>]*>(?P<title>.*?)</h4>.*?MuiTypography-h6[^\"]*\">(?P<location>[^<]*)<",
+      "note": "the careers page renders every vacancy as a card (title, city); no feed is published"
     },
     {
       "company": "AIB (incl. Goodbody)",

@@ -25,6 +25,7 @@ ADAPTERS = {
     'rss': feeds.rss,
     'oleeo': feeds.oleeo,
     'rmk': feeds.rmk,
+    'html_cards': feeds.html_cards,
     'bank_of_america': banks.bank_of_america,
     'brassring': banks.brassring,
     'zhiye': banks.zhiye, 'bpce': banks.bpce, 'avature': avature.fetch, 'business_france': business_france.fetch,

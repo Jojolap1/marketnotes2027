@@ -168,7 +168,8 @@ Canaccord Genuity, Zeus Capital (no public vacancy feed).
 
 | Employer | Official source |
 |---|---|
-| State Street, Brevan Howard | Workday |
+| State Street, Brevan Howard, G-Research | Workday |
+| Marex | careers page vacancy cards (title + city) |
 | BNY, Danske Bank | Oracle Recruiting Cloud |
 | TP ICAP, Tradition | SmartRecruiters |
 | Qube RT, Schonfeld, Man Group, Graviton, Quadrature, Da Vinci, Maven Securities | Greenhouse |
@@ -177,7 +178,7 @@ Canaccord Genuity, Zeus Capital (no public vacancy feed).
 | Kepler Cheuvreux | Teamtailor RSS |
 
 Not covered: UniCredit, Rabobank, BGC, StoneX (HTTP 403); Rokos, Balyasny, SIG, Marshall Wace, Mediobanca,
-ODDO BHF, Intesa Sanpaolo, SEB, LBBW, DZ Bank (no public feed or no target-city listings).
+ODDO BHF, Intesa Sanpaolo, SEB, LBBW, DZ Bank, Nordea (no public feed or no target-city listings).
 
 **Not covered (documented, not bypassed):** BNP Paribas, Citadel Securities, NatWest Markets, Huatai
 (HTTP 403 to automated requests — anti-bot protection, not bypassed; BNP's candidate portal

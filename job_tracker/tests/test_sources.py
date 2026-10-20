@@ -350,6 +350,20 @@ class AtsTests(unittest.TestCase):
         self.assertEqual(jobs[0]['location'], 'London')
         self.assertEqual(jobs[0]['description'], 'Students welcome')
 
+    def test_html_cards_opens_only_target_city_candidates(self):
+        card = ('<a href="/careers/career-opportunities/{id}"><div><h4 class="h4">{t}</h4><div class="MuiStack-root">'
+                '<div class="MuiTypography-root MuiTypography-h6 x">{c}</div></div></div></a>')
+        page = (card.format(id='a-vn1', t='APAC Prime Services Intern (VN1)', c='Hong Kong')
+                + card.format(id='b-vn2', t='Cost Accountant', c='London')
+                + card.format(id='c-vn3', t='Graduate Trader', c='Chicago'))
+        ctx = context([('vn1', '<main>Internship for students</main>'), ('career-opportunities', page)], now=NOW)
+        src = {'company': 'Marex', 'platform': 'html_cards', 'listing_url': 'https://www.marex.com/careers/career-opportunities',
+               'card_pattern': r'href="(?P<url>/careers/career-opportunities/[^"]+)"><div[^>]*><h4[^>]*>(?P<title>.*?)</h4>.*?MuiTypography-h6[^"]*">(?P<location>[^<]*)<'}
+        jobs = fetch_source(src, ctx)
+        self.assertEqual([j['title'] for j in jobs], ['APAC Prime Services Intern (VN1)'])
+        self.assertEqual(jobs[0]['location'], 'Hong Kong')
+        self.assertEqual(len([u for _, u, _ in ctx.http.calls if 'vn' in u]), 1)
+
     def test_oleeo(self):
         board = ('<a href="/vx/x/opp/1449-2027-Global-Markets-Summer-Internship-London/en-GB">2027 Global Markets Summer Internship - London</a>'
                  '<a href="/vx/x/opp/1450-2027-IB-Summer-Internship-London/en-GB">2027 Investment Banking Summer Internship - London</a>'
