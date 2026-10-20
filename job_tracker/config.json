@@ -1085,6 +1085,60 @@
       ]
     },
     {
+      "company": "State Street",
+      "platform": "workday",
+      "host": "statestreet.wd1.myworkdayjobs.com",
+      "tenant": "statestreet",
+      "site": "Global"
+    },
+    {
+      "company": "Brevan Howard",
+      "platform": "workday",
+      "host": "wd3.myworkdaysite.com",
+      "tenant": "brevanhoward",
+      "site": "BH_ExternalCareers"
+    },
+    {
+      "company": "TP ICAP",
+      "platform": "smartrecruiters",
+      "board": "tpicap"
+    },
+    {
+      "company": "Tradition",
+      "platform": "smartrecruiters",
+      "board": "tradition"
+    },
+    {
+      "company": "Qube Research & Technologies",
+      "platform": "greenhouse",
+      "board": "quberesearchandtechnologies"
+    },
+    {
+      "company": "Schonfeld",
+      "platform": "greenhouse",
+      "board": "schonfeld"
+    },
+    {
+      "company": "Man Group",
+      "platform": "greenhouse",
+      "board": "mangroup"
+    },
+    {
+      "company": "Graviton Research Capital",
+      "platform": "greenhouse",
+      "board": "gravitonresearchcapital"
+    },
+    {
+      "company": "Quadrature Capital",
+      "platform": "greenhouse",
+      "board": "quadraturecapital"
+    },
+    {
+      "company": "Wintermute",
+      "platform": "lever",
+      "board": "wintermute-trading"
+    },
+    {
       "company": "AIB (incl. Goodbody)",
       "platform": "successfactors_xml",
       "host": "career2.successfactors.eu",

@@ -2073,6 +2073,36 @@ for name, (page, slugs) in B2.items():
     R46.append((f'R46 CRAWL {name}', (lambda page=page: crawl(page, depth=1, max_pages=4))))
 PROBES = PROBES + R46
 
+
+# ---------------- Round 47: batch 2 second pass ----------------
+CXSITE = r'(CandidateExperience/[a-z-]+/sites/[A-Za-z0-9_]+)'
+R47 = [
+    ('R47 BNY oracle site', lambda: grep_page('https://www.bny.com/corporate/global/en/about-us/careers/students.html', CXSITE, 6, 120)),
+    ('R47 Danske oracle site', lambda: grep_page('https://danskebank.com/careers/apply', CXSITE, 6, 120)),
+    ('R47 WD statestreet', lambda: workday('statestreet.wd1.myworkdayjobs.com', 'statestreet', 'Global')),
+    ('R47 WD brevanhoward', lambda: workday('wd3.myworkdaysite.com', 'brevanhoward', 'BH_ExternalCareers')),
+    ('R47 DZ SF', lambda: ' | '.join(sf_xml('career5.successfactors.eu', c)[:160] for c in ('dzbankag', 'dzbankagD', 'dzbank'))),
+    ('R47 DZ RMK', lambda: grep_page('https://jobs.dzbank.de/search/?q=&locationsearch=London', r'href="(/job/[^"]+)"', 10, 160)),
+    ('R47 Kepler rss', lambda: validate_page('https://keplercheuvreux.teamtailor.com/jobs.rss')),
+    ('R47 Capula workable', lambda: summarize_json(get('https://apply.workable.com/api/v1/widget/accounts/capula-investment-management-ltd'),
+                                                    lambda d: (len(d.get('jobs', [])), [(j.get('title'), j.get('city'), j.get('country'), j.get('shortcode'), j.get('published_on')) for j in d.get('jobs', [])[:8]]))),
+    ('R47 Marex sitemap', lambda: sitemap('https://www.marex.com/sitemap.xml')),
+    ('R47 Marex links', lambda: grep_page('https://www.marex.com/careers/career-opportunities', r'href="([^"]*career-opportunities/[^"]+)"', 15, 160)),
+    ('R47 G-Research links', lambda: grep_page('https://www.gresearch.com/vacancies/', r'href="([^"]*(?:/vacanc|/job|apply)[^"]*)"', 15, 160)),
+    ('R47 G-Research ats', lambda: discover('https://www.gresearch.com/vacancies/')),
+    ('R47 Nordea open jobs', lambda: grep_page('https://www.nordea.com/en/careers/open-jobs', r'((?:https?://[^"\s]*(?:jobs?|career)[^"\s]*|api[^"\s]{0,80}))', 15, 160)),
+    ('R47 Da Vinci gh', lambda: greenhouse('davinciderivatives')),
+    ('R47 Maven gh slug', lambda: grep_page('https://www.mavensecurities.com/jobs/', r'(?:for=|boards/)([a-z0-9_-]+)', 5, 80)),
+    ('R47 guesses', lambda: board_sweep(['bamfunds', 'balyasnyam', 'sig', 'susquehannainternational', 'rokoscapitalmanagement', 'marshallwaceasia', 'marshallwacellp', 'gresearchltd', 'mavensecurities', 'mavensecuritiesholding'])),
+    ('R47 UniCredit', lambda: discover('https://www.unicreditgroup.eu/en/careers.html')),
+    ('R47 ODDO', lambda: discover('https://careers.oddo-bhf.com/')),
+    ('R47 Mediobanca', lambda: discover('https://www.mediobanca.com/en/working-with-us/index.html')),
+    ('R47 SEB jobylon', lambda: grep_page('https://sebgroup.com/career/find-your-new-job/our-vacant-positions', r'((?:https?:)?//[^"\s]*jobylon[^"\s]*)', 8, 160)),
+    ('R47 Rokos page', lambda: grep_page('https://www.rokoscapital.com/careers', r'href="([^"]+)"', 25, 120)),
+    ('R47 Balyasny page', lambda: grep_page('https://www.bamfunds.com/careers', r'href="(https?://[^"]*(?:job|career|apply|greenhouse|lever|workday)[^"]*)"', 15, 160)),
+]
+PROBES = PROBES + R47
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
