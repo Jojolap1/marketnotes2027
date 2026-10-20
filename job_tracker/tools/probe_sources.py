@@ -1888,6 +1888,118 @@ def mq_struct():
 R38 = [('R38 MQ TS structure', mq_struct)]
 PROBES = PROBES + R38
 
+
+# ---------------- Round 41: user's bank list, batch 1 (discovery) ----------------
+B1_ROOTS = {'Lloyds Banking Group': 'https://www.lloydsbankinggroup.com/careers.html', 'ABN AMRO': 'https://www.abnamro.com/en/careers', 'Commerzbank': 'https://jobs.commerzbank.com/', 'Handelsbanken': 'https://www.handelsbanken.com/en/career', 'Berenberg': 'https://www.berenberg.de/en/career/', 'Investec': 'https://www.investec.com/en_gb/careers.html', 'AIB': 'https://aib.ie/careers', 'CommBank': 'https://www.commbank.com.au/about-us/careers.html', 'Standard Bank': 'https://www.standardbank.com/sbg/standard-bank-group/careers', 'ICBC Standard Bank': 'https://www.icbcstandard.com/careers', 'BTG Pactual': 'https://www.btgpactual.com/en/careers', 'TD Securities': 'https://www.tdsecurities.com/ca/en/careers', 'Scotiabank': 'https://jobs.scotiabank.com/', 'BMO': 'https://jobs.bmo.com/', 'National Bank of Canada': 'https://jobs.bnc.ca/en/', 'Wells Fargo': 'https://www.wellsfargojobs.com/', 'Jefferies': 'https://www.jefferies.com/careers/', 'Peel Hunt': 'https://www.peelhunt.com/careers/', 'Panmure Liberum': 'https://www.panmureliberum.com/careers', 'Canaccord Genuity': 'https://www.canaccordgenuity.com/careers/', 'Stifel': 'https://www.stifel.com/careers', 'Raymond James': 'https://www.raymondjames.com/careers', 'BTIG': 'https://www.btig.com/careers', 'Goodbody': 'https://www.goodbody.ie/careers', 'Pareto Securities': 'https://www.paretosec.com/careers', 'Zeus Capital': 'https://www.zeuscapital.co.uk/careers'}
+R41 = []
+for name, u in B1_ROOTS.items():
+    R41.append((f'R41 CRAWL {name}', (lambda u=u: crawl(u, depth=1, max_pages=6))))
+for b in ['btig', 'jefferies', 'peelhunt', 'panmureliberum', 'canaccordgenuity', 'zeuscapital', 'goodbody', 'paretosecurities', 'berenberg', 'btgpactual']:
+    R41.append((f'R41 GH {b}', (lambda b=b: greenhouse(b))))
+for c in ['PeelHunt', 'Berenberg', 'Goodbody', 'ParetoSecurities', 'InvestecGroup', 'Jefferies', 'BTIG', 'CanaccordGenuity']:
+    R41.append((f'R41 SR {c}', (lambda c=c: smartrecruiters(c))))
+PROBES = PROBES + R41
+
+
+# ---------------- Round 42: batch 1 feed validation ----------------
+def bamboo(sub):
+    r = get(f'https://{sub}.bamboohr.com/careers/list', headers={'Accept': 'application/json'})
+    try:
+        d = r.json()
+    except Exception:
+        return f'{r.status_code} {r.text[:200]!r}'
+    res = d.get('result') or []
+    return f'{r.status_code} n={len(res)} sample={[(x.get("jobOpeningName"), (x.get("location") or {}).get("city")) for x in res[:6]]} keys={sorted(res[0]) if res else []}'
+
+
+R42 = [
+    ('R42 WD lbg', lambda: workday('lbg.wd3.myworkdayjobs.com', 'lbg', 'lbg_Careers')),
+    ('R42 WD cba', lambda: workday('cba.wd3.myworkdayjobs.com', 'cba', 'CommBank_Careers')),
+    ('R42 WD td', lambda: workday('td.wd3.myworkdayjobs.com', 'td', 'TD_Bank_Careers')),
+    ('R42 WD bmo', lambda: workday('bmo.wd3.myworkdayjobs.com', 'bmo', 'External')),
+    ('R42 WD wellsfargo', lambda: workday('wd1.myworkdaysite.com', 'wf', 'WellsFargoJobs')),
+    ('R42 WD canaccord', lambda: workday('canaccordgenuity.wd3.myworkdayjobs.com', 'canaccordgenuity', 'CanaccordGenuity')),
+    ('R42 WD investec', lambda: workday('investec.wd3.myworkdayjobs.com', 'investec', 'Investec')),
+    ('R42 Oleeo jefferies', lambda: discover('https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-2/candidate/jobboard/vacancy/1/adv/')),
+    ('R42 Oracle jefferies CX_1', lambda: oracle('hdid.fa.us2.oraclecloud.com', 'CX_1')),
+    ('R42 Oracle jefferies CX', lambda: oracle('hdid.fa.us2.oraclecloud.com', 'CX')),
+    ('R42 Jefferies apply page', lambda: grep_page('https://www.jefferies.com/careers/apply-now/', r'href="([^"]*(?:tal\.net|oraclecloud)[^"]*)"', 12, 220)),
+    ('R42 Bamboo panmure', lambda: bamboo('panmure')),
+    ('R42 SM scotiabank', lambda: sitemap('https://jobs.scotiabank.com/sitemap.xml')),
+    ('R42 SM commerzbank', lambda: sitemap('https://jobs.commerzbank.com/sitemap.xml')),
+    ('R42 SM wellsfargo', lambda: sitemap('https://www.wellsfargojobs.com/sitemap.xml')),
+    ('R42 Goodbody AIB jobs', lambda: discover('https://jobs.aib.ie/goodbody')),
+    ('R42 Stifel icims', lambda: grep_page('https://careers-stifel.icims.com/jobs/search?ss=1&in_iframe=1', r'href="([^"]*/jobs/\d+/[^"]*)"', 10, 160)),
+    ('R42 Commerzbank search', lambda: grep_page('https://jobs.commerzbank.com/index.php?ac=search_result', r'href="([^"]*(?:jobad|ac=jobad|job_id|id=\d)[^"]*)"', 10, 160)),
+    ('R42 Standard Bank grads', lambda: grep_page('https://www.standardbank.com/sbg/standard-bank-group/careers/students-and-graduates', r'href="(https?://[^"]*(?:job|career|apply|successfactors|workday|taleo|avature)[^"]*)"', 15, 160)),
+]
+for name, u in {'Berenberg': 'https://www.berenberg.de/en/careers/', 'Investec': 'https://www.investec.com/en_gb/welcome-to-investec/careers.html',
+                'Handelsbanken': 'https://www.handelsbanken.com/en/about-the-group/career', 'Pareto': 'https://paretosec.com/',
+                'ICBC Standard': 'https://www.icbcstandard.com/', 'NBC': 'https://jobs.nbc.ca/', 'Canaccord students': 'https://www.canaccordgenuity.com/global-careers/students/'}.items():
+    R42.append((f'R42 CRAWL {name}', (lambda u=u: crawl(u, depth=1, max_pages=6))))
+PROBES = PROBES + R42
+
+
+# ---------------- Round 43: batch 1 remaining leads ----------------
+R43 = [
+    ('R43 Avature Berenberg', lambda: avature_listing_shape('https://berenberg.avature.net/en_GB/careers/SearchJobs')),
+    ('R43 Berenberg search page', lambda: grep_page('https://careers.berenberg.com/search-our-jobs', r'href="(https?://[^"]*(?:avature|JobDetail|SearchJobs)[^"]*)"', 10, 200)),
+    ('R43 Avature NBC', lambda: avature_listing_shape('https://emplois.bnc.ca/en_CA/careers/SearchJobs')),
+    ('R43 ICBCS oleeo', lambda: grep_page('https://www.icbcstandard.com/en/column/1438058394388152435.html', r'href="(https?://icbcs\.tal\.net[^"]*)"', 10, 220)),
+    ('R43 Investec jobs', lambda: discover('https://careers.investec.co.uk/jobs')),
+    ('R43 Investec jobs links', lambda: grep_page('https://careers.investec.co.uk/jobs', r'href="([^"]*(?:/jobs/|job)[^"]*)"', 12, 160)),
+    ('R43 Pareto teamtailor', lambda: grep_page('https://paretosecurities.teamtailor.com/jobs', r'href="(https://paretosecurities\.teamtailor\.com/jobs/[^"]+)"', 15, 160)),
+    ('R43 Commerzbank jobad', lambda: validate_page('https://coba-beesite-production-frontend.app.beesite.de/index.php?ac=jobad&id=60114')),
+    ('R43 Scotiabank sitemap idx', lambda: sitemap('https://jobs.scotiabank.com/sitemap_index.xml')),
+    ('R43 Scotiabank search', lambda: grep_page('https://jobs.scotiabank.com/search/?q=&locationsearch=London', r'href="(/job/[^"]+)"', 10, 160)),
+    ('R43 Goodbody SF', lambda: sf_xml('career2.successfactors.eu', 'aibP')),
+    ('R43 Goodbody SF2', lambda: sf_xml('career2.successfactors.eu', 'AIB')),
+    ('R43 Canaccord pro links', lambda: grep_page('https://www.canaccordgenuity.com/global-careers/professionals/', r'href="(https?://[^"]*(?:workday|taleo|icims|greenhouse|lever|smartrecruiters|bamboo|teamtailor|successfactors|avature|tal\.net|jobs)[^"]*)"', 15, 200)),
+    ('R43 Handelsbanken UK', lambda: crawl('https://www.handelsbanken.co.uk/en/about-us/careers', depth=1, max_pages=5)),
+    ('R43 Standard Bank SF', lambda: sf_xml('career5.successfactors.eu', 'standardbank')),
+    ('R43 Stifel institutional', lambda: crawl('https://www.stifelinstitutional.com/careers', depth=1, max_pages=4)),
+]
+PROBES = PROBES + R43
+
+
+# ---------------- Round 44: batch 1 last leads ----------------
+SFID = r'(?:company=|companyId["\']?\s*[:=]\s*["\']|career_company=)([A-Za-z0-9_]+)'
+R44 = [
+    ('R44 Pareto rss', lambda: validate_page('https://paretosecurities.teamtailor.com/jobs.rss')),
+    ('R44 Pareto jobs html', lambda: grep_page('https://paretosecurities.teamtailor.com/jobs', r'href="([^"]*/jobs/\d+[^"]*)"', 15, 160)),
+    ('R44 ICBCS tal.net root', lambda: grep_page('https://icbcs.tal.net/candidate', r'href="([^"]*(?:jobboard|vacancy)[^"]*)"', 10, 220)),
+    ('R44 ICBCS careers', lambda: grep_page('https://www.icbcstandard.com/en/careers', r'href="([^"]*(?:tal\.net|career|vacanc|job)[^"]*)"', 15, 220)),
+    ('R44 Investec earcu', lambda: grep_page('https://careers.investec.co.uk/jobs', r'href="([^"]*(?:/jobs/vacancy/|/jobs/\d|vacancy)[^"]*)"', 15, 200)),
+    ('R44 Investec earcu rss', lambda: validate_page('https://careers.investec.co.uk/jobs/rss')),
+    ('R44 Commerzbank jobs', lambda: grep_page('https://jobs.commerzbank.com/index.php?ac=search_result&search_criterion_channel%5B%5D=12', r'href="([^"]*ac=jobad[^"]*)"', 10, 200)),
+    ('R44 Commerzbank jobad text', lambda: grep_page('https://jobs.commerzbank.com/index.php?ac=jobad&id=60114', r'(?i)((?:London|Singapore|Hong Kong|Paris|Frankfurt)[^<]{0,80})', 6, 160)),
+    ('R44 Scotiabank SF id', lambda: grep_page('https://jobs.scotiabank.com/', SFID, 5, 80)),
+    ('R44 Goodbody SF id', lambda: grep_page('https://jobs.aib.ie/', SFID, 5, 80)),
+    ('R44 Goodbody search', lambda: grep_page('https://jobs.aib.ie/search/?q=goodbody', r'href="(/job/[^"]+)"', 10, 160)),
+    ('R44 Stifel icims rows', lambda: grep_page('https://careers-stifel.icims.com/jobs/search?pr=0&in_iframe=1', r'(?s)class="iCIMS_JobsTable.*?href="([^"]+)"', 10, 200)),
+    ('R44 Stifel icims links', lambda: grep_page('https://careers-stifel.icims.com/jobs/search?pr=0&in_iframe=1', r'href="(https://careers-stifel\.icims\.com/jobs/\d+/[^"]+)"', 15, 200)),
+    ('R44 Handelsbanken jobs', lambda: discover('https://jobs.handelsbanken.co.uk/')),
+    ('R44 Handelsbanken links', lambda: grep_page('https://jobs.handelsbanken.co.uk/', r'href="([^"]*(?:job|vacanc)[^"]*)"', 15, 200)),
+]
+PROBES = PROBES + R44
+
+
+# ---------------- Round 45: page structure for the last batch-1 banks ----------------
+R45 = [
+    ('R45 Stifel row', lambda: grep_page('https://careers-stifel.icims.com/jobs/search?pr=0&in_iframe=1', r'(?s)(href="https://careers-stifel\.icims\.com/jobs/10014/.{0,1500})', 1, 1500)),
+    ('R45 Stifel London', lambda: grep_page('https://careers-stifel.icims.com/jobs/search?pr=0&searchLocation=-12828-London&in_iframe=1', r'href="(https://careers-stifel\.icims\.com/jobs/\d+/[^"]+)"', 15, 160)),
+    ('R45 Stifel count', lambda: grep_page('https://careers-stifel.icims.com/jobs/search?pr=0&in_iframe=1', r'((?:Page|of|results)[^<]{0,60})', 8, 80)),
+    ('R45 Handelsbanken card', lambda: grep_page('https://jobs.handelsbanken.co.uk/jobs', r'(?s)(href="https://jobs\.handelsbanken\.co\.uk/jobs/job/[^"]+".{0,700})', 2, 700)),
+    ('R45 Handelsbanken rss', lambda: validate_page('https://jobs.handelsbanken.co.uk/jobs/rss')),
+    ('R45 Commerzbank ids', lambda: grep_page('https://jobs.commerzbank.com/index.php?ac=search_result&search_criterion_channel%5B%5D=12', r'((?:jobad|job_id|jobId|"id")[^<]{0,120})', 10, 160)),
+    ('R45 Commerzbank api', lambda: grep_page('https://jobs.commerzbank.com/index.php?ac=search_result&search_criterion_channel%5B%5D=12', r'((?:api|ajax|json|fetch\()[^<"]{0,120})', 12, 160)),
+    ('R45 Scotiabank SF guesses', lambda: ' | '.join(sf_xml(h, c)[:120] for h in ('career4.successfactors.com', 'career8.successfactors.com', 'career10.successfactors.com') for c in ('scotiabank', 'scotiabankP', 'bns'))),
+    ('R45 AIB SF guesses', lambda: ' | '.join(sf_xml(h, c)[:120] for h in ('career2.successfactors.eu', 'career5.successfactors.eu', 'career012.successfactors.eu') for c in ('aib', 'aibgroup', 'aibgroupP'))),
+    ('R45 Scotiabank RMK job link', lambda: grep_page('https://jobs.scotiabank.com/search/?q=trader', r'href="(/job/[^"]+)"', 10, 160)),
+    ('R45 Goodbody RMK', lambda: grep_page('https://jobs.aib.ie/search/?q=&locationsearch=London', r'href="(/job/[^"]+)"', 10, 160)),
+]
+PROBES = PROBES + R45
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

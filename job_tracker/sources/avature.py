@@ -21,7 +21,8 @@ from status import OPEN, parse_date
 PAGE = 20
 ARTICLE = re.compile(r'<(?:div|article) class="article article--result.*?(?=<(?:div|article) class="article article--result|</section>)', re.S)
 FIELD = re.compile(r'<li class="list-item list-item-(\w+)">(.*?)</li>', re.S)
-LINK = re.compile(r'<a class="link" href="([^"]*JobDetail[/?][^"]+)"[^>]*>(.*?)</a>', re.S)
+LINK = re.compile(r'<a\b[^>]*\bhref="([^"]*JobDetail[/?][^"]+)"[^>]*>(.*?)</a>', re.S)
+ROW = re.compile(r'<tr\b.*?</tr>', re.S)  # table layout (National Bank of Canada)
 LABELS = ('Country', 'City', 'Area', 'Workplace location', 'Employer company', 'Domain', 'Type of contract',
           'Experience', 'Context & Environment', 'Activities', 'Candidate Profile', 'Job Description')
 
@@ -63,7 +64,7 @@ def _read_listing(source, ctx, base):
     for _ in range(int(source.get('max_pages', 80))):
         response = ctx.http.get(f'{base}/{path}/?jobRecordsPerPage={PAGE}&jobOffset={offset}')
         response.raise_for_status()
-        blocks = ARTICLE.findall(response.text)
+        blocks = ARTICLE.findall(response.text) or [r for r in ROW.findall(response.text) if 'JobDetail' in r]
         new = 0
         for block in blocks:
             link = LINK.search(block)

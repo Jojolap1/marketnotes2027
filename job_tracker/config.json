@@ -986,6 +986,159 @@
       "platform": "official",
       "enabled": false,
       "disabled_reason": "sucden.com publishes no job list (offers are posted on LinkedIn, UK roles via Sucden Financial, whose site serves a Cloudflare challenge); the page's 'Current job offers' section is watched instead (page_watches) and any change is sent to Telegram."
+    },
+    {
+      "company": "Lloyds Banking Group",
+      "platform": "workday",
+      "host": "lbg.wd3.myworkdayjobs.com",
+      "tenant": "lbg",
+      "site": "lbg_Careers"
+    },
+    {
+      "company": "CommBank",
+      "platform": "workday",
+      "host": "cba.wd3.myworkdayjobs.com",
+      "tenant": "cba",
+      "site": "CommBank_Careers"
+    },
+    {
+      "company": "TD Securities",
+      "platform": "workday",
+      "host": "td.wd3.myworkdayjobs.com",
+      "tenant": "td",
+      "site": "TD_Bank_Careers"
+    },
+    {
+      "company": "BMO Capital Markets",
+      "platform": "workday",
+      "host": "bmo.wd3.myworkdayjobs.com",
+      "tenant": "bmo",
+      "site": "External"
+    },
+    {
+      "company": "Wells Fargo",
+      "platform": "workday",
+      "host": "wd1.myworkdaysite.com",
+      "tenant": "wf",
+      "site": "WellsFargoJobs"
+    },
+    {
+      "company": "Jefferies",
+      "platform": "oracle",
+      "host": "hdid.fa.us2.oraclecloud.com",
+      "site": "CX_1"
+    },
+    {
+      "company": "Jefferies (campus)",
+      "platform": "oleeo",
+      "boards": [
+        "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/1/adv/",
+        "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/2/adv/"
+      ]
+    },
+    {
+      "company": "Berenberg",
+      "platform": "avature",
+      "base_url": "https://berenberg.avature.net/en_GB/careers",
+      "listing_refresh_hours": 4,
+      "max_pages": 15
+    },
+    {
+      "company": "National Bank of Canada",
+      "platform": "avature",
+      "base_url": "https://emplois.bnc.ca/en_CA/careers",
+      "listing_refresh_hours": 4,
+      "max_pages": 30
+    },
+    {
+      "company": "BTG Pactual",
+      "platform": "greenhouse",
+      "board": "btgpactual"
+    },
+    {
+      "company": "Panmure Liberum",
+      "platform": "bamboohr",
+      "board": "panmure"
+    },
+    {
+      "company": "Pareto Securities",
+      "platform": "rss",
+      "feeds": [
+        "https://paretosecurities.teamtailor.com/jobs.rss"
+      ]
+    },
+    {
+      "company": "Investec",
+      "platform": "rss",
+      "feeds": [
+        "https://careers.investec.co.uk/jobs/rss"
+      ],
+      "location_in_link": true,
+      "note": "eArcu RSS of all live vacancies; the city is only in the vacancy link"
+    },
+    {
+      "company": "ICBC Standard Bank",
+      "platform": "oleeo",
+      "boards": [
+        "https://icbcs.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/candidate/jobboard/vacancy/2/adv/",
+        "https://icbcs.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/candidate/jobboard/vacancy/3/adv/"
+      ]
+    },
+    {
+      "company": "AIB (incl. Goodbody)",
+      "platform": "successfactors_xml",
+      "host": "career2.successfactors.eu",
+      "sf_company": "aib",
+      "note": "jobs.aib.ie answers 403 to scripts; the SuccessFactors job feed behind it is public"
+    },
+    {
+      "company": "Scotiabank",
+      "platform": "rmk",
+      "base_url": "https://jobs.scotiabank.com",
+      "location_searches": ["London", "Singapore", "Hong Kong", "Paris"],
+      "exclude_url_pattern": "-(?:ON|QC|BC|AB|MB|NS|NB|SK|NL|PE)-"
+    },
+    {
+      "company": "Stifel",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "iCIMS board (careers-stifel.icims.com) lists US branch roles only; no London/Paris/Asia offers (2026-10-20)."
+    },
+    {
+      "company": "Handelsbanken UK",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "jobs.handelsbanken.co.uk lists UK branch banking roles only; markets roles are hired in Stockholm (2026-10-20)."
+    },
+    {
+      "company": "Commerzbank",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "jobs.commerzbank.com renders results with JavaScript and exposes no public feed (2026-10-20)."
+    },
+    {
+      "company": "Standard Bank / Canaccord Genuity / Zeus Capital",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "no public vacancy feed found (Standard Bank, Canaccord: no ATS link; Zeus: recruits through agencies) (2026-10-20)."
+    },
+    {
+      "company": "Peel Hunt",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "careers site answers HTTP 403 to automated requests (2026-10-20)."
+    },
+    {
+      "company": "Raymond James",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "careers site answers HTTP 403 to automated requests (2026-10-20)."
+    },
+    {
+      "company": "ABN AMRO",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "abnamro.com careers answers HTTP 503 to automated requests (2026-10-20); re-check later."
     }
   ],
   "company_aliases": [
