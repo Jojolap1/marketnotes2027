@@ -1139,6 +1139,52 @@
       "board": "wintermute-trading"
     },
     {
+      "company": "BNY",
+      "platform": "oracle",
+      "host": "eofe.fa.us2.oraclecloud.com",
+      "site": "BNY"
+    },
+    {
+      "company": "Danske Bank",
+      "platform": "oracle",
+      "host": "ejqi.fa.ocs.oraclecloud.eu",
+      "site": "CX_1001"
+    },
+    {
+      "company": "Kepler Cheuvreux",
+      "platform": "rss",
+      "feeds": [
+        "https://keplercheuvreux.teamtailor.com/jobs.rss"
+      ]
+    },
+    {
+      "company": "Capula Investment Management",
+      "platform": "workable",
+      "board": "capula-investment-management-ltd"
+    },
+    {
+      "company": "Da Vinci Trading",
+      "platform": "greenhouse",
+      "board": "davinciderivatives"
+    },
+    {
+      "company": "Maven Securities",
+      "platform": "greenhouse",
+      "board": "mavensecuritiesholdingltd"
+    },
+    {
+      "company": "UniCredit / Rabobank / BGC / StoneX",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "careers sites answer HTTP 403 to automated requests (2026-10-20)."
+    },
+    {
+      "company": "Rokos / Balyasny / SIG / Marshall Wace / Mediobanca / ODDO BHF / Intesa Sanpaolo / SEB / LBBW / DZ Bank",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "no public vacancy feed found (email applications, JavaScript-only pages, or no target-city listings) (2026-10-20)."
+    },
+    {
       "company": "AIB (incl. Goodbody)",
       "platform": "successfactors_xml",
       "host": "career2.successfactors.eu",

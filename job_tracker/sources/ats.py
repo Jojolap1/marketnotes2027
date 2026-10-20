@@ -98,3 +98,23 @@ def bamboohr(source, ctx):
             description=description, source='BambooHR careers page', status=OPEN,
             status_evidence='listed on the official BambooHR careers page (open positions only)'))
     return jobs
+
+
+def workable(source, ctx):
+    """Workable public widget API: one posting per shortcode, listed once per location."""
+    account = source['board']
+    data = ctx.http.get_json(f'https://apply.workable.com/api/v1/widget/accounts/{quote(account, safe="")}')
+    postings = {}
+    for j in data.get('jobs', []):
+        p = postings.setdefault(j['shortcode'], dict(j, places=[]))
+        p['places'].append(', '.join(filter(None, [j.get('city'), j.get('country')])))
+    jobs = []
+    for code, j in postings.items():
+        jobs.append(make_job(
+            id=f'workable:{account}:{code}', company=source['company'], title=j.get('title') or '',
+            location='; '.join(dict.fromkeys(filter(None, j['places']))),
+            url=j.get('url') or f'https://apply.workable.com/{account}/j/{code}/',
+            published=j.get('published_on') or '', employment_type=j.get('employment_type') or '',
+            description=html_to_text(j.get('description')), source='Workable job board API', status=OPEN,
+            status_evidence='listed in the official Workable job board (published postings only)'))
+    return jobs
