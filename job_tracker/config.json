@@ -986,6 +986,79 @@
       "platform": "official",
       "enabled": false,
       "disabled_reason": "sucden.com publishes no job list (offers are posted on LinkedIn, UK roles via Sucden Financial, whose site serves a Cloudflare challenge); the page's 'Current job offers' section is watched instead (page_watches) and any change is sent to Telegram."
+    },
+    {
+      "company": "Lloyds Banking Group",
+      "platform": "workday",
+      "host": "lbg.wd3.myworkdayjobs.com",
+      "tenant": "lbg",
+      "site": "lbg_Careers"
+    },
+    {
+      "company": "CommBank",
+      "platform": "workday",
+      "host": "cba.wd3.myworkdayjobs.com",
+      "tenant": "cba",
+      "site": "CommBank_Careers"
+    },
+    {
+      "company": "TD Securities",
+      "platform": "workday",
+      "host": "td.wd3.myworkdayjobs.com",
+      "tenant": "td",
+      "site": "TD_Bank_Careers"
+    },
+    {
+      "company": "BMO Capital Markets",
+      "platform": "workday",
+      "host": "bmo.wd3.myworkdayjobs.com",
+      "tenant": "bmo",
+      "site": "External"
+    },
+    {
+      "company": "Wells Fargo",
+      "platform": "workday",
+      "host": "wd1.myworkdaysite.com",
+      "tenant": "wf",
+      "site": "WellsFargoJobs"
+    },
+    {
+      "company": "Jefferies",
+      "platform": "oracle",
+      "host": "hdid.fa.us2.oraclecloud.com",
+      "site": "CX_1"
+    },
+    {
+      "company": "Jefferies (campus)",
+      "platform": "oleeo",
+      "boards": [
+        "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/1/adv/",
+        "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/2/adv/"
+      ]
+    },
+    {
+      "company": "AIB",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "careers site answers HTTP 403 to automated requests (2026-10-20)."
+    },
+    {
+      "company": "Peel Hunt",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "careers site answers HTTP 403 to automated requests (2026-10-20)."
+    },
+    {
+      "company": "Raymond James",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "careers site answers HTTP 403 to automated requests (2026-10-20)."
+    },
+    {
+      "company": "ABN AMRO",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "abnamro.com careers answers HTTP 503 to automated requests (2026-10-20); re-check later."
     }
   ],
   "company_aliases": [

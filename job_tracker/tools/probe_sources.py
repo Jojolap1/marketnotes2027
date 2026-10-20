@@ -1939,6 +1939,28 @@ for name, u in {'Berenberg': 'https://www.berenberg.de/en/careers/', 'Investec':
     R42.append((f'R42 CRAWL {name}', (lambda u=u: crawl(u, depth=1, max_pages=6))))
 PROBES = PROBES + R42
 
+
+# ---------------- Round 43: batch 1 remaining leads ----------------
+R43 = [
+    ('R43 Avature Berenberg', lambda: avature_listing_shape('https://berenberg.avature.net/en_GB/careers/SearchJobs')),
+    ('R43 Berenberg search page', lambda: grep_page('https://careers.berenberg.com/search-our-jobs', r'href="(https?://[^"]*(?:avature|JobDetail|SearchJobs)[^"]*)"', 10, 200)),
+    ('R43 Avature NBC', lambda: avature_listing_shape('https://emplois.bnc.ca/en_CA/careers/SearchJobs')),
+    ('R43 ICBCS oleeo', lambda: grep_page('https://www.icbcstandard.com/en/column/1438058394388152435.html', r'href="(https?://icbcs\.tal\.net[^"]*)"', 10, 220)),
+    ('R43 Investec jobs', lambda: discover('https://careers.investec.co.uk/jobs')),
+    ('R43 Investec jobs links', lambda: grep_page('https://careers.investec.co.uk/jobs', r'href="([^"]*(?:/jobs/|job)[^"]*)"', 12, 160)),
+    ('R43 Pareto teamtailor', lambda: grep_page('https://paretosecurities.teamtailor.com/jobs', r'href="(https://paretosecurities\.teamtailor\.com/jobs/[^"]+)"', 15, 160)),
+    ('R43 Commerzbank jobad', lambda: validate_page('https://coba-beesite-production-frontend.app.beesite.de/index.php?ac=jobad&id=60114')),
+    ('R43 Scotiabank sitemap idx', lambda: sitemap('https://jobs.scotiabank.com/sitemap_index.xml')),
+    ('R43 Scotiabank search', lambda: grep_page('https://jobs.scotiabank.com/search/?q=&locationsearch=London', r'href="(/job/[^"]+)"', 10, 160)),
+    ('R43 Goodbody SF', lambda: sf_xml('career2.successfactors.eu', 'aibP')),
+    ('R43 Goodbody SF2', lambda: sf_xml('career2.successfactors.eu', 'AIB')),
+    ('R43 Canaccord pro links', lambda: grep_page('https://www.canaccordgenuity.com/global-careers/professionals/', r'href="(https?://[^"]*(?:workday|taleo|icims|greenhouse|lever|smartrecruiters|bamboo|teamtailor|successfactors|avature|tal\.net|jobs)[^"]*)"', 15, 200)),
+    ('R43 Handelsbanken UK', lambda: crawl('https://www.handelsbanken.co.uk/en/about-us/careers', depth=1, max_pages=5)),
+    ('R43 Standard Bank SF', lambda: sf_xml('career5.successfactors.eu', 'standardbank')),
+    ('R43 Stifel institutional', lambda: crawl('https://www.stifelinstitutional.com/careers', depth=1, max_pages=4)),
+]
+PROBES = PROBES + R43
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
