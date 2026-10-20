@@ -1888,6 +1888,18 @@ def mq_struct():
 R38 = [('R38 MQ TS structure', mq_struct)]
 PROBES = PROBES + R38
 
+
+# ---------------- Round 41: user's bank list, batch 1 (discovery) ----------------
+B1_ROOTS = {'Lloyds Banking Group': 'https://www.lloydsbankinggroup.com/careers.html', 'ABN AMRO': 'https://www.abnamro.com/en/careers', 'Commerzbank': 'https://jobs.commerzbank.com/', 'Handelsbanken': 'https://www.handelsbanken.com/en/career', 'Berenberg': 'https://www.berenberg.de/en/career/', 'Investec': 'https://www.investec.com/en_gb/careers.html', 'AIB': 'https://aib.ie/careers', 'CommBank': 'https://www.commbank.com.au/about-us/careers.html', 'Standard Bank': 'https://www.standardbank.com/sbg/standard-bank-group/careers', 'ICBC Standard Bank': 'https://www.icbcstandard.com/careers', 'BTG Pactual': 'https://www.btgpactual.com/en/careers', 'TD Securities': 'https://www.tdsecurities.com/ca/en/careers', 'Scotiabank': 'https://jobs.scotiabank.com/', 'BMO': 'https://jobs.bmo.com/', 'National Bank of Canada': 'https://jobs.bnc.ca/en/', 'Wells Fargo': 'https://www.wellsfargojobs.com/', 'Jefferies': 'https://www.jefferies.com/careers/', 'Peel Hunt': 'https://www.peelhunt.com/careers/', 'Panmure Liberum': 'https://www.panmureliberum.com/careers', 'Canaccord Genuity': 'https://www.canaccordgenuity.com/careers/', 'Stifel': 'https://www.stifel.com/careers', 'Raymond James': 'https://www.raymondjames.com/careers', 'BTIG': 'https://www.btig.com/careers', 'Goodbody': 'https://www.goodbody.ie/careers', 'Pareto Securities': 'https://www.paretosec.com/careers', 'Zeus Capital': 'https://www.zeuscapital.co.uk/careers'}
+R41 = []
+for name, u in B1_ROOTS.items():
+    R41.append((f'R41 CRAWL {name}', (lambda u=u: crawl(u, depth=1, max_pages=6))))
+for b in ['btig', 'jefferies', 'peelhunt', 'panmureliberum', 'canaccordgenuity', 'zeuscapital', 'goodbody', 'paretosecurities', 'berenberg', 'btgpactual']:
+    R41.append((f'R41 GH {b}', (lambda b=b: greenhouse(b))))
+for c in ['PeelHunt', 'Berenberg', 'Goodbody', 'ParetoSecurities', 'InvestecGroup', 'Jefferies', 'BTIG', 'CanaccordGenuity']:
+    R41.append((f'R41 SR {c}', (lambda c=c: smartrecruiters(c))))
+PROBES = PROBES + R41
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
