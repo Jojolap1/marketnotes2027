@@ -1,11 +1,16 @@
-"""Avature career sites (TotalEnergies): the public job search pages.
+"""Avature career sites: the public job search pages.
 
-  GET {base}/SearchJobs/?jobOffset=N   20 results per page, newest first: title, date, country
-  GET {base}/JobDetail/{slug}/{id}     country, city, contract, experience, text
+  GET {base}/{listing}/?jobOffset=N    result pages (TotalEnergies: 20 per page,
+                                       newest first, with date and country;
+                                       Macquarie, Two Sigma: no date)
+  GET {base}/JobDetail/...             advert page: text, and labelled
+                                       country/city/contract/experience when present
 
-Only adverts in a target country with a promising title are opened. The listing
-is newest first, so pages are read only back to `read_back_days` (older adverts
-can no longer be alerted): the site answers 406 when crawled too deep or fast.
+Dated listings (newest first) are read back to `read_back_days` only (older
+adverts can no longer be alerted). Undated listings are read completely, at
+most every `listing_refresh_hours`, so no advert is skipped while the site
+(which answers 406 when crawled too fast or too deep) is not hammered.
+Only adverts in a target city (or country) with a promising title are opened.
 """
 import re
 from datetime import timedelta
@@ -14,9 +19,9 @@ from jobs import html_to_text, make_job
 from status import OPEN, parse_date
 
 PAGE = 20
-ARTICLE = re.compile(r'<div class="article article--result".*?(?=<div class="article article--result"|</section>)', re.S)
+ARTICLE = re.compile(r'<(?:div|article) class="article article--result.*?(?=<(?:div|article) class="article article--result|</section>)', re.S)
 FIELD = re.compile(r'<li class="list-item list-item-(\w+)">(.*?)</li>', re.S)
-LINK = re.compile(r'<a class="link" href="([^"]*JobDetail/[^"]+)"[^>]*>(.*?)</a>', re.S)
+LINK = re.compile(r'<a class="link" href="([^"]*JobDetail[/?][^"]+)"[^>]*>(.*?)</a>', re.S)
 LABELS = ('Country', 'City', 'Area', 'Workplace location', 'Employer company', 'Domain', 'Type of contract',
           'Experience', 'Context & Environment', 'Activities', 'Candidate Profile', 'Job Description')
 
@@ -50,44 +55,66 @@ def _detail(source, ctx, url):
     return value
 
 
+def _read_listing(source, ctx, base):
+    """{url: (title, fields, text)} for the listing pages to read this run."""
+    path = source.get('listing_path', 'SearchJobs')
+    horizon = ctx.now - timedelta(days=int(source.get('read_back_days', 16)))
+    adverts, complete, offset = {}, False, 0
+    for _ in range(int(source.get('max_pages', 80))):
+        response = ctx.http.get(f'{base}/{path}/?jobRecordsPerPage={PAGE}&jobOffset={offset}')
+        response.raise_for_status()
+        blocks = ARTICLE.findall(response.text)
+        new = 0
+        for block in blocks:
+            link = LINK.search(block)
+            if link and link.group(1) not in adverts:
+                title = html_to_text(link.group(2))
+                fields = {k: html_to_text(v) for k, v in FIELD.findall(block)}
+                text = re.sub(r'^\s*ID\s+\d+\s*', '', html_to_text(block).replace(title, ' ', 1).strip())
+                adverts[link.group(1)] = (title, fields, text)
+                new += 1
+        dates = [parse_date(_dmy(f)) for f in re.findall(r'list-item-jobCreationDate">([^<]+)<', response.text)]
+        if not blocks or not new or (dates and all(d and d < horizon for d in dates)):
+            complete = True
+            break
+        offset += len(blocks)
+    if not complete:
+        ctx.stat(source['company'], 'pages_cap_reached')  # shown in the report: raise max_pages
+    return adverts
+
+
 def fetch(source, ctx):
     company, base = source['company'], source['base_url'].rstrip('/')
     countries = set(source.get('countries', []))
-    # The listing is newest first: read until a whole page is older than
-    # `read_back_days` (beyond the alert age limit), so no recent advert is skipped.
-    horizon = ctx.now - timedelta(days=int(source.get('read_back_days', 16)))
-    adverts, reached_horizon = {}, False
-    for page in range(int(source.get('max_pages', 40))):
-        response = ctx.http.get(f'{base}/SearchJobs/?jobRecordsPerPage={PAGE}&jobOffset={page * PAGE}')
-        response.raise_for_status()
-        blocks = ARTICLE.findall(response.text)
-        for block in blocks:
-            link = LINK.search(block)
-            if link:
-                fields = {k: html_to_text(v) for k, v in FIELD.findall(block)}
-                adverts[link.group(1)] = (html_to_text(link.group(2)), fields)
-        dates = [parse_date(_dmy(f)) for f in re.findall(r'list-item-jobCreationDate">([^<]+)<', response.text)]
-        if len(blocks) < PAGE or (dates and all(d and d < horizon for d in dates)):
-            reached_horizon = True
-            break
-    if not reached_horizon:
-        ctx.stat(company, 'pages_cap_reached')  # shown in the report: raise max_pages
+    refresh = source.get('listing_refresh_hours')
+    key = 'avature-listing:' + base
+    cached = ctx.cache.get(key, max_age_hours=float(refresh)) if refresh else None
+    if cached is not None:
+        adverts = {u: tuple(v) for u, v in cached.items()}
+        ctx.stat(company, 'listing_from_cache', 1)
+    else:
+        adverts = _read_listing(source, ctx, base)
+        if refresh:
+            ctx.cache.put(key, adverts)
     ctx.stat(company, 'listed', len(adverts))
     jobs = []
-    for url, (title, fields) in adverts.items():
+    for url, (title, fields, text) in adverts.items():
         country = fields.get('jobCountry', '')
-        if (countries and country not in countries) or not ctx.title_worth_fetching(title):
+        if countries and country and country not in countries:
+            continue
+        if not ctx.screen(company, title, country or text) and not (country and ctx.title_worth_fetching(title)):
             continue
         detail = _detail(source, ctx, url)
-        location = ', '.join(filter(None, [detail['city'].title(), detail['country'] or country]))
+        location = ', '.join(filter(None, [detail['city'].title(), detail['country'] or country])) or text[:120]
         if not ctx.screen(company, title, location):
             continue
         ctx.stat(company, 'candidates')
+        ref = (re.search(r'(\d+)/?$', url) or re.search(r'jobId=(\d+)', url))
+        ref = ref.group(1) if ref else url
         jobs.append(make_job(
-            id=f'avature:{url.rsplit("/", 1)[-1]}:{company}', company=company, title=title, location=location, url=url,
+            id=f'avature:{ref}:{company}', company=company, title=title, location=location, url=url,
             published=_dmy(fields.get('jobCreationDate', '')),
             description=detail['description'] + (f" Experience: {detail['experience']}." if detail['experience'] else ''),
-            employment_type=detail['contract'], source='official careers site search (Avature)',
-            requisition_id=url.rsplit('/', 1)[-1],
+            employment_type=detail['contract'], source='official careers site search (Avature)', requisition_id=ref,
             status=OPEN, status_evidence='listed in the official careers site search (live offers only)'))
     return jobs

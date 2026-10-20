@@ -110,6 +110,27 @@ class AtsTests(unittest.TestCase):
         self.assertEqual(jobs[0]['description'], 'Graduates')
         self.assertEqual(jobs[0]['status'], 'open')
 
+    def test_avature_undated_listing_read_fully_and_cached(self):
+        def art(i, title, office):
+            return (f'<article class="article article--result clearfix"><h3><a class="link" '
+                    f'href="https://mq/en_US/careers/JobDetail?jobId={i}"> {title} </a></h3>'
+                    f'<p class="icon">ID</p><p> {i} </p><p> {office} </p></article>')
+        pages = {0: [art(1, 'Analyst - Commodity Markets Graduate', 'London Office'), art(2, 'Graduate Trader', 'Sydney Office')],
+                 2: [art(3, 'Fixed Income Sales Intern', 'Singapore Office'), art(4, 'HR Manager', 'London Office')], 4: []}
+        def route(method, url, payload):
+            if 'JobDetail' in url:
+                return '<html>Job Description Graduate programme for recent graduates.</html>'
+            return '<section>' + ''.join(pages[int(url.rsplit('jobOffset=', 1)[1])]) + '</section>'
+        src = {'company': 'Macquarie', 'platform': 'avature', 'base_url': 'https://mq/en_US/careers', 'listing_refresh_hours': 4}
+        ctx = context({'mq/': route}, now=NOW)
+        jobs = fetch_source(src, ctx)
+        self.assertEqual(sorted(j['title'] for j in jobs), ['Analyst - Commodity Markets Graduate', 'Fixed Income Sales Intern'])
+        self.assertEqual(sorted(j['id'] for j in jobs), ['avature:1:Macquarie', 'avature:3:Macquarie'])
+        self.assertEqual(len([u for _, u, _ in ctx.http.calls if 'jobOffset' in u]), 3)   # whole listing read
+        ctx.http.calls.clear()
+        fetch_source(src, ctx)
+        self.assertEqual([u for _, u, _ in ctx.http.calls if 'jobOffset' in u], [])          # listing reused (4 h cache)
+
     def test_avature_stops_at_date_horizon(self):
         def page(dates):
             return '<section>' + ''.join(
