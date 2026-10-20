@@ -1829,6 +1829,24 @@ R35 = [('R35 Avature TotalEnergies', lambda: avature_order_filters('https://jobs
        ('R35 Avature Two Sigma', lambda: avature_order_filters('https://careers.twosigma.com/careers', pages=(0, 1)))]
 PROBES = PROBES + R35
 
+
+# ---------------- Round 36: Avature feed paging ----------------
+def feed_paging(feed):
+    out = []
+    for q in ['', '?jobRecordsPerPage=100', '?jobOffset=20', '?jobRecordsPerPage=50&jobOffset=0']:
+        r = get(feed + q)
+        items = re.findall(r'<item>(.*?)</item>', r.text, re.S)
+        guids = [re.search(r'<guid[^>]*>([^<]+)', i).group(1)[-12:] for i in items if re.search(r'<guid[^>]*>([^<]+)', i)]
+        dates = [d.strip() for d in re.findall(r'<pubDate>([^<]+)</pubDate>', r.text)]
+        out.append(f'{q or "(none)"} -> {r.status_code} items={len(items)} first={guids[:2]} last={guids[-1:]} dates={dates[:1]}..{dates[-1:]}')
+        time.sleep(3)
+    return '\n'.join(out)
+
+
+R36 = [('R36 Macquarie feed paging', lambda: feed_paging('https://recruitment.macquarie.com/en_US/careers/SearchJobs/feed/')),
+       ('R36 Two Sigma feed paging', lambda: feed_paging('https://careers.twosigma.com/careers/OpenRoles/feed/'))]
+PROBES = PROBES + R36
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
