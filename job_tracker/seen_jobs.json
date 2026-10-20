@@ -1,5 +1,69 @@
 {
  "jobs": {
+  "avature:23630:Macquarie": {
+   "company": "Macquarie",
+   "fingerprints": [
+    "id:avature:23630:Macquarie",
+    "req:macquarie:23630",
+    "url:https://recruitment.macquarie.com/en_us/careers/jobdetail?jobId=23630",
+    "title:macquarie:2027 commodities and global markets summer internship programme:london"
+   ],
+   "first_seen": "2026-10-20T08:13:16+00:00",
+   "last_seen": "2026-10-20",
+   "location": "London Office",
+   "notified_at": "2026-10-20T08:13:16+00:00",
+   "status": "open",
+   "title": "2027 Commodities and Global Markets Summer Internship Programme",
+   "url": "https://recruitment.macquarie.com/en_US/careers/JobDetail?jobId=23630"
+  },
+  "avature:23733:Macquarie": {
+   "company": "Macquarie",
+   "fingerprints": [
+    "id:avature:23733:Macquarie",
+    "req:macquarie:23733",
+    "url:https://recruitment.macquarie.com/en_us/careers/jobdetail?jobId=23733",
+    "title:macquarie:2027 commodities and global markets graduate programme:london"
+   ],
+   "first_seen": "2026-10-20T08:13:15+00:00",
+   "last_seen": "2026-10-20",
+   "location": "London Office",
+   "notified_at": "2026-10-20T08:13:15+00:00",
+   "status": "open",
+   "title": "2027 Commodities and Global Markets Graduate Programme",
+   "url": "https://recruitment.macquarie.com/en_US/careers/JobDetail?jobId=23733"
+  },
+  "avature:23882:Macquarie": {
+   "company": "Macquarie",
+   "fingerprints": [
+    "id:avature:23882:Macquarie",
+    "req:macquarie:23882",
+    "url:https://recruitment.macquarie.com/en_us/careers/jobdetail?jobId=23882",
+    "title:macquarie:2027 macquarie asset management graduate programme client solutions group:london"
+   ],
+   "first_seen": "2026-10-20T08:13:13+00:00",
+   "last_seen": "2026-10-20",
+   "location": "London Office",
+   "notified_at": "2026-10-20T08:13:13+00:00",
+   "status": "open",
+   "title": "2027 Macquarie Asset Management Graduate Programme - Client Solutions Group",
+   "url": "https://recruitment.macquarie.com/en_US/careers/JobDetail?jobId=23882"
+  },
+  "avature:24115:Macquarie": {
+   "company": "Macquarie",
+   "fingerprints": [
+    "id:avature:24115:Macquarie",
+    "req:macquarie:24115",
+    "url:https://recruitment.macquarie.com/en_us/careers/jobdetail?jobId=24115",
+    "title:macquarie:2027 macquarie asset management summer internship programme client solutions group:london"
+   ],
+   "first_seen": "2026-10-20T08:13:12+00:00",
+   "last_seen": "2026-10-20",
+   "location": "London Office",
+   "notified_at": "2026-10-20T08:13:12+00:00",
+   "status": "open",
+   "title": "2027 Macquarie Asset Management Summer Internship Programme - Client Solutions Group",
+   "url": "https://recruitment.macquarie.com/en_US/careers/JobDetail?jobId=24115"
+  },
   "bpce:22286": {
    "company": "Natixis CIB",
    "fingerprints": [
@@ -1674,7 +1738,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-20T06:08:40.914584+00:00",
+ "last_send_slot": "2026-10-20T08:13:11.018143+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
