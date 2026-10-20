@@ -71,6 +71,8 @@ def _read_listing(source, ctx, base):
                 title = html_to_text(link.group(2))
                 fields = {k: html_to_text(v) for k, v in FIELD.findall(block)}
                 text = re.sub(r'^\s*ID\s+\d+\s*', '', html_to_text(block).replace(title, ' ', 1).strip())
+                # Macquarie: 'London Office 15 Oct 2026 Commodities, Sales...': keep the office only
+                text = re.split(r'\s+\d{1,2} [A-Z][a-z]{2} \d{4}\b', text, maxsplit=1)[0]
                 adverts[link.group(1)] = (title, fields, text)
                 new += 1
         dates = [parse_date(_dmy(f)) for f in re.findall(r'list-item-jobCreationDate">([^<]+)<', response.text)]
