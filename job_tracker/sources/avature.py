@@ -1,9 +1,11 @@
 """Avature career sites (TotalEnergies): the public job search pages.
 
-  GET {base}/SearchJobs/?jobOffset=N   20 results per page: title, date, country
+  GET {base}/SearchJobs/?jobOffset=N   20 results per page, newest first: title, date, country
   GET {base}/JobDetail/{slug}/{id}     country, city, contract, experience, text
 
-Only adverts in a target country with a promising title are opened.
+Only adverts in a target country with a promising title are opened, and only
+the first `max_pages` pages are read each run (older adverts were seen by
+earlier runs): the site answers 406 when crawled too fast or too deep.
 """
 import re
 
