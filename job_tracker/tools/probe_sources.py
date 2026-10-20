@@ -1866,6 +1866,28 @@ R37 = [('R37 Macquarie listing', lambda: avature_listing_shape('https://recruitm
        ('R37 Two Sigma SearchJobs', lambda: avature_listing_shape('https://careers.twosigma.com/careers/SearchJobs'))]
 PROBES = PROBES + R37
 
+
+# ---------------- Round 38: Macquarie / Two Sigma structure ----------------
+def mq_struct():
+    out = []
+    t = get('https://recruitment.macquarie.com/en_US/careers/SearchJobs/?jobOffset=0').text
+    i = t.find('article--result')
+    out.append('MQ block: ' + repr(re.sub(r'\s+', ' ', t[i - 100:i + 2500])))
+    out.append('MQ sort options: ' + str(re.findall(r'(?s)Sort.{0,40}<select[^>]*name="([^"]+)"[^>]*>(.*?)</select>', t)[:2])[:800])
+    out.append('MQ sort hrefs: ' + str(sorted(set(re.findall(r'href="([^"]*(?:sortBy|orderBy|sort=)[^"]*)"', t)))[:8]))
+    t2 = get('https://careers.twosigma.com/careers/OpenRoles/?jobOffset=10').text
+    jd = re.findall(r'href="([^"]*JobDetail/[^"]+)"', t2)
+    vis = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', t2))
+    counts = re.findall(r'.{20}(?:of \d+|results).{20}', vis)[:3]
+    out.append(f'TS page2 links={len(set(jd))} sample={sorted(set(jd))[:2]} counts={counts}')
+    i = t2.find('article--result')
+    out.append('TS block: ' + repr(re.sub(r'\s+', ' ', t2[i:i + 1800])))
+    return '\n'.join(out)
+
+
+R38 = [('R38 MQ TS structure', mq_struct)]
+PROBES = PROBES + R38
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
