@@ -2000,6 +2000,79 @@ R45 = [
 ]
 PROBES = PROBES + R45
 
+
+# ---------------- Round 46: batch 2 discovery (brokers, funds, European banks) ----------------
+def board_sweep(slugs):
+    """Public ATS boards tried per slug: counts only, then target-city titles."""
+    out = []
+    for slug in slugs:
+        for kind, url in (('gh', f'https://boards-api.greenhouse.io/v1/boards/{slug}/jobs'),
+                          ('lever', f'https://api.lever.co/v0/postings/{slug}?mode=json'),
+                          ('ashby', f'https://api.ashbyhq.com/posting-api/job-board/{slug}'),
+                          ('sr', f'https://api.smartrecruiters.com/v1/companies/{slug}/postings?limit=100')):
+            try:
+                r = S.get(url, timeout=15)
+            except Exception as e:
+                out.append(f'{kind}:{slug}=ERR'); continue
+            if r.status_code != 200:
+                continue
+            d = r.json()
+            jobs = d if isinstance(d, list) else d.get('jobs') or d.get('content') or []
+            if not jobs:
+                continue
+            def loc(j):
+                l = j.get('location')
+                if isinstance(l, dict):
+                    return l.get('name') or l.get('city') or ''
+                return l or (j.get('categories') or {}).get('location') or ''
+            hits = [(j.get('title') or j.get('text') or j.get('name'), loc(j)) for j in jobs
+                    if re.search(r'London|Singapore|Hong Kong|Paris', str(loc(j)), re.I)]
+            out.append(f'{kind}:{slug} n={len(jobs)} target={len(hits)} {hits[:6]}')
+        time.sleep(0.2)
+    return ' || '.join(out) or 'no board found'
+
+
+B2 = {
+    'State Street': ('https://careers.statestreet.com/', ['statestreet']),
+    'BNY': ('https://www.bny.com/corporate/global/en/careers.html', ['bny', 'bnymellon']),
+    'Rabobank': ('https://rabobank.jobs/en/', ['rabobank']),
+    'UniCredit': ('https://careers.unicredit.eu/en', ['unicredit']),
+    'Intesa Sanpaolo': ('https://group.intesasanpaolo.com/en/careers', ['intesasanpaolo']),
+    'Mediobanca': ('https://www.mediobanca.com/en/careers/index.html', ['mediobanca']),
+    'Nordea': ('https://www.nordea.com/en/careers', ['nordea']),
+    'SEB': ('https://sebgroup.com/career', ['seb']),
+    'Danske Bank': ('https://danskebank.com/careers', ['danskebank']),
+    'DZ Bank': ('https://karriere.dzbank.de/', ['dzbank']),
+    'LBBW': ('https://www.lbbw.de/karriere', ['lbbw']),
+    'Kepler Cheuvreux': ('https://www.keplercheuvreux.com/en/careers', ['keplercheuvreux']),
+    'ODDO BHF': ('https://www.oddo-bhf.com/en/careers', ['oddobhf', 'oddo-bhf']),
+    'TP ICAP': ('https://www.tpicap.com/tpicap/careers', ['tpicap']),
+    'BGC': ('https://www.bgcg.com/careers', ['bgcpartners', 'bgcgroup', 'bgc']),
+    'Tradition': ('https://www.tradition.com/careers', ['tradition']),
+    'Marex': ('https://www.marex.com/careers/', ['marex']),
+    'StoneX': ('https://www.stonex.com/en/careers/', ['stonex']),
+    'SIG': ('https://sig.com/careers/', ['sig', 'susquehanna']),
+    'Da Vinci': ('https://www.davincitrading.com/careers/', ['davincitrading', 'davinci']),
+    'Maven Securities': ('https://www.mavensecurities.com/careers', ['mavensecurities', 'maven']),
+    'Quadrature': ('https://www.quadrature.ai/careers', ['quadrature', 'quadraturecapital']),
+    'Qube': ('https://www.qube-rt.com/careers', ['qube', 'quberesearchandtechnologies', 'qube-research-technologies']),
+    'G-Research': ('https://www.gresearch.com/join-us/', ['gresearch', 'g-research']),
+    'Brevan Howard': ('https://www.brevanhoward.com/careers/', ['brevanhoward']),
+    'Rokos': ('https://www.rokoscapital.com/careers', ['rokos', 'rokoscapital']),
+    'Capula': ('https://www.capulaglobal.com/careers', ['capula', 'capulainvestment']),
+    'Marshall Wace': ('https://www.mwam.com/careers/', ['marshallwace', 'mwam']),
+    'Man Group': ('https://www.man.com/careers', ['mangroup', 'man']),
+    'Balyasny': ('https://www.bamfunds.com/careers', ['balyasny', 'balyasnyassetmanagement', 'bam']),
+    'Schonfeld': ('https://www.schonfeld.com/careers/', ['schonfeld', 'schonfeldstrategicadvisors']),
+    'Graviton': ('https://www.gravitontrading.com/careers.html', ['graviton', 'gravitonresearchcapital']),
+    'Wintermute': ('https://www.wintermute.com/careers', ['wintermute', 'wintermute-trading']),
+}
+R46 = []
+for name, (page, slugs) in B2.items():
+    R46.append((f'R46 BOARDS {name}', (lambda slugs=slugs: board_sweep(slugs))))
+    R46.append((f'R46 CRAWL {name}', (lambda page=page: crawl(page, depth=1, max_pages=4))))
+PROBES = PROBES + R46
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
