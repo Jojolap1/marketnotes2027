@@ -146,6 +146,24 @@ Greenhouse board), Mako, Akuna, Old Mission, Eclipse Trading (Greenhouse).
 Not covered: EDF group, Hartree, Uniper (HTTP 403), Mercuria (TLS certificate error), Glencore (no public
 job feed), Louis Dreyfus (HTTP 403 / unpublished Workday site).
 
+**Added 2026-10-20 (banks and brokers from the user's list):**
+
+| Employer | Official source |
+|---|---|
+| Lloyds Banking Group, CommBank, TD Securities, BMO Capital Markets, Wells Fargo | Workday |
+| Jefferies | Oracle Recruiting Cloud + Oleeo campus boards |
+| ICBC Standard Bank | Oleeo boards (icbcs.tal.net) |
+| Berenberg, National Bank of Canada | Avature job search pages |
+| BTG Pactual | Greenhouse |
+| Panmure Liberum | BambooHR careers page |
+| Pareto Securities, Investec | RSS (Teamtailor, eArcu) |
+| AIB (incl. Goodbody) | SuccessFactors XML |
+| Scotiabank | SuccessFactors RMK search per target city (London, Ontario dropped) |
+
+Not covered: Peel Hunt, Raymond James, ABN AMRO (HTTP 403/503 to automated requests), Stifel (US branch
+roles only), Handelsbanken UK (branch roles only), Commerzbank (JavaScript-only search), Standard Bank,
+Canaccord Genuity, Zeus Capital (no public vacancy feed).
+
 **Not covered (documented, not bypassed):** BNP Paribas, Citadel Securities, NatWest Markets, Huatai
 (HTTP 403 to automated requests — anti-bot protection, not bypassed; BNP's candidate portal
 bwelcome.hr.bnpparibas has no public job list either); Daiwa, UOB Kay Hian, Maybank IB, Guotai Junan

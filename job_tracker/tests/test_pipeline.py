@@ -211,7 +211,7 @@ class ConfigTests(unittest.TestCase):
     REQUIRED = {'greenhouse': ['board'], 'lever': ['board'], 'ashby': ['board'], 'smartrecruiters': ['board'], 'bamboohr': ['board'],
                 'workday': ['host', 'tenant', 'site'], 'oracle': ['host'], 'eightfold': ['host', 'domain'],
                 'sitemap': ['sitemap_url', 'job_url_pattern'], 'goldman': [], 'successfactors_xml': ['host', 'sf_company'],
-                'rss': ['feeds'], 'oleeo': ['boards'],
+                'rss': ['feeds'], 'oleeo': ['boards'], 'rmk': ['base_url', 'location_searches'],
                 'bank_of_america': [], 'brassring': ['host', 'partner_id', 'site_ids'], 'zhiye': ['host'], 'bpce': ['base_url'], 'avature': ['base_url'], 'business_france': []}
 
     def test_sources_are_valid(self):

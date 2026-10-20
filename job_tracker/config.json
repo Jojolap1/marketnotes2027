@@ -1085,10 +1085,42 @@
       ]
     },
     {
-      "company": "AIB",
+      "company": "AIB (incl. Goodbody)",
+      "platform": "successfactors_xml",
+      "host": "career2.successfactors.eu",
+      "sf_company": "aib",
+      "note": "jobs.aib.ie answers 403 to scripts; the SuccessFactors job feed behind it is public"
+    },
+    {
+      "company": "Scotiabank",
+      "platform": "rmk",
+      "base_url": "https://jobs.scotiabank.com",
+      "location_searches": ["London", "Singapore", "Hong Kong", "Paris"],
+      "exclude_url_pattern": "-(?:ON|QC|BC|AB|MB|NS|NB|SK|NL|PE)-"
+    },
+    {
+      "company": "Stifel",
       "platform": "official",
       "enabled": false,
-      "disabled_reason": "careers site answers HTTP 403 to automated requests (2026-10-20)."
+      "disabled_reason": "iCIMS board (careers-stifel.icims.com) lists US branch roles only; no London/Paris/Asia offers (2026-10-20)."
+    },
+    {
+      "company": "Handelsbanken UK",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "jobs.handelsbanken.co.uk lists UK branch banking roles only; markets roles are hired in Stockholm (2026-10-20)."
+    },
+    {
+      "company": "Commerzbank",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "jobs.commerzbank.com renders results with JavaScript and exposes no public feed (2026-10-20)."
+    },
+    {
+      "company": "Standard Bank / Canaccord Genuity / Zeus Capital",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "no public vacancy feed found (Standard Bank, Canaccord: no ATS link; Zeus: recruits through agencies) (2026-10-20)."
     },
     {
       "company": "Peel Hunt",

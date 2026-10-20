@@ -327,6 +327,19 @@ class AtsTests(unittest.TestCase):
         self.assertEqual(len(fetch_source(src, ctx)), 1)
         self.assertEqual(fetch_source(dict(src, location_in_link=False), ctx), [])
 
+    def test_rmk_city_searches_drop_homonym_cities(self):
+        page = ('<a class="jobTitle-link" href="/job/London-%28UK%29-2027-Global-Markets-Summer-Internship-ENG/606718117/">2027 Global Markets Summer Internship</a>'
+                '<a class="jobTitle-link" href="/job/London-%28UK%29-2027-Global-Markets-Summer-Internship-ENG/606718117/">2027 Global Markets Summer Internship</a>'
+                '<a class="jobTitle-link" href="/job/London-Graduate-Trader-ON-N6A-4K1/600000001/">Graduate Trader</a>')
+        detail = '<span itemprop="addressLocality">London</span><span itemprop="description"><p>Students welcome</p></span></div>'
+        ctx = context([('/job/', detail), ('/search/', page)], now=NOW)
+        src = {'company': 'Scotiabank', 'platform': 'rmk', 'base_url': 'https://jobs.scotiabank.com',
+               'location_searches': ['London'], 'exclude_url_pattern': r'-(?:ON|QC|BC|AB)-'}
+        jobs = fetch_source(src, ctx)
+        self.assertEqual([j['id'] for j in jobs], ['rmk:Scotiabank:606718117'])
+        self.assertEqual(jobs[0]['location'], 'London')
+        self.assertEqual(jobs[0]['description'], 'Students welcome')
+
     def test_oleeo(self):
         board = ('<a href="/vx/x/opp/1449-2027-Global-Markets-Summer-Internship-London/en-GB">2027 Global Markets Summer Internship - London</a>'
                  '<a href="/vx/x/opp/1450-2027-IB-Summer-Internship-London/en-GB">2027 Investment Banking Summer Internship - London</a>'
