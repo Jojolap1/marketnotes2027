@@ -208,7 +208,7 @@ class PipelineTests(unittest.TestCase):
 
 
 class ConfigTests(unittest.TestCase):
-    REQUIRED = {'greenhouse': ['board'], 'lever': ['board'], 'ashby': ['board'], 'smartrecruiters': ['board'],
+    REQUIRED = {'greenhouse': ['board'], 'lever': ['board'], 'ashby': ['board'], 'smartrecruiters': ['board'], 'bamboohr': ['board'],
                 'workday': ['host', 'tenant', 'site'], 'oracle': ['host'], 'eightfold': ['host', 'domain'],
                 'sitemap': ['sitemap_url', 'job_url_pattern'], 'goldman': [], 'successfactors_xml': ['host', 'sf_company'],
                 'rss': ['feeds'], 'oleeo': ['boards'],

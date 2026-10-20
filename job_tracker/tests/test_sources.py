@@ -110,6 +110,21 @@ class AtsTests(unittest.TestCase):
         self.assertEqual(jobs[0]['description'], 'Graduates')
         self.assertEqual(jobs[0]['status'], 'open')
 
+    def test_bamboohr_lists_and_reads_detail_of_candidates(self):
+        def route(method, url, payload):
+            if url.endswith('/careers/list'):
+                return {'result': [
+                    {'id': '7', 'jobOpeningName': 'Graduate Equity Sales Trader', 'employmentStatusLabel': 'Full-Time',
+                     'location': {'city': 'London', 'state': None}},
+                    {'id': '8', 'jobOpeningName': 'Office Manager', 'location': {'city': 'London'}}]}
+            return {'result': {'jobOpening': {'description': '<p>Graduates welcome</p>', 'datePosted': '2026-10-15'}}}
+        ctx = context({'panmure.bamboohr.com': route}, now=NOW)
+        jobs = fetch_source({'company': 'Panmure Liberum', 'platform': 'bamboohr', 'board': 'panmure'}, ctx)
+        self.assertEqual([j['id'] for j in jobs], ['bamboohr:panmure:7', 'bamboohr:panmure:8'])
+        self.assertEqual(jobs[0]['description'], 'Graduates welcome')
+        self.assertEqual(jobs[0]['url'], 'https://panmure.bamboohr.com/careers/7')
+        self.assertEqual(len([u for _, u, _ in ctx.http.calls if '/detail' in u]), 1)
+
     def test_avature_undated_listing_read_fully_and_cached(self):
         def art(i, title, office):
             return (f'<article class="article article--result clearfix"><h3><a class="link" '
@@ -130,6 +145,21 @@ class AtsTests(unittest.TestCase):
         ctx.http.calls.clear()
         fetch_source(src, ctx)
         self.assertEqual([u for _, u, _ in ctx.http.calls if 'jobOffset' in u], [])          # listing reused (4 h cache)
+
+    def test_avature_table_layout_and_plain_links(self):
+        rows = ('<table><tbody><tr><th><a class="link fw--500" data-map="job-detail-link" '
+                'href="https://nbc/en_CA/careers/JobDetail/X/36299" title="T">Fixed Income Trading Intern</a></th>'
+                '<td> London, United Kingdom </td><td>On-Site</td></tr>'
+                '<tr><th><a class="link" href="https://nbc/en_CA/careers/JobDetail/Y/36300">Banking Advisor</a></th>'
+                '<td>Toronto, Ontario</td></tr></tbody></table>')
+        def route(method, url, payload):
+            if 'JobDetail' in url:
+                return '<html>Job Description Internship for students.</html>'
+            return rows if url.endswith('jobOffset=0') else '<table></table>'
+        ctx = context({'nbc/': route}, now=NOW)
+        jobs = fetch_source({'company': 'National Bank of Canada', 'platform': 'avature', 'base_url': 'https://nbc/en_CA/careers'}, ctx)
+        self.assertEqual([j['title'] for j in jobs], ['Fixed Income Trading Intern'])
+        self.assertIn('London', jobs[0]['location'])
 
     def test_avature_stops_at_date_horizon(self):
         def page(dates):

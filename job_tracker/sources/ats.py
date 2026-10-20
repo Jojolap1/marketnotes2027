@@ -79,3 +79,22 @@ def smartrecruiters(source, ctx):
         offset += len(content)
         if not content or offset >= data.get('totalFound', 0) or offset >= 1000:
             return jobs
+
+
+def bamboohr(source, ctx):
+    """BambooHR careers page JSON: /careers/list, and /careers/{id}/detail for the advert text."""
+    host = f'https://{source["board"]}.bamboohr.com'
+    jobs = []
+    for j in ctx.http.get_json(f'{host}/careers/list').get('result', []):
+        loc = j.get('atsLocation') or j.get('location') or {}
+        location = ', '.join(filter(None, [loc.get('city'), loc.get('state'), loc.get('country')]))
+        title, description, published = j.get('jobOpeningName') or '', '', ''
+        if ctx.screen(source['company'], title, location):
+            opening = (ctx.http.get_json(f'{host}/careers/{j["id"]}/detail').get('result') or {}).get('jobOpening') or {}
+            description, published = html_to_text(opening.get('description')), opening.get('datePosted') or ''
+        jobs.append(make_job(
+            id=f'bamboohr:{source["board"]}:{j["id"]}', company=source['company'], title=title, location=location,
+            url=f'{host}/careers/{j["id"]}', published=published, employment_type=j.get('employmentStatusLabel') or '',
+            description=description, source='BambooHR careers page', status=OPEN,
+            status_evidence='listed on the official BambooHR careers page (open positions only)'))
+    return jobs

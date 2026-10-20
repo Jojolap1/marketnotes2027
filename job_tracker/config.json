@@ -1037,6 +1037,30 @@
       ]
     },
     {
+      "company": "Berenberg",
+      "platform": "avature",
+      "base_url": "https://berenberg.avature.net/en_GB/careers",
+      "listing_refresh_hours": 4,
+      "max_pages": 15
+    },
+    {
+      "company": "National Bank of Canada",
+      "platform": "avature",
+      "base_url": "https://emplois.bnc.ca/en_CA/careers",
+      "listing_refresh_hours": 4,
+      "max_pages": 30
+    },
+    {
+      "company": "BTG Pactual",
+      "platform": "greenhouse",
+      "board": "btgpactual"
+    },
+    {
+      "company": "Panmure Liberum",
+      "platform": "bamboohr",
+      "board": "panmure"
+    },
+    {
       "company": "AIB",
       "platform": "official",
       "enabled": false,

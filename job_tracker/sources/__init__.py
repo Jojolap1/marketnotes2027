@@ -14,6 +14,7 @@ ADAPTERS = {
     'lever': ats.lever,
     'ashby': ats.ashby,
     'smartrecruiters': ats.smartrecruiters,
+    'bamboohr': ats.bamboohr,
     'workday': workday.fetch,
     'oracle': oracle.fetch,
     'eightfold': eightfold.fetch,

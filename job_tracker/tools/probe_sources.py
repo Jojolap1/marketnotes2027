@@ -1961,6 +1961,28 @@ R43 = [
 ]
 PROBES = PROBES + R43
 
+
+# ---------------- Round 44: batch 1 last leads ----------------
+SFID = r'(?:company=|companyId["\']?\s*[:=]\s*["\']|career_company=)([A-Za-z0-9_]+)'
+R44 = [
+    ('R44 Pareto rss', lambda: validate_page('https://paretosecurities.teamtailor.com/jobs.rss')),
+    ('R44 Pareto jobs html', lambda: grep_page('https://paretosecurities.teamtailor.com/jobs', r'href="([^"]*/jobs/\d+[^"]*)"', 15, 160)),
+    ('R44 ICBCS tal.net root', lambda: grep_page('https://icbcs.tal.net/candidate', r'href="([^"]*(?:jobboard|vacancy)[^"]*)"', 10, 220)),
+    ('R44 ICBCS careers', lambda: grep_page('https://www.icbcstandard.com/en/careers', r'href="([^"]*(?:tal\.net|career|vacanc|job)[^"]*)"', 15, 220)),
+    ('R44 Investec earcu', lambda: grep_page('https://careers.investec.co.uk/jobs', r'href="([^"]*(?:/jobs/vacancy/|/jobs/\d|vacancy)[^"]*)"', 15, 200)),
+    ('R44 Investec earcu rss', lambda: validate_page('https://careers.investec.co.uk/jobs/rss')),
+    ('R44 Commerzbank jobs', lambda: grep_page('https://jobs.commerzbank.com/index.php?ac=search_result&search_criterion_channel%5B%5D=12', r'href="([^"]*ac=jobad[^"]*)"', 10, 200)),
+    ('R44 Commerzbank jobad text', lambda: grep_page('https://jobs.commerzbank.com/index.php?ac=jobad&id=60114', r'(?i)((?:London|Singapore|Hong Kong|Paris|Frankfurt)[^<]{0,80})', 6, 160)),
+    ('R44 Scotiabank SF id', lambda: grep_page('https://jobs.scotiabank.com/', SFID, 5, 80)),
+    ('R44 Goodbody SF id', lambda: grep_page('https://jobs.aib.ie/', SFID, 5, 80)),
+    ('R44 Goodbody search', lambda: grep_page('https://jobs.aib.ie/search/?q=goodbody', r'href="(/job/[^"]+)"', 10, 160)),
+    ('R44 Stifel icims rows', lambda: grep_page('https://careers-stifel.icims.com/jobs/search?pr=0&in_iframe=1', r'(?s)class="iCIMS_JobsTable.*?href="([^"]+)"', 10, 200)),
+    ('R44 Stifel icims links', lambda: grep_page('https://careers-stifel.icims.com/jobs/search?pr=0&in_iframe=1', r'href="(https://careers-stifel\.icims\.com/jobs/\d+/[^"]+)"', 15, 200)),
+    ('R44 Handelsbanken jobs', lambda: discover('https://jobs.handelsbanken.co.uk/')),
+    ('R44 Handelsbanken links', lambda: grep_page('https://jobs.handelsbanken.co.uk/', r'href="([^"]*(?:job|vacanc)[^"]*)"', 15, 200)),
+]
+PROBES = PROBES + R44
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
