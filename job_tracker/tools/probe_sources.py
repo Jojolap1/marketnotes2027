@@ -2151,6 +2151,23 @@ R49 = [
 ]
 PROBES = PROBES + R49
 
+
+# ---------------- Round 50: Talentsoft list-page structure ----------------
+def talentsoft_item(host):
+    r = get(f'https://{host}/job/list-of-jobs.aspx?page=1&LCID=2057')
+    t = r.text
+    i = t.find('/job/job-')
+    pages = sorted(set(int(x) for x in re.findall(r'list-of-jobs\.aspx\?page=(\d+)', t)))
+    total = re.findall(r'(?i)(\d+)\s*(?:offers?|offres?|jobs?|results?|r[ée]sultats?)', t)[:5]
+    return f'pages={pages[:20]} total={total}\nSNIPPET:\n' + t[max(0, i - 900):i + 1400]
+
+
+R50 = [('R50 CA-CIB item', lambda: talentsoft_item('jobs.ca-cib.com')),
+       ('R50 Amundi item', lambda: talentsoft_item('jobs.amundi.com')),
+       ('R50 CA-CIB p3', lambda: grep_page('https://jobs.ca-cib.com/job/list-of-jobs.aspx?page=3&LCID=2057', r'href="(/job/job-[^"]+)"', 3, 120)),
+       ('R50 CA-CIB p5', lambda: grep_page('https://jobs.ca-cib.com/job/list-of-jobs.aspx?page=5&LCID=2057', r'href="(/job/job-[^"]+)"', 3, 120))]
+PROBES = PROBES + R50
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
