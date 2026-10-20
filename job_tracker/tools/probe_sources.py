@@ -2103,6 +2103,18 @@ R47 = [
 ]
 PROBES = PROBES + R47
 
+
+# ---------------- Round 48: Marex, G-Research, Nordea listing structure ----------------
+R48 = [
+    ('R48 Marex card', lambda: grep_page('https://www.marex.com/careers/career-opportunities', r'(?s)(href="/careers/career-opportunities/[^"]*vn3259.{0,900})', 1, 900)),
+    ('R48 Marex card before', lambda: grep_page('https://www.marex.com/careers/career-opportunities', r'(?s)(.{0,700}href="/careers/career-opportunities/[^"]*vn3259)', 1, 700)),
+    ('R48 Marex detail', lambda: validate_page('https://www.marex.com/careers/career-opportunities/55fd727028c701-apac-prime-services-intern-vn3259')),
+    ('R48 GR card', lambda: grep_page('https://www.gresearch.com/vacancies/', r'(?s)(href="https://www.gresearch.com/vacancies/data-science-internship/".{0,700})', 1, 700)),
+    ('R48 GR detail', lambda: validate_page('https://www.gresearch.com/vacancies/data-science-internship/')),
+    ('R48 Nordea api', lambda: grep_page('https://www.nordea.com/en/careers/open-jobs', r'(.{0,200}api/jobs-list.{0,300})', 2, 500)),
+]
+PROBES = PROBES + R48
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
