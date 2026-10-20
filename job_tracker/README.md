@@ -49,7 +49,7 @@ A job whose source gives no publication date (e.g. Oleeo boards, Standard Charte
 marked "date not provided by the source". Dates come from the feeds (Workday posting date or
 "Posted N days ago", Oracle `PostedDate`, Greenhouse `first_published`, JSON-LD `datePosted`, RSS `pubDate`…).
 
-**Send window:** GitHub drops many scheduled runs, so the workflow is triggered every 30 min from 11:07 to 22:37 Vietnam time; a scheduled run sends only if the last send slot is at least `notifications.min_minutes_between_sends` (100) min old (manual runs always send); scheduled runs that are too early stop before any source request, and
+**Send window:** GitHub drops many scheduled runs, so the workflow is triggered every 30 min from 11:07 to 22:37 Vietnam time; a scheduled run sends only if the last send slot is at least `notifications.min_minutes_between_sends` (100) min old (manual runs always send); scheduled runs that are too early, and any run outside the send window, stop before any source request (so an external trigger every 2 h is fine), and
 `notifications.send_window` (Asia/Ho_Chi_Minh, 11h-22h) stops any run outside that window from
 sending; new jobs then wait for the next slot.
 
