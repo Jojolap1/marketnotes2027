@@ -1802,6 +1802,33 @@ def sg_sitemap_langs():
 R34 = [('R34 SG sitemap langs', sg_sitemap_langs)]
 PROBES = PROBES + R34
 
+
+# ---------------- Round 35: Avature order + filters ----------------
+def avature_order_filters(base, pages=(0, 1, 4, 9, 20)):
+    out = []
+    first = get(f'{base}/SearchJobs/?jobRecordsPerPage=20&jobOffset=0').text
+    # filter controls in the search form
+    selects = re.findall(r'(?s)<select[^>]*name="([^"]+)"[^>]*>(.*?)</select>', first)
+    for name, body in selects[:12]:
+        opts = re.findall(r'<option[^>]*value="([^"]*)"[^>]*>([^<]*)<', body)
+        out.append(f'SELECT {name}: {len(opts)} opts sample={[(v, x.strip()) for v, x in opts if re.search(r"France|United Kingdom|Singapore|Hong Kong|Paris|London", x)][:6]}')
+    checks = sorted(set(re.findall(r'name="([^"]*(?:ountry|ocation|ity)[^"]*)"\s+value="([^"]*)"', first)))[:20]
+    out.append('checkbox/hidden location fields: ' + str(checks))
+    links = sorted(set(re.findall(r'href="([^"]*SearchJobs/?\?[^"]*(?:ountry|ocation|_)[^"]*)"', first)))[:10]
+    out.append('filter links: ' + str(links))
+    for p in pages:
+        html = get(f'{base}/SearchJobs/?jobRecordsPerPage=20&jobOffset={p * 20}').text
+        dates = re.findall(r'list-item-jobCreationDate">([^<]+)<', html) or re.findall(r'(\d{1,2}[-/]\d{1,2}[-/]\d{4})', html)[:20]
+        out.append(f'page {p + 1}: n={len(re.findall("article--result", html))} dates={dates[:3]}...{dates[-2:]}')
+        time.sleep(3)
+    return '\n'.join(out)
+
+
+R35 = [('R35 Avature TotalEnergies', lambda: avature_order_filters('https://jobs.totalenergies.com/en_US/careers')),
+       ('R35 Avature Macquarie', lambda: avature_order_filters('https://recruitment.macquarie.com/en_US/careers', pages=(0, 1))),
+       ('R35 Avature Two Sigma', lambda: avature_order_filters('https://careers.twosigma.com/careers', pages=(0, 1)))]
+PROBES = PROBES + R35
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
