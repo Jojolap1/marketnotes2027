@@ -90,6 +90,10 @@ def select(jobs, classifier, state, config, report):
     notify_statuses = set(config.get('notifications', {}).get('statuses', ['open', 'unknown']))
     # Jobs older than this are not alerted; jobs without a publication date are (just in case).
     max_age = config.get('notifications', {}).get('max_age_days')
+    # Newly added employers: their open adverts are alerted once whatever their
+    # publication date, until `backfill_until` (the user has never seen them).
+    today = datetime.now(timezone.utc).date().isoformat()
+    backfill = {s['company'] for s in config.get('sources', []) if str(s.get('backfill_until', '')) >= today}
     run_keys, new, matched, near = set(), [], [], []
     reasons = Counter()
     samples = {}
@@ -122,7 +126,7 @@ def select(jobs, classifier, state, config, report):
             reasons[f'status {job.get("status")} not notified'] += 1
             continue
         age = age_days(job.get('published'))
-        if max_age is not None and age is not None and age > max_age:
+        if max_age is not None and age is not None and age > max_age and job['company'] not in backfill:
             reasons[f'published more than {max_age} days ago'] += 1
             job['too_old'] = True
             continue

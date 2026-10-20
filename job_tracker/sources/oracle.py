@@ -85,6 +85,10 @@ def fetch(source, ctx):
     page = int(source.get('page_size', 25))
     max_results = int(source.get('max_results', 1500))
     ids = location_ids(source, ctx)
+    if not ids and source.get('target_cities_optional'):
+        # Employers that only occasionally hire in a target city (Danske Bank)
+        ctx.stat(company, 'listed', 0)
+        return []
     if not ids:
         raise ValueError('no target-city location facets found')
     reqs = {}

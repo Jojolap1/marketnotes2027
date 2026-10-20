@@ -143,6 +143,24 @@ class PipelineTests(unittest.TestCase):
         self.assertIn('published more than 14 days ago: 1', self.report.read_text())
 
 
+    def test_newly_added_source_backfills_old_open_adverts(self):
+        from datetime import datetime, timedelta, timezone
+        from unittest import mock
+        today = datetime.now(timezone.utc).date()
+        job = dict(company='Bank', location='London', description='', status='open', status_evidence='', employment_type='',
+                   apply_url='', requisition_id='', id='b', title='Rates Sales Intern', url='https://b/b',
+                   published=(today - timedelta(days=60)).isoformat())
+        source = dict(SOURCES[0], company='Bank', backfill_until=(today + timedelta(days=3)).isoformat())
+        with mock.patch.object(tracker, 'fetch_source', lambda s, ctx: [job]):
+            tg = FakeTelegram()
+            self.run_tracker(tg, sources=[source], max_age_days=14)
+            self.assertIn('Rates Sales Intern', '\n'.join(tg.sent))
+            expired = dict(source, backfill_until=(today - timedelta(days=1)).isoformat())
+            tg2 = FakeTelegram()
+            self.run_tracker(tg2, sources=[expired], max_age_days=14)   # already notified anyway
+            self.assertEqual(tg2.sent, [])
+
+
     def test_send_window_holds_alerts_until_next_slot(self):
         from datetime import datetime, timezone
         window = {'timezone': 'Asia/Ho_Chi_Minh', 'start_hour': 11, 'end_hour': 22}
@@ -208,10 +226,10 @@ class PipelineTests(unittest.TestCase):
 
 
 class ConfigTests(unittest.TestCase):
-    REQUIRED = {'greenhouse': ['board'], 'lever': ['board'], 'ashby': ['board'], 'smartrecruiters': ['board'], 'bamboohr': ['board'],
+    REQUIRED = {'greenhouse': ['board'], 'lever': ['board'], 'ashby': ['board'], 'smartrecruiters': ['board'], 'bamboohr': ['board'], 'workable': ['board'],
                 'workday': ['host', 'tenant', 'site'], 'oracle': ['host'], 'eightfold': ['host', 'domain'],
                 'sitemap': ['sitemap_url', 'job_url_pattern'], 'goldman': [], 'successfactors_xml': ['host', 'sf_company'],
-                'rss': ['feeds'], 'oleeo': ['boards'], 'rmk': ['base_url', 'location_searches'],
+                'rss': ['feeds'], 'oleeo': ['boards'], 'rmk': ['base_url', 'location_searches'], 'html_cards': ['listing_url', 'card_pattern'],
                 'bank_of_america': [], 'brassring': ['host', 'partner_id', 'site_ids'], 'zhiye': ['host'], 'bpce': ['base_url'], 'avature': ['base_url'], 'business_france': []}
 
     def test_sources_are_valid(self):

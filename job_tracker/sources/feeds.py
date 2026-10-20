@@ -270,3 +270,29 @@ def rmk(source, ctx):
             source='official careers site search (SuccessFactors RMK)', status=OPEN,
             status_evidence='listed in the official careers site search (live postings only)'))
     return jobs
+
+
+def html_cards(source, ctx):
+    """Official careers page that renders every vacancy as a card. `card_pattern`
+    is a regex with named groups url, title and location; the advert page is
+    opened only for target-city cards with a promising title."""
+    company = source['company']
+    response = ctx.http.get(source['listing_url'])
+    response.raise_for_status()
+    cards = {}
+    for m in re.finditer(source['card_pattern'], response.text, re.S):
+        url = urljoin(source['listing_url'], m.group('url'))
+        cards.setdefault(url, (html_to_text(m.group('title')), html_to_text(m.group('location'))))
+    ctx.stat(company, 'listed', len(cards))
+    jobs = []
+    for url, (title, location) in cards.items():
+        if not ctx.screen(company, title, location):
+            continue
+        page = ctx.http.get(url)
+        page.raise_for_status()
+        text = html_to_text(re.sub(r'(?s)<(script|style|nav|header|footer)\b.*?</\1>', ' ', page.text))
+        jobs.append(make_job(
+            id=f'cards:{company}:{canonical_url(url)}', company=company, title=title, location=location, url=url,
+            description=text[:6000], source='official careers page', status=OPEN,
+            status_evidence='listed on the official careers page (live vacancies only)'))
+    return jobs

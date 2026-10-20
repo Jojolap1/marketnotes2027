@@ -52,6 +52,7 @@
         "\\btrad(?:er|ers|ing)\\b",
         "\\b(?:e-?)?sales\\b",
         "\\bsalesperson\\b",
+        "\\bprime (?:services|brokerage|finance)\\b",
         "\\bmarket[- ]?mak(?:er|ing)\\b",
         "\\bdelta[- ]?one\\b",
         "\\bglobal (?:banking and )?markets\\b",
@@ -238,7 +239,8 @@
       "行政|人力资源|人力資源|合规|合規|风险管理|風險管理|运营|運營|信息技术|資訊科技|开发工程师|開發工程師|财务|財務|党建|黨建|审计|審計|法务|法務",
       "\\badmin(?:istrative)? assistant\\b|\\bassistant administratif\\b|\\bexecutive assistant\\b|\\bpersonal assistant\\b",
       "\\bmarch[ée]s de capitaux\\b(?!.{0,30}\\b(?:vente|vendeur|sales|trad(?:ing|er)|structur))",
-      "\\b(?:project|acquisition|real estate|asset|export|trade|leveraged) financ\\w*\\b|\\bfinancements? (?:de projets?|d'acquisition|immobiliers?|export)\\b"
+      "\\b(?:project|acquisition|real estate|asset|export|trade|leveraged) financ\\w*\\b|\\bfinancements? (?:de projets?|d'acquisition|immobiliers?|export)\\b",
+      "\\bteam assistant\\b"
     ],
     "entry_types": {
       "vie": [
@@ -992,41 +994,47 @@
       "platform": "workday",
       "host": "lbg.wd3.myworkdayjobs.com",
       "tenant": "lbg",
-      "site": "lbg_Careers"
+      "site": "lbg_Careers",
+      "backfill_until": "2026-10-27"
     },
     {
       "company": "CommBank",
       "platform": "workday",
       "host": "cba.wd3.myworkdayjobs.com",
       "tenant": "cba",
-      "site": "CommBank_Careers"
+      "site": "CommBank_Careers",
+      "backfill_until": "2026-10-27"
     },
     {
       "company": "TD Securities",
       "platform": "workday",
       "host": "td.wd3.myworkdayjobs.com",
       "tenant": "td",
-      "site": "TD_Bank_Careers"
+      "site": "TD_Bank_Careers",
+      "backfill_until": "2026-10-27"
     },
     {
       "company": "BMO Capital Markets",
       "platform": "workday",
       "host": "bmo.wd3.myworkdayjobs.com",
       "tenant": "bmo",
-      "site": "External"
+      "site": "External",
+      "backfill_until": "2026-10-27"
     },
     {
       "company": "Wells Fargo",
       "platform": "workday",
       "host": "wd1.myworkdaysite.com",
       "tenant": "wf",
-      "site": "WellsFargoJobs"
+      "site": "WellsFargoJobs",
+      "backfill_until": "2026-10-27"
     },
     {
       "company": "Jefferies",
       "platform": "oracle",
       "host": "hdid.fa.us2.oraclecloud.com",
-      "site": "CX_1"
+      "site": "CX_1",
+      "backfill_until": "2026-10-27"
     },
     {
       "company": "Jefferies (campus)",
@@ -1034,38 +1042,44 @@
       "boards": [
         "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/1/adv/",
         "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/2/adv/"
-      ]
+      ],
+      "backfill_until": "2026-10-27"
     },
     {
       "company": "Berenberg",
       "platform": "avature",
       "base_url": "https://berenberg.avature.net/en_GB/careers",
       "listing_refresh_hours": 4,
-      "max_pages": 15
+      "max_pages": 15,
+      "backfill_until": "2026-10-27"
     },
     {
       "company": "National Bank of Canada",
       "platform": "avature",
       "base_url": "https://emplois.bnc.ca/en_CA/careers",
       "listing_refresh_hours": 4,
-      "max_pages": 30
+      "max_pages": 30,
+      "backfill_until": "2026-10-27"
     },
     {
       "company": "BTG Pactual",
       "platform": "greenhouse",
-      "board": "btgpactual"
+      "board": "btgpactual",
+      "backfill_until": "2026-10-27"
     },
     {
       "company": "Panmure Liberum",
       "platform": "bamboohr",
-      "board": "panmure"
+      "board": "panmure",
+      "backfill_until": "2026-10-27"
     },
     {
       "company": "Pareto Securities",
       "platform": "rss",
       "feeds": [
         "https://paretosecurities.teamtailor.com/jobs.rss"
-      ]
+      ],
+      "backfill_until": "2026-10-27"
     },
     {
       "company": "Investec",
@@ -1074,7 +1088,8 @@
         "https://careers.investec.co.uk/jobs/rss"
       ],
       "location_in_link": true,
-      "note": "eArcu RSS of all live vacancies; the city is only in the vacancy link"
+      "note": "eArcu RSS of all live vacancies; the city is only in the vacancy link",
+      "backfill_until": "2026-10-27"
     },
     {
       "company": "ICBC Standard Bank",
@@ -1082,21 +1097,162 @@
       "boards": [
         "https://icbcs.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/candidate/jobboard/vacancy/2/adv/",
         "https://icbcs.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/candidate/jobboard/vacancy/3/adv/"
-      ]
+      ],
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "State Street",
+      "platform": "workday",
+      "host": "statestreet.wd1.myworkdayjobs.com",
+      "tenant": "statestreet",
+      "site": "Global",
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "Brevan Howard",
+      "platform": "workday",
+      "host": "wd3.myworkdaysite.com",
+      "tenant": "brevanhoward",
+      "site": "BH_ExternalCareers",
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "TP ICAP",
+      "platform": "smartrecruiters",
+      "board": "tpicap",
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "Tradition",
+      "platform": "smartrecruiters",
+      "board": "tradition",
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "Qube Research & Technologies",
+      "platform": "greenhouse",
+      "board": "quberesearchandtechnologies",
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "Schonfeld",
+      "platform": "greenhouse",
+      "board": "schonfeld",
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "Man Group",
+      "platform": "greenhouse",
+      "board": "mangroup",
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "Graviton Research Capital",
+      "platform": "greenhouse",
+      "board": "gravitonresearchcapital",
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "Quadrature Capital",
+      "platform": "greenhouse",
+      "board": "quadraturecapital",
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "Wintermute",
+      "platform": "lever",
+      "board": "wintermute-trading",
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "BNY",
+      "platform": "oracle",
+      "host": "eofe.fa.us2.oraclecloud.com",
+      "site": "BNY",
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "Danske Bank",
+      "platform": "oracle",
+      "host": "ejqi.fa.ocs.oraclecloud.eu",
+      "site": "CX_1001",
+      "backfill_until": "2026-10-27",
+      "target_cities_optional": true
+    },
+    {
+      "company": "Kepler Cheuvreux",
+      "platform": "rss",
+      "feeds": [
+        "https://keplercheuvreux.teamtailor.com/jobs.rss"
+      ],
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "Capula Investment Management",
+      "platform": "workable",
+      "board": "capula-investment-management-ltd",
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "Da Vinci Trading",
+      "platform": "greenhouse",
+      "board": "davinciderivatives",
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "Maven Securities",
+      "platform": "greenhouse",
+      "board": "mavensecuritiesholdingltd",
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "UniCredit / Rabobank / BGC / StoneX",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "careers sites answer HTTP 403 to automated requests (2026-10-20)."
+    },
+    {
+      "company": "Rokos / Balyasny / SIG / Marshall Wace / Mediobanca / ODDO BHF / Intesa Sanpaolo / SEB / LBBW / DZ Bank / Nordea",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "no public vacancy feed found (email applications, JavaScript-only pages, or no target-city listings) (2026-10-20)."
+    },
+    {
+      "company": "G-Research",
+      "platform": "workday",
+      "host": "gresearch.wd103.myworkdayjobs.com",
+      "tenant": "gresearch",
+      "site": "G-Research",
+      "backfill_until": "2026-10-27"
+    },
+    {
+      "company": "Marex",
+      "platform": "html_cards",
+      "listing_url": "https://www.marex.com/careers/career-opportunities",
+      "card_pattern": "href=\"(?P<url>/careers/career-opportunities/[^\"]+)\"><div[^>]*><h4[^>]*>(?P<title>.*?)</h4>.*?MuiTypography-h6[^\"]*\">(?P<location>[^<]*)<",
+      "note": "the careers page renders every vacancy as a card (title, city); no feed is published",
+      "backfill_until": "2026-10-27"
     },
     {
       "company": "AIB (incl. Goodbody)",
       "platform": "successfactors_xml",
       "host": "career2.successfactors.eu",
       "sf_company": "aib",
-      "note": "jobs.aib.ie answers 403 to scripts; the SuccessFactors job feed behind it is public"
+      "note": "jobs.aib.ie answers 403 to scripts; the SuccessFactors job feed behind it is public",
+      "backfill_until": "2026-10-27"
     },
     {
       "company": "Scotiabank",
       "platform": "rmk",
       "base_url": "https://jobs.scotiabank.com",
-      "location_searches": ["London", "Singapore", "Hong Kong", "Paris"],
-      "exclude_url_pattern": "-(?:ON|QC|BC|AB|MB|NS|NB|SK|NL|PE)-"
+      "location_searches": [
+        "London",
+        "Singapore",
+        "Hong Kong",
+        "Paris"
+      ],
+      "exclude_url_pattern": "-(?:ON|QC|BC|AB|MB|NS|NB|SK|NL|PE)-",
+      "backfill_until": "2026-10-27"
     },
     {
       "company": "Stifel",
