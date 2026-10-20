@@ -2168,6 +2168,24 @@ R50 = [('R50 CA-CIB item', lambda: talentsoft_item('jobs.ca-cib.com')),
        ('R50 CA-CIB p5', lambda: grep_page('https://jobs.ca-cib.com/job/list-of-jobs.aspx?page=5&LCID=2057', r'href="(/job/job-[^"]+)"', 3, 120))]
 PROBES = PROBES + R50
 
+
+# ---------------- Round 51: CA-CIB card text and detail-page location ----------------
+def cacib_card():
+    from jobs import html_to_text
+    t = get('https://jobs.ca-cib.com/job/list-of-jobs.aspx?page=1&LCID=2057').text
+    blocks = re.findall(r'<div class="ts-offer-card\b.*?(?=<div class="ts-offer-card\b|$)', t, re.S)
+    out = [f'blocks={len(blocks)}']
+    for b in blocks[:3]:
+        out.append('TEXT: ' + html_to_text(b)[:400])
+    if blocks:
+        out.append('RAW: ' + blocks[0][-1500:])
+    return '\n'.join(out)
+
+
+R51 = [('R51 CA-CIB card', cacib_card),
+       ('R51 CA-CIB detail', lambda: grep_page('https://jobs.ca-cib.com/job/job--trader-gri_115692.aspx', r'(?is)((?:location|localisation|lieu|city|ville|country|pays)[^<]{0,40}</[^>]+>\s*<[^>]+>[^<]{0,80})', 8, 200))]
+PROBES = PROBES + R51
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
