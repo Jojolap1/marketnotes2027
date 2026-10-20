@@ -2171,7 +2171,8 @@ PROBES = PROBES + R50
 
 # ---------------- Round 51: CA-CIB card text and detail-page location ----------------
 def cacib_card():
-    from jobs import html_to_text
+    def html_to_text(x):
+        return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', x)).strip()
     t = get('https://jobs.ca-cib.com/job/list-of-jobs.aspx?page=1&LCID=2057').text
     blocks = re.findall(r'<div class="ts-offer-card\b.*?(?=<div class="ts-offer-card\b|$)', t, re.S)
     out = [f'blocks={len(blocks)}']
