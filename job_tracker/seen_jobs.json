@@ -1674,7 +1674,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-20T05:09:12.072861+00:00",
+ "last_send_slot": "2026-10-20T05:50:29.790960+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -1852,7 +1852,8 @@
    "last_ok": "2026-10-20"
   },
   "Macquarie": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 406 Client Error: Not Acceptable for url: https://recruitment.macquarie.com/en_US/careers/SearchJobs/feed/",
    "last_ok": "2026-10-20"
   },
   "Mako Trading": {
@@ -1944,7 +1945,8 @@
    "last_ok": "2026-10-20"
   },
   "TotalEnergies": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 406 Client Error: Not Acceptable for url: https://jobs.totalenergies.com/en_US/careers/SearchJobs/?jobRecordsPerPage=20&jobOffset=540",
    "last_ok": "2026-10-20"
   },
   "Tower Research Capital": {
@@ -1956,7 +1958,8 @@
    "last_ok": "2026-10-20"
   },
   "Two Sigma": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 406 Client Error: Not Acceptable for url: https://careers.twosigma.com/careers/OpenRoles/feed/",
    "last_ok": "2026-10-20"
   },
   "UBS": {
