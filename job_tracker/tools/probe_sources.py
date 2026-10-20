@@ -1900,6 +1900,45 @@ for c in ['PeelHunt', 'Berenberg', 'Goodbody', 'ParetoSecurities', 'InvestecGrou
     R41.append((f'R41 SR {c}', (lambda c=c: smartrecruiters(c))))
 PROBES = PROBES + R41
 
+
+# ---------------- Round 42: batch 1 feed validation ----------------
+def bamboo(sub):
+    r = get(f'https://{sub}.bamboohr.com/careers/list', headers={'Accept': 'application/json'})
+    try:
+        d = r.json()
+    except Exception:
+        return f'{r.status_code} {r.text[:200]!r}'
+    res = d.get('result') or []
+    return f'{r.status_code} n={len(res)} sample={[(x.get("jobOpeningName"), (x.get("location") or {}).get("city")) for x in res[:6]]} keys={sorted(res[0]) if res else []}'
+
+
+R42 = [
+    ('R42 WD lbg', lambda: workday('lbg.wd3.myworkdayjobs.com', 'lbg', 'lbg_Careers')),
+    ('R42 WD cba', lambda: workday('cba.wd3.myworkdayjobs.com', 'cba', 'CommBank_Careers')),
+    ('R42 WD td', lambda: workday('td.wd3.myworkdayjobs.com', 'td', 'TD_Bank_Careers')),
+    ('R42 WD bmo', lambda: workday('bmo.wd3.myworkdayjobs.com', 'bmo', 'External')),
+    ('R42 WD wellsfargo', lambda: workday('wd1.myworkdaysite.com', 'wf', 'WellsFargoJobs')),
+    ('R42 WD canaccord', lambda: workday('canaccordgenuity.wd3.myworkdayjobs.com', 'canaccordgenuity', 'CanaccordGenuity')),
+    ('R42 WD investec', lambda: workday('investec.wd3.myworkdayjobs.com', 'investec', 'Investec')),
+    ('R42 Oleeo jefferies', lambda: discover('https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-2/candidate/jobboard/vacancy/1/adv/')),
+    ('R42 Oracle jefferies CX_1', lambda: oracle('hdid.fa.us2.oraclecloud.com', 'CX_1')),
+    ('R42 Oracle jefferies CX', lambda: oracle('hdid.fa.us2.oraclecloud.com', 'CX')),
+    ('R42 Jefferies apply page', lambda: grep_page('https://www.jefferies.com/careers/apply-now/', r'href="([^"]*(?:tal\.net|oraclecloud)[^"]*)"', 12, 220)),
+    ('R42 Bamboo panmure', lambda: bamboo('panmure')),
+    ('R42 SM scotiabank', lambda: sitemap('https://jobs.scotiabank.com/sitemap.xml')),
+    ('R42 SM commerzbank', lambda: sitemap('https://jobs.commerzbank.com/sitemap.xml')),
+    ('R42 SM wellsfargo', lambda: sitemap('https://www.wellsfargojobs.com/sitemap.xml')),
+    ('R42 Goodbody AIB jobs', lambda: discover('https://jobs.aib.ie/goodbody')),
+    ('R42 Stifel icims', lambda: grep_page('https://careers-stifel.icims.com/jobs/search?ss=1&in_iframe=1', r'href="([^"]*/jobs/\d+/[^"]*)"', 10, 160)),
+    ('R42 Commerzbank search', lambda: grep_page('https://jobs.commerzbank.com/index.php?ac=search_result', r'href="([^"]*(?:jobad|ac=jobad|job_id|id=\d)[^"]*)"', 10, 160)),
+    ('R42 Standard Bank grads', lambda: grep_page('https://www.standardbank.com/sbg/standard-bank-group/careers/students-and-graduates', r'href="(https?://[^"]*(?:job|career|apply|successfactors|workday|taleo|avature)[^"]*)"', 15, 160)),
+]
+for name, u in {'Berenberg': 'https://www.berenberg.de/en/careers/', 'Investec': 'https://www.investec.com/en_gb/welcome-to-investec/careers.html',
+                'Handelsbanken': 'https://www.handelsbanken.com/en/about-the-group/career', 'Pareto': 'https://paretosec.com/',
+                'ICBC Standard': 'https://www.icbcstandard.com/', 'NBC': 'https://jobs.nbc.ca/', 'Canaccord students': 'https://www.canaccordgenuity.com/global-careers/students/'}.items():
+    R42.append((f'R42 CRAWL {name}', (lambda u=u: crawl(u, depth=1, max_pages=6))))
+PROBES = PROBES + R42
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
