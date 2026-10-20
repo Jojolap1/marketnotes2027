@@ -2115,6 +2115,78 @@ R48 = [
 ]
 PROBES = PROBES + R48
 
+
+# ---------------- Round 49: CA-CIB / Amundi Talentsoft feeds: stale or live? ----------------
+def rss_dates(feed):
+    r = get(feed)
+    items = re.findall(r'<item>(.*?)</item>', r.text, re.S)
+    rows = []
+    for i in items:
+        t = re.search(r'<title>(.*?)</title>', i, re.S)
+        d = re.search(r'<pubDate>([^<]+)</pubDate>', i)
+        rows.append(((d.group(1).strip() if d else '')[5:16], (t.group(1).strip() if t else '')[:50]))
+    return f'HTTP {r.status_code} items={len(items)} rows={rows}'
+
+
+def talentsoft_list(host, lcid):
+    out = []
+    for path in ('/offre-de-emploi/liste-offres.aspx', '/job/list-of-jobs.aspx', '/offre-de-emploi/liste-toutes-offres.aspx'):
+        for page in (1, 2):
+            r = get(f'https://{host}{path}?page={page}&LCID={lcid}')
+            links = sorted(set(re.findall(r'href="([^"]*(?:emploi-|job-)[^"]*\.aspx)"', r.text)))
+            total = re.findall(r'(\d[\d\s]*)\s*(?:offres?|jobs?|r[ée]sultats?|results?)\b', r.text, re.I)[:3]
+            out.append(f'{path} p{page} -> {r.status_code} final={r.url[-60:]} links={len(links)} total={total} first={links[:2]}')
+            time.sleep(1)
+    return '\n'.join(out)
+
+
+R49 = [
+    ('R49 CA-CIB rss', lambda: rss_dates('https://jobs.ca-cib.com/handlers/offerRss.ashx?LCID=2057')),
+    ('R49 Amundi rss', lambda: rss_dates('https://jobs.amundi.com/handlers/offerRss.ashx?LCID=2057')),
+    ('R49 CA-CIB rss fr', lambda: rss_dates('https://jobs.ca-cib.com/handlers/offerRss.ashx?LCID=1036')),
+    ('R49 CA-CIB list', lambda: talentsoft_list('jobs.ca-cib.com', 2057)),
+    ('R49 Amundi list', lambda: talentsoft_list('jobs.amundi.com', 2057)),
+    ('R49 CA-CIB sitemap', lambda: sitemap('https://jobs.ca-cib.com/sitemap.xml')),
+    ('R49 Amundi sitemap', lambda: sitemap('https://jobs.amundi.com/sitemap.xml')),
+]
+PROBES = PROBES + R49
+
+
+# ---------------- Round 50: Talentsoft list-page structure ----------------
+def talentsoft_item(host):
+    r = get(f'https://{host}/job/list-of-jobs.aspx?page=1&LCID=2057')
+    t = r.text
+    i = t.find('/job/job-')
+    pages = sorted(set(int(x) for x in re.findall(r'list-of-jobs\.aspx\?page=(\d+)', t)))
+    total = re.findall(r'(?i)(\d+)\s*(?:offers?|offres?|jobs?|results?|r[ée]sultats?)', t)[:5]
+    return f'pages={pages[:20]} total={total}\nSNIPPET:\n' + t[max(0, i - 900):i + 1400]
+
+
+R50 = [('R50 CA-CIB item', lambda: talentsoft_item('jobs.ca-cib.com')),
+       ('R50 Amundi item', lambda: talentsoft_item('jobs.amundi.com')),
+       ('R50 CA-CIB p3', lambda: grep_page('https://jobs.ca-cib.com/job/list-of-jobs.aspx?page=3&LCID=2057', r'href="(/job/job-[^"]+)"', 3, 120)),
+       ('R50 CA-CIB p5', lambda: grep_page('https://jobs.ca-cib.com/job/list-of-jobs.aspx?page=5&LCID=2057', r'href="(/job/job-[^"]+)"', 3, 120))]
+PROBES = PROBES + R50
+
+
+# ---------------- Round 51: CA-CIB card text and detail-page location ----------------
+def cacib_card():
+    def html_to_text(x):
+        return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', x)).strip()
+    t = get('https://jobs.ca-cib.com/job/list-of-jobs.aspx?page=1&LCID=2057').text
+    blocks = re.findall(r'<div class="ts-offer-card\b.*?(?=<div class="ts-offer-card\b|$)', t, re.S)
+    out = [f'blocks={len(blocks)}']
+    for b in blocks[:3]:
+        out.append('TEXT: ' + html_to_text(b)[:400])
+    if blocks:
+        out.append('RAW: ' + blocks[0][-1500:])
+    return '\n'.join(out)
+
+
+R51 = [('R51 CA-CIB card', cacib_card),
+       ('R51 CA-CIB detail', lambda: grep_page('https://jobs.ca-cib.com/job/job--trader-gri_115692.aspx', r'(?is)((?:location|localisation|lieu|city|ville|country|pays)[^<]{0,40}</[^>]+>\s*<[^>]+>[^<]{0,80})', 8, 200))]
+PROBES = PROBES + R51
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

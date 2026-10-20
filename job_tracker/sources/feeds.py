@@ -296,3 +296,51 @@ def html_cards(source, ctx):
             description=text[:6000], source='official careers page', status=OPEN,
             status_evidence='listed on the official careers page (live vacancies only)'))
     return jobs
+
+
+# One card per offer; inner blocks ('ts-offer-card-content', holding the city) belong to it.
+TS_CARD = re.compile(r'<(?:div|li) class="ts-offer-(?:card|list-item)[\s"].*?(?=<(?:div|li) class="ts-offer-(?:card|list-item)[\s"]|$)', re.S)
+TS_LINK = re.compile(r'href="(/job/job-[^"]+\.aspx)"[^>]*>\s*(.*?)\s*</a>', re.S)
+
+
+def talentsoft(source, ctx):
+    """Talentsoft career sites (CA-CIB, Amundi): every page of the full offer
+    list (the RSS feed only shows the 20 latest). The list wraps around to
+    page 1 after the last page, so reading stops at the first page with no
+    new offer. Advert pages are opened only for target-city candidates."""
+    company, base = source['company'], source['base_url'].rstrip('/')
+    lcid = source.get('lcid', 2057)
+    cards = {}
+    for page in range(1, int(source.get('max_pages', 15)) + 1):
+        response = ctx.http.get(f'{base}/job/list-of-jobs.aspx?page={page}&LCID={lcid}')
+        response.raise_for_status()
+        new = 0
+        for block in TS_CARD.findall(response.text):
+            link = TS_LINK.search(block)
+            if link and link.group(1) not in cards:
+                cards[link.group(1)] = (html_to_text(link.group(2)), html_to_text(block))
+                new += 1
+        if not new:
+            break
+    ctx.stat(company, 'listed', len(cards))
+    jobs = []
+    for path, (title, text) in cards.items():
+        city = ctx.city_of(text.replace(title, ' ', 1)) or ctx.city_of(title)
+        if not city or not ctx.screen(company, title, city):
+            continue
+        url = base + path
+        key = 'talentsoft:' + url
+        description = ctx.cache.get(key, max_age_hours=int(source.get('detail_cache_hours', 96)))
+        if description is None:
+            page = ctx.http.get(url)
+            page.raise_for_status()
+            description = html_to_text(re.sub(r'(?s)<(script|style|nav|header|footer)\b.*?</\1>', ' ', page.text))[:6000]
+            ctx.cache.put(key, description)
+        date = re.search(r'\b(\d{2})/(\d{2})/(\d{4})\b', text)
+        ref = re.search(r'_(\d+)\.aspx$', path)
+        jobs.append(make_job(
+            id=f'talentsoft:{company}:{ref.group(1) if ref else path}', company=company, title=title, location=city, url=url,
+            published=f'{date.group(3)}-{date.group(2)}-{date.group(1)}' if date else '', description=description,
+            source='official careers site offer list (Talentsoft)', requisition_id=ref.group(1) if ref else '',
+            status=OPEN, status_evidence='listed in the official careers site offer list (published offers only)'))
+    return jobs

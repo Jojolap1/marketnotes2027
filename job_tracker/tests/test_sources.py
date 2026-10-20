@@ -1,3 +1,4 @@
+import re
 import json
 import unittest
 from datetime import datetime, timezone
@@ -363,6 +364,24 @@ class AtsTests(unittest.TestCase):
         self.assertEqual([j['title'] for j in jobs], ['APAC Prime Services Intern (VN1)'])
         self.assertEqual(jobs[0]['location'], 'Hong Kong')
         self.assertEqual(len([u for _, u, _ in ctx.http.calls if 'vn' in u]), 1)
+
+    def test_talentsoft_reads_every_list_page_until_it_wraps(self):
+        def card(i, title, place):
+            return (f'<div class="ts-offer-card Layer"><h3><a class="ts-offer-card__title-link" href="/job/job-x_{i}.aspx" '
+                    f'title="2026-{i}">{title}</a></h3></div><div class="ts-offer-card-content"><ul><li>14/10/2026</li><li>Internship</li>'
+                    f'<li>{place}</li></ul></div>')   # CA-CIB: the city sits in a nested content block
+        pages = {1: card(1, 'Global Markets Sales Intern', 'United Kingdom, London') + card(2, 'HR Intern', 'France, Paris'),
+                 2: card(3, 'Rates Trading VIE', 'Singapore'), 3: card(1, 'Global Markets Sales Intern', 'United Kingdom, London')}
+        def route(method, url, payload):
+            if 'list-of-jobs' in url:
+                return '<main>' + pages[int(re.search(r'page=(\d+)', url).group(1))] + '</main>'
+            return '<main>Internship for students</main>'
+        ctx = context({'jobs.ca-cib.com': route}, now=NOW)
+        jobs = fetch_source({'company': 'Crédit Agricole CIB', 'platform': 'talentsoft', 'base_url': 'https://jobs.ca-cib.com'}, ctx)
+        self.assertEqual(sorted(j['title'] for j in jobs), ['Global Markets Sales Intern', 'Rates Trading VIE'])
+        self.assertEqual({j['location'] for j in jobs}, {'London', 'Singapore'})
+        self.assertEqual(jobs[0]['published'], '2026-10-14')
+        self.assertEqual(len([u for _, u, _ in ctx.http.calls if 'list-of-jobs' in u]), 3)
 
     def test_oleeo(self):
         board = ('<a href="/vx/x/opp/1449-2027-Global-Markets-Summer-Internship-London/en-GB">2027 Global Markets Summer Internship - London</a>'

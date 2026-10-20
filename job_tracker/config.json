@@ -415,11 +415,10 @@
     },
     {
       "company": "Crédit Agricole CIB",
-      "platform": "rss",
-      "feeds": [
-        "https://jobs.ca-cib.com/handlers/offerRss.ashx?LCID=2057"
-      ],
-      "note": "RSS exposes the 20 most recent offers; hourly polling catches new ones, older backlog is not visible"
+      "platform": "talentsoft",
+      "base_url": "https://jobs.ca-cib.com",
+      "backfill_until": "2026-10-27",
+      "note": "full offer list (all pages); the RSS feed only showed the 20 latest offers"
     },
     {
       "company": "Nomura (campus)",
@@ -641,11 +640,10 @@
     },
     {
       "company": "Amundi",
-      "platform": "rss",
-      "feeds": [
-        "https://jobs.amundi.com/handlers/offerRss.ashx?LCID=2057"
-      ],
-      "note": "Talentsoft RSS: 20 most recent offers only"
+      "platform": "talentsoft",
+      "base_url": "https://jobs.amundi.com",
+      "backfill_until": "2026-10-27",
+      "note": "full offer list (all pages); the RSS feed only showed the 20 latest offers"
     },
     {
       "company": "Fidelity International (campus)",
