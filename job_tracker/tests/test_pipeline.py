@@ -151,6 +151,7 @@ class PipelineTests(unittest.TestCase):
         code, _ = self.run_tracker(tg, now=night, send_window=window)
         self.assertEqual((code, tg.sent), (0, []))
         self.assertIn('outside the send window', self.report.read_text())
+        self.assertEqual(self.http.calls, [])                          # no source request at night
         day = datetime(2026, 10, 19, 6, 7, tzinfo=timezone.utc)        # 13:07 in Vietnam
         tg2 = FakeTelegram()
         self.run_tracker(tg2, now=day, send_window=window)

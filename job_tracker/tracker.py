@@ -166,6 +166,13 @@ def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT
     ctx = Context(http, classifier, DetailCache(Path(cache_path) if cache_path else None))
     report = Report(dry_run=dry_run)
 
+    if not dry_run and not in_send_window(notif.get('send_window'), now):
+        # External triggers (cron-job.org every 2 h) also fire at night: skip
+        # every source request until the send window opens.
+        report.notifications(0, 0, f'skipped: outside the send window ({describe_window(notif["send_window"])})')
+        report.write(report_path, http)
+        return 0, report
+
     if scheduled and not dry_run and too_soon(state, notif, now):
         # Extra scheduled triggers only cover runs GitHub drops: skip all
         # source requests until the next send slot is due.
