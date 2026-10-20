@@ -368,7 +368,8 @@ class AtsTests(unittest.TestCase):
     def test_talentsoft_reads_every_list_page_until_it_wraps(self):
         def card(i, title, place):
             return (f'<div class="ts-offer-card Layer"><h3><a class="ts-offer-card__title-link" href="/job/job-x_{i}.aspx" '
-                    f'title="2026-{i}">{title}</a></h3><ul><li>2026-{i}</li><li>14/10/2026</li><li>Internship</li><li>{place}</li></ul></div>')
+                    f'title="2026-{i}">{title}</a></h3></div><div class="ts-offer-card-content"><ul><li>14/10/2026</li><li>Internship</li>'
+                    f'<li>{place}</li></ul></div>')   # CA-CIB: the city sits in a nested content block
         pages = {1: card(1, 'Global Markets Sales Intern', 'United Kingdom, London') + card(2, 'HR Intern', 'France, Paris'),
                  2: card(3, 'Rates Trading VIE', 'Singapore'), 3: card(1, 'Global Markets Sales Intern', 'United Kingdom, London')}
         def route(method, url, payload):

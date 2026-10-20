@@ -298,7 +298,8 @@ def html_cards(source, ctx):
     return jobs
 
 
-TS_CARD = re.compile(r'<(?:div|li) class="ts-offer-(?:card|list-item)\b.*?(?=<(?:div|li) class="ts-offer-(?:card|list-item)\b|$)', re.S)
+# One card per offer; inner blocks ('ts-offer-card-content', holding the city) belong to it.
+TS_CARD = re.compile(r'<(?:div|li) class="ts-offer-(?:card|list-item)[\s"].*?(?=<(?:div|li) class="ts-offer-(?:card|list-item)[\s"]|$)', re.S)
 TS_LINK = re.compile(r'href="(/job/job-[^"]+\.aspx)"[^>]*>\s*(.*?)\s*</a>', re.S)
 
 
