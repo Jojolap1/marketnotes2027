@@ -146,6 +146,21 @@
    "title": "Junior Trader (H/F) (VIE)",
    "url": "https://mon-vie-via.businessfrance.fr/offres/245487"
   },
+  "cards:Marex:https://marex.com/careers/career-opportunities/4c835e505fed01-digital-assets-trading-intern": {
+   "company": "Marex",
+   "fingerprints": [
+    "id:cards:Marex:https://marex.com/careers/career-opportunities/4c835e505fed01-digital-assets-trading-intern",
+    "url:https://marex.com/careers/career-opportunities/4c835e505fed01-digital-assets-trading-intern",
+    "title:marex:digital assets trading intern:singapore"
+   ],
+   "first_seen": "2026-10-21T06:10:50+00:00",
+   "last_seen": "2026-10-21",
+   "location": "Singapore",
+   "notified_at": "2026-10-21T06:10:50+00:00",
+   "status": "open",
+   "title": "Digital Assets Trading Intern",
+   "url": "https://www.marex.com/careers/career-opportunities/4c835e505fed01-digital-assets-trading-intern"
+  },
   "cards:Marex:https://marex.com/careers/career-opportunities/55fd727028c701-apac-prime-services-intern-vn3259": {
    "company": "Marex",
    "fingerprints": [
@@ -2211,7 +2226,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-21T04:17:02.774920+00:00",
+ "last_send_slot": "2026-10-21T06:10:49.383335+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -2305,9 +2320,8 @@
    "last_ok": "2026-10-21"
   },
   "Cargill": {
-   "consecutive_failures": 1,
-   "last_error": "ReadTimeout: HTTPSConnectionPool(host='career2.successfactors.eu', port=443): Read timed out. (read timeout=25)",
-   "last_ok": "2026-10-20"
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "China Galaxy (Chinastock)": {
    "consecutive_failures": 0,
