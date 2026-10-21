@@ -1746,6 +1746,22 @@
    "title": "2027 Summer Internship - Global Markets Division",
    "url": "https://jobs.ca-cib.com/job/job-2027-summer-internship-global-markets-division_116697.aspx"
   },
+  "talentsoft:Crédit Agricole CIB:116738": {
+   "company": "Crédit Agricole CIB",
+   "fingerprints": [
+    "id:talentsoft:Crédit Agricole CIB:116738",
+    "req:credit agricole:116738",
+    "url:https://jobs.ca-cib.com/job/job-cash-clearing-services-sales-assistant-h-f_116738.aspx",
+    "title:credit agricole:cash clearing services sales assistant:paris"
+   ],
+   "first_seen": "2026-10-21T14:11:08+00:00",
+   "last_seen": "2026-10-21",
+   "location": "Paris",
+   "notified_at": "2026-10-21T14:11:08+00:00",
+   "status": "open",
+   "title": "Cash Clearing Services - Sales Assistant H/F",
+   "url": "https://jobs.ca-cib.com/job/job-cash-clearing-services-sales-assistant-h-f_116738.aspx"
+  },
   "workable:capula-investment-management-ltd:A15A62A8BE": {
    "company": "Capula Investment Management",
    "fingerprints": [
@@ -2209,6 +2225,22 @@
    "title": "2027 Summer Internship – Global Markets",
    "url": "https://td.wd3.myworkdayjobs.com/TD_Bank_Careers/job/London-United-Kingdom/XMLNAME-2027-Summer-Internship---Global-Markets_R_1513487"
   },
+  "workday:td:R_1517968": {
+   "company": "TD Securities",
+   "fingerprints": [
+    "id:workday:td:R_1517968",
+    "req:td securities:r_1517968",
+    "url:https://td.wd3.myworkdayjobs.com/td_bank_careers/job/london-united-kingdom/xmlname-2027-industrial-placement-global-transaction-banking---corporate-sales--12-month-placement-_r_1517968",
+    "title:td securities:2027 industrial placement global transaction banking corporate sales 12 month placement:london"
+   ],
+   "first_seen": "2026-10-21T14:11:07+00:00",
+   "last_seen": "2026-10-21",
+   "location": "London, United Kingdom",
+   "notified_at": "2026-10-21T14:11:07+00:00",
+   "status": "open",
+   "title": "2027 Industrial Placement Global Transaction Banking - Corporate Sales (12 Month Placement)",
+   "url": "https://td.wd3.myworkdayjobs.com/TD_Bank_Careers/job/London-United-Kingdom/XMLNAME-2027-Industrial-Placement-Global-Transaction-Banking---Corporate-Sales--12-Month-Placement-_R_1517968"
+  },
   "workday:wf:R-570663": {
    "company": "Wells Fargo",
    "fingerprints": [
@@ -2258,7 +2290,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-21T12:10:56.252304+00:00",
+ "last_send_slot": "2026-10-21T14:11:05.932652+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -2560,7 +2592,8 @@
    "last_ok": "2026-10-21"
   },
   "Old Mission": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/oldmissioncapital/jobs?content=true",
    "last_ok": "2026-10-21"
   },
   "Optiver": {
@@ -2568,7 +2601,8 @@
    "last_ok": "2026-10-21"
   },
   "Panmure Liberum": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 404 Client Error: Not Found for url: https://panmure.bamboohr.com/careers/list",
    "last_ok": "2026-10-21"
   },
   "Pareto Securities": {
