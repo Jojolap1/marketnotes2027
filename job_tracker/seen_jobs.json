@@ -9,7 +9,7 @@
     "title:macquarie:2027 commodities and global markets summer internship programme:london"
    ],
    "first_seen": "2026-10-20T08:13:16+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London Office",
    "notified_at": "2026-10-20T08:13:16+00:00",
    "status": "open",
@@ -25,7 +25,7 @@
     "title:macquarie:2027 commodities and global markets graduate programme:london"
    ],
    "first_seen": "2026-10-20T08:13:15+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London Office",
    "notified_at": "2026-10-20T08:13:15+00:00",
    "status": "open",
@@ -41,7 +41,7 @@
     "title:macquarie:2027 macquarie asset management graduate programme client solutions group:london"
    ],
    "first_seen": "2026-10-20T08:13:13+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London Office",
    "notified_at": "2026-10-20T08:13:13+00:00",
    "status": "open",
@@ -57,7 +57,7 @@
     "title:macquarie:2027 macquarie asset management summer internship programme client solutions group:london"
    ],
    "first_seen": "2026-10-20T08:13:12+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London Office",
    "notified_at": "2026-10-20T08:13:12+00:00",
    "status": "open",
@@ -75,7 +75,7 @@
     "title:natixis:internship 6 months sales commodities markets assistant f m:paris"
    ],
    "first_seen": "2026-10-19T08:22:06+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Paris, France",
    "notified_at": "2026-10-19T08:22:06+00:00",
    "status": "open",
@@ -91,7 +91,7 @@
     "title:natixis:internship 6 months forex sales assistant f m:paris"
    ],
    "first_seen": "2026-10-20T14:12:47+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Paris, France",
    "notified_at": "2026-10-20T14:12:47+00:00",
    "status": "open",
@@ -107,7 +107,7 @@
     "title:ubs:trader assistant:london"
    ],
    "first_seen": "2026-10-19T08:22:07+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "United Kingdom (London office assumed: city not given)",
    "notified_at": "2026-10-19T08:22:07+00:00",
    "status": "open",
@@ -123,7 +123,7 @@
     "title:ubs:investment specialist traditional alternative investments stage:paris"
    ],
    "first_seen": "2026-10-19T08:22:05+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "France (Paris office assumed: city not given)",
    "notified_at": "2026-10-19T08:22:05+00:00",
    "status": "open",
@@ -139,12 +139,27 @@
     "title:blue cube:junior trader:london"
    ],
    "first_seen": "2026-10-19T10:04:41+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Londres, United Kingdom",
    "notified_at": "2026-10-19T10:04:41+00:00",
    "status": "open",
    "title": "Junior Trader (H/F) (VIE)",
    "url": "https://mon-vie-via.businessfrance.fr/offres/245487"
+  },
+  "cards:Marex:https://marex.com/careers/career-opportunities/55fd727028c701-apac-prime-services-intern-vn3259": {
+   "company": "Marex",
+   "fingerprints": [
+    "id:cards:Marex:https://marex.com/careers/career-opportunities/55fd727028c701-apac-prime-services-intern-vn3259",
+    "url:https://marex.com/careers/career-opportunities/55fd727028c701-apac-prime-services-intern-vn3259",
+    "title:marex:apac prime services intern vn3259:hong kong"
+   ],
+   "first_seen": "2026-10-21T04:17:34+00:00",
+   "last_seen": "2026-10-21",
+   "location": "Hong Kong",
+   "notified_at": "2026-10-21T04:17:34+00:00",
+   "status": "open",
+   "title": "APAC Prime Services Intern (VN3259)",
+   "url": "https://www.marex.com/careers/career-opportunities/55fd727028c701-apac-prime-services-intern-vn3259"
   },
   "eightfold:portal.careers.hsbc.com:62245": {
    "company": "HSBC",
@@ -155,7 +170,7 @@
     "title:hsbc:stage assistant trader desk cash liquidite et portefeuille:paris"
    ],
    "first_seen": "2026-10-18T12:30:19+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "PARIS, Paris, France",
    "notified_at": "2026-10-18T12:30:19+00:00",
    "status": "open",
@@ -171,7 +186,7 @@
     "title:hsbc:stage en trading delta one equity finance duree 6 mois a partir de decembre 2026:paris"
    ],
    "first_seen": "2026-10-18T12:30:00+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "PARIS, Paris, France",
    "notified_at": "2026-10-18T12:30:00+00:00",
    "status": "open",
@@ -187,7 +202,7 @@
     "title:hsbc:stage sales trading desk cash equity execution:paris"
    ],
    "first_seen": "2026-10-18T12:29:58+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "PARIS, Paris, France",
    "notified_at": "2026-10-18T12:29:58+00:00",
    "status": "open",
@@ -203,7 +218,7 @@
     "title:hsbc:stage recherche quantitative equity derivatives:paris"
    ],
    "first_seen": "2026-10-18T12:29:52+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "PARIS, Paris, France",
    "notified_at": "2026-10-18T12:29:52+00:00",
    "status": "open",
@@ -219,7 +234,7 @@
     "title:hsbc:stages en vente sales clients institutionnels:paris"
    ],
    "first_seen": "2026-10-18T12:29:51+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "PARIS, Paris, France",
    "notified_at": "2026-10-18T12:29:51+00:00",
    "status": "open",
@@ -235,7 +250,7 @@
     "title:hsbc:stage charge d affaires coverage asset managers:paris"
    ],
    "first_seen": "2026-10-19T15:05:50+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "PARIS, Paris, France",
    "notified_at": "2026-10-19T15:05:50+00:00",
    "status": "open",
@@ -299,12 +314,28 @@
     "title:goldman sachs:2026 emea paris ficc equities sales trading seasonal off cycle internship july december:paris"
    ],
    "first_seen": "2026-10-18T15:01:47+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Paris, Ile-de-France, France",
    "notified_at": "2026-10-18T15:01:47+00:00",
    "status": "open",
    "title": "2026 | EMEA | Paris | FICC & Equities (Sales & Trading) | Seasonal/Off Cycle Internship, July - December",
    "url": "https://higher.gs.com/roles/150792"
+  },
+  "goldman:170877": {
+   "company": "Goldman Sachs",
+   "fingerprints": [
+    "id:goldman:170877",
+    "req:goldman sachs:170877",
+    "url:https://higher.gs.com/roles/170877",
+    "title:goldman sachs:2027 emea london global investment research macro research portfolio strategy seasonal off cycle internship:london"
+   ],
+   "first_seen": "2026-10-21T04:17:04+00:00",
+   "last_seen": "2026-10-21",
+   "location": "London, Greater London, England, United Kingdom",
+   "notified_at": "2026-10-21T04:17:04+00:00",
+   "status": "open",
+   "title": "2027 | EMEA | London | Global Investment Research | Macro Research, Portfolio Strategy | Seasonal/Off-cycle Internship",
+   "url": "https://higher.gs.com/roles/170877"
   },
   "goldman:171437": {
    "company": "Goldman Sachs",
@@ -315,7 +346,7 @@
     "title:goldman sachs:2027 emea london ficc equities sales trading seasonal offcycle:london"
    ],
    "first_seen": "2026-10-18T15:01:16+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London, Greater London, England, United Kingdom",
    "notified_at": "2026-10-18T15:01:16+00:00",
    "status": "open",
@@ -331,7 +362,7 @@
     "title:goldman sachs:2027 emea paris ficc equities sales trading seasonal offcycle:paris"
    ],
    "first_seen": "2026-10-18T15:01:15+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Paris, Ile-de-France, France",
    "notified_at": "2026-10-18T15:01:15+00:00",
    "status": "open",
@@ -347,7 +378,7 @@
     "title:goldman sachs:2027 emea london ficc equities sales trading apprentice programme:london"
    ],
    "first_seen": "2026-10-18T12:30:20+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London, Greater London, England, United Kingdom",
    "notified_at": "2026-10-18T12:30:20+00:00",
    "status": "open",
@@ -363,7 +394,7 @@
     "title:goldman sachs:2027 emea london ficc and equities sales and trading quantitative strats internship:london"
    ],
    "first_seen": "2026-10-18T12:30:07+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London, Greater London, England, United Kingdom",
    "notified_at": "2026-10-18T12:30:07+00:00",
    "status": "open",
@@ -379,7 +410,7 @@
     "title:goldman sachs:2027 apej hong kong global investment research macro research economics seasonal off cycle internship:hong kong"
    ],
    "first_seen": "2026-10-18T15:01:18+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Hong Kong, Hong Kong",
    "notified_at": "2026-10-18T15:01:18+00:00",
    "status": "open",
@@ -395,7 +426,7 @@
     "title:goldman sachs:2026 apej hong kong global investment research macro portfolio strategy seasonal off cycle internship:hong kong"
    ],
    "first_seen": "2026-10-18T15:01:19+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Hong Kong, Hong Kong",
    "notified_at": "2026-10-18T15:01:19+00:00",
    "status": "open",
@@ -411,7 +442,7 @@
     "title:akuna capital:junior trader:london"
    ],
    "first_seen": "2026-10-18T16:14:38+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London, UK",
    "notified_at": "2026-10-18T16:14:38+00:00",
    "status": "open",
@@ -428,7 +459,7 @@
     "title:flow traders:graduate trader:hong kong"
    ],
    "first_seen": "2026-10-18T10:03:12.964641+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "",
    "migrated_from_v1": true,
    "notified_at": "2026-10-18T10:03:12.964641+00:00",
@@ -491,13 +522,28 @@
     "title:flow traders:trading intern:hong kong"
    ],
    "first_seen": "2026-10-18T10:03:12.964641+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "",
    "migrated_from_v1": true,
    "notified_at": "2026-10-18T10:03:12.964641+00:00",
    "status": "open",
    "title": "Trading Intern",
    "url": "https://job-boards.greenhouse.io/flowtraders/jobs/8102618"
+  },
+  "greenhouse:gravitonresearchcapital:8862376002": {
+   "company": "Graviton Research Capital",
+   "fingerprints": [
+    "id:greenhouse:gravitonresearchcapital:8862376002",
+    "url:https://job-boards.greenhouse.io/gravitonresearchcapital/jobs/8862376002",
+    "title:graviton research capital:graduate central execution trader:singapore"
+   ],
+   "first_seen": "2026-10-21T04:17:06+00:00",
+   "last_seen": "2026-10-21",
+   "location": "Singapore",
+   "notified_at": "2026-10-21T04:17:06+00:00",
+   "status": "open",
+   "title": "Graduate Central Execution Trader",
+   "url": "https://job-boards.greenhouse.io/gravitonresearchcapital/jobs/8862376002"
   },
   "greenhouse:imc:4787639101": {
    "company": "IMC Trading",
@@ -539,7 +585,7 @@
     "title:imc trading:quantitative trader intern 2027:hong kong"
    ],
    "first_seen": "2026-10-18T10:03:12.964641+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "",
    "migrated_from_v1": true,
    "notified_at": "2026-10-18T10:03:12.964641+00:00",
@@ -585,7 +631,7 @@
     "title:jump trading:campus quantitative trader intern:hong kong"
    ],
    "first_seen": "2026-10-18T15:01:45+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Hong Kong; Shanghai",
    "notified_at": "2026-10-18T15:01:45+00:00",
    "status": "open",
@@ -600,12 +646,42 @@
     "title:mako trading:mako summer internship trading:london"
    ],
    "first_seen": "2026-10-18T16:14:37+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London",
    "notified_at": "2026-10-18T16:14:37+00:00",
    "status": "open",
    "title": "Mako Summer Internship – Trading",
    "url": "https://www.mako.com/opportunities/job-listing/8883121002?gh_jid=8883121002"
+  },
+  "greenhouse:mavensecuritiesholdingltd:7806970": {
+   "company": "Maven Securities",
+   "fingerprints": [
+    "id:greenhouse:mavensecuritiesholdingltd:7806970",
+    "url:https://job-boards.greenhouse.io/mavensecuritiesholdingltd/jobs/7806970",
+    "title:maven securities:london trader summer internship 2027:london"
+   ],
+   "first_seen": "2026-10-21T04:17:11+00:00",
+   "last_seen": "2026-10-21",
+   "location": "London",
+   "notified_at": "2026-10-21T04:17:11+00:00",
+   "status": "open",
+   "title": "London Trader Summer Internship 2027",
+   "url": "https://job-boards.greenhouse.io/mavensecuritiesholdingltd/jobs/7806970"
+  },
+  "greenhouse:mavensecuritiesholdingltd:8229982": {
+   "company": "Maven Securities",
+   "fingerprints": [
+    "id:greenhouse:mavensecuritiesholdingltd:8229982",
+    "url:https://job-boards.greenhouse.io/mavensecuritiesholdingltd/jobs/8229982",
+    "title:maven securities:women in trading spring week 2027:london"
+   ],
+   "first_seen": "2026-10-21T04:17:05+00:00",
+   "last_seen": "2026-10-21",
+   "location": "London",
+   "notified_at": "2026-10-21T04:17:05+00:00",
+   "status": "open",
+   "title": "Women in Trading Spring Week 2027",
+   "url": "https://job-boards.greenhouse.io/mavensecuritiesholdingltd/jobs/8229982"
   },
   "greenhouse:squarepointcapital:8143287": {
    "company": "Squarepoint Capital",
@@ -616,7 +692,7 @@
     "title:squarepoint capital:junior execution trader equity:singapore"
    ],
    "first_seen": "2026-10-18T15:01:23+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Singapore",
    "notified_at": "2026-10-18T15:01:23+00:00",
    "status": "open",
@@ -632,7 +708,7 @@
     "title:tower research capital:quantitative trader researcher graduate programme 2027:london"
    ],
    "first_seen": "2026-10-18T15:01:37+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London",
    "notified_at": "2026-10-18T15:01:37+00:00",
    "status": "open",
@@ -648,7 +724,7 @@
     "title:tower research capital:quantitative trader researcher summer internship 2027 2028 graduates:london"
    ],
    "first_seen": "2026-10-18T15:01:39+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London",
    "notified_at": "2026-10-18T15:01:39+00:00",
    "status": "open",
@@ -683,7 +759,7 @@
     "title:bank of america campus:global research 2027 summer analyst london:london"
    ],
    "first_seen": "2026-10-18T16:14:42+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London",
    "notified_at": "2026-10-18T16:14:42+00:00",
    "status": "open",
@@ -701,7 +777,7 @@
     "title:fidelity international:equity research summer internship programme 2027 singapore:singapore"
    ],
    "first_seen": "2026-10-18T16:14:59+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Equity Research Summer Internship Programme 2027 - Singapore",
    "notified_at": "2026-10-18T16:14:59+00:00",
    "status": "open",
@@ -719,7 +795,7 @@
     "title:fidelity international:equity research summer internship programme 2027 hong kong:hong kong"
    ],
    "first_seen": "2026-10-18T16:14:58+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Equity Research Summer Internship Programme 2027 - Hong Kong",
    "notified_at": "2026-10-18T16:14:58+00:00",
    "status": "open",
@@ -737,7 +813,7 @@
     "title:fidelity international:multi asset summer internship programme 2027 hong kong:hong kong"
    ],
    "first_seen": "2026-10-18T16:15:01+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Multi Asset Summer Internship Programme 2027 - Hong Kong",
    "notified_at": "2026-10-18T16:15:01+00:00",
    "status": "open",
@@ -755,7 +831,7 @@
     "title:fidelity international:equity research summer internship programme 2027 london:london"
    ],
    "first_seen": "2026-10-18T16:14:54+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Equity Research Summer Internship Programme 2027 - London",
    "notified_at": "2026-10-18T16:14:54+00:00",
    "status": "open",
@@ -773,7 +849,7 @@
     "title:fidelity international:equity research graduate programme 2027 london:london"
    ],
    "first_seen": "2026-10-18T16:14:56+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Equity Research Graduate Programme 2027 - London",
    "notified_at": "2026-10-18T16:14:56+00:00",
    "status": "open",
@@ -791,7 +867,7 @@
     "title:fidelity international:multi asset summer internship programme 2027 london:london"
    ],
    "first_seen": "2026-10-18T16:14:57+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Multi Asset Summer Internship Programme 2027 - London",
    "notified_at": "2026-10-18T16:14:57+00:00",
    "status": "open",
@@ -809,7 +885,7 @@
     "title:fidelity international:institutional sales intern programme 2027 paris:paris"
    ],
    "first_seen": "2026-10-18T16:14:52+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Institutional Sales Intern Programme 2027 - Paris",
    "notified_at": "2026-10-18T16:14:52+00:00",
    "status": "open",
@@ -827,12 +903,172 @@
     "title:fidelity international:wholesale sales internship programme 2027 paris:paris"
    ],
    "first_seen": "2026-10-18T16:14:53+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Wholesale Sales Internship Programme 2027 - Paris",
    "notified_at": "2026-10-18T16:14:53+00:00",
    "status": "open",
    "title": "Wholesale Sales Internship Programme 2027 - Paris",
    "url": "https://fidelityinternational.tal.net/vx/lang-en-GB/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1429-Wholesale-Sales-Internship-Programme-2027-Paris/en-GB"
+  },
+  "oleeo:Jefferies (campus):1929": {
+   "company": "Jefferies (campus)",
+   "fingerprints": [
+    "id:oleeo:Jefferies (campus):1929",
+    "req:jefferies:1929",
+    "url:https://jefferies.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1929-2027-equity-research-summer-internship-programme-london/en-gb",
+    "title:jefferies:2027 equity research summer internship programme london:london"
+   ],
+   "first_seen": "2026-10-21T04:17:28+00:00",
+   "last_seen": "2026-10-21",
+   "location": "2027 Equity Research Summer Internship Programme - London",
+   "notified_at": "2026-10-21T04:17:28+00:00",
+   "status": "open",
+   "title": "2027 Equity Research Summer Internship Programme - London",
+   "url": "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1929-2027-Equity-Research-Summer-Internship-Programme-London/en-GB"
+  },
+  "oleeo:Jefferies (campus):1930": {
+   "company": "Jefferies (campus)",
+   "fingerprints": [
+    "id:oleeo:Jefferies (campus):1930",
+    "req:jefferies:1930",
+    "url:https://jefferies.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1930-2027-equity-sales-and-trading-summer-internship-programme-london/en-gb",
+    "title:jefferies:2027 equity sales and trading summer internship programme london:london"
+   ],
+   "first_seen": "2026-10-21T04:17:29+00:00",
+   "last_seen": "2026-10-21",
+   "location": "2027 Equity Sales and Trading Summer Internship Programme - London",
+   "notified_at": "2026-10-21T04:17:29+00:00",
+   "status": "open",
+   "title": "2027 Equity Sales and Trading Summer Internship Programme - London",
+   "url": "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1930-2027-Equity-Sales-and-Trading-Summer-Internship-Programme-London/en-GB"
+  },
+  "oleeo:Jefferies (campus):1933": {
+   "company": "Jefferies (campus)",
+   "fingerprints": [
+    "id:oleeo:Jefferies (campus):1933",
+    "req:jefferies:1933",
+    "url:https://jefferies.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1933-2027-equity-research-spring-week-programme-london/en-gb",
+    "title:jefferies:2027 equity research spring week programme london:london"
+   ],
+   "first_seen": "2026-10-21T04:17:31+00:00",
+   "last_seen": "2026-10-21",
+   "location": "2027 Equity Research Spring Week Programme - London",
+   "notified_at": "2026-10-21T04:17:31+00:00",
+   "status": "open",
+   "title": "2027 Equity Research Spring Week Programme - London",
+   "url": "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1933-2027-Equity-Research-Spring-Week-Programme-London/en-GB"
+  },
+  "oleeo:Jefferies (campus):1936": {
+   "company": "Jefferies (campus)",
+   "fingerprints": [
+    "id:oleeo:Jefferies (campus):1936",
+    "req:jefferies:1936",
+    "url:https://jefferies.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1936-2027-equity-research-analyst-programme-london/en-gb",
+    "title:jefferies:2027 equity research analyst programme london:london"
+   ],
+   "first_seen": "2026-10-21T04:17:33+00:00",
+   "last_seen": "2026-10-21",
+   "location": "2027 Equity Research Analyst Programme - London",
+   "notified_at": "2026-10-21T04:17:33+00:00",
+   "status": "open",
+   "title": "2027 Equity Research Analyst Programme - London",
+   "url": "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1936-2027-Equity-Research-Analyst-Programme-London/en-GB"
+  },
+  "oleeo:Jefferies (campus):1984": {
+   "company": "Jefferies (campus)",
+   "fingerprints": [
+    "id:oleeo:Jefferies (campus):1984",
+    "req:jefferies:1984",
+    "url:https://jefferies.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1984-2027-equity-research-summer-analyst-program-hong-kong/en-gb",
+    "title:jefferies:2027 equity research summer analyst program hong kong:hong kong"
+   ],
+   "first_seen": "2026-10-21T04:17:23+00:00",
+   "last_seen": "2026-10-21",
+   "location": "2027 Equity Research Summer Analyst Program - Hong Kong",
+   "notified_at": "2026-10-21T04:17:23+00:00",
+   "status": "open",
+   "title": "2027 Equity Research Summer Analyst Program - Hong Kong",
+   "url": "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1984-2027-Equity-Research-Summer-Analyst-Program-Hong-Kong/en-GB"
+  },
+  "oleeo:Jefferies (campus):1985": {
+   "company": "Jefferies (campus)",
+   "fingerprints": [
+    "id:oleeo:Jefferies (campus):1985",
+    "req:jefferies:1985",
+    "url:https://jefferies.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1985-2027-equity-research-summer-analyst-program-singapore/en-gb",
+    "title:jefferies:2027 equity research summer analyst program singapore:singapore"
+   ],
+   "first_seen": "2026-10-21T04:17:24+00:00",
+   "last_seen": "2026-10-21",
+   "location": "2027 Equity Research Summer Analyst Program - Singapore",
+   "notified_at": "2026-10-21T04:17:24+00:00",
+   "status": "open",
+   "title": "2027 Equity Research Summer Analyst Program - Singapore",
+   "url": "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1985-2027-Equity-Research-Summer-Analyst-Program-Singapore/en-GB"
+  },
+  "oleeo:Jefferies (campus):1992": {
+   "company": "Jefferies (campus)",
+   "fingerprints": [
+    "id:oleeo:Jefferies (campus):1992",
+    "req:jefferies:1992",
+    "url:https://jefferies.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1992-2027-equities-sales-trading-summer-analyst-program-prime-services-hong-kong/en-gb",
+    "title:jefferies:2027 equities sales trading summer analyst program prime services hong kong:hong kong"
+   ],
+   "first_seen": "2026-10-21T04:17:22+00:00",
+   "last_seen": "2026-10-21",
+   "location": "2027 Equities Sales & Trading Summer Analyst Program - Prime Services - Hong Kong",
+   "notified_at": "2026-10-21T04:17:22+00:00",
+   "status": "open",
+   "title": "2027 Equities Sales & Trading Summer Analyst Program - Prime Services - Hong Kong",
+   "url": "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1992-2027-Equities-Sales-Trading-Summer-Analyst-Program-Prime-Services-Hong-Kong/en-GB"
+  },
+  "oleeo:Jefferies (campus):1997": {
+   "company": "Jefferies (campus)",
+   "fingerprints": [
+    "id:oleeo:Jefferies (campus):1997",
+    "req:jefferies:1997",
+    "url:https://jefferies.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1997-2027-equities-sales-trading-summer-analyst-program-cash-trading-hong-kong/en-gb",
+    "title:jefferies:2027 equities sales trading summer analyst program cash trading hong kong:hong kong"
+   ],
+   "first_seen": "2026-10-21T04:17:25+00:00",
+   "last_seen": "2026-10-21",
+   "location": "2027 Equities Sales & Trading Summer Analyst Program - Cash Trading - Hong Kong",
+   "notified_at": "2026-10-21T04:17:25+00:00",
+   "status": "open",
+   "title": "2027 Equities Sales & Trading Summer Analyst Program - Cash Trading - Hong Kong",
+   "url": "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1997-2027-Equities-Sales-Trading-Summer-Analyst-Program-Cash-Trading-Hong-Kong/en-GB"
+  },
+  "oleeo:Jefferies (campus):2011": {
+   "company": "Jefferies (campus)",
+   "fingerprints": [
+    "id:oleeo:Jefferies (campus):2011",
+    "req:jefferies:2011",
+    "url:https://jefferies.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/2011-2027-asset-management-summer-internship-programme-london/en-gb",
+    "title:jefferies:2027 asset management summer internship programme london:london"
+   ],
+   "first_seen": "2026-10-21T04:17:27+00:00",
+   "last_seen": "2026-10-21",
+   "location": "2027 Asset Management Summer Internship Programme - London",
+   "notified_at": "2026-10-21T04:17:27+00:00",
+   "status": "open",
+   "title": "2027 Asset Management Summer Internship Programme - London",
+   "url": "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/2011-2027-Asset-Management-Summer-Internship-Programme-London/en-GB"
+  },
+  "oleeo:Jefferies (campus):2018": {
+   "company": "Jefferies (campus)",
+   "fingerprints": [
+    "id:oleeo:Jefferies (campus):2018",
+    "req:jefferies:2018",
+    "url:https://jefferies.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/2018-2027-equity-sales-trading-summer-analyst-high-touch-trading-hong-kong/en-gb",
+    "title:jefferies:2027 equity sales trading summer analyst high touch trading hong kong:hong kong"
+   ],
+   "first_seen": "2026-10-21T04:17:32+00:00",
+   "last_seen": "2026-10-21",
+   "location": "2027 Equity Sales & Trading Summer Analyst – High Touch Trading – Hong Kong",
+   "notified_at": "2026-10-21T04:17:32+00:00",
+   "status": "open",
+   "title": "2027 Equity Sales & Trading Summer Analyst – High Touch Trading – Hong Kong",
+   "url": "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/2018-2027-Equity-Sales-Trading-Summer-Analyst-High-Touch-Trading-Hong-Kong/en-GB"
   },
   "oleeo:Nomura:1449": {
    "company": "Nomura",
@@ -846,7 +1082,7 @@
     "title:nomura campus:2027 global markets sales trading structuring research summer internship london for 2028 graduates:london"
    ],
    "first_seen": "2026-10-18T16:14:48+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London",
    "notified_at": "2026-10-18T16:14:48+00:00",
    "status": "open",
@@ -865,7 +1101,7 @@
     "title:nomura campus:2027 global markets digital office summer internship quants strats london for 2028 graduates:london"
    ],
    "first_seen": "2026-10-18T16:14:46+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London",
    "notified_at": "2026-10-18T16:14:46+00:00",
    "status": "open",
@@ -884,7 +1120,7 @@
     "title:nomura campus:2027 global markets structured solution sales off cycle internship paris:paris"
    ],
    "first_seen": "2026-10-18T16:14:49+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Paris",
    "notified_at": "2026-10-18T16:14:49+00:00",
    "status": "open",
@@ -903,7 +1139,7 @@
     "title:nomura campus:2027 global markets rates sales 6 month off cycle internship paris:paris"
    ],
    "first_seen": "2026-10-18T16:14:50+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Paris",
    "notified_at": "2026-10-18T16:14:50+00:00",
    "status": "open",
@@ -922,7 +1158,7 @@
     "title:nomura campus:2027 global markets rates structuring off cycle internship paris:paris"
    ],
    "first_seen": "2026-10-18T16:14:45+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Paris",
    "notified_at": "2026-10-18T16:14:45+00:00",
    "status": "open",
@@ -938,7 +1174,7 @@
     "title:schroders:2027 cross border sales internship programme hk:hong kong"
    ],
    "first_seen": "2026-10-18T16:14:36+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Hong Kong",
    "notified_at": "2026-10-18T16:14:36+00:00",
    "status": "open",
@@ -954,7 +1190,7 @@
     "title:schroders:2027 sales internship programme sg:singapore"
    ],
    "first_seen": "2026-10-18T16:14:40+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Singapore",
    "notified_at": "2026-10-18T16:14:40+00:00",
    "status": "open",
@@ -970,7 +1206,7 @@
     "title:jpmorgan:2027 asset management investments summer internship program london:london"
    ],
    "first_seen": "2026-10-18T15:01:40+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "LONDON, LONDON, United Kingdom",
    "notified_at": "2026-10-18T15:01:40+00:00",
    "status": "open",
@@ -986,7 +1222,7 @@
     "title:jpmorgan:2027 global markets summer internship london:london"
    ],
    "first_seen": "2026-10-18T15:01:41+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "LONDON, LONDON, United Kingdom",
    "notified_at": "2026-10-18T15:01:41+00:00",
    "status": "open",
@@ -1002,7 +1238,7 @@
     "title:jpmorgan:2027 sales summer internship london:london"
    ],
    "first_seen": "2026-10-18T15:01:43+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "LONDON, LONDON, United Kingdom",
    "notified_at": "2026-10-18T15:01:43+00:00",
    "status": "open",
@@ -1018,7 +1254,7 @@
     "title:jpmorgan:2027 markets quantitative trading research analyst program off cycle internship singapore:singapore"
    ],
    "first_seen": "2026-10-18T15:01:24+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Singapore",
    "notified_at": "2026-10-18T15:01:24+00:00",
    "status": "open",
@@ -1034,7 +1270,7 @@
     "title:jpmorgan:2027 markets quantitative trading research analyst program off cycle internship hong kong:hong kong"
    ],
    "first_seen": "2026-10-18T15:01:20+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Hong Kong",
    "notified_at": "2026-10-18T15:01:20+00:00",
    "status": "open",
@@ -1050,7 +1286,7 @@
     "title:jpmorgan:energy trading assistant analyst 6 months contract:singapore"
    ],
    "first_seen": "2026-10-18T15:01:44+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Singapore",
    "notified_at": "2026-10-18T15:01:44+00:00",
    "status": "open",
@@ -1066,7 +1302,7 @@
     "title:jpmorgan:quantitative trading research cross asset analyst:singapore"
    ],
    "first_seen": "2026-10-18T15:01:12+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Singapore",
    "notified_at": "2026-10-18T15:01:12+00:00",
    "status": "open",
@@ -1082,7 +1318,7 @@
     "title:jpmorgan:currencies and emerging markets sales analyst:singapore"
    ],
    "first_seen": "2026-10-18T12:30:14+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Singapore",
    "notified_at": "2026-10-18T12:30:14+00:00",
    "status": "open",
@@ -1098,7 +1334,7 @@
     "title:jpmorgan:commercial investment bank rates trading analyst:singapore"
    ],
    "first_seen": "2026-10-18T12:30:15+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Singapore",
    "notified_at": "2026-10-18T12:30:15+00:00",
    "status": "open",
@@ -1114,7 +1350,7 @@
     "title:jpmorgan:commercial investment bank ficc electronic sales analyst:singapore"
    ],
    "first_seen": "2026-10-18T12:30:10+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Singapore",
    "notified_at": "2026-10-18T12:30:10+00:00",
    "status": "open",
@@ -1181,6 +1417,21 @@
    "title": "Analyste Crédit Early Detection H/F",
    "url": "https://jobs.ca-cib.com/Pages/Offre/detailoffre.aspx?idOffre=113297&idOrigine=1533&LCID=2057&offerReference=2026-113297"
   },
+  "rss:Kepler Cheuvreux:https://keplercheuvreux.teamtailor.com/jobs/8476881-stage-equity-research-retail-paris": {
+   "company": "Kepler Cheuvreux",
+   "fingerprints": [
+    "id:rss:Kepler Cheuvreux:https://keplercheuvreux.teamtailor.com/jobs/8476881-stage-equity-research-retail-paris",
+    "url:https://keplercheuvreux.teamtailor.com/jobs/8476881-stage-equity-research-retail-paris",
+    "title:kepler cheuvreux:stage equity research retail paris:paris"
+   ],
+   "first_seen": "2026-10-21T04:17:08+00:00",
+   "last_seen": "2026-10-21",
+   "location": "Paris; France",
+   "notified_at": "2026-10-21T04:17:08+00:00",
+   "status": "open",
+   "title": "STAGE - EQUITY RESEARCH - RETAIL - PARIS",
+   "url": "https://keplercheuvreux.teamtailor.com/jobs/8476881-stage-equity-research-retail-paris"
+  },
   "sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/equity-research-intern-bernstein-hong-kong-summer-2027-26000LB7-en": {
    "company": "Société Générale",
    "fingerprints": [
@@ -1190,7 +1441,7 @@
     "title:societe generale:equity research intern bernstein hong kong summer 2027:hong kong"
    ],
    "first_seen": "2026-10-18T12:30:11+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Hong Kong, Hong Kong",
    "notified_at": "2026-10-18T12:30:11+00:00",
    "status": "open",
@@ -1206,7 +1457,7 @@
     "title:societe generale:trainee 12 months contract fixed income esales:singapore"
    ],
    "first_seen": "2026-10-18T12:30:18+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Singapore, Singapore",
    "notified_at": "2026-10-18T12:30:18+00:00",
    "status": "open",
@@ -1222,7 +1473,7 @@
     "title:societe generale:trainee 12 months contract global markets research strategy:singapore"
    ],
    "first_seen": "2026-10-18T12:30:12+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Singapore, Singapore",
    "notified_at": "2026-10-18T12:30:12+00:00",
    "status": "open",
@@ -1238,7 +1489,7 @@
     "title:societe generale:trainee deltaone trader assistant:hong kong"
    ],
    "first_seen": "2026-10-18T12:30:06+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Hong Kong, Hong Kong",
    "notified_at": "2026-10-18T12:30:06+00:00",
    "status": "open",
@@ -1254,7 +1505,7 @@
     "title:societe generale:trainee sales assistant:hong kong"
    ],
    "first_seen": "2026-10-18T12:29:57+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Hong Kong, Hong Kong",
    "notified_at": "2026-10-18T12:29:57+00:00",
    "status": "open",
@@ -1270,7 +1521,7 @@
     "title:societe generale:fixed income esales:singapore"
    ],
    "first_seen": "2026-10-19T15:05:51+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Singapore, Singapore",
    "notified_at": "2026-10-19T15:05:51+00:00",
    "status": "open",
@@ -1286,7 +1537,7 @@
     "title:societe generale:analyste credit financements structures immobiliers:paris"
    ],
    "first_seen": "2026-10-20T05:09:13+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "La Defense, France",
    "notified_at": "2026-10-20T05:09:13+00:00",
    "status": "open",
@@ -1301,7 +1552,7 @@
     "title:standard chartered:markets intern hong kong 2027:hong kong"
    ],
    "first_seen": "2026-10-18T16:40:18+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "job central markets intern hong kong 0 7 13706 3857",
    "notified_at": "2026-10-18T16:40:18+00:00",
    "status": "open",
@@ -1316,7 +1567,7 @@
     "title:standard chartered:syndicate portfolio management intern hong kong 2027:hong kong"
    ],
    "first_seen": "2026-10-18T16:40:15+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "job central syndicate & portfolio management intern hong kong 0 7 1374336057",
    "notified_at": "2026-10-18T16:40:15+00:00",
    "status": "open",
@@ -1331,7 +1582,7 @@
     "title:standard chartered:markets intern uk 2027:london"
    ],
    "first_seen": "2026-10-18T16:40:17+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "job london markets intern uk 0 7 13706 1 57",
    "notified_at": "2026-10-18T16:40:17+00:00",
    "status": "open",
@@ -1346,7 +1597,7 @@
     "title:standard chartered:syndicate and portfolio management graduate programme 2027:london"
    ],
    "first_seen": "2026-10-18T16:40:20+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "job london syndicate and portfolio management graduate programme 0 7 1373604557",
    "notified_at": "2026-10-18T16:40:20+00:00",
    "status": "open",
@@ -1361,12 +1612,107 @@
     "title:standard chartered:markets intern sg 2027:singapore"
    ],
    "first_seen": "2026-10-18T16:40:19+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "job singapore markets intern sg 0 7 13706 4 57",
    "notified_at": "2026-10-18T16:40:19+00:00",
    "status": "open",
    "title": "Markets Intern SG 2027",
    "url": "https://jobs.standardchartered.com/job/Singapore-Markets-Intern-SG-2027/1370624257/"
+  },
+  "talentsoft:Crédit Agricole CIB:114122": {
+   "company": "Crédit Agricole CIB",
+   "fingerprints": [
+    "id:talentsoft:Crédit Agricole CIB:114122",
+    "req:credit agricole:114122",
+    "url:https://jobs.ca-cib.com/job/job-assistant-e-sales-origination-international-trade-and-transaction-banking-large-french-clients-h-f_114122.aspx",
+    "title:credit agricole:assistant e sales origination international trade and transaction banking large french clients:paris"
+   ],
+   "first_seen": "2026-10-21T04:17:15+00:00",
+   "last_seen": "2026-10-21",
+   "location": "Paris",
+   "notified_at": "2026-10-21T04:17:15+00:00",
+   "status": "open",
+   "title": "Assistant(e) Sales – Origination International Trade and Transaction Banking - Large French Clients H/F",
+   "url": "https://jobs.ca-cib.com/job/job-assistant-e-sales-origination-international-trade-and-transaction-banking-large-french-clients-h-f_114122.aspx"
+  },
+  "talentsoft:Crédit Agricole CIB:115201": {
+   "company": "Crédit Agricole CIB",
+   "fingerprints": [
+    "id:talentsoft:Crédit Agricole CIB:115201",
+    "req:credit agricole:115201",
+    "url:https://jobs.ca-cib.com/job/job-global-markets-off-cycle-intern-jan-to-apr-2027-_115201.aspx",
+    "title:credit agricole:global markets off cycle intern jan to apr 2027:hong kong"
+   ],
+   "first_seen": "2026-10-21T04:17:20+00:00",
+   "last_seen": "2026-10-21",
+   "location": "Hong Kong",
+   "notified_at": "2026-10-21T04:17:20+00:00",
+   "status": "open",
+   "title": "Global Markets Off-cycle Intern (Jan to Apr 2027)",
+   "url": "https://jobs.ca-cib.com/job/job-global-markets-off-cycle-intern-jan-to-apr-2027-_115201.aspx"
+  },
+  "talentsoft:Crédit Agricole CIB:116036": {
+   "company": "Crédit Agricole CIB",
+   "fingerprints": [
+    "id:talentsoft:Crédit Agricole CIB:116036",
+    "req:credit agricole:116036",
+    "url:https://jobs.ca-cib.com/job/job-12-month-internship-eig-portfolio-management_116036.aspx",
+    "title:credit agricole:12 month internship eig portfolio management:london"
+   ],
+   "first_seen": "2026-10-21T04:17:19+00:00",
+   "last_seen": "2026-10-21",
+   "location": "London",
+   "notified_at": "2026-10-21T04:17:19+00:00",
+   "status": "open",
+   "title": "12 Month Internship - EIG Portfolio Management",
+   "url": "https://jobs.ca-cib.com/job/job-12-month-internship-eig-portfolio-management_116036.aspx"
+  },
+  "talentsoft:Crédit Agricole CIB:116271": {
+   "company": "Crédit Agricole CIB",
+   "fingerprints": [
+    "id:talentsoft:Crédit Agricole CIB:116271",
+    "req:credit agricole:116271",
+    "url:https://jobs.ca-cib.com/job/job-global-markets-research-trainee-one-year-contract-_116271.aspx",
+    "title:credit agricole:global markets research trainee one year contract:hong kong"
+   ],
+   "first_seen": "2026-10-21T04:17:18+00:00",
+   "last_seen": "2026-10-21",
+   "location": "Hong Kong",
+   "notified_at": "2026-10-21T04:17:18+00:00",
+   "status": "open",
+   "title": "Global Markets Research Trainee (One Year Contract)",
+   "url": "https://jobs.ca-cib.com/job/job-global-markets-research-trainee-one-year-contract-_116271.aspx"
+  },
+  "talentsoft:Crédit Agricole CIB:116697": {
+   "company": "Crédit Agricole CIB",
+   "fingerprints": [
+    "id:talentsoft:Crédit Agricole CIB:116697",
+    "req:credit agricole:116697",
+    "url:https://jobs.ca-cib.com/job/job-2027-summer-internship-global-markets-division_116697.aspx",
+    "title:credit agricole:2027 summer internship global markets division:london"
+   ],
+   "first_seen": "2026-10-21T04:17:17+00:00",
+   "last_seen": "2026-10-21",
+   "location": "London",
+   "notified_at": "2026-10-21T04:17:17+00:00",
+   "status": "open",
+   "title": "2027 Summer Internship - Global Markets Division",
+   "url": "https://jobs.ca-cib.com/job/job-2027-summer-internship-global-markets-division_116697.aspx"
+  },
+  "workable:capula-investment-management-ltd:A15A62A8BE": {
+   "company": "Capula Investment Management",
+   "fingerprints": [
+    "id:workable:capula-investment-management-ltd:A15A62A8BE",
+    "url:https://apply.workable.com/j/a15a62a8be",
+    "title:capula investment management:2027 trading and research summer internship:hong kong"
+   ],
+   "first_seen": "2026-10-21T04:17:14+00:00",
+   "last_seen": "2026-10-21",
+   "location": "London, United Kingdom; New York, United States; Singapore, Singapore; Hong Kong, Hong Kong",
+   "notified_at": "2026-10-21T04:17:14+00:00",
+   "status": "open",
+   "title": "2027 Trading and Research Summer Internship",
+   "url": "https://apply.workable.com/j/A15A62A8BE"
   },
   "workday:barclays:JR-0000124692": {
    "company": "Barclays",
@@ -1377,7 +1723,7 @@
     "title:barclays:sales trading and structuring summer internship programme 2027 london:london"
    ],
    "first_seen": "2026-10-18T15:01:28+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Canary Wharf, 1 Churchill Place",
    "notified_at": "2026-10-18T15:01:28+00:00",
    "status": "open",
@@ -1393,7 +1739,7 @@
     "title:barclays:sales trading and structuring off cycle internship programme 2027 london:london"
    ],
    "first_seen": "2026-10-18T15:01:27+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Canary Wharf, 1 Churchill Place",
    "notified_at": "2026-10-18T15:01:27+00:00",
    "status": "open",
@@ -1425,7 +1771,7 @@
     "title:barclays:sales trading and structuring graduate programme 2027 hong kong:hong kong"
    ],
    "first_seen": "2026-10-18T15:01:48+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Hong Kong, Cheung Kong Center",
    "notified_at": "2026-10-18T15:01:48+00:00",
    "status": "open",
@@ -1441,7 +1787,7 @@
     "title:barclays:sales trading and structuring graduate programme 2027 london:london"
    ],
    "first_seen": "2026-10-18T15:01:25+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Canary Wharf, 1 Churchill Place",
    "notified_at": "2026-10-18T15:01:25+00:00",
    "status": "open",
@@ -1457,12 +1803,28 @@
     "title:barclays:trading sales assistant macro:london"
    ],
    "first_seen": "2026-10-18T12:29:49+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Canary Wharf, 1 Churchill Place",
    "notified_at": "2026-10-18T12:29:49+00:00",
    "status": "open",
    "title": "Trading & Sales Assistant - Macro",
    "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays/job/Canary-Wharf-1-Churchill-Place/Trading---Sales-Assistant---Macro_JR-0000133325"
+  },
+  "workday:brevanhoward:JR101587": {
+   "company": "Brevan Howard",
+   "fingerprints": [
+    "id:workday:brevanhoward:JR101587",
+    "req:brevan howard:jr101587",
+    "url:https://wd3.myworkdaysite.com/recruiting/brevanhoward/bh_externalcareers/job/singapore/xmlname-2027-summer-internship-program---trading--singapore_jr101587",
+    "title:brevan howard:2027 summer internship program trading singapore:singapore"
+   ],
+   "first_seen": "2026-10-21T04:17:10+00:00",
+   "last_seen": "2026-10-21",
+   "location": "Singapore",
+   "notified_at": "2026-10-21T04:17:10+00:00",
+   "status": "open",
+   "title": "2027 Summer Internship Program – Trading, Singapore",
+   "url": "https://wd3.myworkdaysite.com/recruiting/brevanhoward/BH_ExternalCareers/job/Singapore/XMLNAME-2027-Summer-Internship-Program---Trading--Singapore_JR101587"
   },
   "workday:citi:26984811": {
    "company": "Citi",
@@ -1473,7 +1835,7 @@
     "title:citi:markets sales and trading full time analyst london united kingdom 2027:london"
    ],
    "first_seen": "2026-10-18T12:29:55+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London United Kingdom",
    "notified_at": "2026-10-18T12:29:55+00:00",
    "status": "open",
@@ -1489,7 +1851,7 @@
     "title:citi:markets quantitative analysis off cycle placement london uk 2027:london"
    ],
    "first_seen": "2026-10-19T15:05:49+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London United Kingdom",
    "notified_at": "2026-10-19T15:05:49+00:00",
    "status": "open",
@@ -1505,7 +1867,7 @@
     "title:citi:markets sales and trading summer analyst london united kingdom 2027:london"
    ],
    "first_seen": "2026-10-18T12:29:53+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London United Kingdom",
    "notified_at": "2026-10-18T12:29:53+00:00",
    "status": "open",
@@ -1521,7 +1883,7 @@
     "title:citi:markets sales and trading off cycle internship paris france 2027:paris"
    ],
    "first_seen": "2026-10-18T15:01:14+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Paris France",
    "notified_at": "2026-10-18T15:01:14+00:00",
    "status": "open",
@@ -1537,7 +1899,7 @@
     "title:deutsche bank:credit sales intern france:paris"
    ],
    "first_seen": "2026-10-18T12:30:02+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Paris",
    "notified_at": "2026-10-18T12:30:02+00:00",
    "status": "open",
@@ -1553,7 +1915,7 @@
     "title:deutsche bank:cross asset structured products sales intern:paris"
    ],
    "first_seen": "2026-10-18T12:30:05+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Paris",
    "notified_at": "2026-10-18T12:30:05+00:00",
    "status": "open",
@@ -1569,7 +1931,7 @@
     "title:deutsche bank:rates flow solutions sales intern:paris"
    ],
    "first_seen": "2026-10-18T12:30:01+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Paris",
    "notified_at": "2026-10-18T12:30:01+00:00",
    "status": "open",
@@ -1585,7 +1947,7 @@
     "title:deutsche bank:structured finance sales intern:paris"
    ],
    "first_seen": "2026-10-18T12:30:03+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Paris",
    "notified_at": "2026-10-18T12:30:03+00:00",
    "status": "open",
@@ -1617,7 +1979,7 @@
     "title:ing:intern transaction services sales:singapore"
    ],
    "first_seen": "2026-10-18T16:14:41+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Singapore",
    "notified_at": "2026-10-18T16:14:41+00:00",
    "status": "open",
@@ -1633,7 +1995,7 @@
     "title:ing:intern global securities finance gsf trading financial markets:singapore"
    ],
    "first_seen": "2026-10-18T16:14:34+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Singapore",
    "notified_at": "2026-10-18T16:14:34+00:00",
    "status": "open",
@@ -1649,7 +2011,7 @@
     "title:ing:intern global research:singapore"
    ],
    "first_seen": "2026-10-18T16:14:33+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Singapore",
    "notified_at": "2026-10-18T16:14:33+00:00",
    "status": "open",
@@ -1665,7 +2027,7 @@
     "title:ing:intern financial markets hong kong:hong kong"
    ],
    "first_seen": "2026-10-18T16:14:32+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Hong Kong",
    "notified_at": "2026-10-18T16:14:32+00:00",
    "status": "open",
@@ -1681,7 +2043,7 @@
     "title:ing:intern portfolio management:singapore"
    ],
    "first_seen": "2026-10-18T16:14:29+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Singapore",
    "notified_at": "2026-10-18T16:14:29+00:00",
    "status": "open",
@@ -1697,7 +2059,7 @@
     "title:ing:intern rates trading:singapore"
    ],
    "first_seen": "2026-10-20T10:09:24+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Singapore",
    "notified_at": "2026-10-20T10:09:24+00:00",
    "status": "open",
@@ -1729,7 +2091,7 @@
     "title:mufg:2027 mufg uk summer analyst programme credit sales and trading:london"
    ],
    "first_seen": "2026-10-18T15:01:29+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London",
    "notified_at": "2026-10-18T15:01:29+00:00",
    "status": "open",
@@ -1745,7 +2107,7 @@
     "title:mufg:2027 mufg uk summer analyst programme structured trading group:london"
    ],
    "first_seen": "2026-10-18T12:29:56+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London",
    "notified_at": "2026-10-18T12:29:56+00:00",
    "status": "open",
@@ -1761,7 +2123,7 @@
     "title:mufg:summer internship programme 2027 global markets:hong kong"
    ],
    "first_seen": "2026-10-18T15:01:22+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Hong Kong - Airside",
    "notified_at": "2026-10-18T15:01:22+00:00",
    "status": "open",
@@ -1777,12 +2139,44 @@
     "title:mufg:2027 mufg uk summer analyst programme global client sales:london"
    ],
    "first_seen": "2026-10-18T15:01:11+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "London",
    "notified_at": "2026-10-18T15:01:11+00:00",
    "status": "open",
    "title": "2027 MUFG UK Summer Analyst Programme: Global Client Sales",
    "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/London/XMLNAME-2027-MUFG-UK-Summer-Analyst-Programme--Global-Client-Sales_10079834-WD"
+  },
+  "workday:td:R_1513487": {
+   "company": "TD Securities",
+   "fingerprints": [
+    "id:workday:td:R_1513487",
+    "req:td securities:r_1513487",
+    "url:https://td.wd3.myworkdayjobs.com/td_bank_careers/job/london-united-kingdom/xmlname-2027-summer-internship---global-markets_r_1513487",
+    "title:td securities:2027 summer internship global markets:london"
+   ],
+   "first_seen": "2026-10-21T04:17:09+00:00",
+   "last_seen": "2026-10-21",
+   "location": "London, United Kingdom",
+   "notified_at": "2026-10-21T04:17:09+00:00",
+   "status": "open",
+   "title": "2027 Summer Internship – Global Markets",
+   "url": "https://td.wd3.myworkdayjobs.com/TD_Bank_Careers/job/London-United-Kingdom/XMLNAME-2027-Summer-Internship---Global-Markets_R_1513487"
+  },
+  "workday:wf:R-570663": {
+   "company": "Wells Fargo",
+   "fingerprints": [
+    "id:workday:wf:R-570663",
+    "req:wells fargo:r-570663",
+    "url:https://wd1.myworkdaysite.com/recruiting/wf/wellsfargojobs/job/city-of-london/emea-markets-summer-analyst_r-570663",
+    "title:wells fargo:emea markets summer analyst:london"
+   ],
+   "first_seen": "2026-10-21T04:17:13+00:00",
+   "last_seen": "2026-10-21",
+   "location": "CITY OF LONDON,",
+   "notified_at": "2026-10-21T04:17:13+00:00",
+   "status": "open",
+   "title": "EMEA Markets Summer Analyst",
+   "url": "https://wd1.myworkdaysite.com/recruiting/wf/WellsFargoJobs/job/CITY-OF-LONDON/EMEA-Markets-Summer-Analyst_R-570663"
   },
   "zhiye:cicc.zhiye.com:151241030": {
    "company": "CICC",
@@ -1793,7 +2187,7 @@
     "title:cicc:2027 j19701:singapore"
    ],
    "first_seen": "2026-10-19T08:22:10+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "新加坡",
    "notified_at": "2026-10-19T08:22:10+00:00",
    "status": "open",
@@ -1809,7 +2203,7 @@
     "title:cicc:2027 equity derivatives trainee j19632:hong kong"
    ],
    "first_seen": "2026-10-19T08:22:09+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-10-21",
    "location": "Hong Kong",
    "notified_at": "2026-10-19T08:22:09+00:00",
    "status": "open",
@@ -1817,310 +2211,447 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-20T14:12:45.424347+00:00",
+ "last_send_slot": "2026-10-21T04:17:02.774920+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
  "sources": {
+  "AIB (incl. Goodbody)": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
+  },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Akuna Capital": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Amundi": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "BBVA": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "BMO Capital Markets": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
+  },
+  "BNY": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "BP": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "BTG Pactual": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Bank of America (campus)": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "Berenberg": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "BlackRock": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "Brevan Howard": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "CIBC": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "CICC": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "CIMB (incl. CIMB Securities)": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "CITIC CLSA (CITIC Securities)": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "Capula Investment Management": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "Cargill": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "ReadTimeout: HTTPSConnectionPool(host='career2.successfactors.eu', port=443): Read timed out. (read timeout=25)",
    "last_ok": "2026-10-20"
   },
   "China Galaxy (Chinastock)": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "CommBank": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "DRW": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "Da Vinci Trading": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
+  },
+  "Danske Bank": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "EDF Trading": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Eastspring Investments": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Eclipse Trading": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Equinor": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Fidelity International": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Fidelity International (campus)": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Flow Traders": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "G-Research": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "Goldman Sachs": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "Graviton Research Capital": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "Gunvor": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Haitong International": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Hudson River Trading": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "ICBC Standard Bank": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "IMC Trading": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "ING": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Invesco": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "Investec": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Jane Street": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "Jefferies": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
+  },
+  "Jefferies (campus)": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "Jump Trading": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "Kepler Cheuvreux": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
+  },
+  "Lloyds Banking Group": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Macquarie": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Mako Trading": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "Man Group": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
+  },
+  "Marex": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
+  },
+  "Maven Securities": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Mizuho (EMEA)": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Morgan Stanley": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "National Bank of Canada": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "Natixis CIB": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Nomura (campus)": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Old Mission": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Optiver": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "Panmure Liberum": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
+  },
+  "Pareto Securities": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "Pictet": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Point72": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "Quadrature Capital": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
+  },
+  "Qube Research & Technologies": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "RBC": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "RWE Supply & Trading": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "SMBC (EMEA)": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Santander CIB": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "Schonfeld": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "Schroders": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "Scotiabank": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "Shell": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Société Générale": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Squarepoint Capital": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "State Street": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
+  },
+  "TD Securities": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
+  },
+  "TP ICAP": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "TotalEnergies": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Tower Research Capital": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "Tradition": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "Trafigura": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Two Sigma": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Virtu Financial": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   },
   "Vitol": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
+  },
+  "Wells Fargo": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
+  },
+  "Wintermute": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-21"
   },
   "XTX Markets": {
    "consecutive_failures": 0,
-   "last_ok": "2026-10-20"
+   "last_ok": "2026-10-21"
   }
  },
  "version": 2
