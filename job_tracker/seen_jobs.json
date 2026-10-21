@@ -1634,6 +1634,22 @@
    "title": "Markets Intern SG 2027",
    "url": "https://jobs.standardchartered.com/job/Singapore-Markets-Intern-SG-2027/1370624257/"
   },
+  "talentsoft:Amundi:116733": {
+   "company": "Amundi",
+   "fingerprints": [
+    "id:talentsoft:Amundi:116733",
+    "req:amundi:116733",
+    "url:https://jobs.amundi.com/job/job-stage-analyste-investissement-diversification-h-f_116733.aspx",
+    "title:amundi:stage analyste investissement diversification:paris"
+   ],
+   "first_seen": "2026-10-21T12:10:59+00:00",
+   "last_seen": "2026-10-21",
+   "location": "Paris",
+   "notified_at": "2026-10-21T12:10:59+00:00",
+   "status": "open",
+   "title": "Stage Analyste Investissement Diversification H/F",
+   "url": "https://jobs.amundi.com/job/job-stage-analyste-investissement-diversification-h-f_116733.aspx"
+  },
   "talentsoft:Crédit Agricole CIB:114122": {
    "company": "Crédit Agricole CIB",
    "fingerprints": [
@@ -1697,6 +1713,22 @@
    "status": "open",
    "title": "Global Markets Research Trainee (One Year Contract)",
    "url": "https://jobs.ca-cib.com/job/job-global-markets-research-trainee-one-year-contract-_116271.aspx"
+  },
+  "talentsoft:Crédit Agricole CIB:116572": {
+   "company": "Crédit Agricole CIB",
+   "fingerprints": [
+    "id:talentsoft:Crédit Agricole CIB:116572",
+    "req:credit agricole:116572",
+    "url:https://jobs.ca-cib.com/job/job-assistant-fixed-income-structurer-h-f_116572.aspx",
+    "title:credit agricole:assistant fixed income structurer:paris"
+   ],
+   "first_seen": "2026-10-21T12:10:57+00:00",
+   "last_seen": "2026-10-21",
+   "location": "Paris",
+   "notified_at": "2026-10-21T12:10:57+00:00",
+   "status": "open",
+   "title": "Assistant Fixed Income Structurer H/F",
+   "url": "https://jobs.ca-cib.com/job/job-assistant-fixed-income-structurer-h-f_116572.aspx"
   },
   "talentsoft:Crédit Agricole CIB:116697": {
    "company": "Crédit Agricole CIB",
@@ -2226,7 +2258,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-21T10:15:17.853189+00:00",
+ "last_send_slot": "2026-10-21T12:10:56.252304+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
