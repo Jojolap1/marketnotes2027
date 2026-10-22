@@ -1091,7 +1091,9 @@
     "id:oleeo:Jefferies (campus):2018",
     "req:jefferies:2018",
     "url:https://jefferies.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/2018-2027-equity-sales-trading-summer-analyst-high-touch-trading-hong-kong/en-gb",
-    "title:jefferies:2027 equity sales trading summer analyst high touch trading hong kong:hong kong"
+    "title:jefferies:2027 equity sales trading summer analyst high touch trading hong kong:hong kong",
+    "url:https://jefferies.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/2018-2027-equities-sales-trading-summer-analyst-high-touch-trading-hong-kong/en-gb",
+    "title:jefferies:2027 equities sales trading summer analyst high touch trading hong kong:hong kong"
    ],
    "first_seen": "2026-10-21T04:17:32+00:00",
    "last_seen": "2026-10-22",
@@ -2322,7 +2324,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-22T06:10:51.995473+00:00",
+ "last_send_slot": "2026-10-22T08:11:09.790547+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -2624,7 +2626,7 @@
    "last_ok": "2026-10-22"
   },
   "Old Mission": {
-   "consecutive_failures": 3,
+   "consecutive_failures": 4,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/oldmissioncapital/jobs?content=true",
    "last_ok": "2026-10-21"
   },
@@ -2633,7 +2635,7 @@
    "last_ok": "2026-10-22"
   },
   "Panmure Liberum": {
-   "consecutive_failures": 3,
+   "consecutive_failures": 4,
    "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-21"
   },
