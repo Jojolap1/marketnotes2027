@@ -1609,6 +1609,22 @@
    "title": "Analyste crédit financements structurés immobiliers",
    "url": "https://careers.societegenerale.com/offres-d-emploi/analyste-credit-financements-structures-immobiliers-26000M7Z-fr"
   },
+  "sitemap:Société Générale:https://careers.societegenerale.com/offres-d-emploi/assistant-sales-26000JHG-fr": {
+   "company": "Société Générale",
+   "fingerprints": [
+    "id:sitemap:Société Générale:https://careers.societegenerale.com/offres-d-emploi/assistant-sales-26000JHG-fr",
+    "req:societe generale:26000jhg",
+    "url:https://careers.societegenerale.com/offres-d-emploi/assistant-sales-26000jhg",
+    "title:societe generale:assistant sales:paris"
+   ],
+   "first_seen": "2026-10-22T14:12:45+00:00",
+   "last_seen": "2026-10-22",
+   "location": "La Defense, France",
+   "notified_at": "2026-10-22T14:12:45+00:00",
+   "status": "open",
+   "title": "Assistant Sales",
+   "url": "https://careers.societegenerale.com/offres-d-emploi/assistant-sales-26000JHG-fr"
+  },
   "sitemap:Standard Chartered:https://jobs.standardchartered.com/job/Central-Markets-Intern-Hong-Kong-2027/1370623857/": {
    "company": "Standard Chartered",
    "fingerprints": [
@@ -2372,7 +2388,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-22T12:12:18.529337+00:00",
+ "last_send_slot": "2026-10-22T14:12:43.985506+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -2674,7 +2690,7 @@
    "last_ok": "2026-10-22"
   },
   "Old Mission": {
-   "consecutive_failures": 6,
+   "consecutive_failures": 7,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/oldmissioncapital/jobs?content=true",
    "last_ok": "2026-10-21"
   },
@@ -2683,9 +2699,8 @@
    "last_ok": "2026-10-22"
   },
   "Panmure Liberum": {
-   "consecutive_failures": 6,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-   "last_ok": "2026-10-21"
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-22"
   },
   "Pareto Securities": {
    "consecutive_failures": 0,
