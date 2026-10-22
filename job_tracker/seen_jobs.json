@@ -98,6 +98,22 @@
    "title": "Internship - 6 months - Forex Sales Assistant F/M",
    "url": "https://recrutement.natixis.com/en/job/internship-6-months-forex-sales-assistant-f-m"
   },
+  "brassring:25008:349384": {
+   "company": "UBS",
+   "fingerprints": [
+    "id:brassring:25008:349384",
+    "req:ubs:349384",
+    "url:https://jobs.ubs.com/tgnewui/search/home/homewithpreload?PageType=JobDetails&jobid=349384&partnerid=25008&siteid=5131",
+    "title:ubs:2027 graduate talent program asset management london:london"
+   ],
+   "first_seen": "2026-10-22T12:12:20+00:00",
+   "last_seen": "2026-10-22",
+   "location": "United Kingdom (London office assumed: city not given)",
+   "notified_at": "2026-10-22T12:12:20+00:00",
+   "status": "open",
+   "title": "2027 Graduate Talent Program - Asset Management - London",
+   "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5131&PageType=JobDetails&jobid=349384"
+  },
   "brassring:25008:350394": {
    "company": "UBS",
    "fingerprints": [
@@ -1668,6 +1684,22 @@
    "title": "Markets Intern SG 2027",
    "url": "https://jobs.standardchartered.com/job/Singapore-Markets-Intern-SG-2027/1370624257/"
   },
+  "talentsoft:Amundi:112785": {
+   "company": "Amundi",
+   "fingerprints": [
+    "id:talentsoft:Amundi:112785",
+    "req:amundi:112785",
+    "url:https://jobs.amundi.com/job/job-stage-support-vente-institutionnel-digital-h-f_112785.aspx",
+    "title:amundi:stage support vente institutionnel digital:paris"
+   ],
+   "first_seen": "2026-10-22T12:12:21+00:00",
+   "last_seen": "2026-10-22",
+   "location": "Paris",
+   "notified_at": "2026-10-22T12:12:21+00:00",
+   "status": "open",
+   "title": "Stage – Support Vente Institutionnel & Digital H/F",
+   "url": "https://jobs.amundi.com/job/job-stage-support-vente-institutionnel-digital-h-f_112785.aspx"
+  },
   "talentsoft:Amundi:114994": {
    "company": "Amundi",
    "fingerprints": [
@@ -2340,7 +2372,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-22T10:15:48.662881+00:00",
+ "last_send_slot": "2026-10-22T12:12:18.529337+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -2642,7 +2674,7 @@
    "last_ok": "2026-10-22"
   },
   "Old Mission": {
-   "consecutive_failures": 5,
+   "consecutive_failures": 6,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/oldmissioncapital/jobs?content=true",
    "last_ok": "2026-10-21"
   },
@@ -2651,7 +2683,7 @@
    "last_ok": "2026-10-22"
   },
   "Panmure Liberum": {
-   "consecutive_failures": 5,
+   "consecutive_failures": 6,
    "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-21"
   },
