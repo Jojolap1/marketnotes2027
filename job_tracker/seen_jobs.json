@@ -1529,6 +1529,22 @@
    "title": "TRAINEE: Deltaone Trader Assistant",
    "url": "https://careers.societegenerale.com/en/job-offers/trainee-deltaone-trader-assistant-26000LFW-en"
   },
+  "sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/trainee-global-markets-marketer-asia-pacific-equity-quantitative-investment-solutions-qis-26000MH1-en": {
+   "company": "Société Générale",
+   "fingerprints": [
+    "id:sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/trainee-global-markets-marketer-asia-pacific-equity-quantitative-investment-solutions-qis-26000MH1-en",
+    "req:societe generale:26000mh1",
+    "url:https://careers.societegenerale.com/en/job-offers/trainee-global-markets-marketer-asia-pacific-equity-quantitative-investment-solutions-qis-26000mh1",
+    "title:societe generale:trainee global markets marketer asia pacific equity quantitative investment solutions qis:hong kong"
+   ],
+   "first_seen": "2026-10-22T10:15:50+00:00",
+   "last_seen": "2026-10-22",
+   "location": "Hong Kong, Hong Kong",
+   "notified_at": "2026-10-22T10:15:50+00:00",
+   "status": "open",
+   "title": "TRAINEE: Global Markets Marketer, Asia Pacific – Equity & Quantitative Investment Solutions (QIS)",
+   "url": "https://careers.societegenerale.com/en/job-offers/trainee-global-markets-marketer-asia-pacific-equity-quantitative-investment-solutions-qis-26000MH1-en"
+  },
   "sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/trainee-sales-assistant-26000M1T-en": {
    "company": "Société Générale",
    "fingerprints": [
@@ -2324,7 +2340,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-22T08:11:09.790547+00:00",
+ "last_send_slot": "2026-10-22T10:15:48.662881+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -2626,7 +2642,7 @@
    "last_ok": "2026-10-22"
   },
   "Old Mission": {
-   "consecutive_failures": 4,
+   "consecutive_failures": 5,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://boards-api.greenhouse.io/v1/boards/oldmissioncapital/jobs?content=true",
    "last_ok": "2026-10-21"
   },
@@ -2635,7 +2651,7 @@
    "last_ok": "2026-10-22"
   },
   "Panmure Liberum": {
-   "consecutive_failures": 4,
+   "consecutive_failures": 5,
    "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-21"
   },
