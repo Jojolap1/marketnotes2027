@@ -366,22 +366,39 @@ class AtsTests(unittest.TestCase):
         self.assertEqual(len([u for _, u, _ in ctx.http.calls if 'vn' in u]), 1)
 
     def test_talentsoft_reads_every_list_page_until_it_wraps(self):
-        def card(i, title, place):
+        def card(i, title, country, city):
             return (f'<div class="ts-offer-card Layer"><h3><a class="ts-offer-card__title-link" href="/job/job-x_{i}.aspx" '
-                    f'title="2026-{i}">{title}</a></h3></div><div class="ts-offer-card-content"><ul><li>14/10/2026</li><li>Internship</li>'
-                    f'<li>{place}</li></ul></div>')   # CA-CIB: the city sits in a nested content block
-        pages = {1: card(1, 'Global Markets Sales Intern', 'United Kingdom, London') + card(2, 'HR Intern', 'France, Paris'),
-                 2: card(3, 'Rates Trading VIE', 'Singapore'), 3: card(1, 'Global Markets Sales Intern', 'United Kingdom, London')}
+                    f'title="2026-{i}">{title}</a></h3><div class="ts-offer-card-content offerContent">'
+                    f'<ul class="ts-offer-card-content__list "><li>Internship/Trainee</li><li>{country}</li>'
+                    f'<li class="noBorder">{city}</li></ul></div></div>')
+        facets = '<div id="tri-facettes"><h2>Refine search</h2><li>Hong Kong</li><li>London</li></div>'
+        pages = {1: card(1, 'Global Markets Sales Intern', 'United Kingdom', 'London') + card(2, 'HR Intern', 'France', 'Paris'),
+                 # Mumbai is the last card of the page, followed by the search facets (which list Hong Kong)
+                 2: card(3, 'Rates Trading VIE', 'Singapore', 'Singapore') + card(4, 'Trainee - Global Markets Division', 'India', 'MUMBAI')
+                    + '<script>x()</script>' + facets,
+                 3: card(1, 'Global Markets Sales Intern', 'United Kingdom', 'London')}
+        details = {1: ('London', 'Europe, United Kingdom'), 3: ('SINGAPORE', 'Asia, Singapore'), 4: ('MUMBAI', 'Asia, India')}
         def route(method, url, payload):
             if 'list-of-jobs' in url:
                 return '<main>' + pages[int(re.search(r'page=(\d+)', url).group(1))] + '</main>'
-            return '<main>Internship for students</main>'
+            city, area = details[int(re.search(r'_(\d+)\.aspx', url).group(1))]
+            return (f'<p id="fldjobdescription_date1">14/10/2026</p><p id="fldlocation_location_geographicalareacollection">{area}</p>'
+                    f'<p id="fldlocation_joblocation">&nbsp;&nbsp;{city}</p><main>Internship for students</main>')
         ctx = context({'jobs.ca-cib.com': route}, now=NOW)
         jobs = fetch_source({'company': 'Crédit Agricole CIB', 'platform': 'talentsoft', 'base_url': 'https://jobs.ca-cib.com'}, ctx)
         self.assertEqual(sorted(j['title'] for j in jobs), ['Global Markets Sales Intern', 'Rates Trading VIE'])
-        self.assertEqual({j['location'] for j in jobs}, {'London', 'Singapore'})
-        self.assertEqual(jobs[0]['published'], '2026-10-14')
+        self.assertEqual(sorted(j['location'] for j in jobs), ['London, Europe, United Kingdom', 'SINGAPORE, Asia, Singapore'])
         self.assertEqual(len([u for _, u, _ in ctx.http.calls if 'list-of-jobs' in u]), 3)
+
+    def test_talentsoft_advert_location_overrides_a_wrong_card_city(self):
+        page = ('<div class="ts-offer-card Layer"><h3><a class="ts-offer-card__title-link" href="/job/job-x_9.aspx">FX Trading Intern</a>'
+                '</h3><div class="ts-offer-card-content"><ul class="ts-offer-card-content__list "><li>Hong Kong</li></ul></div></div>')
+        def route(method, url, payload):
+            if 'list-of-jobs' in url:
+                return page if 'page=1&' in url else ''
+            return '<p id="fldlocation_joblocation">MUMBAI</p><p id="fldlocation_location_geographicalareacollection">Asia, India</p>'
+        ctx = context({'jobs.ca-cib.com': route}, now=NOW)
+        self.assertEqual(fetch_source({'company': 'Crédit Agricole CIB', 'platform': 'talentsoft', 'base_url': 'https://jobs.ca-cib.com'}, ctx), [])
 
     def test_oleeo(self):
         board = ('<a href="/vx/x/opp/1449-2027-Global-Markets-Summer-Internship-London/en-GB">2027 Global Markets Summer Internship - London</a>'

@@ -2224,6 +2224,17 @@ R52 = [
 ]
 PROBES = PROBES + R52
 
+
+# ---------------- Round 53: BTIG and Mizuho Asia listings ----------------
+R53 = [
+    ('R53 BTIG opportunities', lambda: grep_page('https://www.btig.com/careers/career-opportunities/', r'href="([^"]+)"', 60, 140)),
+    ('R53 BTIG ats', lambda: discover('https://www.btig.com/careers/career-opportunities/')),
+    ('R53 Mizuho HK careers', lambda: grep_page('https://www.mizuhogroup.com/asia-pacific/hong-kong/hk-information/careers', r'href="(https?://[^"]*(?:job|career|apply|workday|taleo|successfactors|oracle|avature)[^"]*)"', 20, 160)),
+    ('R53 Mizuho APAC careers', lambda: grep_page('https://www.mizuhogroup.com/asia-pacific/careers', r'href="(https?://[^"]*(?:job|career|apply|workday|taleo|successfactors|oracle|avature)[^"]*)"', 20, 160)),
+    ('R53 Mizuho SG careers', lambda: crawl('https://www.mizuhogroup.com/asia-pacific/singapore/careers', depth=1, max_pages=3)),
+]
+PROBES = PROBES + R53
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

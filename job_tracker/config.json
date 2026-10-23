@@ -597,8 +597,9 @@
     },
     {
       "company": "Old Mission",
-      "platform": "greenhouse",
-      "board": "oldmissioncapital"
+      "platform": "ashby",
+      "board": "old-mission-capital",
+      "note": "moved from Greenhouse (404 since 2026-10) to Ashby"
     },
     {
       "company": "Eclipse Trading",
