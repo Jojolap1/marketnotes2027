@@ -156,13 +156,14 @@ job feed), Louis Dreyfus (HTTP 403 / unpublished Workday site).
 | Berenberg, National Bank of Canada | Avature job search pages |
 | BTG Pactual | Greenhouse |
 | Panmure Liberum | BambooHR careers page |
+| BTIG | Greenhouse (board `btig27`, added 2026-10-23) |
 | Pareto Securities, Investec | RSS (Teamtailor, eArcu) |
 | AIB (incl. Goodbody) | SuccessFactors XML |
 | Scotiabank | SuccessFactors RMK search per target city (London, Ontario dropped) |
 
 Not covered: Peel Hunt, Raymond James, ABN AMRO (HTTP 403/503 to automated requests), Stifel (US branch
 roles only), Handelsbanken UK (branch roles only), Commerzbank (JavaScript-only search), Standard Bank,
-Canaccord Genuity, Zeus Capital (no public vacancy feed).
+Canaccord Genuity, Zeus Capital (no public vacancy feed); Mizuho Asia (JavaScript-only TalentLink widget; Mizuho EMEA is covered).
 
 **Added 2026-10-20 (brokers, funds and European banks):**
 
