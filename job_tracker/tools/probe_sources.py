@@ -2187,6 +2187,72 @@ R51 = [('R51 CA-CIB card', cacib_card),
        ('R51 CA-CIB detail', lambda: grep_page('https://jobs.ca-cib.com/job/job--trader-gri_115692.aspx', r'(?is)((?:location|localisation|lieu|city|ville|country|pays)[^<]{0,40}</[^>]+>\s*<[^>]+>[^<]{0,80})', 8, 200))]
 PROBES = PROBES + R51
 
+
+# ---------------- Round 52: CA-CIB Mumbai mis-location, BTIG, Mizuho Asia, Old Mission ----------------
+def ts_card_for(host, ref, pages=5):
+    def text(x):
+        return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', x)).strip()
+    for page in range(1, pages + 1):
+        t = get(f'https://{host}/job/list-of-jobs.aspx?page={page}&LCID=2057').text
+        i = t.find(f'_{ref}.aspx')
+        if i >= 0:
+            j = t.find('class="ts-offer-card ', i)
+            j = t.find('class="ts-offer-list-item ', i) if j < 0 else j
+            return f'page {page} TEXT: ' + text(t[i:j if j > 0 else i + 4000])[:700] + '\nRAW: ' + t[i:i + 2500]
+    return 'not found'
+
+
+def ts_detail_fields(url):
+    t = get(url).text
+    fields = re.findall(r'<p id="(fld[^"]+)"[^>]*>(.*?)</p>', t, re.S)
+    return str([(k, re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', v)).strip()[:80]) for k, v in fields][:30])
+
+
+R52 = [
+    ('R52 CA-CIB Mumbai card', lambda: ts_card_for('jobs.ca-cib.com', '115317')),
+    ('R52 CA-CIB Mumbai detail', lambda: ts_detail_fields('https://jobs.ca-cib.com/job/job-trainee-global-markets-division-foreign-exchange-and-interest-rates-_115317.aspx')),
+    ('R52 CA-CIB London detail', lambda: ts_detail_fields('https://jobs.ca-cib.com/job/job-2027-summer-internship-global-markets-division_116697.aspx')),
+    ('R52 Amundi detail', lambda: ts_detail_fields('https://jobs.amundi.com/job/job-credit-analyst-risk-manager-arm-h-f_114438.aspx')),
+    ('R52 BTIG boards', lambda: board_sweep(['btig', 'btigllc', 'btig-llc'])),
+    ('R52 BTIG crawl', lambda: crawl('https://www.btig.com/careers', depth=1, max_pages=4)),
+    ('R52 Mizuho APAC crawl', lambda: crawl('https://www.mizuhogroup.com/asia-pacific/careers', depth=1, max_pages=5)),
+    ('R52 Mizuho WD guesses', lambda: ' | '.join(workday(h, t, s)[:150] for h, t, s in [
+        ('mizuho.wd1.myworkdayjobs.com', 'mizuho', 'mizuhoamericas'), ('mizuho.wd1.myworkdayjobs.com', 'mizuho', 'MizuhoAPAC'),
+        ('mizuho.wd1.myworkdayjobs.com', 'mizuho', 'APAC'), ('mizuho.wd3.myworkdayjobs.com', 'mizuho', 'Mizuho_APAC')])),
+    ('R52 Old Mission boards', lambda: board_sweep(['oldmission', 'oldmissioncapital', 'oldmissiontrading', 'old-mission'])),
+    ('R52 Old Mission crawl', lambda: crawl('https://www.oldmissioncapital.com/careers', depth=1, max_pages=3)),
+]
+PROBES = PROBES + R52
+
+
+# ---------------- Round 53: BTIG and Mizuho Asia listings ----------------
+R53 = [
+    ('R53 BTIG opportunities', lambda: grep_page('https://www.btig.com/careers/career-opportunities/', r'href="([^"]+)"', 60, 140)),
+    ('R53 BTIG ats', lambda: discover('https://www.btig.com/careers/career-opportunities/')),
+    ('R53 Mizuho HK careers', lambda: grep_page('https://www.mizuhogroup.com/asia-pacific/hong-kong/hk-information/careers', r'href="(https?://[^"]*(?:job|career|apply|workday|taleo|successfactors|oracle|avature)[^"]*)"', 20, 160)),
+    ('R53 Mizuho APAC careers', lambda: grep_page('https://www.mizuhogroup.com/asia-pacific/careers', r'href="(https?://[^"]*(?:job|career|apply|workday|taleo|successfactors|oracle|avature)[^"]*)"', 20, 160)),
+    ('R53 Mizuho SG careers', lambda: crawl('https://www.mizuhogroup.com/asia-pacific/singapore/careers', depth=1, max_pages=3)),
+]
+PROBES = PROBES + R53
+
+
+# ---------------- Round 54: BTIG Greenhouse board name, Mizuho Asia TalentLink ----------------
+def btig_slug():
+    t = get('https://www.btig.com/careers/career-opportunities/careers-job-detail/?gh_jid=8881055002').text
+    t2 = get('https://www.btig.com/careers/career-opportunities/').text
+    hits = sorted(set(re.findall(r'(?:greenhouse\.io/(?:embed/job_(?:board|app)(?:/js)?\?for=|v1/boards/)|boards/|for=)([A-Za-z0-9_-]+)', t + t2)))
+    ctx = [m.group(0)[:200] for m in re.finditer(r'.{0,80}greenhouse.{0,120}', t + t2)][:6]
+    return f'slugs={hits} ctx={ctx}'
+
+
+R54 = [
+    ('R54 BTIG slug', btig_slug),
+    ('R54 BTIG guesses', lambda: board_sweep(['btigcareers', 'btiginc', 'btigholdings', 'btiglp', 'btigllc1'])),
+    ('R54 Mizuho TalentLink', lambda: discover('https://mizuhobank.recruitmentplatform.com/FO/careers/components/')),
+    ('R54 Mizuho TalentLink links', lambda: grep_page('https://mizuhobank.recruitmentplatform.com/FO/careers/components/', r'((?:href|src)="[^"]+")', 30, 160)),
+]
+PROBES = PROBES + R54
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

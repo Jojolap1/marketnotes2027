@@ -303,11 +303,31 @@ TS_CARD = re.compile(r'<(?:div|li) class="ts-offer-(?:card|list-item)[\s"].*?(?=
 TS_LINK = re.compile(r'href="(/job/job-[^"]+\.aspx)"[^>]*>\s*(.*?)\s*</a>', re.S)
 
 
+TS_PLACES = re.compile(r'<ul class="ts-offer-(?:card-content|list-item)__\w*[^"]*"[^>]*>(.*?)</ul>', re.S)
+TS_FIELD = re.compile(r'<p id="fldlocation_(joblocation|location_geographicalareacollection)"[^>]*>(.*?)</p>', re.S)
+
+
+def _talentsoft_detail(source, ctx, url):
+    key = 'talentsoft2:' + url
+    cached = ctx.cache.get(key, max_age_hours=int(source.get('detail_cache_hours', 96)))
+    if cached is not None:
+        return cached
+    page = ctx.http.get(url)
+    page.raise_for_status()
+    fields = {k: html_to_text(v) for k, v in TS_FIELD.findall(page.text)}
+    value = {'location': ', '.join(filter(None, [fields.get('joblocation'), fields.get('location_geographicalareacollection')])),
+             'description': html_to_text(re.sub(r'(?s)<(script|style|nav|header|footer)\b.*?</\1>', ' ', page.text))[:6000]}
+    ctx.cache.put(key, value)
+    return value
+
+
 def talentsoft(source, ctx):
     """Talentsoft career sites (CA-CIB, Amundi): every page of the full offer
     list (the RSS feed only shows the 20 latest). The list wraps around to
     page 1 after the last page, so reading stops at the first page with no
-    new offer. Advert pages are opened only for target-city candidates."""
+    new offer. The card's own place list pre-selects target-city offers; the
+    advert's official location field then decides (a card mis-read must not
+    turn Mumbai into Hong Kong)."""
     company, base = source['company'], source['base_url'].rstrip('/')
     lcid = source.get('lcid', 2057)
     cards = {}
@@ -316,31 +336,33 @@ def talentsoft(source, ctx):
         response.raise_for_status()
         new = 0
         for block in TS_CARD.findall(response.text):
+            block = re.split(r'<script\b|id="tri-facettes"', block)[0]   # last card: stop before the search facets
             link = TS_LINK.search(block)
             if link and link.group(1) not in cards:
-                cards[link.group(1)] = (html_to_text(link.group(2)), html_to_text(block))
+                places = TS_PLACES.search(block)
+                cards[link.group(1)] = (html_to_text(link.group(2)), html_to_text(places.group(1) if places else block))
                 new += 1
         if not new:
             break
     ctx.stat(company, 'listed', len(cards))
     jobs = []
-    for path, (title, text) in cards.items():
-        city = ctx.city_of(text.replace(title, ' ', 1)) or ctx.city_of(title)
+    for path, (title, places) in cards.items():
+        city = ctx.city_of(places.replace(title, ' ', 1))
         if not city or not ctx.screen(company, title, city):
             continue
         url = base + path
-        key = 'talentsoft:' + url
-        description = ctx.cache.get(key, max_age_hours=int(source.get('detail_cache_hours', 96)))
-        if description is None:
-            page = ctx.http.get(url)
-            page.raise_for_status()
-            description = html_to_text(re.sub(r'(?s)<(script|style|nav|header|footer)\b.*?</\1>', ' ', page.text))[:6000]
-            ctx.cache.put(key, description)
-        date = re.search(r'\b(\d{2})/(\d{2})/(\d{4})\b', text)
+        detail = _talentsoft_detail(source, ctx, url)
+        if detail['location']:
+            city = ctx.city_of(detail['location'])
+            if not city:
+                ctx.stat(company, 'dropped_by_advert_location')
+                continue
+        date = re.search(r'\b(\d{2})/(\d{2})/(\d{4})\b', places)
         ref = re.search(r'_(\d+)\.aspx$', path)
         jobs.append(make_job(
-            id=f'talentsoft:{company}:{ref.group(1) if ref else path}', company=company, title=title, location=city, url=url,
-            published=f'{date.group(3)}-{date.group(2)}-{date.group(1)}' if date else '', description=description,
+            id=f'talentsoft:{company}:{ref.group(1) if ref else path}', company=company, title=title,
+            location=detail['location'] or city, url=url,
+            published=f'{date.group(3)}-{date.group(2)}-{date.group(1)}' if date else '', description=detail['description'],
             source='official careers site offer list (Talentsoft)', requisition_id=ref.group(1) if ref else '',
             status=OPEN, status_evidence='listed in the official careers site offer list (published offers only)'))
     return jobs

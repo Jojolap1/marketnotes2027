@@ -59,6 +59,16 @@ jobs:
           cache-dependency-path: job_tracker/requirements.txt
       - run: pip install -r job_tracker/requirements.txt
 
+      # A queued run checks out the commit it was triggered on, which may
+      # predate the previous run's history commit: always start from the
+      # latest seen_jobs.json on main, or alerts could be re-sent and the
+      # history push would conflict (2026-10-22).
+      - name: Load latest tracking history
+        if: env.PRODUCTION == 'true'
+        run: |
+          git fetch --no-tags --depth=1 origin main
+          git checkout FETCH_HEAD -- job_tracker/seen_jobs.json
+
       - name: Restore vacancy detail cache
         uses: actions/cache@v4
         with:
@@ -101,13 +111,20 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add job_tracker/seen_jobs.json
-          if git diff --cached --quiet; then
-            echo "No state change"; exit 0
-          fi
-          git commit -m "Update tracked jobs [skip ci]"
+          cp job_tracker/seen_jobs.json "$RUNNER_TEMP/seen_jobs.json"
+          # Runs are serialized (concurrency group) and this run started from
+          # main's latest history, so its file is the newest history: put it
+          # on top of the current main tip instead of rebasing a stale diff.
           for attempt in 1 2 3 4; do
-            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            git fetch --no-tags --depth=1 origin main
+            git reset -q --hard FETCH_HEAD
+            cp "$RUNNER_TEMP/seen_jobs.json" job_tracker/seen_jobs.json
+            git add job_tracker/seen_jobs.json
+            if git diff --cached --quiet; then
+              echo "No state change"; exit 0
+            fi
+            git commit -q -m "Update tracked jobs [skip ci]"
+            git push origin HEAD:main && exit 0
             sleep $((attempt * 5))
           done
           exit 1
