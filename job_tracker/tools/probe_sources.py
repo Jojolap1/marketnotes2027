@@ -2235,6 +2235,24 @@ R53 = [
 ]
 PROBES = PROBES + R53
 
+
+# ---------------- Round 54: BTIG Greenhouse board name, Mizuho Asia TalentLink ----------------
+def btig_slug():
+    t = get('https://www.btig.com/careers/career-opportunities/careers-job-detail/?gh_jid=8881055002').text
+    t2 = get('https://www.btig.com/careers/career-opportunities/').text
+    hits = sorted(set(re.findall(r'(?:greenhouse\.io/(?:embed/job_(?:board|app)(?:/js)?\?for=|v1/boards/)|boards/|for=)([A-Za-z0-9_-]+)', t + t2)))
+    ctx = [m.group(0)[:200] for m in re.finditer(r'.{0,80}greenhouse.{0,120}', t + t2)][:6]
+    return f'slugs={hits} ctx={ctx}'
+
+
+R54 = [
+    ('R54 BTIG slug', btig_slug),
+    ('R54 BTIG guesses', lambda: board_sweep(['btigcareers', 'btiginc', 'btigholdings', 'btiglp', 'btigllc1'])),
+    ('R54 Mizuho TalentLink', lambda: discover('https://mizuhobank.recruitmentplatform.com/FO/careers/components/')),
+    ('R54 Mizuho TalentLink links', lambda: grep_page('https://mizuhobank.recruitmentplatform.com/FO/careers/components/', r'((?:href|src)="[^"]+")', 30, 160)),
+]
+PROBES = PROBES + R54
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
