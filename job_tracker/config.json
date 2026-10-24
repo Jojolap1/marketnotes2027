@@ -1091,6 +1091,19 @@
       "backfill_until": "2026-10-30"
     },
     {
+      "company": "First Abu Dhabi Bank",
+      "platform": "smartrecruiters",
+      "board": "FirstAbuDhabiBank",
+      "backfill_until": "2026-10-31",
+      "note": "Dubai offices only (Abu Dhabi is not a target city)"
+    },
+    {
+      "company": "Emirates NBD / Mashreq",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "emiratesnbd.com careers answers HTTP 403 to automated requests; Mashreq careers page not found (2026-10-24)."
+    },
+    {
       "company": "Mizuho (Asia)",
       "platform": "official",
       "enabled": false,
