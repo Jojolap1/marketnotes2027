@@ -1166,7 +1166,7 @@
       "company": "Castleton Commodities",
       "platform": "workday",
       "host": "osv-cci.wd1.myworkdayjobs.com",
-      "tenant": "osv-cci",
+      "tenant": "osv_cci",
       "site": "CCICareers",
       "backfill_until": "2026-10-31"
     },
