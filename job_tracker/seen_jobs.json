@@ -528,6 +528,38 @@
    "title": "Junior Trader",
    "url": "https://www.akunacapital.com/careers/job/8275358/?gh_jid=8275358"
   },
+  "greenhouse:fiveringsllc:5255367008": {
+   "company": "Five Rings",
+   "fingerprints": [
+    "id:greenhouse:fiveringsllc:5255367008",
+    "req:five rings:121",
+    "url:https://job-boards.greenhouse.io/fiveringsllc/jobs/5255367008",
+    "title:five rings:campus full time 2027 quantitative trader london:london"
+   ],
+   "first_seen": "2026-10-24T10:16:04+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London",
+   "notified_at": "2026-10-24T10:16:04+00:00",
+   "status": "open",
+   "title": "Campus Full Time 2027 - Quantitative Trader - London",
+   "url": "https://job-boards.greenhouse.io/fiveringsllc/jobs/5255367008"
+  },
+  "greenhouse:flowdesk:4998666101": {
+   "company": "Flowdesk",
+   "fingerprints": [
+    "id:greenhouse:flowdesk:4998666101",
+    "req:flowdesk:12",
+    "url:https://job-boards.eu.greenhouse.io/flowdesk/jobs/4998666101",
+    "title:flowdesk:markets algo trader intern:paris"
+   ],
+   "first_seen": "2026-10-24T10:16:03+00:00",
+   "last_seen": "2026-10-24",
+   "location": "Paris",
+   "notified_at": "2026-10-24T10:16:03+00:00",
+   "status": "open",
+   "title": "Markets | Algo Trader | Intern",
+   "url": "https://job-boards.eu.greenhouse.io/flowdesk/jobs/4998666101"
+  },
   "greenhouse:flowtraders:4782837": {
    "company": "Flow Traders",
    "fingerprints": [
@@ -623,6 +655,22 @@
    "status": "open",
    "title": "Graduate Central Execution Trader",
    "url": "https://job-boards.greenhouse.io/gravitonresearchcapital/jobs/8862376002"
+  },
+  "greenhouse:gsrmarkets:4873187101": {
+   "company": "GSR",
+   "fingerprints": [
+    "id:greenhouse:gsrmarkets:4873187101",
+    "req:gsr:122",
+    "url:https://job-boards.eu.greenhouse.io/gsrmarkets/jobs/4873187101",
+    "title:gsr:quant trader defi:singapore"
+   ],
+   "first_seen": "2026-10-24T10:16:06+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London; Zug; Singapore",
+   "notified_at": "2026-10-24T10:16:06+00:00",
+   "status": "open",
+   "title": "Quant Trader (DeFi)",
+   "url": "https://job-boards.eu.greenhouse.io/gsrmarkets/jobs/4873187101"
   },
   "greenhouse:imc:4787639101": {
    "company": "IMC Trading",
@@ -2946,7 +2994,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-24T08:10:23.597936+00:00",
+ "last_send_slot": "2026-10-24T10:16:01.813966+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -2967,7 +3015,15 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
+  "Amber Group": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-24"
+  },
   "Amundi": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-24"
+  },
+  "B2C2": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
@@ -3051,13 +3107,16 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
+  "Castleton Commodities": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-24"
+  },
   "China Galaxy (Chinastock)": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "Citi": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "CommBank": {
@@ -3069,6 +3128,10 @@
    "last_ok": "2026-10-24"
   },
   "DBS Bank": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-24"
+  },
+  "DNB Markets": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
@@ -3108,6 +3171,10 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
+  "ExodusPoint": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-24"
+  },
   "ExxonMobil": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
@@ -3124,11 +3191,27 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
+  "Five Rings": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-24"
+  },
   "Flow Traders": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
+  "Flowdesk": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-24"
+  },
+  "Freepoint Commodities": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-24"
+  },
   "G-Research": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-24"
+  },
+  "GSR": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
@@ -3200,6 +3283,10 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
+  "Keyrock": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-24"
+  },
   "Lloyds Banking Group": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
@@ -3237,8 +3324,7 @@
    "last_ok": "2026-10-24"
   },
   "Morgan Stanley": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "National Bank of Canada": {
@@ -3345,11 +3431,19 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
+  "Statkraft": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-24"
+  },
   "TD Securities": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "TP ICAP": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-24"
+  },
+  "Tibra Capital": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
@@ -3390,8 +3484,11 @@
    "last_ok": "2026-10-24"
   },
   "Wells Fargo": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-24"
+  },
+  "Westpac": {
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "Wintermute": {
