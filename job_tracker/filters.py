@@ -77,6 +77,7 @@ class Classification:
     experience: Experience = field(default_factory=Experience)
     reasons: list = field(default_factory=list)
     reject_reason: str = ''
+    programme_scope: bool = False  # eligible only through filters.programme_scope
 
     @property
     def level_label(self):
@@ -117,6 +118,16 @@ class Classifier:
         self.entry = {kind: _compile(pats) for kind, pats in f['entry_types'].items()}
         self.senior_desc = _compile(f.get('senior_description_patterns', []))
         self.excluded_companies = {normalize_text(c) for c in f.get('excluded_companies', [])}
+        # Wider scope on top of the markets roles: e.g. every front-office summer
+        # internship / graduate programme in London (coverage, M&A, financing...),
+        # support functions still excluded.
+        scope = f.get('programme_scope') or {}
+        self.scope_cities = set(scope.get('cities', []))
+        self.scope_titles = _compile(scope.get('title_patterns', []))
+        allowed = set(scope.get('allowed_non_front_office_patterns', []))
+        self.scope_excluded = _compile(scope.get('excluded_patterns', []) +
+                                       [p for p in f['non_front_office_patterns'] if p not in allowed])
+        self.scope_label = scope.get('label', 'Front-office programme')
 
     # -- individual dimensions -------------------------------------------
     def city(self, location):
@@ -124,6 +135,12 @@ class Classifier:
             if any(p.search(location or '') for p in pats):
                 return city
         return ''
+
+    def in_programme_scope(self, title, city=None):
+        """Title is a programme of the wider scope (city checked when given)."""
+        if not self.scope_titles or (city is not None and city not in self.scope_cities):
+            return False
+        return any(p.search(title) for p in self.scope_titles) and not any(p.search(title) for p in self.scope_excluded)
 
     def role_family(self, title):
         if any(p.search(title) for p in self.role_exclusions):
@@ -198,7 +215,8 @@ class Classifier:
             c.seniority = 'senior'
             c.reject_reason = 'senior title'
             return c
-        if any(p.search(title) for p in self.non_front_office):
+        programme = self.in_programme_scope(title, c.city)
+        if not programme and any(p.search(title) for p in self.non_front_office):
             c.reject_reason = 'non front-office title'
             return c
         title_entry = self.entry_type(title)
@@ -207,10 +225,11 @@ class Classifier:
                 c.seniority = 'senior'
                 c.reject_reason = 'experienced-hire title (associate/manager)'
                 return c
-        c.role_family = self.role_family(title)
+        c.role_family = self.role_family(title) or (self.scope_label if programme else '')
         if not c.role_family:
             c.reject_reason = 'role not targeted'
             return c
+        c.programme_scope = programme and c.role_family == self.scope_label
         # Explicit corporate title / grade fields in the description.
         if any(p.search(description) for p in self.senior_desc):
             c.seniority = 'senior'

@@ -2253,6 +2253,30 @@ R54 = [
 ]
 PROBES = PROBES + R54
 
+
+# ---------------- Round 55: every CA-CIB summer / internship card with its places ----------------
+def ts_titles(host, pattern, pages=8):
+    def text(x):
+        return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', x)).strip()
+    rows, seen = [], set()
+    for page in range(1, pages + 1):
+        t = get(f'https://{host}/job/list-of-jobs.aspx?page={page}&LCID=2057').text
+        new = 0
+        for m in re.finditer(r'href="(/job/job-[^"]+_(\d+)\.aspx)"[^>]*>\s*(.*?)\s*</a>.*?<ul class="ts-offer-card-content__list[^"]*"[^>]*>(.*?)</ul>', t, re.S):
+            if m.group(2) in seen:
+                continue
+            seen.add(m.group(2)); new += 1
+            if re.search(pattern, m.group(3), re.I):
+                rows.append(f'{m.group(2)} | {text(m.group(3))} | {text(m.group(4))}')
+        if not new:
+            break
+        time.sleep(1)
+    return f'{len(seen)} offers, {len(rows)} matching:\n' + '\n'.join(rows)
+
+
+R55 = [('R55 CA-CIB summers', lambda: ts_titles('jobs.ca-cib.com', r'summer|stage|intern|graduate|off-cycle|VIE|trainee|alternan'))]
+PROBES = PROBES + R55
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
