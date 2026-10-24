@@ -94,8 +94,6 @@ def select(jobs, classifier, state, config, report):
     # publication date, until `backfill_until` (the user has never seen them).
     today = datetime.now(timezone.utc).date().isoformat()
     backfill = {s['company'] for s in config.get('sources', []) if str(s.get('backfill_until', '')) >= today}
-    # Programmes that became eligible when filters.programme_scope was added
-    scope_backfill = str(config.get('filters', {}).get('programme_scope', {}).get('backfill_until', '')) >= today
     run_keys, new, matched, near = set(), [], [], []
     reasons = Counter()
     samples = {}
@@ -128,8 +126,7 @@ def select(jobs, classifier, state, config, report):
             reasons[f'status {job.get("status")} not notified'] += 1
             continue
         age = age_days(job.get('published'))
-        if max_age is not None and age is not None and age > max_age and job['company'] not in backfill \
-                and not (scope_backfill and c.programme_scope):
+        if max_age is not None and age is not None and age > max_age and job['company'] not in backfill:
             reasons[f'published more than {max_age} days ago'] += 1
             job['too_old'] = True
             continue

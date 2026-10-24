@@ -66,24 +66,21 @@ class Context:
     def screen(self, company, title, location):
         """title_worth_fetching + city check, keeping samples of target-city
         titles screened out (shown in the report to audit false negatives)."""
-        city = self.city_of(location)
-        in_city = bool(city) or bool(re.match(r'\d+ Locations', location or ''))
-        ok = self.title_worth_fetching(title, city or None)
+        in_city = bool(self.city_of(location)) or bool(re.match(r'\d+ Locations', location or ''))
+        ok = self.title_worth_fetching(title)
         if in_city and not ok:
             bucket = self.screened_out.setdefault(company, [])
             if len(bucket) < 8:
                 bucket.append(title)
         return ok and in_city
 
-    def title_worth_fetching(self, title, city=None):
+    def title_worth_fetching(self, title):
         """Cheap title-only screen applied before any per-vacancy request.
 
         Rejects titles that can never match (senior, non front-office, not a
         targeted role) so detail requests are spent on plausible vacancies.
         """
         c = self.classifier
-        if c.in_programme_scope(title, city) and not any(p.search(title) for p in c.senior):
-            return True   # without a city (adapter screens titles first), classification checks it
         if any(p.search(title) for p in c.senior + c.non_front_office):
             return False
         entry = c.entry_type(title)

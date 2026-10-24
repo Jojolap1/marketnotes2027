@@ -192,15 +192,13 @@ class SeniorityAndRoleTests(unittest.TestCase):
 
     def test_non_front_office_rejected(self):
         for title in ['Python Engineer, Trading Automation', 'Compliance Intern - Markets', 'Operations Analyst Summer 2027',
-                      'Market Risk Intern', 'Trade Support Graduate',
+                      'Market Risk Intern', 'Trade Support Graduate', 'Investment Banking Summer Analyst',
                       'Software Developer Intern - Trading Systems', 'HR Graduate Programme', 'Private Banking Graduate',
                       'Global Technology Summer Analyst', 'Business Analyst Intern', 'Graduate Trading Applications Specialist',
                       'Intern, Financial Markets Business Management', 'Admin Assistant, FICC Trading, Singapore',
                       'Analyste Crédit - Financements de projets', 'Stage - Analyste Marchés de Capitaux Dette',
                       'Internship: Global Consumer Financial Services, Consumer Secured Lending, Home Financing & Secured Lending Portfolio Management']:
             self.assertFalse(classify(title).eligible, title)
-        # Outside London (programme_scope) investment banking is not targeted
-        self.assertFalse(classify('Investment Banking Summer Analyst', location='Paris').eligible)
 
     def test_target_roles_accepted(self):
         for title, family in [('Equity Derivatives Structuring Intern', 'Structuring'),
@@ -224,37 +222,3 @@ class SeniorityAndRoleTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-
-class LondonProgrammeScopeTests(unittest.TestCase):
-    """filters.programme_scope: every front-office summer / graduate programme in London."""
-
-    def classify(self, title, city='London'):
-        return C.classify({'title': title, 'location': city, 'company': 'Bank',
-                           'description': 'Open to penultimate-year students.'})
-
-    def test_front_office_programmes_in_london_are_kept(self):
-        for title in ('2027 Summer Internship - Coverage', '2027 Summer Internship - Corporate and Leveraged Finance',
-                      '2027 Summer Internship - Distribution & Asset Rotation', 'Investment Banking Graduate Programme 2027',
-                      'Summer Analyst - Corporate Finance'):
-            c = self.classify(title)
-            self.assertTrue(c.eligible, title)
-            self.assertTrue(c.programme_scope, title)
-
-    def test_support_functions_and_other_cities_stay_excluded(self):
-        for title in ('2027 Summer Internship - Risk Department', '2027 Summer Internship - Human Resources',
-                      '2027 Summer Analyst - Technology', 'Graduate Programme - Operations', '2027 Summer Internship - Finance',
-                      'Graduate Software Engineer', '2027 Summer Internship – Compliance',
-                      '2027 | EMEA | London | Controllers | Summer Analyst', '2027 | EMEA | London | Human Capital Management | Summer Analyst',
-                      '2027 - Corporate Functions - Corporate Analyst Development Program - Summer Internship - London',
-                      '2027 Chase Digital Development Programme – Summer Internship (London)',
-                      'BNY Summer Internship Program - Office of the CFO (London)', 'Finance - Shell Graduate Programme 2027'):
-            self.assertFalse(self.classify(title).eligible, title)
-        self.assertFalse(self.classify('2027 Summer Internship - Coverage', 'Paris').eligible)
-        self.assertFalse(self.classify('Vice President, Coverage').eligible)
-
-    def test_markets_programmes_keep_their_family(self):
-        c = self.classify('2027 Summer Internship - Global Markets Division')
-        self.assertTrue(c.eligible)
-        self.assertFalse(c.programme_scope)
-        self.assertEqual(c.role_family, 'Sales & Trading')

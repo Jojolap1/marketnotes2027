@@ -36,16 +36,6 @@ A job is relevant only if **all** hold:
 6. **Experience**: the most restrictive professional-experience requirement found (EN/FR: "3+ years", "minimum 2 ans d'expérience", "2 à 4 ans"…) must be ≤ `max_years_experience` (default 1). Numbers about degrees, programme/contract length, company history are ignored. Ranges straddling the limit (e.g. 1–2 years) are *borderline*: accepted only for internships/graduate programmes/VIE.
 7. **Entry evidence** (`require_entry_signal`): internship / stage / off-cycle / summer, graduate programme / trainee, VIE, apprenticeship / alternance, junior / assistant in the title — or explicit entry-level wording in the description (recent graduates, jeune diplômé, 0–1 year…). Bare titles like "Equity Sales Trader" are rejected.
 
-### London programmes (all front office)
-
-On top of the markets roles above, `filters.programme_scope` keeps every front-office
-summer internship and graduate programme in London (coverage, M&A, financing,
-distribution…). Every `non_front_office_patterns` entry still applies except the
-front-office businesses listed in `allowed_non_front_office_patterns`; support
-functions (HR, technology, risk, compliance, operations, audit, finance, wealth…) stay
-excluded. `backfill_until` lets the programmes that became eligible on 2026-10-24 be
-alerted once even if published more than `max_age_days` ago.
-
 ## Application status
 
 | Status | Evidence |
