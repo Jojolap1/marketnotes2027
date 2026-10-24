@@ -244,7 +244,11 @@ class LondonProgrammeScopeTests(unittest.TestCase):
     def test_support_functions_and_other_cities_stay_excluded(self):
         for title in ('2027 Summer Internship - Risk Department', '2027 Summer Internship - Human Resources',
                       '2027 Summer Analyst - Technology', 'Graduate Programme - Operations', '2027 Summer Internship - Finance',
-                      'Graduate Software Engineer', '2027 Summer Internship – Compliance'):
+                      'Graduate Software Engineer', '2027 Summer Internship – Compliance',
+                      '2027 | EMEA | London | Controllers | Summer Analyst', '2027 | EMEA | London | Human Capital Management | Summer Analyst',
+                      '2027 - Corporate Functions - Corporate Analyst Development Program - Summer Internship - London',
+                      '2027 Chase Digital Development Programme – Summer Internship (London)',
+                      'BNY Summer Internship Program - Office of the CFO (London)', 'Finance - Shell Graduate Programme 2027'):
             self.assertFalse(self.classify(title).eligible, title)
         self.assertFalse(self.classify('2027 Summer Internship - Coverage', 'Paris').eligible)
         self.assertFalse(self.classify('Vice President, Coverage').eligible)
