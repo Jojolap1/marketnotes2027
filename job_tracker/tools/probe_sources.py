@@ -2322,6 +2322,42 @@ R59 = [(f'R59 ANZ RMK {c}', (lambda c=c: rmk_count('https://careers.anz.com', c)
 R59.append(('R59 ANZ graduates', lambda: rmk_count('https://careers.anz.com', 'Singapore&q=graduate', 2)))
 PROBES = PROBES + R59
 
+
+# ---------------- Round 60: batch 3 discovery (Paris, London, Asia, energy, Dubai) ----------------
+B3 = {
+    'CIC / Credit Mutuel': ('https://recrutement.creditmutuel.fr/fr/nos_offres.html', ['cic', 'creditmutuel']),
+    'La Banque Postale': ('https://www.labanquepostale.com/candidats.html', ['labanquepostale']),
+    'CFM': ('https://www.cfm.com/careers/', ['cfm', 'capitalfundmanagement', 'cfm-1']),
+    'Flowdesk': ('https://www.flowdesk.co/careers', ['flowdesk']),
+    'ExodusPoint': ('https://www.exoduspoint.com/careers', ['exoduspoint', 'exoduspointcapital']),
+    'Five Rings': ('https://fiverings.com/careers/', ['fiverings', 'fiveringsllc', 'five-rings']),
+    'Tibra': ('https://tibra.com/careers', ['tibra', 'tibracapital']),
+    'B2C2': ('https://www.b2c2.com/careers', ['b2c2', 'b2c2ltd']),
+    'GSR': ('https://www.gsr.io/careers', ['gsr', 'gsrmarkets']),
+    'Amber Group': ('https://www.ambergroup.io/careers', ['ambergroup', 'amber']),
+    'Keyrock': ('https://keyrock.com/careers/', ['keyrock']),
+    'QCP Capital': ('https://qcp.capital/careers', ['qcp', 'qcpcapital']),
+    'Cantor Fitzgerald': ('https://www.cantor.com/careers/', ['cantor', 'cantorfitzgerald']),
+    'Castleton Commodities': ('https://www.cci.com/careers/', ['castletoncommodities', 'cci']),
+    'Freepoint': ('https://www.freepoint.com/careers/', ['freepoint', 'freepointcommodities']),
+    'Koch Supply & Trading': ('https://www.kochcareers.com/', ['koch', 'kochindustries']),
+    'Centrica': ('https://www.centrica.com/careers/', ['centrica']),
+    'Statkraft': ('https://www.statkraft.com/careers/', ['statkraft']),
+    'Westpac': ('https://www.westpac.com.au/about-westpac/careers/', ['westpac']),
+    'NAB': ('https://www.nab.com.au/about-us/careers', ['nab', 'nationalaustraliabank']),
+    'DNB': ('https://www.dnb.no/en/about-us/careers', ['dnb']),
+    'ADCB': ('https://www.adcb.com/en/about-us/careers/', ['adcb']),
+    'Dubai Islamic Bank': ('https://www.dib.ae/about-us/careers', ['dib', 'dubaiislamicbank']),
+    'EFG Hermes': ('https://www.efghermes.com/careers', ['efghermes', 'efg-hermes']),
+    'Arqaam': ('https://www.arqaamcapital.com/careers', ['arqaam', 'arqaamcapital']),
+    'Mashreq': ('https://www.mashreq.com/en/uae/careers/', ['mashreq', 'mashreqbank']),
+}
+R60 = []
+for name, (page, slugs) in B3.items():
+    R60.append((f'R60 BOARDS {name}', (lambda slugs=slugs: board_sweep(slugs))))
+    R60.append((f'R60 CRAWL {name}', (lambda page=page: crawl(page, depth=1, max_pages=3))))
+PROBES = PROBES + R60
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
