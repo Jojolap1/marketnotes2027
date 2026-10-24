@@ -2377,6 +2377,12 @@ R62 = [('R62 CIC card', lambda: grep_page('https://recrutement.creditmutuel.fr/f
        ('R62 WP oracle', lambda: oracle('ebuu.fa.ap1.oraclecloud.com', 'CX'))]
 PROBES = PROBES + R62
 
+
+# ---------------- Round 63: Castleton Workday tenant ----------------
+R63 = [('R63 CCI tenants', lambda: ' | '.join(workday('osv-cci.wd1.myworkdayjobs.com', t, 'CCICareers')[:140] for t in ('cci', 'osvcci', 'castleton', 'osv_cci'))),
+       ('R63 CCI page', lambda: grep_page('https://osv-cci.wd1.myworkdayjobs.com/CCICareers', r'((?:tenant|siteId|"site")[^,]{0,60})', 8, 100))]
+PROBES = PROBES + R63
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
