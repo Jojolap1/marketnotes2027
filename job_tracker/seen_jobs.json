@@ -146,6 +146,22 @@
    "title": "Investment Specialist – Traditional & Alternative Investments (stage)",
    "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5132&PageType=JobDetails&jobid=352672&frmSiteId=5131"
   },
+  "brassring:25008:352809": {
+   "company": "UBS",
+   "fingerprints": [
+    "id:brassring:25008:352809",
+    "req:ubs:352809",
+    "url:https://jobs.ubs.com/tgnewui/search/home/homewithpreload?PageType=JobDetails&jobid=352809&partnerid=25008&siteid=5131",
+    "title:ubs:2027 summer internship global banking glu london:london"
+   ],
+   "first_seen": "2026-10-24T06:11:45+00:00",
+   "last_seen": "2026-10-24",
+   "location": "United Kingdom (London office assumed: city not given)",
+   "notified_at": "2026-10-24T06:11:45+00:00",
+   "status": "open",
+   "title": "2027 Summer Internship - Global Banking GLU - London",
+   "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5131&PageType=JobDetails&jobid=352809"
+  },
   "brassring:25008:352955": {
    "company": "UBS",
    "fingerprints": [
@@ -1262,6 +1278,70 @@
    "title": "2027 Sales Internship Programme (SG)",
    "url": "https://ekbq.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/2214"
   },
+  "oracle:eofe:82198": {
+   "company": "BNY",
+   "fingerprints": [
+    "id:oracle:eofe:82198",
+    "req:bny:82198",
+    "url:https://eofe.fa.us2.oraclecloud.com/hcmui/candidateexperience/en/sites/bny/job/82198",
+    "title:bny:2027 bny summer internship program investments london:london"
+   ],
+   "first_seen": "2026-10-24T06:11:58+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London, United Kingdom",
+   "notified_at": "2026-10-24T06:11:58+00:00",
+   "status": "open",
+   "title": "2027 BNY Summer Internship Program – Investments (London)",
+   "url": "https://eofe.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/BNY/job/82198"
+  },
+  "oracle:eofe:82278": {
+   "company": "BNY",
+   "fingerprints": [
+    "id:oracle:eofe:82278",
+    "req:bny:82278",
+    "url:https://eofe.fa.us2.oraclecloud.com/hcmui/candidateexperience/en/sites/bny/job/82278",
+    "title:bny:2027 bny analyst program investments london:london"
+   ],
+   "first_seen": "2026-10-24T06:11:56+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London, United Kingdom",
+   "notified_at": "2026-10-24T06:11:56+00:00",
+   "status": "open",
+   "title": "2027 BNY Analyst Program – Investments (London)",
+   "url": "https://eofe.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/BNY/job/82278"
+  },
+  "oracle:eofe:82912": {
+   "company": "BNY",
+   "fingerprints": [
+    "id:oracle:eofe:82912",
+    "req:bny:82912",
+    "url:https://eofe.fa.us2.oraclecloud.com/hcmui/candidateexperience/en/sites/bny/job/82912",
+    "title:bny:2027 bny analyst program trade execution london:london"
+   ],
+   "first_seen": "2026-10-24T06:11:51+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London, United Kingdom",
+   "notified_at": "2026-10-24T06:11:51+00:00",
+   "status": "open",
+   "title": "2027 BNY Analyst Program - Trade Execution (London)",
+   "url": "https://eofe.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/BNY/job/82912"
+  },
+  "oracle:eofe:83002": {
+   "company": "BNY",
+   "fingerprints": [
+    "id:oracle:eofe:83002",
+    "req:bny:83002",
+    "url:https://eofe.fa.us2.oraclecloud.com/hcmui/candidateexperience/en/sites/bny/job/83002",
+    "title:bny:2027 bny summer internship program trade execution london:london"
+   ],
+   "first_seen": "2026-10-24T06:11:49+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London, United Kingdom",
+   "notified_at": "2026-10-24T06:11:49+00:00",
+   "status": "open",
+   "title": "2027 BNY Summer Internship Program – Trade Execution (London)",
+   "url": "https://eofe.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/BNY/job/83002"
+  },
   "oracle:jpmc:210775295": {
    "company": "JPMorgan",
    "fingerprints": [
@@ -1277,6 +1357,38 @@
    "status": "open",
    "title": "2027 Asset Management Investments - Summer Internship Program - London",
    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210775295"
+  },
+  "oracle:jpmc:210775302": {
+   "company": "JPMorgan",
+   "fingerprints": [
+    "id:oracle:jpmc:210775302",
+    "req:jpmorgan:210775302",
+    "url:https://jpmc.fa.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/210775302",
+    "title:jpmorgan:2027 global corporate banking analyst program summer internship london:london"
+   ],
+   "first_seen": "2026-10-24T06:12:08+00:00",
+   "last_seen": "2026-10-24",
+   "location": "LONDON, LONDON, United Kingdom",
+   "notified_at": "2026-10-24T06:12:08+00:00",
+   "status": "open",
+   "title": "2027 Global Corporate Banking Analyst Program - Summer Internship - London",
+   "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210775302"
+  },
+  "oracle:jpmc:210775719": {
+   "company": "JPMorgan",
+   "fingerprints": [
+    "id:oracle:jpmc:210775719",
+    "req:jpmorgan:210775719",
+    "url:https://jpmc.fa.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/210775719",
+    "title:jpmorgan:2027 global investment banking analyst program full time london:london"
+   ],
+   "first_seen": "2026-10-24T06:11:54+00:00",
+   "last_seen": "2026-10-24",
+   "location": "LONDON, LONDON, United Kingdom",
+   "notified_at": "2026-10-24T06:11:54+00:00",
+   "status": "open",
+   "title": "2027 - Global Investment Banking Analyst Program - Full-Time - London",
+   "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210775719"
   },
   "oracle:jpmc:210780517": {
    "company": "JPMorgan",
@@ -1718,6 +1830,21 @@
    "title": "Markets Intern UK 2027",
    "url": "https://jobs.standardchartered.com/job/London-Markets-Intern-UK-2027/1370621257/"
   },
+  "sitemap:Standard Chartered:https://jobs.standardchartered.com/job/London-Mergers-&-Acquisitions-Corporate-&-Investment-Banking-Graduate-Programme-2027/1373606557/": {
+   "company": "Standard Chartered",
+   "fingerprints": [
+    "id:sitemap:Standard Chartered:https://jobs.standardchartered.com/job/London-Mergers-&-Acquisitions-Corporate-&-Investment-Banking-Graduate-Programme-2027/1373606557/",
+    "url:https://jobs.standardchartered.com/job/london-mergers-&-acquisitions-corporate-&-investment-banking-graduate-programme-2027/1373606557",
+    "title:standard chartered:mergers acquisitions corporate investment banking graduate programme 2027:london"
+   ],
+   "first_seen": "2026-10-24T06:11:53+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London (from job URL)",
+   "notified_at": "2026-10-24T06:11:53+00:00",
+   "status": "open",
+   "title": "Mergers & Acquisitions Corporate & Investment Banking Graduate Programme 2027",
+   "url": "https://jobs.standardchartered.com/job/London-Mergers-&-Acquisitions-Corporate-&-Investment-Banking-Graduate-Programme-2027/1373606557/"
+  },
   "sitemap:Standard Chartered:https://jobs.standardchartered.com/job/London-Syndicate-and-Portfolio-Management%E2%80%AFGraduate-Programme-2027/1373604557/": {
    "company": "Standard Chartered",
    "fingerprints": [
@@ -1940,6 +2067,21 @@
    "title": "12-Month Internship - Sales Project Management",
    "url": "https://jobs.ca-cib.com/job/job-12-month-internship-sales-project-management-_116814.aspx"
   },
+  "workable:capula-investment-management-ltd:7603F96755": {
+   "company": "Capula Investment Management",
+   "fingerprints": [
+    "id:workable:capula-investment-management-ltd:7603F96755",
+    "url:https://apply.workable.com/j/7603f96755",
+    "title:capula investment management:capula analyst programme:london"
+   ],
+   "first_seen": "2026-10-24T06:11:46+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London, United Kingdom",
+   "notified_at": "2026-10-24T06:11:46+00:00",
+   "status": "open",
+   "title": "Capula Analyst Programme",
+   "url": "https://apply.workable.com/j/7603F96755"
+  },
   "workable:capula-investment-management-ltd:A15A62A8BE": {
    "company": "Capula Investment Management",
    "fingerprints": [
@@ -1954,6 +2096,70 @@
    "status": "open",
    "title": "2027 Trading and Research Summer Internship",
    "url": "https://apply.workable.com/j/A15A62A8BE"
+  },
+  "workday:barclays:JR-0000123989": {
+   "company": "Barclays",
+   "fingerprints": [
+    "id:workday:barclays:JR-0000123989",
+    "req:barclays:jr-0000123989",
+    "url:https://barclays.wd3.myworkdayjobs.com/external_career_site_barclays/job/canary-wharf-1-churchill-place/international-corporate-banking-summer-internship-programme-2027-london_jr-0000123989",
+    "title:barclays:international corporate banking summer internship programme 2027 london:london"
+   ],
+   "first_seen": "2026-10-24T06:12:13+00:00",
+   "last_seen": "2026-10-24",
+   "location": "Canary Wharf, 1 Churchill Place",
+   "notified_at": "2026-10-24T06:12:13+00:00",
+   "status": "open",
+   "title": "International Corporate Banking Summer Internship Programme 2027 London",
+   "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays/job/Canary-Wharf-1-Churchill-Place/International-Corporate-Banking-Summer-Internship-Programme-2027-London_JR-0000123989"
+  },
+  "workday:barclays:JR-0000124243": {
+   "company": "Barclays",
+   "fingerprints": [
+    "id:workday:barclays:JR-0000124243",
+    "req:barclays:jr-0000124243",
+    "url:https://barclays.wd3.myworkdayjobs.com/external_career_site_barclays/job/canary-wharf-1-churchill-place/uk-corporate-banking-summer-internship-programme-2027-london_jr-0000124243",
+    "title:barclays:uk corporate banking summer internship programme 2027 london:london"
+   ],
+   "first_seen": "2026-10-24T06:12:11+00:00",
+   "last_seen": "2026-10-24",
+   "location": "Canary Wharf, 1 Churchill Place",
+   "notified_at": "2026-10-24T06:12:11+00:00",
+   "status": "open",
+   "title": "UK Corporate Banking Summer Internship Programme 2027 London",
+   "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays/job/Canary-Wharf-1-Churchill-Place/UK-Corporate-Banking-Summer-Internship-Programme-2027-London_JR-0000124243"
+  },
+  "workday:barclays:JR-0000124255": {
+   "company": "Barclays",
+   "fingerprints": [
+    "id:workday:barclays:JR-0000124255",
+    "req:barclays:jr-0000124255",
+    "url:https://barclays.wd3.myworkdayjobs.com/external_career_site_barclays/job/canary-wharf-1-churchill-place/global-transaction-banking-graduate-programme-2027-london_jr-0000124255-1",
+    "title:barclays:global transaction banking graduate programme 2027 london:london"
+   ],
+   "first_seen": "2026-10-24T06:12:10+00:00",
+   "last_seen": "2026-10-24",
+   "location": "Canary Wharf, 1 Churchill Place",
+   "notified_at": "2026-10-24T06:12:10+00:00",
+   "status": "open",
+   "title": "Global Transaction Banking Graduate Programme 2027 London",
+   "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays/job/Canary-Wharf-1-Churchill-Place/Global-Transaction-Banking-Graduate-Programme-2027-London_JR-0000124255-1"
+  },
+  "workday:barclays:JR-0000124400": {
+   "company": "Barclays",
+   "fingerprints": [
+    "id:workday:barclays:JR-0000124400",
+    "req:barclays:jr-0000124400",
+    "url:https://barclays.wd3.myworkdayjobs.com/external_career_site_barclays/job/canary-wharf-1-churchill-place/uk-corporate-banking-graduate-programme-2027-london_jr-0000124400-1",
+    "title:barclays:uk corporate banking graduate programme 2027 london:london"
+   ],
+   "first_seen": "2026-10-24T06:12:09+00:00",
+   "last_seen": "2026-10-24",
+   "location": "Canary Wharf, 1 Churchill Place",
+   "notified_at": "2026-10-24T06:12:09+00:00",
+   "status": "open",
+   "title": "UK Corporate Banking Graduate Programme 2027 London",
+   "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays/job/Canary-Wharf-1-Churchill-Place/UK-Corporate-Banking-Graduate-Programme-2027-London_JR-0000124400-1"
   },
   "workday:barclays:JR-0000124692": {
    "company": "Barclays",
@@ -2067,6 +2273,22 @@
    "title": "2027 Summer Internship Program – Trading, Singapore",
    "url": "https://wd3.myworkdaysite.com/recruiting/brevanhoward/BH_ExternalCareers/job/Singapore/XMLNAME-2027-Summer-Internship-Program---Trading--Singapore_JR101587"
   },
+  "workday:citi:261002673": {
+   "company": "Citi",
+   "fingerprints": [
+    "id:workday:citi:261002673",
+    "req:citi:261002673",
+    "url:https://citi.wd5.myworkdayjobs.com/2/job/london--united-kingdom/banking--investment-banking--cee--greece---cyprus--summer-analyst--london--united-kingdom-2027_261002673",
+    "title:citi:banking investment banking cee greece cyprus summer analyst london united kingdom 2027:london"
+   ],
+   "first_seen": "2026-10-24T06:11:48+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London United Kingdom",
+   "notified_at": "2026-10-24T06:11:48+00:00",
+   "status": "open",
+   "title": "Banking, Investment Banking, CEE, Greece & Cyprus, Summer Analyst, London, United Kingdom 2027",
+   "url": "https://citi.wd5.myworkdayjobs.com/2/job/London--United-Kingdom/Banking--Investment-Banking--CEE--Greece---Cyprus--Summer-Analyst--London--United-Kingdom-2027_261002673"
+  },
   "workday:citi:26984811": {
    "company": "Citi",
    "fingerprints": [
@@ -2130,6 +2352,86 @@
    "status": "open",
    "title": "Markets – Sales and Trading, Off-Cycle Internship, Paris – France, 2027",
    "url": "https://citi.wd5.myworkdayjobs.com/2/job/Paris--France/Markets---Sales-and-Trading--Off-Cycle-Internship--Paris---France--2027_26992518"
+  },
+  "workday:citi:26993182": {
+   "company": "Citi",
+   "fingerprints": [
+    "id:workday:citi:26993182",
+    "req:citi:26993182",
+    "url:https://citi.wd5.myworkdayjobs.com/2/job/london--united-kingdom/banking--financing--summer-analyst--london---united-kingdom-2027_26993182",
+    "title:citi:banking financing summer analyst london united kingdom 2027:london"
+   ],
+   "first_seen": "2026-10-24T06:12:01+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London United Kingdom",
+   "notified_at": "2026-10-24T06:12:01+00:00",
+   "status": "open",
+   "title": "Banking, Financing, Summer Analyst, London - United Kingdom 2027",
+   "url": "https://citi.wd5.myworkdayjobs.com/2/job/London--United-Kingdom/Banking--Financing--Summer-Analyst--London---United-Kingdom-2027_26993182"
+  },
+  "workday:citi:26994966": {
+   "company": "Citi",
+   "fingerprints": [
+    "id:workday:citi:26994966",
+    "req:citi:26994966",
+    "url:https://citi.wd5.myworkdayjobs.com/2/job/london--united-kingdom/client---citi-research--summer-analyst--london---united-kingdom--2027_26994966",
+    "title:citi:client citi research summer analyst london united kingdom 2027:london"
+   ],
+   "first_seen": "2026-10-24T06:11:50+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London United Kingdom",
+   "notified_at": "2026-10-24T06:11:50+00:00",
+   "status": "open",
+   "title": "Client - Citi Research, Summer Analyst, London - United Kingdom, 2027",
+   "url": "https://citi.wd5.myworkdayjobs.com/2/job/London--United-Kingdom/Client---Citi-Research--Summer-Analyst--London---United-Kingdom--2027_26994966"
+  },
+  "workday:citi:26995475": {
+   "company": "Citi",
+   "fingerprints": [
+    "id:workday:citi:26995475",
+    "req:citi:26995475",
+    "url:https://citi.wd5.myworkdayjobs.com/2/job/london--united-kingdom/services---summer-analyst--uk---london--2027_26995475",
+    "title:citi:services summer analyst uk london 2027:london"
+   ],
+   "first_seen": "2026-10-24T06:11:55+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London United Kingdom",
+   "notified_at": "2026-10-24T06:11:55+00:00",
+   "status": "open",
+   "title": "Services - Summer Analyst, UK - London, 2027",
+   "url": "https://citi.wd5.myworkdayjobs.com/2/job/London--United-Kingdom/Services---Summer-Analyst--UK---London--2027_26995475"
+  },
+  "workday:citi:26998415": {
+   "company": "Citi",
+   "fingerprints": [
+    "id:workday:citi:26998415",
+    "req:citi:26998415",
+    "url:https://citi.wd5.myworkdayjobs.com/2/job/london--united-kingdom/banking--investment-banking---financial-institution-group--fig---summer-analyst--london--united-kingdom-2027_26998415",
+    "title:citi:banking investment banking financial institution group fig summer analyst london united kingdom 2027:london"
+   ],
+   "first_seen": "2026-10-24T06:11:44+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London United Kingdom",
+   "notified_at": "2026-10-24T06:11:44+00:00",
+   "status": "open",
+   "title": "Banking, Investment Banking - Financial Institution Group (FIG), Summer Analyst, London, United Kingdom 2027",
+   "url": "https://citi.wd5.myworkdayjobs.com/2/job/London--United-Kingdom/Banking--Investment-Banking---Financial-Institution-Group--FIG---Summer-Analyst--London--United-Kingdom-2027_26998415"
+  },
+  "workday:citi:26998422": {
+   "company": "Citi",
+   "fingerprints": [
+    "id:workday:citi:26998422",
+    "req:citi:26998422",
+    "url:https://citi.wd5.myworkdayjobs.com/2/job/london--united-kingdom/banking--investment-banking--real-estate--summer-analyst--london--united-kingdom-2027_26998422",
+    "title:citi:banking investment banking real estate summer analyst london united kingdom 2027:london"
+   ],
+   "first_seen": "2026-10-24T06:11:43+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London United Kingdom",
+   "notified_at": "2026-10-24T06:11:43+00:00",
+   "status": "open",
+   "title": "Banking, Investment Banking, Real Estate, Summer Analyst, London, United Kingdom 2027",
+   "url": "https://citi.wd5.myworkdayjobs.com/2/job/London--United-Kingdom/Banking--Investment-Banking--Real-Estate--Summer-Analyst--London--United-Kingdom-2027_26998422"
   },
   "workday:db:R0446171": {
    "company": "Deutsche Bank",
@@ -2323,6 +2625,102 @@
    "title": "Investment Management - Trading Assistant - Analyst",
    "url": "https://ms.wd5.myworkdayjobs.com/External/job/London-United-Kingdom/Investment-Management---Trading-Assistant---Analyst_JR036766"
   },
+  "workday:mufgub:10079259-WD": {
+   "company": "MUFG",
+   "fingerprints": [
+    "id:workday:mufgub:10079259-WD",
+    "req:mufg:10079259-wd",
+    "url:https://mufgub.wd3.myworkdayjobs.com/mufg-careers/job/london/xmlname-2027-mufg-uk-summer-analyst-programme--global-corporate-investment-banking_10079259-wd-1",
+    "title:mufg:2027 mufg uk summer analyst programme global corporate investment banking:london"
+   ],
+   "first_seen": "2026-10-24T06:12:04+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London",
+   "notified_at": "2026-10-24T06:12:04+00:00",
+   "status": "open",
+   "title": "2027 MUFG UK Summer Analyst Programme: Global Corporate Investment Banking",
+   "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/London/XMLNAME-2027-MUFG-UK-Summer-Analyst-Programme--Global-Corporate-Investment-Banking_10079259-WD-1"
+  },
+  "workday:mufgub:10079262-WD": {
+   "company": "MUFG",
+   "fingerprints": [
+    "id:workday:mufgub:10079262-WD",
+    "req:mufg:10079262-wd",
+    "url:https://mufgub.wd3.myworkdayjobs.com/mufg-careers/job/london/xmlname-2027-mufg-uk-analyst-programme--global-corporate-investment-banking_10079262-wd-1",
+    "title:mufg:2027 mufg uk analyst programme global corporate investment banking:london"
+   ],
+   "first_seen": "2026-10-24T06:12:03+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London",
+   "notified_at": "2026-10-24T06:12:03+00:00",
+   "status": "open",
+   "title": "2027 MUFG UK Analyst Programme: Global Corporate Investment Banking",
+   "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/London/XMLNAME-2027-MUFG-UK-Analyst-Programme--Global-Corporate-Investment-Banking_10079262-WD-1"
+  },
+  "workday:mufgub:10079264-WD": {
+   "company": "MUFG",
+   "fingerprints": [
+    "id:workday:mufgub:10079264-WD",
+    "req:mufg:10079264-wd",
+    "url:https://mufgub.wd3.myworkdayjobs.com/mufg-careers/job/london/xmlname-2027-mufg-uk-analyst-programme--capital-markets_10079264-wd-1",
+    "title:mufg:2027 mufg uk analyst programme capital markets:london"
+   ],
+   "first_seen": "2026-10-24T06:11:59+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London",
+   "notified_at": "2026-10-24T06:11:59+00:00",
+   "status": "open",
+   "title": "2027 MUFG UK Analyst Programme: Capital Markets",
+   "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/London/XMLNAME-2027-MUFG-UK-Analyst-Programme--Capital-Markets_10079264-WD-1"
+  },
+  "workday:mufgub:10079265-WD": {
+   "company": "MUFG",
+   "fingerprints": [
+    "id:workday:mufgub:10079265-WD",
+    "req:mufg:10079265-wd",
+    "url:https://mufgub.wd3.myworkdayjobs.com/mufg-careers/job/london/xmlname-2027-mufg-uk-summer-analyst-programme--capital-markets_10079265-wd-1",
+    "title:mufg:2027 mufg uk summer analyst programme capital markets:london"
+   ],
+   "first_seen": "2026-10-24T06:12:06+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London",
+   "notified_at": "2026-10-24T06:12:06+00:00",
+   "status": "open",
+   "title": "2027 MUFG UK Summer Analyst Programme: Capital Markets",
+   "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/London/XMLNAME-2027-MUFG-UK-Summer-Analyst-Programme--Capital-Markets_10079265-WD-1"
+  },
+  "workday:mufgub:10079266-WD": {
+   "company": "MUFG",
+   "fingerprints": [
+    "id:workday:mufgub:10079266-WD",
+    "req:mufg:10079266-wd",
+    "url:https://mufgub.wd3.myworkdayjobs.com/mufg-careers/job/london/xmlname-2027-mufg-uk-summer-analyst-programme--japanese-corporate-banking_10079266-wd-1",
+    "title:mufg:2027 mufg uk summer analyst programme japanese corporate banking:london"
+   ],
+   "first_seen": "2026-10-24T06:12:05+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London",
+   "notified_at": "2026-10-24T06:12:05+00:00",
+   "status": "open",
+   "title": "2027 MUFG UK Summer Analyst Programme: Japanese Corporate Banking",
+   "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/London/XMLNAME-2027-MUFG-UK-Summer-Analyst-Programme--Japanese-Corporate-Banking_10079266-WD-1"
+  },
+  "workday:mufgub:10079268-WD": {
+   "company": "MUFG",
+   "fingerprints": [
+    "id:workday:mufgub:10079268-WD",
+    "req:mufg:10079268-wd",
+    "url:https://mufgub.wd3.myworkdayjobs.com/mufg-careers/job/london/xmlname-2027-mufg-uk-analyst-programme--transaction-banking_10079268-wd-1",
+    "title:mufg:2027 mufg uk analyst programme transaction banking:london"
+   ],
+   "first_seen": "2026-10-24T06:12:00+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London",
+   "notified_at": "2026-10-24T06:12:00+00:00",
+   "status": "open",
+   "title": "2027 MUFG UK Analyst Programme: Transaction Banking",
+   "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/London/XMLNAME-2027-MUFG-UK-Analyst-Programme--Transaction-Banking_10079268-WD-1"
+  },
   "workday:mufgub:10079355-WD": {
    "company": "MUFG",
    "fingerprints": [
@@ -2468,7 +2866,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-24T04:14:58.130309+00:00",
+ "last_send_slot": "2026-10-24T06:11:41.751363+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -2490,11 +2888,13 @@
    "last_ok": "2026-10-24"
   },
   "BBVA": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "BMO Capital Markets": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "BNY": {
@@ -2502,7 +2902,8 @@
    "last_ok": "2026-10-24"
   },
   "BP": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "BTG Pactual": {
@@ -2530,11 +2931,13 @@
    "last_ok": "2026-10-24"
   },
   "BlackRock": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 502 Server Error: Bad Gateway for url: https://blackrock.wd1.myworkdayjobs.com/wday/cxs/blackrock/BlackRock_Professional/jobs",
    "last_ok": "2026-10-24"
   },
   "Brevan Howard": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "Bunge": {
@@ -2558,7 +2961,8 @@
    "last_ok": "2026-10-24"
   },
   "CITIC CLSA (CITIC Securities)": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "Capula Investment Management": {
@@ -2578,7 +2982,8 @@
    "last_ok": "2026-10-24"
   },
   "CommBank": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "Crédit Agricole CIB": {
@@ -2606,11 +3011,13 @@
    "last_ok": "2026-10-24"
   },
   "EDF Trading": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "Eastspring Investments": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "Eclipse Trading": {
@@ -2622,7 +3029,8 @@
    "last_ok": "2026-10-24"
   },
   "Equinor": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "ExxonMobil": {
@@ -2630,7 +3038,8 @@
    "last_ok": "2026-10-24"
   },
   "Fidelity International": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "Fidelity International (campus)": {
@@ -2654,7 +3063,8 @@
    "last_ok": "2026-10-24"
   },
   "Gunvor": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "HSBC": {
@@ -2678,11 +3088,13 @@
    "last_ok": "2026-10-24"
   },
   "ING": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 500 Server Error: Internal Server Error for url: https://ing.wd3.myworkdayjobs.com/wday/cxs/ing/ICSGBLCOR/jobs",
    "last_ok": "2026-10-24"
   },
   "Invesco": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 500 Server Error: Internal Server Error for url: https://invesco.wd1.myworkdayjobs.com/wday/cxs/invesco/IVZ/jobs",
    "last_ok": "2026-10-24"
   },
   "Investec": {
@@ -2714,7 +3126,8 @@
    "last_ok": "2026-10-24"
   },
   "Lloyds Banking Group": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "MUFG": {
@@ -2822,7 +3235,8 @@
    "last_ok": "2026-10-24"
   },
   "Santander CIB": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "Schonfeld": {
@@ -2838,7 +3252,8 @@
    "last_ok": "2026-10-24"
   },
   "Shell": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "Société Générale": {
@@ -2854,11 +3269,13 @@
    "last_ok": "2026-10-24"
   },
   "State Street": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "TD Securities": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "TP ICAP": {
@@ -2878,7 +3295,8 @@
    "last_ok": "2026-10-24"
   },
   "Trafigura": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "Two Sigma": {
@@ -2890,7 +3308,8 @@
    "last_ok": "2026-10-24"
   },
   "UOB": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "Virtu Financial": {
@@ -2902,7 +3321,8 @@
    "last_ok": "2026-10-24"
   },
   "Wells Fargo": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "Wintermute": {
