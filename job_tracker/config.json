@@ -1191,6 +1191,20 @@
       "backfill_until": "2026-10-31"
     },
     {
+      "company": "Westpac",
+      "platform": "oracle",
+      "host": "ebuu.fa.ap1.oraclecloud.com",
+      "site": "CX",
+      "target_cities_optional": true,
+      "backfill_until": "2026-10-31"
+    },
+    {
+      "company": "CIC / Crédit Mutuel / La Banque Postale / Centrica / NAB",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "CIC/Crédit Mutuel (492 mostly branch adverts, paging not exposed) and La Banque Postale list adverts on their own pages without a usable feed; Centrica: UK retail/engineering roles; NAB: Eightfold API not public (403) (2026-10-24)."
+    },
+    {
       "company": "Cantor Fitzgerald / QCP Capital / ADCB",
       "platform": "official",
       "enabled": false,
