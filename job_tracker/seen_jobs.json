@@ -194,6 +194,22 @@
    "title": "Junior Trader (H/F) (VIE)",
    "url": "https://mon-vie-via.businessfrance.fr/offres/245487"
   },
+  "businessfrance:246262": {
+   "company": "Fives Solios",
+   "fingerprints": [
+    "id:businessfrance:246262",
+    "req:fives solios:vie246262",
+    "url:https://mon-vie-via.businessfrance.fr/offres/246262",
+    "title:fives solios:sales specialist hf:dubai"
+   ],
+   "first_seen": "2026-10-24T08:10:25+00:00",
+   "last_seen": "2026-10-24",
+   "location": "Dubai, United Arab Emirates",
+   "notified_at": "2026-10-24T08:10:25+00:00",
+   "status": "open",
+   "title": "SALES SPECIALIST HF (H/F) (VIE)",
+   "url": "https://mon-vie-via.businessfrance.fr/offres/246262"
+  },
   "cards:Marex:https://marex.com/careers/career-opportunities/4c835e505fed01-digital-assets-trading-intern": {
    "company": "Marex",
    "fingerprints": [
@@ -746,6 +762,22 @@
    "title": "Women in Trading Spring Week 2027",
    "url": "https://job-boards.greenhouse.io/mavensecuritiesholdingltd/jobs/8229982"
   },
+  "greenhouse:schonfeld:8220506": {
+   "company": "Schonfeld",
+   "fingerprints": [
+    "id:greenhouse:schonfeld:8220506",
+    "req:schonfeld:p101942-2026-09-21",
+    "url:https://job-boards.greenhouse.io/schonfeld/jobs/8220506",
+    "title:schonfeld:2027 emerging markets and delta one investment analyst internship:dubai"
+   ],
+   "first_seen": "2026-10-24T08:10:26+00:00",
+   "last_seen": "2026-10-24",
+   "location": "Dubai, United Arab Emirates",
+   "notified_at": "2026-10-24T08:10:26+00:00",
+   "status": "open",
+   "title": "2027 Emerging Markets and Delta One Investment Analyst Internship",
+   "url": "https://job-boards.greenhouse.io/schonfeld/jobs/8220506"
+  },
   "greenhouse:squarepointcapital:8143287": {
    "company": "Squarepoint Capital",
    "fingerprints": [
@@ -971,6 +1003,22 @@
    "title": "Institutional Sales Intern Programme 2027 - Paris",
    "url": "https://fidelityinternational.tal.net/vx/lang-en-GB/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1422-Institutional-Sales-Intern-Programme-2027-Paris/en-GB"
   },
+  "oleeo:Fidelity International (campus):1428": {
+   "company": "Fidelity International (campus)",
+   "fingerprints": [
+    "id:oleeo:Fidelity International (campus):1428",
+    "req:fidelity international:1428",
+    "url:https://fidelityinternational.tal.net/vx/lang-en-gb/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1428-mea-sales-internship-programme-2027-dubai/en-gb",
+    "title:fidelity international:mea sales internship programme 2027 dubai:dubai"
+   ],
+   "first_seen": "2026-10-24T08:10:30+00:00",
+   "last_seen": "2026-10-24",
+   "location": "MEA Sales Internship Programme 2027 - Dubai",
+   "notified_at": "2026-10-24T08:10:30+00:00",
+   "status": "open",
+   "title": "MEA Sales Internship Programme 2027 - Dubai",
+   "url": "https://fidelityinternational.tal.net/vx/lang-en-GB/mobile-0/brand-5/candidate/so/pm/1/pl/1/opp/1428-MEA-Sales-Internship-Programme-2027-Dubai/en-GB"
+  },
   "oleeo:Fidelity International (campus):1429": {
    "company": "Fidelity International (campus)",
    "fingerprints": [
@@ -1150,6 +1198,22 @@
    "status": "open",
    "title": "2027 Equity Sales & Trading Summer Analyst – High Touch Trading – Hong Kong",
    "url": "https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/2018-2027-Equity-Sales-Trading-Summer-Analyst-High-Touch-Trading-Hong-Kong/en-GB"
+  },
+  "oleeo:Nomura (campus):1548": {
+   "company": "Nomura (campus)",
+   "fingerprints": [
+    "id:oleeo:Nomura (campus):1548",
+    "req:nomura:1548",
+    "url:https://nomuracampus.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1548-2027-global-markets-summer-internship-securitised-products-and-private-credit-trading-structuring-london-for-2028-graduates/en-gb",
+    "title:nomura:2027 global markets summer internship securitised products and private credit trading structuring london for 2028 graduates:london"
+   ],
+   "first_seen": "2026-10-24T08:10:28+00:00",
+   "last_seen": "2026-10-24",
+   "location": "London",
+   "notified_at": "2026-10-24T08:10:28+00:00",
+   "status": "open",
+   "title": "2027 - Global Markets - Summer Internship (Securitised Products and Private Credit Trading / Structuring) – London (For 2028 Graduates)",
+   "url": "https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1548-2027-Global-Markets-Summer-Internship-Securitised-Products-and-Private-Credit-Trading-Structuring-London-For-2028-Graduates/en-GB"
   },
   "oleeo:Nomura:1449": {
    "company": "Nomura",
@@ -1469,6 +1533,22 @@
    "status": "open",
    "title": "Energy Trading Assistant, Analyst (6 Months Contract)",
    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210784384"
+  },
+  "oracle:jpmc:210784872": {
+   "company": "JPMorgan",
+   "fingerprints": [
+    "id:oracle:jpmc:210784872",
+    "req:jpmorgan:210784872",
+    "url:https://jpmc.fa.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/210784872",
+    "title:jpmorgan:2027 sales summer internship dubai:dubai"
+   ],
+   "first_seen": "2026-10-24T08:10:27+00:00",
+   "last_seen": "2026-10-24",
+   "location": "Dubai, United Arab Emirates",
+   "notified_at": "2026-10-24T08:10:27+00:00",
+   "status": "open",
+   "title": "2027 – Sales – Summer Internship - Dubai",
+   "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210784872"
   },
   "oracle:jpmc:210794823": {
    "company": "JPMorgan",
@@ -2866,7 +2946,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-24T06:11:41.751363+00:00",
+ "last_send_slot": "2026-10-24T08:10:23.597936+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -2879,6 +2959,10 @@
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
+  "ANZ (careers site)": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-24"
+  },
   "Akuna Capital": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
@@ -2888,13 +2972,11 @@
    "last_ok": "2026-10-24"
   },
   "BBVA": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "BMO Capital Markets": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "BNY": {
@@ -2902,8 +2984,7 @@
    "last_ok": "2026-10-24"
   },
   "BP": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "BTG Pactual": {
@@ -2931,13 +3012,11 @@
    "last_ok": "2026-10-24"
   },
   "BlackRock": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 502 Server Error: Bad Gateway for url: https://blackrock.wd1.myworkdayjobs.com/wday/cxs/blackrock/BlackRock_Professional/jobs",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "Brevan Howard": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "Bunge": {
@@ -2961,8 +3040,7 @@
    "last_ok": "2026-10-24"
   },
   "CITIC CLSA (CITIC Securities)": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "Capula Investment Management": {
@@ -2978,12 +3056,12 @@
    "last_ok": "2026-10-24"
   },
   "Citi": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "CommBank": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "Crédit Agricole CIB": {
@@ -3011,13 +3089,11 @@
    "last_ok": "2026-10-24"
   },
   "EDF Trading": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "Eastspring Investments": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "Eclipse Trading": {
@@ -3029,8 +3105,7 @@
    "last_ok": "2026-10-24"
   },
   "Equinor": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "ExxonMobil": {
@@ -3038,11 +3113,14 @@
    "last_ok": "2026-10-24"
   },
   "Fidelity International": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "Fidelity International (campus)": {
+   "consecutive_failures": 0,
+   "last_ok": "2026-10-24"
+  },
+  "First Abu Dhabi Bank": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
@@ -3063,8 +3141,7 @@
    "last_ok": "2026-10-24"
   },
   "Gunvor": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "HSBC": {
@@ -3088,13 +3165,11 @@
    "last_ok": "2026-10-24"
   },
   "ING": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 500 Server Error: Internal Server Error for url: https://ing.wd3.myworkdayjobs.com/wday/cxs/ing/ICSGBLCOR/jobs",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "Invesco": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 500 Server Error: Internal Server Error for url: https://invesco.wd1.myworkdayjobs.com/wday/cxs/invesco/IVZ/jobs",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "Investec": {
@@ -3126,8 +3201,7 @@
    "last_ok": "2026-10-24"
   },
   "Lloyds Banking Group": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "MUFG": {
@@ -3163,7 +3237,8 @@
    "last_ok": "2026-10-24"
   },
   "Morgan Stanley": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
   "National Bank of Canada": {
@@ -3235,8 +3310,7 @@
    "last_ok": "2026-10-24"
   },
   "Santander CIB": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "Schonfeld": {
@@ -3252,8 +3326,7 @@
    "last_ok": "2026-10-24"
   },
   "Shell": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "Société Générale": {
@@ -3269,13 +3342,11 @@
    "last_ok": "2026-10-24"
   },
   "State Street": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "TD Securities": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "TP ICAP": {
@@ -3295,8 +3366,7 @@
    "last_ok": "2026-10-24"
   },
   "Trafigura": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "Two Sigma": {
@@ -3308,8 +3378,7 @@
    "last_ok": "2026-10-24"
   },
   "UOB": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "Virtu Financial": {
@@ -3321,7 +3390,7 @@
    "last_ok": "2026-10-24"
   },
   "Wells Fargo": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_ok": "2026-10-24"
   },
