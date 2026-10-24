@@ -2263,6 +2263,21 @@ R56 = [
 ]
 PROBES = PROBES + R56
 
+
+# ---------------- Round 57: what Workday returns instead of JSON ----------------
+def workday_raw(host, tenant, site):
+    url = f'https://{host}/wday/cxs/{tenant}/{site}/jobs'
+    r = S.post(url, json={'appliedFacets': {}, 'limit': 1, 'offset': 0, 'searchText': ''}, timeout=25,
+               headers={'Accept': 'application/json', 'Content-Type': 'application/json'})
+    body = re.sub(r'\s+', ' ', re.sub(r'(?s)<(script|style).*?</\1>|<[^>]+>', ' ', r.text))[:400]
+    return f'HTTP {r.status_code} type={r.headers.get("content-type")} final={r.url} body={body!r}'
+
+
+R57 = [('R57 WD raw statestreet', lambda: workday_raw('statestreet.wd1.myworkdayjobs.com', 'statestreet', 'Global')),
+       ('R57 WD raw ms', lambda: workday_raw('ms.wd5.myworkdayjobs.com', 'ms', 'External')),
+       ('R57 WD page', lambda: validate_page('https://ms.wd5.myworkdayjobs.com/External'))]
+PROBES = PROBES + R57
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
