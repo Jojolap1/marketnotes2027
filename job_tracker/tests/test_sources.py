@@ -402,14 +402,14 @@ class AtsTests(unittest.TestCase):
 
     def test_oleeo(self):
         board = ('<a href="/vx/x/opp/1449-2027-Global-Markets-Summer-Internship-London/en-GB">2027 Global Markets Summer Internship - London</a>'
-                 '<a href="/vx/x/opp/1450-2027-IB-Summer-Internship-London/en-GB">2027 Investment Banking Summer Internship - London</a>'
+                 '<a href="/vx/x/opp/1450-2027-Technology-Summer-Internship-London/en-GB">2027 Technology Summer Internship - London</a>'
                  '<a href="/vx/x/opp/1451-2027-Global-Markets-Summer-Internship-Paris/en-GB">2027 Global Markets Summer Internship - Paris</a>')
         detail_open = '<meta name="description" content="Title: X. Location: London. Application Deadline: 01/12/2026, 23:55"><main>Apply</main>'
         detail_closed = '<meta name="description" content="Title: X. Location: Paris. Application Deadline: 01/09/2026, 23:55"><main>Apply</main>'
         ctx = context([('opp/1449', detail_open), ('opp/1451', detail_closed), ('jobboard', board)], now=NOW)
         jobs = fetch_source({'company': 'Nomura', 'platform': 'oleeo', 'boards': ['https://nomuracampus.tal.net/vx/jobboard/vacancy/1/adv/']}, ctx)
         by_id = {j['requisition_id']: j for j in jobs}
-        self.assertEqual(set(by_id), {'1449', '1451'})      # IB filtered before any detail request
+        self.assertEqual(set(by_id), {'1449', '1451'})      # technology filtered before any detail request
         self.assertEqual(by_id['1449']['status'], 'open')
         self.assertIn('2026-12-01', by_id['1449']['status_evidence'])
         self.assertEqual(by_id['1451']['status'], 'closed')
