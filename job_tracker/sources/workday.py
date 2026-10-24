@@ -18,7 +18,7 @@ from status import CLOSED, OPEN, UNKNOWN, from_end_date
 
 LOG = logging.getLogger(__name__)
 PAGE = 20
-DEFAULT_COUNTRIES = ['United Kingdom', 'Hong Kong', 'Singapore', 'France']
+DEFAULT_COUNTRIES = ['United Kingdom', 'Hong Kong', 'Singapore', 'France', 'United Arab Emirates']
 
 
 def _walk_facets(facets):

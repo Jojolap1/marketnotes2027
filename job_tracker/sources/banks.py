@@ -127,7 +127,7 @@ def zhiye(source, ctx):
         text = ' '.join(str(ad.get(k) or '') for k in ('JobAdName', 'Duty', 'Require'))
         locations = [str(x) for x in (ad.get('LocNames') or []) if x]
         location = '; '.join(locations) or '; '.join(
-            c for c in ('香港', 'Hong Kong', '新加坡', 'Singapore', '伦敦', '倫敦', 'London', '巴黎', 'Paris') if c in text)
+            c for c in ('香港', 'Hong Kong', '新加坡', 'Singapore', '伦敦', '倫敦', 'London', '巴黎', 'Paris', '迪拜', 'Dubai') if c in text)
         if not ctx.screen(company, title, location):
             continue
         ctx.stat(company, 'candidates')

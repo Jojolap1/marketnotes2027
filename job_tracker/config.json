@@ -40,6 +40,13 @@
         "\\bldn\\b",
         "伦敦",
         "倫敦"
+      ],
+      "Dubai": [
+        "\\bduba[iï]\\b",
+        "\\bdifc\\b",
+        "dubai international financial cent(?:er|re)",
+        "迪拜",
+        "杜拜"
       ]
     },
     "role_families": {
@@ -116,7 +123,7 @@
       "\\bmarket(?:ing)? (?:intelligence|communications)\\b",
       "\\bmarket risk\\b",
       "\\bcapital markets\\b(?!.{0,30}\\b(?:sales|trad(?:ing|er)|structur))",
-      "\\bprivate (?:equity|credit|investing|markets)\\b",
+      "\\bprivate (?:equity|credit|investing|markets)\\b(?!.{0,40}\\b(?:trad(?:ing|er)|structur\\w*|sales)\\b)",
       "\\breal estate\\b",
       "\\bsecurities (?:&|and) derivatives (?:analyst|services|operations)\\b"
     ],
@@ -240,7 +247,8 @@
       "\\badmin(?:istrative)? assistant\\b|\\bassistant administratif\\b|\\bexecutive assistant\\b|\\bpersonal assistant\\b",
       "\\bmarch[ée]s de capitaux\\b(?!.{0,30}\\b(?:vente|vendeur|sales|trad(?:ing|er)|structur))",
       "\\b(?:project|acquisition|real estate|asset|export|trade|leveraged) financ\\w*\\b|\\bfinancements? (?:de projets?|d'acquisition|immobiliers?|export)\\b",
-      "\\bteam assistant\\b"
+      "\\bteam assistant\\b",
+      "\\b(?:uae|emirati|saudi|qatari|omani|kuwaiti|bahraini) nationals?\\b|\\bnationals only\\b|\\bemiratisation\\b"
     ],
     "entry_types": {
       "vie": [
@@ -318,7 +326,10 @@
       "start_hour": 11,
       "end_hour": 22
     },
-    "min_minutes_between_sends": 100
+    "min_minutes_between_sends": 100,
+    "city_backfill": {
+      "Dubai": "2026-10-31"
+    }
   },
   "http": {
     "min_interval_seconds": 0.8,
@@ -378,7 +389,8 @@
         "Hong Kong",
         "Singapore",
         "London",
-        "Paris"
+        "Paris",
+        "Dubai"
       ]
     },
     {
@@ -662,7 +674,8 @@
         "Hong Kong",
         "Singapore",
         "London",
-        "Paris"
+        "Paris",
+        "Dubai"
       ]
     },
     {
@@ -690,7 +703,8 @@
         "United Kingdom": "London",
         "France": "Paris",
         "Hong Kong SAR": "Hong Kong",
-        "Singapore": "Singapore"
+        "Singapore": "Singapore",
+        "United Arab Emirates": "Dubai"
       }
     },
     {
@@ -968,7 +982,8 @@
         "France",
         "United Kingdom",
         "Singapore",
-        "Hong Kong"
+        "Hong Kong",
+        "United Arab Emirates"
       ],
       "read_back_days": 16
     },
@@ -979,7 +994,8 @@
         "United Kingdom",
         "Singapore",
         "Hong Kong",
-        "France"
+        "France",
+        "United Arab Emirates"
       ]
     },
     {
@@ -1077,6 +1093,19 @@
       "platform": "greenhouse",
       "board": "btig27",
       "backfill_until": "2026-10-30"
+    },
+    {
+      "company": "First Abu Dhabi Bank",
+      "platform": "smartrecruiters",
+      "board": "FirstAbuDhabiBank",
+      "backfill_until": "2026-10-31",
+      "note": "Dubai offices only (Abu Dhabi is not a target city)"
+    },
+    {
+      "company": "Emirates NBD / Mashreq",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "emiratesnbd.com careers answers HTTP 403 to automated requests; Mashreq careers page not found (2026-10-24)."
     },
     {
       "company": "Mizuho (Asia)",
@@ -1260,7 +1289,8 @@
         "London",
         "Singapore",
         "Hong Kong",
-        "Paris"
+        "Paris",
+        "Dubai"
       ],
       "exclude_url_pattern": "-(?:ON|QC|BC|AB|MB|NS|NB|SK|NL|PE)-",
       "backfill_until": "2026-10-27"

@@ -222,3 +222,17 @@ class SeniorityAndRoleTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class DubaiAndPrivateCreditTradingTests(unittest.TestCase):
+    def test_dubai_is_a_target_city(self):
+        for location in ('Dubai, United Arab Emirates', 'DIFC', 'Dubaï', 'Dubai International Financial Centre'):
+            self.assertEqual(C.city(location), 'Dubai', location)
+        self.assertEqual(C.city('Abu Dhabi, United Arab Emirates'), '')
+        self.assertTrue(classify('Global Markets Summer Analyst 2027', location='Dubai').eligible)
+        self.assertFalse(classify('Markets Intern UAE 2027 (UAE National)', location='Dubai').eligible)
+
+    def test_private_credit_trading_is_markets(self):
+        c = classify('2027 - Global Markets - Summer Internship (Securitised Products and Private Credit Trading / Structuring) – London')
+        self.assertTrue(c.eligible)
+        self.assertFalse(classify('Private Credit Investment Summer Internship Programme - London').eligible)

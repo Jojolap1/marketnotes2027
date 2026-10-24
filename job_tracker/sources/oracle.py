@@ -21,7 +21,7 @@ def _get(ctx, host, resource, finder, expand=''):
     return ctx.http.get_json(url, headers={'Accept': 'application/json'})
 
 
-CITY_KEYWORDS = {'Hong Kong': 'Hong Kong', 'Singapore': 'Singapore', 'London': 'London', 'Paris': 'Paris'}
+CITY_KEYWORDS = {'Hong Kong': 'Hong Kong', 'Singapore': 'Singapore', 'London': 'London', 'Paris': 'Paris', 'Dubai': 'Dubai'}
 
 
 def location_ids(source, ctx):

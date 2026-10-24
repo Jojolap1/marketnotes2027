@@ -157,6 +157,7 @@ job feed), Louis Dreyfus (HTTP 403 / unpublished Workday site).
 | BTG Pactual | Greenhouse |
 | Panmure Liberum | BambooHR careers page |
 | BTIG | Greenhouse (board `btig27`, added 2026-10-23) |
+| First Abu Dhabi Bank | SmartRecruiters (Dubai offices; Dubai added as a target city 2026-10-24) |
 | Pareto Securities, Investec | RSS (Teamtailor, eArcu) |
 | AIB (incl. Goodbody) | SuccessFactors XML |
 | Scotiabank | SuccessFactors RMK search per target city (London, Ontario dropped) |

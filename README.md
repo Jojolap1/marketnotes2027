@@ -2,7 +2,7 @@
 
 Hourly monitor of **official** career feeds for junior front-office markets
 roles (Sales & Trading, structuring, derivatives, asset/portfolio management,
-markets/investment analyst) in **Hong Kong, Singapore, Paris and London**.
+markets/investment analyst) in **Hong Kong, Singapore, Paris, London and Dubai**.
 New relevant vacancies are sent to Telegram once.
 
 Everything lives in [`job_tracker/`](job_tracker/README.md); the workflow is
