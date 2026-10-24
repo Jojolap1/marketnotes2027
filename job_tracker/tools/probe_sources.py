@@ -2368,6 +2368,15 @@ R61 = [('R61 Westpac oracle site', lambda: grep_page('https://www.westpac.com.au
        ('R61 LBP offers', lambda: grep_page('https://www.labanquepostale.com/candidats/offres-d-emploi/nos-offres-d-emploi.html', r'href="([^"]*(?:offre|job|emploi)[^"]*)"', 15, 160))]
 PROBES = PROBES + R61
 
+
+# ---------------- Round 62: CIC and La Banque Postale card structure ----------------
+R62 = [('R62 CIC card', lambda: grep_page('https://recrutement.creditmutuel.fr/fr/nos_offres.html', r'(?s)(.{0,600}href="/fr/offre\.html\?annonce=117342".{0,900})', 1, 1500)),
+       ('R62 CIC page2', lambda: grep_page('https://recrutement.creditmutuel.fr/fr/nos_offres2.html', r'href="(/fr/offre\.html\?annonce=\d+)"', 5, 80)),
+       ('R62 CIC paging', lambda: grep_page('https://recrutement.creditmutuel.fr/fr/nos_offres.html', r'((?:\d+\s*(?:offres?|r[ée]sultats?))|nos_offres\d+\.html[^"]*|_pg=\d+|page=\d+)', 10, 80)),
+       ('R62 LBP card', lambda: grep_page('https://www.labanquepostale.com/candidats/offres-d-emploi/nos-offres-d-emploi.html', r'(?s)(.{0,500}href="[^"]*job-3274\.html[^"]*".{0,900})', 1, 1400)),
+       ('R62 WP oracle', lambda: oracle('ebuu.fa.ap1.oraclecloud.com', 'CX'))]
+PROBES = PROBES + R62
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
