@@ -247,7 +247,8 @@
       "\\badmin(?:istrative)? assistant\\b|\\bassistant administratif\\b|\\bexecutive assistant\\b|\\bpersonal assistant\\b",
       "\\bmarch[ée]s de capitaux\\b(?!.{0,30}\\b(?:vente|vendeur|sales|trad(?:ing|er)|structur))",
       "\\b(?:project|acquisition|real estate|asset|export|trade|leveraged) financ\\w*\\b|\\bfinancements? (?:de projets?|d'acquisition|immobiliers?|export)\\b",
-      "\\bteam assistant\\b"
+      "\\bteam assistant\\b",
+      "\\b(?:uae|emirati|saudi|qatari|omani|kuwaiti|bahraini) nationals?\\b|\\bnationals only\\b|\\bemiratisation\\b"
     ],
     "entry_types": {
       "vie": [
@@ -325,7 +326,10 @@
       "start_hour": 11,
       "end_hour": 22
     },
-    "min_minutes_between_sends": 100
+    "min_minutes_between_sends": 100,
+    "city_backfill": {
+      "Dubai": "2026-10-31"
+    }
   },
   "http": {
     "min_interval_seconds": 0.8,

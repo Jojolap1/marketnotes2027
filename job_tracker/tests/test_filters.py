@@ -230,6 +230,7 @@ class DubaiAndPrivateCreditTradingTests(unittest.TestCase):
             self.assertEqual(C.city(location), 'Dubai', location)
         self.assertEqual(C.city('Abu Dhabi, United Arab Emirates'), '')
         self.assertTrue(classify('Global Markets Summer Analyst 2027', location='Dubai').eligible)
+        self.assertFalse(classify('Markets Intern UAE 2027 (UAE National)', location='Dubai').eligible)
 
     def test_private_credit_trading_is_markets(self):
         c = classify('2027 - Global Markets - Summer Internship (Securitised Products and Private Credit Trading / Structuring) – London')

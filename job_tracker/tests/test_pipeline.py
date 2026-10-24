@@ -161,6 +161,23 @@ class PipelineTests(unittest.TestCase):
             self.assertEqual(tg2.sent, [])
 
 
+    def test_new_target_city_backfills_old_open_adverts(self):
+        from datetime import datetime, timedelta, timezone
+        from unittest import mock
+        today = datetime.now(timezone.utc).date()
+        old = (today - timedelta(days=60)).isoformat()
+        base = dict(company='Bank', description='', status='open', status_evidence='', employment_type='',
+                    apply_url='', requisition_id='', published=old)
+        jobs = [dict(base, id='d', title='2027 Sales Summer Internship', location='Dubai', url='https://b/d'),
+                dict(base, id='l', title='2027 Rates Summer Internship', location='London', url='https://b/l')]
+        with mock.patch.object(tracker, 'fetch_source', lambda s, ctx: jobs):
+            tg = FakeTelegram()
+            self.run_tracker(tg, sources=SOURCES[:1], max_age_days=14, city_backfill={'Dubai': (today + timedelta(days=3)).isoformat()})
+        text = '\n'.join(tg.sent)
+        self.assertIn('2027 Sales Summer Internship', text)
+        self.assertNotIn('2027 Rates Summer Internship', text)
+
+
     def test_send_window_holds_alerts_until_next_slot(self):
         from datetime import datetime, timezone
         window = {'timezone': 'Asia/Ho_Chi_Minh', 'start_hour': 11, 'end_hour': 22}
