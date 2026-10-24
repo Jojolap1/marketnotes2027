@@ -1115,6 +1115,108 @@
       "note": "Dubai offices only (Abu Dhabi is not a target city)"
     },
     {
+      "company": "Flowdesk",
+      "platform": "greenhouse",
+      "board": "flowdesk",
+      "backfill_until": "2026-10-31"
+    },
+    {
+      "company": "Five Rings",
+      "platform": "greenhouse",
+      "board": "fiveringsllc",
+      "backfill_until": "2026-10-31"
+    },
+    {
+      "company": "B2C2",
+      "platform": "greenhouse",
+      "board": "b2c2",
+      "backfill_until": "2026-10-31"
+    },
+    {
+      "company": "GSR",
+      "platform": "greenhouse",
+      "board": "gsrmarkets",
+      "backfill_until": "2026-10-31"
+    },
+    {
+      "company": "ExodusPoint",
+      "platform": "greenhouse",
+      "board": "exoduspoint",
+      "backfill_until": "2026-10-31"
+    },
+    {
+      "company": "Amber Group",
+      "platform": "lever",
+      "board": "ambergroup",
+      "backfill_until": "2026-10-31"
+    },
+    {
+      "company": "Keyrock",
+      "platform": "ashby",
+      "board": "keyrock",
+      "backfill_until": "2026-10-31"
+    },
+    {
+      "company": "Tibra Capital",
+      "platform": "workable",
+      "board": "tibra-capital-1",
+      "backfill_until": "2026-10-31"
+    },
+    {
+      "company": "Castleton Commodities",
+      "platform": "workday",
+      "host": "osv-cci.wd1.myworkdayjobs.com",
+      "tenant": "osv_cci",
+      "site": "CCICareers",
+      "backfill_until": "2026-10-31"
+    },
+    {
+      "company": "Freepoint Commodities",
+      "platform": "workday",
+      "host": "freepoint.wd12.myworkdayjobs.com",
+      "tenant": "freepoint",
+      "site": "Freepoint_Commodities",
+      "backfill_until": "2026-10-31"
+    },
+    {
+      "company": "Statkraft",
+      "platform": "smartrecruiters",
+      "board": "Statkraft1",
+      "backfill_until": "2026-10-31"
+    },
+    {
+      "company": "DNB Markets",
+      "platform": "lever",
+      "board": "dnb",
+      "backfill_until": "2026-10-31"
+    },
+    {
+      "company": "Westpac",
+      "platform": "oracle",
+      "host": "ebuu.fa.ap1.oraclecloud.com",
+      "site": "CX",
+      "target_cities_optional": true,
+      "backfill_until": "2026-10-31"
+    },
+    {
+      "company": "CIC / Crédit Mutuel / La Banque Postale / Centrica / NAB",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "CIC/Crédit Mutuel (492 mostly branch adverts, paging not exposed) and La Banque Postale list adverts on their own pages without a usable feed; Centrica: UK retail/engineering roles; NAB: Eightfold API not public (403) (2026-10-24)."
+    },
+    {
+      "company": "Cantor Fitzgerald / QCP Capital / ADCB",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "careers sites answer HTTP 403 to automated requests (2026-10-24)."
+    },
+    {
+      "company": "CFM / Koch Supply & Trading / Dubai Islamic Bank / EFG Hermes / Arqaam",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "no usable public vacancy feed found (CFM: no board; Koch: global Avature site of several thousand non-trading jobs; DIB, EFG Hermes, Arqaam: no listing) (2026-10-24)."
+    },
+    {
       "company": "Emirates NBD / Mashreq",
       "platform": "official",
       "enabled": false,

@@ -182,6 +182,21 @@ Canaccord Genuity, Zeus Capital (no public vacancy feed); Mizuho Asia (JavaScrip
 Not covered: UniCredit, Rabobank, BGC, StoneX (HTTP 403); Rokos, Balyasny, SIG, Marshall Wace, Mediobanca,
 ODDO BHF, Intesa Sanpaolo, SEB, LBBW, DZ Bank, Nordea (no public feed or no target-city listings).
 
+**Added 2026-10-24 (batch 3):**
+
+| Employer | Official source |
+|---|---|
+| Flowdesk, Five Rings, B2C2, GSR, ExodusPoint | Greenhouse |
+| Amber Group, DNB Markets | Lever |
+| Keyrock | Ashby |
+| Tibra Capital | Workable |
+| Castleton Commodities, Freepoint Commodities | Workday |
+| Statkraft | SmartRecruiters |
+| Westpac | Oracle Recruiting Cloud |
+
+Not covered: Cantor Fitzgerald, QCP Capital, ADCB (HTTP 403); CFM, Koch Supply & Trading, Dubai Islamic Bank,
+EFG Hermes, Arqaam, CIC / Crédit Mutuel, La Banque Postale, Centrica, NAB (no usable public feed).
+
 **Not covered (documented, not bypassed):** BNP Paribas, Citadel Securities, NatWest Markets, Huatai
 (HTTP 403 to automated requests — anti-bot protection, not bypassed; BNP's candidate portal
 bwelcome.hr.bnpparibas has no public job list either); Daiwa, UOB Kay Hian, Maybank IB, Guotai Junan

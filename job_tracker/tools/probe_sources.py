@@ -2322,6 +2322,67 @@ R59 = [(f'R59 ANZ RMK {c}', (lambda c=c: rmk_count('https://careers.anz.com', c)
 R59.append(('R59 ANZ graduates', lambda: rmk_count('https://careers.anz.com', 'Singapore&q=graduate', 2)))
 PROBES = PROBES + R59
 
+
+# ---------------- Round 60: batch 3 discovery (Paris, London, Asia, energy, Dubai) ----------------
+B3 = {
+    'CIC / Credit Mutuel': ('https://recrutement.creditmutuel.fr/fr/nos_offres.html', ['cic', 'creditmutuel']),
+    'La Banque Postale': ('https://www.labanquepostale.com/candidats.html', ['labanquepostale']),
+    'CFM': ('https://www.cfm.com/careers/', ['cfm', 'capitalfundmanagement', 'cfm-1']),
+    'Flowdesk': ('https://www.flowdesk.co/careers', ['flowdesk']),
+    'ExodusPoint': ('https://www.exoduspoint.com/careers', ['exoduspoint', 'exoduspointcapital']),
+    'Five Rings': ('https://fiverings.com/careers/', ['fiverings', 'fiveringsllc', 'five-rings']),
+    'Tibra': ('https://tibra.com/careers', ['tibra', 'tibracapital']),
+    'B2C2': ('https://www.b2c2.com/careers', ['b2c2', 'b2c2ltd']),
+    'GSR': ('https://www.gsr.io/careers', ['gsr', 'gsrmarkets']),
+    'Amber Group': ('https://www.ambergroup.io/careers', ['ambergroup', 'amber']),
+    'Keyrock': ('https://keyrock.com/careers/', ['keyrock']),
+    'QCP Capital': ('https://qcp.capital/careers', ['qcp', 'qcpcapital']),
+    'Cantor Fitzgerald': ('https://www.cantor.com/careers/', ['cantor', 'cantorfitzgerald']),
+    'Castleton Commodities': ('https://www.cci.com/careers/', ['castletoncommodities', 'cci']),
+    'Freepoint': ('https://www.freepoint.com/careers/', ['freepoint', 'freepointcommodities']),
+    'Koch Supply & Trading': ('https://www.kochcareers.com/', ['koch', 'kochindustries']),
+    'Centrica': ('https://www.centrica.com/careers/', ['centrica']),
+    'Statkraft': ('https://www.statkraft.com/careers/', ['statkraft']),
+    'Westpac': ('https://www.westpac.com.au/about-westpac/careers/', ['westpac']),
+    'NAB': ('https://www.nab.com.au/about-us/careers', ['nab', 'nationalaustraliabank']),
+    'DNB': ('https://www.dnb.no/en/about-us/careers', ['dnb']),
+    'ADCB': ('https://www.adcb.com/en/about-us/careers/', ['adcb']),
+    'Dubai Islamic Bank': ('https://www.dib.ae/about-us/careers', ['dib', 'dubaiislamicbank']),
+    'EFG Hermes': ('https://www.efghermes.com/careers', ['efghermes', 'efg-hermes']),
+    'Arqaam': ('https://www.arqaamcapital.com/careers', ['arqaam', 'arqaamcapital']),
+    'Mashreq': ('https://www.mashreq.com/en/uae/careers/', ['mashreq', 'mashreqbank']),
+}
+R60 = []
+for name, (page, slugs) in B3.items():
+    R60.append((f'R60 BOARDS {name}', (lambda slugs=slugs: board_sweep(slugs))))
+    R60.append((f'R60 CRAWL {name}', (lambda page=page: crawl(page, depth=1, max_pages=3))))
+PROBES = PROBES + R60
+
+
+# ---------------- Round 61: Westpac, NAB, Centrica, CIC, La Banque Postale ----------------
+R61 = [('R61 Westpac oracle site', lambda: grep_page('https://www.westpac.com.au/about-westpac/careers/', r'(CandidateExperience/[a-z-]+/sites/[A-Za-z0-9_]+)', 5, 120)),
+       ('R61 NAB eightfold', lambda: ' | '.join(eightfold('nab.eightfold.ai', d)[:160] for d in ('nab.com.au', 'nab.com'))),
+       ('R61 Centrica ats', lambda: discover('https://www.lifeatcentrica.com/jobs/')),
+       ('R61 Centrica links', lambda: grep_page('https://www.lifeatcentrica.com/jobs/', r'href="([^"]*(?:job|vacanc)[^"]*)"', 15, 160)),
+       ('R61 CIC offers', lambda: grep_page('https://recrutement.creditmutuel.fr/fr/nos_offres.html', r'href="([^"]*(?:offre|job)[^"]*)"', 15, 160)),
+       ('R61 LBP offers', lambda: grep_page('https://www.labanquepostale.com/candidats/offres-d-emploi/nos-offres-d-emploi.html', r'href="([^"]*(?:offre|job|emploi)[^"]*)"', 15, 160))]
+PROBES = PROBES + R61
+
+
+# ---------------- Round 62: CIC and La Banque Postale card structure ----------------
+R62 = [('R62 CIC card', lambda: grep_page('https://recrutement.creditmutuel.fr/fr/nos_offres.html', r'(?s)(.{0,600}href="/fr/offre\.html\?annonce=117342".{0,900})', 1, 1500)),
+       ('R62 CIC page2', lambda: grep_page('https://recrutement.creditmutuel.fr/fr/nos_offres2.html', r'href="(/fr/offre\.html\?annonce=\d+)"', 5, 80)),
+       ('R62 CIC paging', lambda: grep_page('https://recrutement.creditmutuel.fr/fr/nos_offres.html', r'((?:\d+\s*(?:offres?|r[ée]sultats?))|nos_offres\d+\.html[^"]*|_pg=\d+|page=\d+)', 10, 80)),
+       ('R62 LBP card', lambda: grep_page('https://www.labanquepostale.com/candidats/offres-d-emploi/nos-offres-d-emploi.html', r'(?s)(.{0,500}href="[^"]*job-3274\.html[^"]*".{0,900})', 1, 1400)),
+       ('R62 WP oracle', lambda: oracle('ebuu.fa.ap1.oraclecloud.com', 'CX'))]
+PROBES = PROBES + R62
+
+
+# ---------------- Round 63: Castleton Workday tenant ----------------
+R63 = [('R63 CCI tenants', lambda: ' | '.join(workday('osv-cci.wd1.myworkdayjobs.com', t, 'CCICareers')[:140] for t in ('cci', 'osvcci', 'castleton', 'osv_cci'))),
+       ('R63 CCI page', lambda: grep_page('https://osv-cci.wd1.myworkdayjobs.com/CCICareers', r'((?:tenant|siteId|"site")[^,]{0,60})', 8, 100))]
+PROBES = PROBES + R63
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
