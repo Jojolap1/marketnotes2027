@@ -2278,6 +2278,30 @@ R57 = [('R57 WD raw statestreet', lambda: workday_raw('statestreet.wd1.myworkday
        ('R57 WD page', lambda: validate_page('https://ms.wd5.myworkdayjobs.com/External'))]
 PROBES = PROBES + R57
 
+
+# ---------------- Round 58: ANZ coverage ----------------
+def sf_locations(host, company):
+    from collections import Counter
+    r = get(f'https://{host}/career?company={company}&career_ns=job_listing_summary&resultType=XML')
+    jobs = re.findall(r'<Job>(.*?)</Job>', r.text, re.S)
+    locs = Counter()
+    hits = []
+    for j in jobs:
+        vals = ' | '.join(v.strip() for v in re.findall(r'<value>([^<]*)</value>', j) if v.strip())
+        loc = re.findall(r'(Singapore|Hong Kong|London|Paris|Dubai|Australia|New Zealand|India|China|Japan|Indonesia|Philippines|Vietnam|Taiwan|Korea)', j)
+        locs.update(set(loc))
+        if re.search(r'Singapore|Hong Kong|London|Paris|Dubai', j):
+            t = re.search(r'<JobTitle><!\[CDATA\[(.*?)\]\]>', j)
+            hits.append((t.group(1) if t else '?')[:70])
+    return f'jobs={len(jobs)} by place={locs.most_common()} target={hits[:25]}'
+
+
+R58 = [('R58 ANZ SF locations', lambda: sf_locations('career10.successfactors.com', 'anzbanking')),
+       ('R58 ANZ careers', lambda: discover('https://www.anz.com/careers/')),
+       ('R58 ANZ institutional', lambda: crawl('https://www.anz.com/institutional/careers/', depth=1, max_pages=4)),
+       ('R58 ANZ WD', lambda: workday('anz.wd3.myworkdayjobs.com', 'anz', 'ANZ_Careers'))]
+PROBES = PROBES + R58
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
