@@ -2994,7 +2994,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-24T12:12:32.528476+00:00",
+ "last_send_slot": "2026-10-24T14:11:22.086772+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -3344,8 +3344,7 @@
    "last_ok": "2026-10-24"
   },
   "OCBC / Bank of Singapore": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 500 Server Error: Internal Server Error for url: https://ocbc.wd102.myworkdayjobs.com/wday/cxs/ocbc/External/jobs",
+   "consecutive_failures": 0,
    "last_ok": "2026-10-24"
   },
   "Old Mission": {
