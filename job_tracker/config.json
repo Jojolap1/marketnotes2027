@@ -639,6 +639,19 @@
       "sf_company": "anzbanking"
     },
     {
+      "company": "ANZ (careers site)",
+      "platform": "rmk",
+      "base_url": "https://careers.anz.com",
+      "location_searches": [
+        "London",
+        "Singapore",
+        "Hong Kong",
+        "Paris",
+        "Dubai"
+      ],
+      "note": "careers.anz.com search (SuccessFactors RMK): lists a few adverts the XML feed misses; a city with no result returns ANZ's default Australian list, dropped by the city check"
+    },
+    {
       "company": "Macquarie",
       "platform": "avature",
       "base_url": "https://recruitment.macquarie.com/en_US/careers",
