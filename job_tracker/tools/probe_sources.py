@@ -2302,6 +2302,26 @@ R58 = [('R58 ANZ SF locations', lambda: sf_locations('career10.successfactors.co
        ('R58 ANZ WD', lambda: workday('anz.wd3.myworkdayjobs.com', 'anz', 'ANZ_Careers'))]
 PROBES = PROBES + R58
 
+
+# ---------------- Round 59: ANZ careers.anz.com (SuccessFactors RMK) ----------------
+def rmk_count(base, city, pages=6):
+    seen = {}
+    for page in range(pages):
+        r = get(f'{base}/search/?q=&locationsearch={city}&startrow={25 * page}')
+        new = 0
+        for href, text in re.findall(r'<a\b[^>]*href="(/job/[^"]+/\d+/)"[^>]*>(.*?)</a>', r.text, re.S):
+            t = re.sub(r'<[^>]+>|\s+', ' ', text).strip()
+            if t and href not in seen:
+                seen[href] = t; new += 1
+        if new < 25:
+            break
+    return f'{city}: {len(seen)} {list(seen.values())[:12]}'
+
+
+R59 = [(f'R59 ANZ RMK {c}', (lambda c=c: rmk_count('https://careers.anz.com', c))) for c in ('Singapore', 'Hong Kong', 'London', 'Paris', 'Dubai')]
+R59.append(('R59 ANZ graduates', lambda: rmk_count('https://careers.anz.com', 'Singapore&q=graduate', 2)))
+PROBES = PROBES + R59
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
