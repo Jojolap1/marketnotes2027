@@ -2358,6 +2358,16 @@ for name, (page, slugs) in B3.items():
     R60.append((f'R60 CRAWL {name}', (lambda page=page: crawl(page, depth=1, max_pages=3))))
 PROBES = PROBES + R60
 
+
+# ---------------- Round 61: Westpac, NAB, Centrica, CIC, La Banque Postale ----------------
+R61 = [('R61 Westpac oracle site', lambda: grep_page('https://www.westpac.com.au/about-westpac/careers/', r'(CandidateExperience/[a-z-]+/sites/[A-Za-z0-9_]+)', 5, 120)),
+       ('R61 NAB eightfold', lambda: ' | '.join(eightfold('nab.eightfold.ai', d)[:160] for d in ('nab.com.au', 'nab.com'))),
+       ('R61 Centrica ats', lambda: discover('https://www.lifeatcentrica.com/jobs/')),
+       ('R61 Centrica links', lambda: grep_page('https://www.lifeatcentrica.com/jobs/', r'href="([^"]*(?:job|vacanc)[^"]*)"', 15, 160)),
+       ('R61 CIC offers', lambda: grep_page('https://recrutement.creditmutuel.fr/fr/nos_offres.html', r'href="([^"]*(?:offre|job)[^"]*)"', 15, 160)),
+       ('R61 LBP offers', lambda: grep_page('https://www.labanquepostale.com/candidats/offres-d-emploi/nos-offres-d-emploi.html', r'href="([^"]*(?:offre|job|emploi)[^"]*)"', 15, 160))]
+PROBES = PROBES + R61
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
