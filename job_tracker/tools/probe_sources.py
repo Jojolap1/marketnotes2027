@@ -2253,6 +2253,16 @@ R54 = [
 ]
 PROBES = PROBES + R54
 
+
+# ---------------- Round 56: Dubai banks ----------------
+R56 = [
+    ('R56 Emirates NBD crawl', lambda: crawl('https://www.emiratesnbd.com/en/careers', depth=1, max_pages=4)),
+    ('R56 Mashreq crawl', lambda: crawl('https://www.mashreq.com/en/uae/neo/careers/', depth=1, max_pages=3)),
+    ('R56 FAB crawl', lambda: crawl('https://www.bankfab.com/en-ae/about-fab/careers', depth=1, max_pages=3)),
+    ('R56 Dubai boards', lambda: board_sweep(['emiratesnbd', 'mashreq', 'fab', 'adcb'])),
+]
+PROBES = PROBES + R56
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

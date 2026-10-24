@@ -40,6 +40,13 @@
         "\\bldn\\b",
         "伦敦",
         "倫敦"
+      ],
+      "Dubai": [
+        "\\bduba[iï]\\b",
+        "\\bdifc\\b",
+        "dubai international financial cent(?:er|re)",
+        "迪拜",
+        "杜拜"
       ]
     },
     "role_families": {
@@ -116,7 +123,7 @@
       "\\bmarket(?:ing)? (?:intelligence|communications)\\b",
       "\\bmarket risk\\b",
       "\\bcapital markets\\b(?!.{0,30}\\b(?:sales|trad(?:ing|er)|structur))",
-      "\\bprivate (?:equity|credit|investing|markets)\\b",
+      "\\bprivate (?:equity|credit|investing|markets)\\b(?!.{0,40}\\b(?:trad(?:ing|er)|structur\\w*|sales)\\b)",
       "\\breal estate\\b",
       "\\bsecurities (?:&|and) derivatives (?:analyst|services|operations)\\b"
     ],
@@ -378,7 +385,8 @@
         "Hong Kong",
         "Singapore",
         "London",
-        "Paris"
+        "Paris",
+        "Dubai"
       ]
     },
     {
@@ -662,7 +670,8 @@
         "Hong Kong",
         "Singapore",
         "London",
-        "Paris"
+        "Paris",
+        "Dubai"
       ]
     },
     {
@@ -690,7 +699,8 @@
         "United Kingdom": "London",
         "France": "Paris",
         "Hong Kong SAR": "Hong Kong",
-        "Singapore": "Singapore"
+        "Singapore": "Singapore",
+        "United Arab Emirates": "Dubai"
       }
     },
     {
@@ -968,7 +978,8 @@
         "France",
         "United Kingdom",
         "Singapore",
-        "Hong Kong"
+        "Hong Kong",
+        "United Arab Emirates"
       ],
       "read_back_days": 16
     },
@@ -979,7 +990,8 @@
         "United Kingdom",
         "Singapore",
         "Hong Kong",
-        "France"
+        "France",
+        "United Arab Emirates"
       ]
     },
     {
@@ -1260,7 +1272,8 @@
         "London",
         "Singapore",
         "Hong Kong",
-        "Paris"
+        "Paris",
+        "Dubai"
       ],
       "exclude_url_pattern": "-(?:ON|QC|BC|AB|MB|NS|NB|SK|NL|PE)-",
       "backfill_until": "2026-10-27"

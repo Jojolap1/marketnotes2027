@@ -107,7 +107,7 @@ def successfactors_xml(source, ctx):
         description_text = html_to_text(node.findtext('Job-Description'))
         if not location and source.get('location_from_description'):
             # SMBC leaves <Location> empty: use the target cities named in the advert.
-            found = [city for city in ('London', 'Paris', 'Hong Kong', 'Singapore')
+            found = [city for city in ('London', 'Paris', 'Hong Kong', 'Singapore', 'Dubai')
                      if re.search(r'\b' + city + r'\b', description_text[:3000], re.I)]
             location = ', '.join(found) + (' (from job description)' if found else '')
         posted = (node.findtext('Posted-Date') or '').strip()

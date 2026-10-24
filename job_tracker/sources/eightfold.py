@@ -31,7 +31,7 @@ def fetch(source, ctx):
     host, domain, company = source['host'], source['domain'], source['company']
     max_pages = int(source.get('max_pages_per_location', 60))
     positions = {}
-    for location in source.get('locations', ['Hong Kong', 'Singapore', 'London', 'Paris']):
+    for location in source.get('locations', ['Hong Kong', 'Singapore', 'London', 'Paris', 'Dubai']):
         start = 0
         for _ in range(max_pages):
             data = ctx.http.get_json(f'https://{host}/api/apply/v2/jobs?domain={quote(domain)}&start={start}'
