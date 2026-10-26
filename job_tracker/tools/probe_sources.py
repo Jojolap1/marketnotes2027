@@ -2388,6 +2388,10 @@ PROBES = PROBES + R63
 R64 = [('R64 Gunvor crawl', lambda: crawl('https://gunvorgroup.com/careers/', depth=1, max_pages=4))]
 PROBES = PROBES + R64
 
+R65 = [('R65 Gunvor tenant', lambda: grep_page('https://gunvor.wd3.myworkdayjobs.com/Gunvor_Careers', r'((?:tenant|siteId)[^,]{0,60})', 6, 100)),
+       ('R65 Gunvor WD', lambda: ' | '.join(workday('gunvor.wd3.myworkdayjobs.com', t, 'Gunvor_Careers')[:160] for t in ('gunvor', 'gunvorgroup', 'centalion')))]
+PROBES = PROBES + R65
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

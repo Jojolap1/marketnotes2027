@@ -64,6 +64,7 @@ def parse_alert(raw, source, ctx):
         end = links[i + 1].start() if i + 1 < len(links) else match.end() + 600
         context = html_to_text(html[match.end():min(end, match.end() + 600)])
         location = ctx.city_of(context[:200]) or ctx.city_of(title) or context[:120]
+        LOG.info('  advert %r -> location %r (text after link: %r)', title[:70], location[:40], context[:120])
         jobs.append(make_job(
             id=f'email:{source["company"]}:{canonical_url(url)}', company=source['company'], title=title,
             location=location, url=url, published=received, description=context[:1500],
