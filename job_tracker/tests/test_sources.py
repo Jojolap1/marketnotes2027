@@ -504,6 +504,13 @@ class EmailAlertTests(unittest.TestCase):
                          [('Global Markets Summer Internship 2027', 'London'), ('FX Sales VIE', 'Singapore')])
         self.assertEqual(jobs[0]['published'], '2026-10-26')
 
+    def test_title_only_alert_reads_city_on_advert_page(self):
+        from sources.email_alerts import _advert_place
+        ctx = context({'bwelcome': '<main><h1>Global Markets Intern</h1><p>Location: London, United Kingdom</p></main>'})
+        city, text = _advert_place(ctx, 'https://bwelcome.hr.bnpparibas/en_US/careers/JobDetail/1', '')
+        self.assertEqual(city, 'London')
+        self.assertIn('Global Markets Intern', text)
+
     def test_mailbox_not_configured_is_silent(self):
         import os
         from unittest import mock

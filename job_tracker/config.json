@@ -796,7 +796,8 @@
       "link_pattern": "bnpparibas|bwelcome|avature|job|offre|career",
       "address_env": "ALERT_EMAIL",
       "password_env": "ALERT_EMAIL_APP_PASSWORD",
-      "note": "BNP job alerts the user receives by email, read over IMAP (read-only) with a Gmail app password stored in GitHub secrets ALERT_EMAIL / ALERT_EMAIL_APP_PASSWORD; does nothing until both secrets exist"
+      "note": "BNP job alerts the user receives by email, read over IMAP (read-only) with a Gmail app password stored in GitHub secrets ALERT_EMAIL / ALERT_EMAIL_APP_PASSWORD; does nothing until both secrets exist",
+      "probe_first_advert": true
     },
     {
       "company": "Huatai Securities",
