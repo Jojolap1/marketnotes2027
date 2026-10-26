@@ -787,6 +787,18 @@
       "disabled_reason": "group.bnpparibas (the only page listing BNP offers) answers HTTP 403 'Access Denied' (Akamai) to this tracker's identified requests, robots.txt and sitemap included; the BNP candidate portal bwelcome.hr.bnpparibas (Avature) has no public job list (search page 404, sitemaps list templates only). Re-checked 2026-10-19."
     },
     {
+      "company": "BNP Paribas (email alerts)",
+      "platform": "email_alerts",
+      "senders": [
+        "bnpparibas"
+      ],
+      "days": 14,
+      "link_pattern": "bnpparibas|bwelcome|avature|job|offre|career",
+      "address_env": "ALERT_EMAIL",
+      "password_env": "ALERT_EMAIL_APP_PASSWORD",
+      "note": "BNP job alerts the user receives by email, read over IMAP (read-only) with a Gmail app password stored in GitHub secrets ALERT_EMAIL / ALERT_EMAIL_APP_PASSWORD; does nothing until both secrets exist"
+    },
+    {
       "company": "Huatai Securities",
       "platform": "official",
       "enabled": false,

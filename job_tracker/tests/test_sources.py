@@ -483,3 +483,31 @@ class SitemapTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class EmailAlertTests(unittest.TestCase):
+    def test_bnp_alert_email_lists_offers_with_city(self):
+        from email.mime.text import MIMEText
+        from sources.email_alerts import parse_alert
+        html = ('<p>New jobs matching your alert</p>'
+                '<a href="https://group.bnpparibas/en/careers/job-offer/global-markets-summer-internship-2027">'
+                'Global Markets Summer Internship 2027</a><br>London, United Kingdom - Internship'
+                '<a href="https://group.bnpparibas/en/careers/job-offer/fx-sales-vie">FX Sales VIE</a><br>Singapore - VIE'
+                '<a href="https://group.bnpparibas/en/unsubscribe">Unsubscribe from this alert</a>')
+        msg = MIMEText(html, 'html')
+        msg['From'] = 'BNP Paribas <noreply@bnpparibas.com>'
+        msg['Date'] = 'Mon, 26 Oct 2026 08:00:00 +0000'
+        src = {'company': 'BNP Paribas (email alerts)', 'senders': ['bnpparibas'],
+               'link_pattern': r'bnpparibas'}   # broad pattern: navigation links must still be skipped
+        jobs = parse_alert(msg.as_bytes(), src, context({}))
+        self.assertEqual([(j['title'], j['location']) for j in jobs],
+                         [('Global Markets Summer Internship 2027', 'London'), ('FX Sales VIE', 'Singapore')])
+        self.assertEqual(jobs[0]['published'], '2026-10-26')
+
+    def test_mailbox_not_configured_is_silent(self):
+        import os
+        from unittest import mock
+        with mock.patch.dict(os.environ, {}, clear=True):
+            jobs = fetch_source({'company': 'BNP Paribas (email alerts)', 'platform': 'email_alerts',
+                                 'senders': ['bnpparibas'], 'link_pattern': 'job'}, context({}))
+        self.assertEqual(jobs, [])
