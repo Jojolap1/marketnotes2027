@@ -61,6 +61,15 @@ sending; new jobs then wait for the next slot.
 LinkedIn). The text of one section ("Current job offers") is fingerprinted each run; when it changes,
 a short Telegram message quotes the new text (no link needed). The first run only records a baseline.
 
+## BNP Paribas through job-alert emails
+
+group.bnpparibas refuses automated requests (not bypassed). The user subscribes to BNP
+job alerts with their Gmail address; `sources/email_alerts.py` reads those emails over
+IMAP, read-only (`BODY.PEEK`, mails stay unread), only from the configured senders and
+the last 14 days. Credentials live only in the GitHub secrets `ALERT_EMAIL` and
+`ALERT_EMAIL_APP_PASSWORD` (a Gmail app password, revocable at any time); without them
+the source does nothing.
+
 ## Duplicate prevention
 
 Each job gets several fingerprints: source id, company+requisition id, canonical URL (tracking params, `www`, Workday locale and SG `-en/-fr` suffix removed) and company+normalized title+city. Any match with history = already seen, so URL formatting changes or minor title edits do not re-alert. A same-title match older than `title_dedup_days` (180) counts as a new repost. Alerts are marked sent only after Telegram confirms delivery; at most `max_per_run` (15) per run, the rest go out next hour.
