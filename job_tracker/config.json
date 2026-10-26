@@ -793,11 +793,10 @@
         "bnpparibas"
       ],
       "days": 14,
-      "link_pattern": "bnpparibas|bwelcome|avature|job|offre|career",
+      "link_pattern": "bwelcome\\.hr\\.bnpparibas|group\\.bnpparibas",
       "address_env": "ALERT_EMAIL",
       "password_env": "ALERT_EMAIL_APP_PASSWORD",
-      "note": "BNP job alerts the user receives by email, read over IMAP (read-only) with a Gmail app password stored in GitHub secrets ALERT_EMAIL / ALERT_EMAIL_APP_PASSWORD; does nothing until both secrets exist",
-      "probe_first_advert": true
+      "note": "BNP job alerts the user receives by email (one email per new batch, titles only), read over IMAP read-only with a Gmail app password stored in GitHub secrets ALERT_EMAIL / ALERT_EMAIL_APP_PASSWORD; for promising titles the advert page on bwelcome.hr.bnpparibas (reachable, HTTP 200) gives the city. Verified 2026-10-26: 9 alert emails, 15 adverts."
     },
     {
       "company": "Huatai Securities",

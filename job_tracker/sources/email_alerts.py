@@ -50,10 +50,6 @@ def parse_alert(raw, source, ctx):
         received = ''
     html = _html(message)
     link_ok = re.compile(source['link_pattern'], re.I)
-    # Diagnostic (adverts' titles and link hosts only, no mailbox content)
-    LOG.info('alert email %s, subject %r: %d links', received, (message.get('Subject') or '')[:80], len(LINK.findall(html)))
-    for url, text in LINK.findall(html)[:40]:
-        LOG.info('  link %s | %s', re.sub(r'^https?://([^/?#]+).*$', r'\1', url.replace('&amp;', '&'))[:60], html_to_text(text)[:80])
     jobs = []
     links = list(LINK.finditer(html))
     for i, match in enumerate(links):
