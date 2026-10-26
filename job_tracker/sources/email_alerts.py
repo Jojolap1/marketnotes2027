@@ -8,6 +8,7 @@ a job; the advert itself is not fetched (the site would refuse it).
 """
 import email
 import imaplib
+import logging
 import os
 import re
 from datetime import timedelta
@@ -16,6 +17,8 @@ from email.utils import parsedate_to_datetime
 from jobs import canonical_url, html_to_text, make_job
 from status import OPEN
 
+LOG = logging.getLogger(__name__)
+PLACE = re.compile(r'(?:Location|Lieu(?: de travail)?|Localisation|City|Ville|Primary Location)\s*:?\s*([^\n|]{2,80})', re.I)
 LINK = re.compile(r'<a\b[^>]*href="([^"]+)"[^>]*>(.*?)</a>', re.S | re.I)
 # Navigation links of the alert email, not adverts
 NOT_AN_ADVERT = re.compile(r'unsubscri|d[ée]sabonn|d[ée]sinscri|view all|see all|voir (?:toutes|tous|plus)|manage|g[ée]rer|'
@@ -57,7 +60,8 @@ def parse_alert(raw, source, ctx):
         # next link so the next offer's city is never borrowed.
         end = links[i + 1].start() if i + 1 < len(links) else match.end() + 600
         context = html_to_text(html[match.end():min(end, match.end() + 600)])
-        location = ctx.city_of(context[:200]) or ctx.city_of(title) or context[:120]
+        # BNP alerts give the title only: the city is read on the advert page (fetch)
+        location = ctx.city_of(context[:200]) or ctx.city_of(title)
         jobs.append(make_job(
             id=f'email:{source["company"]}:{canonical_url(url)}', company=source['company'], title=title,
             location=location, url=url, published=received, description=context[:1500],
@@ -89,11 +93,35 @@ def fetch(source, ctx):
             if status == 'OK' and data and isinstance(data[0], tuple):
                 for job in parse_alert(data[0][1], source, ctx):
                     jobs.setdefault(job['id'], job)
+        LOG.info('%s: %d alert emails from %s since %s', source['company'], len(found), source['senders'], since)
         ctx.stat(source['company'], 'alert_emails', len(found))
         ctx.stat(source['company'], 'listed', len(jobs))
+        probe = bool(source.get('probe_first_advert'))
+        for job in jobs.values():
+            if not job['location'] and (ctx.title_worth_fetching(job['title']) or probe):
+                job['location'], job['description'] = _advert_place(ctx, job['url'], job['description'])
+                probe = False
         return list(jobs.values())
     finally:
         try:
             box.logout()
         except Exception:
             pass
+
+
+def _advert_place(ctx, url, description):
+    """City (and text) of the advert page an alert links to; '' when unreachable."""
+    try:
+        response = ctx.http.get(url)
+    except Exception as exc:  # the site may refuse scripts: keep the job, location unknown
+        LOG.info('  advert page unreachable (%s)', type(exc).__name__)
+        return '', description
+    host = re.sub(r'^https?://([^/?#]+).*$', r'\1', response.url or url)
+    if response.status_code != 200:
+        LOG.info('  advert page %s: HTTP %s', host, response.status_code)
+        return '', description
+    text = html_to_text(re.sub(r'(?s)<(script|style)\b.*?</\1>', ' ', response.text))
+    labelled = [m.group(1) for m in PLACE.finditer(text)]
+    city = next((ctx.city_of(v) for v in labelled if ctx.city_of(v)), '')
+    LOG.info('  advert page %s: HTTP 200, location fields %r -> %r', host, [v[:40] for v in labelled[:3]], city)
+    return city or (labelled[0][:80] if labelled else ''), text[:6000]
