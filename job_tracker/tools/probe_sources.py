@@ -2383,6 +2383,11 @@ R63 = [('R63 CCI tenants', lambda: ' | '.join(workday('osv-cci.wd1.myworkdayjobs
        ('R63 CCI page', lambda: grep_page('https://osv-cci.wd1.myworkdayjobs.com/CCICareers', r'((?:tenant|siteId|"site")[^,]{0,60})', 8, 100))]
 PROBES = PROBES + R63
 
+
+# ---------------- Round 64: Gunvor careers site ----------------
+R64 = [('R64 Gunvor crawl', lambda: crawl('https://gunvorgroup.com/careers/', depth=1, max_pages=4))]
+PROBES = PROBES + R64
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

@@ -8,6 +8,7 @@ a job; the advert itself is not fetched (the site would refuse it).
 """
 import email
 import imaplib
+import logging
 import os
 import re
 from datetime import timedelta
@@ -16,6 +17,7 @@ from email.utils import parsedate_to_datetime
 from jobs import canonical_url, html_to_text, make_job
 from status import OPEN
 
+LOG = logging.getLogger(__name__)
 LINK = re.compile(r'<a\b[^>]*href="([^"]+)"[^>]*>(.*?)</a>', re.S | re.I)
 # Navigation links of the alert email, not adverts
 NOT_AN_ADVERT = re.compile(r'unsubscri|d[ée]sabonn|d[ée]sinscri|view all|see all|voir (?:toutes|tous|plus)|manage|g[ée]rer|'
@@ -47,6 +49,10 @@ def parse_alert(raw, source, ctx):
         received = ''
     html = _html(message)
     link_ok = re.compile(source['link_pattern'], re.I)
+    # Diagnostic (adverts' titles and link hosts only, no mailbox content)
+    LOG.info('alert email %s, subject %r: %d links', received, (message.get('Subject') or '')[:80], len(LINK.findall(html)))
+    for url, text in LINK.findall(html)[:40]:
+        LOG.info('  link %s | %s', re.sub(r'^https?://([^/?#]+).*$', r'\1', url.replace('&amp;', '&'))[:60], html_to_text(text)[:80])
     jobs = []
     links = list(LINK.finditer(html))
     for i, match in enumerate(links):
@@ -89,6 +95,7 @@ def fetch(source, ctx):
             if status == 'OK' and data and isinstance(data[0], tuple):
                 for job in parse_alert(data[0][1], source, ctx):
                     jobs.setdefault(job['id'], job)
+        LOG.info('%s: %d alert emails from %s since %s', source['company'], len(found), source['senders'], since)
         ctx.stat(source['company'], 'alert_emails', len(found))
         ctx.stat(source['company'], 'listed', len(jobs))
         return list(jobs.values())
