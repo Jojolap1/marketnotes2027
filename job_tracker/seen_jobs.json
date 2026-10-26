@@ -3026,7 +3026,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-26T08:11:09.335730+00:00",
+ "last_send_slot": "2026-10-26T10:12:25.488901+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -3256,7 +3256,8 @@
    "last_ok": "2026-10-26"
   },
   "Gunvor": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 404 Client Error: Not Found for url: https://gunvor.wd3.myworkdayjobs.com/wday/cxs/gunvor/Gunvor_Careers/jobs",
    "last_ok": "2026-10-26"
   },
   "HSBC": {
