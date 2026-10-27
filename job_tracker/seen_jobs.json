@@ -272,6 +272,21 @@
    "title": "APAC Prime Services Intern (VN3259)",
    "url": "https://www.marex.com/careers/career-opportunities/55fd727028c701-apac-prime-services-intern-vn3259"
   },
+  "cards:Marex:https://marex.com/careers/career-opportunities/8ac5c23bf47e01-agricultural-trading-assistant": {
+   "company": "Marex",
+   "fingerprints": [
+    "id:cards:Marex:https://marex.com/careers/career-opportunities/8ac5c23bf47e01-agricultural-trading-assistant",
+    "url:https://marex.com/careers/career-opportunities/8ac5c23bf47e01-agricultural-trading-assistant",
+    "title:marex:agricultural trading assistant:london"
+   ],
+   "first_seen": "2026-10-27T12:11:33+00:00",
+   "last_seen": "2026-10-27",
+   "location": "London, GB",
+   "notified_at": "2026-10-27T12:11:33+00:00",
+   "status": "open",
+   "title": "Agricultural Trading Assistant",
+   "url": "https://www.marex.com/careers/career-opportunities/8ac5c23bf47e01-agricultural-trading-assistant"
+  },
   "eightfold:portal.careers.hsbc.com:62245": {
    "company": "HSBC",
    "fingerprints": [
@@ -912,7 +927,8 @@
     "id:greenhouse:towerresearchcapital:8037860",
     "req:tower research capital:1487",
     "url:https://tower-research.com/open-positions?gh_jid=8037860",
-    "title:tower research capital:quantitative trader researcher summer internship 2027 2028 graduates:london"
+    "title:tower research capital:quantitative trader researcher summer internship 2027 2028 graduates:london",
+    "title:tower research capital:quantitative trader researcher summer internship 2027:london"
    ],
    "first_seen": "2026-10-18T15:01:39+00:00",
    "last_seen": "2026-10-27",
@@ -1785,6 +1801,21 @@
    "title": "STAGE - EQUITY RESEARCH - RETAIL - PARIS",
    "url": "https://keplercheuvreux.teamtailor.com/jobs/8476881-stage-equity-research-retail-paris"
   },
+  "rss:Kepler Cheuvreux:https://keplercheuvreux.teamtailor.com/jobs/8623232-internship-credit-research-sell-side-paris": {
+   "company": "Kepler Cheuvreux",
+   "fingerprints": [
+    "id:rss:Kepler Cheuvreux:https://keplercheuvreux.teamtailor.com/jobs/8623232-internship-credit-research-sell-side-paris",
+    "url:https://keplercheuvreux.teamtailor.com/jobs/8623232-internship-credit-research-sell-side-paris",
+    "title:kepler cheuvreux:internship credit research sell side paris:paris"
+   ],
+   "first_seen": "2026-10-27T12:11:32+00:00",
+   "last_seen": "2026-10-27",
+   "location": "Paris; France",
+   "notified_at": "2026-10-27T12:11:32+00:00",
+   "status": "open",
+   "title": "INTERNSHIP - CREDIT RESEARCH SELL SIDE - PARIS",
+   "url": "https://keplercheuvreux.teamtailor.com/jobs/8623232-internship-credit-research-sell-side-paris"
+  },
   "sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/equity-research-intern-bernstein-hong-kong-summer-2027-26000LB7-en": {
    "company": "Société Générale",
    "fingerprints": [
@@ -2006,6 +2037,21 @@
    "status": "open",
    "title": "Syndicate & Portfolio Management Intern Hong Kong 2027",
    "url": "https://jobs.standardchartered.com/job/Central-Syndicate-&-Portfolio-Management-Intern-Hong-Kong-2027/1374336057/"
+  },
+  "sitemap:Standard Chartered:https://jobs.standardchartered.com/job/London-Financial-Markets-Graduate-Programme-UK-2027/1375944857/": {
+   "company": "Standard Chartered",
+   "fingerprints": [
+    "id:sitemap:Standard Chartered:https://jobs.standardchartered.com/job/London-Financial-Markets-Graduate-Programme-UK-2027/1375944857/",
+    "url:https://jobs.standardchartered.com/job/london-financial-markets-graduate-programme-uk-2027/1375944857",
+    "title:standard chartered:financial markets graduate programme uk 2027:london"
+   ],
+   "first_seen": "2026-10-27T12:11:31+00:00",
+   "last_seen": "2026-10-27",
+   "location": "London (from job URL)",
+   "notified_at": "2026-10-27T12:11:31+00:00",
+   "status": "open",
+   "title": "Financial Markets Graduate Programme UK 2027",
+   "url": "https://jobs.standardchartered.com/job/London-Financial-Markets-Graduate-Programme-UK-2027/1375944857/"
   },
   "sitemap:Standard Chartered:https://jobs.standardchartered.com/job/London-Markets-Intern-UK-2027/1370621257/": {
    "company": "Standard Chartered",
@@ -3058,7 +3104,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-27T10:15:29.642357+00:00",
+ "last_send_slot": "2026-10-27T12:11:29.894907+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
