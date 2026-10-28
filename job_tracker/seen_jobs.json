@@ -2161,6 +2161,22 @@
    "title": "Stage Analyste Investissement Diversification H/F",
    "url": "https://jobs.amundi.com/job/job-stage-analyste-investissement-diversification-h-f_116733.aspx"
   },
+  "talentsoft:Amundi:116938": {
+   "company": "Amundi",
+   "fingerprints": [
+    "id:talentsoft:Amundi:116938",
+    "req:amundi:116938",
+    "url:https://jobs.amundi.com/job/job-stage-assistant-gestion-multi-asset-h-f-_116938.aspx",
+    "title:amundi:stage assistant gestion multi asset:paris"
+   ],
+   "first_seen": "2026-10-28T10:16:17+00:00",
+   "last_seen": "2026-10-28",
+   "location": "Paris, Europe, France, Ile-de-France, 75 - Paris",
+   "notified_at": "2026-10-28T10:16:17+00:00",
+   "status": "open",
+   "title": "Stage Assistant Gestion Multi-Asset H/F",
+   "url": "https://jobs.amundi.com/job/job-stage-assistant-gestion-multi-asset-h-f-_116938.aspx"
+  },
   "talentsoft:Crédit Agricole CIB:114122": {
    "company": "Crédit Agricole CIB",
    "fingerprints": [
@@ -3104,7 +3120,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-28T08:11:28.732721+00:00",
+ "last_send_slot": "2026-10-28T10:16:16.289119+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
