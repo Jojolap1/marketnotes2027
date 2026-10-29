@@ -2410,6 +2410,39 @@ R66 = [('R66 BofA board', lambda: oleeo_board('https://bankcampuscareers.tal.net
        ('R66 Jefferies root', lambda: oleeo_board('https://jefferies.tal.net/candidate'))]
 PROBES = PROBES + R66
 
+
+# ---------------- Round 67: batch 4 discovery (commodity houses, energy trading, Asian brokers) ----------------
+B4 = {
+    'ADM': ('https://www.adm.com/en-us/careers/', ['adm']),
+    'Olam / ofi': ('https://www.olamgroup.com/careers.html', ['olam', 'ofi']),
+    'Wilmar': ('https://www.wilmar-international.com/careers', ['wilmar']),
+    'COFCO International': ('https://www.cofcointernational.com/careers/', ['cofcointernational']),
+    'Noble Group': ('https://www.thisisnoble.com/careers', ['noble']),
+    'Litasco': ('https://www.litasco.com/careers', ['litasco']),
+    'Aramco Trading': ('https://www.aramcotrading.com/careers', ['aramcotrading']),
+    'ENOC': ('https://www.enoc.com/en/careers', ['enoc']),
+    'Unipec / Sinopec': ('https://www.unipec.com/en/careers', ['unipec']),
+    'PetroChina International': ('https://www.petrochina-international.com/', ['petrochina']),
+    'Eni Trading & Shipping': ('https://www.eni.com/en-IT/careers.html', ['eni']),
+    'Repsol': ('https://www.repsol.com/en/careers/index.cshtml', ['repsol']),
+    'Axpo': ('https://www.axpo.com/ch/en/about-us/career.html', ['axpo']),
+    'Czarnikow': ('https://www.czarnikow.com/careers', ['czarnikow']),
+    'ED&F Man': ('https://www.edfman.com/careers', ['edfman']),
+    'Vattenfall': ('https://group.vattenfall.com/careers', ['vattenfall']),
+    'Orsted': ('https://orsted.com/en/careers', ['orsted']),
+    'Mitsui & Co': ('https://www.mitsui.com/jp/en/recruit/', ['mitsui']),
+    'Futu': ('https://www.futuholdings.com/en/careers', ['futu', 'futuholdings']),
+    'Tiger Brokers': ('https://www.itiger.com/careers', ['tigerbrokers', 'up-fintech']),
+    'Phillip Securities': ('https://www.phillip.com.sg/careers', ['phillip']),
+    'Hudson River Trading': ('https://www.hudsonrivertrading.com/careers/', ['wehrtyou']),
+    'Optiver': ('https://optiver.com/working-at-optiver/career-opportunities/', ['optiver']),
+}
+R67 = []
+for name, (page, slugs) in B4.items():
+    R67.append((f'R67 BOARDS {name}', (lambda slugs=slugs: board_sweep(slugs))))
+    R67.append((f'R67 CRAWL {name}', (lambda page=page: crawl(page, depth=1, max_pages=3))))
+PROBES = PROBES + R67
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

@@ -108,6 +108,10 @@ class State:
             self._index[fp] = key
         return key
 
+    def went_silent(self, company, listed, minimum=5):
+        """Listed nothing although it listed at least `minimum` adverts before."""
+        return listed == 0 and self.data['sources'].get(company, {}).get('last_listed', 0) >= minimum
+
     def mark_closed(self, key, reason):
         rec = self.data['jobs'].get(key)
         if rec and rec.get('status') != 'closed':
@@ -116,12 +120,14 @@ class State:
             rec['closed_on'] = today()
 
     # -- source health -----------------------------------------------------
-    def source_result(self, company, ok, error=''):
+    def source_result(self, company, ok, error='', listed=None):
         rec = self.data['sources'].setdefault(company, {'consecutive_failures': 0})
         if ok:
             rec['last_ok'] = today()
             rec['consecutive_failures'] = 0
             rec.pop('last_error', None)
+            if listed:
+                rec['last_listed'] = listed
         else:
             rec['consecutive_failures'] = rec.get('consecutive_failures', 0) + 1
             rec['last_error'] = str(error)[:200]

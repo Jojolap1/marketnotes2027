@@ -518,3 +518,30 @@ class EmailAlertTests(unittest.TestCase):
             jobs = fetch_source({'company': 'BNP Paribas (email alerts)', 'platform': 'email_alerts',
                                  'senders': ['bnpparibas'], 'link_pattern': 'job'}, context({}))
         self.assertEqual(jobs, [])
+
+
+class BotCheckTests(unittest.TestCase):
+    def test_challenge_page_is_access_denied_not_an_empty_list(self):
+        from http_client import AccessDenied
+        board = '<html><head><title>Quick Check Needed</title></head><body>Verify you are human</body></html>'
+        ctx = context({'jefferies.tal.net': board})
+        with self.assertRaises(AccessDenied):
+            fetch_source({'company': 'Jefferies (campus)', 'platform': 'oleeo',
+                          'boards': ['https://jefferies.tal.net/vx/candidate/jobboard/vacancy/1/adv/']}, ctx)
+
+
+class BlockedSiteAlertTests(unittest.TestCase):
+    def test_alert_from_blocked_site_uses_the_city_set_in_the_alert(self):
+        from email.mime.text import MIMEText
+        from filters import Classifier
+        from sources.email_alerts import parse_alert
+        import tracker
+        msg = MIMEText('<a href="https://jobs.natwestgroup.com/jobs/123">Markets Graduate Programme 2027</a>', 'html')
+        msg['From'] = 'NatWest Group Careers <noreply@natwestgroup.com>'
+        alert = {'company': 'NatWest Markets', 'senders': ['NatWest'], 'link_pattern': 'job',
+                 'city_set_in_alert': True, 'fetch_advert': False}
+        jobs = parse_alert(msg.as_bytes(), alert, context({}))
+        self.assertEqual(len(jobs), 1)
+        self.assertEqual(jobs[0]['alert_city'], 'ville filtrée dans ton alerte')
+        c = Classifier(tracker.CONFIG).classify(jobs[0])
+        self.assertTrue(c.eligible, c.reject_reason)

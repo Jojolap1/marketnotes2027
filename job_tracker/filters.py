@@ -190,7 +190,7 @@ class Classifier:
         if normalize_text(job.get('company')) in self.excluded_companies:
             c.reject_reason = 'company excluded in config'
             return c
-        c.city = self.city(location)
+        c.city = self.city(location) or job.get('alert_city', '')
         if not c.city:
             c.reject_reason = f'location not targeted ({location[:60] or "unknown"})'
             return c
