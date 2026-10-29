@@ -7,6 +7,7 @@
 * counts requests per host for the diagnostic report
 """
 import logging
+import re
 import time
 from collections import Counter
 from urllib.parse import urlparse
@@ -19,8 +20,19 @@ USER_AGENT = ('Mozilla/5.0 (compatible; PersonalJobTracker/4.0; '
 RETRY_STATUSES = {429, 500, 502, 503, 504}
 
 
+BOT_CHECK = re.compile(r'<title>\s*(?:Quick Check Needed|Just a moment\.\.\.|Attention Required!|Access Denied|'
+                       r'Are you a robot\?|Security Check|Pardon Our Interruption)', re.I)
+
+
 class AccessDenied(requests.HTTPError):
     """The source refused access (401/403/451 or bot challenge). Not retried."""
+
+
+def refuse_bot_check(response, url):
+    """A challenge page served with HTTP 200 (e.g. Oleeo 'Quick Check Needed') is an
+    access refusal, not an empty list; it is never solved (not bypassed)."""
+    if response.status_code == 200 and BOT_CHECK.search(response.text[:4000]):
+        raise AccessDenied(f'bot-check page instead of content for {url}', response=response)
 
 
 class HttpClient:
@@ -64,6 +76,7 @@ class HttpClient:
                 continue
             if response.status_code in (401, 403, 451):
                 raise AccessDenied(f'{response.status_code} access denied for {url}', response=response)
+            refuse_bot_check(response, url)
             if response.status_code in RETRY_STATUSES and attempt < self.max_retries:
                 attempt += 1
                 retry_after = response.headers.get('Retry-After', '')

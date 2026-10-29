@@ -329,7 +329,8 @@
     "min_minutes_between_sends": 100,
     "city_backfill": {
       "Dubai": "2026-10-31"
-    }
+    },
+    "daily_status_hour": 21
   },
   "http": {
     "min_interval_seconds": 0.8,
@@ -799,6 +800,150 @@
       "note": "BNP job alerts the user receives by email (one email per new batch, titles only), read over IMAP read-only with a Gmail app password stored in GitHub secrets ALERT_EMAIL / ALERT_EMAIL_APP_PASSWORD; for promising titles the advert page on bwelcome.hr.bnpparibas (reachable, HTTP 200) gives the city. Verified 2026-10-26: 9 alert emails, 15 adverts."
     },
     {
+      "company": "Email job alerts (sites that refuse scripts)",
+      "platform": "email_alerts",
+      "days": 14,
+      "senders": [],
+      "link_pattern": "job|career|vacanc|opp|offre|position|requisition|recruit",
+      "city_set_in_alert": true,
+      "fetch_advert": false,
+      "alerts": [
+        {
+          "company": "NatWest Markets",
+          "senders": [
+            "NatWest"
+          ]
+        },
+        {
+          "company": "ABN AMRO",
+          "senders": [
+            "ABN AMRO",
+            "abnamro"
+          ]
+        },
+        {
+          "company": "Peel Hunt",
+          "senders": [
+            "Peel Hunt",
+            "peelhunt"
+          ]
+        },
+        {
+          "company": "Raymond James",
+          "senders": [
+            "Raymond James"
+          ]
+        },
+        {
+          "company": "UniCredit",
+          "senders": [
+            "UniCredit"
+          ]
+        },
+        {
+          "company": "Rabobank",
+          "senders": [
+            "Rabobank"
+          ]
+        },
+        {
+          "company": "BGC",
+          "senders": [
+            "BGC Group",
+            "bgcg"
+          ]
+        },
+        {
+          "company": "StoneX",
+          "senders": [
+            "StoneX"
+          ]
+        },
+        {
+          "company": "Cantor Fitzgerald",
+          "senders": [
+            "Cantor"
+          ]
+        },
+        {
+          "company": "Commerzbank",
+          "senders": [
+            "Commerzbank"
+          ]
+        },
+        {
+          "company": "Canaccord Genuity",
+          "senders": [
+            "Canaccord"
+          ]
+        },
+        {
+          "company": "Emirates NBD",
+          "senders": [
+            "Emirates NBD",
+            "emiratesnbd"
+          ]
+        },
+        {
+          "company": "ADCB",
+          "senders": [
+            "ADCB"
+          ]
+        },
+        {
+          "company": "Citadel Securities",
+          "senders": [
+            "Citadel"
+          ]
+        },
+        {
+          "company": "Jefferies",
+          "senders": [
+            "Jefferies"
+          ]
+        },
+        {
+          "company": "Mercuria",
+          "senders": [
+            "Mercuria"
+          ]
+        },
+        {
+          "company": "Glencore",
+          "senders": [
+            "Glencore"
+          ]
+        },
+        {
+          "company": "Louis Dreyfus Company",
+          "senders": [
+            "Louis Dreyfus",
+            "ldc.com"
+          ]
+        },
+        {
+          "company": "Hartree Partners",
+          "senders": [
+            "Hartree"
+          ]
+        },
+        {
+          "company": "Uniper",
+          "senders": [
+            "Uniper"
+          ]
+        },
+        {
+          "company": "EDF (group)",
+          "senders": [
+            "EDF ",
+            "edf.fr"
+          ]
+        }
+      ],
+      "note": "Employers whose sites refuse automated requests: the user creates job alerts there (filtered on the target cities and markets roles) with the Gmail address in ALERT_EMAIL; this source reads them read-only. Advert pages are not fetched (the sites refuse scripts); the city filter set in the alert is trusted."
+    },
+    {
       "company": "Huatai Securities",
       "platform": "official",
       "enabled": false,
@@ -1195,6 +1340,20 @@
       "platform": "smartrecruiters",
       "board": "Statkraft1",
       "backfill_until": "2026-10-31"
+    },
+    {
+      "company": "Repsol (incl. Repsol Trading)",
+      "platform": "workday",
+      "host": "repsol.wd3.myworkdayjobs.com",
+      "tenant": "repsol",
+      "site": "Repsol",
+      "backfill_until": "2026-11-05"
+    },
+    {
+      "company": "ADM / COFCO International / ENOC / Orsted / Olam / Wilmar / Litasco / Aramco Trading / Czarnikow / ED&F Man / Eni / Axpo",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "COFCO International, ENOC, Orsted: HTTP 403; ADM: BrassRing site needing its own ids (not found); Olam, Wilmar, Litasco, Aramco Trading, Czarnikow, ED&F Man, Eni, Axpo: no public vacancy feed found (2026-10-29). Candidates for email job alerts."
     },
     {
       "company": "DNB Markets",

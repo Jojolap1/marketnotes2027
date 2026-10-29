@@ -34,6 +34,7 @@ class PipelineTests(unittest.TestCase):
         config = config_with(sources)
         config['page_watches'] = page_watches or []
         notif.setdefault('send_window', None)  # window behaviour is tested separately
+        notif.setdefault('daily_status_hour', None)  # daily status is tested separately
         config['notifications'] = dict(config['notifications'], **notif)
         return tracker.run(config, self.state, self.cache, self.report, dry_run=dry_run, http=self.http,
                            telegram=telegram or FakeTelegram(), now=now, scheduled=scheduled)
@@ -176,6 +177,30 @@ class PipelineTests(unittest.TestCase):
         text = '\n'.join(tg.sent)
         self.assertIn('2027 Sales Summer Internship', text)
         self.assertNotIn('2027 Rates Summer Internship', text)
+
+
+    def test_daily_status_sent_once_in_the_evening(self):
+        from datetime import datetime, timezone
+        window = {'timezone': 'Asia/Ho_Chi_Minh', 'start_hour': 11, 'end_hour': 22}
+        evening = datetime(2026, 10, 28, 14, 30, tzinfo=timezone.utc)    # 21:30 in Vietnam
+        tg = FakeTelegram()
+        self.run_tracker(tg, now=evening, send_window=window, daily_status_hour=21)
+        status = [m for m in tg.sent if 'Point du jour' in m]
+        self.assertEqual(len(status), 1)
+        self.assertIn('Sites lus sans erreur', status[0])
+        tg2 = FakeTelegram()
+        self.run_tracker(tg2, now=evening, send_window=window, daily_status_hour=21)
+        self.assertFalse(any('Point du jour' in m for m in tg2.sent))      # once a day
+
+    def test_source_that_goes_silent_is_reported(self):
+        from unittest import mock
+        job = dict(company='Bank', location='London', description='', status='open', status_evidence='', employment_type='',
+                   apply_url='', requisition_id='', id='a', title='Rates Sales Intern', url='https://b/a', published='')
+        with mock.patch.object(tracker, 'fetch_source', lambda s, ctx: [dict(job, id=f'a{i}', url=f'https://b/{i}') for i in range(6)]):
+            self.run_tracker(FakeTelegram(), sources=SOURCES[:1])
+        with mock.patch.object(tracker, 'fetch_source', lambda s, ctx: []):
+            _, report = self.run_tracker(FakeTelegram(), sources=SOURCES[:1])
+        self.assertEqual(report.silent, [SOURCES[0]['company']])
 
 
     def test_send_window_holds_alerts_until_next_slot(self):

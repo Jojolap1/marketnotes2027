@@ -19,6 +19,7 @@ class Report:
         self.sent = 0
         self.pending = 0
         self.note = ''
+        self.silent = []
 
     @property
     def any_source_ok(self):
@@ -60,7 +61,8 @@ class Report:
         failed = sum(1 for s in self.sources if s['ok'] is False)
         lines = [f'# Job tracker run — {self.started:%Y-%m-%d %H:%M} UTC ({mode})', '',
                  f'Sources: {ok} ok, {failed} failed, {len(self.sources) - ok - failed} skipped. '
-                 f'Relevant jobs: {len(self.matched)}. New: {len(self.new)}. Alerts sent: {self.sent}. {self.note}', '',
+                 f'Relevant jobs: {len(self.matched)}. New: {len(self.new)}. Alerts sent: {self.sent}. {self.note}'
+                 + (f' Went silent (listed 0, used to list adverts): {", ".join(self.silent)}.' if self.silent else ''), '',
                  '## Sources', '', '| Source | Platform | Result | Listed | Screened | Kept | Detail req. | Cache hits | Backlog | Time |',
                  '|---|---|---|---|---|---|---|---|---|---|']
         for s in self.sources:

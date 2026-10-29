@@ -77,8 +77,14 @@ def collect(config, ctx, state, report):
             rec = state.source_result(name, False, f'{type(exc).__name__}: {exc}')
             report.source_failed(source, f'{type(exc).__name__}: {exc}', rec['consecutive_failures'], time.monotonic() - started, ctx.stats.get(name))
             continue
-        state.source_result(name, True)
-        report.source_ok(source, found, time.monotonic() - started, ctx.stats.get(name, {}))
+        stats = ctx.stats.get(name, {})
+        listed = stats.get('listed', len(found))
+        listed = listed if isinstance(listed, int) else len(found)
+        if state.went_silent(name, listed):
+            report.silent.append(name)
+            LOG.warning('%s: lists no advert although it listed %s before', name, state.data['sources'][name]['last_listed'])
+        state.source_result(name, True, listed=listed)
+        report.source_ok(source, found, time.monotonic() - started, stats)
         for job in found:
             job['source_name'] = name
         jobs.extend(found)
@@ -156,6 +162,39 @@ def too_soon(state, notif, now=None):
     return (now or datetime.now(timezone.utc)) - last < timedelta(minutes=int(minutes))
 
 
+def status_date(notif, now=None):
+    tz = ZoneInfo((notif.get('send_window') or {}).get('timezone', 'UTC'))
+    return (now or datetime.now(timezone.utc)).astimezone(tz).date().isoformat()
+
+
+def daily_status(report, state, notif, now=None, sent_now=0):
+    """Evening health message (once a day, from `daily_status_hour` local time):
+    sources read, failing or gone silent, and alerts sent today. Real run data
+    only, so the user knows the tracker runs even on days without offers."""
+    hour = notif.get('daily_status_hour')
+    if hour is None:
+        return None
+    tz = ZoneInfo((notif.get('send_window') or {}).get('timezone', 'UTC'))
+    local = (now or datetime.now(timezone.utc)).astimezone(tz)
+    if local.hour < int(hour) or state.data.get('last_status_date') == local.date().isoformat():
+        return None
+    today = local.date().isoformat()
+    sent_today = sum(1 for r in state.data['jobs'].values()
+                     if r.get('notified_at') and datetime.fromisoformat(r['notified_at']).astimezone(tz).date().isoformat() == today)
+    ok = [s for s in report.sources if s['ok']]
+    failed = [s['name'] for s in report.sources if s['ok'] is False]
+    lines = [f'📊 <b>Point du jour</b> ({local:%d/%m %H:%M})',
+             f'Offres envoyées aujourd\'hui : {sent_today}',
+             f'Sites lus sans erreur : {len(ok)} / {len(ok) + len(failed)}']
+    if failed:
+        lines.append('En erreur : ' + ', '.join(failed[:12]) + (' …' if len(failed) > 12 else ''))
+    if report.silent:
+        lines.append('Muets (0 offre, inhabituel) : ' + ', '.join(report.silent))
+    if not failed and not report.silent:
+        lines.append('Aucun site en erreur.')
+    return '\n'.join(lines)
+
+
 def describe_window(window):
     return f"{window.get('start_hour')}h-{window.get('end_hour')}h {window.get('timezone')}"
 
@@ -229,6 +268,9 @@ def run(config, state_path=STATE_FILE, cache_path=CACHE_FILE, report_path=REPORT
                 else:
                     failures += 1
             note = f'{max(0, len(new) - sent)} pending for the next run' if len(new) > sent else 'all sent'
+            status = daily_status(report, state, notif, now, sent)
+            if status and telegram.send(status):
+                state.data['last_status_date'] = status_date(notif, now)
             report.notifications(sent, len(new), note + (f'; {failures} send failures' if failures else ''))
             if failures:
                 exit_code = 3

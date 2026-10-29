@@ -10,7 +10,7 @@ if str(ROOT) not in sys.path:
 
 import requests  # noqa: E402
 
-from http_client import AccessDenied  # noqa: E402
+from http_client import AccessDenied, refuse_bot_check  # noqa: E402
 
 
 class FakeResponse:
@@ -54,7 +54,9 @@ class FakeHttp:
                 status, body = value if isinstance(value, tuple) else (200, value)
                 if status in (401, 403):
                     raise AccessDenied(f'{status} access denied for {url}')
-                return FakeResponse(status, body, url)
+                response = FakeResponse(status, body, url)
+                refuse_bot_check(response, url)
+                return response
         raise requests.ConnectionError(f'no route for {url}')
 
     def get(self, url, **kwargs):

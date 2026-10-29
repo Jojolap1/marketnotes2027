@@ -42,7 +42,8 @@ def _html(message):
 
 
 def parse_alert(raw, source, ctx):
-    """Jobs listed in one alert email (raw RFC822 bytes)."""
+    """Jobs listed in one alert email (raw RFC822 bytes). `source` may be one
+    entry of a source's `alerts` list (company, senders, link_pattern)."""
     message = email.message_from_bytes(raw)
     try:
         received = parsedate_to_datetime(message.get('Date')).date().isoformat()
@@ -62,51 +63,63 @@ def parse_alert(raw, source, ctx):
         context = html_to_text(html[match.end():min(end, match.end() + 600)])
         # BNP alerts give the title only: the city is read on the advert page (fetch)
         location = ctx.city_of(context[:200]) or ctx.city_of(title)
+        extra = {}
+        if not location and source.get('city_set_in_alert'):
+            # Sites that refuse scripts: the city filter is set in the alert itself
+            extra = {'alert_city': 'ville filtrée dans ton alerte'}
         jobs.append(make_job(
             id=f'email:{source["company"]}:{canonical_url(url)}', company=source['company'], title=title,
             location=location, url=url, published=received, description=context[:1500],
             source='employer job-alert email', status=OPEN,
-            status_evidence=f'sent by the employer in a job alert on {received or "an unknown date"}'))
+            status_evidence=f'sent by the employer in a job alert on {received or "an unknown date"}', **extra))
     return jobs
 
 
 def fetch(source, ctx):
+    """One IMAP session for the source; `alerts` lists several employers
+    (company, senders, link_pattern, city_set_in_alert, fetch_advert),
+    otherwise the source itself is the single employer."""
     address = os.environ.get(source.get('address_env', 'ALERT_EMAIL'), '')
     password = os.environ.get(source.get('password_env', 'ALERT_EMAIL_APP_PASSWORD'), '')
     if not address or not password:
         ctx.stat(source['company'], 'mailbox_not_configured')
         return []
+    alerts = [dict(source, **a) for a in source['alerts']] if source.get('alerts') else [source]
     since = (ctx.now - timedelta(days=int(source.get('days', 14)))).strftime('%d-%b-%Y')
     box = imaplib.IMAP4_SSL(source.get('imap_host', 'imap.gmail.com'))
+    jobs = {}
     try:
         box.login(address, password)
         box.select('INBOX', readonly=True)
-        found = {}
-        for sender in source['senders']:
-            status, data = box.search(None, 'FROM', f'"{sender}"', 'SINCE', since)
-            if status == 'OK':
-                for num in data[0].split():
-                    found[num] = True
-        jobs = {}
-        for num in found:
-            status, data = box.fetch(num, '(BODY.PEEK[])')   # PEEK: leaves the mail unread
-            if status == 'OK' and data and isinstance(data[0], tuple):
-                for job in parse_alert(data[0][1], source, ctx):
-                    jobs.setdefault(job['id'], job)
-        LOG.info('%s: %d alert emails from %s since %s', source['company'], len(found), source['senders'], since)
-        ctx.stat(source['company'], 'alert_emails', len(found))
+        emails = 0
+        for alert in alerts:
+            found = {}
+            for sender in alert['senders']:
+                status, data = box.search(None, 'FROM', f'"{sender}"', 'SINCE', since)
+                if status == 'OK':
+                    for num in data[0].split():
+                        found[num] = True
+            emails += len(found)
+            for num in found:
+                status, data = box.fetch(num, '(BODY.PEEK[])')   # PEEK: leaves the mail unread
+                if status == 'OK' and data and isinstance(data[0], tuple):
+                    for job in parse_alert(data[0][1], alert, ctx):
+                        job['_alert'] = alert
+                        jobs.setdefault(job['id'], job)
+        LOG.info('%s: %d alert emails since %s', source['company'], emails, since)
+        ctx.stat(source['company'], 'alert_emails', emails)
         ctx.stat(source['company'], 'listed', len(jobs))
-        probe = bool(source.get('probe_first_advert'))
-        for job in jobs.values():
-            if not job['location'] and (ctx.title_worth_fetching(job['title']) or probe):
-                job['location'], job['description'] = _advert_place(ctx, job['url'], job['description'])
-                probe = False
-        return list(jobs.values())
     finally:
         try:
             box.logout()
         except Exception:
             pass
+    for job in jobs.values():
+        alert = job.pop('_alert')
+        if (not job['location'] and alert.get('fetch_advert', True)
+                and ctx.title_worth_fetching(job['title'])):
+            job['location'], job['description'] = _advert_place(ctx, job['url'], job['description'])
+    return list(jobs.values())
 
 
 def _advert_place(ctx, url, description):
