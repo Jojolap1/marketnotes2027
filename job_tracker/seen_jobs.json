@@ -2223,6 +2223,38 @@
    "title": "Stage Assistant Gestion Multi-Asset H/F",
    "url": "https://jobs.amundi.com/job/job-stage-assistant-gestion-multi-asset-h-f-_116938.aspx"
   },
+  "talentsoft:Amundi:116970": {
+   "company": "Amundi",
+   "fingerprints": [
+    "id:talentsoft:Amundi:116970",
+    "req:amundi:116970",
+    "url:https://jobs.amundi.com/job/job-stage-assistant-trading-agreement-facilitation-h-f_116970.aspx",
+    "title:amundi:stage assistant trading agreement facilitation:paris"
+   ],
+   "first_seen": "2026-10-29T12:11:35+00:00",
+   "last_seen": "2026-10-29",
+   "location": "Paris, Europe, France, Ile-de-France, 75 - Paris",
+   "notified_at": "2026-10-29T12:11:35+00:00",
+   "status": "open",
+   "title": "Stage - Assistant Trading Agreement Facilitation H/F",
+   "url": "https://jobs.amundi.com/job/job-stage-assistant-trading-agreement-facilitation-h-f_116970.aspx"
+  },
+  "talentsoft:Amundi:116973": {
+   "company": "Amundi",
+   "fingerprints": [
+    "id:talentsoft:Amundi:116973",
+    "req:amundi:116973",
+    "url:https://jobs.amundi.com/job/job-stage-activation-des-ventes-sales-engagement-and-coordination-h-f_116973.aspx",
+    "title:amundi:stage activation des ventes sales engagement and coordination:paris"
+   ],
+   "first_seen": "2026-10-29T12:11:34+00:00",
+   "last_seen": "2026-10-29",
+   "location": "Paris, Europe, France, Ile-de-France, 75 - Paris",
+   "notified_at": "2026-10-29T12:11:34+00:00",
+   "status": "open",
+   "title": "Stage - Activation des ventes (sales engagement and coordination) H/F",
+   "url": "https://jobs.amundi.com/job/job-stage-activation-des-ventes-sales-engagement-and-coordination-h-f_116973.aspx"
+  },
   "talentsoft:Crédit Agricole CIB:114122": {
    "company": "Crédit Agricole CIB",
    "fingerprints": [
@@ -3166,7 +3198,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-29T10:16:12.998021+00:00",
+ "last_send_slot": "2026-10-29T12:11:32.598692+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -3188,7 +3220,7 @@
   },
   "Akuna Capital": {
    "consecutive_failures": 0,
-   "last_listed": 31,
+   "last_listed": 32,
    "last_ok": "2026-10-29"
   },
   "Amber Group": {
@@ -3198,7 +3230,7 @@
   },
   "Amundi": {
    "consecutive_failures": 0,
-   "last_listed": 96,
+   "last_listed": 98,
    "last_ok": "2026-10-29"
   },
   "B2C2": {
@@ -3208,12 +3240,12 @@
   },
   "BBVA": {
    "consecutive_failures": 0,
-   "last_listed": 21,
+   "last_listed": 22,
    "last_ok": "2026-10-29"
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1032,
+   "last_listed": 1035,
    "last_ok": "2026-10-29"
   },
   "BNP Paribas (email alerts)": {
@@ -3243,12 +3275,12 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2061,
+   "last_listed": 2071,
    "last_ok": "2026-10-29"
   },
   "Bank of America (campus)": {
    "consecutive_failures": 0,
-   "last_listed": 37,
+   "last_listed": 36,
    "last_ok": "2026-10-29"
   },
   "Barclays": {
@@ -3273,12 +3305,12 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 602,
+   "last_listed": 603,
    "last_ok": "2026-10-29"
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 895,
+   "last_listed": 902,
    "last_ok": "2026-10-29"
   },
   "CIBC": {
@@ -3303,7 +3335,7 @@
   },
   "Capula Investment Management": {
    "consecutive_failures": 0,
-   "last_listed": 14,
+   "last_listed": 13,
    "last_ok": "2026-10-29"
   },
   "Cargill": {
@@ -3323,7 +3355,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 567,
+   "last_listed": 570,
    "last_ok": "2026-10-29"
   },
   "CommBank": {
@@ -3333,7 +3365,7 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 325,
+   "last_listed": 329,
    "last_ok": "2026-10-29"
   },
   "DBS Bank": {
@@ -3343,7 +3375,7 @@
   },
   "DNB Markets": {
    "consecutive_failures": 0,
-   "last_listed": 97,
+   "last_listed": 98,
    "last_ok": "2026-10-29"
   },
   "DRW": {
@@ -3386,7 +3418,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1658,
+   "last_listed": 1662,
    "last_ok": "2026-10-29"
   },
   "Equinor": {
@@ -3401,7 +3433,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 518,
+   "last_listed": 517,
    "last_ok": "2026-10-29"
   },
   "Fidelity International": {
@@ -3455,7 +3487,7 @@
   },
   "Graviton Research Capital": {
    "consecutive_failures": 0,
-   "last_listed": 23,
+   "last_listed": 22,
    "last_ok": "2026-10-29"
   },
   "Gunvor": {
@@ -3465,7 +3497,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 358,
+   "last_listed": 359,
    "last_ok": "2026-10-29"
   },
   "Haitong International": {
@@ -3480,7 +3512,7 @@
   },
   "ICBC Standard Bank": {
    "consecutive_failures": 0,
-   "last_listed": 11,
+   "last_listed": 13,
    "last_ok": "2026-10-29"
   },
   "IMC Trading": {
@@ -3519,7 +3551,7 @@
    "last_ok": "2026-10-29"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 3,
+   "consecutive_failures": 4,
    "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/1/adv/",
    "last_ok": "2026-10-29"
   },
@@ -3545,7 +3577,7 @@
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 154,
+   "last_listed": 155,
    "last_ok": "2026-10-29"
   },
   "Macquarie": {
@@ -3565,7 +3597,7 @@
   },
   "Marex": {
    "consecutive_failures": 0,
-   "last_listed": 83,
+   "last_listed": 84,
    "last_ok": "2026-10-29"
   },
   "Maven Securities": {
@@ -3585,7 +3617,7 @@
   },
   "Morgan Stanley": {
    "consecutive_failures": 0,
-   "last_listed": 129,
+   "last_listed": 127,
    "last_ok": "2026-10-29"
   },
   "National Bank of Canada": {
@@ -3595,12 +3627,12 @@
   },
   "Natixis CIB": {
    "consecutive_failures": 0,
-   "last_listed": 186,
+   "last_listed": 187,
    "last_ok": "2026-10-29"
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 507,
+   "last_listed": 510,
    "last_ok": "2026-10-29"
   },
   "Nomura (campus)": {
@@ -3610,7 +3642,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 705,
+   "last_listed": 706,
    "last_ok": "2026-10-29"
   },
   "Old Mission": {
@@ -3635,7 +3667,7 @@
   },
   "Pictet": {
    "consecutive_failures": 0,
-   "last_listed": 55,
+   "last_listed": 56,
    "last_ok": "2026-10-29"
   },
   "Point72": {
@@ -3650,12 +3682,12 @@
   },
   "Qube Research & Technologies": {
    "consecutive_failures": 0,
-   "last_listed": 195,
+   "last_listed": 193,
    "last_ok": "2026-10-29"
   },
   "RBC": {
    "consecutive_failures": 0,
-   "last_listed": 33,
+   "last_listed": 35,
    "last_ok": "2026-10-29"
   },
   "RWE Supply & Trading": {
@@ -3675,7 +3707,7 @@
   },
   "SMBC (EMEA)": {
    "consecutive_failures": 0,
-   "last_listed": 176,
+   "last_listed": 175,
    "last_ok": "2026-10-29"
   },
   "Santander CIB": {
@@ -3695,7 +3727,7 @@
   },
   "Scotiabank": {
    "consecutive_failures": 0,
-   "last_listed": 24,
+   "last_listed": 25,
    "last_ok": "2026-10-29"
   },
   "Shell": {
@@ -3715,7 +3747,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1184,
+   "last_listed": 1192,
    "last_ok": "2026-10-29"
   },
   "State Street": {
@@ -3725,12 +3757,12 @@
   },
   "Statkraft": {
    "consecutive_failures": 0,
-   "last_listed": 85,
+   "last_listed": 86,
    "last_ok": "2026-10-29"
   },
   "TD Securities": {
    "consecutive_failures": 0,
-   "last_listed": 45,
+   "last_listed": 46,
    "last_ok": "2026-10-29"
   },
   "TP ICAP": {
@@ -3769,12 +3801,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 694,
+   "last_listed": 696,
    "last_ok": "2026-10-29"
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 385,
+   "last_listed": 384,
    "last_ok": "2026-10-29"
   },
   "Virtu Financial": {
