@@ -1342,6 +1342,20 @@
       "backfill_until": "2026-10-31"
     },
     {
+      "company": "Repsol (incl. Repsol Trading)",
+      "platform": "workday",
+      "host": "repsol.wd3.myworkdayjobs.com",
+      "tenant": "repsol",
+      "site": "Repsol",
+      "backfill_until": "2026-11-05"
+    },
+    {
+      "company": "ADM / COFCO International / ENOC / Orsted / Olam / Wilmar / Litasco / Aramco Trading / Czarnikow / ED&F Man / Eni / Axpo",
+      "platform": "official",
+      "enabled": false,
+      "disabled_reason": "COFCO International, ENOC, Orsted: HTTP 403; ADM: BrassRing site needing its own ids (not found); Olam, Wilmar, Litasco, Aramco Trading, Czarnikow, ED&F Man, Eni, Axpo: no public vacancy feed found (2026-10-29). Candidates for email job alerts."
+    },
+    {
       "company": "DNB Markets",
       "platform": "lever",
       "board": "dnb",
