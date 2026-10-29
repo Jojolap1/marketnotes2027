@@ -3166,7 +3166,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-29T06:11:58.483137+00:00",
+ "last_send_slot": "2026-10-29T08:11:26.322393+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -3178,7 +3178,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 202,
+   "last_listed": 204,
    "last_ok": "2026-10-29"
   },
   "ANZ (careers site)": {
@@ -3198,7 +3198,7 @@
   },
   "Amundi": {
    "consecutive_failures": 0,
-   "last_listed": 97,
+   "last_listed": 96,
    "last_ok": "2026-10-29"
   },
   "B2C2": {
@@ -3208,12 +3208,12 @@
   },
   "BBVA": {
    "consecutive_failures": 0,
-   "last_listed": 21,
+   "last_listed": 22,
    "last_ok": "2026-10-29"
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1033,
+   "last_listed": 1032,
    "last_ok": "2026-10-29"
   },
   "BNP Paribas (email alerts)": {
@@ -3243,7 +3243,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2065,
+   "last_listed": 2064,
    "last_ok": "2026-10-29"
   },
   "Bank of America (campus)": {
@@ -3253,7 +3253,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 122,
+   "last_listed": 123,
    "last_ok": "2026-10-29"
   },
   "Berenberg": {
@@ -3278,7 +3278,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 877,
+   "last_listed": 876,
    "last_ok": "2026-10-29"
   },
   "CIBC": {
@@ -3308,7 +3308,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1371,
+   "last_listed": 1370,
    "last_ok": "2026-10-29"
   },
   "Castleton Commodities": {
@@ -3323,7 +3323,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 566,
+   "last_listed": 567,
    "last_ok": "2026-10-29"
   },
   "CommBank": {
@@ -3338,17 +3338,17 @@
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 622,
+   "last_listed": 624,
    "last_ok": "2026-10-29"
   },
   "DNB Markets": {
    "consecutive_failures": 0,
-   "last_listed": 98,
+   "last_listed": 97,
    "last_ok": "2026-10-29"
   },
   "DRW": {
    "consecutive_failures": 0,
-   "last_listed": 163,
+   "last_listed": 162,
    "last_ok": "2026-10-29"
   },
   "Da Vinci Trading": {
@@ -3386,7 +3386,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1655,
+   "last_listed": 1656,
    "last_ok": "2026-10-29"
   },
   "Equinor": {
@@ -3406,7 +3406,7 @@
   },
   "Fidelity International": {
    "consecutive_failures": 0,
-   "last_listed": 18,
+   "last_listed": 19,
    "last_ok": "2026-10-29"
   },
   "Fidelity International (campus)": {
@@ -3450,7 +3450,7 @@
   },
   "Goldman Sachs": {
    "consecutive_failures": 0,
-   "last_listed": 214,
+   "last_listed": 215,
    "last_ok": "2026-10-29"
   },
   "Graviton Research Capital": {
@@ -3490,7 +3490,7 @@
   },
   "ING": {
    "consecutive_failures": 0,
-   "last_listed": 37,
+   "last_listed": 38,
    "last_ok": "2026-10-29"
   },
   "Invesco": {
@@ -3505,7 +3505,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 767,
+   "last_listed": 765,
    "last_ok": "2026-10-29"
   },
   "Jane Street": {
@@ -3519,7 +3519,7 @@
    "last_ok": "2026-10-29"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/1/adv/",
    "last_ok": "2026-10-29"
   },
@@ -3545,7 +3545,7 @@
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 155,
+   "last_listed": 154,
    "last_ok": "2026-10-29"
   },
   "Macquarie": {
@@ -3560,7 +3560,7 @@
   },
   "Man Group": {
    "consecutive_failures": 0,
-   "last_listed": 67,
+   "last_listed": 69,
    "last_ok": "2026-10-29"
   },
   "Marex": {
@@ -3585,7 +3585,7 @@
   },
   "Morgan Stanley": {
    "consecutive_failures": 0,
-   "last_listed": 127,
+   "last_listed": 128,
    "last_ok": "2026-10-29"
   },
   "National Bank of Canada": {
@@ -3670,7 +3670,7 @@
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
-   "last_listed": 287,
+   "last_listed": 285,
    "last_ok": "2026-10-29"
   },
   "SMBC (EMEA)": {
@@ -3715,7 +3715,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1165,
+   "last_listed": 1175,
    "last_ok": "2026-10-29"
   },
   "State Street": {
@@ -3769,7 +3769,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 688,
+   "last_listed": 694,
    "last_ok": "2026-10-29"
   },
   "UOB": {
@@ -3789,7 +3789,7 @@
   },
   "Wells Fargo": {
    "consecutive_failures": 0,
-   "last_listed": 27,
+   "last_listed": 28,
    "last_ok": "2026-10-29"
   },
   "Westpac": {
