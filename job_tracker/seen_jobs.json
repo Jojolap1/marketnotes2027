@@ -342,7 +342,7 @@
     "title:hsbc:stage en trading delta one equity finance duree 6 mois a partir de decembre 2026:paris"
    ],
    "first_seen": "2026-10-18T12:30:00+00:00",
-   "last_seen": "2026-10-28",
+   "last_seen": "2026-10-29",
    "location": "PARIS, Paris, France",
    "notified_at": "2026-10-18T12:30:00+00:00",
    "status": "open",
@@ -406,7 +406,7 @@
     "title:hsbc:stage charge d affaires coverage asset managers:paris"
    ],
    "first_seen": "2026-10-19T15:05:50+00:00",
-   "last_seen": "2026-10-28",
+   "last_seen": "2026-10-29",
    "location": "PARIS, Paris, France",
    "notified_at": "2026-10-19T15:05:50+00:00",
    "status": "open",
@@ -476,6 +476,22 @@
    "status": "open",
    "title": "2026 | EMEA | Paris | FICC & Equities (Sales & Trading) | Seasonal/Off Cycle Internship, July - December",
    "url": "https://higher.gs.com/roles/150792"
+  },
+  "goldman:170600": {
+   "company": "Goldman Sachs",
+   "fingerprints": [
+    "id:goldman:170600",
+    "req:goldman sachs:170600",
+    "url:https://higher.gs.com/roles/170600",
+    "title:goldman sachs:2027 apej singapore ficc and equities sales and trading quantitative strats summer analyst:singapore"
+   ],
+   "first_seen": "2026-10-29T06:12:00+00:00",
+   "last_seen": "2026-10-29",
+   "location": "Singapore",
+   "notified_at": "2026-10-29T06:12:00+00:00",
+   "status": "open",
+   "title": "2027 | APEJ | Singapore | FICC and Equities (Sales and Trading) Quantitative Strats | Summer Analyst",
+   "url": "https://higher.gs.com/roles/170600"
   },
   "goldman:170877": {
    "company": "Goldman Sachs",
@@ -3150,157 +3166,194 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-29T04:15:13.825471+00:00",
+ "last_send_slot": "2026-10-29T06:11:58.483137+00:00",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
  "sources": {
   "AIB (incl. Goodbody)": {
    "consecutive_failures": 0,
+   "last_listed": 12,
    "last_ok": "2026-10-29"
   },
   "ANZ": {
    "consecutive_failures": 0,
+   "last_listed": 202,
    "last_ok": "2026-10-29"
   },
   "ANZ (careers site)": {
    "consecutive_failures": 0,
+   "last_listed": 14,
    "last_ok": "2026-10-29"
   },
   "Akuna Capital": {
    "consecutive_failures": 0,
+   "last_listed": 31,
    "last_ok": "2026-10-29"
   },
   "Amber Group": {
    "consecutive_failures": 0,
+   "last_listed": 3,
    "last_ok": "2026-10-29"
   },
   "Amundi": {
    "consecutive_failures": 0,
+   "last_listed": 97,
    "last_ok": "2026-10-29"
   },
   "B2C2": {
    "consecutive_failures": 0,
+   "last_listed": 4,
    "last_ok": "2026-10-29"
   },
   "BBVA": {
    "consecutive_failures": 0,
+   "last_listed": 21,
    "last_ok": "2026-10-29"
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
+   "last_listed": 1033,
    "last_ok": "2026-10-29"
   },
   "BNP Paribas (email alerts)": {
    "consecutive_failures": 0,
+   "last_listed": 17,
    "last_ok": "2026-10-29"
   },
   "BNY": {
    "consecutive_failures": 0,
+   "last_listed": 114,
    "last_ok": "2026-10-29"
   },
   "BP": {
    "consecutive_failures": 0,
+   "last_listed": 14,
    "last_ok": "2026-10-29"
   },
   "BTG Pactual": {
    "consecutive_failures": 0,
+   "last_listed": 257,
    "last_ok": "2026-10-29"
   },
   "BTIG": {
    "consecutive_failures": 0,
+   "last_listed": 21,
    "last_ok": "2026-10-29"
   },
   "Bank of America": {
    "consecutive_failures": 0,
+   "last_listed": 2065,
    "last_ok": "2026-10-29"
   },
   "Bank of America (campus)": {
    "consecutive_failures": 0,
+   "last_listed": 37,
    "last_ok": "2026-10-29"
   },
   "Barclays": {
    "consecutive_failures": 0,
+   "last_listed": 122,
    "last_ok": "2026-10-29"
   },
   "Berenberg": {
    "consecutive_failures": 0,
+   "last_listed": 43,
    "last_ok": "2026-10-29"
   },
   "BlackRock": {
    "consecutive_failures": 0,
+   "last_listed": 36,
    "last_ok": "2026-10-29"
   },
   "Brevan Howard": {
    "consecutive_failures": 0,
+   "last_listed": 2,
    "last_ok": "2026-10-29"
   },
   "Bunge": {
    "consecutive_failures": 0,
+   "last_listed": 602,
    "last_ok": "2026-10-29"
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
+   "last_listed": 877,
    "last_ok": "2026-10-29"
   },
   "CIBC": {
    "consecutive_failures": 0,
+   "last_listed": 8,
    "last_ok": "2026-10-29"
   },
   "CICC": {
    "consecutive_failures": 0,
+   "last_listed": 380,
    "last_ok": "2026-10-29"
   },
   "CIMB (incl. CIMB Securities)": {
    "consecutive_failures": 0,
+   "last_listed": 134,
    "last_ok": "2026-10-29"
   },
   "CITIC CLSA (CITIC Securities)": {
    "consecutive_failures": 0,
+   "last_listed": 212,
    "last_ok": "2026-10-29"
   },
   "Capula Investment Management": {
    "consecutive_failures": 0,
+   "last_listed": 14,
    "last_ok": "2026-10-29"
   },
   "Cargill": {
    "consecutive_failures": 0,
+   "last_listed": 1371,
    "last_ok": "2026-10-29"
   },
   "Castleton Commodities": {
    "consecutive_failures": 0,
+   "last_listed": 5,
    "last_ok": "2026-10-29"
   },
   "China Galaxy (Chinastock)": {
    "consecutive_failures": 0,
+   "last_listed": 121,
    "last_ok": "2026-10-29"
   },
   "Citi": {
    "consecutive_failures": 0,
+   "last_listed": 566,
    "last_ok": "2026-10-29"
   },
   "CommBank": {
    "consecutive_failures": 0,
+   "last_listed": 1,
    "last_ok": "2026-10-29"
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
+   "last_listed": 323,
    "last_ok": "2026-10-29"
   },
   "DBS Bank": {
    "consecutive_failures": 0,
+   "last_listed": 622,
    "last_ok": "2026-10-29"
   },
   "DNB Markets": {
    "consecutive_failures": 0,
+   "last_listed": 98,
    "last_ok": "2026-10-29"
   },
   "DRW": {
    "consecutive_failures": 0,
+   "last_listed": 163,
    "last_ok": "2026-10-29"
   },
   "Da Vinci Trading": {
    "consecutive_failures": 0,
+   "last_listed": 15,
    "last_ok": "2026-10-29"
   },
   "Danske Bank": {
@@ -3309,42 +3362,56 @@
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
+   "last_listed": 94,
    "last_ok": "2026-10-29"
   },
   "EDF Trading": {
    "consecutive_failures": 0,
+   "last_listed": 19,
    "last_ok": "2026-10-29"
   },
   "Eastspring Investments": {
    "consecutive_failures": 0,
+   "last_listed": 17,
    "last_ok": "2026-10-29"
   },
   "Eclipse Trading": {
+   "consecutive_failures": 0,
+   "last_listed": 16,
+   "last_ok": "2026-10-29"
+  },
+  "Email job alerts (sites that refuse scripts)": {
    "consecutive_failures": 0,
    "last_ok": "2026-10-29"
   },
   "Engie": {
    "consecutive_failures": 0,
+   "last_listed": 1655,
    "last_ok": "2026-10-29"
   },
   "Equinor": {
    "consecutive_failures": 0,
+   "last_listed": 1,
    "last_ok": "2026-10-29"
   },
   "ExodusPoint": {
    "consecutive_failures": 0,
+   "last_listed": 3,
    "last_ok": "2026-10-29"
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
+   "last_listed": 518,
    "last_ok": "2026-10-29"
   },
   "Fidelity International": {
    "consecutive_failures": 0,
+   "last_listed": 18,
    "last_ok": "2026-10-29"
   },
   "Fidelity International (campus)": {
    "consecutive_failures": 0,
+   "last_listed": 33,
    "last_ok": "2026-10-29"
   },
   "First Abu Dhabi Bank": {
@@ -3353,254 +3420,322 @@
   },
   "Five Rings": {
    "consecutive_failures": 0,
+   "last_listed": 17,
    "last_ok": "2026-10-29"
   },
   "Flow Traders": {
    "consecutive_failures": 0,
+   "last_listed": 47,
    "last_ok": "2026-10-29"
   },
   "Flowdesk": {
    "consecutive_failures": 0,
+   "last_listed": 12,
    "last_ok": "2026-10-29"
   },
   "Freepoint Commodities": {
    "consecutive_failures": 0,
+   "last_listed": 1,
    "last_ok": "2026-10-29"
   },
   "G-Research": {
    "consecutive_failures": 0,
+   "last_listed": 65,
    "last_ok": "2026-10-29"
   },
   "GSR": {
    "consecutive_failures": 0,
+   "last_listed": 5,
    "last_ok": "2026-10-29"
   },
   "Goldman Sachs": {
    "consecutive_failures": 0,
+   "last_listed": 214,
    "last_ok": "2026-10-29"
   },
   "Graviton Research Capital": {
    "consecutive_failures": 0,
+   "last_listed": 23,
    "last_ok": "2026-10-29"
   },
   "Gunvor": {
    "consecutive_failures": 0,
+   "last_listed": 13,
    "last_ok": "2026-10-29"
   },
   "HSBC": {
    "consecutive_failures": 0,
+   "last_listed": 351,
    "last_ok": "2026-10-29"
   },
   "Haitong International": {
    "consecutive_failures": 0,
+   "last_listed": 1,
    "last_ok": "2026-10-29"
   },
   "Hudson River Trading": {
    "consecutive_failures": 0,
+   "last_listed": 86,
    "last_ok": "2026-10-29"
   },
   "ICBC Standard Bank": {
    "consecutive_failures": 0,
+   "last_listed": 11,
    "last_ok": "2026-10-29"
   },
   "IMC Trading": {
    "consecutive_failures": 0,
+   "last_listed": 168,
    "last_ok": "2026-10-29"
   },
   "ING": {
    "consecutive_failures": 0,
+   "last_listed": 37,
    "last_ok": "2026-10-29"
   },
   "Invesco": {
    "consecutive_failures": 0,
+   "last_listed": 28,
    "last_ok": "2026-10-29"
   },
   "Investec": {
    "consecutive_failures": 0,
+   "last_listed": 62,
    "last_ok": "2026-10-29"
   },
   "JPMorgan": {
    "consecutive_failures": 0,
+   "last_listed": 767,
    "last_ok": "2026-10-29"
   },
   "Jane Street": {
    "consecutive_failures": 0,
+   "last_listed": 222,
    "last_ok": "2026-10-29"
   },
   "Jefferies": {
    "consecutive_failures": 0,
+   "last_listed": 34,
    "last_ok": "2026-10-29"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/1/adv/",
    "last_ok": "2026-10-29"
   },
   "Jump Trading": {
    "consecutive_failures": 0,
+   "last_listed": 97,
    "last_ok": "2026-10-29"
   },
   "Kepler Cheuvreux": {
    "consecutive_failures": 0,
+   "last_listed": 7,
    "last_ok": "2026-10-29"
   },
   "Keyrock": {
    "consecutive_failures": 0,
+   "last_listed": 10,
    "last_ok": "2026-10-29"
   },
   "Lloyds Banking Group": {
    "consecutive_failures": 0,
+   "last_listed": 23,
    "last_ok": "2026-10-29"
   },
   "MUFG": {
    "consecutive_failures": 0,
+   "last_listed": 155,
    "last_ok": "2026-10-29"
   },
   "Macquarie": {
    "consecutive_failures": 0,
+   "last_listed": 560,
    "last_ok": "2026-10-29"
   },
   "Mako Trading": {
    "consecutive_failures": 0,
+   "last_listed": 2,
    "last_ok": "2026-10-29"
   },
   "Man Group": {
    "consecutive_failures": 0,
+   "last_listed": 67,
    "last_ok": "2026-10-29"
   },
   "Marex": {
    "consecutive_failures": 0,
+   "last_listed": 83,
    "last_ok": "2026-10-29"
   },
   "Maven Securities": {
    "consecutive_failures": 0,
+   "last_listed": 38,
    "last_ok": "2026-10-29"
   },
   "Millennium": {
    "consecutive_failures": 0,
+   "last_listed": 93,
    "last_ok": "2026-10-29"
   },
   "Mizuho (EMEA)": {
    "consecutive_failures": 0,
+   "last_listed": 32,
    "last_ok": "2026-10-29"
   },
   "Morgan Stanley": {
    "consecutive_failures": 0,
+   "last_listed": 127,
    "last_ok": "2026-10-29"
   },
   "National Bank of Canada": {
    "consecutive_failures": 0,
+   "last_listed": 402,
    "last_ok": "2026-10-29"
   },
   "Natixis CIB": {
    "consecutive_failures": 0,
+   "last_listed": 190,
    "last_ok": "2026-10-29"
   },
   "Nomura": {
    "consecutive_failures": 0,
+   "last_listed": 504,
    "last_ok": "2026-10-29"
   },
   "Nomura (campus)": {
    "consecutive_failures": 0,
+   "last_listed": 28,
    "last_ok": "2026-10-29"
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
+   "last_listed": 706,
    "last_ok": "2026-10-29"
   },
   "Old Mission": {
    "consecutive_failures": 0,
+   "last_listed": 39,
    "last_ok": "2026-10-29"
   },
   "Optiver": {
    "consecutive_failures": 0,
+   "last_listed": 157,
    "last_ok": "2026-10-29"
   },
   "Panmure Liberum": {
    "consecutive_failures": 0,
+   "last_listed": 4,
    "last_ok": "2026-10-29"
   },
   "Pareto Securities": {
    "consecutive_failures": 0,
+   "last_listed": 4,
    "last_ok": "2026-10-29"
   },
   "Pictet": {
    "consecutive_failures": 0,
+   "last_listed": 56,
    "last_ok": "2026-10-29"
   },
   "Point72": {
    "consecutive_failures": 0,
+   "last_listed": 206,
    "last_ok": "2026-10-29"
   },
   "Quadrature Capital": {
    "consecutive_failures": 0,
+   "last_listed": 3,
    "last_ok": "2026-10-29"
   },
   "Qube Research & Technologies": {
    "consecutive_failures": 0,
+   "last_listed": 194,
    "last_ok": "2026-10-29"
   },
   "RBC": {
    "consecutive_failures": 0,
+   "last_listed": 34,
    "last_ok": "2026-10-29"
   },
   "RWE Supply & Trading": {
    "consecutive_failures": 0,
+   "last_listed": 162,
+   "last_ok": "2026-10-29"
+  },
+  "Repsol (incl. Repsol Trading)": {
+   "consecutive_failures": 0,
+   "last_listed": 67,
    "last_ok": "2026-10-29"
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
+   "last_listed": 287,
    "last_ok": "2026-10-29"
   },
   "SMBC (EMEA)": {
    "consecutive_failures": 0,
+   "last_listed": 177,
    "last_ok": "2026-10-29"
   },
   "Santander CIB": {
    "consecutive_failures": 0,
+   "last_listed": 71,
    "last_ok": "2026-10-29"
   },
   "Schonfeld": {
    "consecutive_failures": 0,
+   "last_listed": 69,
    "last_ok": "2026-10-29"
   },
   "Schroders": {
    "consecutive_failures": 0,
+   "last_listed": 49,
    "last_ok": "2026-10-29"
   },
   "Scotiabank": {
    "consecutive_failures": 0,
+   "last_listed": 24,
    "last_ok": "2026-10-29"
   },
   "Shell": {
    "consecutive_failures": 0,
+   "last_listed": 24,
    "last_ok": "2026-10-29"
   },
   "Société Générale": {
    "consecutive_failures": 0,
+   "last_listed": 1005,
    "last_ok": "2026-10-29"
   },
   "Squarepoint Capital": {
    "consecutive_failures": 0,
+   "last_listed": 90,
    "last_ok": "2026-10-29"
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
+   "last_listed": 1165,
    "last_ok": "2026-10-29"
   },
   "State Street": {
    "consecutive_failures": 0,
+   "last_listed": 120,
    "last_ok": "2026-10-29"
   },
   "Statkraft": {
    "consecutive_failures": 0,
+   "last_listed": 84,
    "last_ok": "2026-10-29"
   },
   "TD Securities": {
    "consecutive_failures": 0,
+   "last_listed": 45,
    "last_ok": "2026-10-29"
   },
   "TP ICAP": {
    "consecutive_failures": 0,
+   "last_listed": 4,
    "last_ok": "2026-10-29"
   },
   "Tibra Capital": {
@@ -3609,42 +3744,52 @@
   },
   "TotalEnergies": {
    "consecutive_failures": 0,
+   "last_listed": 220,
    "last_ok": "2026-10-29"
   },
   "Tower Research Capital": {
    "consecutive_failures": 0,
+   "last_listed": 100,
    "last_ok": "2026-10-29"
   },
   "Tradition": {
    "consecutive_failures": 0,
+   "last_listed": 3,
    "last_ok": "2026-10-29"
   },
   "Trafigura": {
    "consecutive_failures": 0,
+   "last_listed": 6,
    "last_ok": "2026-10-29"
   },
   "Two Sigma": {
    "consecutive_failures": 0,
+   "last_listed": 61,
    "last_ok": "2026-10-29"
   },
   "UBS": {
    "consecutive_failures": 0,
+   "last_listed": 688,
    "last_ok": "2026-10-29"
   },
   "UOB": {
    "consecutive_failures": 0,
+   "last_listed": 386,
    "last_ok": "2026-10-29"
   },
   "Virtu Financial": {
    "consecutive_failures": 0,
+   "last_listed": 47,
    "last_ok": "2026-10-29"
   },
   "Vitol": {
    "consecutive_failures": 0,
+   "last_listed": 35,
    "last_ok": "2026-10-29"
   },
   "Wells Fargo": {
    "consecutive_failures": 0,
+   "last_listed": 27,
    "last_ok": "2026-10-29"
   },
   "Westpac": {
@@ -3653,10 +3798,12 @@
   },
   "Wintermute": {
    "consecutive_failures": 0,
+   "last_listed": 20,
    "last_ok": "2026-10-29"
   },
   "XTX Markets": {
    "consecutive_failures": 0,
+   "last_listed": 7,
    "last_ok": "2026-10-29"
   }
  },
