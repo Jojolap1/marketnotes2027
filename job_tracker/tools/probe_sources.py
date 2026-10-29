@@ -2392,6 +2392,24 @@ R65 = [('R65 Gunvor tenant', lambda: grep_page('https://gunvor.wd3.myworkdayjobs
        ('R65 Gunvor WD', lambda: ' | '.join(workday('gunvor.wd3.myworkdayjobs.com', t, 'Gunvor_Careers')[:160] for t in ('gunvor', 'gunvorgroup', 'centalion')))]
 PROBES = PROBES + R65
 
+
+# ---------------- Round 66: Oleeo boards that went silent ----------------
+def oleeo_board(url):
+    r = get(url)
+    opps = re.findall(r'href="([^"]*/opp/[^"]*)"', r.text)
+    links = sorted(set(re.findall(r'href="([^"]*(?:jobboard|vacancy|opp|search)[^"]*)"', r.text)))[:12]
+    title = re.search(r'<title>(.*?)</title>', r.text, re.S)
+    return (f'HTTP {r.status_code} final={r.url} len={len(r.text)} opps={len(opps)} title={(title.group(1).strip()[:80] if title else "")!r} '
+            f'links={links}')
+
+
+R66 = [('R66 BofA board', lambda: oleeo_board('https://bankcampuscareers.tal.net/vx/lang-en-GB/mobile-0/brand-4/candidate/jobboard/vacancy/1/adv/')),
+       ('R66 BofA root', lambda: oleeo_board('https://bankcampuscareers.tal.net/candidate')),
+       ('R66 Jefferies board 1', lambda: oleeo_board('https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/1/adv/')),
+       ('R66 Jefferies board 2', lambda: oleeo_board('https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/2/adv/')),
+       ('R66 Jefferies root', lambda: oleeo_board('https://jefferies.tal.net/candidate'))]
+PROBES = PROBES + R66
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
