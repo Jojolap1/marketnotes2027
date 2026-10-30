@@ -3245,7 +3245,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-30T04:15:58.203983+00:00",
+ "last_send_slot": "2026-10-30T06:11:33.381046+00:00",
  "last_status_date": "2026-10-29",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -3258,7 +3258,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 182,
+   "last_listed": 184,
    "last_ok": "2026-10-30"
   },
   "ANZ (careers site)": {
@@ -3292,7 +3292,8 @@
    "last_ok": "2026-10-30"
   },
   "BMO Capital Markets": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 520 Server Error: <none> for url: https://bmo.wd3.myworkdayjobs.com/wday/cxs/bmo/External/jobs",
    "last_listed": 995,
    "last_ok": "2026-10-30"
   },
@@ -3313,7 +3314,7 @@
   },
   "BTG Pactual": {
    "consecutive_failures": 0,
-   "last_listed": 253,
+   "last_listed": 254,
    "last_ok": "2026-10-30"
   },
   "BTIG": {
@@ -3353,12 +3354,12 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 599,
+   "last_listed": 598,
    "last_ok": "2026-10-30"
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 907,
+   "last_listed": 910,
    "last_ok": "2026-10-30"
   },
   "CIBC": {
@@ -3378,7 +3379,7 @@
   },
   "CITIC CLSA (CITIC Securities)": {
    "consecutive_failures": 0,
-   "last_listed": 213,
+   "last_listed": 214,
    "last_ok": "2026-10-30"
   },
   "Capula Investment Management": {
@@ -3388,7 +3389,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1382,
+   "last_listed": 1384,
    "last_ok": "2026-10-30"
   },
   "Castleton Commodities": {
@@ -3403,7 +3404,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 574,
+   "last_listed": 575,
    "last_ok": "2026-10-30"
   },
   "CommBank": {
@@ -3418,7 +3419,7 @@
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 621,
+   "last_listed": 620,
    "last_ok": "2026-10-30"
   },
   "DNB Markets": {
@@ -3585,7 +3586,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 762,
+   "last_listed": 763,
    "last_ok": "2026-10-30"
   },
   "Jane Street": {
@@ -3599,7 +3600,8 @@
    "last_ok": "2026-10-30"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/1/adv/",
    "last_listed": 50,
    "last_ok": "2026-10-30"
   },
@@ -3655,7 +3657,7 @@
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 88,
+   "last_listed": 92,
    "last_ok": "2026-10-30"
   },
   "Mizuho (EMEA)": {
@@ -3680,7 +3682,7 @@
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 511,
+   "last_listed": 512,
    "last_ok": "2026-10-30"
   },
   "Nomura (campus)": {
@@ -3700,7 +3702,7 @@
   },
   "Optiver": {
    "consecutive_failures": 0,
-   "last_listed": 160,
+   "last_listed": 159,
    "last_ok": "2026-10-30"
   },
   "Panmure Liberum": {
@@ -3720,7 +3722,7 @@
   },
   "Point72": {
    "consecutive_failures": 0,
-   "last_listed": 206,
+   "last_listed": 207,
    "last_ok": "2026-10-30"
   },
   "Quadrature Capital": {
@@ -3745,12 +3747,12 @@
   },
   "Repsol (incl. Repsol Trading)": {
    "consecutive_failures": 0,
-   "last_listed": 59,
+   "last_listed": 49,
    "last_ok": "2026-10-30"
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
-   "last_listed": 288,
+   "last_listed": 289,
    "last_ok": "2026-10-30"
   },
   "SMBC (EMEA)": {
@@ -3795,7 +3797,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1149,
+   "last_listed": 1154,
    "last_ok": "2026-10-30"
   },
   "State Street": {
@@ -3829,7 +3831,7 @@
   },
   "Tower Research Capital": {
    "consecutive_failures": 0,
-   "last_listed": 99,
+   "last_listed": 98,
    "last_ok": "2026-10-30"
   },
   "Tradition": {
@@ -3849,12 +3851,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 693,
+   "last_listed": 692,
    "last_ok": "2026-10-30"
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 372,
+   "last_listed": 373,
    "last_ok": "2026-10-30"
   },
   "Virtu Financial": {
