@@ -1819,6 +1819,22 @@
    "title": "Commercial & Investment Bank, FICC Electronic Sales – Analyst",
    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210797827"
   },
+  "oracle:jpmc:210805198": {
+   "company": "JPMorgan",
+   "fingerprints": [
+    "id:oracle:jpmc:210805198",
+    "req:jpmorgan:210805198",
+    "url:https://jpmc.fa.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/210805198",
+    "title:jpmorgan:prime finance services trader assistant analyst:london"
+   ],
+   "first_seen": "2026-10-30T14:12:03+00:00",
+   "last_seen": "2026-10-30",
+   "location": "LONDON, United Kingdom",
+   "notified_at": "2026-10-30T14:12:03+00:00",
+   "status": "open",
+   "title": "Prime Finance Services Trader Assistant - Analyst",
+   "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210805198"
+  },
   "rss:Amundi:https://jobs.amundi.com/pages/offre/detailoffre.aspx?LCID=2057&idOffre=116550&idOrigine=170287&offerReference=2026-116550": {
    "company": "Amundi",
    "fingerprints": [
@@ -2084,6 +2100,22 @@
    "status": "open",
    "title": "Assistant Sales",
    "url": "https://careers.societegenerale.com/offres-d-emploi/assistant-sales-26000JHG-fr"
+  },
+  "sitemap:Société Générale:https://careers.societegenerale.com/offres-d-emploi/assistant-sales-asset-management-solutions-26000LQJ-fr": {
+   "company": "Société Générale",
+   "fingerprints": [
+    "id:sitemap:Société Générale:https://careers.societegenerale.com/offres-d-emploi/assistant-sales-asset-management-solutions-26000LQJ-fr",
+    "req:societe generale:26000lqj",
+    "url:https://careers.societegenerale.com/offres-d-emploi/assistant-sales-asset-management-solutions-26000lqj",
+    "title:societe generale:assistant sales asset management solutions:paris"
+   ],
+   "first_seen": "2026-10-30T14:12:05+00:00",
+   "last_seen": "2026-10-30",
+   "location": "La Defense, France",
+   "notified_at": "2026-10-30T14:12:05+00:00",
+   "status": "open",
+   "title": "Assistant sales Asset Management Solutions",
+   "url": "https://careers.societegenerale.com/offres-d-emploi/assistant-sales-asset-management-solutions-26000LQJ-fr"
   },
   "sitemap:Société Générale:https://careers.societegenerale.com/offres-d-emploi/business-analyste-vente-produits-structures-26000KNA-fr": {
    "company": "Société Générale",
@@ -3261,8 +3293,8 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-30T12:11:38.645290+00:00",
- "last_status_date": "2026-10-29",
+ "last_send_slot": "2026-10-30T14:12:02.224496+00:00",
+ "last_status_date": "2026-10-30",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -3274,7 +3306,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 191,
+   "last_listed": 182,
    "last_ok": "2026-10-30"
   },
   "ANZ (careers site)": {
@@ -3309,7 +3341,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 948,
+   "last_listed": 947,
    "last_ok": "2026-10-30"
   },
   "BNP Paribas (email alerts)": {
@@ -3339,7 +3371,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2072,
+   "last_listed": 2081,
    "last_ok": "2026-10-30"
   },
   "Bank of America (campus)": {
@@ -3349,7 +3381,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 118,
+   "last_listed": 119,
    "last_ok": "2026-10-30"
   },
   "Berenberg": {
@@ -3374,7 +3406,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 915,
+   "last_listed": 919,
    "last_ok": "2026-10-30"
   },
   "CIBC": {
@@ -3404,7 +3436,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1388,
+   "last_listed": 1389,
    "last_ok": "2026-10-30"
   },
   "Castleton Commodities": {
@@ -3419,7 +3451,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 578,
+   "last_listed": 576,
    "last_ok": "2026-10-30"
   },
   "CommBank": {
@@ -3444,7 +3476,7 @@
   },
   "DRW": {
    "consecutive_failures": 0,
-   "last_listed": 164,
+   "last_listed": 163,
    "last_ok": "2026-10-30"
   },
   "Da Vinci Trading": {
@@ -3482,7 +3514,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1649,
+   "last_listed": 1647,
    "last_ok": "2026-10-30"
   },
   "Equinor": {
@@ -3497,12 +3529,12 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 522,
+   "last_listed": 521,
    "last_ok": "2026-10-30"
   },
   "Fidelity International": {
    "consecutive_failures": 0,
-   "last_listed": 17,
+   "last_listed": 18,
    "last_ok": "2026-10-30"
   },
   "Fidelity International (campus)": {
@@ -3521,7 +3553,7 @@
   },
   "Flow Traders": {
    "consecutive_failures": 0,
-   "last_listed": 47,
+   "last_listed": 48,
    "last_ok": "2026-10-30"
   },
   "Flowdesk": {
@@ -3546,7 +3578,7 @@
   },
   "Goldman Sachs": {
    "consecutive_failures": 0,
-   "last_listed": 214,
+   "last_listed": 215,
    "last_ok": "2026-10-30"
   },
   "Graviton Research Capital": {
@@ -3561,7 +3593,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 359,
+   "last_listed": 361,
    "last_ok": "2026-10-30"
   },
   "Haitong International": {
@@ -3581,7 +3613,7 @@
   },
   "IMC Trading": {
    "consecutive_failures": 0,
-   "last_listed": 167,
+   "last_listed": 168,
    "last_ok": "2026-10-30"
   },
   "ING": {
@@ -3601,7 +3633,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 763,
+   "last_listed": 765,
    "last_ok": "2026-10-30"
   },
   "Jane Street": {
@@ -3615,7 +3647,7 @@
    "last_ok": "2026-10-30"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 4,
+   "consecutive_failures": 5,
    "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/1/adv/",
    "last_listed": 50,
    "last_ok": "2026-10-30"
@@ -3637,12 +3669,12 @@
   },
   "Lloyds Banking Group": {
    "consecutive_failures": 0,
-   "last_listed": 27,
+   "last_listed": 28,
    "last_ok": "2026-10-30"
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 149,
+   "last_listed": 152,
    "last_ok": "2026-10-30"
   },
   "Macquarie": {
@@ -3667,7 +3699,7 @@
   },
   "Maven Securities": {
    "consecutive_failures": 0,
-   "last_listed": 39,
+   "last_listed": 38,
    "last_ok": "2026-10-30"
   },
   "Millennium": {
@@ -3677,7 +3709,7 @@
   },
   "Mizuho (EMEA)": {
    "consecutive_failures": 0,
-   "last_listed": 30,
+   "last_listed": 29,
    "last_ok": "2026-10-30"
   },
   "Morgan Stanley": {
@@ -3697,7 +3729,7 @@
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 515,
+   "last_listed": 513,
    "last_ok": "2026-10-30"
   },
   "Nomura (campus)": {
@@ -3707,7 +3739,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 707,
+   "last_listed": 706,
    "last_ok": "2026-10-30"
   },
   "Old Mission": {
@@ -3732,7 +3764,7 @@
   },
   "Pictet": {
    "consecutive_failures": 0,
-   "last_listed": 54,
+   "last_listed": 56,
    "last_ok": "2026-10-30"
   },
   "Point72": {
@@ -3747,17 +3779,17 @@
   },
   "Qube Research & Technologies": {
    "consecutive_failures": 0,
-   "last_listed": 196,
+   "last_listed": 197,
    "last_ok": "2026-10-30"
   },
   "RBC": {
    "consecutive_failures": 0,
-   "last_listed": 34,
+   "last_listed": 35,
    "last_ok": "2026-10-30"
   },
   "RWE Supply & Trading": {
    "consecutive_failures": 0,
-   "last_listed": 162,
+   "last_listed": 163,
    "last_ok": "2026-10-30"
   },
   "Repsol (incl. Repsol Trading)": {
@@ -3767,7 +3799,7 @@
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
-   "last_listed": 287,
+   "last_listed": 285,
    "last_ok": "2026-10-30"
   },
   "SMBC (EMEA)": {
@@ -3777,7 +3809,7 @@
   },
   "Santander CIB": {
    "consecutive_failures": 0,
-   "last_listed": 68,
+   "last_listed": 69,
    "last_ok": "2026-10-30"
   },
   "Schonfeld": {
@@ -3792,7 +3824,7 @@
   },
   "Scotiabank": {
    "consecutive_failures": 0,
-   "last_listed": 28,
+   "last_listed": 27,
    "last_ok": "2026-10-30"
   },
   "Shell": {
@@ -3802,7 +3834,7 @@
   },
   "Société Générale": {
    "consecutive_failures": 0,
-   "last_listed": 1023,
+   "last_listed": 1031,
    "last_ok": "2026-10-30"
   },
   "Squarepoint Capital": {
@@ -3812,12 +3844,12 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1175,
+   "last_listed": 1176,
    "last_ok": "2026-10-30"
   },
   "State Street": {
    "consecutive_failures": 0,
-   "last_listed": 112,
+   "last_listed": 113,
    "last_ok": "2026-10-30"
   },
   "Statkraft": {
@@ -3866,12 +3898,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 685,
+   "last_listed": 686,
    "last_ok": "2026-10-30"
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 375,
+   "last_listed": 376,
    "last_ok": "2026-10-30"
   },
   "Virtu Financial": {
