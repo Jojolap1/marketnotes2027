@@ -298,7 +298,8 @@
         "\\bjunior\\b",
         "\\bentry[- ]level\\b",
         "\\bd[ée]butant\\w*\\b",
-        "\\bassistant\\b"
+        "\\bassistant\\b",
+        "\\banalyst\\b(?!.{0,15}\\b(?:ii|iii|2|3)\\b)"
       ]
     },
     "senior_description_patterns": [
