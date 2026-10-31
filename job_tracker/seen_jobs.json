@@ -3519,7 +3519,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-31T08:11:40.400976+00:00",
+ "last_send_slot": "2026-10-31T10:15:52.449480+00:00",
  "last_status_date": "2026-10-30",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -3765,7 +3765,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 510,
+   "last_listed": 512,
    "last_ok": "2026-10-31"
   },
   "Fidelity International": {
@@ -3829,7 +3829,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 342,
+   "last_listed": 339,
    "last_ok": "2026-10-31"
   },
   "Haitong International": {
@@ -3883,7 +3883,7 @@
    "last_ok": "2026-10-31"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 8,
+   "consecutive_failures": 9,
    "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/1/adv/",
    "last_listed": 50,
    "last_ok": "2026-10-30"
@@ -4015,7 +4015,7 @@
   },
   "Qube Research & Technologies": {
    "consecutive_failures": 0,
-   "last_listed": 197,
+   "last_listed": 198,
    "last_ok": "2026-10-31"
   },
   "RBC": {
@@ -4045,7 +4045,7 @@
   },
   "Santander CIB": {
    "consecutive_failures": 0,
-   "last_listed": 65,
+   "last_listed": 70,
    "last_ok": "2026-10-31"
   },
   "Schonfeld": {
@@ -4070,7 +4070,7 @@
   },
   "Société Générale": {
    "consecutive_failures": 0,
-   "last_listed": 1032,
+   "last_listed": 1025,
    "last_ok": "2026-10-31"
   },
   "Squarepoint Capital": {
@@ -4134,7 +4134,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 689,
+   "last_listed": 683,
    "last_ok": "2026-10-31"
   },
   "UOB": {
