@@ -2443,6 +2443,17 @@ for name, (page, slugs) in B4.items():
     R67.append((f'R67 CRAWL {name}', (lambda page=page: crawl(page, depth=1, max_pages=3))))
 PROBES = PROBES + R67
 
+
+# ---------------- Round 68: Chevron (and other oil majors' trading arms) ----------------
+R68 = [('R68 Chevron crawl', lambda: crawl('https://careers.chevron.com/', depth=1, max_pages=4)),
+       ('R68 Chevron WD guesses', lambda: ' | '.join(workday(h, t, s)[:170] for h, t, s in [
+           ('chevron.wd5.myworkdayjobs.com', 'chevron', 'jobs'), ('chevron.wd5.myworkdayjobs.com', 'chevron', 'Chevron'),
+           ('chevron.wd1.myworkdayjobs.com', 'chevron', 'jobs')])),
+       ('R68 Chevron trading search', lambda: grep_page('https://careers.chevron.com/search-jobs/trading', r'href="([^"]*/job/[^"]+)"', 15, 160)),
+       ('R68 ConocoPhillips / Oxy / Petronas', lambda: ' || '.join(discover(u)[:300] for u in (
+           'https://careers.conocophillips.com/', 'https://www.petronas.com/careers', 'https://www.oxy.com/careers/')))]
+PROBES = PROBES + R68
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
