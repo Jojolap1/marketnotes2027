@@ -940,6 +940,125 @@
             "EDF ",
             "edf.fr"
           ]
+        },
+        {
+          "company": "SIG (Susquehanna)",
+          "senders": [
+            "Susquehanna",
+            "sig.com"
+          ]
+        },
+        {
+          "company": "Marshall Wace",
+          "senders": [
+            "Marshall Wace",
+            "mwam"
+          ]
+        },
+        {
+          "company": "Balyasny",
+          "senders": [
+            "Balyasny",
+            "bamfunds"
+          ]
+        },
+        {
+          "company": "Rokos Capital",
+          "senders": [
+            "Rokos"
+          ]
+        },
+        {
+          "company": "CFM",
+          "senders": [
+            "Capital Fund Management",
+            "cfm.com"
+          ]
+        },
+        {
+          "company": "COFCO International",
+          "senders": [
+            "COFCO"
+          ]
+        },
+        {
+          "company": "ADM",
+          "senders": [
+            "ADM Careers",
+            "adm.com"
+          ]
+        },
+        {
+          "company": "Olam / ofi",
+          "senders": [
+            "Olam",
+            "olamgroup"
+          ]
+        },
+        {
+          "company": "Wilmar",
+          "senders": [
+            "Wilmar"
+          ]
+        },
+        {
+          "company": "Aramco Trading",
+          "senders": [
+            "Aramco Trading",
+            "aramcotrading"
+          ]
+        },
+        {
+          "company": "ENOC",
+          "senders": [
+            "enoc.com",
+            "ENOC Careers"
+          ]
+        },
+        {
+          "company": "Litasco",
+          "senders": [
+            "Litasco"
+          ]
+        },
+        {
+          "company": "Mizuho",
+          "senders": [
+            "Mizuho"
+          ]
+        },
+        {
+          "company": "Daiwa",
+          "senders": [
+            "Daiwa"
+          ]
+        },
+        {
+          "company": "Huatai Securities",
+          "senders": [
+            "Huatai",
+            "htsc"
+          ]
+        },
+        {
+          "company": "Guotai Junan International",
+          "senders": [
+            "Guotai",
+            "gtja"
+          ]
+        },
+        {
+          "company": "Mashreq",
+          "senders": [
+            "Mashreq"
+          ]
+        },
+        {
+          "company": "Koch Supply & Trading",
+          "senders": [
+            "Koch Careers",
+            "kochcareers"
+          ]
         }
       ],
       "note": "Employers whose sites refuse automated requests: the user creates job alerts there (filtered on the target cities and markets roles) with the Gmail address in ALERT_EMAIL; this source reads them read-only. Advert pages are not fetched (the sites refuse scripts); the city filter set in the alert is trusted."
