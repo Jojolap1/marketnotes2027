@@ -2454,6 +2454,12 @@ R68 = [('R68 Chevron crawl', lambda: crawl('https://careers.chevron.com/', depth
            'https://careers.conocophillips.com/', 'https://www.petronas.com/careers', 'https://www.oxy.com/careers/')))]
 PROBES = PROBES + R68
 
+R69 = [('R69 Chevron sitemap', lambda: sitemap('https://careers.chevron.com/sitemap.xml')),
+       ('R69 Chevron eightfold', lambda: ' | '.join(eightfold('chevron.eightfold.ai', d, 'trading')[:300] for d in ('chevron.com',))),
+       ('R69 Chevron job page', lambda: validate_page('https://careers.chevron.com/job/singapore/trading-analyst/38138/102489446144')),
+       ('R69 COP WD', lambda: workday('conocophillips.wd1.myworkdayjobs.com', 'conocophillips', 'External'))]
+PROBES = PROBES + R69
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
