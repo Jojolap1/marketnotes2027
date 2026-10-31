@@ -298,7 +298,8 @@
         "\\bjunior\\b",
         "\\bentry[- ]level\\b",
         "\\bd[ée]butant\\w*\\b",
-        "\\bassistant\\b"
+        "\\bassistant\\b",
+        "\\banalyst\\b(?!.{0,15}\\b(?:ii|iii|2|3)\\b)"
       ]
     },
     "senior_description_patterns": [
@@ -1350,6 +1351,23 @@
       "backfill_until": "2026-11-05"
     },
     {
+      "company": "Chevron",
+      "platform": "workday",
+      "host": "chevron.wd5.myworkdayjobs.com",
+      "tenant": "chevron",
+      "site": "jobs",
+      "backfill_until": "2026-11-07",
+      "note": "careers.chevron.com (TalentBrew) links each advert to this Workday site; trading roles in Singapore and London"
+    },
+    {
+      "company": "ConocoPhillips",
+      "platform": "workday",
+      "host": "conocophillips.wd1.myworkdayjobs.com",
+      "tenant": "conocophillips",
+      "site": "External",
+      "backfill_until": "2026-11-07"
+    },
+    {
       "company": "ADM / COFCO International / ENOC / Orsted / Olam / Wilmar / Litasco / Aramco Trading / Czarnikow / ED&F Man / Eni / Axpo",
       "platform": "official",
       "enabled": false,
@@ -1646,7 +1664,8 @@
     "ExxonMobil",
     "Amundi",
     "AXA",
-    "Natixis Investment Managers"
+    "Natixis Investment Managers",
+    "Chevron"
   ],
   "page_watches": [
     {

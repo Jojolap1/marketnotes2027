@@ -236,3 +236,12 @@ class DubaiAndPrivateCreditTradingTests(unittest.TestCase):
         c = classify('2027 - Global Markets - Summer Internship (Securitised Products and Private Credit Trading / Structuring) – London')
         self.assertTrue(c.eligible)
         self.assertFalse(classify('Private Credit Investment Summer Internship Programme - London').eligible)
+
+
+class AnalystTitleTests(unittest.TestCase):
+    def test_analyst_title_counts_as_entry_level_unless_experience_or_seniority_says_otherwise(self):
+        self.assertTrue(classify('Trading Analyst', location='Singapore').eligible)
+        self.assertTrue(classify('Foreign Exchange and Rates Sales Analyst', location='Paris').eligible)
+        self.assertFalse(classify('Senior Trading Analyst', location='Singapore').eligible)
+        self.assertFalse(classify('Trading Analyst', 'Minimum 3 years of experience in oil trading.', location='Singapore').eligible)
+        self.assertFalse(classify('Trading Analyst II', location='Singapore').eligible)
