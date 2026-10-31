@@ -3519,8 +3519,8 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-31T12:11:18.835957+00:00",
- "last_status_date": "2026-10-30",
+ "last_send_slot": "2026-10-31T14:11:20.781693+00:00",
+ "last_status_date": "2026-10-31",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -3627,7 +3627,7 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 589,
+   "last_listed": 588,
    "last_ok": "2026-10-31"
   },
   "Business France (VIE)": {
@@ -3750,7 +3750,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1611,
+   "last_listed": 1610,
    "last_ok": "2026-10-31"
   },
   "Equinor": {
@@ -3883,7 +3883,7 @@
    "last_ok": "2026-10-31"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 10,
+   "consecutive_failures": 11,
    "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/1/adv/",
    "last_listed": 50,
    "last_ok": "2026-10-30"
