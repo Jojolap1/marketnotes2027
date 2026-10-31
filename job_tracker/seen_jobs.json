@@ -2830,6 +2830,22 @@
    "title": "2027 Summer Internship Program – Trading, Singapore",
    "url": "https://wd3.myworkdaysite.com/recruiting/brevanhoward/BH_ExternalCareers/job/Singapore/XMLNAME-2027-Summer-Internship-Program---Trading--Singapore_JR101587"
   },
+  "workday:chevron:R000074624": {
+   "company": "Chevron",
+   "fingerprints": [
+    "id:workday:chevron:R000074624",
+    "req:chevron:r000074624",
+    "url:https://chevron.wd5.myworkdayjobs.com/jobs/job/singapore-duo-tower-singapore/trading-analyst_r000074624",
+    "title:chevron:trading analyst:singapore"
+   ],
+   "first_seen": "2026-10-31T08:11:42+00:00",
+   "last_seen": "2026-10-31",
+   "location": "Singapore, DUO Tower, Singapore",
+   "notified_at": "2026-10-31T08:11:42+00:00",
+   "status": "open",
+   "title": "Trading Analyst",
+   "url": "https://chevron.wd5.myworkdayjobs.com/jobs/job/Singapore-DUO-Tower-Singapore/Trading-Analyst_R000074624"
+  },
   "workday:citi:261002673": {
    "company": "Citi",
    "fingerprints": [
@@ -3406,6 +3422,22 @@
    "title": "Analyst, Rates Sales, LDI",
    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/London-United-Kingdom-of-Great-Britain-and-Northern-Ireland/Analyst--Rates-Sales--LDI_R-0000191683-1"
   },
+  "workday:shell:R201954": {
+   "company": "Shell",
+   "fingerprints": [
+    "id:workday:shell:R201954",
+    "req:shell:r201954",
+    "url:https://shell.wd3.myworkdayjobs.com/shellcareers/job/london-york-road/energy-analyst_r201954",
+    "title:shell:energy analyst:london"
+   ],
+   "first_seen": "2026-10-31T08:11:43+00:00",
+   "last_seen": "2026-10-31",
+   "location": "London York Road",
+   "notified_at": "2026-10-31T08:11:43+00:00",
+   "status": "open",
+   "title": "Energy Analyst",
+   "url": "https://shell.wd3.myworkdayjobs.com/ShellCareers/job/London-York-Road/Energy-Analyst_R201954"
+  },
   "workday:td:R_1513487": {
    "company": "TD Securities",
    "fingerprints": [
@@ -3487,7 +3519,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-10-31T06:12:44.480293+00:00",
+ "last_send_slot": "2026-10-31T08:11:40.400976+00:00",
  "last_status_date": "2026-10-30",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -3529,15 +3561,13 @@
    "last_ok": "2026-10-31"
   },
   "BBVA": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 500 Server Error: Internal Server Error for url: https://bbva.wd3.myworkdayjobs.com/wday/cxs/bbva/BBVA/jobs",
+   "consecutive_failures": 0,
    "last_listed": 17,
    "last_ok": "2026-10-31"
   },
   "BMO Capital Markets": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-   "last_listed": 899,
+   "consecutive_failures": 0,
+   "last_listed": 823,
    "last_ok": "2026-10-31"
   },
   "BNP Paribas (email alerts)": {
@@ -3551,8 +3581,7 @@
    "last_ok": "2026-10-31"
   },
   "BP": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 12,
    "last_ok": "2026-10-31"
   },
@@ -3592,8 +3621,7 @@
    "last_ok": "2026-10-31"
   },
   "Brevan Howard": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 2,
    "last_ok": "2026-10-31"
   },
@@ -3608,8 +3636,7 @@
    "last_ok": "2026-10-31"
   },
   "CIBC": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 502 Server Error: Bad Gateway for url: https://cibc.wd3.myworkdayjobs.com/wday/cxs/cibc/search/jobs",
+   "consecutive_failures": 0,
    "last_listed": 7,
    "last_ok": "2026-10-31"
   },
@@ -3620,12 +3647,11 @@
   },
   "CIMB (incl. CIMB Securities)": {
    "consecutive_failures": 0,
-   "last_listed": 134,
+   "last_listed": 132,
    "last_ok": "2026-10-31"
   },
   "CITIC CLSA (CITIC Securities)": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 502 Server Error: Bad Gateway for url: https://citicclsa.wd3.myworkdayjobs.com/wday/cxs/citicclsa/External/jobs",
+   "consecutive_failures": 0,
    "last_listed": 219,
    "last_ok": "2026-10-31"
   },
@@ -3640,14 +3666,14 @@
    "last_ok": "2026-10-31"
   },
   "Castleton Commodities": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 7,
    "last_ok": "2026-10-31"
   },
   "Chevron": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+   "consecutive_failures": 0,
+   "last_listed": 4,
+   "last_ok": "2026-10-31"
   },
   "China Galaxy (Chinastock)": {
    "consecutive_failures": 0,
@@ -3660,14 +3686,14 @@
    "last_ok": "2026-10-31"
   },
   "CommBank": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 2,
    "last_ok": "2026-10-31"
   },
   "ConocoPhillips": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+   "consecutive_failures": 0,
+   "last_listed": 1,
+   "last_ok": "2026-10-31"
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
@@ -3704,14 +3730,12 @@
    "last_ok": "2026-10-31"
   },
   "EDF Trading": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 19,
    "last_ok": "2026-10-31"
   },
   "Eastspring Investments": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 17,
    "last_ok": "2026-10-31"
   },
@@ -3730,8 +3754,7 @@
    "last_ok": "2026-10-31"
   },
   "Equinor": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 19,
    "last_ok": "2026-10-31"
   },
@@ -3746,8 +3769,7 @@
    "last_ok": "2026-10-31"
   },
   "Fidelity International": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 18,
    "last_ok": "2026-10-31"
   },
@@ -3801,8 +3823,7 @@
    "last_ok": "2026-10-31"
   },
   "Gunvor": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 12,
    "last_ok": "2026-10-31"
   },
@@ -3812,8 +3833,7 @@
    "last_ok": "2026-10-31"
   },
   "Haitong International": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 1,
    "last_ok": "2026-10-31"
   },
@@ -3833,14 +3853,12 @@
    "last_ok": "2026-10-31"
   },
   "ING": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 500 Server Error: Internal Server Error for url: https://ing.wd3.myworkdayjobs.com/wday/cxs/ing/ICSGBLCOR/jobs",
+   "consecutive_failures": 0,
    "last_listed": 38,
    "last_ok": "2026-10-31"
   },
   "Invesco": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 500 Server Error: Internal Server Error for url: https://invesco.wd1.myworkdayjobs.com/wday/cxs/invesco/IVZ/jobs",
+   "consecutive_failures": 0,
    "last_listed": 28,
    "last_ok": "2026-10-31"
   },
@@ -3865,7 +3883,7 @@
    "last_ok": "2026-10-31"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 7,
+   "consecutive_failures": 8,
    "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/1/adv/",
    "last_listed": 50,
    "last_ok": "2026-10-30"
@@ -3886,8 +3904,7 @@
    "last_ok": "2026-10-31"
   },
   "Lloyds Banking Group": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 28,
    "last_ok": "2026-10-31"
   },
@@ -3952,8 +3969,7 @@
    "last_ok": "2026-10-31"
   },
   "Nomura (campus)": {
-   "consecutive_failures": 1,
-   "last_error": "bot-check page instead of content for https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1558-2027-Global-Markets-Rates-Structuring-Off-Cycle-Internship",
+   "consecutive_failures": 0,
    "last_listed": 28,
    "last_ok": "2026-10-31"
   },
@@ -4013,9 +4029,8 @@
    "last_ok": "2026-10-31"
   },
   "Repsol (incl. Repsol Trading)": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-   "last_listed": 46,
+   "consecutive_failures": 0,
+   "last_listed": 35,
    "last_ok": "2026-10-31"
   },
   "SMBC (Asia)": {
@@ -4029,8 +4044,7 @@
    "last_ok": "2026-10-31"
   },
   "Santander CIB": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 500 Server Error: Internal Server Error for url: https://santander.wd3.myworkdayjobs.com/wday/cxs/santander/SantanderCareers/jobs",
+   "consecutive_failures": 0,
    "last_listed": 65,
    "last_ok": "2026-10-31"
   },
@@ -4050,8 +4064,7 @@
    "last_ok": "2026-10-31"
   },
   "Shell": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 19,
    "last_ok": "2026-10-31"
   },
@@ -4071,8 +4084,7 @@
    "last_ok": "2026-10-31"
   },
   "State Street": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 93,
    "last_ok": "2026-10-31"
   },
@@ -4082,8 +4094,7 @@
    "last_ok": "2026-10-31"
   },
   "TD Securities": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 41,
    "last_ok": "2026-10-31"
   },
@@ -4112,8 +4123,7 @@
    "last_ok": "2026-10-31"
   },
   "Trafigura": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 8,
    "last_ok": "2026-10-31"
   },
@@ -4128,8 +4138,7 @@
    "last_ok": "2026-10-31"
   },
   "UOB": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 371,
    "last_ok": "2026-10-31"
   },
@@ -4144,8 +4153,7 @@
    "last_ok": "2026-10-31"
   },
   "Wells Fargo": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 21,
    "last_ok": "2026-10-31"
   },
