@@ -1059,6 +1059,20 @@
             "Koch Careers",
             "kochcareers"
           ]
+        },
+        {
+          "company": "Bank of America (campus)",
+          "senders": [
+            "Bank of America Campus",
+            "bankcampuscareers",
+            "tal.net"
+          ]
+        },
+        {
+          "company": "Nomura (campus)",
+          "senders": [
+            "Nomura"
+          ]
         }
       ],
       "note": "Employers whose sites refuse automated requests: the user creates job alerts there (filtered on the target cities and markets roles) with the Gmail address in ALERT_EMAIL; this source reads them read-only. Advert pages are not fetched (the sites refuse scripts); the city filter set in the alert is trusted."
