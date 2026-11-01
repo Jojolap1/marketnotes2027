@@ -1508,7 +1508,7 @@
     "title:nomura:2027 global markets summer internship securitised products and private credit trading structuring london for 2028 graduates:london"
    ],
    "first_seen": "2026-10-24T08:10:28+00:00",
-   "last_seen": "2026-10-31",
+   "last_seen": "2026-11-01",
    "location": "London",
    "notified_at": "2026-10-24T08:10:28+00:00",
    "status": "open",
@@ -1527,7 +1527,7 @@
     "title:nomura campus:2027 global markets sales trading structuring research summer internship london for 2028 graduates:london"
    ],
    "first_seen": "2026-10-18T16:14:48+00:00",
-   "last_seen": "2026-10-31",
+   "last_seen": "2026-11-01",
    "location": "London",
    "notified_at": "2026-10-18T16:14:48+00:00",
    "status": "open",
@@ -1546,7 +1546,7 @@
     "title:nomura campus:2027 global markets digital office summer internship quants strats london for 2028 graduates:london"
    ],
    "first_seen": "2026-10-18T16:14:46+00:00",
-   "last_seen": "2026-10-31",
+   "last_seen": "2026-11-01",
    "location": "London",
    "notified_at": "2026-10-18T16:14:46+00:00",
    "status": "open",
@@ -1565,7 +1565,7 @@
     "title:nomura campus:2027 global markets structured solution sales off cycle internship paris:paris"
    ],
    "first_seen": "2026-10-18T16:14:49+00:00",
-   "last_seen": "2026-10-31",
+   "last_seen": "2026-11-01",
    "location": "Paris",
    "notified_at": "2026-10-18T16:14:49+00:00",
    "status": "open",
@@ -1584,7 +1584,7 @@
     "title:nomura campus:2027 global markets rates sales 6 month off cycle internship paris:paris"
    ],
    "first_seen": "2026-10-18T16:14:50+00:00",
-   "last_seen": "2026-10-31",
+   "last_seen": "2026-11-01",
    "location": "Paris",
    "notified_at": "2026-10-18T16:14:50+00:00",
    "status": "open",
@@ -1603,7 +1603,7 @@
     "title:nomura campus:2027 global markets rates structuring off cycle internship paris:paris"
    ],
    "first_seen": "2026-10-18T16:14:45+00:00",
-   "last_seen": "2026-10-31",
+   "last_seen": "2026-11-01",
    "location": "Paris",
    "notified_at": "2026-10-18T16:14:45+00:00",
    "status": "open",
@@ -3519,8 +3519,8 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-01T12:11:50.692641+00:00",
- "last_status_date": "2026-10-31",
+ "last_send_slot": "2026-11-01T14:11:17.720867+00:00",
+ "last_status_date": "2026-11-01",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -3532,7 +3532,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 160,
+   "last_listed": 161,
    "last_ok": "2026-11-01"
   },
   "ANZ (careers site)": {
@@ -3597,7 +3597,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2050,
+   "last_listed": 2048,
    "last_ok": "2026-11-01"
   },
   "Bank of America (campus)": {
@@ -3859,7 +3859,7 @@
   },
   "Invesco": {
    "consecutive_failures": 0,
-   "last_listed": 28,
+   "last_listed": 27,
    "last_ok": "2026-11-01"
   },
   "Investec": {
@@ -3968,10 +3968,9 @@
    "last_ok": "2026-11-01"
   },
   "Nomura (campus)": {
-   "consecutive_failures": 5,
-   "last_error": "bot-check page instead of content for https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/jobboard/vacancy/1/adv/",
-   "last_listed": 28,
-   "last_ok": "2026-10-31"
+   "consecutive_failures": 0,
+   "last_listed": 24,
+   "last_ok": "2026-11-01"
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
@@ -4134,7 +4133,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 662,
+   "last_listed": 670,
    "last_ok": "2026-11-01"
   },
   "UOB": {
