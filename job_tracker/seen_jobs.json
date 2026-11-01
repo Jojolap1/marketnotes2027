@@ -3519,7 +3519,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-01T06:12:15.846970+00:00",
+ "last_send_slot": "2026-11-01T08:11:44.135816+00:00",
  "last_status_date": "2026-10-31",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -3532,7 +3532,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 158,
+   "last_listed": 160,
    "last_ok": "2026-11-01"
   },
   "ANZ (careers site)": {
@@ -3567,7 +3567,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 813,
+   "last_listed": 812,
    "last_ok": "2026-11-01"
   },
   "BNP Paribas (email alerts)": {
@@ -3596,13 +3596,13 @@
    "last_ok": "2026-11-01"
   },
   "Bank of America": {
-   "consecutive_failures": 2,
-   "last_error": "ReadTimeout: HTTPSConnectionPool(host='careers.bankofamerica.com', port=443): Read timed out. (read timeout=25)",
+   "consecutive_failures": 3,
+   "last_error": "HTTPError: 500 Server Error: Internal Server Error for url: https://careers.bankofamerica.com/services/jobssearchservlet?start=0&rows=1000&search=getAllJobs",
    "last_listed": 2053,
    "last_ok": "2026-10-31"
   },
   "Bank of America (campus)": {
-   "consecutive_failures": 2,
+   "consecutive_failures": 3,
    "last_error": "bot-check page instead of content for https://bankcampuscareers.tal.net/vx/lang-en-GB/mobile-0/brand-4/candidate/jobboard/vacancy/1/adv/",
    "last_listed": 35,
    "last_ok": "2026-10-31"
@@ -3649,7 +3649,7 @@
   },
   "CIMB (incl. CIMB Securities)": {
    "consecutive_failures": 0,
-   "last_listed": 132,
+   "last_listed": 130,
    "last_ok": "2026-11-01"
   },
   "CITIC CLSA (CITIC Securities)": {
@@ -3970,7 +3970,7 @@
    "last_ok": "2026-11-01"
   },
   "Nomura (campus)": {
-   "consecutive_failures": 2,
+   "consecutive_failures": 3,
    "last_error": "bot-check page instead of content for https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/jobboard/vacancy/1/adv/",
    "last_listed": 28,
    "last_ok": "2026-10-31"
