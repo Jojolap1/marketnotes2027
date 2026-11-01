@@ -1346,7 +1346,7 @@
     "title:jefferies:2027 equity research summer internship programme london:london"
    ],
    "first_seen": "2026-10-21T04:17:28+00:00",
-   "last_seen": "2026-10-30",
+   "last_seen": "2026-11-01",
    "location": "2027 Equity Research Summer Internship Programme - London",
    "notified_at": "2026-10-21T04:17:28+00:00",
    "status": "open",
@@ -1362,7 +1362,7 @@
     "title:jefferies:2027 equity sales and trading summer internship programme london:london"
    ],
    "first_seen": "2026-10-21T04:17:29+00:00",
-   "last_seen": "2026-10-30",
+   "last_seen": "2026-11-01",
    "location": "2027 Equity Sales and Trading Summer Internship Programme - London",
    "notified_at": "2026-10-21T04:17:29+00:00",
    "status": "open",
@@ -1378,7 +1378,7 @@
     "title:jefferies:2027 equity research spring week programme london:london"
    ],
    "first_seen": "2026-10-21T04:17:31+00:00",
-   "last_seen": "2026-10-30",
+   "last_seen": "2026-11-01",
    "location": "2027 Equity Research Spring Week Programme - London",
    "notified_at": "2026-10-21T04:17:31+00:00",
    "status": "open",
@@ -1410,7 +1410,7 @@
     "title:jefferies:2027 equity research summer analyst program hong kong:hong kong"
    ],
    "first_seen": "2026-10-21T04:17:23+00:00",
-   "last_seen": "2026-10-30",
+   "last_seen": "2026-11-01",
    "location": "2027 Equity Research Summer Analyst Program - Hong Kong",
    "notified_at": "2026-10-21T04:17:23+00:00",
    "status": "open",
@@ -1426,7 +1426,7 @@
     "title:jefferies:2027 equity research summer analyst program singapore:singapore"
    ],
    "first_seen": "2026-10-21T04:17:24+00:00",
-   "last_seen": "2026-10-30",
+   "last_seen": "2026-11-01",
    "location": "2027 Equity Research Summer Analyst Program - Singapore",
    "notified_at": "2026-10-21T04:17:24+00:00",
    "status": "open",
@@ -1442,7 +1442,7 @@
     "title:jefferies:2027 equities sales trading summer analyst program prime services hong kong:hong kong"
    ],
    "first_seen": "2026-10-21T04:17:22+00:00",
-   "last_seen": "2026-10-30",
+   "last_seen": "2026-11-01",
    "location": "2027 Equities Sales & Trading Summer Analyst Program - Prime Services - Hong Kong",
    "notified_at": "2026-10-21T04:17:22+00:00",
    "status": "open",
@@ -1458,7 +1458,7 @@
     "title:jefferies:2027 equities sales trading summer analyst program cash trading hong kong:hong kong"
    ],
    "first_seen": "2026-10-21T04:17:25+00:00",
-   "last_seen": "2026-10-30",
+   "last_seen": "2026-11-01",
    "location": "2027 Equities Sales & Trading Summer Analyst Program - Cash Trading - Hong Kong",
    "notified_at": "2026-10-21T04:17:25+00:00",
    "status": "open",
@@ -1474,7 +1474,7 @@
     "title:jefferies:2027 asset management summer internship programme london:london"
    ],
    "first_seen": "2026-10-21T04:17:27+00:00",
-   "last_seen": "2026-10-30",
+   "last_seen": "2026-11-01",
    "location": "2027 Asset Management Summer Internship Programme - London",
    "notified_at": "2026-10-21T04:17:27+00:00",
    "status": "open",
@@ -1492,7 +1492,7 @@
     "title:jefferies:2027 equities sales trading summer analyst high touch trading hong kong:hong kong"
    ],
    "first_seen": "2026-10-21T04:17:32+00:00",
-   "last_seen": "2026-10-30",
+   "last_seen": "2026-11-01",
    "location": "2027 Equity Sales & Trading Summer Analyst – High Touch Trading – Hong Kong",
    "notified_at": "2026-10-21T04:17:32+00:00",
    "status": "open",
@@ -3519,7 +3519,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-01T04:15:31.453060+00:00",
+ "last_send_slot": "2026-11-01T06:12:15.846970+00:00",
  "last_status_date": "2026-10-31",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -3567,7 +3567,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 814,
+   "last_listed": 813,
    "last_ok": "2026-11-01"
   },
   "BNP Paribas (email alerts)": {
@@ -3596,13 +3596,13 @@
    "last_ok": "2026-11-01"
   },
   "Bank of America": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 503 Server Error: Service Unavailable for url: https://careers.bankofamerica.com/services/jobssearchservlet?start=0&rows=1000&search=getAllJobs",
+   "consecutive_failures": 2,
+   "last_error": "ReadTimeout: HTTPSConnectionPool(host='careers.bankofamerica.com', port=443): Read timed out. (read timeout=25)",
    "last_listed": 2053,
    "last_ok": "2026-10-31"
   },
   "Bank of America (campus)": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "bot-check page instead of content for https://bankcampuscareers.tal.net/vx/lang-en-GB/mobile-0/brand-4/candidate/jobboard/vacancy/1/adv/",
    "last_listed": 35,
    "last_ok": "2026-10-31"
@@ -3664,7 +3664,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1363,
+   "last_listed": 1365,
    "last_ok": "2026-11-01"
   },
   "Castleton Commodities": {
@@ -3831,7 +3831,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 303,
+   "last_listed": 306,
    "last_ok": "2026-11-01"
   },
   "Haitong International": {
@@ -3885,10 +3885,9 @@
    "last_ok": "2026-11-01"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 12,
-   "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/2009-Equity-Research-Off-Cycle-Intern-Brazil/en-GB",
+   "consecutive_failures": 0,
    "last_listed": 50,
-   "last_ok": "2026-10-30"
+   "last_ok": "2026-11-01"
   },
   "Jump Trading": {
    "consecutive_failures": 0,
@@ -3971,7 +3970,7 @@
    "last_ok": "2026-11-01"
   },
   "Nomura (campus)": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "bot-check page instead of content for https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/jobboard/vacancy/1/adv/",
    "last_listed": 28,
    "last_ok": "2026-10-31"
@@ -4033,7 +4032,7 @@
   },
   "Repsol (incl. Repsol Trading)": {
    "consecutive_failures": 0,
-   "last_listed": 35,
+   "last_listed": 34,
    "last_ok": "2026-11-01"
   },
   "SMBC (Asia)": {
@@ -4137,7 +4136,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 666,
+   "last_listed": 670,
    "last_ok": "2026-11-01"
   },
   "UOB": {
