@@ -12,7 +12,7 @@ from urllib.parse import urlparse
 
 import requests
 
-UA = 'Mozilla/5.0 (compatible; PersonalJobTracker/4.0; +https://github.com/Jojolap1/sales-trading-job-tracker)'
+UA = 'Mozilla/5.0 (compatible; PersonalJobTracker/4.0; +https://github.com/Jojolap1/marketnotes2027)'
 S = requests.Session()
 S.headers.update({'User-Agent': UA, 'Accept-Language': 'en-GB,en;q=0.8'})
 ATS = re.compile(r'https?://[a-z0-9.-]*(?:myworkdayjobs\.com|myworkdaysite\.com|oraclecloud\.com|eightfold\.ai|successfactors\.(?:com|eu)|taleo\.net|avature\.net|brassring\.com|smartrecruiters\.com|greenhouse\.io|lever\.co|ashbyhq\.com|tal\.net|icims\.com|phenompeople\.com|beesite\.de|jobvite\.com|workable\.com|teamtailor\.com|recruitee\.com|csod\.com|hirebridge|jobs\.[a-z0-9.-]+)[^\s"\'<>)]*', re.I)

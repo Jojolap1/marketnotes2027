@@ -16,7 +16,7 @@ import requests
 
 LOG = logging.getLogger(__name__)
 USER_AGENT = ('Mozilla/5.0 (compatible; PersonalJobTracker/4.0; '
-              '+https://github.com/Jojolap1/sales-trading-job-tracker)')
+              '+https://github.com/Jojolap1/marketnotes2027)')
 RETRY_STATUSES = {429, 500, 502, 503, 504}
 
 
