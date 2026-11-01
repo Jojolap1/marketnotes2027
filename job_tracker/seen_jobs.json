@@ -3519,7 +3519,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-01T10:15:11.778773+00:00",
+ "last_send_slot": "2026-11-01T12:11:50.692641+00:00",
  "last_status_date": "2026-10-31",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -3702,7 +3702,7 @@
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 616,
+   "last_listed": 617,
    "last_ok": "2026-11-01"
   },
   "DNB Markets": {
@@ -3829,7 +3829,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 304,
+   "last_listed": 306,
    "last_ok": "2026-11-01"
   },
   "Haitong International": {
@@ -3968,7 +3968,7 @@
    "last_ok": "2026-11-01"
   },
   "Nomura (campus)": {
-   "consecutive_failures": 4,
+   "consecutive_failures": 5,
    "last_error": "bot-check page instead of content for https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/jobboard/vacancy/1/adv/",
    "last_listed": 28,
    "last_ok": "2026-10-31"
@@ -4134,7 +4134,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 670,
+   "last_listed": 662,
    "last_ok": "2026-11-01"
   },
   "UOB": {
