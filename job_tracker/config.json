@@ -1177,6 +1177,14 @@
       "site": "bpCareers"
     },
     {
+      "company": "BP (early careers)",
+      "platform": "workday",
+      "host": "bpinternational.wd3.myworkdayjobs.com",
+      "tenant": "bpinternational",
+      "site": "bpEarlyCareers",
+      "backfill_until": "2026-11-08"
+    },
+    {
       "company": "Trafigura",
       "platform": "workday",
       "host": "trafigura.wd3.myworkdayjobs.com",
@@ -1235,9 +1243,10 @@
     },
     {
       "company": "Glencore",
-      "platform": "official",
-      "enabled": false,
-      "disabled_reason": "glencore.com/careers/jobs shows no public job feed or ATS link (2026-10-19)."
+      "platform": "greenhouse",
+      "board": "glencoreuk",
+      "backfill_until": "2026-11-08",
+      "note": "Glencore UK's Greenhouse board (found in the SimplifyJobs public list, 2026-11-01); other Glencore offices publish no feed"
     },
     {
       "company": "Louis Dreyfus Company",
@@ -1397,6 +1406,13 @@
       "platform": "greenhouse",
       "board": "btig27",
       "backfill_until": "2026-10-30"
+    },
+    {
+      "company": "Marshall Wace",
+      "platform": "greenhouse",
+      "board": "mwinternshipprogram",
+      "backfill_until": "2026-11-08",
+      "note": "Marshall Wace internship and placement programmes (Greenhouse board found in the SimplifyJobs public list)"
     },
     {
       "company": "First Abu Dhabi Bank",
