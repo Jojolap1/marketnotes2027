@@ -2460,6 +2460,13 @@ R69 = [('R69 Chevron sitemap', lambda: sitemap('https://careers.chevron.com/site
        ('R69 COP WD', lambda: workday('conocophillips.wd1.myworkdayjobs.com', 'conocophillips', 'External'))]
 PROBES = PROBES + R69
 
+
+# ---------------- Round 70: boards found in public job lists (SimplifyJobs) ----------------
+R70 = [('R70 boards', lambda: board_sweep(['glencoreuk', 'glencore', 'glencoresingapore', 'glencoreag', 'mwinternshipprogram', 'mwam', 'marshallwaceinternships',
+                                           'mercuria', 'mercuriaenergy', 'hartreepartners', 'citadel', 'citadelsecurities', 'sigcareers'])),
+       ('R70 WD bp early careers', lambda: workday('bpinternational.wd3.myworkdayjobs.com', 'bpinternational', 'bpEarlyCareers'))]
+PROBES = PROBES + R70
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
