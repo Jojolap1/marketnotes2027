@@ -1125,7 +1125,7 @@
         "site:linkedin.com/posts (hiring OR \"we're looking for\") (structuring OR derivatives OR \"structured products\") (intern OR internship OR graduate OR analyst)",
         "site:linkedin.com/jobs/view (\"sales and trading\" OR \"sales & trading\" OR \"structured products\" OR structuring OR derivatives OR trading) (intern OR internship OR graduate OR \"summer analyst\")"
       ],
-      "tbs": "qdr:w",
+      "tbs": "qdr:d",
       "count": 10,
       "refresh_hours": 22,
       "hours_utc": [
@@ -1143,7 +1143,7 @@
         14,
         15
       ],
-      "note": "Public LinkedIn posts and job pages found through SerpApi (Google results, official API; key in the SERPAPI_API_KEY secret, inactive without it). Only the search result (title, snippet, date, URL) is read, LinkedIn is never fetched. 7 queries once a day (results cached 22 h) = about 217 searches a month, under the free plan's 250; the remaining quota is checked first. Same post id as 'LinkedIn (posts)', so a post seen in an email and in search is alerted once."
+      "note": "Public LinkedIn posts and job pages found through SerpApi (Google results, official API; key in the SERPAPI_API_KEY secret, inactive without it). Only the search result (title, snippet, date, URL) is read, LinkedIn is never fetched. 7 queries once a day, each limited to the last 24 h (Google returns at most 10 results per query, so a daily window gives 10 new posts per query each day instead of the same top 10 of the week) (results cached 22 h) = about 217 searches a month, under the free plan's 250; the remaining quota is checked first. Same post id as 'LinkedIn (posts)', so a post seen in an email and in search is alerted once."
     },
     {
       "company": "eFinancialCareers (job alerts)",
