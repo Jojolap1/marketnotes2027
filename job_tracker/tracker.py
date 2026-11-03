@@ -23,7 +23,7 @@ from zoneinfo import ZoneInfo
 
 from filters import Classifier
 from http_client import AccessDenied, HttpClient
-from jobs import configure_companies, fingerprints
+from jobs import borrow_descriptions, configure_companies, fingerprints
 from notifier import Telegram, format_message
 from report import Report
 from sources import fetch_source
@@ -104,6 +104,9 @@ def select(jobs, classifier, state, config, report):
     backfill = {s['company'] for s in config.get('sources', []) if str(s.get('backfill_until', '')) >= today}
     # Newly added target cities (Dubai, 2026-10-24): same one-time backfill
     city_backfill = {city for city, until in config.get('notifications', {}).get('city_backfill', {}).items() if str(until) >= today}
+    borrowed = borrow_descriptions(jobs)
+    if borrowed:
+        LOG.info('%d title-only offers checked against the advert text of the official site', borrowed)
     run_keys, new, matched, near = set(), [], [], []
     reasons = Counter()
     samples = {}
