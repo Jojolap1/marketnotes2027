@@ -2586,6 +2586,33 @@ def serp_engines():
 R77 = [('R77 serp engines', serp_engines)]
 PROBES = PROBES + R77
 
+
+def ddg_variants():
+    import os
+    from datetime import datetime, timezone
+    key = os.environ.get('SERPAPI_API_KEY', '')
+    variants = [('simple, df=w', 'site:linkedin.com/posts hiring trading intern Hong Kong', {'df': 'w'}),
+                ('simple, no df', 'site:linkedin.com/posts hiring trading intern Hong Kong', {}),
+                ('OR no parens, df=m', 'site:linkedin.com/posts hiring markets OR trading OR structuring graduate OR intern Hong Kong', {'df': 'm'})]
+    out = []
+    for label, q, extra in variants:
+        try:
+            r = S.get('https://serpapi.com/search.json', params=dict({'engine': 'duckduckgo', 'q': q, 'api_key': key}, **extra), timeout=60)
+            res = r.json().get('organic_results') or []
+            rows = []
+            for x in res:
+                m = re.search(r'-(?:activity|ugcPost|share)-(\d{15,})', x.get('link', ''))
+                d = datetime.fromtimestamp((int(m.group(1)) >> 22) / 1000, timezone.utc).date().isoformat() if m else '-'
+                rows.append(f"{d} {re.sub(r'^https?://', '', x.get('link', ''))[:70]}")
+            out.append(f'{label}: HTTP {r.status_code} {len(res)} results\n  ' + '\n  '.join(rows))
+        except Exception as exc:
+            out.append(f'{label}: {type(exc).__name__}')
+    return '\n'.join(out)
+
+
+R78 = [('R78 ddg variants', ddg_variants)]
+PROBES = PROBES + R78
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
