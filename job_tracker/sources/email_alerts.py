@@ -88,11 +88,22 @@ def parse_alert(raw, source, ctx):
 POST_LINK = re.compile(r'linkedin\.com/(?:comm/)?(?:feed/update/urn:li:(?:activity|share|ugcPost):(\d+)|posts/[^"?#\s]*?(\d{15,}))', re.I)
 HIRING = re.compile(
     r"#?\bhiring\b|\brecrut\w*|\brecruit(?:ing|s)?\b|\bwe(?:'|’| a)re looking for\b|\b(?:is|are) looking for\b|\blooking for an? \w+|"
-    r"\bjoin (?:our|my|the) (?:team|desk|group)|\brejoindre (?:notre|mon|l')|\bnous recherchons\b|\bje recherche\b|"
-    r"\bopen (?:role|position)s?\b|\bopenings?\b|\bvacanc\w+|\bposte[s]? (?:à pourvoir|ouverts?)\b|"
-    r"\bapplications? (?:are )?(?:now )?open\b|\bcandidatures? (?:sont )?ouvertes\b|\bapply\b|\bpostule[rz]\b|"
-    r"\b(?:send|share) (?:me )?(?:your|vos|ton) (?:cv|resume)\b|\benvoye[rz] (?:vos|votre|ton) cv\b", re.I)
-AUTHOR = re.compile(r"([A-Z][^\n.!?:]{1,70}?)\s+(?:posted|shared|reposted|commented|is hiring|a publié|a partagé|a republié|recrute)\b")
+    r"\bjoin (?:our|my|the) (?:team|desk|group)|\bwe(?:'|’| a)re (?:growing|expanding) (?:our|the)\b|\b(?:dm|message) me\b|"
+    r"\bopen (?:role|position)s?\b|\bopenings?\b|\bvacanc\w+|\bapplications? (?:are )?(?:now )?open\b|\bapply\b|"
+    r"\b(?:send|share) (?:me )?(?:your|vos|ton) (?:cv|resume)\b|"
+    # French: 'on recrute', 'nous cherchons', 'rejoignez-nous', 'stage à pourvoir', 'CV en MP'...
+    r"\b(?:nous|on|je) (?:re)?cherch\w*|\b(?:nous sommes|je suis|sommes) à la recherche\b|\bà la recherche d'une? (?:stagiaire|alternant|analyste|vendeur|trader|structureur|junior|v\.?i\.?e)|"
+    r"\brejoi(?:ndre|gnez|ns)(?:-nous)? (?:notre|mon|l'|nos)?|\brejoignez-nous\b|\bvenez (?:nous )?rejoindre\b|\bint[ée]grer (?:notre|mon|l')|"
+    r"\b(?:notre|mon) [ée]quipe (?:s'agrandit|grandit|recrute)|\boffres? (?:de )?(?:stage|alternance|v\.?i\.?e|poste|emploi)\b|"
+    r"\bopportunit[ée]s? (?:de stage|d'alternance|en v\.?i\.?e)|\b(?:stage|poste|v\.?i\.?e|alternance)s? (?:à pourvoir|ouverts?|disponibles?)\b|"
+    r"\bcandidatures? (?:sont )?ouvertes\b|\bpostule[rz]\b|\benvoye[rz]-?(?:moi)? (?:vos|votre|ton) cv\b|\bcv (?:en|par) (?:mp|message priv[ée]|dm)\b", re.I)
+# Candidates looking for a job are not hiring ('je recherche un stage', #OpenToWork)
+SEEKER = re.compile(
+    r"#?open ?to ?work\b|\b(?:i am|i'm|i’m|currently) (?:actively )?(?:looking|seeking|searching) for (?:an? |my )?(?:new |next )?(?:internship|opportunit|position|role|job|placement)|"
+    r"\bje (?:suis (?:actuellement )?à la )?recherche (?:d'|un |une |activement )(?:stage|alternance|emploi|poste|opportunit\w*|cdi|v\.?i\.?e)\b|"
+    r"\b(?:je suis |actuellement )?à la recherche d'(?:un stage|une alternance|un emploi|un poste|une opportunit\w*|un v\.?i\.?e)\b", re.I)
+STRONG_HIRING = re.compile(r"#?\bhiring\b|\brecrut\w*|\brecruiting\b|\bjoin (?:our|my|the) (?:team|desk)|\brejoignez|\bnous (?:re)?cherch|\bon (?:re)?cherch", re.I)
+AUTHOR = re.compile(r"([A-Z][^\n.!?:]{1,70}?)\s+(?:posted|shared|reposted|commented|is hiring|a publié|a partagé|a republié|a commenté|recrute)\b")
 SENTENCE = re.compile(r'(?<=[.!?])\s+|\s+[|•·¶]\s+')
 BREAK = re.compile(r'<br\s*/?>|</(?:p|div|li|tr|td|h\d)>', re.I)
 
@@ -123,17 +134,24 @@ def parse_posts(raw, source, ctx):
             a, b = spans[i]
             # A post's text sits around its link(s), never across another post
             block = html_to_text(html[max(lo, a - 2500):min(hi, b + 2500)])
-            blocks.append((i, f'https://www.linkedin.com/feed/update/urn:li:activity:{i}/', block))
+            blocks.append((f'linkedin:{i}', f'https://www.linkedin.com/feed/update/urn:li:activity:{i}/', block))
     else:
         # Messages (InMail) carry no post link: the email itself is the post
-        key = re.sub(r'\W', '', message.get('Message-ID') or '')[-40:] or received
+        key = 'message:' + (re.sub(r'\W', '', message.get('Message-ID') or '')[-40:] or received)
         thread = re.search(r'https://www\.linkedin\.com/(?:comm/)?messaging/[^"\s]*', html)
         blocks.append((key, thread.group(0).split('?')[0] if thread else 'https://www.linkedin.com/messaging/',
                        html_to_text(html)))
+    return post_jobs(blocks, source, ctx, received, f'hiring post emailed by LinkedIn on {received or "an unknown date"}')
+
+
+def post_jobs(blocks, source, ctx, published, evidence):
+    """(key, url, text) posts -> jobs: kept only when the post says it is
+    hiring and a sentence next to those words names a targeted role (that
+    sentence is the title, the post text the description)."""
     jobs = []
     for key, url, text in blocks:
         ctx.stat(source['company'], 'posts')
-        if not HIRING.search(text):
+        if not HIRING.search(text) or (SEEKER.search(text) and not STRONG_HIRING.search(text)):
             continue
         ctx.stat(source['company'], 'hiring_posts')
         # 'recruiting' would read as a recruiter job (non front-office title)
@@ -152,11 +170,11 @@ def parse_posts(raw, source, ctx):
         author = AUTHOR.search(text)
         company = author.group(1).strip() if author else source['company']
         jobs.append(make_job(
-            id=f'post:{source["company"]}:{key}', company=company, title=title,
-            location=ctx.city_of(text), url=url, published=received, description=re.sub(r'\s*¶\s*', ' ', text).strip()[:3000],
+            id=f'post:{key}', company=company, title=title,
+            location=ctx.city_of(text), url=url, published=published,
+            description=re.sub(r'\s*¶\s*', ' ', text).strip()[:3000],
             employment_type='LinkedIn post (read it for how to apply)',
-            source=f'LinkedIn post ({source["company"]})', status='unknown',
-            status_evidence=f'hiring post emailed by LinkedIn on {received or "an unknown date"}'))
+            source=f'LinkedIn post ({source["company"]})', status='unknown', status_evidence=evidence))
     return jobs
 
 
