@@ -567,6 +567,15 @@
       "note": "One-time send of the Global Markets internships (posted >14 days ago), requested by the user on 03/11."
     },
     {
+      "company": "Wellington Management",
+      "platform": "workday",
+      "host": "wellington.wd5.myworkdayjobs.com",
+      "tenant": "wellington",
+      "site": "External",
+      "backfill_until": "2026-11-05",
+      "note": "Asset manager hiring in Hong Kong / Singapore (APAC off-cycle internships); found behind offcycle.net's HK listing (offcycle's terms forbid scraping, so the employer's own Workday is read). Probe R74: public Workday API, 123 jobs."
+    },
+    {
       "company": "Santander CIB",
       "platform": "workday",
       "host": "santander.wd3.myworkdayjobs.com",
