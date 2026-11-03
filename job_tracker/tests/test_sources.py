@@ -721,13 +721,16 @@ class WebSearchTests(unittest.TestCase):
          'title': 'FX Trading Graduate - HSBC - LinkedIn', 'snippet': 'Hong Kong SAR · Graduate programme 2027'},
         {'link': 'https://www.linkedin.com/posts/general-index_were-hiring-activity-7521189863573004288-6VIj',
          'title': "We're hiring for our Sales Graduate Scheme", 'snippet': 'Starting this autumn in London. Apply now.'},
+        {'link': 'https://sg.linkedin.com/posts/acme-trading_graduate-activity-ugcPost-7260000000000000002-x',
+         'title': 'Acme Trading on LinkedIn', 'snippet': "We're hiring a Graduate Trader in Singapore."},
         {'link': 'https://www.linkedin.com/in/someone', 'title': 'Someone - Trader', 'snippet': 'hiring'}]
 
     def test_posts_and_job_pages_from_search_results(self):
         jobs, ctx = self.run_fetch(self.RESULTS)
         by_id = {j['id']: j for j in jobs}
         self.assertEqual(sorted(by_id), ['linkedin-job:4123456789', 'linkedin-job:4199999999',
-                                         'post:linkedin:7259999999999999999', 'post:linkedin:7521189863573004288'])
+                                         'post:linkedin:7259999999999999999', 'post:linkedin:7260000000000000002',
+                                         'post:linkedin:7521189863573004288'])
         self.assertEqual(by_id['post:linkedin:7521189863573004288']['company'], 'General Index')
         page = by_id['linkedin-job:4123456789']
         self.assertEqual((page['company'], page['title'], page['location'], page['published']),

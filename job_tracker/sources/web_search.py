@@ -37,7 +37,7 @@ from status import parse_date
 LOG = logging.getLogger(__name__)
 API = 'https://serpapi.com/search.json'
 ACCOUNT = 'https://serpapi.com/account.json'
-POST_ID = re.compile(r'linkedin\.com/(?:posts/\S*?-activity-|feed/update/urn:li:(?:activity|share|ugcPost):)(\d{15,})', re.I)
+POST_ID = re.compile(r'linkedin\.com/(?:posts/\S*?-(?:activity|ugcPost|share)-|feed/update/urn:li:(?:activity|share|ugcPost):)(\d{15,})', re.I)
 JOB_ID = re.compile(r'linkedin\.com/jobs/view/(?:[^/?#]*?-)?(\d{8,})', re.I)
 JOB_TITLE = re.compile(r'^(.{2,80}?) (?:is )?hiring (.{4,160}?) in (.{2,120}?)\s*(?:\||$)', re.I)
 # Other Google form: 'Structured Products Sales Intern - BNP Paribas - LinkedIn'
@@ -51,7 +51,7 @@ class SearchError(RuntimeError):
 
 def _call(ctx, url, params):
     try:
-        response = ctx.http.get(url, params=params)
+        response = ctx.http.get(url, params=params, timeout=60)   # SerpApi runs the search live
     except requests.RequestException as exc:
         raise SearchError(f'{type(exc).__name__} calling {url}') from None
     if response.status_code != 200:
@@ -94,24 +94,40 @@ def fetch(source, ctx):
     for query, since in due:
         # Exactly the days since this query last ran: nothing searched twice, no gap
         tbs = f'cdr:1,cd_min:{since:%m/%d/%Y},cd_max:{today:%m/%d/%Y}'
-        data = _call(ctx, API, {'engine': 'google', 'q': query['q'], 'api_key': key,
-                                'tbs': tbs, 'num': int(source.get('count', 10))})
+        try:
+            data = _call(ctx, API, {'engine': 'google', 'q': query['q'], 'api_key': key,
+                                    'tbs': tbs, 'num': int(source.get('count', 10))})
+        except SearchError as exc:   # one slow search must not lose the others; retried next run
+            LOG.warning('  %-28s failed: %s', query.get('label', query['q'][:28]), exc)
+            ctx.stat(name, 'query_errors')
+            continue
         ctx.stat(name, 'queries')
         ctx.cache.put('web-search-query:' + query['q'], today.isoformat())
         results = data.get('organic_results') or []
         ctx.stat(name, 'results', len(results))
         linkedin = kept = 0
+        other = []
         for result in results:
-            linkedin += bool(POST_ID.search(result.get('link') or '') or JOB_ID.search(result.get('link') or ''))
+            link = result.get('link') or ''
+            if POST_ID.search(link) or JOB_ID.search(link):
+                linkedin += 1
+            else:
+                other.append(re.sub(r'^https?://', '', link)[:70])
             for job in result_jobs(result, source, ctx):
                 kept += 1
                 jobs.setdefault(job['id'], job)
         # Per-query yield, to rework the queries that never bring anything
         LOG.info('  %-28s since %s: %d results, %d LinkedIn posts/job pages, %d kept',
                  query.get('label', query['q'][:28]), since, len(results), linkedin, kept)
+        if other:   # public pages Google returned that are neither posts nor job pages
+            LOG.info('    other pages: %s', ', '.join(other[:4]))
     ctx.stat(name, 'listed', len(jobs))
     LOG.info('%s: %d queries, %d jobs', name, len(due), len(jobs))
-    ctx.cache.put(cache_key, list(jobs.values()))
+    errors = ctx.stats.get(name, {}).get('query_errors', 0)
+    if errors == len(due):
+        raise SearchError(f'all {errors} searches failed')
+    if not errors:   # otherwise the next run retries the failed searches (the others are no longer due)
+        ctx.cache.put(cache_key, list(jobs.values()))
     return list(jobs.values())
 
 
