@@ -175,6 +175,22 @@
    "title": "Internship - 6 months - Xva Quants P&L Explain F/M",
    "url": "https://recrutement.natixis.com/en/job/internship-6-months-xva-quants-pl-explain-f-m"
   },
+  "bpce:22473": {
+   "company": "Natixis CIB",
+   "fingerprints": [
+    "id:bpce:22473",
+    "req:natixis:22473",
+    "url:https://recrutement.natixis.com/en/job/internship-6-months-quants-xva-development-of-quantitative-tools-and-smart-assistants-f-m",
+    "title:natixis:internship 6 months quants xva development of quantitative tools and smart assistants f m:paris"
+   ],
+   "first_seen": "2026-11-03T12:12:49+00:00",
+   "last_seen": "2026-11-03",
+   "location": "Paris, France",
+   "notified_at": "2026-11-03T12:12:49+00:00",
+   "status": "open",
+   "title": "Internship - 6 months - Quants XVA Development of quantitative tools and smart assistants F/M",
+   "url": "https://recrutement.natixis.com/en/job/internship-6-months-quants-xva-development-of-quantitative-tools-and-smart-assistants-f-m"
+  },
   "bpce:22474": {
    "company": "Natixis CIB",
    "fingerprints": [
@@ -523,6 +539,22 @@
    "status": "open",
    "title": "Stage - Flow Rates Euro Trading (f/m/d)",
    "url": "https://portal.careers.hsbc.com/careers/job/563774612563704"
+  },
+  "eightfold:portal.careers.hsbc.com:65747": {
+   "company": "HSBC",
+   "fingerprints": [
+    "id:eightfold:portal.careers.hsbc.com:65747",
+    "req:hsbc:65747",
+    "url:https://portal.careers.hsbc.com/careers/job/563774612585034",
+    "title:hsbc:stage trading derives swaps et produits structures de taux:paris"
+   ],
+   "first_seen": "2026-11-03T12:12:50+00:00",
+   "last_seen": "2026-11-03",
+   "location": "PARIS, Paris, France",
+   "notified_at": "2026-11-03T12:12:50+00:00",
+   "status": "open",
+   "title": "Stage trading dérivés : swaps et produits structurés de taux (f/m/d)",
+   "url": "https://portal.careers.hsbc.com/careers/job/563774612585034"
   },
   "email:BNP Paribas (email alerts):https://bwelcome.hr.bnpparibas/ltrk/eyj0exaioijkv1qilcjhbgcioijiuzi1nij9.eyjpzci6mtm3njq3mzcsimhhc2gioijmzjc0ztyyntrjm2u1yjhkn2i2nwe5odu5ota0n2q4zjhintc5mzbknmy4mdmxmwi4zjg4otawmmuymdc4n2qyin0.hmz2jffq-gd8t-e9lh5egdd_-85bgytpreuyurfqjyw": {
    "company": "BNP Paribas (email alerts)",
@@ -2792,6 +2824,22 @@
    "title": "12-Month Internship - Sales Project Management",
    "url": "https://jobs.ca-cib.com/job/job-12-month-internship-sales-project-management-_116814.aspx"
   },
+  "talentsoft:Crédit Agricole CIB:117065": {
+   "company": "Crédit Agricole CIB",
+   "fingerprints": [
+    "id:talentsoft:Crédit Agricole CIB:117065",
+    "req:credit agricole:117065",
+    "url:https://jobs.ca-cib.com/job/job-jan-2027-global-markets-trainee-sales-trading-one-year-contract-_117065.aspx",
+    "title:credit agricole:jan 2027 global markets trainee sales trading one year contract:hong kong"
+   ],
+   "first_seen": "2026-11-03T12:12:51+00:00",
+   "last_seen": "2026-11-03",
+   "location": "HONG KONG, Asia, Hong Kong",
+   "notified_at": "2026-11-03T12:12:51+00:00",
+   "status": "open",
+   "title": "Jan 2027: Global Markets Trainee - Sales / Trading (One Year Contract)",
+   "url": "https://jobs.ca-cib.com/job/job-jan-2027-global-markets-trainee-sales-trading-one-year-contract-_117065.aspx"
+  },
   "workable:capula-investment-management-ltd:7603F96755": {
    "company": "Capula Investment Management",
    "fingerprints": [
@@ -3558,6 +3606,22 @@
    "title": "2027 MUFG UK Summer Analyst Programme: Global Client Sales",
    "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/London/XMLNAME-2027-MUFG-UK-Summer-Analyst-Programme--Global-Client-Sales_10079834-WD"
   },
+  "workday:mufgub:10080532-WD": {
+   "company": "MUFG",
+   "fingerprints": [
+    "id:workday:mufgub:10080532-WD",
+    "req:mufg:10080532-wd",
+    "url:https://mufgub.wd3.myworkdayjobs.com/mufg-careers/job/paris/xmlname-6-month-internship---fixed-income-credit-sales--jan---june-2027_10080532-wd",
+    "title:mufg:6 month internship fixed income credit sales jan june 2027:paris"
+   ],
+   "first_seen": "2026-11-03T12:12:48+00:00",
+   "last_seen": "2026-11-03",
+   "location": "Paris",
+   "notified_at": "2026-11-03T12:12:48+00:00",
+   "status": "open",
+   "title": "6 month Internship - Fixed Income Credit Sales: Jan - June 2027",
+   "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/Paris/XMLNAME-6-month-Internship---Fixed-Income-Credit-Sales--Jan---June-2027_10080532-WD"
+  },
   "workday:ocbc:JR00006467": {
    "company": "OCBC / Bank of Singapore",
    "fingerprints": [
@@ -4039,7 +4103,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-03T11:11:45.087490+00:00",
+ "last_send_slot": "2026-11-03T12:12:46.442467+00:00",
  "last_status_date": "2026-11-02",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4052,7 +4116,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 180,
+   "last_listed": 179,
    "last_ok": "2026-11-03"
   },
   "ANZ (careers site)": {
@@ -4072,7 +4136,7 @@
   },
   "Amundi": {
    "consecutive_failures": 0,
-   "last_listed": 112,
+   "last_listed": 115,
    "last_ok": "2026-11-03"
   },
   "B2C2": {
@@ -4087,7 +4151,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 889,
+   "last_listed": 888,
    "last_ok": "2026-11-03"
   },
   "BNP Paribas (email alerts)": {
@@ -4097,7 +4161,7 @@
   },
   "BNY": {
    "consecutive_failures": 0,
-   "last_listed": 109,
+   "last_listed": 110,
    "last_ok": "2026-11-03"
   },
   "BP": {
@@ -4122,7 +4186,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2049,
+   "last_listed": 2040,
    "last_ok": "2026-11-03"
   },
   "Bank of America (campus)": {
@@ -4132,7 +4196,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 97,
+   "last_listed": 100,
    "last_ok": "2026-11-03"
   },
   "Berenberg": {
@@ -4142,7 +4206,7 @@
   },
   "BlackRock": {
    "consecutive_failures": 0,
-   "last_listed": 33,
+   "last_listed": 32,
    "last_ok": "2026-11-03"
   },
   "Brevan Howard": {
@@ -4157,7 +4221,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 863,
+   "last_listed": 862,
    "last_ok": "2026-11-03"
   },
   "CIBC": {
@@ -4207,7 +4271,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 574,
+   "last_listed": 573,
    "last_ok": "2026-11-03"
   },
   "CommBank": {
@@ -4275,7 +4339,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1631,
+   "last_listed": 1632,
    "last_ok": "2026-11-03"
   },
   "Equinor": {
@@ -4359,7 +4423,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 341,
+   "last_listed": 344,
    "last_ok": "2026-11-03"
   },
   "Haitong International": {
@@ -4399,7 +4463,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 710,
+   "last_listed": 706,
    "last_ok": "2026-11-03"
   },
   "Jane Street": {
@@ -4413,7 +4477,7 @@
    "last_ok": "2026-11-03"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 20,
+   "consecutive_failures": 21,
    "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/1/adv/",
    "last_listed": 50,
    "last_ok": "2026-11-01"
@@ -4450,12 +4514,12 @@
   },
   "Lloyds Banking Group": {
    "consecutive_failures": 0,
-   "last_listed": 29,
+   "last_listed": 31,
    "last_ok": "2026-11-03"
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 145,
+   "last_listed": 146,
    "last_ok": "2026-11-03"
   },
   "Macquarie": {
@@ -4510,12 +4574,12 @@
   },
   "Natixis CIB": {
    "consecutive_failures": 0,
-   "last_listed": 181,
+   "last_listed": 182,
    "last_ok": "2026-11-03"
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 487,
+   "last_listed": 489,
    "last_ok": "2026-11-03"
   },
   "Nomura (campus)": {
@@ -4555,7 +4619,7 @@
   },
   "Point72": {
    "consecutive_failures": 0,
-   "last_listed": 198,
+   "last_listed": 199,
    "last_ok": "2026-11-03"
   },
   "Quadrature Capital": {
@@ -4580,7 +4644,7 @@
   },
   "Repsol (incl. Repsol Trading)": {
    "consecutive_failures": 0,
-   "last_listed": 54,
+   "last_listed": 55,
    "last_ok": "2026-11-03"
   },
   "SMBC (Asia)": {
@@ -4605,7 +4669,7 @@
   },
   "Schroders": {
    "consecutive_failures": 0,
-   "last_listed": 47,
+   "last_listed": 46,
    "last_ok": "2026-11-03"
   },
   "Scotiabank": {
@@ -4630,7 +4694,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1014,
+   "last_listed": 1019,
    "last_ok": "2026-11-03"
   },
   "State Street": {
@@ -4684,7 +4748,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 684,
+   "last_listed": 685,
    "last_ok": "2026-11-03"
   },
   "UOB": {
@@ -4718,7 +4782,7 @@
   },
   "Wintermute": {
    "consecutive_failures": 0,
-   "last_listed": 20,
+   "last_listed": 19,
    "last_ok": "2026-11-03"
   },
   "XTX Markets": {
