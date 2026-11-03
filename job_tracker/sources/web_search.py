@@ -15,8 +15,8 @@ snippet, date and URL.
 
 Budget: queries are split by city and role and rotated: each runs every
 `every_days` (Hong Kong and Singapore daily), at most `max_per_day` searches a
-day, and searches exactly the days since it last ran (no day searched twice,
-no gap). Results are kept in the detail cache until the next day; the
+day, and searches the days since it last ran plus `index_lag_days` (Google indexes
+posts late; posts already seen are deduplicated). Results are kept in the detail cache until the next day; the
 remaining quota is read first (free call) and the searches are skipped when
 it is too low. The log gives each query's yield so weak ones can be reworded.
 The API key lives in GitHub secrets (SERPAPI_API_KEY). SerpApi wants it in the
@@ -58,6 +58,8 @@ def _call(ctx, url, params):
         raise SearchError(f'HTTP {response.status_code} from {url}')
     data = response.json()
     if data.get('error'):
+        if 'returned any results' in str(data['error']):   # an empty result page, not a failure
+            return {}
         raise SearchError(f'{url}: {str(data["error"])[:120]}')
     return data
 
@@ -120,6 +122,7 @@ def due_queries(source, ctx, forced=False):
     at most `max_window_days` back)."""
     today = ctx.now.date()
     longest = int(source.get('max_window_days', 7))
+    lag = int(source.get('index_lag_days', 3))
     due = []
     for n, query in enumerate(source['queries']):
         query = query if isinstance(query, dict) else {'q': query}
@@ -128,7 +131,10 @@ def due_queries(source, ctx, forced=False):
         last = date.fromisoformat(last) if last else None
         overdue = (today - last).days - every if last else 0
         if forced or overdue >= 0:
-            since = max(last or today - timedelta(days=every), today - timedelta(days=longest))
+            # Google often indexes a post days after it was published: the
+            # window reaches `index_lag_days` before the last run (seen posts dedupe)
+            start = (last or today - timedelta(days=every)) - timedelta(days=lag)
+            since = max(start, today - timedelta(days=longest))
             due.append((-overdue, every, n, query, since))
     due.sort(key=lambda d: d[:3])
     return [(query, since) for *_, query, since in due[:int(source.get('max_per_day', 7))]]

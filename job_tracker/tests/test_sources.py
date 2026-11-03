@@ -681,7 +681,7 @@ class WebSearchTests(unittest.TestCase):
         from datetime import datetime, timezone
         from sources.web_search import due_queries
         ctx = context({}, now=datetime(2026, 11, 10, 4, tzinfo=timezone.utc))
-        src = {'max_per_day': 3, 'max_window_days': 7, 'queries': [
+        src = {'max_per_day': 3, 'max_window_days': 7, 'index_lag_days': 0, 'queries': [
             {'q': 'hk', 'every_days': 1}, {'q': 'ldn', 'every_days': 2}, {'q': 'dubai', 'every_days': 3},
             {'q': 'paris', 'every_days': 3}, {'q': 'old', 'every_days': 2}]}
         ctx.cache.put('web-search-query:hk', '2026-11-09')
@@ -693,6 +693,8 @@ class WebSearchTests(unittest.TestCase):
         self.assertEqual(due, [('old', '2026-11-03'), ('hk', '2026-11-09'), ('dubai', '2026-11-07')])
         src['max_per_day'] = 2
         self.assertEqual([q['q'] for q, _ in due_queries(src, ctx)], ['old', 'hk'])
+        src['index_lag_days'] = 3   # late indexing: window starts 3 days before the last run
+        self.assertEqual([str(d) for _, d in due_queries(src, ctx)], ['2026-11-03', '2026-11-06'])
 
     def run_fetch(self, results, key='SECRETKEY123', hour=4, left=200, cache=None, force=''):
         import os
@@ -754,6 +756,17 @@ class WebSearchTests(unittest.TestCase):
             self.assertTrue(ctx.stats['LinkedIn (web search)']['not_due'])
         jobs, ctx = self.run_fetch(self.RESULTS, left=1)
         self.assertEqual((jobs, len(ctx.http.calls)), ([], 1))
+
+    def test_no_results_is_an_empty_page(self):
+        jobs, ctx = self.run_fetch([])
+        import os
+        from unittest import mock
+        from sources import web_search
+        ctx = context({'serpapi.com/account.json': json.dumps({'total_searches_left': 200}),
+                       'serpapi.com/search.json': json.dumps({'error': "Google hasn't returned any results for this query."})})
+        with mock.patch.dict(os.environ, {'SERPAPI_API_KEY': 'k', 'WEB_SEARCH_FORCE': '1'}):
+            self.assertEqual(web_search.fetch(dict(self.SRC), ctx), [])
+        self.assertEqual(len(ctx.http.calls), 3)
 
     def test_errors_never_show_the_key(self):
         import os
