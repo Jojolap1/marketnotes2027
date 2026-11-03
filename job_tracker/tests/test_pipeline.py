@@ -272,6 +272,7 @@ class ConfigTests(unittest.TestCase):
                 'workday': ['host', 'tenant', 'site'], 'oracle': ['host'], 'eightfold': ['host', 'domain'],
                 'sitemap': ['sitemap_url', 'job_url_pattern'], 'goldman': [], 'successfactors_xml': ['host', 'sf_company'],
                 'rss': ['feeds'], 'oleeo': ['boards'], 'rmk': ['base_url', 'location_searches'], 'html_cards': ['listing_url', 'card_pattern'], 'talentsoft': ['base_url'], 'email_alerts': ['senders', 'link_pattern'],
+ 'web_search': ['queries'],
                 'bank_of_america': [], 'brassring': ['host', 'partner_id', 'site_ids'], 'zhiye': ['host'], 'bpce': ['base_url'], 'avature': ['base_url'], 'business_france': []}
 
     def test_sources_are_valid(self):

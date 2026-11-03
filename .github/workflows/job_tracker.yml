@@ -95,6 +95,7 @@ jobs:
           # BNP Paribas job alerts in the user's mailbox (read-only IMAP, app password)
           ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
           ALERT_EMAIL_APP_PASSWORD: ${{ secrets.ALERT_EMAIL_APP_PASSWORD }}
+          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
         run: python tracker.py
 
       - name: Print diagnostic report

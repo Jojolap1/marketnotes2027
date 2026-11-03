@@ -607,7 +607,7 @@ class LinkedInPostTests(unittest.TestCase):
         self.assertEqual(job['company'], 'Jane Smith')
         self.assertEqual(job['location'], 'London')
         self.assertEqual(job['url'], 'https://www.linkedin.com/feed/update/urn:li:activity:7251111111111111111/')
-        self.assertEqual(job['id'], 'post:LinkedIn (posts):7251111111111111111')
+        self.assertEqual(job['id'], 'post:linkedin:7251111111111111111')
         self.assertEqual(job['published'], '2026-11-02')
         self.assertNotIn('¶', job['description'])
 
@@ -641,3 +641,68 @@ class LinkedInPostTests(unittest.TestCase):
                 + '<p>' + 'Autres actualités de votre réseau. ' * 30 + '</p>'
                 '<a href="https://www.linkedin.com/jobs/">Apply to jobs you may like</a>')
         self.assertEqual(self.parse(html), [])
+
+    def test_french_hiring_post(self):
+        html = ('<p>Marie Dupont a publié :</p>'
+                '<a href="https://www.linkedin.com/feed/update/urn:li:activity:7256666666666666666">'
+                'Mon équipe recrute ! ¶<br>Nous cherchons un(e) stagiaire en structuration produits dérivés à Paris pour janvier 2027.<br>'
+                'Envoyez-moi votre CV.</a>')
+        jobs = self.parse(html)
+        self.assertEqual(len(jobs), 1)
+        self.assertIn('stagiaire en structuration', jobs[0]['title'])
+        self.assertEqual(jobs[0]['company'], 'Marie Dupont')
+        self.assertEqual(jobs[0]['location'], 'Paris')
+
+    def test_hiring_manager_looking_for_an_intern_is_not_a_candidate(self):
+        html = ('<a href="https://www.linkedin.com/feed/update/urn:li:activity:7257777777777777777">'
+                'Je recherche un stagiaire pour notre desk de trading à Paris. Envoyez votre CV en MP.</a>')
+        self.assertEqual(len(self.parse(html)), 1)
+
+    def test_candidates_looking_for_a_job_are_ignored(self):
+        for text in ('#OpenToWork I am looking for an internship in sales and trading in London. Happy to apply!',
+                     'Je suis à la recherche d\'un stage en salle des marchés à Paris, n\'hésitez pas, offres de stage bienvenues.'):
+            html = f'<a href="https://www.linkedin.com/feed/update/urn:li:activity:7258888888888888888">{text}</a>'
+            self.assertEqual(self.parse(html), [], text)
+
+
+class WebSearchTests(unittest.TestCase):
+    SRC = {'company': 'LinkedIn (web search)', 'platform': 'web_search', 'queries': ['q1', 'q2']}
+
+    def run_fetch(self, results, key='SECRETKEY123', hour=4):
+        import os
+        from datetime import datetime, timezone
+        from unittest import mock
+        from sources import web_search
+        ctx = context({'api.search.brave.com': json.dumps({'web': {'results': results}})},
+                      now=datetime(2026, 11, 3, hour, 5, tzinfo=timezone.utc))
+        with mock.patch.dict(os.environ, {'BRAVE_SEARCH_API_KEY': key}):
+            jobs = web_search.fetch(dict(self.SRC, hours_utc=[4, 11]), ctx)
+        return jobs, ctx
+
+    def test_posts_and_job_pages_from_search_results(self):
+        results = [
+            {'url': 'https://www.linkedin.com/posts/jane-smith_hiring-activity-7259999999999999999-AbCd?utm=x',
+             'title': 'Jane Smith on LinkedIn: #hiring', 'page_age': '2026-11-01T08:00:00',
+             'description': 'We are <strong>hiring</strong>! Our rates trading desk is looking for a graduate analyst in Singapore.'},
+            {'url': 'https://www.linkedin.com/jobs/view/structured-products-sales-intern-at-bnp-paribas-4123456789',
+             'title': 'BNP Paribas hiring Structured Products Sales Intern in Paris, Île-de-France, France | LinkedIn',
+             'description': 'Privalto team, 6-month internship starting January 2027.'},
+            {'url': 'https://www.linkedin.com/in/someone', 'title': 'Someone - Trader', 'description': 'hiring'}]
+        jobs, ctx = self.run_fetch(results)
+        self.assertEqual(sorted(j['id'] for j in jobs), ['linkedin-job:4123456789', 'post:linkedin:7259999999999999999'])
+        page = next(j for j in jobs if j['id'].startswith('linkedin-job'))
+        self.assertEqual((page['company'], page['title'], page['location']),
+                         ('BNP Paribas', 'Structured Products Sales Intern', 'Paris'))
+        post = next(j for j in jobs if j['id'].startswith('post'))
+        self.assertEqual(post['location'], 'Singapore')
+        self.assertEqual(post['published'], '2026-11-01')
+        # one request per query, the key only in a header
+        self.assertEqual(len(ctx.http.calls), 2)
+        self.assertTrue(all('SECRETKEY' not in url for _, url, _ in ctx.http.calls))
+
+    def test_inactive_without_key_or_outside_its_hours(self):
+        jobs, ctx = self.run_fetch([], key='')
+        self.assertEqual((jobs, ctx.http.calls), ([], []))
+        self.assertTrue(ctx.stats['LinkedIn (web search)']['not_due'])
+        jobs, ctx = self.run_fetch([], hour=7)
+        self.assertEqual((jobs, ctx.http.calls), ([], []))

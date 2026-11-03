@@ -80,7 +80,9 @@ def collect(config, ctx, state, report):
         stats = ctx.stats.get(name, {})
         listed = stats.get('listed', len(found))
         listed = listed if isinstance(listed, int) else len(found)
-        if state.went_silent(name, listed):
+        if stats.get('not_due'):   # throttled source (search quota): nothing listed on purpose
+            listed = None
+        elif state.went_silent(name, listed):
             report.silent.append(name)
             LOG.warning('%s: lists no advert although it listed %s before', name, state.data['sources'][name]['last_listed'])
         state.source_result(name, True, listed=listed)

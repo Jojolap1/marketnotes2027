@@ -1114,6 +1114,31 @@
       "note": "Hiring posts ('We're hiring a Sales & Trading intern in London...') from people and company pages the user follows, as LinkedIn emails them (post notifications, digests, recruiter messages). Read read-only from ALERT_EMAIL; a post is kept only if it says it is hiring and one sentence names a targeted role; the usual city / entry-level / experience filters then apply. LinkedIn pages are never fetched."
     },
     {
+      "company": "LinkedIn (web search)",
+      "platform": "web_search",
+      "queries": [
+        "site:linkedin.com/posts hiring sales trading intern London",
+        "site:linkedin.com/posts hiring trading analyst graduate Singapore",
+        "site:linkedin.com/posts hiring markets intern Hong Kong",
+        "site:linkedin.com/posts hiring trading graduate Dubai",
+        "site:linkedin.com/posts hiring structuring intern",
+        "site:linkedin.com/posts hiring derivatives summer analyst",
+        "site:linkedin.com/posts recrute stagiaire salle des marchés Paris",
+        "site:linkedin.com/posts recrute stage structuration produits dérivés",
+        "site:linkedin.com/posts recrute stage trading vente Paris",
+        "site:linkedin.com/jobs/view sales trading intern",
+        "site:linkedin.com/jobs/view structured products intern",
+        "site:linkedin.com/jobs/view trading analyst graduate"
+      ],
+      "freshness": "pw",
+      "count": 20,
+      "hours_utc": [
+        4,
+        11
+      ],
+      "note": "Public LinkedIn posts and job pages found through the Brave Search API (key in the BRAVE_SEARCH_API_KEY secret; inactive without it). Only the search result (title, snippet, date, URL) is read, LinkedIn is never fetched. 12 queries at 11h and 18h Vietnam time = about 720 queries a month, inside Brave's monthly free credit. Same post id as 'LinkedIn (posts)', so a post seen in an email and in search is alerted once."
+    },
+    {
       "company": "eFinancialCareers (job alerts)",
       "platform": "email_alerts",
       "days": 14,
