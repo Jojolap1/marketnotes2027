@@ -2532,6 +2532,10 @@ R73 = [('R73 offcycle HK employers', lambda: employer_links('https://offcycle.ne
        ('R73 offcycle SG employers', lambda: employer_links('https://offcycle.net/internships/off-cycle/singapore/'))]
 PROBES = PROBES + R73
 
+
+R74 = [('R74 Wellington', lambda: workday_raw('wellington.wd5.myworkdayjobs.com', 'wellington', 'External'))]
+PROBES = PROBES + R74
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
