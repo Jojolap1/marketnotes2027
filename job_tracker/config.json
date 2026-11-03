@@ -306,7 +306,10 @@
     "senior_description_patterns": [
       "\\b(?:corporate title|job level|rank|grade|titre)\\s*:?\\s*(?:assistant vice president|vice president|executive director|managing director|director|associate|avp|vp|ed|md|c1[1-9]|c[2-9]\\d)\\b"
     ],
-    "excluded_companies": [],
+    "excluded_companies": [
+      "Fyntraq",
+      "OffCycle"
+    ],
     "soft_senior_title_patterns": [
       "\\bmanager\\b",
       "\\bassociate\\b",
