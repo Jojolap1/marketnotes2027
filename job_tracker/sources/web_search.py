@@ -36,6 +36,7 @@ from status import parse_date
 
 LOG = logging.getLogger(__name__)
 API = 'https://serpapi.com/search.json'
+CACHE_VERSION = 2
 ACCOUNT = 'https://serpapi.com/account.json'
 POST_ID = re.compile(r'linkedin\.com/(?:posts/\S*?-(?:activity|ugcPost|share)-|feed/update/urn:li:(?:activity|share|ugcPost):)(\d{15,})', re.I)
 JOB_ID = re.compile(r'linkedin\.com/jobs/view/(?:[^/?#]*?-)?(\d{8,})', re.I)
@@ -72,7 +73,7 @@ def fetch(source, ctx):
         ctx.stat(name, 'not_due')
         return []
     forced = os.environ.get('WEB_SEARCH_FORCE') == '1'
-    cache_key = 'web-search:' + name
+    cache_key = f'web-search:v{CACHE_VERSION}:' + name   # bumped when the post rules change
     cached = None if forced else ctx.cache.get(cache_key, max_age_hours=float(source.get('refresh_hours', 22)))
     hours = source.get('hours_utc')
     if cached is not None or (hours and ctx.now.hour not in hours and not forced):
