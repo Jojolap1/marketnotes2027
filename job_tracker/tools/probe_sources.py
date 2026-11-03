@@ -4,6 +4,7 @@ Run from GitHub Actions (open internet) to discover which official, publicly
 accessible endpoints return real vacancies. Prints one block per probe.
 It never logs in, never sends credentials and makes one request per probe.
 """
+import os
 import json
 import re
 import sys
@@ -2542,9 +2543,12 @@ def serp_variants():
     import os
     key = os.environ.get('SERPAPI_API_KEY', '')
     q_or = 'site:linkedin.com/posts (hiring OR "looking for") (trading OR "sales & trading" OR structuring OR derivatives) (intern OR internship OR graduate OR "summer analyst") London'
-    variants = [('OR groups, no as_sitesearch', q_or, {}),
-                ('OR groups, as_sitesearch', q_or, {'as_sitesearch': 'linkedin.com'}),
-                ('simple', 'site:linkedin.com/posts hiring trading intern London', {})]
+    variants = [('domain only', 'site:linkedin.com hiring trading intern London', {}),
+                ('inurl posts', 'site:linkedin.com inurl:posts hiring trading intern London', {})]
+    if os.environ.get('SERP_ROUND') != '76':
+        variants = [('OR groups, no as_sitesearch', q_or, {}),
+                    ('OR groups, as_sitesearch', q_or, {'as_sitesearch': 'linkedin.com'}),
+                    ('simple', 'site:linkedin.com/posts hiring trading intern London', {})]
     out = []
     for label, q, extra in variants:
         try:
@@ -2558,6 +2562,8 @@ def serp_variants():
 
 
 R75 = [('R75 serp variants', serp_variants)]
+R76 = [('R76 serp domain variants', lambda: (os.environ.__setitem__('SERP_ROUND', '76'), serp_variants())[1])]
+PROBES = PROBES + R76
 PROBES = PROBES + R75
 
 if __name__ == '__main__':
