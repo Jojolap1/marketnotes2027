@@ -97,6 +97,9 @@ class Classification:
         return f'{span} year(s) required ({e.category})'
 
 
+EXPLICIT_JUNIOR = re.compile(r'\bjunior\b|\bjr\.?\b|\bentry[- ]level\b|\bd[ée]butant|\bnew grad|\bgraduate|\bfresh(?:er|man)?\b|\b20\d\d\b', re.I)
+
+
 def _compile(patterns):
     return [re.compile(p, re.I) for p in patterns]
 
@@ -225,6 +228,13 @@ class Classifier:
             return c
         if not c.entry_type and exp.category in ('entry', '0-1'):
             c.entry_type = 'entry_level'
+        # Title-only sources (LinkedIn / eFinancialCareers alerts, LinkedIn job
+        # pages): no advert text to check the experience asked, and a bare
+        # 'Analyst' / 'Assistant' title is often an experienced hire there
+        if (job.get('title_only') and c.entry_type == 'entry_level'
+                and not EXPLICIT_JUNIOR.search(title) and exp.category not in ('entry', '0-1')):
+            c.reject_reason = 'title only (no advert text): Analyst title without an explicit junior signal'
+            return c
         if not c.entry_type:
             # Bare titles ("Equity Sales Trader") are not evidence of a junior role.
             if self.require_entry_signal:

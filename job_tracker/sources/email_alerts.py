@@ -68,6 +68,8 @@ def parse_alert(raw, source, ctx):
             # Sites that refuse scripts: the city filter is set in the alert itself
             extra = {'alert_city': 'ville filtrée dans ton alerte'}
         company, job_key = source['company'], canonical_url(url)
+        if source.get('title_only', source.get('company_from_text')):
+            extra['title_only'] = True     # the alert gives no advert text
         if source.get('company_from_text'):
             # Job boards (LinkedIn, eFinancialCareers): one email lists several
             # employers; the line after the title reads 'Company · City, Country'

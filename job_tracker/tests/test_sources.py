@@ -579,6 +579,7 @@ class JobBoardAlertTests(unittest.TestCase):
                           ('BNP Paribas', 'Structured Products Sales Intern', '')])
         self.assertEqual(jobs[0]['url'], 'https://www.linkedin.com/jobs/view/4012345678/')
         self.assertEqual(jobs[0]['id'], 'email:LinkedIn (job alerts):4012345678')
+        self.assertTrue(jobs[0]['title_only'])
 
 
 class LinkedInPostTests(unittest.TestCase):
