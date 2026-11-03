@@ -5,7 +5,8 @@
    "fingerprints": [
     "id:ashby:keyrock:2665c2ed-9131-46d9-9a05-564e7a719d33",
     "url:https://jobs.ashbyhq.com/keyrock/2665c2ed-9131-46d9-9a05-564e7a719d33",
-    "title:keyrock:quantitative analyst intern digital assets market making hft:london"
+    "title:keyrock:quantitative analyst intern digital assets market making hft:london",
+    "title:keyrock:quantitative analyst intern digital assets market making hft brussels:london"
    ],
    "first_seen": "2026-10-29T04:15:16+00:00",
    "last_seen": "2026-11-03",
@@ -20,7 +21,8 @@
    "fingerprints": [
     "id:ashby:keyrock:4cae20e0-f315-4ccb-aa8e-df0e87969313",
     "url:https://jobs.ashbyhq.com/keyrock/4cae20e0-f315-4ccb-aa8e-df0e87969313",
-    "title:keyrock:defi quant research intern digital assets market making:london"
+    "title:keyrock:defi quant research intern digital assets market making:london",
+    "title:keyrock:defi quant research intern digital assets market making brussels:london"
    ],
    "first_seen": "2026-10-29T04:15:15+00:00",
    "last_seen": "2026-11-03",
@@ -35,7 +37,8 @@
    "fingerprints": [
     "id:ashby:keyrock:6b46ce15-7e6b-4213-9eb4-41cc64577e24",
     "url:https://jobs.ashbyhq.com/keyrock/6b46ce15-7e6b-4213-9eb4-41cc64577e24",
-    "title:keyrock:defi quant trader intern credit:london"
+    "title:keyrock:defi quant trader intern credit:london",
+    "title:keyrock:defi quant trader intern credit brussels:london"
    ],
    "first_seen": "2026-10-29T14:11:54+00:00",
    "last_seen": "2026-11-03",
@@ -4123,7 +4126,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-03T14:17:32.066724+00:00",
+ "last_send_slot": "2026-11-03T15:12:19.736149+00:00",
  "last_status_date": "2026-11-03",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4156,7 +4159,7 @@
   },
   "Amundi": {
    "consecutive_failures": 0,
-   "last_listed": 116,
+   "last_listed": 117,
    "last_ok": "2026-11-03"
   },
   "B2C2": {
@@ -4171,7 +4174,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 903,
+   "last_listed": 907,
    "last_ok": "2026-11-03"
   },
   "BNP Paribas (email alerts)": {
@@ -4186,7 +4189,7 @@
   },
   "BP": {
    "consecutive_failures": 0,
-   "last_listed": 13,
+   "last_listed": 14,
    "last_ok": "2026-11-03"
   },
   "BP (early careers)": {
@@ -4206,7 +4209,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2051,
+   "last_listed": 2057,
    "last_ok": "2026-11-03"
   },
   "Bank of America (campus)": {
@@ -4216,7 +4219,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 101,
+   "last_listed": 102,
    "last_ok": "2026-11-03"
   },
   "Berenberg": {
@@ -4236,12 +4239,12 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 585,
+   "last_listed": 584,
    "last_ok": "2026-11-03"
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 862,
+   "last_listed": 864,
    "last_ok": "2026-11-03"
   },
   "CIBC": {
@@ -4271,7 +4274,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1331,
+   "last_listed": 1335,
    "last_ok": "2026-11-03"
   },
   "Castleton Commodities": {
@@ -4306,7 +4309,7 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 315,
+   "last_listed": 313,
    "last_ok": "2026-11-03"
   },
   "DBS Bank": {
@@ -4321,7 +4324,7 @@
   },
   "DRW": {
    "consecutive_failures": 0,
-   "last_listed": 163,
+   "last_listed": 164,
    "last_ok": "2026-11-03"
   },
   "Da Vinci Trading": {
@@ -4335,7 +4338,7 @@
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
-   "last_listed": 91,
+   "last_listed": 90,
    "last_ok": "2026-11-03"
   },
   "EDF Trading": {
@@ -4359,7 +4362,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1630,
+   "last_listed": 1628,
    "last_ok": "2026-11-03"
   },
   "Equinor": {
@@ -4374,7 +4377,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 516,
+   "last_listed": 515,
    "last_ok": "2026-11-03"
   },
   "Fidelity International": {
@@ -4403,7 +4406,7 @@
   },
   "Flowdesk": {
    "consecutive_failures": 0,
-   "last_listed": 11,
+   "last_listed": 12,
    "last_ok": "2026-11-03"
   },
   "Freepoint Commodities": {
@@ -4443,7 +4446,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 344,
+   "last_listed": 342,
    "last_ok": "2026-11-03"
   },
   "Haitong International": {
@@ -4478,12 +4481,12 @@
   },
   "Investec": {
    "consecutive_failures": 0,
-   "last_listed": 58,
+   "last_listed": 59,
    "last_ok": "2026-11-03"
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 706,
+   "last_listed": 705,
    "last_ok": "2026-11-03"
   },
   "Jane Street": {
@@ -4497,7 +4500,7 @@
    "last_ok": "2026-11-03"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 23,
+   "consecutive_failures": 24,
    "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/1/adv/",
    "last_listed": 50,
    "last_ok": "2026-11-01"
@@ -4574,7 +4577,7 @@
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 90,
+   "last_listed": 93,
    "last_ok": "2026-11-03"
   },
   "Mizuho (EMEA)": {
@@ -4583,7 +4586,8 @@
    "last_ok": "2026-11-03"
   },
   "Morgan Stanley": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 128,
    "last_ok": "2026-11-03"
   },
@@ -4654,12 +4658,12 @@
   },
   "RBC": {
    "consecutive_failures": 0,
-   "last_listed": 34,
+   "last_listed": 36,
    "last_ok": "2026-11-03"
   },
   "RWE Supply & Trading": {
    "consecutive_failures": 0,
-   "last_listed": 143,
+   "last_listed": 142,
    "last_ok": "2026-11-03"
   },
   "Repsol (incl. Repsol Trading)": {
@@ -4669,7 +4673,7 @@
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
-   "last_listed": 264,
+   "last_listed": 266,
    "last_ok": "2026-11-03"
   },
   "SMBC (EMEA)": {
@@ -4679,7 +4683,7 @@
   },
   "Santander CIB": {
    "consecutive_failures": 0,
-   "last_listed": 66,
+   "last_listed": 67,
    "last_ok": "2026-11-03"
   },
   "Schonfeld": {
@@ -4689,7 +4693,7 @@
   },
   "Schroders": {
    "consecutive_failures": 0,
-   "last_listed": 46,
+   "last_listed": 45,
    "last_ok": "2026-11-03"
   },
   "Scotiabank": {
@@ -4714,7 +4718,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1023,
+   "last_listed": 1024,
    "last_ok": "2026-11-03"
   },
   "State Street": {
@@ -4768,7 +4772,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 668,
+   "last_listed": 676,
    "last_ok": "2026-11-03"
   },
   "UOB": {
@@ -4778,7 +4782,7 @@
   },
   "Virtu Financial": {
    "consecutive_failures": 0,
-   "last_listed": 47,
+   "last_listed": 48,
    "last_ok": "2026-11-03"
   },
   "Vitol": {
@@ -4793,7 +4797,7 @@
   },
   "Wells Fargo": {
    "consecutive_failures": 0,
-   "last_listed": 17,
+   "last_listed": 18,
    "last_ok": "2026-11-03"
   },
   "Westpac": {
