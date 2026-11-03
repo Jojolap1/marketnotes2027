@@ -1128,74 +1128,74 @@
       "platform": "web_search",
       "queries": [
         {
-          "label": "HK markets posts",
+          "label": "HK trading intern",
           "every_days": 1,
-          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (trading OR \"global markets\" OR structuring OR derivatives) (intern OR internship OR graduate OR analyst OR junior) \"Hong Kong\""
+          "q": "site:linkedin.com/posts hiring 2027 trading intern Hong Kong"
         },
         {
-          "label": "SG markets posts",
+          "label": "SG trading intern",
           "every_days": 1,
-          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (trading OR \"global markets\" OR structuring OR derivatives) (intern OR internship OR graduate OR analyst OR junior) Singapore"
+          "q": "site:linkedin.com/posts hiring 2027 trading intern Singapore"
         },
         {
-          "label": "HK desks / recruiters",
+          "label": "HK graduate markets",
           "every_days": 2,
-          "q": "site:linkedin.com/posts (hiring OR \"DM me\" OR \"send me your CV\") (FICC OR equities OR FX OR rates OR credit OR commodities) (intern OR graduate OR \"off-cycle\") \"Hong Kong\""
+          "q": "site:linkedin.com/posts 2027 graduate programme global markets Hong Kong"
         },
         {
-          "label": "SG desks / recruiters",
+          "label": "SG graduate markets",
           "every_days": 2,
-          "q": "site:linkedin.com/posts (hiring OR \"DM me\" OR \"send me your CV\") (FICC OR equities OR FX OR rates OR credit OR commodities) (intern OR graduate OR \"off-cycle\") Singapore"
+          "q": "site:linkedin.com/posts 2027 graduate programme global markets Singapore"
         },
         {
-          "label": "HK+SG job pages",
+          "label": "HK off-cycle markets",
           "every_days": 2,
-          "q": "site:linkedin.com/jobs/view (trading OR \"global markets\" OR structuring OR derivatives OR \"structured products\") (intern OR internship OR graduate OR analyst) (\"Hong Kong\" OR Singapore)"
+          "q": "site:linkedin.com/posts off-cycle internship markets Hong Kong 2027"
         },
         {
-          "label": "HK AM / research",
-          "every_days": 3,
-          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (\"asset management\" OR \"investment analyst\" OR \"equity research\" OR \"portfolio management\") (intern OR graduate OR analyst) \"Hong Kong\""
-        },
-        {
-          "label": "SG AM / research",
-          "every_days": 3,
-          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (\"asset management\" OR \"investment analyst\" OR \"equity research\" OR \"portfolio management\") (intern OR graduate OR analyst) Singapore"
-        },
-        {
-          "label": "Asia/Dubai commodities",
-          "every_days": 3,
-          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (\"commodity trading\" OR energy OR oil OR LNG OR metals) (trader OR \"trading analyst\" OR graduate OR intern) (Singapore OR Dubai)"
-        },
-        {
-          "label": "London markets posts",
+          "label": "SG off-cycle markets",
           "every_days": 2,
-          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (trading OR \"sales & trading\" OR structuring OR derivatives) (intern OR internship OR graduate OR \"summer analyst\") London"
+          "q": "site:linkedin.com/posts off-cycle internship markets Singapore 2027"
         },
         {
-          "label": "London AM / commodities",
+          "label": "HK investment analyst",
           "every_days": 3,
-          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (\"asset management\" OR \"commodity trading\" OR \"graduate trader\" OR research) (intern OR graduate OR analyst) London"
+          "q": "site:linkedin.com/posts hiring 2027 investment analyst intern Hong Kong"
         },
         {
-          "label": "Paris posts FR",
+          "label": "SG investment analyst",
+          "every_days": 3,
+          "q": "site:linkedin.com/posts hiring 2027 investment analyst intern Singapore"
+        },
+        {
+          "label": "SG commodities trader",
+          "every_days": 3,
+          "q": "site:linkedin.com/posts hiring 2027 graduate trader commodities Singapore"
+        },
+        {
+          "label": "London trading intern",
           "every_days": 2,
-          "q": "site:linkedin.com/posts (recrute OR \"nous cherchons\" OR \"je recherche\") (stagiaire OR stage OR alternance OR VIE) (\"salle des marchés\" OR trading OR structuration OR dérivés) Paris"
+          "q": "site:linkedin.com/posts hiring 2027 trading intern London"
         },
         {
-          "label": "Paris posts EN",
+          "label": "London structuring",
           "every_days": 3,
-          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (trading OR structuring OR derivatives OR markets) (intern OR internship OR VIE OR graduate) Paris"
+          "q": "site:linkedin.com/posts 2027 structuring derivatives intern London"
         },
         {
-          "label": "Dubai posts",
-          "every_days": 3,
-          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (trading OR markets OR \"asset management\" OR structuring) (intern OR internship OR graduate OR analyst) Dubai"
+          "label": "Paris salle des marchés",
+          "every_days": 2,
+          "q": "site:linkedin.com/posts stage 2027 salle des marchés Paris"
         },
         {
-          "label": "London+Paris job pages",
+          "label": "Paris structuration",
           "every_days": 3,
-          "q": "site:linkedin.com/jobs/view (\"sales & trading\" OR \"structured products\" OR structuring OR derivatives OR trading) (intern OR internship OR graduate OR \"summer analyst\") (London OR Paris)"
+          "q": "site:linkedin.com/posts stage structuration dérivés 2027 Paris"
+        },
+        {
+          "label": "Dubai trading graduate",
+          "every_days": 3,
+          "q": "site:linkedin.com/posts hiring 2027 trading graduate Dubai"
         }
       ],
       "count": 10,
@@ -1215,10 +1215,9 @@
         14,
         15
       ],
-      "note": "Public LinkedIn posts (recruiters, desk staff, company pages) and job pages found through SerpApi (DuckDuckGo results: Google ignored site:linkedin.com, probes R75-R77; official API; key in the SERPAPI_API_KEY secret). Only the search result (title, snippet, date, URL) is read, LinkedIn is never fetched. 14 queries by city and role, rotated: Hong Kong and Singapore daily, others every 2-3 days, at most 7 searches a day (about 210 a month, under the free plan's 250; remaining quota checked first). Each search covers the past week; a post's date is read from its LinkedIn id (no page fetched), so old posts are dropped by the 14-day rule. The log gives each query's yield (results / LinkedIn pages / kept) to rework the weak ones. Same post id as 'LinkedIn (posts)'.",
+      "note": "Public LinkedIn posts (recruiters, desk staff, company pages) found through SerpApi's DuckDuckGo engine (official API; key in the SERPAPI_API_KEY secret). Probes R75-R78: Google ignored site:linkedin.com; DuckDuckGo keeps it but returns nothing with OR/parentheses or its date filter, so queries are simple and carry '2027' to favour recent posts. Only the search result (title, snippet, URL) is read, LinkedIn is never fetched; a post's date is read from its LinkedIn id, so old posts are dropped by the 14-day rule. 14 queries rotated (Hong Kong and Singapore daily), at most 7 searches a day (~210 a month, free plan 250; quota checked first). The log gives each query's yield.",
       "max_per_day": 7,
-      "engine": "duckduckgo",
-      "df": "w"
+      "engine": "duckduckgo"
     },
     {
       "company": "eFinancialCareers (job alerts)",

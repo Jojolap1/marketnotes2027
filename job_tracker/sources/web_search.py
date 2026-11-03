@@ -37,7 +37,7 @@ from status import parse_date
 
 LOG = logging.getLogger(__name__)
 API = 'https://serpapi.com/search.json'
-CACHE_VERSION = 2
+CACHE_VERSION = 3
 ACCOUNT = 'https://serpapi.com/account.json'
 POST_ID = re.compile(r'linkedin\.com/(?:posts/\S*?-(?:activity|ugcPost|share)-|feed/update/urn:li:(?:activity|share|ugcPost):)(\d{15,})', re.I)
 JOB_ID = re.compile(r'linkedin\.com/jobs/view/(?:[^/?#]*?-)?(\d{8,})', re.I)
@@ -98,8 +98,8 @@ def fetch(source, ctx):
         engine = source.get('engine', 'duckduckgo')
         if engine == 'google':
             params = {'tbs': source.get('tbs', 'qdr:w'), 'num': int(source.get('count', 10))}
-        else:   # DuckDuckGo keeps site:linkedin.com/posts (Google dropped it, tested 2026-11-03)
-            params = {'df': source.get('df', 'w')}
+        else:   # DuckDuckGo keeps site:linkedin.com/posts (Google dropped it, tested 2026-11-03);
+            params = {'df': source['df']} if source.get('df') else {}   # its date filter returned nothing
         try:
             data = _call(ctx, API, dict(params, engine=engine, q=query['q'], api_key=key))
         except SearchError as exc:   # one slow search must not lose the others; retried next run
