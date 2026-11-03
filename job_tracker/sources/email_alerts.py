@@ -67,12 +67,29 @@ def parse_alert(raw, source, ctx):
         if not location and source.get('city_set_in_alert'):
             # Sites that refuse scripts: the city filter is set in the alert itself
             extra = {'alert_city': 'ville filtrée dans ton alerte'}
+        company, job_key = source['company'], canonical_url(url)
+        if source.get('company_from_text'):
+            # Job boards (LinkedIn, eFinancialCareers): one email lists several
+            # employers; the line after the title reads 'Company · City, Country'
+            company = _employer(context) or source['company']
+            ref = re.search(source.get('job_id_pattern') or r'(?!)', url)
+            if ref:
+                job_key = ref.group(1)
+                url = source.get('job_url', '{}').format(ref.group(1))
         jobs.append(make_job(
-            id=f'email:{source["company"]}:{canonical_url(url)}', company=source['company'], title=title,
+            id=f'email:{source["company"]}:{job_key}', company=company, title=title,
             location=location, url=url, published=received, description=context[:1500],
-            source='employer job-alert email', status=OPEN,
-            status_evidence=f'sent by the employer in a job alert on {received or "an unknown date"}', **extra))
+            source=f'job-alert email ({source["company"]})', status=OPEN,
+            status_evidence=f'sent in a job alert on {received or "an unknown date"}', **extra))
     return jobs
+
+
+def _employer(context):
+    """Employer named right after the title in job-board alerts."""
+    head = re.split(r'\s+(?:·|•|\||–|-)\s+', context.strip(), maxsplit=1)
+    if len(head) == 2 and 1 < len(head[0]) <= 80:
+        return head[0].strip()
+    return ''
 
 
 def fetch(source, ctx):

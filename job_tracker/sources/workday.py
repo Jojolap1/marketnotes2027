@@ -14,7 +14,7 @@ import re
 
 from filters import normalize_text
 from jobs import html_to_text, make_job
-from status import CLOSED, OPEN, UNKNOWN, from_end_date
+from status import CLOSED, OPEN, UNKNOWN, from_end_date, parse_date
 
 LOG = logging.getLogger(__name__)
 PAGE = 20
@@ -28,6 +28,14 @@ def _walk_facets(facets):
             yield from _walk_facets(values)
             continue
         yield facet.get('facetParameter'), values
+
+
+def _latest_posting(start, posted_on):
+    """Most recent of the advert's start date and the listing's 'Posted N Days Ago':
+    employers repost adverts (OCBC internships), which renews 'postedOn' but keeps
+    the original start date, and a reposted advert is a current one."""
+    dates = [d for d in (parse_date(start), parse_date(posted_on)) if d]
+    return max(dates).date().isoformat() if dates else (start or posted_on or '')
 
 
 def location_facets(facets, ctx, countries):
@@ -136,7 +144,7 @@ def fetch(source, ctx):
         req_id = detail.get('req_id') or ''.join((post.get('bulletFields') or [])[:1])
         jobs.append(make_job(
             id=f'workday:{tenant}:{req_id or path}', company=company, title=detail.get('title') or title,
-            location=location, url=detail.get('url') or site_url + path, published=detail.get('start') or post.get('postedOn') or '',
+            location=location, url=detail.get('url') or site_url + path, published=_latest_posting(detail.get('start'), post.get('postedOn')),
             description=detail.get('description') or '', employment_type=detail.get('time_type') or '',
             source=f'Workday careers API ({host}/{site})', requisition_id=req_id,
             status=status, status_evidence=evidence))

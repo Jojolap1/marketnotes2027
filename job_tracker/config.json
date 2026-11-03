@@ -1078,6 +1078,36 @@
       "note": "Employers whose sites refuse automated requests: the user creates job alerts there (filtered on the target cities and markets roles) with the Gmail address in ALERT_EMAIL; this source reads them read-only. Advert pages are not fetched (the sites refuse scripts); the city filter set in the alert is trusted."
     },
     {
+      "company": "LinkedIn (job alerts)",
+      "platform": "email_alerts",
+      "days": 14,
+      "senders": [
+        "jobalerts-noreply@linkedin.com",
+        "jobs-noreply@linkedin.com",
+        "LinkedIn Job Alerts"
+      ],
+      "link_pattern": "linkedin\\.com/(?:comm/)?jobs/view/\\d+",
+      "company_from_text": true,
+      "job_id_pattern": "/jobs/view/(\\d+)",
+      "job_url": "https://www.linkedin.com/jobs/view/{}/",
+      "fetch_advert": false,
+      "note": "LinkedIn job alerts the user subscribes to (keywords such as 'sales trading intern', 'structured products', company pages), emailed to ALERT_EMAIL and read read-only; LinkedIn pages are never fetched. Employer read from the alert text, so cross-source duplicates collapse on company + title + city."
+    },
+    {
+      "company": "eFinancialCareers (job alerts)",
+      "platform": "email_alerts",
+      "days": 14,
+      "senders": [
+        "efinancialcareers"
+      ],
+      "link_pattern": "efinancialcareers\\.[a-z.]+/jobs-",
+      "company_from_text": true,
+      "job_id_pattern": "(?:\\.id|/)(\\d{6,})",
+      "job_url": "https://www.efinancialcareers.com/jobs-{}",
+      "fetch_advert": false,
+      "note": "eFinancialCareers job alerts emailed to ALERT_EMAIL"
+    },
+    {
       "company": "Huatai Securities",
       "platform": "official",
       "enabled": false,
