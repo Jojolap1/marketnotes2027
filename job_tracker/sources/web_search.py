@@ -13,9 +13,12 @@ snippet, date and URL.
   Paris, Île-de-France, France | LinkedIn') become a job with that title,
   employer and city.
 
-Budget: the searches run at most once every `refresh_hours` (results are kept
-in the detail cache in between) and only at `hours_utc`; the remaining quota
-is read first (free call) and the searches are skipped when it is too low.
+Budget: queries are split by city and role and rotated: each runs every
+`every_days` (Hong Kong and Singapore daily), at most `max_per_day` searches a
+day, and searches exactly the days since it last ran (no day searched twice,
+no gap). Results are kept in the detail cache until the next day; the
+remaining quota is read first (free call) and the searches are skipped when
+it is too low. The log gives each query's yield so weak ones can be reworded.
 The API key lives in GitHub secrets (SERPAPI_API_KEY). SerpApi wants it in the
 query string, so request errors are re-raised without the URL: the key never
 reaches the logs, which are public.
@@ -23,7 +26,7 @@ reaches the logs, which are public.
 import logging
 import os
 import re
-from datetime import timedelta
+from datetime import date, timedelta
 
 import requests
 
@@ -74,27 +77,61 @@ def fetch(source, ctx):
         # Between two searches: the last results stay listed, no query spent
         ctx.stat(name, 'results_from_cache' if cached is not None else 'not_due')
         return [dict(job) for job in (cached or [])]
-    queries = source['queries']
+    due = due_queries(source, ctx, forced)
+    if not due:
+        ctx.stat(name, 'not_due')
+        return []
     left = _call(ctx, ACCOUNT, {'api_key': key}).get('total_searches_left')
-    LOG.info('%s: %s searches left this month', name, left)
-    if isinstance(left, int) and left < len(queries):
+    LOG.info('%s: %s searches left this month, %d due today', name, left, len(due))
+    if isinstance(left, int) and left < len(due):
         ctx.stat(name, 'quota_too_low')
         ctx.stat(name, 'not_due')
         return []
     jobs = {}
-    for query in queries:
-        data = _call(ctx, API, {'engine': 'google', 'q': query, 'api_key': key,
-                                'tbs': source.get('tbs', 'qdr:w'), 'num': int(source.get('count', 10))})
+    today = ctx.now.date()
+    for query, since in due:
+        # Exactly the days since this query last ran: nothing searched twice, no gap
+        tbs = f'cdr:1,cd_min:{since:%m/%d/%Y},cd_max:{today:%m/%d/%Y}'
+        data = _call(ctx, API, {'engine': 'google', 'q': query['q'], 'api_key': key,
+                                'tbs': tbs, 'num': int(source.get('count', 10))})
         ctx.stat(name, 'queries')
+        ctx.cache.put('web-search-query:' + query['q'], today.isoformat())
         results = data.get('organic_results') or []
         ctx.stat(name, 'results', len(results))
+        linkedin = kept = 0
         for result in results:
+            linkedin += bool(POST_ID.search(result.get('link') or '') or JOB_ID.search(result.get('link') or ''))
             for job in result_jobs(result, source, ctx):
+                kept += 1
                 jobs.setdefault(job['id'], job)
+        # Per-query yield, to rework the queries that never bring anything
+        LOG.info('  %-28s since %s: %d results, %d LinkedIn posts/job pages, %d kept',
+                 query.get('label', query['q'][:28]), since, len(results), linkedin, kept)
     ctx.stat(name, 'listed', len(jobs))
-    LOG.info('%s: %d queries, %d jobs', name, len(queries), len(jobs))
+    LOG.info('%s: %d queries, %d jobs', name, len(due), len(jobs))
     ctx.cache.put(cache_key, list(jobs.values()))
     return list(jobs.values())
+
+
+def due_queries(source, ctx, forced=False):
+    """Today's queries: those not run for `every_days` days (Hong Kong and
+    Singapore ones run daily), most overdue first, at most `max_per_day`.
+    Each comes with the date it last ran (its search window starts there,
+    at most `max_window_days` back)."""
+    today = ctx.now.date()
+    longest = int(source.get('max_window_days', 7))
+    due = []
+    for n, query in enumerate(source['queries']):
+        query = query if isinstance(query, dict) else {'q': query}
+        every = int(query.get('every_days', 1))
+        last = ctx.cache.get('web-search-query:' + query['q'])
+        last = date.fromisoformat(last) if last else None
+        overdue = (today - last).days - every if last else 0
+        if forced or overdue >= 0:
+            since = max(last or today - timedelta(days=every), today - timedelta(days=longest))
+            due.append((-overdue, every, n, query, since))
+    due.sort(key=lambda d: d[:3])
+    return [(query, since) for *_, query, since in due[:int(source.get('max_per_day', 7))]]
 
 
 def _published(value, now):
