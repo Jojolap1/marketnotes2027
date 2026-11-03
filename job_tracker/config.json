@@ -1096,6 +1096,24 @@
       "note": "LinkedIn job alerts the user subscribes to (keywords such as 'sales trading intern', 'structured products', company pages), emailed to ALERT_EMAIL and read read-only; LinkedIn pages are never fetched. Employer read from the alert text, so cross-source duplicates collapse on company + title + city."
     },
     {
+      "company": "LinkedIn (posts)",
+      "platform": "email_alerts",
+      "days": 14,
+      "posts": true,
+      "fetch_advert": false,
+      "senders": [
+        "notifications-noreply@linkedin.com",
+        "updates-noreply@linkedin.com",
+        "messages-noreply@linkedin.com",
+        "messaging-digest-noreply@linkedin.com",
+        "newsletters-noreply@linkedin.com",
+        "inmail-hit-reply@linkedin.com",
+        "hit-reply@linkedin.com"
+      ],
+      "link_pattern": "linkedin\\.com",
+      "note": "Hiring posts ('We're hiring a Sales & Trading intern in London...') from people and company pages the user follows, as LinkedIn emails them (post notifications, digests, recruiter messages). Read read-only from ALERT_EMAIL; a post is kept only if it says it is hiring and one sentence names a targeted role; the usual city / entry-level / experience filters then apply. LinkedIn pages are never fetched."
+    },
+    {
       "company": "eFinancialCareers (job alerts)",
       "platform": "email_alerts",
       "days": 14,
