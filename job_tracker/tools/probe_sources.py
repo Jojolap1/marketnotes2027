@@ -2536,6 +2536,30 @@ PROBES = PROBES + R73
 R74 = [('R74 Wellington', lambda: workday_raw('wellington.wd5.myworkdayjobs.com', 'wellington', 'External'))]
 PROBES = PROBES + R74
 
+
+def serp_variants():
+    """3 searches: does as_sitesearch / the OR groups make Google drop site:?"""
+    import os
+    key = os.environ.get('SERPAPI_API_KEY', '')
+    q_or = 'site:linkedin.com/posts (hiring OR "looking for") (trading OR "sales & trading" OR structuring OR derivatives) (intern OR internship OR graduate OR "summer analyst") London'
+    variants = [('OR groups, no as_sitesearch', q_or, {}),
+                ('OR groups, as_sitesearch', q_or, {'as_sitesearch': 'linkedin.com'}),
+                ('simple', 'site:linkedin.com/posts hiring trading intern London', {})]
+    out = []
+    for label, q, extra in variants:
+        try:
+            r = S.get('https://serpapi.com/search.json', params=dict({'engine': 'google', 'q': q, 'api_key': key, 'tbs': 'qdr:w', 'num': 10}, **extra), timeout=60)
+            res = r.json().get('organic_results') or []
+            hosts = [re.sub(r'^https?://([^/]+)/([^/]*).*', r'\1/\2', x.get('link', '')) for x in res]
+            out.append(f'{label}: HTTP {r.status_code} {len(res)} results, linkedin/posts={sum("linkedin.com/posts" in h for h in hosts)} -> {hosts}')
+        except Exception as exc:
+            out.append(f'{label}: {type(exc).__name__}')
+    return '\n'.join(out)
+
+
+R75 = [('R75 serp variants', serp_variants)]
+PROBES = PROBES + R75
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

@@ -248,7 +248,8 @@
       "\\bmarch[ée]s de capitaux\\b(?!.{0,30}\\b(?:vente|vendeur|sales|trad(?:ing|er)|structur))",
       "\\b(?:project|acquisition|real estate|asset|export|trade|leveraged) financ\\w*\\b|\\bfinancements? (?:de projets?|d'acquisition|immobiliers?|export)\\b",
       "\\bteam assistant\\b",
-      "\\b(?:uae|emirati|saudi|qatari|omani|kuwaiti|bahraini) nationals?\\b|\\bnationals only\\b|\\bemiratisation\\b"
+      "\\b(?:uae|emirati|saudi|qatari|omani|kuwaiti|bahraini) nationals?\\b|\\bnationals only\\b|\\bemiratisation\\b",
+      "\\b(?:sales )?incentive\\b|\\bcompensation\\b"
     ],
     "entry_types": {
       "vie": [
