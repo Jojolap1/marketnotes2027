@@ -666,43 +666,70 @@ class LinkedInPostTests(unittest.TestCase):
 
 
 class WebSearchTests(unittest.TestCase):
-    SRC = {'company': 'LinkedIn (web search)', 'platform': 'web_search', 'queries': ['q1', 'q2']}
+    SRC = {'company': 'LinkedIn (web search)', 'platform': 'web_search', 'queries': ['q1', 'q2'], 'hours_utc': [4, 11]}
 
-    def run_fetch(self, results, key='SECRETKEY123', hour=4):
+    def run_fetch(self, results, key='SECRETKEY123', hour=4, left=200, cache=None, force=''):
         import os
         from datetime import datetime, timezone
         from unittest import mock
         from sources import web_search
-        ctx = context({'api.search.brave.com': json.dumps({'web': {'results': results}})},
+        ctx = context({'serpapi.com/account.json': json.dumps({'total_searches_left': left}),
+                       'serpapi.com/search.json': json.dumps({'organic_results': results})},
                       now=datetime(2026, 11, 3, hour, 5, tzinfo=timezone.utc))
-        with mock.patch.dict(os.environ, {'BRAVE_SEARCH_API_KEY': key}):
-            jobs = web_search.fetch(dict(self.SRC, hours_utc=[4, 11]), ctx)
+        if cache is not None:
+            ctx.cache = cache
+        with mock.patch.dict(os.environ, {'SERPAPI_API_KEY': key, 'WEB_SEARCH_FORCE': force}):
+            jobs = web_search.fetch(dict(self.SRC), ctx)
         return jobs, ctx
 
-    def test_posts_and_job_pages_from_search_results(self):
-        results = [
-            {'url': 'https://www.linkedin.com/posts/jane-smith_hiring-activity-7259999999999999999-AbCd?utm=x',
-             'title': 'Jane Smith on LinkedIn: #hiring', 'page_age': '2026-11-01T08:00:00',
-             'description': 'We are <strong>hiring</strong>! Our rates trading desk is looking for a graduate analyst in Singapore.'},
-            {'url': 'https://www.linkedin.com/jobs/view/structured-products-sales-intern-at-bnp-paribas-4123456789',
-             'title': 'BNP Paribas hiring Structured Products Sales Intern in Paris, Île-de-France, France | LinkedIn',
-             'description': 'Privalto team, 6-month internship starting January 2027.'},
-            {'url': 'https://www.linkedin.com/in/someone', 'title': 'Someone - Trader', 'description': 'hiring'}]
-        jobs, ctx = self.run_fetch(results)
-        self.assertEqual(sorted(j['id'] for j in jobs), ['linkedin-job:4123456789', 'post:linkedin:7259999999999999999'])
-        page = next(j for j in jobs if j['id'].startswith('linkedin-job'))
-        self.assertEqual((page['company'], page['title'], page['location']),
-                         ('BNP Paribas', 'Structured Products Sales Intern', 'Paris'))
-        post = next(j for j in jobs if j['id'].startswith('post'))
-        self.assertEqual(post['location'], 'Singapore')
-        self.assertEqual(post['published'], '2026-11-01')
-        # one request per query, the key only in a header
-        self.assertEqual(len(ctx.http.calls), 2)
-        self.assertTrue(all('SECRETKEY' not in url for _, url, _ in ctx.http.calls))
+    RESULTS = [
+        {'link': 'https://www.linkedin.com/posts/jane-smith_hiring-activity-7259999999999999999-AbCd?utm=x',
+         'title': 'Jane Smith on LinkedIn: #hiring', 'date': '2 days ago',
+         'snippet': 'We are <b>hiring</b>! Our rates trading desk is looking for a graduate analyst in Singapore.'},
+        {'link': 'https://www.linkedin.com/jobs/view/structured-products-sales-intern-at-bnp-paribas-4123456789',
+         'title': 'BNP Paribas hiring Structured Products Sales Intern in Paris, Île-de-France, France | LinkedIn',
+         'snippet': 'Privalto team, 6-month internship starting January 2027.', 'date': 'Oct 30, 2026'},
+        {'link': 'https://hk.linkedin.com/jobs/view/fx-trading-graduate-4199999999',
+         'title': 'FX Trading Graduate - HSBC - LinkedIn', 'snippet': 'Hong Kong SAR · Graduate programme 2027'},
+        {'link': 'https://www.linkedin.com/in/someone', 'title': 'Someone - Trader', 'snippet': 'hiring'}]
 
-    def test_inactive_without_key_or_outside_its_hours(self):
-        jobs, ctx = self.run_fetch([], key='')
-        self.assertEqual((jobs, ctx.http.calls), ([], []))
-        self.assertTrue(ctx.stats['LinkedIn (web search)']['not_due'])
-        jobs, ctx = self.run_fetch([], hour=7)
-        self.assertEqual((jobs, ctx.http.calls), ([], []))
+    def test_posts_and_job_pages_from_search_results(self):
+        jobs, ctx = self.run_fetch(self.RESULTS)
+        by_id = {j['id']: j for j in jobs}
+        self.assertEqual(sorted(by_id), ['linkedin-job:4123456789', 'linkedin-job:4199999999', 'post:linkedin:7259999999999999999'])
+        page = by_id['linkedin-job:4123456789']
+        self.assertEqual((page['company'], page['title'], page['location'], page['published']),
+                         ('BNP Paribas', 'Structured Products Sales Intern', 'Paris', '2026-10-30'))
+        dash = by_id['linkedin-job:4199999999']
+        self.assertEqual((dash['company'], dash['title'], dash['location']), ('HSBC', 'FX Trading Graduate', 'Hong Kong'))
+        post = by_id['post:linkedin:7259999999999999999']
+        self.assertEqual((post['location'], post['published']), ('Singapore', '2026-11-01'))
+        # quota check + one request per query
+        self.assertEqual(len(ctx.http.calls), 3)
+
+    def test_results_cached_between_daily_searches(self):
+        jobs, ctx = self.run_fetch(self.RESULTS)
+        again, ctx2 = self.run_fetch([], cache=ctx.cache)
+        self.assertEqual(ctx2.http.calls, [])
+        self.assertEqual(sorted(j['id'] for j in again), sorted(j['id'] for j in jobs))
+        forced, ctx3 = self.run_fetch(self.RESULTS, cache=ctx.cache, force='1')
+        self.assertEqual(len(ctx3.http.calls), 3)
+
+    def test_inactive_without_key_outside_hours_or_quota(self):
+        for kwargs in ({'key': ''}, {'hour': 20}):
+            jobs, ctx = self.run_fetch(self.RESULTS, **kwargs)
+            self.assertEqual((jobs, ctx.http.calls), ([], []), kwargs)
+            self.assertTrue(ctx.stats['LinkedIn (web search)']['not_due'])
+        jobs, ctx = self.run_fetch(self.RESULTS, left=1)
+        self.assertEqual((jobs, len(ctx.http.calls)), ([], 1))
+
+    def test_errors_never_show_the_key(self):
+        import os
+        from unittest import mock
+        from sources import web_search
+        ctx = context({'serpapi.com/account.json': (500, '{}')})
+        with mock.patch.dict(os.environ, {'SERPAPI_API_KEY': 'SECRETKEY123'}):
+            with self.assertRaises(web_search.SearchError) as err:
+                web_search.fetch(dict(self.SRC, hours_utc=None), ctx)
+        self.assertNotIn('SECRETKEY', str(err.exception))
+        self.assertTrue(all('SECRETKEY' not in url for _, url, _ in ctx.http.calls))

@@ -15,6 +15,10 @@ on:
         description: Dry run (no Telegram alerts, no state commit)
         type: boolean
         default: false
+      web_search:
+        description: Run the LinkedIn web searches now (spends ~8 of the monthly SerpApi searches)
+        type: boolean
+        default: false
   push:
     branches-ignore: [main]
     paths:
@@ -95,7 +99,9 @@ jobs:
           # BNP Paribas job alerts in the user's mailbox (read-only IMAP, app password)
           ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
           ALERT_EMAIL_APP_PASSWORD: ${{ secrets.ALERT_EMAIL_APP_PASSWORD }}
-          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+          # LinkedIn public posts via SerpApi (once a day; a manual run can force it)
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+          WEB_SEARCH_FORCE: ${{ inputs.web_search && '1' || '' }}
         run: python tracker.py
 
       - name: Print diagnostic report
