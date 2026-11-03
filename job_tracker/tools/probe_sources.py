@@ -2484,6 +2484,58 @@ def ocbc_dates():
 R71 = [('R71 OCBC dates', ocbc_dates)]
 PROBES = PROBES + R71
 
+
+def robots(host):
+    r = get(f'https://{host}/robots.txt')
+    lines = [l.strip() for l in r.text.splitlines() if l.strip() and not l.startswith('#')]
+    return f'HTTP {r.status_code} ' + ' | '.join(lines[:40])
+
+
+def page_shape(url):
+    r = get(url)
+    t = r.text
+    title = re.findall(r'<title[^>]*>(.*?)</title>', t, re.S | re.I)[:1]
+    feeds = sorted(set(re.findall(r'(?:rss|atom|feed|api|json|graphql|__NEXT_DATA__|sitemap)[^"\'\s<>]{0,80}', t, re.I)))[:15]
+    jobs = sorted(set(re.findall(r'href="([^"]*(?:intern|job|offer|graduate|position)[^"]*)"', t, re.I)))[:12]
+    terms = sorted(set(re.findall(r'href="([^"]*(?:terms|tos|legal|conditions)[^"]*)"', t, re.I)))[:5]
+    return f'HTTP {r.status_code} final={r.url} len={len(t)} title={title} feeds={feeds} job_links={jobs} terms={terms}'
+
+
+def text_grep(url, pattern, width=300):
+    r = get(url)
+    from bs4 import BeautifulSoup as BS
+    t = re.sub(r'\s+', ' ', BS(r.text, 'html.parser').get_text(' '))
+    return f'HTTP {r.status_code} len={len(t)} ' + ' || '.join(m.group(0)[:width] for m in re.finditer(pattern, t, re.I))[:3000]
+
+
+R72 = [
+    ('R72 offcycle robots', lambda: robots('offcycle.net')),
+    ('R72 offcycle HK', lambda: page_shape('https://offcycle.net/internships/off-cycle/hong-kong/')),
+    ('R72 offcycle SG', lambda: page_shape('https://offcycle.net/internships/off-cycle/singapore/')),
+    ('R72 offcycle terms', lambda: text_grep('https://offcycle.net/terms', r'.{0,200}(?:scrap|automat|robot|crawl|bot)\w*.{0,200}')),
+    ('R72 fyntraq robots', lambda: robots('fyntraq.io')),
+    ('R72 fyntraq home', lambda: page_shape('https://fyntraq.io/')),
+    ('R72 fyntraq offer', lambda: page_shape('https://fyntraq.io/offers/2027-apej-singapore-ficc-and-equities-sales-and-trading-summer-analyst')),
+    ('R72 simplify robots', lambda: robots('simplify.jobs')),
+    ('R72 simplify github', lambda: grep_page('https://api.github.com/orgs/SimplifyJobs/repos?per_page=50', r'"full_name": ?"[^"]+"', n=50)),
+]
+PROBES = PROBES + R72
+
+
+def employer_links(url):
+    r = get(url)
+    links = sorted(set(re.findall(r'href="(https?://(?!offcycle)[^"]+)"', r.text)))
+    return f'HTTP {r.status_code} ' + '\n'.join(l[:160] for l in links if 'offcycle' not in l)[:6000]
+
+
+R73 = [('R73 offcycle HK employers', lambda: employer_links('https://offcycle.net/internships/off-cycle/hong-kong/')),
+       ('R73 offcycle SG employers', lambda: employer_links('https://offcycle.net/internships/off-cycle/singapore/'))]
+PROBES = PROBES + R73
+
+
+R74 = [('R74 Wellington', lambda: workday_raw('wellington.wd5.myworkdayjobs.com', 'wellington', 'External'))]
+PROBES = PROBES + R74
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
