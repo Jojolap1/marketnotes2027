@@ -161,11 +161,16 @@ def post_jobs(blocks, source, ctx, published, evidence):
         for s in SENTENCE.split(text):
             start, pos = text.find(s, pos), pos + len(s)
             s = _hiring_verb(s.strip(' ¶'))[:160]
-            if (len(s) >= 12 and any(a <= start <= b for a, b in near)
+            if (len(s) >= 12 and len(re.findall(r'\w+', s)) >= 3 and any(a <= start <= b for a, b in near)
                     and ctx.title_worth_fetching(s)):
                 title = s
                 break
-        if not title:
+        # The sentence announcing the hire names a back-office role ('We're
+        # hiring in Dubai: Tax Consultant Intern'): a 'tax structuring' word
+        # elsewhere does not make it a markets job
+        announce = [_hiring_verb(x) for x in SENTENCE.split(text) if HIRING.search(x)]
+        if not title or any(p.search(x) and not ctx.title_worth_fetching(x)
+                            for x in announce for p in ctx.classifier.non_front_office):
             continue
         author = AUTHOR.search(text)
         company = author.group(1).strip() if author else source['company']

@@ -620,6 +620,11 @@ class LinkedInPostTests(unittest.TestCase):
         self.assertTrue(job['employment_type'].startswith('graduates'))
         self.assertTrue(Classifier(load_config()).classify(job).eligible)
 
+    def test_back_office_hire_with_a_markets_word_elsewhere_is_ignored(self):
+        html = ('<a href="https://www.linkedin.com/feed/update/urn:li:activity:7250000000000000003">'
+                "We're hiring in Dubai: Tax Consultant Intern ¶ Support our corporate tax structuring and compliance work for clients.</a>")
+        self.assertEqual(self.parse(html), [])
+
     def test_hiring_post_for_a_non_targeted_role_is_ignored(self):
         html = ('<a href="https://www.linkedin.com/feed/update/urn:li:activity:7253333333333333333">'
                 "We're hiring a Marketing intern in Singapore! Apply now.</a>")
