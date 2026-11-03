@@ -681,20 +681,18 @@ class WebSearchTests(unittest.TestCase):
         from datetime import datetime, timezone
         from sources.web_search import due_queries
         ctx = context({}, now=datetime(2026, 11, 10, 4, tzinfo=timezone.utc))
-        src = {'max_per_day': 3, 'max_window_days': 7, 'index_lag_days': 0, 'queries': [
+        src = {'max_per_day': 3, 'queries': [
             {'q': 'hk', 'every_days': 1}, {'q': 'ldn', 'every_days': 2}, {'q': 'dubai', 'every_days': 3},
             {'q': 'paris', 'every_days': 3}, {'q': 'old', 'every_days': 2}]}
         ctx.cache.put('web-search-query:hk', '2026-11-09')
         ctx.cache.put('web-search-query:ldn', '2026-11-09')     # ran yesterday: not due
         ctx.cache.put('web-search-query:dubai', '2026-11-07')
         ctx.cache.put('web-search-query:paris', '2026-11-08')   # 2 days < 3: not due
-        ctx.cache.put('web-search-query:old', '2026-10-20')     # long overdue: first, window capped at 7 days
+        ctx.cache.put('web-search-query:old', '2026-10-20')     # long overdue: first
         due = [(q['q'], str(since)) for q, since in due_queries(src, ctx)]
-        self.assertEqual(due, [('old', '2026-11-03'), ('hk', '2026-11-09'), ('dubai', '2026-11-07')])
+        self.assertEqual(due, [('old', '2026-10-20'), ('hk', '2026-11-09'), ('dubai', '2026-11-07')])
         src['max_per_day'] = 2
         self.assertEqual([q['q'] for q, _ in due_queries(src, ctx)], ['old', 'hk'])
-        src['index_lag_days'] = 3   # late indexing: window starts 3 days before the last run
-        self.assertEqual([str(d) for _, d in due_queries(src, ctx)], ['2026-11-03', '2026-11-06'])
 
     def run_fetch(self, results, key='SECRETKEY123', hour=4, left=200, cache=None, force=''):
         import os

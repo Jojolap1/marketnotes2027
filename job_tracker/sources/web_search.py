@@ -15,8 +15,8 @@ snippet, date and URL.
 
 Budget: queries are split by city and role and rotated: each runs every
 `every_days` (Hong Kong and Singapore daily), at most `max_per_day` searches a
-day, and searches the days since it last ran plus `index_lag_days` (Google indexes
-posts late; posts already seen are deduplicated). Results are kept in the detail cache until the next day; the
+day, each over the past week (Google ignores the site: filter with a custom
+date range; posts already seen are deduplicated). Results are kept in the detail cache until the next day; the
 remaining quota is read first (free call) and the searches are skipped when
 it is too low. The log gives each query's yield so weak ones can be reworded.
 The API key lives in GitHub secrets (SERPAPI_API_KEY). SerpApi wants it in the
@@ -91,12 +91,13 @@ def fetch(source, ctx):
         return []
     jobs = {}
     today = ctx.now.date()
-    for query, since in due:
-        # Exactly the days since this query last ran: nothing searched twice, no gap
-        tbs = f'cdr:1,cd_min:{since:%m/%d/%Y},cd_max:{today:%m/%d/%Y}'
+    for query, last in due:
+        # Past week (Google drops the site: filter with a custom date range,
+        # tested 2026-11-03); posts already seen are deduplicated
         try:
             data = _call(ctx, API, {'engine': 'google', 'q': query['q'], 'api_key': key,
-                                    'tbs': tbs, 'num': int(source.get('count', 10))})
+                                    'tbs': source.get('tbs', 'qdr:w'), 'as_sitesearch': 'linkedin.com',
+                                    'num': int(source.get('count', 10))})
         except SearchError as exc:   # one slow search must not lose the others; retried next run
             LOG.warning('  %-28s failed: %s', query.get('label', query['q'][:28]), exc)
             ctx.stat(name, 'query_errors')
@@ -117,8 +118,8 @@ def fetch(source, ctx):
                 kept += 1
                 jobs.setdefault(job['id'], job)
         # Per-query yield, to rework the queries that never bring anything
-        LOG.info('  %-28s since %s: %d results, %d LinkedIn posts/job pages, %d kept',
-                 query.get('label', query['q'][:28]), since, len(results), linkedin, kept)
+        LOG.info('  %-28s (last run %s): %d results, %d LinkedIn posts/job pages, %d kept',
+                 query.get('label', query['q'][:28]), last or 'never', len(results), linkedin, kept)
         if other:   # public pages Google returned that are neither posts nor job pages
             LOG.info('    other pages: %s', ', '.join(other[:4]))
     ctx.stat(name, 'listed', len(jobs))
@@ -132,13 +133,10 @@ def fetch(source, ctx):
 
 
 def due_queries(source, ctx, forced=False):
-    """Today's queries: those not run for `every_days` days (Hong Kong and
-    Singapore ones run daily), most overdue first, at most `max_per_day`.
-    Each comes with the date it last ran (its search window starts there,
-    at most `max_window_days` back)."""
+    """Today's queries with the date each last ran (None: never): those not
+    run for `every_days` days (Hong Kong and Singapore ones run daily), most
+    overdue first, at most `max_per_day`."""
     today = ctx.now.date()
-    longest = int(source.get('max_window_days', 7))
-    lag = int(source.get('index_lag_days', 3))
     due = []
     for n, query in enumerate(source['queries']):
         query = query if isinstance(query, dict) else {'q': query}
@@ -147,13 +145,9 @@ def due_queries(source, ctx, forced=False):
         last = date.fromisoformat(last) if last else None
         overdue = (today - last).days - every if last else 0
         if forced or overdue >= 0:
-            # Google often indexes a post days after it was published: the
-            # window reaches `index_lag_days` before the last run (seen posts dedupe)
-            start = (last or today - timedelta(days=every)) - timedelta(days=lag)
-            since = max(start, today - timedelta(days=longest))
-            due.append((-overdue, every, n, query, since))
+            due.append((-overdue, every, n, query, last))
     due.sort(key=lambda d: d[:3])
-    return [(query, since) for *_, query, since in due[:int(source.get('max_per_day', 7))]]
+    return [(query, last) for *_, query, last in due[:int(source.get('max_per_day', 7))]]
 
 
 def _published(value, now):

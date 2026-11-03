@@ -1205,9 +1205,9 @@
         14,
         15
       ],
-      "note": "Public LinkedIn posts (recruiters, desk staff, company pages) and job pages found through SerpApi (Google results, official API; key in the SERPAPI_API_KEY secret). Only the search result (title, snippet, date, URL) is read, LinkedIn is never fetched. 14 queries by city and role, rotated: Hong Kong and Singapore daily, others every 2-3 days, at most 7 searches a day (about 210 a month, under the free plan's 250; remaining quota checked first). Each query searches exactly the days since it last ran. The log gives each query's yield (results / LinkedIn pages / kept) to rework the weak ones. Same post id as 'LinkedIn (posts)'.",
+      "note": "Public LinkedIn posts (recruiters, desk staff, company pages) and job pages found through SerpApi (Google results, official API; key in the SERPAPI_API_KEY secret). Only the search result (title, snippet, date, URL) is read, LinkedIn is never fetched. 14 queries by city and role, rotated: Hong Kong and Singapore daily, others every 2-3 days, at most 7 searches a day (about 210 a month, under the free plan's 250; remaining quota checked first). Each search covers the past week (with a custom date range Google ignored site:linkedin.com, tested 2026-11-03); posts already seen are deduplicated. The log gives each query's yield (results / LinkedIn pages / kept) to rework the weak ones. Same post id as 'LinkedIn (posts)'.",
       "max_per_day": 7,
-      "max_window_days": 7
+      "tbs": "qdr:w"
     },
     {
       "company": "eFinancialCareers (job alerts)",
