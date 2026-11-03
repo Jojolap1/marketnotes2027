@@ -78,6 +78,28 @@ def company_key(name):
 VIE_MARK = re.compile(r'^(?:v i e|vie)\b\s*|\s*\b(?:v i e|vie)$')
 
 
+def borrow_descriptions(jobs):
+    """Title-only offers (LinkedIn / eFinancialCareers alerts) borrow the
+    advert text of the same offer on the employer's own site, read in the
+    same run, so its experience requirement is checked. LinkedIn pages are
+    never fetched (LinkedIn forbids robots). Returns the number matched."""
+    def key(job):
+        return company_key(job.get('company')), VIE_MARK.sub('', normalized_title(job.get('title'))).strip()
+    official = {}
+    for job in jobs:
+        if not job.get('title_only') and len(job.get('description') or '') > 200:
+            official.setdefault(key(job), job)
+    matched = 0
+    for job in jobs:
+        twin = job.get('title_only') and official.get(key(job))
+        if twin:
+            job['description'] = twin['description']
+            job['title_only'] = False
+            job['description_from'] = twin.get('url', '')
+            matched += 1
+    return matched
+
+
 def fingerprints(job, city=''):
     """All identity keys for a job. Any match against history means 'seen'."""
     keys = []

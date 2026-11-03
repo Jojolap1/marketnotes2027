@@ -269,3 +269,20 @@ class TitleOnlySourceTests(unittest.TestCase):
         for title in ('2027 Public Markets Equities Graduate Trainee (HK)', 'Junior Trader', 'Investment Analyst Intern',
                       'Graduate Analyst - Global Markets', 'Summer Analyst 2027 - Sales & Trading'):
             self.assertTrue(self.classify(title, title_only=True).eligible, title)
+
+    def test_title_only_offer_borrows_the_official_advert_text(self):
+        from jobs import borrow_descriptions
+        from filters import Classifier
+        from tracker import load_config
+        official = {'title': 'Investment Analyst', 'company': 'Fidelity International', 'location': 'Hong Kong',
+                    'url': 'https://fil.example/job/1',
+                    'description': 'You will support the team. Requirements: at least 4 years of experience in equity research. ' * 3}
+        linkedin = {'title': 'Investment Analyst', 'company': 'Fidelity International', 'location': 'Hong Kong',
+                    'description': 'Fidelity International · Hong Kong', 'title_only': True}
+        other = {'title': 'Research Analyst', 'company': 'Neuberger', 'location': 'Hong Kong',
+                 'description': '', 'title_only': True}
+        self.assertEqual(borrow_descriptions([linkedin, official, other]), 1)
+        self.assertFalse(linkedin['title_only'])
+        c = Classifier(load_config()).classify(linkedin)
+        self.assertEqual(c.reject_reason, 'requires 4+ years of experience')
+        self.assertTrue(other['title_only'])
