@@ -2566,6 +2566,26 @@ R76 = [('R76 serp domain variants', lambda: (os.environ.__setitem__('SERP_ROUND'
 PROBES = PROBES + R76
 PROBES = PROBES + R75
 
+
+def serp_engines():
+    import os
+    key = os.environ.get('SERPAPI_API_KEY', '')
+    q = 'site:linkedin.com/posts hiring trading intern London'
+    out = []
+    for engine, extra in (('bing', {}), ('duckduckgo', {'kl': 'uk-en'})):
+        try:
+            r = S.get('https://serpapi.com/search.json', params=dict({'engine': engine, 'q': q, 'api_key': key}, **extra), timeout=60)
+            res = r.json().get('organic_results') or []
+            hosts = [re.sub(r'^https?://([^/]+)/([^/]*)/?([^/?]{0,60}).*', r'\1/\2/\3', x.get('link', '')) for x in res]
+            out.append(f'{engine}: HTTP {r.status_code} {len(res)} results, linkedin/posts={sum("linkedin.com/posts" in h for h in hosts)} -> {hosts[:10]} dates={[x.get("date") for x in res][:10]}')
+        except Exception as exc:
+            out.append(f'{engine}: {type(exc).__name__}')
+    return '\n'.join(out)
+
+
+R77 = [('R77 serp engines', serp_engines)]
+PROBES = PROBES + R77
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
