@@ -2521,6 +2521,17 @@ R72 = [
 ]
 PROBES = PROBES + R72
 
+
+def employer_links(url):
+    r = get(url)
+    links = sorted(set(re.findall(r'href="(https?://(?!offcycle)[^"]+)"', r.text)))
+    return f'HTTP {r.status_code} ' + '\n'.join(l[:160] for l in links if 'offcycle' not in l)[:6000]
+
+
+R73 = [('R73 offcycle HK employers', lambda: employer_links('https://offcycle.net/internships/off-cycle/hong-kong/')),
+       ('R73 offcycle SG employers', lambda: employer_links('https://offcycle.net/internships/off-cycle/singapore/'))]
+PROBES = PROBES + R73
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
