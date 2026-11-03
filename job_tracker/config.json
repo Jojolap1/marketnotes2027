@@ -562,9 +562,7 @@
       "platform": "workday",
       "host": "ocbc.wd102.myworkdayjobs.com",
       "tenant": "ocbc",
-      "site": "External",
-      "backfill_until": "2026-11-04",
-      "note": "One-time send (user request 2026-11-03) of open OCBC internships posted 25/09, before the tracker started"
+      "site": "External"
     },
     {
       "company": "Santander CIB",
