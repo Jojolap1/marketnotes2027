@@ -1,4 +1,4 @@
-"""Employer job-alert emails read from the user's own mailbox (BNP Paribas).
+"""Job alerts and LinkedIn hiring posts read from the user's own mailbox.
 
 group.bnpparibas refuses automated requests, but BNP Paribas mails its job
 alerts to the user. The mailbox is read over IMAP with an app password kept
@@ -38,7 +38,7 @@ def _html(message):
             html += decoded
         else:
             text += decoded
-    return html or '<pre>' + re.sub(r'(https?://\S+)', r'<a href="\1">\1</a>', text) + '</pre>'
+    return html or '<pre>' + re.sub(r'(https?://\S+)', r'<a href="\1">\1</a>', text).replace('\n', '<br>') + '</pre>'
 
 
 def parse_alert(raw, source, ctx):
@@ -84,6 +84,92 @@ def parse_alert(raw, source, ctx):
     return jobs
 
 
+# --- LinkedIn posts ('We're hiring...') emailed as notifications -------------
+POST_LINK = re.compile(r'linkedin\.com/(?:comm/)?(?:feed/update/urn:li:(?:activity|share|ugcPost):(\d+)|posts/[^"?#\s]*?(\d{15,}))', re.I)
+HIRING = re.compile(
+    r"#?\bhiring\b|\brecrut\w*|\brecruit(?:ing|s)?\b|\bwe(?:'|’| a)re looking for\b|\b(?:is|are) looking for\b|\blooking for an? \w+|"
+    r"\bjoin (?:our|my|the) (?:team|desk|group)|\brejoindre (?:notre|mon|l')|\bnous recherchons\b|\bje recherche\b|"
+    r"\bopen (?:role|position)s?\b|\bopenings?\b|\bvacanc\w+|\bposte[s]? (?:à pourvoir|ouverts?)\b|"
+    r"\bapplications? (?:are )?(?:now )?open\b|\bcandidatures? (?:sont )?ouvertes\b|\bapply\b|\bpostule[rz]\b|"
+    r"\b(?:send|share) (?:me )?(?:your|vos|ton) (?:cv|resume)\b|\benvoye[rz] (?:vos|votre|ton) cv\b", re.I)
+AUTHOR = re.compile(r"([A-Z][^\n.!?:]{1,70}?)\s+(?:posted|shared|reposted|commented|is hiring|a publié|a partagé|a republié|recrute)\b")
+SENTENCE = re.compile(r'(?<=[.!?])\s+|\s+[|•·¶]\s+')
+BREAK = re.compile(r'<br\s*/?>|</(?:p|div|li|tr|td|h\d)>', re.I)
+
+
+def parse_posts(raw, source, ctx):
+    """Hiring posts in a LinkedIn notification / digest / message email.
+
+    A post becomes a job only when it says it is hiring and one of its
+    sentences names a targeted role: that sentence is the title, the post text
+    is the description (entry-level and experience checks), the city is read
+    in the post. LinkedIn itself is never fetched: the post link is the URL."""
+    message = email.message_from_bytes(raw)
+    try:
+        received = parsedate_to_datetime(message.get('Date')).date().isoformat()
+    except (TypeError, ValueError):
+        received = ''
+    html = BREAK.sub(' ¶ ', _html(message))   # keep the post's line breaks as sentence ends
+    # Each link spans its whole <a ...>...</a>, so the post text inside belongs to it
+    links = [(html.rfind('<', 0, m.start()), _tag_end(html, m.end()), m.group(1) or m.group(2))
+             for m in POST_LINK.finditer(html)]
+    blocks = []
+    if links:
+        ids = list(dict.fromkeys(i for _, _, i in links))
+        spans = {i: (min(a for a, _, j in links if j == i), max(b for _, b, j in links if j == i)) for i in ids}
+        for n, i in enumerate(ids):
+            lo = spans[ids[n - 1]][1] if n else 0
+            hi = spans[ids[n + 1]][0] if n + 1 < len(ids) else len(html)
+            a, b = spans[i]
+            # A post's text sits around its link(s), never across another post
+            block = html_to_text(html[max(lo, a - 2500):min(hi, b + 2500)])
+            blocks.append((i, f'https://www.linkedin.com/feed/update/urn:li:activity:{i}/', block))
+    else:
+        # Messages (InMail) carry no post link: the email itself is the post
+        key = re.sub(r'\W', '', message.get('Message-ID') or '')[-40:] or received
+        thread = re.search(r'https://www\.linkedin\.com/(?:comm/)?messaging/[^"\s]*', html)
+        blocks.append((key, thread.group(0).split('?')[0] if thread else 'https://www.linkedin.com/messaging/',
+                       html_to_text(html)))
+    jobs = []
+    for key, url, text in blocks:
+        ctx.stat(source['company'], 'posts')
+        if not HIRING.search(text):
+            continue
+        ctx.stat(source['company'], 'hiring_posts')
+        # 'recruiting' would read as a recruiter job (non front-office title)
+        # and the role must sit next to the hiring words, not elsewhere in a digest
+        near = [(max(0, m.start() - 400), m.end() + 400) for m in HIRING.finditer(text)]
+        title, pos = '', 0
+        for s in SENTENCE.split(text):
+            start, pos = text.find(s, pos), pos + len(s)
+            s = _hiring_verb(s.strip(' ¶'))[:160]
+            if (len(s) >= 12 and any(a <= start <= b for a, b in near)
+                    and ctx.title_worth_fetching(s)):
+                title = s
+                break
+        if not title:
+            continue
+        author = AUTHOR.search(text)
+        company = author.group(1).strip() if author else source['company']
+        jobs.append(make_job(
+            id=f'post:{source["company"]}:{key}', company=company, title=title,
+            location=ctx.city_of(text), url=url, published=received, description=re.sub(r'\s*¶\s*', ' ', text).strip()[:3000],
+            employment_type='LinkedIn post (read it for how to apply)',
+            source=f'LinkedIn post ({source["company"]})', status='unknown',
+            status_evidence=f'hiring post emailed by LinkedIn on {received or "an unknown date"}'))
+    return jobs
+
+
+def _tag_end(html, pos):
+    end = html.find('</a>', pos)
+    return end + 4 if end >= 0 else pos
+
+
+def _hiring_verb(sentence):
+    sentence = re.sub(r'\brecruit\w*', 'hiring', sentence, flags=re.I)
+    return re.sub(r'\brecrut\w*', 'recherche', sentence, flags=re.I)
+
+
 def _employer(context):
     """Employer named right after the title in job-board alerts."""
     head = re.split(r'\s+(?:·|•|\||–|-)\s+', context.strip(), maxsplit=1)
@@ -120,7 +206,8 @@ def fetch(source, ctx):
             for num in found:
                 status, data = box.fetch(num, '(BODY.PEEK[])')   # PEEK: leaves the mail unread
                 if status == 'OK' and data and isinstance(data[0], tuple):
-                    for job in parse_alert(data[0][1], alert, ctx):
+                    parse = parse_posts if alert.get('posts') else parse_alert
+                    for job in parse(data[0][1], alert, ctx):
                         job['_alert'] = alert
                         jobs.setdefault(job['id'], job)
         LOG.info('%s: %d alert emails since %s', source['company'], emails, since)

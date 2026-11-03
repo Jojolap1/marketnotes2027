@@ -579,3 +579,65 @@ class JobBoardAlertTests(unittest.TestCase):
                           ('BNP Paribas', 'Structured Products Sales Intern', '')])
         self.assertEqual(jobs[0]['url'], 'https://www.linkedin.com/jobs/view/4012345678/')
         self.assertEqual(jobs[0]['id'], 'email:LinkedIn (job alerts):4012345678')
+
+
+class LinkedInPostTests(unittest.TestCase):
+    SRC = {'company': 'LinkedIn (posts)', 'posts': True, 'senders': ['notifications-noreply@linkedin.com']}
+
+    def parse(self, body, kind='html'):
+        from email.mime.text import MIMEText
+        from sources.email_alerts import parse_posts
+        msg = MIMEText(body, kind)
+        msg['Date'] = 'Mon, 02 Nov 2026 09:00:00 +0000'
+        msg['Message-ID'] = '<abc123@linkedin.com>'
+        return parse_posts(msg.as_bytes(), self.SRC, context({}))
+
+    def test_hiring_post_becomes_a_job_and_others_are_ignored(self):
+        html = ('<p>Jane Smith posted:</p>'
+                '<a href="https://www.linkedin.com/comm/feed/update/urn:li:activity:7251111111111111111?trk=x">'
+                'We are hiring!<br>Our FX trading desk is looking for a Summer Analyst intern in London.<br>'
+                'Send me your CV.</a>'
+                '<p>John Doe posted:</p>'
+                '<a href="https://www.linkedin.com/comm/feed/update/urn:li:activity:7252222222222222222">'
+                'Great quarter for our equity derivatives team in Paris, proud of everyone.</a>')
+        jobs = self.parse(html)
+        self.assertEqual(len(jobs), 1)
+        job = jobs[0]
+        self.assertEqual(job['title'], 'Our FX trading desk is looking for a Summer Analyst intern in London.')
+        self.assertEqual(job['company'], 'Jane Smith')
+        self.assertEqual(job['location'], 'London')
+        self.assertEqual(job['url'], 'https://www.linkedin.com/feed/update/urn:li:activity:7251111111111111111/')
+        self.assertEqual(job['id'], 'post:LinkedIn (posts):7251111111111111111')
+        self.assertEqual(job['published'], '2026-11-02')
+        self.assertNotIn('¶', job['description'])
+
+    def test_hiring_post_for_a_non_targeted_role_is_ignored(self):
+        html = ('<a href="https://www.linkedin.com/feed/update/urn:li:activity:7253333333333333333">'
+                "We're hiring a Marketing intern in Singapore! Apply now.</a>")
+        self.assertEqual(self.parse(html), [])
+
+    def test_plain_text_recruiter_message(self):
+        text = ('Alex Tan sent you a message\n'
+                'Hi, we are recruiting a Graduate Structuring Analyst for our Hong Kong office\n'
+                'https://www.linkedin.com/messaging/thread/2-abc/?trk=y')
+        jobs = self.parse(text, 'plain')
+        self.assertEqual(len(jobs), 1)
+        self.assertIn('Structuring Analyst', jobs[0]['title'])
+        self.assertEqual(jobs[0]['location'], 'Hong Kong')
+        self.assertEqual(jobs[0]['url'], 'https://www.linkedin.com/messaging/thread/2-abc/')
+
+    def test_post_goes_through_the_usual_classifier(self):
+        from filters import Classifier
+        from tracker import load_config
+        html = ('<a href="https://www.linkedin.com/feed/update/urn:li:activity:7254444444444444444">'
+                'We are hiring a Summer Analyst for our Global Markets division in Singapore. Applications are open.</a>')
+        job = self.parse(html)[0]
+        c = Classifier(load_config()).classify(job)
+        self.assertTrue(c.eligible, c.reject_reason)
+
+    def test_role_word_far_from_any_hiring_words_is_ignored(self):
+        html = ('<a href="https://www.linkedin.com/feed/update/urn:li:activity:7255555555555555555">'
+                'Ventes a connu une croissance de 1% au cours des 3 derniers mois à Paris.</a>'
+                + '<p>' + 'Autres actualités de votre réseau. ' * 30 + '</p>'
+                '<a href="https://www.linkedin.com/jobs/">Apply to jobs you may like</a>')
+        self.assertEqual(self.parse(html), [])
