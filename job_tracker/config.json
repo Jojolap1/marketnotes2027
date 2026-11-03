@@ -1117,15 +1117,77 @@
       "company": "LinkedIn (web search)",
       "platform": "web_search",
       "queries": [
-        "site:linkedin.com/posts (hiring OR \"we're looking for\" OR \"join our\") (trading OR \"sales & trading\" OR markets) (intern OR internship OR graduate OR \"summer analyst\") London",
-        "site:linkedin.com/posts (hiring OR \"we're looking for\" OR \"join our\") (trading OR \"sales & trading\" OR markets) (intern OR internship OR graduate OR analyst) Singapore",
-        "site:linkedin.com/posts (hiring OR \"we're looking for\" OR \"join our\") (trading OR \"sales & trading\" OR markets) (intern OR internship OR graduate OR analyst) \"Hong Kong\"",
-        "site:linkedin.com/posts (hiring OR \"we're looking for\" OR \"join our\") (trading OR markets OR structuring) (intern OR internship OR graduate OR analyst) Dubai",
-        "site:linkedin.com/posts (recrute OR \"nous cherchons\" OR \"je recherche\" OR rejoindre) (stagiaire OR stage OR alternance OR VIE) (\"salle des marchés\" OR trading OR structuration OR dérivés OR vente) Paris",
-        "site:linkedin.com/posts (hiring OR \"we're looking for\") (structuring OR derivatives OR \"structured products\") (intern OR internship OR graduate OR analyst)",
-        "site:linkedin.com/jobs/view (\"sales and trading\" OR \"sales & trading\" OR \"structured products\" OR structuring OR derivatives OR trading) (intern OR internship OR graduate OR \"summer analyst\")"
+        {
+          "label": "HK markets posts",
+          "every_days": 1,
+          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (trading OR \"global markets\" OR structuring OR derivatives) (intern OR internship OR graduate OR analyst OR junior) \"Hong Kong\""
+        },
+        {
+          "label": "SG markets posts",
+          "every_days": 1,
+          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (trading OR \"global markets\" OR structuring OR derivatives) (intern OR internship OR graduate OR analyst OR junior) Singapore"
+        },
+        {
+          "label": "HK desks / recruiters",
+          "every_days": 2,
+          "q": "site:linkedin.com/posts (hiring OR \"DM me\" OR \"send me your CV\") (FICC OR equities OR FX OR rates OR credit OR commodities) (intern OR graduate OR \"off-cycle\") \"Hong Kong\""
+        },
+        {
+          "label": "SG desks / recruiters",
+          "every_days": 2,
+          "q": "site:linkedin.com/posts (hiring OR \"DM me\" OR \"send me your CV\") (FICC OR equities OR FX OR rates OR credit OR commodities) (intern OR graduate OR \"off-cycle\") Singapore"
+        },
+        {
+          "label": "HK+SG job pages",
+          "every_days": 2,
+          "q": "site:linkedin.com/jobs/view (trading OR \"global markets\" OR structuring OR derivatives OR \"structured products\") (intern OR internship OR graduate OR analyst) (\"Hong Kong\" OR Singapore)"
+        },
+        {
+          "label": "HK AM / research",
+          "every_days": 3,
+          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (\"asset management\" OR \"investment analyst\" OR \"equity research\" OR \"portfolio management\") (intern OR graduate OR analyst) \"Hong Kong\""
+        },
+        {
+          "label": "SG AM / research",
+          "every_days": 3,
+          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (\"asset management\" OR \"investment analyst\" OR \"equity research\" OR \"portfolio management\") (intern OR graduate OR analyst) Singapore"
+        },
+        {
+          "label": "Asia/Dubai commodities",
+          "every_days": 3,
+          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (\"commodity trading\" OR energy OR oil OR LNG OR metals) (trader OR \"trading analyst\" OR graduate OR intern) (Singapore OR Dubai)"
+        },
+        {
+          "label": "London markets posts",
+          "every_days": 2,
+          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (trading OR \"sales & trading\" OR structuring OR derivatives) (intern OR internship OR graduate OR \"summer analyst\") London"
+        },
+        {
+          "label": "London AM / commodities",
+          "every_days": 3,
+          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (\"asset management\" OR \"commodity trading\" OR \"graduate trader\" OR research) (intern OR graduate OR analyst) London"
+        },
+        {
+          "label": "Paris posts FR",
+          "every_days": 2,
+          "q": "site:linkedin.com/posts (recrute OR \"nous cherchons\" OR \"je recherche\") (stagiaire OR stage OR alternance OR VIE) (\"salle des marchés\" OR trading OR structuration OR dérivés) Paris"
+        },
+        {
+          "label": "Paris posts EN",
+          "every_days": 3,
+          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (trading OR structuring OR derivatives OR markets) (intern OR internship OR VIE OR graduate) Paris"
+        },
+        {
+          "label": "Dubai posts",
+          "every_days": 3,
+          "q": "site:linkedin.com/posts (hiring OR \"looking for\") (trading OR markets OR \"asset management\" OR structuring) (intern OR internship OR graduate OR analyst) Dubai"
+        },
+        {
+          "label": "London+Paris job pages",
+          "every_days": 3,
+          "q": "site:linkedin.com/jobs/view (\"sales & trading\" OR \"structured products\" OR structuring OR derivatives OR trading) (intern OR internship OR graduate OR \"summer analyst\") (London OR Paris)"
+        }
       ],
-      "tbs": "qdr:d",
       "count": 10,
       "refresh_hours": 22,
       "hours_utc": [
@@ -1143,7 +1205,9 @@
         14,
         15
       ],
-      "note": "Public LinkedIn posts and job pages found through SerpApi (Google results, official API; key in the SERPAPI_API_KEY secret, inactive without it). Only the search result (title, snippet, date, URL) is read, LinkedIn is never fetched. 7 queries once a day, each limited to the last 24 h (Google returns at most 10 results per query, so a daily window gives 10 new posts per query each day instead of the same top 10 of the week) (results cached 22 h) = about 217 searches a month, under the free plan's 250; the remaining quota is checked first. Same post id as 'LinkedIn (posts)', so a post seen in an email and in search is alerted once."
+      "note": "Public LinkedIn posts (recruiters, desk staff, company pages) and job pages found through SerpApi (Google results, official API; key in the SERPAPI_API_KEY secret). Only the search result (title, snippet, date, URL) is read, LinkedIn is never fetched. 14 queries by city and role, rotated: Hong Kong and Singapore daily, others every 2-3 days, at most 7 searches a day (about 210 a month, under the free plan's 250; remaining quota checked first). Each search covers the past week (with a custom date range Google ignored site:linkedin.com, tested 2026-11-03); posts already seen are deduplicated. The log gives each query's yield (results / LinkedIn pages / kept) to rework the weak ones. Same post id as 'LinkedIn (posts)'.",
+      "max_per_day": 7,
+      "tbs": "qdr:w"
     },
     {
       "company": "eFinancialCareers (job alerts)",

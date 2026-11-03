@@ -13,9 +13,12 @@ snippet, date and URL.
   Paris, Île-de-France, France | LinkedIn') become a job with that title,
   employer and city.
 
-Budget: the searches run at most once every `refresh_hours` (results are kept
-in the detail cache in between) and only at `hours_utc`; the remaining quota
-is read first (free call) and the searches are skipped when it is too low.
+Budget: queries are split by city and role and rotated: each runs every
+`every_days` (Hong Kong and Singapore daily), at most `max_per_day` searches a
+day, each over the past week (Google ignores the site: filter with a custom
+date range; posts already seen are deduplicated). Results are kept in the detail cache until the next day; the
+remaining quota is read first (free call) and the searches are skipped when
+it is too low. The log gives each query's yield so weak ones can be reworded.
 The API key lives in GitHub secrets (SERPAPI_API_KEY). SerpApi wants it in the
 query string, so request errors are re-raised without the URL: the key never
 reaches the logs, which are public.
@@ -23,7 +26,7 @@ reaches the logs, which are public.
 import logging
 import os
 import re
-from datetime import timedelta
+from datetime import date, timedelta
 
 import requests
 
@@ -34,7 +37,7 @@ from status import parse_date
 LOG = logging.getLogger(__name__)
 API = 'https://serpapi.com/search.json'
 ACCOUNT = 'https://serpapi.com/account.json'
-POST_ID = re.compile(r'linkedin\.com/(?:posts/\S*?-activity-|feed/update/urn:li:(?:activity|share|ugcPost):)(\d{15,})', re.I)
+POST_ID = re.compile(r'linkedin\.com/(?:posts/\S*?-(?:activity|ugcPost|share)-|feed/update/urn:li:(?:activity|share|ugcPost):)(\d{15,})', re.I)
 JOB_ID = re.compile(r'linkedin\.com/jobs/view/(?:[^/?#]*?-)?(\d{8,})', re.I)
 JOB_TITLE = re.compile(r'^(.{2,80}?) (?:is )?hiring (.{4,160}?) in (.{2,120}?)\s*(?:\||$)', re.I)
 # Other Google form: 'Structured Products Sales Intern - BNP Paribas - LinkedIn'
@@ -48,13 +51,15 @@ class SearchError(RuntimeError):
 
 def _call(ctx, url, params):
     try:
-        response = ctx.http.get(url, params=params)
+        response = ctx.http.get(url, params=params, timeout=60)   # SerpApi runs the search live
     except requests.RequestException as exc:
         raise SearchError(f'{type(exc).__name__} calling {url}') from None
     if response.status_code != 200:
         raise SearchError(f'HTTP {response.status_code} from {url}')
     data = response.json()
     if data.get('error'):
+        if 'returned any results' in str(data['error']):   # an empty result page, not a failure
+            return {}
         raise SearchError(f'{url}: {str(data["error"])[:120]}')
     return data
 
@@ -74,27 +79,75 @@ def fetch(source, ctx):
         # Between two searches: the last results stay listed, no query spent
         ctx.stat(name, 'results_from_cache' if cached is not None else 'not_due')
         return [dict(job) for job in (cached or [])]
-    queries = source['queries']
+    due = due_queries(source, ctx, forced)
+    if not due:
+        ctx.stat(name, 'not_due')
+        return []
     left = _call(ctx, ACCOUNT, {'api_key': key}).get('total_searches_left')
-    LOG.info('%s: %s searches left this month', name, left)
-    if isinstance(left, int) and left < len(queries):
+    LOG.info('%s: %s searches left this month, %d due today', name, left, len(due))
+    if isinstance(left, int) and left < len(due):
         ctx.stat(name, 'quota_too_low')
         ctx.stat(name, 'not_due')
         return []
     jobs = {}
-    for query in queries:
-        data = _call(ctx, API, {'engine': 'google', 'q': query, 'api_key': key,
-                                'tbs': source.get('tbs', 'qdr:w'), 'num': int(source.get('count', 10))})
+    today = ctx.now.date()
+    for query, last in due:
+        # Past week (Google drops the site: filter with a custom date range,
+        # tested 2026-11-03); posts already seen are deduplicated
+        try:
+            data = _call(ctx, API, {'engine': 'google', 'q': query['q'], 'api_key': key,
+                                    'tbs': source.get('tbs', 'qdr:w'), 'as_sitesearch': 'linkedin.com',
+                                    'num': int(source.get('count', 10))})
+        except SearchError as exc:   # one slow search must not lose the others; retried next run
+            LOG.warning('  %-28s failed: %s', query.get('label', query['q'][:28]), exc)
+            ctx.stat(name, 'query_errors')
+            continue
         ctx.stat(name, 'queries')
+        ctx.cache.put('web-search-query:' + query['q'], today.isoformat())
         results = data.get('organic_results') or []
         ctx.stat(name, 'results', len(results))
+        linkedin = kept = 0
+        other = []
         for result in results:
+            link = result.get('link') or ''
+            if POST_ID.search(link) or JOB_ID.search(link):
+                linkedin += 1
+            else:
+                other.append(re.sub(r'^https?://', '', link)[:70])
             for job in result_jobs(result, source, ctx):
+                kept += 1
                 jobs.setdefault(job['id'], job)
+        # Per-query yield, to rework the queries that never bring anything
+        LOG.info('  %-28s (last run %s): %d results, %d LinkedIn posts/job pages, %d kept',
+                 query.get('label', query['q'][:28]), last or 'never', len(results), linkedin, kept)
+        if other:   # public pages Google returned that are neither posts nor job pages
+            LOG.info('    other pages: %s', ', '.join(other[:4]))
     ctx.stat(name, 'listed', len(jobs))
-    LOG.info('%s: %d queries, %d jobs', name, len(queries), len(jobs))
-    ctx.cache.put(cache_key, list(jobs.values()))
+    LOG.info('%s: %d queries, %d jobs', name, len(due), len(jobs))
+    errors = ctx.stats.get(name, {}).get('query_errors', 0)
+    if errors == len(due):
+        raise SearchError(f'all {errors} searches failed')
+    if not errors:   # otherwise the next run retries the failed searches (the others are no longer due)
+        ctx.cache.put(cache_key, list(jobs.values()))
     return list(jobs.values())
+
+
+def due_queries(source, ctx, forced=False):
+    """Today's queries with the date each last ran (None: never): those not
+    run for `every_days` days (Hong Kong and Singapore ones run daily), most
+    overdue first, at most `max_per_day`."""
+    today = ctx.now.date()
+    due = []
+    for n, query in enumerate(source['queries']):
+        query = query if isinstance(query, dict) else {'q': query}
+        every = int(query.get('every_days', 1))
+        last = ctx.cache.get('web-search-query:' + query['q'])
+        last = date.fromisoformat(last) if last else None
+        overdue = (today - last).days - every if last else 0
+        if forced or overdue >= 0:
+            due.append((-overdue, every, n, query, last))
+    due.sort(key=lambda d: d[:3])
+    return [(query, last) for *_, query, last in due[:int(source.get('max_per_day', 7))]]
 
 
 def _published(value, now):

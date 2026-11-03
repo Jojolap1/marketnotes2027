@@ -611,6 +611,15 @@ class LinkedInPostTests(unittest.TestCase):
         self.assertEqual(job['published'], '2026-11-02')
         self.assertNotIn('¶', job['description'])
 
+    def test_junior_level_named_in_another_sentence_is_kept(self):
+        from filters import Classifier
+        from tracker import load_config
+        html = ('<a href="https://www.linkedin.com/feed/update/urn:li:activity:7250000000000000001">'
+                'Our FX trading desk in Hong Kong is hiring a trader.<br>The role suits 2027 graduates.</a>')
+        job = self.parse(html)[0]
+        self.assertTrue(job['employment_type'].startswith('graduates'))
+        self.assertTrue(Classifier(load_config()).classify(job).eligible)
+
     def test_hiring_post_for_a_non_targeted_role_is_ignored(self):
         html = ('<a href="https://www.linkedin.com/feed/update/urn:li:activity:7253333333333333333">'
                 "We're hiring a Marketing intern in Singapore! Apply now.</a>")
@@ -668,6 +677,23 @@ class LinkedInPostTests(unittest.TestCase):
 class WebSearchTests(unittest.TestCase):
     SRC = {'company': 'LinkedIn (web search)', 'platform': 'web_search', 'queries': ['q1', 'q2'], 'hours_utc': [4, 11]}
 
+    def test_rotation_windows_and_daily_cap(self):
+        from datetime import datetime, timezone
+        from sources.web_search import due_queries
+        ctx = context({}, now=datetime(2026, 11, 10, 4, tzinfo=timezone.utc))
+        src = {'max_per_day': 3, 'queries': [
+            {'q': 'hk', 'every_days': 1}, {'q': 'ldn', 'every_days': 2}, {'q': 'dubai', 'every_days': 3},
+            {'q': 'paris', 'every_days': 3}, {'q': 'old', 'every_days': 2}]}
+        ctx.cache.put('web-search-query:hk', '2026-11-09')
+        ctx.cache.put('web-search-query:ldn', '2026-11-09')     # ran yesterday: not due
+        ctx.cache.put('web-search-query:dubai', '2026-11-07')
+        ctx.cache.put('web-search-query:paris', '2026-11-08')   # 2 days < 3: not due
+        ctx.cache.put('web-search-query:old', '2026-10-20')     # long overdue: first
+        due = [(q['q'], str(since)) for q, since in due_queries(src, ctx)]
+        self.assertEqual(due, [('old', '2026-10-20'), ('hk', '2026-11-09'), ('dubai', '2026-11-07')])
+        src['max_per_day'] = 2
+        self.assertEqual([q['q'] for q, _ in due_queries(src, ctx)], ['old', 'hk'])
+
     def run_fetch(self, results, key='SECRETKEY123', hour=4, left=200, cache=None, force=''):
         import os
         from datetime import datetime, timezone
@@ -693,13 +719,16 @@ class WebSearchTests(unittest.TestCase):
          'title': 'FX Trading Graduate - HSBC - LinkedIn', 'snippet': 'Hong Kong SAR · Graduate programme 2027'},
         {'link': 'https://www.linkedin.com/posts/general-index_were-hiring-activity-7521189863573004288-6VIj',
          'title': "We're hiring for our Sales Graduate Scheme", 'snippet': 'Starting this autumn in London. Apply now.'},
+        {'link': 'https://sg.linkedin.com/posts/acme-trading_graduate-activity-ugcPost-7260000000000000002-x',
+         'title': 'Acme Trading on LinkedIn', 'snippet': "We're hiring a Graduate Trader in Singapore."},
         {'link': 'https://www.linkedin.com/in/someone', 'title': 'Someone - Trader', 'snippet': 'hiring'}]
 
     def test_posts_and_job_pages_from_search_results(self):
         jobs, ctx = self.run_fetch(self.RESULTS)
         by_id = {j['id']: j for j in jobs}
         self.assertEqual(sorted(by_id), ['linkedin-job:4123456789', 'linkedin-job:4199999999',
-                                         'post:linkedin:7259999999999999999', 'post:linkedin:7521189863573004288'])
+                                         'post:linkedin:7259999999999999999', 'post:linkedin:7260000000000000002',
+                                         'post:linkedin:7521189863573004288'])
         self.assertEqual(by_id['post:linkedin:7521189863573004288']['company'], 'General Index')
         page = by_id['linkedin-job:4123456789']
         self.assertEqual((page['company'], page['title'], page['location'], page['published']),
@@ -718,6 +747,8 @@ class WebSearchTests(unittest.TestCase):
         self.assertEqual(sorted(j['id'] for j in again), sorted(j['id'] for j in jobs))
         forced, ctx3 = self.run_fetch(self.RESULTS, cache=ctx.cache, force='1')
         self.assertEqual(len(ctx3.http.calls), 3)
+        # each query remembers its run date (next window starts there)
+        self.assertEqual(ctx.cache.get('web-search-query:q1'), '2026-11-03')
 
     def test_inactive_without_key_outside_hours_or_quota(self):
         for kwargs in ({'key': ''}, {'hour': 20}):
@@ -726,6 +757,17 @@ class WebSearchTests(unittest.TestCase):
             self.assertTrue(ctx.stats['LinkedIn (web search)']['not_due'])
         jobs, ctx = self.run_fetch(self.RESULTS, left=1)
         self.assertEqual((jobs, len(ctx.http.calls)), ([], 1))
+
+    def test_no_results_is_an_empty_page(self):
+        jobs, ctx = self.run_fetch([])
+        import os
+        from unittest import mock
+        from sources import web_search
+        ctx = context({'serpapi.com/account.json': json.dumps({'total_searches_left': 200}),
+                       'serpapi.com/search.json': json.dumps({'error': "Google hasn't returned any results for this query."})})
+        with mock.patch.dict(os.environ, {'SERPAPI_API_KEY': 'k', 'WEB_SEARCH_FORCE': '1'}):
+            self.assertEqual(web_search.fetch(dict(self.SRC), ctx), [])
+        self.assertEqual(len(ctx.http.calls), 3)
 
     def test_errors_never_show_the_key(self):
         import os

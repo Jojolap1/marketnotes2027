@@ -169,13 +169,27 @@ def post_jobs(blocks, source, ctx, published, evidence):
             continue
         author = AUTHOR.search(text)
         company = author.group(1).strip() if author else source['company']
+        # A post often says 'graduate' / 'stage' / 'junior' in another sentence
+        # than the role: read the level around the title so junior posts are kept
+        at = text.find(title[:40])
+        level = _level_word(ctx, title) or _level_word(ctx, text[max(0, at - 300):at + 500])
         jobs.append(make_job(
             id=f'post:{key}', company=company, title=title,
             location=ctx.city_of(text), url=url, published=published,
             description=re.sub(r'\s*¶\s*', ' ', text).strip()[:3000],
-            employment_type='LinkedIn post (read it for how to apply)',
+            employment_type=(f'{level} — ' if level else '') + 'LinkedIn post (read it for how to apply)',
             source=f'LinkedIn post ({source["company"]})', status='unknown', status_evidence=evidence))
     return jobs
+
+
+def _level_word(ctx, text):
+    """First internship / graduate / junior word in the text, as written."""
+    for patterns in ctx.classifier.entry.values():
+        for pattern in patterns:
+            found = pattern.search(text or '')
+            if found:
+                return found.group(0)
+    return ''
 
 
 def _tag_end(html, pos):
