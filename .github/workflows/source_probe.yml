@@ -22,6 +22,9 @@ jobs:
           python-version: "3.11"
       - run: pip install -r job_tracker/requirements.txt
       - name: Probe candidate public career feeds
+        env:
+          # only read by the SerpApi probe; never printed
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
         run: set -o pipefail; python job_tracker/tools/probe_sources.py "${{ github.event.inputs.filter }}" 2>&1 | tee probe.log
       - uses: actions/upload-artifact@v4
         if: always()

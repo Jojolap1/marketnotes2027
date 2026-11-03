@@ -683,6 +683,14 @@ class LinkedInPostTests(unittest.TestCase):
 class WebSearchTests(unittest.TestCase):
     SRC = {'company': 'LinkedIn (web search)', 'platform': 'web_search', 'queries': ['q1', 'q2'], 'hours_utc': [4, 11]}
 
+    def test_post_date_read_from_its_linkedin_id(self):
+        from sources.web_search import activity_date
+        self.assertEqual(activity_date('7522993682489364480'), '2026-11-02')
+        self.assertEqual(activity_date('7218886155453280258'), '2024-07-16')
+        jobs, _ = self.run_fetch([{'link': 'https://uk.linkedin.com/posts/makotrading_hiring-activity-7522993682489364480-x',
+                                   'title': 'Mako on LinkedIn', 'snippet': 'We are hiring a Graduate Trader in London.'}])
+        self.assertEqual(jobs[0]['published'], '2026-11-02')
+
     def test_rotation_windows_and_daily_cap(self):
         from datetime import datetime, timezone
         from sources.web_search import due_queries

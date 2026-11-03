@@ -1,7 +1,7 @@
 """Public LinkedIn posts and job pages found through a web-search API.
 
 LinkedIn is never fetched (it refuses scripts and its terms forbid it): the
-tracker asks SerpApi (Google results, official API, free plan of about 250
+tracker asks SerpApi (DuckDuckGo results by default, official API, free plan of about 250
 searches a month) for public pages under linkedin.com/posts and
 linkedin.com/jobs/view, and reads only what the search returns: page title,
 snippet, date and URL.
@@ -15,8 +15,9 @@ snippet, date and URL.
 
 Budget: queries are split by city and role and rotated: each runs every
 `every_days` (Hong Kong and Singapore daily), at most `max_per_day` searches a
-day, each over the past week (Google ignores the site: filter with a custom
-date range; posts already seen are deduplicated). Results are kept in the detail cache until the next day; the
+day, each over the past week (Google ignored the site: filter in tests, so
+DuckDuckGo is used); posts already seen are deduplicated. Results are kept
+in the detail cache until the next day; the
 remaining quota is read first (free call) and the searches are skipped when
 it is too low. The log gives each query's yield so weak ones can be reworded.
 The API key lives in GitHub secrets (SERPAPI_API_KEY). SerpApi wants it in the
@@ -26,7 +27,7 @@ reaches the logs, which are public.
 import logging
 import os
 import re
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 
 import requests
 
@@ -36,7 +37,7 @@ from status import parse_date
 
 LOG = logging.getLogger(__name__)
 API = 'https://serpapi.com/search.json'
-CACHE_VERSION = 2
+CACHE_VERSION = 3
 ACCOUNT = 'https://serpapi.com/account.json'
 POST_ID = re.compile(r'linkedin\.com/(?:posts/\S*?-(?:activity|ugcPost|share)-|feed/update/urn:li:(?:activity|share|ugcPost):)(\d{15,})', re.I)
 JOB_ID = re.compile(r'linkedin\.com/jobs/view/(?:[^/?#]*?-)?(\d{8,})', re.I)
@@ -93,12 +94,14 @@ def fetch(source, ctx):
     jobs = {}
     today = ctx.now.date()
     for query, last in due:
-        # Past week (Google drops the site: filter with a custom date range,
-        # tested 2026-11-03); posts already seen are deduplicated
+        # Past week; posts already seen are deduplicated
+        engine = source.get('engine', 'duckduckgo')
+        if engine == 'google':
+            params = {'tbs': source.get('tbs', 'qdr:w'), 'num': int(source.get('count', 10))}
+        else:   # DuckDuckGo keeps site:linkedin.com/posts (Google dropped it, tested 2026-11-03);
+            params = {'df': source['df']} if source.get('df') else {}   # its date filter returned nothing
         try:
-            data = _call(ctx, API, {'engine': 'google', 'q': query['q'], 'api_key': key,
-                                    'tbs': source.get('tbs', 'qdr:w'), 'as_sitesearch': 'linkedin.com',
-                                    'num': int(source.get('count', 10))})
+            data = _call(ctx, API, dict(params, engine=engine, q=query['q'], api_key=key))
         except SearchError as exc:   # one slow search must not lose the others; retried next run
             LOG.warning('  %-28s failed: %s', query.get('label', query['q'][:28]), exc)
             ctx.stat(name, 'query_errors')
@@ -151,6 +154,15 @@ def due_queries(source, ctx, forced=False):
     return [(query, last) for *_, query, last in due[:int(source.get('max_per_day', 7))]]
 
 
+def activity_date(activity_id):
+    """Date a LinkedIn post was published: its id holds a millisecond
+    timestamp in the bits above the lowest 22 (no page fetched)."""
+    try:
+        return datetime.fromtimestamp((int(activity_id) >> 22) / 1000, timezone.utc).date().isoformat()
+    except (ValueError, OverflowError, OSError):
+        return ''
+
+
 def _published(value, now):
     ago = AGO.search(value or '')
     if ago:
@@ -166,8 +178,10 @@ def result_jobs(result, source, ctx):
     title = html_to_text(result.get('title') or '')
     snippet = html_to_text(result.get('snippet') or '')
     published = _published(result.get('date'), ctx.now)
-    evidence = f'public LinkedIn page found by web search{f" (dated {published})" if published else ""}'
     post = POST_ID.search(url)
+    if post and not published:
+        published = activity_date(post.group(1))
+    evidence = f'public LinkedIn page found by web search{f" (dated {published})" if published else ""}'
     if post:
         # Google titles read 'Jane Smith on LinkedIn: ...' or 'Jane Smith's Post - LinkedIn';
         # otherwise the author is the /posts/<name>_... part of the URL

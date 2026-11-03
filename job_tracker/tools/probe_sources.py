@@ -4,6 +4,7 @@ Run from GitHub Actions (open internet) to discover which official, publicly
 accessible endpoints return real vacancies. Prints one block per probe.
 It never logs in, never sends credentials and makes one request per probe.
 """
+import os
 import json
 import re
 import sys
@@ -2535,6 +2536,82 @@ PROBES = PROBES + R73
 
 R74 = [('R74 Wellington', lambda: workday_raw('wellington.wd5.myworkdayjobs.com', 'wellington', 'External'))]
 PROBES = PROBES + R74
+
+
+def serp_variants():
+    """3 searches: does as_sitesearch / the OR groups make Google drop site:?"""
+    import os
+    key = os.environ.get('SERPAPI_API_KEY', '')
+    q_or = 'site:linkedin.com/posts (hiring OR "looking for") (trading OR "sales & trading" OR structuring OR derivatives) (intern OR internship OR graduate OR "summer analyst") London'
+    variants = [('domain only', 'site:linkedin.com hiring trading intern London', {}),
+                ('inurl posts', 'site:linkedin.com inurl:posts hiring trading intern London', {})]
+    if os.environ.get('SERP_ROUND') != '76':
+        variants = [('OR groups, no as_sitesearch', q_or, {}),
+                    ('OR groups, as_sitesearch', q_or, {'as_sitesearch': 'linkedin.com'}),
+                    ('simple', 'site:linkedin.com/posts hiring trading intern London', {})]
+    out = []
+    for label, q, extra in variants:
+        try:
+            r = S.get('https://serpapi.com/search.json', params=dict({'engine': 'google', 'q': q, 'api_key': key, 'tbs': 'qdr:w', 'num': 10}, **extra), timeout=60)
+            res = r.json().get('organic_results') or []
+            hosts = [re.sub(r'^https?://([^/]+)/([^/]*).*', r'\1/\2', x.get('link', '')) for x in res]
+            out.append(f'{label}: HTTP {r.status_code} {len(res)} results, linkedin/posts={sum("linkedin.com/posts" in h for h in hosts)} -> {hosts}')
+        except Exception as exc:
+            out.append(f'{label}: {type(exc).__name__}')
+    return '\n'.join(out)
+
+
+R75 = [('R75 serp variants', serp_variants)]
+R76 = [('R76 serp domain variants', lambda: (os.environ.__setitem__('SERP_ROUND', '76'), serp_variants())[1])]
+PROBES = PROBES + R76
+PROBES = PROBES + R75
+
+
+def serp_engines():
+    import os
+    key = os.environ.get('SERPAPI_API_KEY', '')
+    q = 'site:linkedin.com/posts hiring trading intern London'
+    out = []
+    for engine, extra in (('bing', {}), ('duckduckgo', {'kl': 'uk-en'})):
+        try:
+            r = S.get('https://serpapi.com/search.json', params=dict({'engine': engine, 'q': q, 'api_key': key}, **extra), timeout=60)
+            res = r.json().get('organic_results') or []
+            hosts = [re.sub(r'^https?://([^/]+)/([^/]*)/?([^/?]{0,60}).*', r'\1/\2/\3', x.get('link', '')) for x in res]
+            out.append(f'{engine}: HTTP {r.status_code} {len(res)} results, linkedin/posts={sum("linkedin.com/posts" in h for h in hosts)} -> {hosts[:10]} dates={[x.get("date") for x in res][:10]}')
+        except Exception as exc:
+            out.append(f'{engine}: {type(exc).__name__}')
+    return '\n'.join(out)
+
+
+R77 = [('R77 serp engines', serp_engines)]
+PROBES = PROBES + R77
+
+
+def ddg_variants():
+    import os
+    from datetime import datetime, timezone
+    key = os.environ.get('SERPAPI_API_KEY', '')
+    variants = [('simple, df=w', 'site:linkedin.com/posts hiring trading intern Hong Kong', {'df': 'w'}),
+                ('simple, no df', 'site:linkedin.com/posts hiring trading intern Hong Kong', {}),
+                ('OR no parens, df=m', 'site:linkedin.com/posts hiring markets OR trading OR structuring graduate OR intern Hong Kong', {'df': 'm'})]
+    out = []
+    for label, q, extra in variants:
+        try:
+            r = S.get('https://serpapi.com/search.json', params=dict({'engine': 'duckduckgo', 'q': q, 'api_key': key}, **extra), timeout=60)
+            res = r.json().get('organic_results') or []
+            rows = []
+            for x in res:
+                m = re.search(r'-(?:activity|ugcPost|share)-(\d{15,})', x.get('link', ''))
+                d = datetime.fromtimestamp((int(m.group(1)) >> 22) / 1000, timezone.utc).date().isoformat() if m else '-'
+                rows.append(f"{d} {re.sub(r'^https?://', '', x.get('link', ''))[:70]}")
+            out.append(f'{label}: HTTP {r.status_code} {len(res)} results\n  ' + '\n  '.join(rows))
+        except Exception as exc:
+            out.append(f'{label}: {type(exc).__name__}')
+    return '\n'.join(out)
+
+
+R78 = [('R78 ddg variants', ddg_variants)]
+PROBES = PROBES + R78
 
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
