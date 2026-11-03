@@ -691,19 +691,23 @@ class WebSearchTests(unittest.TestCase):
          'snippet': 'Privalto team, 6-month internship starting January 2027.', 'date': 'Oct 30, 2026'},
         {'link': 'https://hk.linkedin.com/jobs/view/fx-trading-graduate-4199999999',
          'title': 'FX Trading Graduate - HSBC - LinkedIn', 'snippet': 'Hong Kong SAR · Graduate programme 2027'},
+        {'link': 'https://www.linkedin.com/posts/general-index_were-hiring-activity-7521189863573004288-6VIj',
+         'title': "We're hiring for our Sales Graduate Scheme", 'snippet': 'Starting this autumn in London. Apply now.'},
         {'link': 'https://www.linkedin.com/in/someone', 'title': 'Someone - Trader', 'snippet': 'hiring'}]
 
     def test_posts_and_job_pages_from_search_results(self):
         jobs, ctx = self.run_fetch(self.RESULTS)
         by_id = {j['id']: j for j in jobs}
-        self.assertEqual(sorted(by_id), ['linkedin-job:4123456789', 'linkedin-job:4199999999', 'post:linkedin:7259999999999999999'])
+        self.assertEqual(sorted(by_id), ['linkedin-job:4123456789', 'linkedin-job:4199999999',
+                                         'post:linkedin:7259999999999999999', 'post:linkedin:7521189863573004288'])
+        self.assertEqual(by_id['post:linkedin:7521189863573004288']['company'], 'General Index')
         page = by_id['linkedin-job:4123456789']
         self.assertEqual((page['company'], page['title'], page['location'], page['published']),
                          ('BNP Paribas', 'Structured Products Sales Intern', 'Paris', '2026-10-30'))
         dash = by_id['linkedin-job:4199999999']
         self.assertEqual((dash['company'], dash['title'], dash['location']), ('HSBC', 'FX Trading Graduate', 'Hong Kong'))
         post = by_id['post:linkedin:7259999999999999999']
-        self.assertEqual((post['location'], post['published']), ('Singapore', '2026-11-01'))
+        self.assertEqual((post['location'], post['published'], post['company']), ('Singapore', '2026-11-01', 'Jane Smith'))
         # quota check + one request per query
         self.assertEqual(len(ctx.http.calls), 3)
 
