@@ -187,5 +187,5 @@ def result_jobs(result, source, ctx):
             id=f'linkedin-job:{job.group(1)}', company=company, title=role, location=ctx.city_of(place) or place,
             url=f'https://www.linkedin.com/jobs/view/{job.group(1)}/', published=published,
             description=snippet[:3000], source=f'LinkedIn job page ({source["company"]})',
-            status='unknown', status_evidence=evidence)]
+            status='unknown', status_evidence=evidence, title_only=True)]
     return []

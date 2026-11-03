@@ -245,3 +245,27 @@ class AnalystTitleTests(unittest.TestCase):
         self.assertFalse(classify('Senior Trading Analyst', location='Singapore').eligible)
         self.assertFalse(classify('Trading Analyst', 'Minimum 3 years of experience in oil trading.', location='Singapore').eligible)
         self.assertFalse(classify('Trading Analyst II', location='Singapore').eligible)
+
+
+class TitleOnlySourceTests(unittest.TestCase):
+    """LinkedIn / eFinancialCareers alerts carry no advert text."""
+
+    def classify(self, title, **extra):
+        from filters import Classifier
+        from tracker import load_config
+        job = {'title': title, 'company': 'X', 'location': 'Hong Kong', 'description': 'X · Hong Kong'}
+        job.update(extra)
+        return Classifier(load_config()).classify(job)
+
+    def test_bare_analyst_title_needs_an_explicit_junior_signal(self):
+        for title in ('Research Analyst', 'Investment Analyst', 'Analyst, Money Market Dealer, Global Market Division'):
+            c = self.classify(title, title_only=True)
+            self.assertFalse(c.eligible, title)
+            self.assertTrue(c.reject_reason.startswith('title only'), c.reject_reason)
+            # with the advert text available (other sources) the Analyst rule still applies
+            self.assertTrue(self.classify(title).eligible, title)
+
+    def test_explicit_junior_titles_still_pass(self):
+        for title in ('2027 Public Markets Equities Graduate Trainee (HK)', 'Junior Trader', 'Investment Analyst Intern',
+                      'Graduate Analyst - Global Markets', 'Summer Analyst 2027 - Sales & Trading'):
+            self.assertTrue(self.classify(title, title_only=True).eligible, title)
