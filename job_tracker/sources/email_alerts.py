@@ -137,8 +137,16 @@ def parse_posts(raw, source, ctx):
             continue
         ctx.stat(source['company'], 'hiring_posts')
         # 'recruiting' would read as a recruiter job (non front-office title)
-        sentences = [_hiring_verb(s.strip(' ¶'))[:160] for s in SENTENCE.split(text)]
-        title = next((s for s in sentences if len(s) >= 12 and ctx.title_worth_fetching(s)), '')
+        # and the role must sit next to the hiring words, not elsewhere in a digest
+        near = [(max(0, m.start() - 400), m.end() + 400) for m in HIRING.finditer(text)]
+        title, pos = '', 0
+        for s in SENTENCE.split(text):
+            start, pos = text.find(s, pos), pos + len(s)
+            s = _hiring_verb(s.strip(' ¶'))[:160]
+            if (len(s) >= 12 and any(a <= start <= b for a, b in near)
+                    and ctx.title_worth_fetching(s)):
+                title = s
+                break
         if not title:
             continue
         author = AUTHOR.search(text)

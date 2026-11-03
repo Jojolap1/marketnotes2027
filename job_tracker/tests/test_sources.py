@@ -634,3 +634,10 @@ class LinkedInPostTests(unittest.TestCase):
         job = self.parse(html)[0]
         c = Classifier(load_config()).classify(job)
         self.assertTrue(c.eligible, c.reject_reason)
+
+    def test_role_word_far_from_any_hiring_words_is_ignored(self):
+        html = ('<a href="https://www.linkedin.com/feed/update/urn:li:activity:7255555555555555555">'
+                'Ventes a connu une croissance de 1% au cours des 3 derniers mois à Paris.</a>'
+                + '<p>' + 'Autres actualités de votre réseau. ' * 30 + '</p>'
+                '<a href="https://www.linkedin.com/jobs/">Apply to jobs you may like</a>')
+        self.assertEqual(self.parse(html), [])
