@@ -115,7 +115,13 @@ def result_jobs(result, source, ctx):
     evidence = f'public LinkedIn page found by web search{f" (dated {published})" if published else ""}'
     post = POST_ID.search(url)
     if post:
-        text = f'{title} ¶ {snippet}'
+        # Google titles read 'Jane Smith on LinkedIn: ...' or 'Jane Smith's Post - LinkedIn';
+        # otherwise the author is the /posts/<name>_... part of the URL
+        who = (re.match(r"^(.{2,80}?)(?:['’]s Post)? (?:on|sur) LinkedIn\b", title)
+               or re.match(r"^(.{2,80}?)['’]s Post\b", title))
+        slug = re.search(r'/posts/([^_/?]+)_', url)
+        author = who.group(1).strip() if who else slug.group(1).replace('-', ' ').title() if slug else ''
+        text = (f'{author} posted ¶ ' if author else '') + f'{title} ¶ {snippet}'
         return post_jobs([(f'linkedin:{post.group(1)}', url.split('?')[0], text)], source, ctx, published, evidence)
     job = JOB_ID.search(url)
     head, dash = JOB_TITLE.search(title), JOB_TITLE_DASH.search(title)
