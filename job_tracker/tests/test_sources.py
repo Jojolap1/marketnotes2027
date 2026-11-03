@@ -545,3 +545,37 @@ class BlockedSiteAlertTests(unittest.TestCase):
         self.assertEqual(jobs[0]['alert_city'], 'ville filtrée dans ton alerte')
         c = Classifier(tracker.CONFIG).classify(jobs[0])
         self.assertTrue(c.eligible, c.reject_reason)
+
+
+class WorkdayRepostTests(unittest.TestCase):
+    def test_reposted_advert_uses_the_latest_posting_date(self):
+        from datetime import datetime, timedelta, timezone
+        from sources.workday import _latest_posting
+        today = datetime.now(timezone.utc).date()
+        self.assertEqual(_latest_posting('2026-09-01', 'Posted 4 Days Ago'), (today - timedelta(days=4)).isoformat())
+        self.assertEqual(_latest_posting('2026-09-01', 'Posted 30+ Days Ago'), (today - timedelta(days=30)).isoformat()
+                         if today - timedelta(days=30) > datetime(2026, 9, 1).date() else '2026-09-01')
+        self.assertEqual(_latest_posting('', ''), '')
+
+
+class JobBoardAlertTests(unittest.TestCase):
+    def test_linkedin_alert_reads_each_employer_and_city(self):
+        from email.mime.text import MIMEText
+        from sources.email_alerts import parse_alert
+        html = ('<a href="https://www.linkedin.com/comm/jobs/view/4012345678/?trackingId=abc"><img alt=""></a>'
+                '<a href="https://www.linkedin.com/comm/jobs/view/4012345678/?trackingId=abc">Equity Derivatives Sales Assistant</a>'
+                '<p>Natixis Corporate &amp; Investment Banking · Paris, Île-de-France, France</p>'
+                '<a href="https://www.linkedin.com/comm/jobs/view/4099999999/?refId=x">Structured Products Sales Intern</a>'
+                '<p>BNP Paribas · Geneva, Switzerland</p>'
+                '<a href="https://www.linkedin.com/comm/jobs/search/?keywords=sales">See all jobs</a>')
+        msg = MIMEText(html, 'html')
+        msg['From'] = 'LinkedIn Job Alerts <jobalerts-noreply@linkedin.com>'
+        src = {'company': 'LinkedIn (job alerts)', 'senders': ['jobalerts-noreply@linkedin.com'],
+               'link_pattern': r'linkedin\.com/(?:comm/)?jobs/view/\d+', 'company_from_text': True,
+               'job_id_pattern': r'/jobs/view/(\d+)', 'job_url': 'https://www.linkedin.com/jobs/view/{}/'}
+        jobs = parse_alert(msg.as_bytes(), src, context({}))
+        self.assertEqual([(j['company'], j['title'], j['location']) for j in jobs],
+                         [('Natixis Corporate & Investment Banking', 'Equity Derivatives Sales Assistant', 'Paris'),
+                          ('BNP Paribas', 'Structured Products Sales Intern', '')])
+        self.assertEqual(jobs[0]['url'], 'https://www.linkedin.com/jobs/view/4012345678/')
+        self.assertEqual(jobs[0]['id'], 'email:LinkedIn (job alerts):4012345678')

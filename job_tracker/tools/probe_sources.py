@@ -2467,6 +2467,23 @@ R70 = [('R70 boards', lambda: board_sweep(['glencoreuk', 'glencore', 'glencoresi
        ('R70 WD bp early careers', lambda: workday('bpinternational.wd3.myworkdayjobs.com', 'bpinternational', 'bpEarlyCareers'))]
 PROBES = PROBES + R70
 
+
+# ---------------- Round 71: OCBC internship posting dates ----------------
+def ocbc_dates():
+    url = 'https://ocbc.wd102.myworkdayjobs.com/wday/cxs/ocbc/External/jobs'
+    r = S.post(url, json={'appliedFacets': {}, 'limit': 20, 'offset': 0, 'searchText': 'Internship Global Markets'}, timeout=25,
+               headers={'Accept': 'application/json', 'Content-Type': 'application/json'})
+    out = []
+    for j in r.json().get('jobPostings', [])[:12]:
+        d = S.get('https://ocbc.wd102.myworkdayjobs.com/wday/cxs/ocbc/External' + j['externalPath'], headers={'Accept': 'application/json'}, timeout=25).json()
+        info = d.get('jobPostingInfo', {})
+        out.append(f"{j.get('title')[:70]} | listing: {j.get('postedOn')} | startDate: {info.get('startDate')} | postedOn(detail): {info.get('postedOn')}")
+    return '\n'.join(out)
+
+
+R71 = [('R71 OCBC dates', ocbc_dates)]
+PROBES = PROBES + R71
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
