@@ -4254,7 +4254,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-04T14:16:45.613675+00:00",
+ "last_send_slot": "2026-11-04T15:12:59.903796+00:00",
  "last_status_date": "2026-11-04",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4337,17 +4337,17 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2031,
+   "last_listed": 2034,
    "last_ok": "2026-11-04"
   },
   "Bank of America (campus)": {
    "consecutive_failures": 0,
-   "last_listed": 21,
+   "last_listed": 22,
    "last_ok": "2026-11-04"
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 106,
+   "last_listed": 108,
    "last_ok": "2026-11-04"
   },
   "Berenberg": {
@@ -4367,12 +4367,12 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 592,
+   "last_listed": 593,
    "last_ok": "2026-11-04"
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 896,
+   "last_listed": 901,
    "last_ok": "2026-11-04"
   },
   "CIBC": {
@@ -4387,7 +4387,7 @@
   },
   "CIMB (incl. CIMB Securities)": {
    "consecutive_failures": 0,
-   "last_listed": 132,
+   "last_listed": 130,
    "last_ok": "2026-11-04"
   },
   "CITIC CLSA (CITIC Securities)": {
@@ -4402,7 +4402,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1363,
+   "last_listed": 1364,
    "last_ok": "2026-11-04"
   },
   "Castleton Commodities": {
@@ -4422,7 +4422,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 588,
+   "last_listed": 589,
    "last_ok": "2026-11-04"
   },
   "CommBank": {
@@ -4437,7 +4437,7 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 306,
+   "last_listed": 305,
    "last_ok": "2026-11-04"
   },
   "DBS Bank": {
@@ -4452,7 +4452,7 @@
   },
   "DRW": {
    "consecutive_failures": 0,
-   "last_listed": 163,
+   "last_listed": 164,
    "last_ok": "2026-11-04"
   },
   "Da Vinci Trading": {
@@ -4490,7 +4490,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1622,
+   "last_listed": 1618,
    "last_ok": "2026-11-04"
   },
   "Equinor": {
@@ -4505,7 +4505,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 520,
+   "last_listed": 521,
    "last_ok": "2026-11-04"
   },
   "Fidelity International": {
@@ -4574,7 +4574,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 350,
+   "last_listed": 351,
    "last_ok": "2026-11-04"
   },
   "Haitong International": {
@@ -4594,7 +4594,7 @@
   },
   "IMC Trading": {
    "consecutive_failures": 0,
-   "last_listed": 157,
+   "last_listed": 156,
    "last_ok": "2026-11-04"
   },
   "ING": {
@@ -4604,7 +4604,7 @@
   },
   "Invesco": {
    "consecutive_failures": 0,
-   "last_listed": 25,
+   "last_listed": 24,
    "last_ok": "2026-11-04"
   },
   "Investec": {
@@ -4614,7 +4614,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 708,
+   "last_listed": 709,
    "last_ok": "2026-11-04"
   },
   "Jane Street": {
@@ -4628,7 +4628,7 @@
    "last_ok": "2026-11-04"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 35,
+   "consecutive_failures": 36,
    "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1985-2027-Equity-Research-Summer-Analyst-Program-Singapore/en-GB",
    "last_listed": 50,
    "last_ok": "2026-11-01"
@@ -4750,7 +4750,7 @@
   },
   "Optiver": {
    "consecutive_failures": 0,
-   "last_listed": 158,
+   "last_listed": 157,
    "last_ok": "2026-11-04"
   },
   "Panmure Liberum": {
@@ -4765,7 +4765,7 @@
   },
   "Pictet": {
    "consecutive_failures": 0,
-   "last_listed": 53,
+   "last_listed": 54,
    "last_ok": "2026-11-04"
   },
   "Point72": {
@@ -4790,12 +4790,12 @@
   },
   "RWE Supply & Trading": {
    "consecutive_failures": 0,
-   "last_listed": 142,
+   "last_listed": 144,
    "last_ok": "2026-11-04"
   },
   "Repsol (incl. Repsol Trading)": {
    "consecutive_failures": 0,
-   "last_listed": 53,
+   "last_listed": 52,
    "last_ok": "2026-11-04"
   },
   "SMBC (Asia)": {
@@ -4845,7 +4845,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1059,
+   "last_listed": 1060,
    "last_ok": "2026-11-04"
   },
   "State Street": {
@@ -4860,7 +4860,7 @@
   },
   "TD Securities": {
    "consecutive_failures": 0,
-   "last_listed": 46,
+   "last_listed": 47,
    "last_ok": "2026-11-04"
   },
   "TP ICAP": {
@@ -4879,7 +4879,7 @@
   },
   "Tower Research Capital": {
    "consecutive_failures": 0,
-   "last_listed": 93,
+   "last_listed": 92,
    "last_ok": "2026-11-04"
   },
   "Tradition": {
@@ -4899,7 +4899,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 694,
+   "last_listed": 708,
    "last_ok": "2026-11-04"
   },
   "UOB": {
