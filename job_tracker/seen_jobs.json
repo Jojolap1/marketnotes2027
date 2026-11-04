@@ -4206,7 +4206,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-04T04:16:44.535963+00:00",
+ "last_send_slot": "2026-11-04T05:12:10.575368+00:00",
  "last_status_date": "2026-11-03",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4219,7 +4219,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 168,
+   "last_listed": 170,
    "last_ok": "2026-11-04"
   },
   "ANZ (careers site)": {
@@ -4254,12 +4254,12 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 974,
+   "last_listed": 968,
    "last_ok": "2026-11-04"
   },
   "BNP Paribas (email alerts)": {
    "consecutive_failures": 0,
-   "last_listed": 36,
+   "last_listed": 39,
    "last_ok": "2026-11-04"
   },
   "BNY": {
@@ -4288,8 +4288,8 @@
    "last_ok": "2026-11-04"
   },
   "Bank of America": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 503 Server Error: Service Unavailable for url: https://careers.bankofamerica.com/services/jobssearchservlet?start=0&rows=1000&search=getAllJobs",
+   "consecutive_failures": 2,
+   "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.bankofamerica.com/banking-information/error-page-en.html",
    "last_listed": 2057,
    "last_ok": "2026-11-03"
   },
@@ -4355,7 +4355,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1365,
+   "last_listed": 1366,
    "last_ok": "2026-11-04"
   },
   "Castleton Commodities": {
@@ -4375,7 +4375,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 580,
+   "last_listed": 581,
    "last_ok": "2026-11-04"
   },
   "CommBank": {
@@ -4458,7 +4458,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 518,
+   "last_listed": 517,
    "last_ok": "2026-11-04"
   },
   "Fidelity International": {
@@ -4552,7 +4552,7 @@
   },
   "ING": {
    "consecutive_failures": 0,
-   "last_listed": 21,
+   "last_listed": 22,
    "last_ok": "2026-11-04"
   },
   "Invesco": {
@@ -4567,7 +4567,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 707,
+   "last_listed": 706,
    "last_ok": "2026-11-04"
   },
   "Jane Street": {
@@ -4581,7 +4581,7 @@
    "last_ok": "2026-11-04"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 25,
+   "consecutive_failures": 26,
    "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/1/adv/",
    "last_listed": 50,
    "last_ok": "2026-11-01"
@@ -4658,7 +4658,7 @@
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 94,
+   "last_listed": 95,
    "last_ok": "2026-11-04"
   },
   "Mizuho (EMEA)": {
@@ -4687,7 +4687,7 @@
    "last_ok": "2026-11-04"
   },
   "Nomura (campus)": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "bot-check page instead of content for https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/jobboard/vacancy/1/adv/",
    "last_listed": 23,
    "last_ok": "2026-11-03"
@@ -4799,7 +4799,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1022,
+   "last_listed": 1026,
    "last_ok": "2026-11-04"
   },
   "State Street": {
