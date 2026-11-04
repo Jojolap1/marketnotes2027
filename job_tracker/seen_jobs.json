@@ -3341,6 +3341,22 @@
    "title": "Banking, Investment Banking, Real Estate, Summer Analyst, London, United Kingdom 2027",
    "url": "https://citi.wd5.myworkdayjobs.com/2/job/London--United-Kingdom/Banking--Investment-Banking--Real-Estate--Summer-Analyst--London--United-Kingdom-2027_26998422"
   },
+  "workday:citi:26998633": {
+   "company": "Citi",
+   "fingerprints": [
+    "id:workday:citi:26998633",
+    "req:citi:26998633",
+    "url:https://citi.wd5.myworkdayjobs.com/2/job/london--united-kingdom/systematic-credit-trader_26998633",
+    "title:citi:systematic credit trader:london"
+   ],
+   "first_seen": "2026-11-04T11:11:41+00:00",
+   "last_seen": "2026-11-04",
+   "location": "London United Kingdom",
+   "notified_at": "2026-11-04T11:11:41+00:00",
+   "status": "open",
+   "title": "Systematic Credit Trader",
+   "url": "https://citi.wd5.myworkdayjobs.com/2/job/London--United-Kingdom/Systematic-Credit-Trader_26998633"
+  },
   "workday:db:R0446171": {
    "company": "Deutsche Bank",
    "fingerprints": [
@@ -4206,7 +4222,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-04T10:12:52.597925+00:00",
+ "last_send_slot": "2026-11-04T11:11:39.587631+00:00",
  "last_status_date": "2026-11-03",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4219,7 +4235,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 175,
+   "last_listed": 172,
    "last_ok": "2026-11-04"
   },
   "ANZ (careers site)": {
@@ -4299,7 +4315,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 103,
+   "last_listed": 104,
    "last_ok": "2026-11-04"
   },
   "Berenberg": {
@@ -4324,7 +4340,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 894,
+   "last_listed": 897,
    "last_ok": "2026-11-04"
   },
   "CIBC": {
@@ -4374,7 +4390,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 583,
+   "last_listed": 585,
    "last_ok": "2026-11-04"
   },
   "CommBank": {
@@ -4389,12 +4405,12 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 309,
+   "last_listed": 306,
    "last_ok": "2026-11-04"
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 636,
+   "last_listed": 639,
    "last_ok": "2026-11-04"
   },
   "DNB Markets": {
@@ -4442,7 +4458,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1622,
+   "last_listed": 1621,
    "last_ok": "2026-11-04"
   },
   "Equinor": {
@@ -4457,12 +4473,12 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 519,
+   "last_listed": 520,
    "last_ok": "2026-11-04"
   },
   "Fidelity International": {
    "consecutive_failures": 0,
-   "last_listed": 21,
+   "last_listed": 22,
    "last_ok": "2026-11-04"
   },
   "Fidelity International (campus)": {
@@ -4496,7 +4512,7 @@
   },
   "G-Research": {
    "consecutive_failures": 0,
-   "last_listed": 65,
+   "last_listed": 64,
    "last_ok": "2026-11-04"
   },
   "GSR": {
@@ -4526,7 +4542,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 349,
+   "last_listed": 347,
    "last_ok": "2026-11-04"
   },
   "Haitong International": {
@@ -4566,7 +4582,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 712,
+   "last_listed": 713,
    "last_ok": "2026-11-04"
   },
   "Jane Street": {
@@ -4580,8 +4596,8 @@
    "last_ok": "2026-11-04"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 31,
-   "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1984-2027-Equity-Research-Summer-Analyst-Program-Hong-Kong/en-GB",
+   "consecutive_failures": 32,
+   "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1985-2027-Equity-Research-Summer-Analyst-Program-Singapore/en-GB",
    "last_listed": 50,
    "last_ok": "2026-11-01"
   },
@@ -4677,12 +4693,12 @@
   },
   "Natixis CIB": {
    "consecutive_failures": 0,
-   "last_listed": 182,
+   "last_listed": 183,
    "last_ok": "2026-11-04"
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 494,
+   "last_listed": 493,
    "last_ok": "2026-11-04"
   },
   "Nomura (campus)": {
@@ -4692,7 +4708,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 704,
+   "last_listed": 705,
    "last_ok": "2026-11-04"
   },
   "Old Mission": {
@@ -4752,7 +4768,7 @@
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
-   "last_listed": 268,
+   "last_listed": 267,
    "last_ok": "2026-11-04"
   },
   "SMBC (EMEA)": {
@@ -4797,7 +4813,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1053,
+   "last_listed": 1051,
    "last_ok": "2026-11-04"
   },
   "State Street": {
@@ -4826,7 +4842,7 @@
   },
   "TotalEnergies": {
    "consecutive_failures": 0,
-   "last_listed": 220,
+   "last_listed": 239,
    "last_ok": "2026-11-04"
   },
   "Tower Research Capital": {
@@ -4851,12 +4867,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 702,
+   "last_listed": 705,
    "last_ok": "2026-11-04"
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 380,
+   "last_listed": 381,
    "last_ok": "2026-11-04"
   },
   "Virtu Financial": {
@@ -4885,7 +4901,7 @@
   },
   "Wintermute": {
    "consecutive_failures": 0,
-   "last_listed": 20,
+   "last_listed": 19,
    "last_ok": "2026-11-04"
   },
   "XTX Markets": {
