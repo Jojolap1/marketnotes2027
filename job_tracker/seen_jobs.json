@@ -4222,7 +4222,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-04T11:11:39.587631+00:00",
+ "last_send_slot": "2026-11-04T12:12:10.307895+00:00",
  "last_status_date": "2026-11-03",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4270,7 +4270,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 966,
+   "last_listed": 965,
    "last_ok": "2026-11-04"
   },
   "BNP Paribas (email alerts)": {
@@ -4280,7 +4280,7 @@
   },
   "BNY": {
    "consecutive_failures": 0,
-   "last_listed": 110,
+   "last_listed": 109,
    "last_ok": "2026-11-04"
   },
   "BP": {
@@ -4305,7 +4305,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2024,
+   "last_listed": 2023,
    "last_ok": "2026-11-04"
   },
   "Bank of America (campus)": {
@@ -4315,7 +4315,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 104,
+   "last_listed": 105,
    "last_ok": "2026-11-04"
   },
   "Berenberg": {
@@ -4335,17 +4335,17 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 588,
+   "last_listed": 590,
    "last_ok": "2026-11-04"
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 897,
+   "last_listed": 898,
    "last_ok": "2026-11-04"
   },
   "CIBC": {
    "consecutive_failures": 0,
-   "last_listed": 6,
+   "last_listed": 7,
    "last_ok": "2026-11-04"
   },
   "CICC": {
@@ -4370,7 +4370,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1363,
+   "last_listed": 1361,
    "last_ok": "2026-11-04"
   },
   "Castleton Commodities": {
@@ -4390,7 +4390,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 585,
+   "last_listed": 588,
    "last_ok": "2026-11-04"
   },
   "CommBank": {
@@ -4415,7 +4415,7 @@
   },
   "DNB Markets": {
    "consecutive_failures": 0,
-   "last_listed": 98,
+   "last_listed": 99,
    "last_ok": "2026-11-04"
   },
   "DRW": {
@@ -4458,7 +4458,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1621,
+   "last_listed": 1619,
    "last_ok": "2026-11-04"
   },
   "Equinor": {
@@ -4542,7 +4542,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 347,
+   "last_listed": 348,
    "last_ok": "2026-11-04"
   },
   "Haitong International": {
@@ -4552,7 +4552,7 @@
   },
   "Hudson River Trading": {
    "consecutive_failures": 0,
-   "last_listed": 84,
+   "last_listed": 83,
    "last_ok": "2026-11-04"
   },
   "ICBC Standard Bank": {
@@ -4596,7 +4596,7 @@
    "last_ok": "2026-11-04"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 32,
+   "consecutive_failures": 33,
    "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1985-2027-Equity-Research-Summer-Analyst-Program-Singapore/en-GB",
    "last_listed": 50,
    "last_ok": "2026-11-01"
@@ -4693,7 +4693,7 @@
   },
   "Natixis CIB": {
    "consecutive_failures": 0,
-   "last_listed": 183,
+   "last_listed": 184,
    "last_ok": "2026-11-04"
   },
   "Nomura": {
@@ -4778,7 +4778,7 @@
   },
   "Santander CIB": {
    "consecutive_failures": 0,
-   "last_listed": 65,
+   "last_listed": 67,
    "last_ok": "2026-11-04"
   },
   "Schonfeld": {
@@ -4813,7 +4813,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1051,
+   "last_listed": 1052,
    "last_ok": "2026-11-04"
   },
   "State Street": {
@@ -4842,7 +4842,7 @@
   },
   "TotalEnergies": {
    "consecutive_failures": 0,
-   "last_listed": 239,
+   "last_listed": 240,
    "last_ok": "2026-11-04"
   },
   "Tower Research Capital": {
