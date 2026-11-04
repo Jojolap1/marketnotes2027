@@ -1695,7 +1695,7 @@
     "title:nomura:2027 global markets summer internship securitised products and private credit trading structuring london for 2028 graduates:london"
    ],
    "first_seen": "2026-10-24T08:10:28+00:00",
-   "last_seen": "2026-11-03",
+   "last_seen": "2026-11-04",
    "location": "London",
    "notified_at": "2026-10-24T08:10:28+00:00",
    "status": "open",
@@ -1714,7 +1714,7 @@
     "title:nomura campus:2027 global markets sales trading structuring research summer internship london for 2028 graduates:london"
    ],
    "first_seen": "2026-10-18T16:14:48+00:00",
-   "last_seen": "2026-11-03",
+   "last_seen": "2026-11-04",
    "location": "London",
    "notified_at": "2026-10-18T16:14:48+00:00",
    "status": "open",
@@ -1733,7 +1733,7 @@
     "title:nomura campus:2027 global markets digital office summer internship quants strats london for 2028 graduates:london"
    ],
    "first_seen": "2026-10-18T16:14:46+00:00",
-   "last_seen": "2026-11-03",
+   "last_seen": "2026-11-04",
    "location": "London",
    "notified_at": "2026-10-18T16:14:46+00:00",
    "status": "open",
@@ -1752,7 +1752,7 @@
     "title:nomura campus:2027 global markets structured solution sales off cycle internship paris:paris"
    ],
    "first_seen": "2026-10-18T16:14:49+00:00",
-   "last_seen": "2026-11-03",
+   "last_seen": "2026-11-04",
    "location": "Paris",
    "notified_at": "2026-10-18T16:14:49+00:00",
    "status": "open",
@@ -1771,7 +1771,7 @@
     "title:nomura campus:2027 global markets rates sales 6 month off cycle internship paris:paris"
    ],
    "first_seen": "2026-10-18T16:14:50+00:00",
-   "last_seen": "2026-11-03",
+   "last_seen": "2026-11-04",
    "location": "Paris",
    "notified_at": "2026-10-18T16:14:50+00:00",
    "status": "open",
@@ -1790,7 +1790,7 @@
     "title:nomura campus:2027 global markets rates structuring off cycle internship paris:paris"
    ],
    "first_seen": "2026-10-18T16:14:45+00:00",
-   "last_seen": "2026-11-03",
+   "last_seen": "2026-11-04",
    "location": "Paris",
    "notified_at": "2026-10-18T16:14:45+00:00",
    "status": "open",
@@ -4206,7 +4206,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-04T06:12:18.958316+00:00",
+ "last_send_slot": "2026-11-04T07:11:48.404422+00:00",
  "last_status_date": "2026-11-03",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4219,7 +4219,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 172,
+   "last_listed": 173,
    "last_ok": "2026-11-04"
   },
   "ANZ (careers site)": {
@@ -4254,7 +4254,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 968,
+   "last_listed": 966,
    "last_ok": "2026-11-04"
   },
   "BNP Paribas (email alerts)": {
@@ -4289,7 +4289,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2031,
+   "last_listed": 2030,
    "last_ok": "2026-11-04"
   },
   "Bank of America (campus)": {
@@ -4319,12 +4319,12 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 586,
+   "last_listed": 585,
    "last_ok": "2026-11-04"
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 858,
+   "last_listed": 856,
    "last_ok": "2026-11-04"
   },
   "CIBC": {
@@ -4364,7 +4364,7 @@
   },
   "Chevron": {
    "consecutive_failures": 0,
-   "last_listed": 3,
+   "last_listed": 4,
    "last_ok": "2026-11-04"
   },
   "China Galaxy (Chinastock)": {
@@ -4374,7 +4374,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 582,
+   "last_listed": 581,
    "last_ok": "2026-11-04"
   },
   "CommBank": {
@@ -4394,7 +4394,7 @@
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 628,
+   "last_listed": 629,
    "last_ok": "2026-11-04"
   },
   "DNB Markets": {
@@ -4418,7 +4418,7 @@
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
-   "last_listed": 89,
+   "last_listed": 90,
    "last_ok": "2026-11-04"
   },
   "EDF Trading": {
@@ -4428,7 +4428,7 @@
   },
   "Eastspring Investments": {
    "consecutive_failures": 0,
-   "last_listed": 19,
+   "last_listed": 21,
    "last_ok": "2026-11-04"
   },
   "Eclipse Trading": {
@@ -4526,7 +4526,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 345,
+   "last_listed": 347,
    "last_ok": "2026-11-04"
   },
   "Haitong International": {
@@ -4580,8 +4580,8 @@
    "last_ok": "2026-11-04"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 27,
-   "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-ext/brand-4/xf-016c915b0a67/candidate/jobboard/vacancy/2/adv/",
+   "consecutive_failures": 28,
+   "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1984-2027-Equity-Research-Summer-Analyst-Program-Hong-Kong/en-GB",
    "last_listed": 50,
    "last_ok": "2026-11-01"
   },
@@ -4682,18 +4682,17 @@
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 490,
+   "last_listed": 491,
    "last_ok": "2026-11-04"
   },
   "Nomura (campus)": {
-   "consecutive_failures": 3,
-   "last_error": "bot-check page instead of content for https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/jobboard/vacancy/1/adv/",
+   "consecutive_failures": 0,
    "last_listed": 23,
-   "last_ok": "2026-11-03"
+   "last_ok": "2026-11-04"
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 703,
+   "last_listed": 704,
    "last_ok": "2026-11-04"
   },
   "Old Mission": {
@@ -4733,7 +4732,7 @@
   },
   "Qube Research & Technologies": {
    "consecutive_failures": 0,
-   "last_listed": 201,
+   "last_listed": 202,
    "last_ok": "2026-11-04"
   },
   "RBC": {
@@ -4753,7 +4752,7 @@
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
-   "last_listed": 264,
+   "last_listed": 265,
    "last_ok": "2026-11-04"
   },
   "SMBC (EMEA)": {
@@ -4798,12 +4797,12 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1030,
+   "last_listed": 1033,
    "last_ok": "2026-11-04"
   },
   "State Street": {
    "consecutive_failures": 0,
-   "last_listed": 92,
+   "last_listed": 93,
    "last_ok": "2026-11-04"
   },
   "Statkraft": {
@@ -4852,12 +4851,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 690,
+   "last_listed": 693,
    "last_ok": "2026-11-04"
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 379,
+   "last_listed": 380,
    "last_ok": "2026-11-04"
   },
   "Virtu Financial": {
