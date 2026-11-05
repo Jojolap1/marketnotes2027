@@ -3133,6 +3133,22 @@
    "title": "Trading & Sales Assistant - Macro",
    "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays/job/Canary-Wharf-1-Churchill-Place/Trading---Sales-Assistant---Macro_JR-0000133325"
   },
+  "workday:bpinternational:RQ117480": {
+   "company": "BP",
+   "fingerprints": [
+    "id:workday:bpinternational:RQ117480",
+    "req:bp:rq117480",
+    "url:https://bpinternational.wd3.myworkdayjobs.com/bpcareers/job/singapore---singapore/polytechnic-internship---supply--trading---shipping---singapore--2027-_rq117480-1",
+    "title:bp:polytechnic internship supply trading shipping singapore 2027:singapore"
+   ],
+   "first_seen": "2026-11-05T07:12:17+00:00",
+   "last_seen": "2026-11-05",
+   "location": "Singapore - Singapore",
+   "notified_at": "2026-11-05T07:12:17+00:00",
+   "status": "open",
+   "title": "Polytechnic Internship - Supply, Trading & Shipping - Singapore (2027)",
+   "url": "https://bpinternational.wd3.myworkdayjobs.com/bpCareers/job/Singapore---Singapore/Polytechnic-Internship---Supply--Trading---Shipping---Singapore--2027-_RQ117480-1"
+  },
   "workday:bpinternational:RQ117874": {
    "company": "BP",
    "fingerprints": [
@@ -4254,7 +4270,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-05T06:11:36.280783+00:00",
+ "last_send_slot": "2026-11-05T07:12:16.170403+00:00",
  "last_status_date": "2026-11-04",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4267,7 +4283,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 171,
+   "last_listed": 172,
    "last_ok": "2026-11-05"
   },
   "ANZ (careers site)": {
@@ -4307,7 +4323,7 @@
   },
   "BNP Paribas (email alerts)": {
    "consecutive_failures": 0,
-   "last_listed": 39,
+   "last_listed": 41,
    "last_ok": "2026-11-05"
   },
   "BNY": {
@@ -4317,12 +4333,12 @@
   },
   "BP": {
    "consecutive_failures": 0,
-   "last_listed": 12,
+   "last_listed": 13,
    "last_ok": "2026-11-05"
   },
   "BP (early careers)": {
    "consecutive_failures": 0,
-   "last_listed": 6,
+   "last_listed": 7,
    "last_ok": "2026-11-05"
   },
   "BTG Pactual": {
@@ -4367,7 +4383,7 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 588,
+   "last_listed": 587,
    "last_ok": "2026-11-05"
   },
   "Business France (VIE)": {
@@ -4417,12 +4433,12 @@
   },
   "China Galaxy (Chinastock)": {
    "consecutive_failures": 0,
-   "last_listed": 68,
+   "last_listed": 70,
    "last_ok": "2026-11-05"
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 591,
+   "last_listed": 590,
    "last_ok": "2026-11-05"
   },
   "CommBank": {
@@ -4437,12 +4453,12 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 303,
+   "last_listed": 299,
    "last_ok": "2026-11-05"
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 635,
+   "last_listed": 634,
    "last_ok": "2026-11-05"
   },
   "DNB Markets": {
@@ -4466,7 +4482,7 @@
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
-   "last_listed": 87,
+   "last_listed": 88,
    "last_ok": "2026-11-05"
   },
   "EDF Trading": {
@@ -4490,7 +4506,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1620,
+   "last_listed": 1619,
    "last_ok": "2026-11-05"
   },
   "Equinor": {
@@ -4505,7 +4521,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 520,
+   "last_listed": 524,
    "last_ok": "2026-11-05"
   },
   "Fidelity International": {
@@ -4574,7 +4590,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 350,
+   "last_listed": 351,
    "last_ok": "2026-11-05"
   },
   "Haitong International": {
@@ -4614,7 +4630,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 711,
+   "last_listed": 712,
    "last_ok": "2026-11-05"
   },
   "Jane Street": {
@@ -4628,7 +4644,7 @@
    "last_ok": "2026-11-05"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 39,
+   "consecutive_failures": 40,
    "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1985-2027-Equity-Research-Summer-Analyst-Program-Singapore/en-GB",
    "last_listed": 50,
    "last_ok": "2026-11-01"
@@ -4705,7 +4721,7 @@
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 97,
+   "last_listed": 93,
    "last_ok": "2026-11-05"
   },
   "Mizuho (EMEA)": {
@@ -4730,7 +4746,7 @@
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 495,
+   "last_listed": 496,
    "last_ok": "2026-11-05"
   },
   "Nomura (campus)": {
@@ -4740,7 +4756,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 704,
+   "last_listed": 701,
    "last_ok": "2026-11-05"
   },
   "Old Mission": {
@@ -4780,7 +4796,7 @@
   },
   "Qube Research & Technologies": {
    "consecutive_failures": 0,
-   "last_listed": 204,
+   "last_listed": 205,
    "last_ok": "2026-11-05"
   },
   "RBC": {
@@ -4800,7 +4816,7 @@
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
-   "last_listed": 263,
+   "last_listed": 264,
    "last_ok": "2026-11-05"
   },
   "SMBC (EMEA)": {
@@ -4845,7 +4861,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1039,
+   "last_listed": 1041,
    "last_ok": "2026-11-05"
   },
   "State Street": {
@@ -4899,7 +4915,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 702,
+   "last_listed": 703,
    "last_ok": "2026-11-05"
   },
   "UOB": {
@@ -4915,6 +4931,10 @@
   "Vitol": {
    "consecutive_failures": 0,
    "last_listed": 36,
+   "last_ok": "2026-11-05"
+  },
+  "Web search (daily Claude session)": {
+   "consecutive_failures": 0,
    "last_ok": "2026-11-05"
   },
   "Wellington Management": {
