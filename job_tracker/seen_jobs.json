@@ -2181,6 +2181,21 @@
    "title": "Prime Finance Services Trader Assistant - Analyst",
    "url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210805198"
   },
+  "post:linkedin:7520415583088201728": {
+   "company": "LinkedIn (web search)",
+   "fingerprints": [
+    "id:post:linkedin:7520415583088201728",
+    "url:https://linkedin.com/posts/internship-opportunity-alba-london-january-ugcpost-7520415583088201728-8zbe",
+    "title:linkedin:london we are looking for an intern starting in january 2027 or march 2027 to support the investment team at alba infra partners in london:london"
+   ],
+   "first_seen": "2026-11-05T08:11:38+00:00",
+   "last_seen": "2026-11-05",
+   "location": "London",
+   "notified_at": "2026-11-05T08:11:38+00:00",
+   "status": "unknown",
+   "title": "London We are looking for an intern, starting in January 2027 or March 2027, to support the Investment Team at Alba Infra Partners in London ...",
+   "url": "https://www.linkedin.com/posts/internship-opportunity-alba-london-january-ugcPost-7520415583088201728-8ZbE/"
+  },
   "rss:Amundi:https://jobs.amundi.com/pages/offre/detailoffre.aspx?LCID=2057&idOffre=116550&idOrigine=170287&offerReference=2026-116550": {
    "company": "Amundi",
    "fingerprints": [
@@ -2943,6 +2958,21 @@
    "title": "ITB Trainee, Assistant Sales – Banks Origination (One Year Contract)",
    "url": "https://jobs.ca-cib.com/job/job-itb-trainee-assistant-sales-banks-origination-one-year-contract-_117105.aspx"
   },
+  "web:https://sg.gradconnection.com/employers/jane-street/jobs/jane-street-sales-and-trading-2027-summer-internship": {
+   "company": "Jane Street",
+   "fingerprints": [
+    "id:web:https://sg.gradconnection.com/employers/jane-street/jobs/jane-street-sales-and-trading-2027-summer-internship",
+    "url:https://sg.gradconnection.com/employers/jane-street/jobs/jane-street-sales-and-trading-2027-summer-internship",
+    "title:jane street:sales and trading 2027 summer internship:hong kong"
+   ],
+   "first_seen": "2026-11-05T08:11:39+00:00",
+   "last_seen": "2026-11-05",
+   "location": "Hong Kong",
+   "notified_at": "2026-11-05T08:11:39+00:00",
+   "status": "unknown",
+   "title": "Sales and Trading 2027 Summer Internship",
+   "url": "https://sg.gradconnection.com/employers/jane-street/jobs/jane-street-sales-and-trading-2027-summer-internship/"
+  },
   "workable:capula-investment-management-ltd:7603F96755": {
    "company": "Capula Investment Management",
    "fingerprints": [
@@ -3043,13 +3073,15 @@
     "id:workday:barclays:JR-0000124692",
     "req:barclays:jr-0000124692",
     "url:https://barclays.wd3.myworkdayjobs.com/external_career_site_barclays/job/canary-wharf-1-churchill-place/sales--trading-and-structuring-summer-internship-programme-2027-london_jr-0000124692",
-    "title:barclays:sales trading and structuring summer internship programme 2027 london:london"
+    "title:barclays:sales trading and structuring summer internship programme 2027 london:london",
+    "id:web:https://search.jobs.barclays/job/london/sales-trading-and-structuring-summer-internship-programme-2027-london/13015/100397233984",
+    "url:https://search.jobs.barclays/job/london/sales-trading-and-structuring-summer-internship-programme-2027-london/13015/100397233984"
    ],
    "first_seen": "2026-10-18T15:01:28+00:00",
-   "last_seen": "2026-10-23",
+   "last_seen": "2026-11-05",
    "location": "Canary Wharf, 1 Churchill Place",
    "notified_at": "2026-10-18T15:01:28+00:00",
-   "status": "open",
+   "status": "unknown",
    "title": "Sales, Trading and Structuring Summer Internship Programme 2027 London",
    "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays/job/Canary-Wharf-1-Churchill-Place/Sales--Trading-and-Structuring-Summer-Internship-Programme-2027-London_JR-0000124692"
   },
@@ -4270,7 +4302,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-05T07:12:16.170403+00:00",
+ "last_send_slot": "2026-11-05T08:11:37.032132+00:00",
  "last_status_date": "2026-11-04",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4283,7 +4315,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 172,
+   "last_listed": 174,
    "last_ok": "2026-11-05"
   },
   "ANZ (careers site)": {
@@ -4333,7 +4365,7 @@
   },
   "BP": {
    "consecutive_failures": 0,
-   "last_listed": 13,
+   "last_listed": 14,
    "last_ok": "2026-11-05"
   },
   "BP (early careers)": {
@@ -4353,7 +4385,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2006,
+   "last_listed": 2000,
    "last_ok": "2026-11-05"
   },
   "Bank of America (campus)": {
@@ -4383,7 +4415,7 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 587,
+   "last_listed": 589,
    "last_ok": "2026-11-05"
   },
   "Business France (VIE)": {
@@ -4418,7 +4450,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1372,
+   "last_listed": 1374,
    "last_ok": "2026-11-05"
   },
   "Castleton Commodities": {
@@ -4453,12 +4485,12 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 299,
+   "last_listed": 300,
    "last_ok": "2026-11-05"
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 634,
+   "last_listed": 636,
    "last_ok": "2026-11-05"
   },
   "DNB Markets": {
@@ -4492,7 +4524,7 @@
   },
   "Eastspring Investments": {
    "consecutive_failures": 0,
-   "last_listed": 21,
+   "last_listed": 22,
    "last_ok": "2026-11-05"
   },
   "Eclipse Trading": {
@@ -4506,7 +4538,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1619,
+   "last_listed": 1620,
    "last_ok": "2026-11-05"
   },
   "Equinor": {
@@ -4630,7 +4662,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 712,
+   "last_listed": 713,
    "last_ok": "2026-11-05"
   },
   "Jane Street": {
@@ -4644,7 +4676,7 @@
    "last_ok": "2026-11-05"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 40,
+   "consecutive_failures": 41,
    "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1985-2027-Equity-Research-Summer-Analyst-Program-Singapore/en-GB",
    "last_listed": 50,
    "last_ok": "2026-11-01"
@@ -4666,7 +4698,7 @@
   },
   "LinkedIn (job alerts)": {
    "consecutive_failures": 0,
-   "last_listed": 201,
+   "last_listed": 209,
    "last_ok": "2026-11-05"
   },
   "LinkedIn (posts)": {
@@ -4676,7 +4708,7 @@
   },
   "LinkedIn (web search)": {
    "consecutive_failures": 0,
-   "last_listed": 26,
+   "last_listed": 9,
    "last_ok": "2026-11-05"
   },
   "Lloyds Banking Group": {
@@ -4686,7 +4718,7 @@
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 144,
+   "last_listed": 145,
    "last_ok": "2026-11-05"
   },
   "Macquarie": {
@@ -4721,7 +4753,7 @@
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 93,
+   "last_listed": 97,
    "last_ok": "2026-11-05"
   },
   "Mizuho (EMEA)": {
@@ -4741,7 +4773,7 @@
   },
   "Natixis CIB": {
    "consecutive_failures": 0,
-   "last_listed": 182,
+   "last_listed": 181,
    "last_ok": "2026-11-05"
   },
   "Nomura": {
@@ -4756,7 +4788,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 701,
+   "last_listed": 703,
    "last_ok": "2026-11-05"
   },
   "Old Mission": {
@@ -4796,7 +4828,7 @@
   },
   "Qube Research & Technologies": {
    "consecutive_failures": 0,
-   "last_listed": 205,
+   "last_listed": 204,
    "last_ok": "2026-11-05"
   },
   "RBC": {
@@ -4806,7 +4838,7 @@
   },
   "RWE Supply & Trading": {
    "consecutive_failures": 0,
-   "last_listed": 139,
+   "last_listed": 140,
    "last_ok": "2026-11-05"
   },
   "Repsol (incl. Repsol Trading)": {
@@ -4846,7 +4878,7 @@
   },
   "Shell": {
    "consecutive_failures": 0,
-   "last_listed": 19,
+   "last_listed": 20,
    "last_ok": "2026-11-05"
   },
   "Société Générale": {
@@ -4861,7 +4893,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1041,
+   "last_listed": 1049,
    "last_ok": "2026-11-05"
   },
   "State Street": {
@@ -4920,7 +4952,7 @@
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 374,
+   "last_listed": 373,
    "last_ok": "2026-11-05"
   },
   "Virtu Financial": {
@@ -4935,6 +4967,7 @@
   },
   "Web search (daily Claude session)": {
    "consecutive_failures": 0,
+   "last_listed": 2,
    "last_ok": "2026-11-05"
   },
   "Wellington Management": {
