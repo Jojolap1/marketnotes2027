@@ -3837,6 +3837,22 @@
    "title": "6 month Internship - Fixed Income Credit Sales: Jan - June 2027",
    "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/Paris/XMLNAME-6-month-Internship---Fixed-Income-Credit-Sales--Jan---June-2027_10080532-WD"
   },
+  "workday:mufgub:10080619-WD": {
+   "company": "MUFG",
+   "fingerprints": [
+    "id:workday:mufgub:10080619-WD",
+    "req:mufg:10080619-wd",
+    "url:https://mufgub.wd3.myworkdayjobs.com/mufg-careers/job/paris/xmlname-6-month-internship---global-market--fx-sales-desk---january-2027_10080619-wd",
+    "title:mufg:6 month internship global market fx sales desk january 2027:paris"
+   ],
+   "first_seen": "2026-11-05T11:12:16+00:00",
+   "last_seen": "2026-11-05",
+   "location": "Paris",
+   "notified_at": "2026-11-05T11:12:16+00:00",
+   "status": "open",
+   "title": "6 month Internship – Global Market, FX Sales Desk – January 2027",
+   "url": "https://mufgub.wd3.myworkdayjobs.com/MUFG-Careers/job/Paris/XMLNAME-6-month-Internship---Global-Market--FX-Sales-Desk---January-2027_10080619-WD"
+  },
   "workday:ocbc:JR00006467": {
    "company": "OCBC / Bank of Singapore",
    "fingerprints": [
@@ -4318,7 +4334,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-05T10:12:06.622654+00:00",
+ "last_send_slot": "2026-11-05T11:12:14.640191+00:00",
  "last_status_date": "2026-11-04",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4331,7 +4347,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 177,
+   "last_listed": 178,
    "last_ok": "2026-11-05"
   },
   "ANZ (careers site)": {
@@ -4361,7 +4377,7 @@
   },
   "BBVA": {
    "consecutive_failures": 0,
-   "last_listed": 18,
+   "last_listed": 19,
    "last_ok": "2026-11-05"
   },
   "BMO Capital Markets": {
@@ -4436,7 +4452,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 898,
+   "last_listed": 908,
    "last_ok": "2026-11-05"
   },
   "CIBC": {
@@ -4466,7 +4482,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1372,
+   "last_listed": 1374,
    "last_ok": "2026-11-05"
   },
   "Castleton Commodities": {
@@ -4486,7 +4502,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 593,
+   "last_listed": 595,
    "last_ok": "2026-11-05"
   },
   "CommBank": {
@@ -4506,7 +4522,7 @@
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 636,
+   "last_listed": 637,
    "last_ok": "2026-11-05"
   },
   "DNB Markets": {
@@ -4516,7 +4532,7 @@
   },
   "DRW": {
    "consecutive_failures": 0,
-   "last_listed": 162,
+   "last_listed": 163,
    "last_ok": "2026-11-05"
   },
   "Da Vinci Trading": {
@@ -4530,7 +4546,7 @@
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
-   "last_listed": 86,
+   "last_listed": 84,
    "last_ok": "2026-11-05"
   },
   "EDF Trading": {
@@ -4554,7 +4570,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1619,
+   "last_listed": 1627,
    "last_ok": "2026-11-05"
   },
   "Equinor": {
@@ -4569,7 +4585,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 524,
+   "last_listed": 522,
    "last_ok": "2026-11-05"
   },
   "Fidelity International": {
@@ -4593,7 +4609,7 @@
   },
   "Flow Traders": {
    "consecutive_failures": 0,
-   "last_listed": 44,
+   "last_listed": 43,
    "last_ok": "2026-11-05"
   },
   "Flowdesk": {
@@ -4638,7 +4654,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 347,
+   "last_listed": 352,
    "last_ok": "2026-11-05"
   },
   "Haitong International": {
@@ -4673,7 +4689,7 @@
   },
   "Investec": {
    "consecutive_failures": 0,
-   "last_listed": 54,
+   "last_listed": 53,
    "last_ok": "2026-11-05"
   },
   "JPMorgan": {
@@ -4692,7 +4708,7 @@
    "last_ok": "2026-11-05"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 43,
+   "consecutive_failures": 44,
    "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/2011-2027-Asset-Management-Summer-Internship-Programme-London/en-G",
    "last_listed": 50,
    "last_ok": "2026-11-01"
@@ -4734,7 +4750,7 @@
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 146,
+   "last_listed": 147,
    "last_ok": "2026-11-05"
   },
   "Macquarie": {
@@ -4779,7 +4795,7 @@
   },
   "Morgan Stanley": {
    "consecutive_failures": 0,
-   "last_listed": 130,
+   "last_listed": 128,
    "last_ok": "2026-11-05"
   },
   "National Bank of Canada": {
@@ -4794,7 +4810,7 @@
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 497,
+   "last_listed": 496,
    "last_ok": "2026-11-05"
   },
   "Nomura (campus)": {
@@ -4804,7 +4820,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 702,
+   "last_listed": 700,
    "last_ok": "2026-11-05"
   },
   "Old Mission": {
@@ -4844,12 +4860,12 @@
   },
   "Qube Research & Technologies": {
    "consecutive_failures": 0,
-   "last_listed": 205,
+   "last_listed": 206,
    "last_ok": "2026-11-05"
   },
   "RBC": {
    "consecutive_failures": 0,
-   "last_listed": 21,
+   "last_listed": 20,
    "last_ok": "2026-11-05"
   },
   "RWE Supply & Trading": {
@@ -4859,7 +4875,7 @@
   },
   "Repsol (incl. Repsol Trading)": {
    "consecutive_failures": 0,
-   "last_listed": 48,
+   "last_listed": 49,
    "last_ok": "2026-11-05"
   },
   "SMBC (Asia)": {
@@ -4869,7 +4885,7 @@
   },
   "SMBC (EMEA)": {
    "consecutive_failures": 0,
-   "last_listed": 180,
+   "last_listed": 179,
    "last_ok": "2026-11-05"
   },
   "Santander CIB": {
@@ -4909,7 +4925,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1054,
+   "last_listed": 1061,
    "last_ok": "2026-11-05"
   },
   "State Street": {
