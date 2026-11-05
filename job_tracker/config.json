@@ -1223,6 +1223,12 @@
       "engine": "duckduckgo"
     },
     {
+      "company": "Web search (daily Claude session)",
+      "platform": "web_leads",
+      "days": 14,
+      "note": "Offers found once a day by a scheduled Claude session searching the web like a person (stage / graduate / CDI + role + city + LinkedIn...), written to web_leads.json on the web-leads branch; only what the search results show is recorded. The workflow copies the file in before each run."
+    },
+    {
       "company": "eFinancialCareers (job alerts)",
       "platform": "email_alerts",
       "days": 14,

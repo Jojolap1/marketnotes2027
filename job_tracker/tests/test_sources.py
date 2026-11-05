@@ -805,3 +805,33 @@ class WebSearchTests(unittest.TestCase):
                 web_search.fetch(dict(self.SRC, hours_utc=None), ctx)
         self.assertNotIn('SECRETKEY', str(err.exception))
         self.assertTrue(all('SECRETKEY' not in url for _, url, _ in ctx.http.calls))
+
+
+class WebLeadsTests(unittest.TestCase):
+    def test_recent_leads_become_title_only_jobs(self):
+        import tempfile
+        from datetime import datetime, timezone
+        from pathlib import Path
+        from sources import web_leads
+        leads = {'leads': [
+            {'title': 'Structured Products Sales Intern', 'company': 'BNP Paribas', 'location': 'Paris, France',
+             'url': 'https://www.linkedin.com/jobs/view/4123456789/?trk=x', 'published': '2026-11-04',
+             'snippet': 'Privalto team, 6-month internship', 'found': '2026-11-05', 'site': 'linkedin.com'},
+            {'title': 'Old one', 'company': 'X', 'location': 'London', 'url': 'https://x.com/1', 'found': '2026-10-01'},
+            {'title': 'No link', 'company': 'X', 'location': 'London', 'url': '', 'found': '2026-11-05'}]}
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / 'web_leads.json'
+            path.write_text(json.dumps(leads))
+            ctx = context({}, now=datetime(2026, 11, 5, 4, tzinfo=timezone.utc))
+            jobs = web_leads.fetch({'company': 'Web search (daily Claude session)', 'file': str(path)}, ctx)
+        self.assertEqual(len(jobs), 1)
+        job = jobs[0]
+        self.assertEqual((job['company'], job['title'], job['published']), ('BNP Paribas', 'Structured Products Sales Intern', '2026-11-04'))
+        self.assertTrue(job['title_only'])
+        self.assertEqual(job['id'], 'linkedin-job:4123456789')
+        self.assertEqual(job['url'], 'https://www.linkedin.com/jobs/view/4123456789/')
+
+    def test_no_file_no_jobs(self):
+        from sources import web_leads
+        ctx = context({})
+        self.assertEqual(web_leads.fetch({'company': 'W', 'file': '/nonexistent/web_leads.json'}, ctx), [])
