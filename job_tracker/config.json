@@ -640,7 +640,9 @@
       "platform": "workday",
       "host": "uobgroup.wd3.myworkdayjobs.com",
       "tenant": "uobgroup",
-      "site": "UOBExternal"
+      "site": "UOBExternal",
+      "vague_locations": "Central Region|City Area",
+      "note": "UOB lists Singapore adverts as 'Central Region (City Area)': for those, the advert's country (Singapore) decides the city (Equity Derivatives Trading Intern missed on 2026-11-05)."
     },
     {
       "company": "BBVA",

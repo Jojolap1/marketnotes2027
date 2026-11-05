@@ -547,6 +547,33 @@ class BlockedSiteAlertTests(unittest.TestCase):
         self.assertTrue(c.eligible, c.reject_reason)
 
 
+class WorkdayVagueLocationTests(unittest.TestCase):
+    def test_district_only_location_resolved_by_country(self):
+        def route(method, url, payload):
+            if url.endswith('/jobs'):
+                if payload['limit'] == 1:
+                    return {'facets': []}
+                page = [{'title': 'Equity Derivatives Trading Intern (Jan - June 2027)', 'externalPath': '/job/C/EQD_1',
+                         'locationsText': 'Central Region (City Area)', 'postedOn': 'Posted Today'},
+                        {'title': 'Senior Trader - Equity Derivatives', 'externalPath': '/job/C/SNR_2',
+                         'locationsText': 'Central Region (City Area)'}] if payload['offset'] == 0 else []
+                return {'total': 2 if payload['offset'] == 0 else 0, 'jobPostings': page}
+            if 'EQD_1' in url:
+                return {'jobPostingInfo': {'title': 'Equity Derivatives Trading Intern (Jan - June 2027)',
+                                           'location': 'Central Region (City Area)', 'country': {'descriptor': 'Singapore'},
+                                           'jobDescription': 'Internship', 'startDate': '2026-11-05', 'canApply': True, 'jobReqId': 'R1'}}
+            return (404, {})
+        ctx = context({'uobgroup.wd3': route}, now=NOW)
+        src = {'company': 'UOB', 'platform': 'workday', 'host': 'uobgroup.wd3.myworkdayjobs.com', 'tenant': 'uobgroup',
+               'site': 'UOBExternal', 'vague_locations': 'Central Region|City Area'}
+        jobs = fetch_source(src, ctx)
+        self.assertEqual([(j['title'], j['location']) for j in jobs],
+                         [('Equity Derivatives Trading Intern (Jan - June 2027)', 'Central Region (City Area), Singapore')])
+        self.assertFalse(any('SNR_2' in u for _, u, _ in ctx.http.calls))   # senior title: no detail request
+        # without the source setting, the vague location stays unmatched
+        self.assertEqual(fetch_source(dict(src, vague_locations=''), context({'uobgroup.wd3': route}, now=NOW)), [])
+
+
 class WorkdayRepostTests(unittest.TestCase):
     def test_reposted_advert_uses_the_latest_posting_date(self):
         from datetime import datetime, timedelta, timezone

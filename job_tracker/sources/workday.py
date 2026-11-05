@@ -133,13 +133,25 @@ def fetch(source, ctx):
     for path, post in posts.items():
         title = post.get('title') or ''
         loc_text = post.get('locationsText') or ''
+        detail = None
         if not ctx.screen(company, title, loc_text):
-            continue
+            # Some tenants name only a district ('Central Region (City Area)'
+            # at UOB Singapore, listed in the source's `vague_locations`): when
+            # the title is a match, read the advert's country before giving up
+            vague = source.get('vague_locations')
+            if not (vague and re.search(vague, loc_text, re.I) and ctx.title_worth_fetching(title)):
+                continue
+            detail = _detail(source, ctx, base, path)
+            if detail.get('gone') or not ctx.city_of(f"{detail.get('location') or loc_text}, {detail.get('country', '')}"):
+                continue
+            ctx.stat(company, 'city_from_country')
         ctx.stat(company, 'candidates')
-        detail = _detail(source, ctx, base, path)
+        detail = detail or _detail(source, ctx, base, path)
         if detail.get('gone'):
             continue
         location = detail.get('location') or loc_text
+        if not ctx.city_of(location) and ctx.city_of(f"{location}, {detail.get('country', '')}"):
+            location = f"{location}, {detail.get('country')}"
         status, evidence = _status(detail, ctx)
         req_id = detail.get('req_id') or ''.join((post.get('bulletFields') or [])[:1])
         jobs.append(make_job(
