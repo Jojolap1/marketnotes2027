@@ -668,6 +668,18 @@ class LinkedInPostTests(unittest.TestCase):
         self.assertEqual(jobs[0]['company'], 'Marie Dupont')
         self.assertEqual(jobs[0]['location'], 'Paris')
 
+    def test_cv_email_in_the_post_reaches_the_alert(self):
+        from filters import Classifier
+        from notifier import format_message
+        from tracker import load_config
+        html = ('<a href="https://www.linkedin.com/feed/update/urn:li:activity:7250000000000000009">'
+                'We are hiring a Summer Analyst for our FX trading desk in London. '
+                'Send your CV to Jane.Smith@BankCorp.co.uk. Notifications by notifications-noreply@linkedin.com</a>')
+        job = self.parse(html)[0]
+        self.assertEqual(job['apply_email'], 'jane.smith@bankcorp.co.uk')
+        c = Classifier(load_config()).classify(job)
+        self.assertIn('📧 Send your CV to: jane.smith@bankcorp.co.uk', format_message(job, c))
+
     def test_hiring_manager_looking_for_an_intern_is_not_a_candidate(self):
         html = ('<a href="https://www.linkedin.com/feed/update/urn:li:activity:7257777777777777777">'
                 'Je recherche un stagiaire pour notre desk de trading à Paris. Envoyez votre CV en MP.</a>')

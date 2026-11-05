@@ -185,8 +185,22 @@ def post_jobs(blocks, source, ctx, published, evidence):
             location=ctx.city_of(text), url=url, published=published,
             description=re.sub(r'\s*¶\s*', ' ', text).strip()[:3000],
             employment_type=(f'{level} — ' if level else '') + 'LinkedIn post (read it for how to apply)',
-            source=f'LinkedIn post ({source["company"]})', status='unknown', status_evidence=evidence))
+            source=f'LinkedIn post ({source["company"]})', status='unknown', status_evidence=evidence,
+            apply_email=', '.join(_contact_emails(text))))
     return jobs
+
+
+EMAIL = re.compile(r'[\w.+-]+@[\w-]+(?:\.[\w-]+)*\.[a-z]{2,}', re.I)
+
+
+def _contact_emails(text):
+    """Addresses the post gives to send a CV to (not LinkedIn's own)."""
+    found = []
+    for address in EMAIL.findall(text or ''):
+        address = address.rstrip('.').lower()
+        if not re.search(r'linkedin\.com$|noreply|no-reply|example\.', address) and address not in found:
+            found.append(address)
+    return found[:2]
 
 
 def _level_word(ctx, text):
