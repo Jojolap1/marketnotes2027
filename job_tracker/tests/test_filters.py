@@ -281,8 +281,19 @@ class TitleOnlySourceTests(unittest.TestCase):
                     'description': 'Fidelity International · Hong Kong', 'title_only': True}
         other = {'title': 'Research Analyst', 'company': 'Neuberger', 'location': 'Hong Kong',
                  'description': '', 'title_only': True}
+        official['published'] = '2026-09-01'
         self.assertEqual(borrow_descriptions([linkedin, official, other]), 1)
+        self.assertEqual(linkedin['published'], '2026-09-01')
         self.assertFalse(linkedin['title_only'])
         c = Classifier(load_config()).classify(linkedin)
         self.assertEqual(c.reject_reason, 'requires 4+ years of experience')
         self.assertTrue(other['title_only'])
+
+
+class CompanyAliasTests(unittest.TestCase):
+    def test_dotted_and_spaced_names_share_a_key(self):
+        from jobs import company_key, configure_companies
+        configure_companies(['JPMorgan', 'Societe Generale', 'ING'])
+        self.assertEqual(company_key('J.P. Morgan'), 'jpmorgan')
+        self.assertEqual(company_key('JPMorgan Chase & Co.'), 'jpmorgan')
+        self.assertEqual(company_key('Ingenico'), 'ingenico')   # short names need an exact match
