@@ -9,7 +9,10 @@ copies that file in before each run; this adapter turns its recent entries
 into jobs, and the usual filters, deduplication and 14-day rule apply.
 
 The leads carry a search snippet, not the advert: they are title-only for
-the junior check (a bare 'Analyst' needs an explicit junior signal).
+the junior check (a bare 'Analyst' needs an explicit junior signal). A lead
+needs a posting date (14-day rule), a deadline still to come, or
+`open_confirmed` (the employer's page says applications are open / rolling);
+a lead with none of these is skipped, as is one whose deadline has passed.
 """
 import json
 import logging
@@ -47,12 +50,26 @@ def fetch(source, ctx):
             key = 'web:' + canonical_url(url)
         snippet = (lead.get('snippet') or '').strip()
         found = lead.get('found', '')
+        published, deadline = (lead.get('published') or '').strip(), (lead.get('deadline') or '').strip()
+        today = ctx.now.date().isoformat()
+        if deadline and deadline < today:
+            ctx.stat(source['company'], 'deadline_passed')
+            continue
+        if not published and not deadline and lead.get('open_confirmed') is not True:
+            # No posting date and no deadline: often a programme opened months
+            # ago; the 14-day rule cannot be checked, so it is not alerted
+            ctx.stat(source['company'], 'undated_skipped')
+            continue
         job = make_job(
             id=key, company=(lead.get('company') or '').strip() or 'Unknown employer',
             title=title, location=(lead.get('location') or '').strip(), url=url,
-            published=(lead.get('published') or '').strip(), description=snippet[:3000],
-            source=f'web search ({lead.get("site") or "web"})', status='unknown',
-            status_evidence=f'found by the daily web search on {found}', title_only=True)
+            published=published, description=snippet[:3000] + (f' Application deadline: {deadline}.' if deadline else ''),
+            source=f'web search ({lead.get("site") or "web"})',
+            status='open' if lead.get('open_confirmed') is True else 'unknown',
+            status_evidence=f'found by the daily web search on {found}'
+            + (f'; deadline {deadline}' if deadline else '')
+            + ('; employer page says applications are open' if lead.get('open_confirmed') is True else ''),
+            title_only=True)
         jobs.setdefault(job['id'], job)
     ctx.stat(source['company'], 'listed', len(jobs))
     LOG.info('%s: %d leads found since %s', source['company'], len(jobs), keep_from)
