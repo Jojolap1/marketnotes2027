@@ -2613,6 +2613,24 @@ def ddg_variants():
 R78 = [('R78 ddg variants', ddg_variants)]
 PROBES = PROBES + R78
 
+
+def workday_search(host, tenant, site, text, n=10):
+    base = f'https://{host}/wday/cxs/{tenant}/{site}'
+    r = S.post(base + '/jobs', json={'appliedFacets': {}, 'limit': 20, 'offset': 0, 'searchText': text}, timeout=25,
+               headers={'Accept': 'application/json', 'Content-Type': 'application/json'})
+    out = [f'total={r.json().get("total")}']
+    for j in r.json().get('jobPostings', [])[:n]:
+        d = S.get(base + j['externalPath'], headers={'Accept': 'application/json'}, timeout=25).json().get('jobPostingInfo', {})
+        desc = re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', d.get('jobDescription', '')))
+        exp = re.findall(r'[^.]{0,80}(?:year|experience|graduate|fresh|intern)[^.]{0,80}', desc, re.I)[:4]
+        out.append(f"{j.get('title')} | {j.get('locationsText')} | {j.get('postedOn')} | start={d.get('startDate')} | {d.get('timeType')} | exp={exp}")
+    return '\n'.join(out)
+
+
+R79 = [('R79 UOB equity derivatives', lambda: workday_search('uobgroup.wd3.myworkdayjobs.com', 'uobgroup', 'UOBExternal', 'equity derivatives')),
+       ('R79 UOB derivatives', lambda: workday_search('uobgroup.wd3.myworkdayjobs.com', 'uobgroup', 'UOBExternal', 'derivatives'))]
+PROBES = PROBES + R79
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
