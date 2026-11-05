@@ -72,6 +72,12 @@ def company_key(name):
     for base in _COMPANY_BASES:
         if re.search(r'\b' + re.escape(base) + r'\b', plain):
             return base
+    # 'J.P. Morgan' / 'JPMorgan', 'Societe Generale' / 'SocieteGenerale'
+    compact = plain.replace(' ', '')
+    for base in _COMPANY_BASES:
+        squeezed = base.replace(' ', '')
+        if compact == squeezed or (len(squeezed) >= 5 and compact.startswith(squeezed)):
+            return base
     return plain
 
 
@@ -79,9 +85,10 @@ VIE_MARK = re.compile(r'^(?:v i e|vie)\b\s*|\s*\b(?:v i e|vie)$')
 
 
 def borrow_descriptions(jobs):
-    """Title-only offers (LinkedIn / eFinancialCareers alerts) borrow the
-    advert text of the same offer on the employer's own site, read in the
-    same run, so its experience requirement is checked. LinkedIn pages are
+    """Title-only offers (LinkedIn / eFinancialCareers alerts, web search
+    leads) borrow the advert text and posting date of the same offer on the
+    employer's own site, read in the same run, so its experience requirement
+    and age are checked. LinkedIn pages are
     never fetched (LinkedIn forbids robots). Returns the number matched."""
     def key(job):
         return company_key(job.get('company')), VIE_MARK.sub('', normalized_title(job.get('title'))).strip()
@@ -96,6 +103,10 @@ def borrow_descriptions(jobs):
             job['description'] = twin['description']
             job['title_only'] = False
             job['description_from'] = twin.get('url', '')
+            # The employer's own posting date decides the 14-day rule (a web
+            # search lead carries no date of its own)
+            if twin.get('published'):
+                job['published'] = twin['published']
             matched += 1
     return matched
 
