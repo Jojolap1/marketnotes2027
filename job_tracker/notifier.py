@@ -54,6 +54,8 @@ def format_message(job, classification):
     lines.append(f'{status_icon} Application status: {e(status_label(job.get("status")))}'
                  + (f' — {e(job.get("status_evidence", "")[:160])}' if job.get('status_evidence') else ''))
     lines.append(f'💡 Why it matches: {e("; ".join(c.reasons))}')
+    if job.get('apply_email'):   # LinkedIn posts asking for CVs by email
+        lines.append(f'📧 Send your CV to: {e(job["apply_email"])}')
     url = job.get('apply_url') or job.get('url')
     lines.append(f'🔗 <a href="{e(url, quote=True)}">Official posting / apply</a>')
     lines.append(e(url))
