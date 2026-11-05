@@ -20,7 +20,7 @@ on:
         type: boolean
         default: false
   push:
-    branches-ignore: [main]
+    branches-ignore: [main, web-leads]
     paths:
       - 'job_tracker/**'
       - '.github/workflows/job_tracker.yml'
@@ -72,6 +72,16 @@ jobs:
         run: |
           git fetch --no-tags --depth=1 origin main
           git checkout FETCH_HEAD -- job_tracker/seen_jobs.json
+
+      # Offers found by the daily web search session live on their own branch
+      # (it never touches main); missing branch = no leads yet.
+      - name: Load web search leads
+        run: |
+          if git fetch --no-tags --depth=1 origin web-leads 2>/dev/null; then
+            git checkout FETCH_HEAD -- job_tracker/web_leads.json || echo "no leads file"
+          else
+            echo "no web-leads branch yet"
+          fi
 
       - name: Restore vacancy detail cache
         uses: actions/cache@v4
