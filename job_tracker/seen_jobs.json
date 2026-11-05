@@ -2286,6 +2286,22 @@
    "title": "INTERNSHIP - CREDIT RESEARCH SELL SIDE - PARIS",
    "url": "https://keplercheuvreux.teamtailor.com/jobs/8623232-internship-credit-research-sell-side-paris"
   },
+  "sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/equity-prime-brokerage-cfmo-analyst-26000NAR-en": {
+   "company": "Société Générale",
+   "fingerprints": [
+    "id:sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/equity-prime-brokerage-cfmo-analyst-26000NAR-en",
+    "req:societe generale:26000nar",
+    "url:https://careers.societegenerale.com/en/job-offers/equity-prime-brokerage-cfmo-analyst-26000nar",
+    "title:societe generale:equity prime brokerage cfmo analyst:hong kong"
+   ],
+   "first_seen": "2026-11-05T10:12:08+00:00",
+   "last_seen": "2026-11-05",
+   "location": "Hong Kong, Hong Kong",
+   "notified_at": "2026-11-05T10:12:08+00:00",
+   "status": "open",
+   "title": "Equity Prime Brokerage CFMO Analyst",
+   "url": "https://careers.societegenerale.com/en/job-offers/equity-prime-brokerage-cfmo-analyst-26000NAR-en"
+  },
   "sitemap:Société Générale:https://careers.societegenerale.com/en/job-offers/equity-research-intern-bernstein-hong-kong-summer-2027-26000LB7-en": {
    "company": "Société Générale",
    "fingerprints": [
@@ -4302,7 +4318,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-05T09:16:20.384166+00:00",
+ "last_send_slot": "2026-11-05T10:12:06.622654+00:00",
  "last_status_date": "2026-11-04",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4310,12 +4326,12 @@
  "sources": {
   "AIB (incl. Goodbody)": {
    "consecutive_failures": 0,
-   "last_listed": 14,
+   "last_listed": 15,
    "last_ok": "2026-11-05"
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 176,
+   "last_listed": 177,
    "last_ok": "2026-11-05"
   },
   "ANZ (careers site)": {
@@ -4395,7 +4411,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 104,
+   "last_listed": 105,
    "last_ok": "2026-11-05"
   },
   "Berenberg": {
@@ -4415,12 +4431,12 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 589,
+   "last_listed": 590,
    "last_ok": "2026-11-05"
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 886,
+   "last_listed": 898,
    "last_ok": "2026-11-05"
   },
   "CIBC": {
@@ -4440,7 +4456,7 @@
   },
   "CITIC CLSA (CITIC Securities)": {
    "consecutive_failures": 0,
-   "last_listed": 217,
+   "last_listed": 218,
    "last_ok": "2026-11-05"
   },
   "Capula Investment Management": {
@@ -4470,7 +4486,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 591,
+   "last_listed": 593,
    "last_ok": "2026-11-05"
   },
   "CommBank": {
@@ -4485,12 +4501,12 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 300,
+   "last_listed": 297,
    "last_ok": "2026-11-05"
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 637,
+   "last_listed": 636,
    "last_ok": "2026-11-05"
   },
   "DNB Markets": {
@@ -4514,7 +4530,7 @@
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
-   "last_listed": 88,
+   "last_listed": 86,
    "last_ok": "2026-11-05"
   },
   "EDF Trading": {
@@ -4538,7 +4554,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1620,
+   "last_listed": 1619,
    "last_ok": "2026-11-05"
   },
   "Equinor": {
@@ -4553,7 +4569,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 525,
+   "last_listed": 524,
    "last_ok": "2026-11-05"
   },
   "Fidelity International": {
@@ -4622,7 +4638,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 350,
+   "last_listed": 347,
    "last_ok": "2026-11-05"
   },
   "Haitong International": {
@@ -4642,7 +4658,7 @@
   },
   "IMC Trading": {
    "consecutive_failures": 0,
-   "last_listed": 158,
+   "last_listed": 159,
    "last_ok": "2026-11-05"
   },
   "ING": {
@@ -4657,12 +4673,12 @@
   },
   "Investec": {
    "consecutive_failures": 0,
-   "last_listed": 56,
+   "last_listed": 54,
    "last_ok": "2026-11-05"
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 714,
+   "last_listed": 717,
    "last_ok": "2026-11-05"
   },
   "Jane Street": {
@@ -4676,7 +4692,7 @@
    "last_ok": "2026-11-05"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 42,
+   "consecutive_failures": 43,
    "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/2011-2027-Asset-Management-Summer-Internship-Programme-London/en-G",
    "last_listed": 50,
    "last_ok": "2026-11-01"
@@ -4698,7 +4714,7 @@
   },
   "LinkedIn (job alerts)": {
    "consecutive_failures": 0,
-   "last_listed": 209,
+   "last_listed": 215,
    "last_ok": "2026-11-05"
   },
   "LinkedIn (posts)": {
@@ -4718,7 +4734,7 @@
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 145,
+   "last_listed": 146,
    "last_ok": "2026-11-05"
   },
   "Macquarie": {
@@ -4753,7 +4769,7 @@
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 95,
+   "last_listed": 97,
    "last_ok": "2026-11-05"
   },
   "Mizuho (EMEA)": {
@@ -4788,7 +4804,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 701,
+   "last_listed": 702,
    "last_ok": "2026-11-05"
   },
   "Old Mission": {
@@ -4813,7 +4829,7 @@
   },
   "Pictet": {
    "consecutive_failures": 0,
-   "last_listed": 54,
+   "last_listed": 55,
    "last_ok": "2026-11-05"
   },
   "Point72": {
@@ -4828,7 +4844,7 @@
   },
   "Qube Research & Technologies": {
    "consecutive_failures": 0,
-   "last_listed": 204,
+   "last_listed": 205,
    "last_ok": "2026-11-05"
   },
   "RBC": {
@@ -4858,7 +4874,7 @@
   },
   "Santander CIB": {
    "consecutive_failures": 0,
-   "last_listed": 62,
+   "last_listed": 64,
    "last_ok": "2026-11-05"
   },
   "Schonfeld": {
@@ -4873,7 +4889,7 @@
   },
   "Scotiabank": {
    "consecutive_failures": 0,
-   "last_listed": 25,
+   "last_listed": 26,
    "last_ok": "2026-11-05"
   },
   "Shell": {
@@ -4883,7 +4899,7 @@
   },
   "Société Générale": {
    "consecutive_failures": 0,
-   "last_listed": 1052,
+   "last_listed": 1049,
    "last_ok": "2026-11-05"
   },
   "Squarepoint Capital": {
@@ -4893,12 +4909,12 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1052,
+   "last_listed": 1054,
    "last_ok": "2026-11-05"
   },
   "State Street": {
    "consecutive_failures": 0,
-   "last_listed": 97,
+   "last_listed": 98,
    "last_ok": "2026-11-05"
   },
   "Statkraft": {
@@ -4952,7 +4968,7 @@
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 373,
+   "last_listed": 375,
    "last_ok": "2026-11-05"
   },
   "Virtu Financial": {
