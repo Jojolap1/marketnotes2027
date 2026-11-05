@@ -4254,7 +4254,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-05T04:17:17.194159+00:00",
+ "last_send_slot": "2026-11-05T05:11:16.093349+00:00",
  "last_status_date": "2026-11-04",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4267,7 +4267,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 166,
+   "last_listed": 169,
    "last_ok": "2026-11-05"
   },
   "ANZ (careers site)": {
@@ -4302,7 +4302,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1012,
+   "last_listed": 1008,
    "last_ok": "2026-11-05"
   },
   "BNP Paribas (email alerts)": {
@@ -4337,12 +4337,12 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2010,
+   "last_listed": 2009,
    "last_ok": "2026-11-05"
   },
   "Bank of America (campus)": {
    "consecutive_failures": 0,
-   "last_listed": 21,
+   "last_listed": 20,
    "last_ok": "2026-11-05"
   },
   "Barclays": {
@@ -4401,10 +4401,9 @@
    "last_ok": "2026-11-05"
   },
   "Cargill": {
-   "consecutive_failures": 1,
-   "last_error": "ReadTimeout: HTTPSConnectionPool(host='career2.successfactors.eu', port=443): Read timed out. (read timeout=25)",
-   "last_listed": 1364,
-   "last_ok": "2026-11-04"
+   "consecutive_failures": 0,
+   "last_listed": 1375,
+   "last_ok": "2026-11-05"
   },
   "Castleton Commodities": {
    "consecutive_failures": 0,
@@ -4423,7 +4422,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 591,
+   "last_listed": 592,
    "last_ok": "2026-11-05"
   },
   "CommBank": {
@@ -4438,7 +4437,7 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 302,
+   "last_listed": 303,
    "last_ok": "2026-11-05"
   },
   "DBS Bank": {
@@ -4491,7 +4490,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1624,
+   "last_listed": 1625,
    "last_ok": "2026-11-05"
   },
   "Equinor": {
@@ -4615,7 +4614,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 712,
+   "last_listed": 710,
    "last_ok": "2026-11-05"
   },
   "Jane Street": {
@@ -4629,7 +4628,7 @@
    "last_ok": "2026-11-05"
   },
   "Jefferies (campus)": {
-   "consecutive_failures": 37,
+   "consecutive_failures": 38,
    "last_error": "bot-check page instead of content for https://jefferies.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/2/opp/1985-2027-Equity-Research-Summer-Analyst-Program-Singapore/en-GB",
    "last_listed": 50,
    "last_ok": "2026-11-01"
@@ -4846,7 +4845,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1032,
+   "last_listed": 1034,
    "last_ok": "2026-11-05"
   },
   "State Street": {
