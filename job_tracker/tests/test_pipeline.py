@@ -304,3 +304,36 @@ class ConfigTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TelegramCheckTests(unittest.TestCase):
+    """A Telegram outage must not stop the run; a refused token must."""
+
+    def check(self, status, body):
+        import os
+        from unittest import mock
+        from notifier import Telegram
+
+        class Resp:
+            def __init__(self):
+                self.status_code, self.content = status, json.dumps(body).encode()
+
+            def json(self):
+                return body
+
+        class Session:
+            def post(self, *a, **k):
+                return Resp()
+
+        with mock.patch.dict(os.environ, {'TELEGRAM_BOT_TOKEN': '123:abc', 'TELEGRAM_CHAT_ID': '42'}):
+            return Telegram(session=Session(), sleep=lambda s: None).check()
+
+    def test_server_error_is_transient(self):
+        ok, message = self.check(502, {'ok': False, 'description': 'Bad Gateway'})
+        self.assertTrue(ok)
+        self.assertIn('unreachable', message)
+
+    def test_refused_token_fails(self):
+        ok, message = self.check(401, {'ok': False, 'description': 'Unauthorized'})
+        self.assertFalse(ok)
+        self.assertIn('rejected', message)
