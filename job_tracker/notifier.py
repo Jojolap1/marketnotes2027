@@ -71,13 +71,20 @@ class Telegram:
         return bool(self.token and self.chat_id)
 
     def _call(self, method, payload, attempts=3):
+        self.transient = False   # last failure was Telegram being unreachable (network / 5xx), not a refusal
         for attempt in range(attempts):
             try:
                 response = self.session.post(API.format(token=self.token, method=method), json=payload, timeout=25)
                 data = response.json() if response.content else {}
             except (requests.RequestException, ValueError) as exc:
                 LOG.error('Telegram %s failed: %s', method, _scrub(exc, self.token))
+                self.transient = True
                 self.sleep(2 ** attempt)
+                continue
+            if response.status_code >= 500:   # Telegram outage (502 on 2026-11-05): retry, then give up for this run
+                LOG.warning('Telegram %s: HTTP %s, retrying', method, response.status_code)
+                self.transient = True
+                self.sleep(2 ** attempt * 2)
                 continue
             if response.status_code == 429:
                 wait = int((data.get('parameters') or {}).get('retry_after', 5))
@@ -96,6 +103,10 @@ class Telegram:
         if not self.configured:
             return False, 'TELEGRAM_BOT_TOKEN and/or TELEGRAM_CHAT_ID are not set'
         me = self._call('getMe', {})
+        if not me and self.transient:
+            # Telegram is down, the secrets are not at fault: let the run collect
+            # and save; unsent alerts stay pending for the next run
+            return True, 'Telegram unreachable right now (network or server error); alerts will wait for the next run'
         if not me:
             return False, 'getMe failed: bot token rejected'
         chat = self._call('getChat', {'chat_id': self.chat_id})
