@@ -162,6 +162,22 @@
    "title": "Internship - 6 months - Sales Commodities Markets Assistant F/M",
    "url": "https://recrutement.natixis.com/en/job/internship-6-months-sales-commodities-markets-assistant-f-m"
   },
+  "bpce:22309": {
+   "company": "Natixis CIB",
+   "fingerprints": [
+    "id:bpce:22309",
+    "req:natixis:22309",
+    "url:https://recrutement.natixis.com/en/job/internship-6-months-sales-assistant-f-m",
+    "title:natixis:internship 6 months sales assistant f m:paris"
+   ],
+   "first_seen": "2026-11-06T12:11:34+00:00",
+   "last_seen": "2026-11-06",
+   "location": "Paris, France",
+   "notified_at": "2026-11-06T12:11:34+00:00",
+   "status": "open",
+   "title": "Internship - 6 months - Sales Assistant F/M",
+   "url": "https://recrutement.natixis.com/en/job/internship-6-months-sales-assistant-f-m"
+  },
   "bpce:22385": {
    "company": "Natixis CIB",
    "fingerprints": [
@@ -4506,7 +4522,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-06T11:11:34.830397+00:00",
+ "last_send_slot": "2026-11-06T12:11:32.512022+00:00",
  "last_status_date": "2026-11-05",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4539,7 +4555,7 @@
   },
   "Amundi": {
    "consecutive_failures": 0,
-   "last_listed": 114,
+   "last_listed": 113,
    "last_ok": "2026-11-06"
   },
   "B2C2": {
@@ -4554,7 +4570,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1015,
+   "last_listed": 1016,
    "last_ok": "2026-11-06"
   },
   "BNP Paribas (email alerts)": {
@@ -4589,7 +4605,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2026,
+   "last_listed": 2020,
    "last_ok": "2026-11-06"
   },
   "Bank of America (campus)": {
@@ -4599,7 +4615,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 99,
+   "last_listed": 100,
    "last_ok": "2026-11-06"
   },
   "Berenberg": {
@@ -4624,7 +4640,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 927,
+   "last_listed": 930,
    "last_ok": "2026-11-06"
   },
   "CIBC": {
@@ -4654,7 +4670,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1391,
+   "last_listed": 1393,
    "last_ok": "2026-11-06"
   },
   "Castleton Commodities": {
@@ -4674,7 +4690,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 598,
+   "last_listed": 599,
    "last_ok": "2026-11-06"
   },
   "CommBank": {
@@ -4689,17 +4705,17 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 297,
+   "last_listed": 296,
    "last_ok": "2026-11-06"
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 642,
+   "last_listed": 644,
    "last_ok": "2026-11-06"
   },
   "DNB Markets": {
    "consecutive_failures": 0,
-   "last_listed": 100,
+   "last_listed": 99,
    "last_ok": "2026-11-06"
   },
   "DRW": {
@@ -4742,7 +4758,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1622,
+   "last_listed": 1624,
    "last_ok": "2026-11-06"
   },
   "Equinor": {
@@ -4826,7 +4842,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 349,
+   "last_listed": 351,
    "last_ok": "2026-11-06"
   },
   "Haitong International": {
@@ -4866,7 +4882,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 714,
+   "last_listed": 716,
    "last_ok": "2026-11-06"
   },
   "Jane Street": {
@@ -4936,7 +4952,7 @@
   },
   "Man Group": {
    "consecutive_failures": 0,
-   "last_listed": 70,
+   "last_listed": 71,
    "last_ok": "2026-11-06"
   },
   "Marex": {
@@ -4961,7 +4977,7 @@
   },
   "Mizuho (EMEA)": {
    "consecutive_failures": 0,
-   "last_listed": 28,
+   "last_listed": 29,
    "last_ok": "2026-11-06"
   },
   "Morgan Stanley": {
@@ -4976,12 +4992,12 @@
   },
   "Natixis CIB": {
    "consecutive_failures": 0,
-   "last_listed": 177,
+   "last_listed": 180,
    "last_ok": "2026-11-06"
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 494,
+   "last_listed": 495,
    "last_ok": "2026-11-06"
   },
   "Nomura (campus)": {
@@ -4991,7 +5007,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 704,
+   "last_listed": 703,
    "last_ok": "2026-11-06"
   },
   "Old Mission": {
@@ -5016,7 +5032,7 @@
   },
   "Pictet": {
    "consecutive_failures": 0,
-   "last_listed": 54,
+   "last_listed": 55,
    "last_ok": "2026-11-06"
   },
   "Point72": {
@@ -5031,7 +5047,7 @@
   },
   "Qube Research & Technologies": {
    "consecutive_failures": 0,
-   "last_listed": 210,
+   "last_listed": 209,
    "last_ok": "2026-11-06"
   },
   "RBC": {
@@ -5041,7 +5057,7 @@
   },
   "RWE Supply & Trading": {
    "consecutive_failures": 0,
-   "last_listed": 152,
+   "last_listed": 153,
    "last_ok": "2026-11-06"
   },
   "Repsol (incl. Repsol Trading)": {
@@ -5071,7 +5087,7 @@
   },
   "Schroders": {
    "consecutive_failures": 0,
-   "last_listed": 37,
+   "last_listed": 36,
    "last_ok": "2026-11-06"
   },
   "Scotiabank": {
@@ -5096,17 +5112,17 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1088,
+   "last_listed": 1089,
    "last_ok": "2026-11-06"
   },
   "State Street": {
    "consecutive_failures": 0,
-   "last_listed": 97,
+   "last_listed": 98,
    "last_ok": "2026-11-06"
   },
   "Statkraft": {
    "consecutive_failures": 0,
-   "last_listed": 87,
+   "last_listed": 86,
    "last_ok": "2026-11-06"
   },
   "TD Securities": {
@@ -5150,7 +5166,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 691,
+   "last_listed": 679,
    "last_ok": "2026-11-06"
   },
   "UOB": {
