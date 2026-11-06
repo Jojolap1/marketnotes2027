@@ -3006,6 +3006,81 @@
    "title": "ITB Trainee, Assistant Sales – Banks Origination (One Year Contract)",
    "url": "https://jobs.ca-cib.com/job/job-itb-trainee-assistant-sales-banks-origination-one-year-contract-_117105.aspx"
   },
+  "web:https://careers.sgx.com/job/singapore-intern-equities%2c-securities-trading-%28spring-2027%2c-jan-to-jun%29/1358926066": {
+   "company": "SGX Group",
+   "fingerprints": [
+    "id:web:https://careers.sgx.com/job/singapore-intern-equities%2c-securities-trading-%28spring-2027%2c-jan-to-jun%29/1358926066",
+    "url:https://careers.sgx.com/job/singapore-intern-equities%2c-securities-trading-%28spring-2027%2c-jan-to-jun%29/1358926066",
+    "title:sgx group:intern equities securities trading spring 2027 jan to jun:singapore"
+   ],
+   "first_seen": "2026-11-06T05:14:50+00:00",
+   "last_seen": "2026-11-06",
+   "location": "Singapore",
+   "notified_at": "2026-11-06T05:14:50+00:00",
+   "status": "unknown",
+   "title": "Intern - Equities, Securities Trading (Spring 2027, Jan to Jun)",
+   "url": "https://careers.sgx.com/job/Singapore-Intern-Equities%2C-Securities-Trading-%28Spring-2027%2C-Jan-to-Jun%29/1358926066/"
+  },
+  "web:https://group.bnpparibas/en/careers/job-offer/2027-apac-long-internship-jan-jun-global-markets-hong-kong": {
+   "company": "BNP Paribas",
+   "fingerprints": [
+    "id:web:https://group.bnpparibas/en/careers/job-offer/2027-apac-long-internship-jan-jun-global-markets-hong-kong",
+    "url:https://group.bnpparibas/en/careers/job-offer/2027-apac-long-internship-jan-jun-global-markets-hong-kong",
+    "title:bnp paribas:2027 apac long internship programme jan jun global markets hong kong:hong kong"
+   ],
+   "first_seen": "2026-11-06T05:14:45+00:00",
+   "last_seen": "2026-11-06",
+   "location": "Hong Kong",
+   "notified_at": "2026-11-06T05:14:45+00:00",
+   "status": "unknown",
+   "title": "2027 APAC Long Internship Programme (Jan-Jun) - Global Markets - Hong Kong",
+   "url": "https://group.bnpparibas/en/careers/job-offer/2027-apac-long-internship-jan-jun-global-markets-hong-kong"
+  },
+  "web:https://group.bnpparibas/en/careers/job-offer/2027-apac-long-internship-programme-jan-jun-global-markets-singapore": {
+   "company": "BNP Paribas",
+   "fingerprints": [
+    "id:web:https://group.bnpparibas/en/careers/job-offer/2027-apac-long-internship-programme-jan-jun-global-markets-singapore",
+    "url:https://group.bnpparibas/en/careers/job-offer/2027-apac-long-internship-programme-jan-jun-global-markets-singapore",
+    "title:bnp paribas:2027 apac long internship programme jan jun global markets singapore:singapore"
+   ],
+   "first_seen": "2026-11-06T05:14:48+00:00",
+   "last_seen": "2026-11-06",
+   "location": "Singapore",
+   "notified_at": "2026-11-06T05:14:48+00:00",
+   "status": "unknown",
+   "title": "2027 APAC Long Internship Programme (Jan-Jun) - Global Markets - Singapore",
+   "url": "https://group.bnpparibas/en/careers/job-offer/2027-apac-long-internship-programme-jan-jun-global-markets-singapore"
+  },
+  "web:https://job-boards.greenhouse.io/dvtrading/jobs/4691295005": {
+   "company": "DV Trading",
+   "fingerprints": [
+    "id:web:https://job-boards.greenhouse.io/dvtrading/jobs/4691295005",
+    "url:https://job-boards.greenhouse.io/dvtrading/jobs/4691295005",
+    "title:dv trading:2027 summer internship trading dv equities:hong kong"
+   ],
+   "first_seen": "2026-11-06T05:14:46+00:00",
+   "last_seen": "2026-11-06",
+   "location": "Hong Kong",
+   "notified_at": "2026-11-06T05:14:46+00:00",
+   "status": "unknown",
+   "title": "2027 Summer Internship - Trading (DV Equities)",
+   "url": "https://job-boards.greenhouse.io/dvtrading/jobs/4691295005"
+  },
+  "web:https://jobs.workable.com/jobs/06562f59-78a8-420b-aeda-511176869643": {
+   "company": "PIMCO",
+   "fingerprints": [
+    "id:web:https://jobs.workable.com/jobs/06562f59-78a8-420b-aeda-511176869643",
+    "url:https://jobs.workable.com/jobs/06562f59-78a8-420b-aeda-511176869643",
+    "title:pimco:2027 summer internship portfolio management special situations team apac:singapore"
+   ],
+   "first_seen": "2026-11-06T05:14:49+00:00",
+   "last_seen": "2026-11-06",
+   "location": "Singapore",
+   "notified_at": "2026-11-06T05:14:49+00:00",
+   "status": "unknown",
+   "title": "2027 Summer Internship – Portfolio Management – Special Situations Team, APAC",
+   "url": "https://jobs.workable.com/jobs/06562f59-78a8-420b-aeda-511176869643"
+  },
   "web:https://sg.gradconnection.com/employers/jane-street/jobs/jane-street-sales-and-trading-2027-summer-internship": {
    "company": "Jane Street",
    "fingerprints": [
@@ -4399,7 +4474,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-06T04:17:02.273108+00:00",
+ "last_send_slot": "2026-11-06T05:14:44.025061+00:00",
  "last_status_date": "2026-11-05",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4412,7 +4487,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 173,
+   "last_listed": 176,
    "last_ok": "2026-11-06"
   },
   "ANZ (careers site)": {
@@ -4447,7 +4522,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1047,
+   "last_listed": 1025,
    "last_ok": "2026-11-06"
   },
   "BNP Paribas (email alerts)": {
@@ -4546,10 +4621,9 @@
    "last_ok": "2026-11-06"
   },
   "Cargill": {
-   "consecutive_failures": 1,
-   "last_error": "ReadTimeout: HTTPSConnectionPool(host='career2.successfactors.eu', port=443): Read timed out. (read timeout=25)",
-   "last_listed": 1373,
-   "last_ok": "2026-11-05"
+   "consecutive_failures": 0,
+   "last_listed": 1393,
+   "last_ok": "2026-11-06"
   },
   "Castleton Commodities": {
    "consecutive_failures": 0,
@@ -4568,7 +4642,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 602,
+   "last_listed": 603,
    "last_ok": "2026-11-06"
   },
   "CommBank": {
@@ -4612,7 +4686,7 @@
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
-   "last_listed": 87,
+   "last_listed": 86,
    "last_ok": "2026-11-06"
   },
   "EDF Trading": {
@@ -4636,7 +4710,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1640,
+   "last_listed": 1638,
    "last_ok": "2026-11-06"
   },
   "Equinor": {
@@ -4720,7 +4794,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 347,
+   "last_listed": 349,
    "last_ok": "2026-11-06"
   },
   "Haitong International": {
@@ -4740,7 +4814,7 @@
   },
   "IMC Trading": {
    "consecutive_failures": 0,
-   "last_listed": 161,
+   "last_listed": 162,
    "last_ok": "2026-11-06"
   },
   "ING": {
@@ -4760,7 +4834,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 720,
+   "last_listed": 716,
    "last_ok": "2026-11-06"
   },
   "Jane Street": {
@@ -4990,7 +5064,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1051,
+   "last_listed": 1059,
    "last_ok": "2026-11-06"
   },
   "State Street": {
@@ -5064,7 +5138,7 @@
   },
   "Web search (daily Claude session)": {
    "consecutive_failures": 0,
-   "last_listed": 7,
+   "last_listed": 40,
    "last_ok": "2026-11-06"
   },
   "Wellington Management": {
