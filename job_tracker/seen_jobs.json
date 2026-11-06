@@ -3351,6 +3351,22 @@
    "title": "Trading & Sales Assistant - Macro",
    "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays/job/Canary-Wharf-1-Churchill-Place/Trading---Sales-Assistant---Macro_JR-0000133325"
   },
+  "workday:bbva:JR00118131": {
+   "company": "BBVA",
+   "fingerprints": [
+    "id:workday:bbva:JR00118131",
+    "req:bbva:jr00118131",
+    "url:https://bbva.wd3.myworkdayjobs.com/bbva/job/bbva-one-canada-square-44th-floor-canary-wharf--london-e14-5aa-uk/emerging-markets-sales-analyst_jr00118131-2",
+    "title:bbva:emerging markets sales analyst:london"
+   ],
+   "first_seen": "2026-11-06T13:12:36+00:00",
+   "last_seen": "2026-11-06",
+   "location": "BBVA, One Canada Square (44th Floor), Canary Wharf London, E14 5AA (UK)",
+   "notified_at": "2026-11-06T13:12:36+00:00",
+   "status": "open",
+   "title": "Emerging Markets Sales Analyst",
+   "url": "https://bbva.wd3.myworkdayjobs.com/BBVA/job/BBVA-One-Canada-Square-44th-Floor-Canary-Wharf--London-E14-5AA-UK/Emerging-Markets-Sales-Analyst_JR00118131-2"
+  },
   "workday:bpinternational:RQ117480": {
    "company": "BP",
    "fingerprints": [
@@ -4522,7 +4538,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-06T12:11:32.512022+00:00",
+ "last_send_slot": "2026-11-06T13:12:34.889583+00:00",
  "last_status_date": "2026-11-05",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4535,7 +4551,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 183,
+   "last_listed": 179,
    "last_ok": "2026-11-06"
   },
   "ANZ (careers site)": {
@@ -4565,12 +4581,12 @@
   },
   "BBVA": {
    "consecutive_failures": 0,
-   "last_listed": 17,
+   "last_listed": 18,
    "last_ok": "2026-11-06"
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1016,
+   "last_listed": 1017,
    "last_ok": "2026-11-06"
   },
   "BNP Paribas (email alerts)": {
@@ -4595,7 +4611,7 @@
   },
   "BTG Pactual": {
    "consecutive_failures": 0,
-   "last_listed": 238,
+   "last_listed": 237,
    "last_ok": "2026-11-06"
   },
   "BTIG": {
@@ -4605,7 +4621,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2020,
+   "last_listed": 2019,
    "last_ok": "2026-11-06"
   },
   "Bank of America (campus)": {
@@ -4615,7 +4631,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 100,
+   "last_listed": 101,
    "last_ok": "2026-11-06"
   },
   "Berenberg": {
@@ -4625,7 +4641,7 @@
   },
   "BlackRock": {
    "consecutive_failures": 0,
-   "last_listed": 35,
+   "last_listed": 36,
    "last_ok": "2026-11-06"
   },
   "Brevan Howard": {
@@ -4640,7 +4656,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 930,
+   "last_listed": 933,
    "last_ok": "2026-11-06"
   },
   "CIBC": {
@@ -4690,7 +4706,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 599,
+   "last_listed": 597,
    "last_ok": "2026-11-06"
   },
   "CommBank": {
@@ -4734,7 +4750,7 @@
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
-   "last_listed": 89,
+   "last_listed": 87,
    "last_ok": "2026-11-06"
   },
   "EDF Trading": {
@@ -4758,7 +4774,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1624,
+   "last_listed": 1630,
    "last_ok": "2026-11-06"
   },
   "Equinor": {
@@ -4773,7 +4789,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 527,
+   "last_listed": 528,
    "last_ok": "2026-11-06"
   },
   "Fidelity International": {
@@ -4827,7 +4843,7 @@
   },
   "Goldman Sachs": {
    "consecutive_failures": 0,
-   "last_listed": 196,
+   "last_listed": 197,
    "last_ok": "2026-11-06"
   },
   "Graviton Research Capital": {
@@ -4877,12 +4893,12 @@
   },
   "Investec": {
    "consecutive_failures": 0,
-   "last_listed": 53,
+   "last_listed": 54,
    "last_ok": "2026-11-06"
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 716,
+   "last_listed": 720,
    "last_ok": "2026-11-06"
   },
   "Jane Street": {
@@ -4932,7 +4948,7 @@
   },
   "Lloyds Banking Group": {
    "consecutive_failures": 0,
-   "last_listed": 35,
+   "last_listed": 36,
    "last_ok": "2026-11-06"
   },
   "MUFG": {
@@ -4977,7 +4993,7 @@
   },
   "Mizuho (EMEA)": {
    "consecutive_failures": 0,
-   "last_listed": 29,
+   "last_listed": 28,
    "last_ok": "2026-11-06"
   },
   "Morgan Stanley": {
@@ -5032,7 +5048,7 @@
   },
   "Pictet": {
    "consecutive_failures": 0,
-   "last_listed": 55,
+   "last_listed": 54,
    "last_ok": "2026-11-06"
   },
   "Point72": {
@@ -5067,17 +5083,17 @@
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
-   "last_listed": 271,
+   "last_listed": 269,
    "last_ok": "2026-11-06"
   },
   "SMBC (EMEA)": {
    "consecutive_failures": 0,
-   "last_listed": 187,
+   "last_listed": 189,
    "last_ok": "2026-11-06"
   },
   "Santander CIB": {
    "consecutive_failures": 0,
-   "last_listed": 67,
+   "last_listed": 68,
    "last_ok": "2026-11-06"
   },
   "Schonfeld": {
@@ -5097,7 +5113,7 @@
   },
   "Shell": {
    "consecutive_failures": 0,
-   "last_listed": 19,
+   "last_listed": 20,
    "last_ok": "2026-11-06"
   },
   "Société Générale": {
@@ -5112,7 +5128,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1089,
+   "last_listed": 1091,
    "last_ok": "2026-11-06"
   },
   "State Street": {
@@ -5122,7 +5138,7 @@
   },
   "Statkraft": {
    "consecutive_failures": 0,
-   "last_listed": 86,
+   "last_listed": 87,
    "last_ok": "2026-11-06"
   },
   "TD Securities": {
@@ -5166,7 +5182,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 679,
+   "last_listed": 695,
    "last_ok": "2026-11-06"
   },
   "UOB": {
