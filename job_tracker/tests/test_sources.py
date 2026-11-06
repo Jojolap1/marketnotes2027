@@ -846,6 +846,7 @@ class WebLeadsTests(unittest.TestCase):
              'snippet': 'Privalto team, 6-month internship', 'found': '2026-11-05', 'site': 'linkedin.com'},
             {'title': 'Old one', 'company': 'X', 'location': 'London', 'url': 'https://x.com/1', 'found': '2026-10-01', 'published': '2026-09-30'},
             {'title': 'Undated programme', 'company': 'Y', 'location': 'London', 'url': 'https://y.com/1', 'found': '2026-11-05'},
+            {'title': 'Markets Summer Analyst 2027', 'company': 'W', 'location': 'London', 'url': 'https://w.com/1', 'found': '2026-11-05'},
             {'title': 'Closed programme', 'company': 'Y', 'location': 'London', 'url': 'https://y.com/2', 'found': '2026-11-05', 'deadline': '2026-10-30'},
             {'title': 'Open Graduate Programme 2027', 'company': 'Z', 'location': 'London', 'url': 'https://z.com/1', 'found': '2026-11-05', 'deadline': '2026-11-30'},
             {'title': 'Rolling Long Internship 2027', 'company': 'Z', 'location': 'London', 'url': 'https://z.com/2', 'found': '2026-11-05', 'open_confirmed': True},
@@ -855,10 +856,11 @@ class WebLeadsTests(unittest.TestCase):
             path.write_text(json.dumps(leads))
             ctx = context({}, now=datetime(2026, 11, 5, 4, tzinfo=timezone.utc))
             jobs = web_leads.fetch({'company': 'Web search (daily Claude session)', 'file': str(path)}, ctx)
-        self.assertEqual([j['title'] for j in jobs], ['Structured Products Sales Intern', 'Open Graduate Programme 2027',
-                                                      'Rolling Long Internship 2027'])
-        self.assertEqual(jobs[2]['status'], 'open')
-        self.assertIn('Application deadline: 2026-11-30', jobs[1]['description'])
+        self.assertEqual([j['title'] for j in jobs], ['Structured Products Sales Intern', 'Markets Summer Analyst 2027',
+                                                      'Open Graduate Programme 2027', 'Rolling Long Internship 2027'])
+        self.assertIn('posting date unknown', jobs[1]['status_evidence'])
+        self.assertEqual(jobs[3]['status'], 'open')
+        self.assertIn('Application deadline: 2026-11-30', jobs[2]['description'])
         job = jobs[0]
         self.assertEqual((job['company'], job['title'], job['published']), ('BNP Paribas', 'Structured Products Sales Intern', '2026-11-04'))
         self.assertTrue(job['title_only'])
