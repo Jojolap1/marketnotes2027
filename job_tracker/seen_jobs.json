@@ -2827,6 +2827,22 @@
    "title": "Stage - FINANCE DE MARCHE - Structuration et Innovation Produit ETF & Indiciel H/F",
    "url": "https://jobs.amundi.com/job/job-stage-finance-de-marche-structuration-et-innovation-produit-etf-indiciel-h-f_117097.aspx"
   },
+  "talentsoft:Crédit Agricole CIB:110286": {
+   "company": "Crédit Agricole CIB",
+   "fingerprints": [
+    "id:talentsoft:Crédit Agricole CIB:110286",
+    "req:credit agricole:110286",
+    "url:https://jobs.ca-cib.com/job/job-assistant-sales-h-f_110286.aspx",
+    "title:credit agricole:assistant sales:paris"
+   ],
+   "first_seen": "2026-11-06T11:11:36+00:00",
+   "last_seen": "2026-11-06",
+   "location": "Montrouge, Europe, France, Ile-de-France, 92 - Hauts-De-Seine",
+   "notified_at": "2026-11-06T11:11:36+00:00",
+   "status": "open",
+   "title": "Assistant Sales H/F",
+   "url": "https://jobs.ca-cib.com/job/job-assistant-sales-h-f_110286.aspx"
+  },
   "talentsoft:Crédit Agricole CIB:112620": {
    "company": "Crédit Agricole CIB",
    "fingerprints": [
@@ -4490,7 +4506,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-06T10:11:40.970060+00:00",
+ "last_send_slot": "2026-11-06T11:11:34.830397+00:00",
  "last_status_date": "2026-11-05",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4503,7 +4519,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 184,
+   "last_listed": 183,
    "last_ok": "2026-11-06"
   },
   "ANZ (careers site)": {
@@ -4533,7 +4549,7 @@
   },
   "BBVA": {
    "consecutive_failures": 0,
-   "last_listed": 16,
+   "last_listed": 17,
    "last_ok": "2026-11-06"
   },
   "BMO Capital Markets": {
@@ -4548,12 +4564,12 @@
   },
   "BNY": {
    "consecutive_failures": 0,
-   "last_listed": 109,
+   "last_listed": 108,
    "last_ok": "2026-11-06"
   },
   "BP": {
    "consecutive_failures": 0,
-   "last_listed": 17,
+   "last_listed": 18,
    "last_ok": "2026-11-06"
   },
   "BP (early careers)": {
@@ -4583,7 +4599,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 98,
+   "last_listed": 99,
    "last_ok": "2026-11-06"
   },
   "Berenberg": {
@@ -4608,7 +4624,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 921,
+   "last_listed": 927,
    "last_ok": "2026-11-06"
   },
   "CIBC": {
@@ -4638,7 +4654,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1390,
+   "last_listed": 1391,
    "last_ok": "2026-11-06"
   },
   "Castleton Commodities": {
@@ -4702,7 +4718,7 @@
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
-   "last_listed": 88,
+   "last_listed": 89,
    "last_ok": "2026-11-06"
   },
   "EDF Trading": {
@@ -4726,7 +4742,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1628,
+   "last_listed": 1622,
    "last_ok": "2026-11-06"
   },
   "Equinor": {
@@ -4746,7 +4762,7 @@
   },
   "Fidelity International": {
    "consecutive_failures": 0,
-   "last_listed": 23,
+   "last_listed": 24,
    "last_ok": "2026-11-06"
   },
   "Fidelity International (campus)": {
@@ -4810,7 +4826,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 348,
+   "last_listed": 349,
    "last_ok": "2026-11-06"
   },
   "Haitong International": {
@@ -4850,7 +4866,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 715,
+   "last_listed": 714,
    "last_ok": "2026-11-06"
   },
   "Jane Street": {
@@ -4935,7 +4951,7 @@
   },
   "Maven Securities": {
    "consecutive_failures": 0,
-   "last_listed": 34,
+   "last_listed": 33,
    "last_ok": "2026-11-06"
   },
   "Millennium": {
@@ -4965,7 +4981,7 @@
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 495,
+   "last_listed": 494,
    "last_ok": "2026-11-06"
   },
   "Nomura (campus)": {
@@ -5015,7 +5031,7 @@
   },
   "Qube Research & Technologies": {
    "consecutive_failures": 0,
-   "last_listed": 209,
+   "last_listed": 210,
    "last_ok": "2026-11-06"
   },
   "RBC": {
@@ -5040,12 +5056,12 @@
   },
   "SMBC (EMEA)": {
    "consecutive_failures": 0,
-   "last_listed": 186,
+   "last_listed": 187,
    "last_ok": "2026-11-06"
   },
   "Santander CIB": {
    "consecutive_failures": 0,
-   "last_listed": 68,
+   "last_listed": 67,
    "last_ok": "2026-11-06"
   },
   "Schonfeld": {
@@ -5080,12 +5096,12 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1086,
+   "last_listed": 1088,
    "last_ok": "2026-11-06"
   },
   "State Street": {
    "consecutive_failures": 0,
-   "last_listed": 96,
+   "last_listed": 97,
    "last_ok": "2026-11-06"
   },
   "Statkraft": {
