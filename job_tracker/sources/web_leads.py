@@ -10,9 +10,10 @@ into jobs, and the usual filters, deduplication and 14-day rule apply.
 
 The leads carry a search snippet, not the advert: they are title-only for
 the junior check (a bare 'Analyst' needs an explicit junior signal). A lead
-needs a posting date (14-day rule), a deadline still to come, or
-`open_confirmed` (the employer's page says applications are open / rolling);
-a lead with none of these is skipped, as is one whose deadline has passed.
+needs a posting date (14-day rule), a deadline still to come,
+`open_confirmed` (the employer's page says applications are open / rolling),
+or, undated, to name a 2027/2028 intake (sent once, flagged 'date unknown');
+otherwise it is skipped, as is one whose deadline has passed.
 """
 import json
 import logging
@@ -23,6 +24,9 @@ from pathlib import Path
 from jobs import canonical_url, make_job
 
 LOG = logging.getLogger(__name__)
+# Undated offers for these intakes are still sent once (user's choice, 2026-11-06),
+# flagged as 'date unknown, check the deadline'
+CURRENT_INTAKE = re.compile(r'\b20(?:27|28)\b')
 LEADS_FILE = Path(__file__).resolve().parent.parent / 'web_leads.json'
 
 
@@ -55,9 +59,10 @@ def fetch(source, ctx):
         if deadline and deadline < today:
             ctx.stat(source['company'], 'deadline_passed')
             continue
-        if not published and not deadline and lead.get('open_confirmed') is not True:
-            # No posting date and no deadline: often a programme opened months
-            # ago; the 14-day rule cannot be checked, so it is not alerted
+        undated = not published and not deadline and lead.get('open_confirmed') is not True
+        if undated and not CURRENT_INTAKE.search(f'{title} {snippet}'):
+            # No date, no deadline and no current intake named: cannot tell
+            # whether it is still open, so it is not alerted
             ctx.stat(source['company'], 'undated_skipped')
             continue
         job = make_job(
@@ -68,7 +73,8 @@ def fetch(source, ctx):
             status='open' if lead.get('open_confirmed') is True else 'unknown',
             status_evidence=f'found by the daily web search on {found}'
             + (f'; deadline {deadline}' if deadline else '')
-            + ('; employer page says applications are open' if lead.get('open_confirmed') is True else ''),
+            + ('; employer page says applications are open' if lead.get('open_confirmed') is True else '')
+            + ('; posting date unknown, check the application deadline' if undated else ''),
             title_only=True)
         jobs.setdefault(job['id'], job)
     ctx.stat(source['company'], 'listed', len(jobs))
