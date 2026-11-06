@@ -23,7 +23,7 @@ from zoneinfo import ZoneInfo
 
 from filters import Classifier
 from http_client import AccessDenied, HttpClient
-from jobs import borrow_descriptions, configure_companies, fingerprints
+from jobs import borrow_descriptions, company_key, configure_companies, fingerprints, normalized_title
 from notifier import Telegram, format_message
 from report import Report
 from sources import fetch_source
@@ -93,6 +93,28 @@ def collect(config, ctx, state, report):
     return jobs
 
 
+SECONDARY = {'email_alerts', 'web_search', 'web_leads'}
+
+
+def drop_stale_web_leads(jobs, config, report):
+    """A web search lead for an employer whose own careers site was read
+    successfully this run, but which that site no longer lists, is closed or
+    stale (job boards keep adverts after the employer closes them): drop it."""
+    platform = {s['company']: s['platform'] for s in config.get('sources', [])}
+    read_ok = {company_key(r['name']) for r in report.sources
+               if r.get('ok') and platform.get(r['name']) not in SECONDARY}
+    official = {(company_key(j['company']), normalized_title(j['title'])) for j in jobs
+                if platform.get(j.get('source_name')) not in SECONDARY}
+    kept = []
+    for job in jobs:
+        if (platform.get(job.get('source_name')) == 'web_leads' and company_key(job['company']) in read_ok
+                and (company_key(job['company']), normalized_title(job['title'])) not in official):
+            LOG.info('web lead dropped, not on %s\'s own site any more: %s', job['company'], job['title'][:80])
+            continue
+        kept.append(job)
+    return kept
+
+
 def select(jobs, classifier, state, config, report):
     """Classify, deduplicate within the run and split into new / known."""
     notify_statuses = set(config.get('notifications', {}).get('statuses', ['open', 'unknown']))
@@ -107,6 +129,7 @@ def select(jobs, classifier, state, config, report):
     borrowed = borrow_descriptions(jobs)
     if borrowed:
         LOG.info('%d title-only offers checked against the advert text of the official site', borrowed)
+    jobs = drop_stale_web_leads(jobs, config, report)
     run_keys, new, matched, near = set(), [], [], []
     reasons = Counter()
     samples = {}

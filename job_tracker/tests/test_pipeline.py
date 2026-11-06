@@ -337,3 +337,24 @@ class TelegramCheckTests(unittest.TestCase):
         ok, message = self.check(401, {'ok': False, 'description': 'Unauthorized'})
         self.assertFalse(ok)
         self.assertIn('rejected', message)
+
+
+class StaleWebLeadTests(unittest.TestCase):
+    def test_lead_missing_from_the_employer_site_is_dropped(self):
+        from jobs import configure_companies
+        from report import Report
+        from tracker import drop_stale_web_leads
+        config = {'sources': [{'company': 'Goldman Sachs', 'platform': 'greenhouse'},
+                              {'company': 'Web search (daily Claude session)', 'platform': 'web_leads'}]}
+        configure_companies(['Goldman Sachs'])
+        report = Report()
+        report.sources = [{'name': 'Goldman Sachs', 'ok': True}, {'name': 'Web search (daily Claude session)', 'ok': True}]
+        web = 'Web search (daily Claude session)'
+        jobs = [{'company': 'Goldman Sachs', 'title': 'FICC Summer Analyst 2027', 'source_name': 'Goldman Sachs'},
+                {'company': 'Goldman Sachs', 'title': 'FICC Summer Analyst 2027', 'source_name': web},     # still listed
+                {'company': 'Goldman Sachs', 'title': 'Equities Summer Analyst 2027', 'source_name': web},  # gone from GS site
+                {'company': 'Petroineos', 'title': 'Graduate Programme 2027', 'source_name': web}]          # employer not read
+        kept = drop_stale_web_leads(jobs, config, report)
+        self.assertEqual([(j['company'], j['title'], j['source_name'] == web) for j in kept],
+                         [('Goldman Sachs', 'FICC Summer Analyst 2027', False), ('Goldman Sachs', 'FICC Summer Analyst 2027', True),
+                          ('Petroineos', 'Graduate Programme 2027', True)])
