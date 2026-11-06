@@ -4474,7 +4474,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-06T06:12:29.965676+00:00",
+ "last_send_slot": "2026-11-06T07:11:45.337406+00:00",
  "last_status_date": "2026-11-05",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4487,7 +4487,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 178,
+   "last_listed": 180,
    "last_ok": "2026-11-06"
   },
   "ANZ (careers site)": {
@@ -4522,7 +4522,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1020,
+   "last_listed": 1016,
    "last_ok": "2026-11-06"
   },
   "BNP Paribas (email alerts)": {
@@ -4622,7 +4622,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1392,
+   "last_listed": 1394,
    "last_ok": "2026-11-06"
   },
   "Castleton Commodities": {
@@ -4662,12 +4662,12 @@
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 638,
+   "last_listed": 637,
    "last_ok": "2026-11-06"
   },
   "DNB Markets": {
    "consecutive_failures": 0,
-   "last_listed": 102,
+   "last_listed": 103,
    "last_ok": "2026-11-06"
   },
   "DRW": {
@@ -4686,7 +4686,7 @@
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
-   "last_listed": 86,
+   "last_listed": 87,
    "last_ok": "2026-11-06"
   },
   "EDF Trading": {
@@ -4710,7 +4710,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1640,
+   "last_listed": 1632,
    "last_ok": "2026-11-06"
   },
   "Equinor": {
@@ -4794,7 +4794,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 348,
+   "last_listed": 349,
    "last_ok": "2026-11-06"
   },
   "Haitong International": {
@@ -4949,7 +4949,7 @@
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 494,
+   "last_listed": 495,
    "last_ok": "2026-11-06"
   },
   "Nomura (campus)": {
@@ -4959,7 +4959,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 701,
+   "last_listed": 702,
    "last_ok": "2026-11-06"
   },
   "Old Mission": {
@@ -5064,7 +5064,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1060,
+   "last_listed": 1067,
    "last_ok": "2026-11-06"
   },
   "State Street": {
@@ -5118,7 +5118,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 685,
+   "last_listed": 694,
    "last_ok": "2026-11-06"
   },
   "UOB": {
