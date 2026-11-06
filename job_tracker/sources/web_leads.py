@@ -26,6 +26,9 @@ from jobs import canonical_url, make_job
 LOG = logging.getLogger(__name__)
 # Undated offers for these intakes are still sent once (user's choice, 2026-11-06),
 # flagged as 'date unknown, check the deadline'
+# Job boards keep adverts after the employer has closed them
+JOB_BOARDS = re.compile(r'targetjobs|brightnetwork|themuse|jooble|gradconnection|builtin|canarywharfian|aplyr|indeed|glassdoor|'
+                        r'jobteaser|welcometothejungle|efinancialcareers|handshake|ratemyplacement|prospects|gradcracker', re.I)
 CURRENT_INTAKE = re.compile(r'\b20(?:27|28)\b')
 LEADS_FILE = Path(__file__).resolve().parent.parent / 'web_leads.json'
 
@@ -74,7 +77,9 @@ def fetch(source, ctx):
             status_evidence=f'found by the daily web search on {found}'
             + (f'; deadline {deadline}' if deadline else '')
             + ('; employer page says applications are open' if lead.get('open_confirmed') is True else '')
-            + ('; posting date unknown, check the application deadline' if undated else ''),
+            + ('; posting date unknown, check the application deadline' if undated else '')
+            + (f'; seen on a job board ({lead.get("site")}), the employer may have closed it earlier'
+               if JOB_BOARDS.search(lead.get('site') or url) else ''),
             title_only=True)
         jobs.setdefault(job['id'], job)
     ctx.stat(source['company'], 'listed', len(jobs))
