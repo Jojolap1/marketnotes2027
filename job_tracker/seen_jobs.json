@@ -2562,6 +2562,22 @@
    "title": "Assistant sales Asset Management Solutions",
    "url": "https://careers.societegenerale.com/offres-d-emploi/assistant-sales-asset-management-solutions-26000LQJ-fr"
   },
+  "sitemap:Société Générale:https://careers.societegenerale.com/offres-d-emploi/assistant-sales-produits-structures-26000MX1-fr": {
+   "company": "Société Générale",
+   "fingerprints": [
+    "id:sitemap:Société Générale:https://careers.societegenerale.com/offres-d-emploi/assistant-sales-produits-structures-26000MX1-fr",
+    "req:societe generale:26000mx1",
+    "url:https://careers.societegenerale.com/offres-d-emploi/assistant-sales-produits-structures-26000mx1",
+    "title:societe generale:assistant sales produits structures:paris"
+   ],
+   "first_seen": "2026-11-06T14:16:10+00:00",
+   "last_seen": "2026-11-06",
+   "location": "La Defense, France",
+   "notified_at": "2026-11-06T14:16:10+00:00",
+   "status": "open",
+   "title": "Assistant sales - produits structurés",
+   "url": "https://careers.societegenerale.com/offres-d-emploi/assistant-sales-produits-structures-26000MX1-fr"
+  },
   "sitemap:Société Générale:https://careers.societegenerale.com/offres-d-emploi/assistant-structureur-titrisation-abs-26000MY0-fr": {
    "company": "Société Générale",
    "fingerprints": [
@@ -4538,8 +4554,8 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-06T13:12:34.889583+00:00",
- "last_status_date": "2026-11-05",
+ "last_send_slot": "2026-11-06T14:16:08.923789+00:00",
+ "last_status_date": "2026-11-06",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -4571,7 +4587,7 @@
   },
   "Amundi": {
    "consecutive_failures": 0,
-   "last_listed": 113,
+   "last_listed": 109,
    "last_ok": "2026-11-06"
   },
   "B2C2": {
@@ -4586,7 +4602,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1017,
+   "last_listed": 1015,
    "last_ok": "2026-11-06"
   },
   "BNP Paribas (email alerts)": {
@@ -4621,7 +4637,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2019,
+   "last_listed": 2037,
    "last_ok": "2026-11-06"
   },
   "Bank of America (campus)": {
@@ -4636,7 +4652,7 @@
   },
   "Berenberg": {
    "consecutive_failures": 0,
-   "last_listed": 50,
+   "last_listed": 52,
    "last_ok": "2026-11-06"
   },
   "BlackRock": {
@@ -4651,12 +4667,12 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 589,
+   "last_listed": 587,
    "last_ok": "2026-11-06"
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 933,
+   "last_listed": 934,
    "last_ok": "2026-11-06"
   },
   "CIBC": {
@@ -4686,7 +4702,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1393,
+   "last_listed": 1395,
    "last_ok": "2026-11-06"
   },
   "Castleton Commodities": {
@@ -4706,7 +4722,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 597,
+   "last_listed": 599,
    "last_ok": "2026-11-06"
   },
   "CommBank": {
@@ -4726,7 +4742,7 @@
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 644,
+   "last_listed": 645,
    "last_ok": "2026-11-06"
   },
   "DNB Markets": {
@@ -4774,7 +4790,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1630,
+   "last_listed": 1628,
    "last_ok": "2026-11-06"
   },
   "Equinor": {
@@ -4813,7 +4829,7 @@
   },
   "Flow Traders": {
    "consecutive_failures": 0,
-   "last_listed": 43,
+   "last_listed": 42,
    "last_ok": "2026-11-06"
   },
   "Flowdesk": {
@@ -4893,7 +4909,7 @@
   },
   "Investec": {
    "consecutive_failures": 0,
-   "last_listed": 54,
+   "last_listed": 53,
    "last_ok": "2026-11-06"
   },
   "JPMorgan": {
@@ -4923,7 +4939,7 @@
   },
   "Kepler Cheuvreux": {
    "consecutive_failures": 0,
-   "last_listed": 4,
+   "last_listed": 5,
    "last_ok": "2026-11-06"
   },
   "Keyrock": {
@@ -5003,7 +5019,7 @@
   },
   "National Bank of Canada": {
    "consecutive_failures": 0,
-   "last_listed": 413,
+   "last_listed": 412,
    "last_ok": "2026-11-06"
   },
   "Natixis CIB": {
@@ -5053,7 +5069,7 @@
   },
   "Point72": {
    "consecutive_failures": 0,
-   "last_listed": 197,
+   "last_listed": 198,
    "last_ok": "2026-11-06"
   },
   "Quadrature Capital": {
@@ -5108,7 +5124,7 @@
   },
   "Scotiabank": {
    "consecutive_failures": 0,
-   "last_listed": 25,
+   "last_listed": 26,
    "last_ok": "2026-11-06"
   },
   "Shell": {
@@ -5118,7 +5134,7 @@
   },
   "Société Générale": {
    "consecutive_failures": 0,
-   "last_listed": 1030,
+   "last_listed": 1035,
    "last_ok": "2026-11-06"
   },
   "Squarepoint Capital": {
@@ -5182,7 +5198,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 695,
+   "last_listed": 693,
    "last_ok": "2026-11-06"
   },
   "UOB": {
