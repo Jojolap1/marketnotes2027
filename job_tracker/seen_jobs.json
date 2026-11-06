@@ -1280,6 +1280,22 @@
    "title": "Trading Analyst - QPT (Quantitative Positional Trading)",
    "url": "https://job-boards.greenhouse.io/mavensecuritiesholdingltd/jobs/8263271"
   },
+  "greenhouse:point72:8932943002": {
+   "company": "Point72",
+   "fingerprints": [
+    "id:greenhouse:point72:8932943002",
+    "req:point72:2333",
+    "url:https://boards.greenhouse.io/point72/jobs/8932943002?gh_jid=8932943002",
+    "title:point72:2027 trader summer intern 12 week program:hong kong"
+   ],
+   "first_seen": "2026-11-06T10:11:42+00:00",
+   "last_seen": "2026-11-06",
+   "location": "Hong Kong Japan",
+   "notified_at": "2026-11-06T10:11:42+00:00",
+   "status": "open",
+   "title": "2027 Trader Summer Intern (12-week program)",
+   "url": "https://boards.greenhouse.io/point72/jobs/8932943002?gh_jid=8932943002"
+  },
   "greenhouse:schonfeld:8220506": {
    "company": "Schonfeld",
    "fingerprints": [
@@ -4474,7 +4490,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-06T09:15:58.173782+00:00",
+ "last_send_slot": "2026-11-06T10:11:40.970060+00:00",
  "last_status_date": "2026-11-05",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4487,7 +4503,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 181,
+   "last_listed": 184,
    "last_ok": "2026-11-06"
   },
   "ANZ (careers site)": {
@@ -4517,12 +4533,11 @@
   },
   "BBVA": {
    "consecutive_failures": 0,
-   "last_listed": 17,
+   "last_listed": 16,
    "last_ok": "2026-11-06"
   },
   "BMO Capital Markets": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 1015,
    "last_ok": "2026-11-06"
   },
@@ -4588,12 +4603,12 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 590,
+   "last_listed": 589,
    "last_ok": "2026-11-06"
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 923,
+   "last_listed": 921,
    "last_ok": "2026-11-06"
   },
   "CIBC": {
@@ -4603,7 +4618,7 @@
   },
   "CICC": {
    "consecutive_failures": 0,
-   "last_listed": 375,
+   "last_listed": 374,
    "last_ok": "2026-11-06"
   },
   "CIMB (incl. CIMB Securities)": {
@@ -4613,7 +4628,7 @@
   },
   "CITIC CLSA (CITIC Securities)": {
    "consecutive_failures": 0,
-   "last_listed": 218,
+   "last_listed": 217,
    "last_ok": "2026-11-06"
   },
   "Capula Investment Management": {
@@ -4623,7 +4638,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1393,
+   "last_listed": 1390,
    "last_ok": "2026-11-06"
   },
   "Castleton Commodities": {
@@ -4663,12 +4678,12 @@
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 639,
+   "last_listed": 642,
    "last_ok": "2026-11-06"
   },
   "DNB Markets": {
    "consecutive_failures": 0,
-   "last_listed": 102,
+   "last_listed": 100,
    "last_ok": "2026-11-06"
   },
   "DRW": {
@@ -4711,7 +4726,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1631,
+   "last_listed": 1628,
    "last_ok": "2026-11-06"
   },
   "Equinor": {
@@ -4750,7 +4765,7 @@
   },
   "Flow Traders": {
    "consecutive_failures": 0,
-   "last_listed": 44,
+   "last_listed": 43,
    "last_ok": "2026-11-06"
   },
   "Flowdesk": {
@@ -4795,7 +4810,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 350,
+   "last_listed": 348,
    "last_ok": "2026-11-06"
   },
   "Haitong International": {
@@ -4855,7 +4870,7 @@
   },
   "Jump Trading": {
    "consecutive_failures": 0,
-   "last_listed": 93,
+   "last_listed": 92,
    "last_ok": "2026-11-06"
   },
   "Kepler Cheuvreux": {
@@ -4885,12 +4900,12 @@
   },
   "Lloyds Banking Group": {
    "consecutive_failures": 0,
-   "last_listed": 34,
+   "last_listed": 35,
    "last_ok": "2026-11-06"
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 145,
+   "last_listed": 146,
    "last_ok": "2026-11-06"
   },
   "Macquarie": {
@@ -4925,7 +4940,7 @@
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 93,
+   "last_listed": 94,
    "last_ok": "2026-11-06"
   },
   "Mizuho (EMEA)": {
@@ -4935,7 +4950,7 @@
   },
   "Morgan Stanley": {
    "consecutive_failures": 0,
-   "last_listed": 126,
+   "last_listed": 125,
    "last_ok": "2026-11-06"
   },
   "National Bank of Canada": {
@@ -4960,7 +4975,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 703,
+   "last_listed": 704,
    "last_ok": "2026-11-06"
   },
   "Old Mission": {
@@ -4990,7 +5005,7 @@
   },
   "Point72": {
    "consecutive_failures": 0,
-   "last_listed": 195,
+   "last_listed": 197,
    "last_ok": "2026-11-06"
   },
   "Quadrature Capital": {
@@ -5020,17 +5035,17 @@
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
-   "last_listed": 270,
+   "last_listed": 271,
    "last_ok": "2026-11-06"
   },
   "SMBC (EMEA)": {
    "consecutive_failures": 0,
-   "last_listed": 183,
+   "last_listed": 186,
    "last_ok": "2026-11-06"
   },
   "Santander CIB": {
    "consecutive_failures": 0,
-   "last_listed": 67,
+   "last_listed": 68,
    "last_ok": "2026-11-06"
   },
   "Schonfeld": {
@@ -5040,7 +5055,7 @@
   },
   "Schroders": {
    "consecutive_failures": 0,
-   "last_listed": 36,
+   "last_listed": 37,
    "last_ok": "2026-11-06"
   },
   "Scotiabank": {
@@ -5055,7 +5070,7 @@
   },
   "Société Générale": {
    "consecutive_failures": 0,
-   "last_listed": 1044,
+   "last_listed": 1030,
    "last_ok": "2026-11-06"
   },
   "Squarepoint Capital": {
@@ -5065,7 +5080,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1078,
+   "last_listed": 1086,
    "last_ok": "2026-11-06"
   },
   "State Street": {
@@ -5124,7 +5139,7 @@
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 369,
+   "last_listed": 370,
    "last_ok": "2026-11-06"
   },
   "Virtu Financial": {
@@ -5144,7 +5159,7 @@
   },
   "Wellington Management": {
    "consecutive_failures": 0,
-   "last_listed": 33,
+   "last_listed": 34,
    "last_ok": "2026-11-06"
   },
   "Wells Fargo": {
