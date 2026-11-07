@@ -105,12 +105,19 @@ def drop_stale_web_leads(jobs, config, report):
                if r.get('ok') and platform.get(r['name']) not in SECONDARY}
     official = {(company_key(j['company']), normalized_title(j['title'])) for j in jobs
                 if platform.get(j.get('source_name')) not in SECONDARY}
+    tracked = {company_key(s['company']) for s in config.get('sources', [])
+               if s.get('enabled', True) and s['platform'] not in SECONDARY}
     kept = []
     for job in jobs:
-        if (platform.get(job.get('source_name')) == 'web_leads' and company_key(job['company']) in read_ok
-                and (company_key(job['company']), normalized_title(job['title'])) not in official):
-            LOG.info('web lead dropped, not on %s\'s own site any more: %s', job['company'], job['title'][:80])
-            continue
+        if platform.get(job.get('source_name')) == 'web_leads':
+            employer = company_key(job['company'])
+            if employer in read_ok and (employer, normalized_title(job['title'])) not in official:
+                LOG.info('web lead dropped, not on %s\'s own site any more: %s', job['company'], job['title'][:80])
+                continue
+            if employer in tracked and employer not in read_ok:
+                # The employer's site failed this run: check again next run
+                LOG.info('web lead held, %s\'s own site could not be read this run: %s', job['company'], job['title'][:80])
+                continue
         kept.append(job)
     return kept
 

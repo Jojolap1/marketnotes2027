@@ -358,3 +358,7 @@ class StaleWebLeadTests(unittest.TestCase):
         self.assertEqual([(j['company'], j['title'], j['source_name'] == web) for j in kept],
                          [('Goldman Sachs', 'FICC Summer Analyst 2027', False), ('Goldman Sachs', 'FICC Summer Analyst 2027', True),
                           ('Petroineos', 'Graduate Programme 2027', True)])
+        # employer site failed this run: its leads wait for the next run
+        report.sources = [{'name': 'Goldman Sachs', 'ok': False}]
+        held = drop_stale_web_leads(jobs[1:], config, report)
+        self.assertEqual([j['company'] for j in held], ['Petroineos'])

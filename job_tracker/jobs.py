@@ -92,12 +92,19 @@ def borrow_descriptions(jobs):
     never fetched (LinkedIn forbids robots). Returns the number matched."""
     def key(job):
         return company_key(job.get('company')), VIE_MARK.sub('', normalized_title(job.get('title'))).strip()
-    official = {}
+    official, dated = {}, {}
     for job in jobs:
-        if not job.get('title_only') and len(job.get('description') or '') > 200:
-            official.setdefault(key(job), job)
+        if not job.get('title_only'):
+            if len(job.get('description') or '') > 200:
+                official.setdefault(key(job), job)
+            if job.get('published'):
+                dated.setdefault(key(job), job['published'])
     matched = 0
     for job in jobs:
+        if job.get('title_only') and key(job) in dated:
+            # The employer's own posting date decides the 14-day rule, even
+            # when its advert text is too short to borrow
+            job['published'] = dated[key(job)]
         twin = job.get('title_only') and official.get(key(job))
         if twin:
             job['description'] = twin['description']

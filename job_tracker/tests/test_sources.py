@@ -871,3 +871,24 @@ class WebLeadsTests(unittest.TestCase):
         from sources import web_leads
         ctx = context({})
         self.assertEqual(web_leads.fetch({'company': 'W', 'file': '/nonexistent/web_leads.json'}, ctx), [])
+
+
+class LeadPageCheckTests(unittest.TestCase):
+    def state(self, route, url='https://jobs.example.com/job/12345678'):
+        from datetime import datetime, timezone
+        from sources.web_leads import page_state
+        ctx = context({'jobs.example.com': route}, now=datetime(2026, 11, 7, 4, tzinfo=timezone.utc))
+        return page_state(ctx, url)[0]
+
+    def test_closed_and_open_pages(self):
+        self.assertEqual(self.state((404, 'Not found')), 'closed')
+        self.assertEqual(self.state('<h1>Graduate Program</h1><p>Sorry, this job is no longer available.</p>'), 'closed')
+        self.assertEqual(self.state('<p>Cette offre a été pourvue.</p>'), 'closed')
+        self.assertEqual(self.state('<p>Graduate Programme 2027. Application deadline: 30 October 2026</p>'), 'closed')
+        self.assertEqual(self.state('<p>Graduate Programme 2027. Application deadline: 4 January 2027. Apply now.</p>'), 'open')
+
+    def test_linkedin_never_fetched(self):
+        from sources.web_leads import page_state
+        ctx = context({})
+        self.assertEqual(page_state(ctx, 'https://www.linkedin.com/jobs/view/4123456789/')[0], 'unknown')
+        self.assertEqual(ctx.http.calls, [])
