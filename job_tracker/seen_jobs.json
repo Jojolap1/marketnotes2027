@@ -4725,7 +4725,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-07T09:16:05.049959+00:00",
+ "last_send_slot": "2026-11-07T10:11:07.440670+00:00",
  "last_status_date": "2026-11-06",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5045,7 +5045,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 336,
+   "last_listed": 339,
    "last_ok": "2026-11-07"
   },
   "Haitong International": {
@@ -5085,7 +5085,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 714,
+   "last_listed": 715,
    "last_ok": "2026-11-07"
   },
   "Jane Street": {
@@ -5120,7 +5120,7 @@
   },
   "LinkedIn (job alerts)": {
    "consecutive_failures": 0,
-   "last_listed": 229,
+   "last_listed": 237,
    "last_ok": "2026-11-07"
   },
   "LinkedIn (posts)": {
@@ -5305,7 +5305,7 @@
   },
   "Société Générale": {
    "consecutive_failures": 0,
-   "last_listed": 1041,
+   "last_listed": 1031,
    "last_ok": "2026-11-07"
   },
   "Squarepoint Capital": {
