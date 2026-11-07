@@ -892,3 +892,15 @@ class LeadPageCheckTests(unittest.TestCase):
         ctx = context({})
         self.assertEqual(page_state(ctx, 'https://www.linkedin.com/jobs/view/4123456789/')[0], 'unknown')
         self.assertEqual(ctx.http.calls, [])
+
+
+class BrassRingSectionTests(unittest.TestCase):
+    def test_advert_sections_read_from_the_job_page(self):
+        from sources.banks import _brassring_sections
+        page = ('<style>.jobdescriptionInJobDetails{}</style>'
+                '<p class="section2LeftfieldsInJobDetails jobDetailTextArea answer">Your role: advise clients.</p>'
+                '<p class="section2LeftfieldsInJobDetails jobDetailTextArea answer">• Bachelor’s degree<br>• minimum 5 -7 years of relevant experience in global markets</p>')
+        ctx = context({'jobs.ubs.com': page})
+        text = _brassring_sections(ctx, 'UBS', 'https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&amp;jobid=1')
+        self.assertIn('5 -7 years of relevant experience', text)
+        self.assertEqual(ctx.classifier.experience(text).category, '2+')

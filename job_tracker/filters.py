@@ -103,7 +103,7 @@ class Classification:
 
 
 MIN_ADVERT_TEXT = 400
-FACET_LIST = re.compile(r'(?:[\w ]{0,40})?Please select a value(?:[^()]{0,60}\(\d+\))+|'
+FACET_LIST = re.compile(r'(?:[\w ]{0,40})?(?:Please select a value|Veuillez s[ée]lectionner une valeur)(?:[^()]{0,60}\(\d+\))+|'
                         r'(?:Level of education|Niveau d.[ée]tudes).{0,1500}?(?:11 years and more|11 ans et plus)\s*\(\d+\)', re.I | re.S)
 # Mentions of 'experience' that say nothing about the candidate
 NOT_CANDIDATE_EXPERIENCE = re.compile(r'(?:client|customer|user|candidate|employee|onboarding|digital)\s+experiences?|experiences\b|'
