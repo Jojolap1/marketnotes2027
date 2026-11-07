@@ -297,3 +297,31 @@ class CompanyAliasTests(unittest.TestCase):
         self.assertEqual(company_key('J.P. Morgan'), 'jpmorgan')
         self.assertEqual(company_key('JPMorgan Chase & Co.'), 'jpmorgan')
         self.assertEqual(company_key('Ingenico'), 'ingenico')   # short names need an exact match
+
+
+class BareTitleWithAdvertTests(unittest.TestCase):
+    """User's rule (2026-11-07): a bare title is sent when the advert asks for <= 1 year."""
+    TEXT = ('Marex is a diversified global financial services platform. The Cross Commodities Sales team covers '
+            'corporate and institutional clients across energy, metals and agricultural markets in Asia. You will '
+            'support the desk with client coverage, pricing requests, market commentary and trade booking, working '
+            'closely with traders and structurers. ') * 2
+
+    def classify(self, description, **extra):
+        from filters import Classifier
+        from tracker import load_config
+        job = {'title': 'Cross Commodities Sales (VN2878)', 'company': 'Marex', 'location': 'Singapore',
+               'description': description}
+        job.update(extra)
+        return Classifier(load_config()).classify(job)
+
+    def test_no_experience_requirement_is_sent(self):
+        c = self.classify(self.TEXT)
+        self.assertTrue(c.eligible, c.reject_reason)
+        self.assertIn('Level not stated', c.level_label)
+
+    def test_experience_requirements_still_reject(self):
+        self.assertFalse(self.classify(self.TEXT + ' You have 3+ years of experience in commodities sales.').eligible)
+        self.assertFalse(self.classify(self.TEXT + ' Proven track record of client origination is essential.').eligible)
+        self.assertFalse(self.classify(self.TEXT, title_only=True).eligible)   # no advert text read
+        self.assertFalse(self.classify('Short text.').eligible)
+        self.assertTrue(self.classify(self.TEXT + ' 1 year of experience is a plus.').eligible)

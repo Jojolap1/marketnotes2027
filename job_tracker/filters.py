@@ -81,7 +81,8 @@ class Classification:
     @property
     def level_label(self):
         labels = {'internship': 'Internship', 'graduate_programme': 'Graduate programme', 'vie': 'VIE',
-                  'apprenticeship': 'Apprenticeship / alternance', 'entry_level': 'Entry level'}
+                  'apprenticeship': 'Apprenticeship / alternance', 'entry_level': 'Entry level',
+                  'not_stated': 'Level not stated (no experience required in the advert)'}
         return labels.get(self.entry_type, 'Unspecified level')
 
     @property
@@ -97,6 +98,12 @@ class Classification:
         return f'{span} year(s) required ({e.category})'
 
 
+MIN_ADVERT_TEXT = 400
+# Experience asked for without a number of years
+VAGUE_EXPERIENCE = re.compile(
+    r"\b(?:extensive|significant|substantial|considerable|proven|solid|strong|demonstrable|demonstrated|several years(?: of)?)\s+"
+    r"(?:\w+\s+){0,3}(?:experience|track record)\b|\bproven track record\b|\bseasoned\b|\bexperienced (?:sales|trader|professional)\b|"
+    r"\bexp[ée]rience (?:significative|confirm[ée]e|solide|probante)\b|\bplusieurs ann[ée]es d'exp[ée]rience\b", re.I)
 EXPLICIT_JUNIOR = re.compile(r'\bjunior\b|\bjr\.?\b|\bentry[- ]level\b|\bd[ée]butant|\bnew grad|\bgraduate|\bfresh(?:er|man)?\b|\b20\d\d\b', re.I)
 
 
@@ -236,8 +243,17 @@ class Classifier:
             c.reject_reason = 'title only (no advert text): Analyst title without an explicit junior signal'
             return c
         if not c.entry_type:
-            # Bare titles ("Equity Sales Trader") are not evidence of a junior role.
-            if self.require_entry_signal:
+            # Bare titles ("Cross Commodities Sales"): accepted when the advert
+            # text was read and asks for no more than 1 year of experience
+            # (user's rule, 2026-11-07); without advert text a bare title is
+            # not evidence of a junior role.
+            advert = len(description) >= MIN_ADVERT_TEXT and not job.get('title_only')
+            if advert and VAGUE_EXPERIENCE.search(description):
+                c.reject_reason = 'experience required (advert asks for proven / extensive experience)'
+                return c
+            if advert:
+                c.entry_type = 'not_stated'
+            elif self.require_entry_signal:
                 c.reject_reason = 'no entry-level evidence (title or description)'
                 return c
         c.seniority = 'junior'
