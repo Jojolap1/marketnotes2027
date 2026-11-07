@@ -6,6 +6,7 @@ family, entry type, experience requirement and seniority, plus a final
 location and the job description proper are inspected: callers must not
 pass page navigation or footer text as the description.
 """
+import logging
 import re
 import unicodedata
 from dataclasses import dataclass, field
@@ -58,6 +59,8 @@ def _num(token):
     token = token.strip().lower()
     return int(token) if token.isdigit() else WORD_NUMBERS.get(token)
 
+LOG = logging.getLogger(__name__)
+
 
 @dataclass
 class Experience:
@@ -81,7 +84,8 @@ class Classification:
     @property
     def level_label(self):
         labels = {'internship': 'Internship', 'graduate_programme': 'Graduate programme', 'vie': 'VIE',
-                  'apprenticeship': 'Apprenticeship / alternance', 'entry_level': 'Entry level'}
+                  'apprenticeship': 'Apprenticeship / alternance', 'entry_level': 'Entry level',
+                  'not_stated': 'Level not stated (no experience required in the advert)'}
         return labels.get(self.entry_type, 'Unspecified level')
 
     @property
@@ -95,6 +99,30 @@ class Classification:
             return e.category
         span = f'{e.min_years}–{e.max_years}' if e.max_years not in (None, e.min_years) else f'{e.min_years}'
         return f'{span} year(s) required ({e.category})'
+
+
+MIN_ADVERT_TEXT = 400
+FACET_LIST = re.compile(r'(?:[\w ]{0,40})?Please select a value(?:[^()]{0,60}\(\d+\))+|'
+                        r'(?:Level of education|Niveau d.[ée]tudes).{0,1500}?(?:11 years and more|11 ans et plus)\s*\(\d+\)', re.I | re.S)
+# Mentions of 'experience' that say nothing about the candidate
+NOT_CANDIDATE_EXPERIENCE = re.compile(r'(?:client|customer|user|candidate|employee|onboarding|digital)\s+experiences?|experiences\b|'
+                                      r'decades? of experience|years? of experience (?:bringing|in (?:building|delivering|serving))|experienced (?:traders|team|colleagues|professionals)', re.I)
+REQUIREMENTS = re.compile(r'experien|expérien|requirement|qualifications?|profil|skills|compétences|you (?:have|bring|are|will need)|'
+                          r'vous (?:avez|êtes|disposez|justifiez)|what we.re looking for|about you|who you are', re.I)
+EXPERIENCE_HINT = re.compile(r'[^.;\n]{0,90}(?:experien|expérien|\byears?\b|\bans\b|年)[^.;\n]{0,90}', re.I)
+# Experience asked for without a number of years
+VAGUE_EXPERIENCE = re.compile(
+    r"(?:extensive|significant|substantial|considerable|proven|solid|strong|demonstrable|demonstrated|several years(?: of)?)\s+"
+    r"(?:\w+\s+){0,3}(?:experience|track record)\b|\bproven track record\b|\bseasoned\b|\bexperienced (?:sales|trader|professional)\b|"
+    r"\bexperience (?:within|at|in) [\w &,-]{0,40}?(?:tier[- ]?(?:1|one)|bulge[- ]bracket|leading (?:investment )?bank|top[- ]tier)|"
+    r"\bexp[ée]rience (?:significative|confirm[ée]e|solide|probante)\b|\bplusieurs ann[ée]es d'exp[ée]rience\b", re.I)
+def states_experience(text):
+    """True when the advert says what experience it expects from the
+    candidate (so 'none required' can be trusted), not only the job summary."""
+    for m in re.finditer(r'[^.;\n]{0,80}\b(?:experience|exp[ée]rience)\b[^.;\n]{0,80}', text, re.I):
+        if not NOT_CANDIDATE_EXPERIENCE.search(m.group(0)):
+            return True
+    return False
 
 
 EXPLICIT_JUNIOR = re.compile(r'\bjunior\b|\bjr\.?\b|\bentry[- ]level\b|\bd[ée]butant|\bnew grad|\bgraduate|\bfresh(?:er|man)?\b|\b20\d\d\b', re.I)
@@ -159,12 +187,14 @@ class Classifier:
                 after = text[m.end():m.end() + 70]
                 window = before + ' ' + m.group(0) + ' ' + after
                 near = before[-35:] + ' ' + after[:45]
-                if not EXPERIENCE_CONTEXT.search(near):
+                # '2+ years of programming / software engineering experience',
+                # '3+ years as a market maker', 'Minimum 2 years of ... experience'
+                role_years = re.match(r'\s*(?:of\s+)?(?:[\w/&,-]+\s+){0,6}(?:experience|exp[ée]rience)|\s*(?:as|in)\s+an?\s+\w+', after, re.I)
+                if not EXPERIENCE_CONTEXT.search(near) and not role_years:
                     continue
                 # Numbers about education, programme length or history are not
                 # experience requirements, unless 'experience' immediately follows.
-                if NON_EXPERIENCE_CONTEXT.search(near) and not re.match(
-                        r'\s*(?:of\s+)?(?:\w+\s+){0,3}(?:experience|exp[ée]rience)', after, re.I):
+                if NON_EXPERIENCE_CONTEXT.search(before[-25:] + ' ' + after[:25]) and not role_years:
                     continue
                 consumed.append((m.start(), m.end()))
                 found.append((lo, hi, window.strip()))
@@ -188,7 +218,9 @@ class Classifier:
     def classify(self, job):
         c = Classification()
         title = re.sub(r'\s+', ' ', job.get('title') or '').strip()
-        description = job.get('description') or ''
+        # Search-filter widgets copied with the advert ('Level of minimal
+        # experience Please select a value 0-2 years (110) 3-5 years (36)...')
+        description = FACET_LIST.sub(' ', job.get('description') or '')
         location = job.get('location') or ''
         if normalize_text(job.get('company')) in self.excluded_companies:
             c.reject_reason = 'company excluded in config'
@@ -236,8 +268,24 @@ class Classifier:
             c.reject_reason = 'title only (no advert text): Analyst title without an explicit junior signal'
             return c
         if not c.entry_type:
-            # Bare titles ("Equity Sales Trader") are not evidence of a junior role.
-            if self.require_entry_signal:
+            # Bare titles ("Cross Commodities Sales"): accepted when the advert
+            # text was read and asks for no more than 1 year of experience
+            # (user's rule, 2026-11-07); without advert text a bare title is
+            # not evidence of a junior role.
+            advert = (len(description) >= MIN_ADVERT_TEXT and not job.get('title_only')
+                      and not job.get('not_an_advert'))
+            if advert and not states_experience(description):
+                # Only the job summary was read: the experience asked is unknown
+                c.reject_reason = 'no entry-level evidence (advert text has no requirements section)'
+                return c
+            if advert and VAGUE_EXPERIENCE.search(description):
+                c.reject_reason = 'experience required (advert asks for proven / extensive experience)'
+                return c
+            if advert:
+                c.entry_type = 'not_stated'
+                hints = [m.group(0) for m in EXPERIENCE_HINT.finditer(description)][:3]
+                LOG.info('bare title accepted (%s / %s), experience wording: %s', job.get('company'), title[:60], hints or 'none')
+            elif self.require_entry_signal:
                 c.reject_reason = 'no entry-level evidence (title or description)'
                 return c
         c.seniority = 'junior'

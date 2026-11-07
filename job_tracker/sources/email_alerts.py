@@ -185,7 +185,7 @@ def post_jobs(blocks, source, ctx, published, evidence):
             location=ctx.city_of(text), url=url, published=published,
             description=re.sub(r'\s*¶\s*', ' ', text).strip()[:3000],
             employment_type=(f'{level} — ' if level else '') + 'LinkedIn post (read it for how to apply)',
-            source=f'LinkedIn post ({source["company"]})', status='unknown', status_evidence=evidence,
+            source=f'LinkedIn post ({source["company"]})', status='unknown', status_evidence=evidence, not_an_advert=True,
             apply_email=', '.join(_contact_emails(text))))
     return jobs
 
