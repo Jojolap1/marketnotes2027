@@ -266,7 +266,7 @@ def rmk(source, ctx):
         jobs.append(make_job(
             id=f'rmk:{company}:{href.rstrip("/").rsplit("/", 1)[1]}', company=company, title=title,
             location=html_to_text(location.group(1)) if location else slug[:80], url=url,
-            description=html_to_text(m.group(1) if m else re.sub(r'(?s)<(script|style).*?</\1>', ' ', response.text))[:6000],
+            description=html_to_text(m.group(1) if m else re.sub(r'(?s)<(script|style).*?</\1>', ' ', response.text))[:20000],
             source='official careers site search (SuccessFactors RMK)', status=OPEN,
             status_evidence='listed in the official careers site search (live postings only)'))
     return jobs
@@ -293,7 +293,7 @@ def html_cards(source, ctx):
         text = html_to_text(re.sub(r'(?s)<(script|style|nav|header|footer)\b.*?</\1>', ' ', page.text))
         jobs.append(make_job(
             id=f'cards:{company}:{canonical_url(url)}', company=company, title=title, location=location, url=url,
-            description=text[:6000], source='official careers page', status=OPEN,
+            description=text[:20000], source='official careers page', status=OPEN,
             status_evidence='listed on the official careers page (live vacancies only)'))
     return jobs
 
@@ -305,18 +305,26 @@ TS_LINK = re.compile(r'href="(/job/job-[^"]+\.aspx)"[^>]*>\s*(.*?)\s*</a>', re.S
 
 TS_PLACES = re.compile(r'<ul class="ts-offer-(?:card-content|list-item)__\w*[^"]*"[^>]*>(.*?)</ul>', re.S)
 TS_FIELD = re.compile(r'<p id="fldlocation_(joblocation|location_geographicalareacollection)"[^>]*>(.*?)</p>', re.S)
+# 'Niveau d'expérience minimum / Level of minimal experience: 6 - 10 ans' (bottom of the advert)
+TS_EXPERIENCE = re.compile(r'id="fldapplicantcriteria_experiencelevel"[^>]*>(.*?)</', re.S | re.I)
 
 
 def _talentsoft_detail(source, ctx, url):
-    key = 'talentsoft2:' + url
+    key = 'talentsoft3:' + url   # v3: experience field + full text (v2 cut the requirements off)
     cached = ctx.cache.get(key, max_age_hours=int(source.get('detail_cache_hours', 96)))
     if cached is not None:
         return cached
     page = ctx.http.get(url)
     page.raise_for_status()
     fields = {k: html_to_text(v) for k, v in TS_FIELD.findall(page.text)}
+    experience = TS_EXPERIENCE.search(page.text)
+    text = html_to_text(re.sub(r'(?s)<(script|style|nav|header|footer)\b.*?</\1>', ' ', page.text))
+    # The search filters at the top of the page ('Veuillez sélectionner une valeur
+    # 0 - 2 ans (110) ...') push the requirements past any short cut-off
+    text = re.sub(r'(?:Please select a value|Veuillez s[ée]lectionner une valeur)(?:[^()]{0,60}\(\d+\))+', ' ', text)
+    lead = f'Minimum experience: {html_to_text(experience.group(1))} of experience. ' if experience else ''
     value = {'location': ', '.join(filter(None, [fields.get('joblocation'), fields.get('location_geographicalareacollection')])),
-             'description': html_to_text(re.sub(r'(?s)<(script|style|nav|header|footer)\b.*?</\1>', ' ', page.text))[:6000]}
+             'description': (lead + text)[:20000]}
     ctx.cache.put(key, value)
     return value
 
