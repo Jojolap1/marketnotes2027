@@ -304,7 +304,9 @@ class BareTitleWithAdvertTests(unittest.TestCase):
     TEXT = ('Marex is a diversified global financial services platform. The Cross Commodities Sales team covers '
             'corporate and institutional clients across energy, metals and agricultural markets in Asia. You will '
             'support the desk with client coverage, pricing requests, market commentary and trade booking, working '
-            'closely with traders and structurers. ') * 2
+            'closely with traders and structurers. ') * 2 + (
+            'Skills and Experience: basic understanding of commodities / derivatives markets; '
+            'experience in a client-facing role is desirable.')
 
     def classify(self, description, **extra):
         from filters import Classifier
@@ -324,4 +326,7 @@ class BareTitleWithAdvertTests(unittest.TestCase):
         self.assertFalse(self.classify(self.TEXT + ' Proven track record of client origination is essential.').eligible)
         self.assertFalse(self.classify(self.TEXT, title_only=True).eligible)   # no advert text read
         self.assertFalse(self.classify('Short text.').eligible)
+        summary_only = BareTitleWithAdvertTests.TEXT.split('Skills and Experience')[0]
+        self.assertFalse(self.classify(summary_only).eligible)   # no requirements section read
+        self.assertFalse(self.classify(self.TEXT + ' Experience within a tier 1 bank is required.').eligible)
         self.assertTrue(self.classify(self.TEXT + ' 1 year of experience is a plus.').eligible)
