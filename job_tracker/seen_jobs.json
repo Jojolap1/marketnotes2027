@@ -306,6 +306,22 @@
    "title": "2027 Apprenticeship - Global Markets - London",
    "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5131&PageType=JobDetails&jobid=349659"
   },
+  "brassring:25008:349894": {
+   "company": "UBS",
+   "fingerprints": [
+    "id:brassring:25008:349894",
+    "req:ubs:349894",
+    "url:https://jobs.ubs.com/tgnewui/search/home/homewithpreload?PageType=JobDetails&jobid=349894&partnerid=25008&siteid=5012",
+    "title:ubs:global markets ugm execution sales:hong kong"
+   ],
+   "first_seen": "2026-11-07T13:11:18+00:00",
+   "last_seen": "2026-11-07",
+   "location": "Hong Kong SAR",
+   "notified_at": "2026-11-07T13:11:18+00:00",
+   "status": "open",
+   "title": "Global Markets – UGM Execution Sales",
+   "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=349894"
+  },
   "brassring:25008:350394": {
    "company": "UBS",
    "fingerprints": [
@@ -321,6 +337,22 @@
    "status": "open",
    "title": "Trader Assistant",
    "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=350394"
+  },
+  "brassring:25008:351011": {
+   "company": "UBS",
+   "fingerprints": [
+    "id:brassring:25008:351011",
+    "req:ubs:351011",
+    "url:https://jobs.ubs.com/tgnewui/search/home/homewithpreload?PageType=JobDetails&jobid=351011&partnerid=25008&siteid=5012",
+    "title:ubs:global markets ugm execution sales:singapore"
+   ],
+   "first_seen": "2026-11-07T13:11:13+00:00",
+   "last_seen": "2026-11-07",
+   "location": "Singapore",
+   "notified_at": "2026-11-07T13:11:13+00:00",
+   "status": "open",
+   "title": "Global Markets – UGM Execution Sales",
+   "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=351011"
   },
   "brassring:25008:352089": {
    "company": "UBS",
@@ -370,6 +402,22 @@
    "title": "Investment Specialist – Traditional & Alternative Investments (stage)",
    "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5132&PageType=JobDetails&jobid=352672&frmSiteId=5131"
   },
+  "brassring:25008:352687": {
+   "company": "UBS",
+   "fingerprints": [
+    "id:brassring:25008:352687",
+    "req:ubs:352687",
+    "url:https://jobs.ubs.com/tgnewui/search/home/homewithpreload?PageType=JobDetails&jobid=352687&partnerid=25008&siteid=5012",
+    "title:ubs:ai algo quant trader:hong kong"
+   ],
+   "first_seen": "2026-11-07T13:11:16+00:00",
+   "last_seen": "2026-11-07",
+   "location": "Hong Kong SAR, Singapore",
+   "notified_at": "2026-11-07T13:11:16+00:00",
+   "status": "open",
+   "title": "AI Algo Quant Trader",
+   "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=352687"
+  },
   "brassring:25008:352809": {
    "company": "UBS",
    "fingerprints": [
@@ -417,6 +465,22 @@
    "status": "open",
    "title": "Unified Global Markets - Advice Premium Trade, Sales Advisor",
    "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=353027"
+  },
+  "brassring:25008:353361": {
+   "company": "UBS",
+   "fingerprints": [
+    "id:brassring:25008:353361",
+    "req:ubs:353361",
+    "url:https://jobs.ubs.com/tgnewui/search/home/homewithpreload?PageType=JobDetails&jobid=353361&partnerid=25008&siteid=5012",
+    "title:ubs:global markets voice sales trader:london"
+   ],
+   "first_seen": "2026-11-07T13:11:15+00:00",
+   "last_seen": "2026-11-07",
+   "location": "United Kingdom (London office assumed: city not given)",
+   "notified_at": "2026-11-07T13:11:15+00:00",
+   "status": "open",
+   "title": "Global Markets - Voice - Sales Trader",
+   "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=353361"
   },
   "businessfrance:245487": {
    "company": "Blue Cube (France)",
@@ -2388,10 +2452,13 @@
    "fingerprints": [
     "id:rss:Crédit Agricole CIB:https://jobs.ca-cib.com/pages/offre/detailoffre.aspx?LCID=2057&idOffre=113297&idOrigine=1533&offerReference=2026-113297",
     "url:https://jobs.ca-cib.com/pages/offre/detailoffre.aspx?LCID=2057&idOffre=113297&idOrigine=1533&offerReference=2026-113297",
-    "title:credit agricole:analyste credit early detection:paris"
+    "title:credit agricole:analyste credit early detection:paris",
+    "id:talentsoft:Crédit Agricole CIB:113297",
+    "req:credit agricole:113297",
+    "url:https://jobs.ca-cib.com/job/job-analyste-credit-early-detection-h-f_113297.aspx"
    ],
    "first_seen": "2026-10-20T05:09:15+00:00",
-   "last_seen": "2026-10-20",
+   "last_seen": "2026-11-07",
    "location": "Types of Jobs/Corporate & Investment Banking; Internship/Trainee; Montrouge",
    "notified_at": "2026-10-20T05:09:15+00:00",
    "status": "open",
@@ -2937,6 +3004,22 @@
    "title": "Stage - FINANCE DE MARCHE - Structuration et Innovation Produit ETF & Indiciel H/F",
    "url": "https://jobs.amundi.com/job/job-stage-finance-de-marche-structuration-et-innovation-produit-etf-indiciel-h-f_117097.aspx"
   },
+  "talentsoft:Crédit Agricole CIB:100814": {
+   "company": "Crédit Agricole CIB",
+   "fingerprints": [
+    "id:talentsoft:Crédit Agricole CIB:100814",
+    "req:credit agricole:100814",
+    "url:https://jobs.ca-cib.com/job/job-trader-eur-swap-trader-h-f_100814.aspx",
+    "title:credit agricole:trader eur swap trader:paris"
+   ],
+   "first_seen": "2026-11-07T13:11:19+00:00",
+   "last_seen": "2026-11-07",
+   "location": "Montrouge, Europe, France, Ile-de-France, 92 - Hauts-De-Seine",
+   "notified_at": "2026-11-07T13:11:19+00:00",
+   "status": "open",
+   "title": "Trader EUR Swap Trader H/F",
+   "url": "https://jobs.ca-cib.com/job/job-trader-eur-swap-trader-h-f_100814.aspx"
+  },
   "talentsoft:Crédit Agricole CIB:110286": {
    "company": "Crédit Agricole CIB",
    "fingerprints": [
@@ -2968,6 +3051,22 @@
    "status": "open",
    "title": "Structured Credit Structuring Analyst",
    "url": "https://jobs.ca-cib.com/job/job-structured-credit-structuring-analyst_112620.aspx"
+  },
+  "talentsoft:Crédit Agricole CIB:112865": {
+   "company": "Crédit Agricole CIB",
+   "fingerprints": [
+    "id:talentsoft:Crédit Agricole CIB:112865",
+    "req:credit agricole:112865",
+    "url:https://jobs.ca-cib.com/job/job-qis-trader-h-f_112865.aspx",
+    "title:credit agricole:qis trader:paris"
+   ],
+   "first_seen": "2026-11-07T13:11:21+00:00",
+   "last_seen": "2026-11-07",
+   "location": "Montrouge, Europe, France, Ile-de-France, 92 - Hauts-De-Seine",
+   "notified_at": "2026-11-07T13:11:21+00:00",
+   "status": "open",
+   "title": "QIS Trader H/F",
+   "url": "https://jobs.ca-cib.com/job/job-qis-trader-h-f_112865.aspx"
   },
   "talentsoft:Crédit Agricole CIB:114122": {
    "company": "Crédit Agricole CIB",
@@ -3016,6 +3115,22 @@
    "status": "open",
    "title": "Trainee - Global Markets Division (Foreign Exchange and Interest Rates)",
    "url": "https://jobs.ca-cib.com/job/job-trainee-global-markets-division-foreign-exchange-and-interest-rates-_115317.aspx"
+  },
+  "talentsoft:Crédit Agricole CIB:115692": {
+   "company": "Crédit Agricole CIB",
+   "fingerprints": [
+    "id:talentsoft:Crédit Agricole CIB:115692",
+    "req:credit agricole:115692",
+    "url:https://jobs.ca-cib.com/job/job--trader-gri_115692.aspx",
+    "title:credit agricole:trader gri:hong kong"
+   ],
+   "first_seen": "2026-11-07T13:11:20+00:00",
+   "last_seen": "2026-11-07",
+   "location": "HONG KONG, Asia, Hong Kong",
+   "notified_at": "2026-11-07T13:11:20+00:00",
+   "status": "open",
+   "title": "**Trader GRI",
+   "url": "https://jobs.ca-cib.com/job/job--trader-gri_115692.aspx"
   },
   "talentsoft:Crédit Agricole CIB:115731": {
    "company": "Crédit Agricole CIB",
@@ -4819,7 +4934,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-07T12:11:37.361762+00:00",
+ "last_send_slot": "2026-11-07T13:11:12.520817+00:00",
  "last_status_date": "2026-11-06",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4967,7 +5082,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1384,
+   "last_listed": 1382,
    "last_ok": "2026-11-07"
   },
   "Castleton Commodities": {
@@ -5269,7 +5384,7 @@
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 94,
+   "last_listed": 93,
    "last_ok": "2026-11-07"
   },
   "Mizuho (EMEA)": {
