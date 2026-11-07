@@ -5,10 +5,13 @@
   the page's own anti-forgery token is sent back as the site itself does).
 * Beisen "zhiye" portals (CICC, China Galaxy): the portal's job-ad list API.
 """
+import logging
 import re
 
 from jobs import html_to_text, make_job
 from status import CLOSED, OPEN, from_end_date
+
+LOG = logging.getLogger(__name__)
 
 BOFA = 'https://careers.bankofamerica.com'
 
@@ -97,12 +100,40 @@ def brassring(source, ctx):
         if not ctx.screen(company, title, location):
             continue
         ctx.stat(company, 'candidates')
+        description = html_to_text(f.get('jobdescription'))
+        if not ctx.classifier.entry_type(title):
+            # The search result only carries the job summary: for a title that
+            # is not explicitly junior, read the advert's own sections ('Your
+            # skills and experience: 5-7 years...') so the experience is checked
+            description = (description + ' ' + _brassring_sections(ctx, company, f['_link'])).strip()
         jobs.append(make_job(
             id=f'brassring:{partner}:{req}', company=company, title=title, location=location, url=f['_link'],
-            published=f.get('lastupdated') or '', description=html_to_text(f.get('jobdescription')),
+            published=f.get('lastupdated') or '', description=description,
             employment_type=f.get('formtext22') or '', source='UBS careers search (BrassRing)', requisition_id=req,
             status=OPEN, status_evidence='listed in the official UBS job search (live postings only)'))
     return jobs
+
+
+BRASSRING_SECTION = re.compile(r'<p class="[^"]*jobDetailTextArea answer[^"]*"[^>]*>(.*?)</p>', re.S)
+
+
+def _brassring_sections(ctx, company, url):
+    """Text of the advert's sections on its BrassRing job page (cached 4 days)."""
+    url = url.replace('&amp;', '&')
+    key = 'brassring-detail:' + url
+    cached = ctx.cache.get(key, max_age_hours=96)
+    if cached is not None:
+        return cached
+    try:
+        page = ctx.http.get(url)
+        page.raise_for_status()
+    except Exception as exc:   # keep the summary; the classifier flags the missing requirements
+        LOG.info('  %s advert page unreachable (%s)', company, type(exc).__name__)
+        return ''
+    ctx.stat(company, 'detail_requests')
+    text = ' '.join(html_to_text(m) for m in BRASSRING_SECTION.findall(page.text))[:20000]
+    ctx.cache.put(key, text)
+    return text
 
 
 def zhiye(source, ctx):
