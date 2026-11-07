@@ -4616,7 +4616,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-07T05:11:36.259391+00:00",
+ "last_send_slot": "2026-11-07T06:11:25.022222+00:00",
  "last_status_date": "2026-11-06",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4664,7 +4664,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1042,
+   "last_listed": 1037,
    "last_ok": "2026-11-07"
   },
   "BNP Paribas (email alerts)": {
@@ -4699,7 +4699,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2086,
+   "last_listed": 2082,
    "last_ok": "2026-11-07"
   },
   "Bank of America (campus)": {
@@ -4764,7 +4764,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1388,
+   "last_listed": 1386,
    "last_ok": "2026-11-07"
   },
   "Castleton Commodities": {
@@ -4867,7 +4867,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 527,
+   "last_listed": 526,
    "last_ok": "2026-11-07"
   },
   "Fidelity International": {
