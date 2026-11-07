@@ -102,7 +102,11 @@ class Classification:
 
 
 MIN_ADVERT_TEXT = 400
-FACET_LIST = re.compile(r'(?:[\w ]{0,40})?Please select a value(?:[^()]{0,60}\(\d+\))+', re.I)
+FACET_LIST = re.compile(r'(?:[\w ]{0,40})?Please select a value(?:[^()]{0,60}\(\d+\))+|'
+                        r'(?:Level of education|Niveau d.[ée]tudes).{0,1500}?(?:11 years and more|11 ans et plus)\s*\(\d+\)', re.I | re.S)
+# Mentions of 'experience' that say nothing about the candidate
+NOT_CANDIDATE_EXPERIENCE = re.compile(r'(?:client|customer|user|candidate|employee|onboarding|digital)\s+experiences?|experiences\b|'
+                                      r'decades? of experience|years? of experience (?:bringing|in (?:building|delivering|serving))|experienced (?:traders|team|colleagues|professionals)', re.I)
 REQUIREMENTS = re.compile(r'experien|expérien|requirement|qualifications?|profil|skills|compétences|you (?:have|bring|are|will need)|'
                           r'vous (?:avez|êtes|disposez|justifiez)|what we.re looking for|about you|who you are', re.I)
 EXPERIENCE_HINT = re.compile(r'[^.;\n]{0,90}(?:experien|expérien|\byears?\b|\bans\b|年)[^.;\n]{0,90}', re.I)
@@ -110,8 +114,17 @@ EXPERIENCE_HINT = re.compile(r'[^.;\n]{0,90}(?:experien|expérien|\byears?\b|\ba
 VAGUE_EXPERIENCE = re.compile(
     r"(?:extensive|significant|substantial|considerable|proven|solid|strong|demonstrable|demonstrated|several years(?: of)?)\s+"
     r"(?:\w+\s+){0,3}(?:experience|track record)\b|\bproven track record\b|\bseasoned\b|\bexperienced (?:sales|trader|professional)\b|"
-    r"\bexperience (?:within|at) (?:a |an )?(?:tier|leading|top|major|global|bulge)|"
+    r"\bexperience (?:within|at|in) [\w &,-]{0,40}?(?:tier[- ]?(?:1|one)|bulge[- ]bracket|leading (?:investment )?bank|top[- ]tier)|"
     r"\bexp[ée]rience (?:significative|confirm[ée]e|solide|probante)\b|\bplusieurs ann[ée]es d'exp[ée]rience\b", re.I)
+def states_experience(text):
+    """True when the advert says what experience it expects from the
+    candidate (so 'none required' can be trusted), not only the job summary."""
+    for m in re.finditer(r'[^.;\n]{0,80}\b(?:experience|exp[ée]rience)\b[^.;\n]{0,80}', text, re.I):
+        if not NOT_CANDIDATE_EXPERIENCE.search(m.group(0)):
+            return True
+    return False
+
+
 EXPLICIT_JUNIOR = re.compile(r'\bjunior\b|\bjr\.?\b|\bentry[- ]level\b|\bd[ée]butant|\bnew grad|\bgraduate|\bfresh(?:er|man)?\b|\b20\d\d\b', re.I)
 
 
@@ -261,7 +274,7 @@ class Classifier:
             # not evidence of a junior role.
             advert = (len(description) >= MIN_ADVERT_TEXT and not job.get('title_only')
                       and not job.get('not_an_advert'))
-            if advert and not REQUIREMENTS.search(description):
+            if advert and not states_experience(description):
                 # Only the job summary was read: the experience asked is unknown
                 c.reject_reason = 'no entry-level evidence (advert text has no requirements section)'
                 return c
