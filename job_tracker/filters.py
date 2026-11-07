@@ -6,6 +6,7 @@ family, entry type, experience requirement and seniority, plus a final
 location and the job description proper are inspected: callers must not
 pass page navigation or footer text as the description.
 """
+import logging
 import re
 import unicodedata
 from dataclasses import dataclass, field
@@ -58,6 +59,8 @@ def _num(token):
     token = token.strip().lower()
     return int(token) if token.isdigit() else WORD_NUMBERS.get(token)
 
+LOG = logging.getLogger(__name__)
+
 
 @dataclass
 class Experience:
@@ -99,6 +102,7 @@ class Classification:
 
 
 MIN_ADVERT_TEXT = 400
+EXPERIENCE_HINT = re.compile(r'[^.;\n]{0,90}(?:experien|expérien|\byears?\b|\bans\b|年)[^.;\n]{0,90}', re.I)
 # Experience asked for without a number of years
 VAGUE_EXPERIENCE = re.compile(
     r"\b(?:extensive|significant|substantial|considerable|proven|solid|strong|demonstrable|demonstrated|several years(?: of)?)\s+"
@@ -247,12 +251,15 @@ class Classifier:
             # text was read and asks for no more than 1 year of experience
             # (user's rule, 2026-11-07); without advert text a bare title is
             # not evidence of a junior role.
-            advert = len(description) >= MIN_ADVERT_TEXT and not job.get('title_only')
+            advert = (len(description) >= MIN_ADVERT_TEXT and not job.get('title_only')
+                      and not job.get('not_an_advert'))
             if advert and VAGUE_EXPERIENCE.search(description):
                 c.reject_reason = 'experience required (advert asks for proven / extensive experience)'
                 return c
             if advert:
                 c.entry_type = 'not_stated'
+                hints = [m.group(0) for m in EXPERIENCE_HINT.finditer(description)][:3]
+                LOG.info('bare title accepted (%s / %s), experience wording: %s', job.get('company'), title[:60], hints or 'none')
             elif self.require_entry_signal:
                 c.reject_reason = 'no entry-level evidence (title or description)'
                 return c

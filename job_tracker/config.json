@@ -249,7 +249,8 @@
       "\\b(?:project|acquisition|real estate|asset|export|trade|leveraged) financ\\w*\\b|\\bfinancements? (?:de projets?|d'acquisition|immobiliers?|export)\\b",
       "\\bteam assistant\\b",
       "\\b(?:uae|emirati|saudi|qatari|omani|kuwaiti|bahraini) nationals?\\b|\\bnationals only\\b|\\bemiratisation\\b",
-      "\\b(?:sales )?incentive\\b|\\bcompensation\\b"
+      "\\b(?:sales )?incentive\\b|\\bcompensation\\b",
+      "\\bbusiness anal\\w+\\b"
     ],
     "entry_types": {
       "vie": [
@@ -315,7 +316,8 @@
       "\\bassociate\\b",
       "\\bspecialist\\b",
       "\\bconsultant\\b",
-      "\\bofficer\\b"
+      "\\bofficer\\b",
+      "经理|總監|总监|主管|負責人|负责人"
     ]
   },
   "notifications": {
