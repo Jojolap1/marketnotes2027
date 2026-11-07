@@ -85,7 +85,8 @@ class Classification:
     def level_label(self):
         labels = {'internship': 'Internship', 'graduate_programme': 'Graduate programme', 'vie': 'VIE',
                   'apprenticeship': 'Apprenticeship / alternance', 'entry_level': 'Entry level',
-                  'not_stated': 'Level not stated (no experience required in the advert)'}
+                  'not_stated': 'Level not stated (no experience required in the advert)',
+                  'not_visible': 'Experience asked not visible in the advert read, check the posting'}
         return labels.get(self.entry_type, 'Unspecified level')
 
     @property
@@ -274,14 +275,13 @@ class Classifier:
             # not evidence of a junior role.
             advert = (len(description) >= MIN_ADVERT_TEXT and not job.get('title_only')
                       and not job.get('not_an_advert'))
-            if advert and not states_experience(description):
-                # Only the job summary was read: the experience asked is unknown
-                c.reject_reason = 'no entry-level evidence (advert text has no requirements section)'
-                return c
             if advert and VAGUE_EXPERIENCE.search(description):
                 c.reject_reason = 'experience required (advert asks for proven / extensive experience)'
                 return c
-            if advert:
+            if advert and not states_experience(description):
+                # Only the job summary was read: sent anyway, flagged (user's choice 2026-11-07)
+                c.entry_type = 'not_visible'
+            elif advert:
                 c.entry_type = 'not_stated'
                 hints = [m.group(0) for m in EXPERIENCE_HINT.finditer(description)][:3]
                 LOG.info('bare title accepted (%s / %s), experience wording: %s', job.get('company'), title[:60], hints or 'none')
