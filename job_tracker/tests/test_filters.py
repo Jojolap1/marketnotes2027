@@ -327,6 +327,8 @@ class BareTitleWithAdvertTests(unittest.TestCase):
         self.assertFalse(self.classify(self.TEXT, title_only=True).eligible)   # no advert text read
         self.assertFalse(self.classify('Short text.').eligible)
         summary_only = BareTitleWithAdvertTests.TEXT.split('Skills and Experience')[0]
-        self.assertFalse(self.classify(summary_only).eligible)   # no requirements section read
+        c = self.classify(summary_only)   # no requirements section read: sent, flagged
+        self.assertTrue(c.eligible, c.reject_reason)
+        self.assertIn('not visible', c.level_label)
         self.assertFalse(self.classify(self.TEXT + ' Experience within a tier 1 bank is required.').eligible)
         self.assertTrue(self.classify(self.TEXT + ' 1 year of experience is a plus.').eligible)
