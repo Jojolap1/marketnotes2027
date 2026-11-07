@@ -4934,8 +4934,8 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-07T13:11:12.520817+00:00",
- "last_status_date": "2026-11-06",
+ "last_send_slot": "2026-11-07T14:16:02.232820+00:00",
+ "last_status_date": "2026-11-07",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -5017,7 +5017,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2082,
+   "last_listed": 2090,
    "last_ok": "2026-11-07"
   },
   "Bank of America (campus)": {
@@ -5294,7 +5294,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 715,
+   "last_listed": 713,
    "last_ok": "2026-11-07"
   },
   "Jane Street": {
@@ -5374,7 +5374,7 @@
   },
   "Marshall Wace": {
    "consecutive_failures": 0,
-   "last_listed": 8,
+   "last_listed": 7,
    "last_ok": "2026-11-07"
   },
   "Maven Securities": {
@@ -5384,7 +5384,7 @@
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 93,
+   "last_listed": 94,
    "last_ok": "2026-11-07"
   },
   "Mizuho (EMEA)": {
@@ -5578,7 +5578,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 691,
+   "last_listed": 681,
    "last_ok": "2026-11-07"
   },
   "UOB": {
