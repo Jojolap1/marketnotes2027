@@ -2645,6 +2645,20 @@ R80 = [('R80 CACIB QIS', lambda: cacib_experience('https://jobs.ca-cib.com/job/j
        ('R80 CACIB EUR swap', lambda: cacib_experience('https://jobs.ca-cib.com/job/job-trader-eur-swap-trader-h-f_100814.aspx'))]
 PROBES = PROBES + R80
 
+
+def ubs_detail(jobid):
+    url = f'https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid={jobid}'
+    r = get(url)
+    t = r.text
+    out = [f'HTTP {r.status_code} len={len(t)}']
+    for pat in (r'years? of (?:relevant )?experience', r'jobdescription', r'"Questions"', r'preLoadJSON|preloadJSON|jobDetails'):
+        out.append(f'{pat}: ' + ' || '.join(re.sub(r'\s+', ' ', t[max(0, m.start() - 150):m.end() + 150]) for m in list(re.finditer(pat, t, re.I))[:2]))
+    return '\n'.join(out)[:4000]
+
+
+R81 = [('R81 UBS detail', lambda: ubs_detail('351011'))]
+PROBES = PROBES + R81
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
