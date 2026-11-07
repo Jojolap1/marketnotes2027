@@ -402,6 +402,22 @@
    "title": "2027 Graduate Talent Program - Global Markets - Paris",
    "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5131&PageType=JobDetails&jobid=352955"
   },
+  "brassring:25008:353027": {
+   "company": "UBS",
+   "fingerprints": [
+    "id:brassring:25008:353027",
+    "req:ubs:353027",
+    "url:https://jobs.ubs.com/tgnewui/search/home/homewithpreload?PageType=JobDetails&jobid=353027&partnerid=25008&siteid=5012",
+    "title:ubs:unified global markets advice premium trade sales advisor:hong kong"
+   ],
+   "first_seen": "2026-11-07T12:11:41+00:00",
+   "last_seen": "2026-11-07",
+   "location": "Hong Kong SAR",
+   "notified_at": "2026-11-07T12:11:41+00:00",
+   "status": "open",
+   "title": "Unified Global Markets - Advice Premium Trade, Sales Advisor",
+   "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=353027"
+  },
   "businessfrance:245487": {
    "company": "Blue Cube (France)",
    "fingerprints": [
@@ -464,6 +480,21 @@
    "title": "APAC Prime Services Intern (VN3259)",
    "url": "https://www.marex.com/careers/career-opportunities/55fd727028c701-apac-prime-services-intern-vn3259"
   },
+  "cards:Marex:https://marex.com/careers/career-opportunities/7f7dbe53327c01-cross-commodities-sales-vn2878": {
+   "company": "Marex",
+   "fingerprints": [
+    "id:cards:Marex:https://marex.com/careers/career-opportunities/7f7dbe53327c01-cross-commodities-sales-vn2878",
+    "url:https://marex.com/careers/career-opportunities/7f7dbe53327c01-cross-commodities-sales-vn2878",
+    "title:marex:cross commodities sales vn2878:singapore"
+   ],
+   "first_seen": "2026-11-07T12:11:44+00:00",
+   "last_seen": "2026-11-07",
+   "location": "Singapore",
+   "notified_at": "2026-11-07T12:11:44+00:00",
+   "status": "open",
+   "title": "Cross Commodities Sales (VN2878)",
+   "url": "https://www.marex.com/careers/career-opportunities/7f7dbe53327c01-cross-commodities-sales-vn2878"
+  },
   "cards:Marex:https://marex.com/careers/career-opportunities/8ac5c23bf47e01-agricultural-trading-assistant": {
    "company": "Marex",
    "fingerprints": [
@@ -478,6 +509,21 @@
    "status": "open",
    "title": "Agricultural Trading Assistant",
    "url": "https://www.marex.com/careers/career-opportunities/8ac5c23bf47e01-agricultural-trading-assistant"
+  },
+  "cards:Marex:https://marex.com/careers/career-opportunities/afe0097ccfc601-lme-metals-sales-asia": {
+   "company": "Marex",
+   "fingerprints": [
+    "id:cards:Marex:https://marex.com/careers/career-opportunities/afe0097ccfc601-lme-metals-sales-asia",
+    "url:https://marex.com/careers/career-opportunities/afe0097ccfc601-lme-metals-sales-asia",
+    "title:marex:lme metals sales asia:london"
+   ],
+   "first_seen": "2026-11-07T12:11:45+00:00",
+   "last_seen": "2026-11-07",
+   "location": "London, England",
+   "notified_at": "2026-11-07T12:11:45+00:00",
+   "status": "open",
+   "title": "LME Metals Sales - Asia",
+   "url": "https://www.marex.com/careers/career-opportunities/afe0097ccfc601-lme-metals-sales-asia"
   },
   "eightfold:portal.careers.hsbc.com:62245": {
    "company": "HSBC",
@@ -574,6 +620,22 @@
    "status": "open",
    "title": "Stage - Chargé d'affaires / Coverage Asset Managers (f/m/d)",
    "url": "https://portal.careers.hsbc.com/careers/job/563774612508665"
+  },
+  "eightfold:portal.careers.hsbc.com:65247": {
+   "company": "HSBC",
+   "fingerprints": [
+    "id:eightfold:portal.careers.hsbc.com:65247",
+    "req:hsbc:65247",
+    "url:https://portal.careers.hsbc.com/careers/job/563774612562045",
+    "title:hsbc:client relationship management asset management 12 months contract:singapore"
+   ],
+   "first_seen": "2026-11-07T12:11:40+00:00",
+   "last_seen": "2026-11-07",
+   "location": "Singapore, Singapore",
+   "notified_at": "2026-11-07T12:11:40+00:00",
+   "status": "open",
+   "title": "Client Relationship Management- Asset Management (12 months' Contract)",
+   "url": "https://portal.careers.hsbc.com/careers/job/563774612562045"
   },
   "eightfold:portal.careers.hsbc.com:65399": {
    "company": "HSBC",
@@ -2955,6 +3017,22 @@
    "title": "Trainee - Global Markets Division (Foreign Exchange and Interest Rates)",
    "url": "https://jobs.ca-cib.com/job/job-trainee-global-markets-division-foreign-exchange-and-interest-rates-_115317.aspx"
   },
+  "talentsoft:Crédit Agricole CIB:115731": {
+   "company": "Crédit Agricole CIB",
+   "fingerprints": [
+    "id:talentsoft:Crédit Agricole CIB:115731",
+    "req:credit agricole:115731",
+    "url:https://jobs.ca-cib.com/job/job-collateral-xva-_115731.aspx",
+    "title:credit agricole:collateral xva:london"
+   ],
+   "first_seen": "2026-11-07T12:11:42+00:00",
+   "last_seen": "2026-11-07",
+   "location": "London, Europe, United Kingdom",
+   "notified_at": "2026-11-07T12:11:42+00:00",
+   "status": "open",
+   "title": "Collateral &XVA",
+   "url": "https://jobs.ca-cib.com/job/job-collateral-xva-_115731.aspx"
+  },
   "talentsoft:Crédit Agricole CIB:116036": {
    "company": "Crédit Agricole CIB",
    "fingerprints": [
@@ -3827,6 +3905,22 @@
    "status": "open",
    "title": "Systematic Credit Trader",
    "url": "https://citi.wd5.myworkdayjobs.com/2/job/London--United-Kingdom/Systematic-Credit-Trader_26998633"
+  },
+  "workday:citicclsa:JR003448": {
+   "company": "CITIC CLSA (CITIC Securities)",
+   "fingerprints": [
+    "id:workday:citicclsa:JR003448",
+    "req:citic clsa:jr003448",
+    "url:https://citicclsa.wd3.myworkdayjobs.com/external/job/singapore/china-sales--institutional-equities_jr003448-1",
+    "title:citic clsa:china sales institutional equities:singapore"
+   ],
+   "first_seen": "2026-11-07T12:11:39+00:00",
+   "last_seen": "2026-11-07",
+   "location": "Singapore",
+   "notified_at": "2026-11-07T12:11:39+00:00",
+   "status": "open",
+   "title": "China Sales, Institutional Equities",
+   "url": "https://citicclsa.wd3.myworkdayjobs.com/External/job/Singapore/China-Sales--Institutional-Equities_JR003448-1"
   },
   "workday:db:R0446171": {
    "company": "Deutsche Bank",
@@ -4725,7 +4819,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-07T11:12:49.236985+00:00",
+ "last_send_slot": "2026-11-07T12:11:37.361762+00:00",
  "last_status_date": "2026-11-06",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4872,8 +4966,7 @@
    "last_ok": "2026-11-07"
   },
   "Cargill": {
-   "consecutive_failures": 1,
-   "last_error": "ReadTimeout: HTTPSConnectionPool(host='career2.successfactors.eu', port=443): Read timed out. (read timeout=25)",
+   "consecutive_failures": 0,
    "last_listed": 1384,
    "last_ok": "2026-11-07"
   },
@@ -5086,7 +5179,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 716,
+   "last_listed": 715,
    "last_ok": "2026-11-07"
   },
   "Jane Street": {
@@ -5121,7 +5214,7 @@
   },
   "LinkedIn (job alerts)": {
    "consecutive_failures": 0,
-   "last_listed": 237,
+   "last_listed": 245,
    "last_ok": "2026-11-07"
   },
   "LinkedIn (posts)": {
