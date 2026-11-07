@@ -4725,7 +4725,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-07T10:11:07.440670+00:00",
+ "last_send_slot": "2026-11-07T11:12:49.236985+00:00",
  "last_status_date": "2026-11-06",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -4872,7 +4872,8 @@
    "last_ok": "2026-11-07"
   },
   "Cargill": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "ReadTimeout: HTTPSConnectionPool(host='career2.successfactors.eu', port=443): Read timed out. (read timeout=25)",
    "last_listed": 1384,
    "last_ok": "2026-11-07"
   },
@@ -4961,7 +4962,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1622,
+   "last_listed": 1619,
    "last_ok": "2026-11-07"
   },
   "Equinor": {
@@ -5085,7 +5086,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 715,
+   "last_listed": 716,
    "last_ok": "2026-11-07"
   },
   "Jane Street": {
