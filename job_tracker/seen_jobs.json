@@ -4996,7 +4996,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-08T12:11:53.012843+00:00",
+ "last_send_slot": "2026-11-08T13:11:49.025031+00:00",
  "last_status_date": "2026-11-07",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5009,7 +5009,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 170,
+   "last_listed": 168,
    "last_ok": "2026-11-08"
   },
   "ANZ (careers site)": {
@@ -5232,7 +5232,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1621,
+   "last_listed": 1618,
    "last_ok": "2026-11-08"
   },
   "Equinor": {
@@ -5316,7 +5316,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 339,
+   "last_listed": 340,
    "last_ok": "2026-11-08"
   },
   "Haitong International": {
