@@ -4996,7 +4996,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-08T04:17:39.329156+00:00",
+ "last_send_slot": "2026-11-08T05:11:36.646094+00:00",
  "last_status_date": "2026-11-07",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5044,7 +5044,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1034,
+   "last_listed": 1031,
    "last_ok": "2026-11-08"
   },
   "BNP Paribas (email alerts)": {
@@ -5084,7 +5084,7 @@
   },
   "Bank of America (campus)": {
    "consecutive_failures": 0,
-   "last_listed": 23,
+   "last_listed": 19,
    "last_ok": "2026-11-08"
   },
   "Barclays": {
