@@ -4996,7 +4996,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-09T04:31:51.287117+00:00",
+ "last_send_slot": "2026-11-09T05:23:00.154608+00:00",
  "last_status_date": "2026-11-08",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5044,7 +5044,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1025,
+   "last_listed": 1012,
    "last_ok": "2026-11-09"
   },
   "BNP Paribas (email alerts)": {
@@ -5099,7 +5099,7 @@
   },
   "BlackRock": {
    "consecutive_failures": 0,
-   "last_listed": 35,
+   "last_listed": 34,
    "last_ok": "2026-11-09"
   },
   "Brevan Howard": {
@@ -5144,7 +5144,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1381,
+   "last_listed": 1382,
    "last_ok": "2026-11-09"
   },
   "Castleton Commodities": {
@@ -5232,7 +5232,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1616,
+   "last_listed": 1618,
    "last_ok": "2026-11-09"
   },
   "Equinor": {
@@ -5316,7 +5316,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 327,
+   "last_listed": 331,
    "last_ok": "2026-11-09"
   },
   "Haitong International": {
@@ -5356,7 +5356,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 714,
+   "last_listed": 712,
    "last_ok": "2026-11-09"
   },
   "Jane Street": {
@@ -5401,7 +5401,7 @@
   },
   "LinkedIn (web search)": {
    "consecutive_failures": 0,
-   "last_listed": 6,
+   "last_listed": 11,
    "last_ok": "2026-11-09"
   },
   "Lloyds Banking Group": {
@@ -5521,7 +5521,7 @@
   },
   "Qube Research & Technologies": {
    "consecutive_failures": 0,
-   "last_listed": 208,
+   "last_listed": 206,
    "last_ok": "2026-11-09"
   },
   "RBC": {
@@ -5586,7 +5586,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 996,
+   "last_listed": 994,
    "last_ok": "2026-11-09"
   },
   "State Street": {
