@@ -4996,7 +4996,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-09T05:23:00.154608+00:00",
+ "last_send_slot": "2026-11-09T06:20:23.522477+00:00",
  "last_status_date": "2026-11-08",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5009,7 +5009,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 182,
+   "last_listed": 184,
    "last_ok": "2026-11-09"
   },
   "ANZ (careers site)": {
@@ -5044,7 +5044,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1012,
+   "last_listed": 1007,
    "last_ok": "2026-11-09"
   },
   "BNP Paribas (email alerts)": {
@@ -5054,7 +5054,7 @@
   },
   "BNY": {
    "consecutive_failures": 0,
-   "last_listed": 107,
+   "last_listed": 105,
    "last_ok": "2026-11-09"
   },
   "BP": {
@@ -5079,7 +5079,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2082,
+   "last_listed": 2081,
    "last_ok": "2026-11-09"
   },
   "Bank of America (campus)": {
@@ -5144,7 +5144,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1382,
+   "last_listed": 1377,
    "last_ok": "2026-11-09"
   },
   "Castleton Commodities": {
@@ -5232,7 +5232,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1618,
+   "last_listed": 1620,
    "last_ok": "2026-11-09"
   },
   "Equinor": {
@@ -5247,7 +5247,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 526,
+   "last_listed": 525,
    "last_ok": "2026-11-09"
   },
   "Fidelity International": {
@@ -5316,7 +5316,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 331,
+   "last_listed": 332,
    "last_ok": "2026-11-09"
   },
   "Haitong International": {
@@ -5401,7 +5401,7 @@
   },
   "LinkedIn (web search)": {
    "consecutive_failures": 0,
-   "last_listed": 11,
+   "last_listed": 1,
    "last_ok": "2026-11-09"
   },
   "Lloyds Banking Group": {
@@ -5426,7 +5426,7 @@
   },
   "Man Group": {
    "consecutive_failures": 0,
-   "last_listed": 72,
+   "last_listed": 71,
    "last_ok": "2026-11-09"
   },
   "Marex": {
@@ -5456,7 +5456,7 @@
   },
   "Morgan Stanley": {
    "consecutive_failures": 0,
-   "last_listed": 125,
+   "last_listed": 124,
    "last_ok": "2026-11-09"
   },
   "National Bank of Canada": {
@@ -5511,7 +5511,7 @@
   },
   "Point72": {
    "consecutive_failures": 0,
-   "last_listed": 201,
+   "last_listed": 200,
    "last_ok": "2026-11-09"
   },
   "Quadrature Capital": {
@@ -5521,7 +5521,7 @@
   },
   "Qube Research & Technologies": {
    "consecutive_failures": 0,
-   "last_listed": 206,
+   "last_listed": 205,
    "last_ok": "2026-11-09"
   },
   "RBC": {
@@ -5586,7 +5586,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 994,
+   "last_listed": 995,
    "last_ok": "2026-11-09"
   },
   "State Street": {
