@@ -274,6 +274,22 @@
    "title": "Internship - 6 months – Quantitative Analyst - Private Multi-Asset F/M",
    "url": "https://recrutement.natixis.com/en/job/internship-6-months-quantitative-analyst-private-multi-asset-f-m"
   },
+  "bpce:22527": {
+   "company": "Natixis CIB",
+   "fingerprints": [
+    "id:bpce:22527",
+    "req:natixis:22527",
+    "url:https://recrutement.natixis.com/en/job/intern-spg-sales-2",
+    "title:natixis:intern spg sales:london"
+   ],
+   "first_seen": "2026-11-09T14:17:12+00:00",
+   "last_seen": "2026-11-09",
+   "location": "London, International",
+   "notified_at": "2026-11-09T14:17:12+00:00",
+   "status": "open",
+   "title": "Intern - SPG Sales",
+   "url": "https://recrutement.natixis.com/en/job/intern-spg-sales-2"
+  },
   "brassring:25008:349384": {
    "company": "UBS",
    "fingerprints": [
@@ -4996,8 +5012,8 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-09T13:12:25.971797+00:00",
- "last_status_date": "2026-11-08",
+ "last_send_slot": "2026-11-09T14:17:11.153930+00:00",
+ "last_status_date": "2026-11-09",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -5029,7 +5045,7 @@
   },
   "Amundi": {
    "consecutive_failures": 0,
-   "last_listed": 111,
+   "last_listed": 112,
    "last_ok": "2026-11-09"
   },
   "B2C2": {
@@ -5044,7 +5060,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 994,
+   "last_listed": 1001,
    "last_ok": "2026-11-09"
   },
   "BNP Paribas (email alerts)": {
@@ -5069,7 +5085,7 @@
   },
   "BTG Pactual": {
    "consecutive_failures": 0,
-   "last_listed": 238,
+   "last_listed": 236,
    "last_ok": "2026-11-09"
   },
   "BTIG": {
@@ -5079,7 +5095,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2075,
+   "last_listed": 2084,
    "last_ok": "2026-11-09"
   },
   "Bank of America (campus)": {
@@ -5099,7 +5115,7 @@
   },
   "BlackRock": {
    "consecutive_failures": 0,
-   "last_listed": 33,
+   "last_listed": 34,
    "last_ok": "2026-11-09"
   },
   "Brevan Howard": {
@@ -5114,7 +5130,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 875,
+   "last_listed": 884,
    "last_ok": "2026-11-09"
   },
   "CIBC": {
@@ -5144,7 +5160,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1371,
+   "last_listed": 1373,
    "last_ok": "2026-11-09"
   },
   "Castleton Commodities": {
@@ -5164,7 +5180,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 587,
+   "last_listed": 589,
    "last_ok": "2026-11-09"
   },
   "CommBank": {
@@ -5179,7 +5195,7 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 292,
+   "last_listed": 290,
    "last_ok": "2026-11-09"
   },
   "DBS Bank": {
@@ -5189,7 +5205,7 @@
   },
   "DNB Markets": {
    "consecutive_failures": 0,
-   "last_listed": 102,
+   "last_listed": 101,
    "last_ok": "2026-11-09"
   },
   "DRW": {
@@ -5208,7 +5224,7 @@
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
-   "last_listed": 80,
+   "last_listed": 83,
    "last_ok": "2026-11-09"
   },
   "EDF Trading": {
@@ -5232,7 +5248,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1618,
+   "last_listed": 1609,
    "last_ok": "2026-11-09"
   },
   "Equinor": {
@@ -5301,7 +5317,7 @@
   },
   "Goldman Sachs": {
    "consecutive_failures": 0,
-   "last_listed": 197,
+   "last_listed": 198,
    "last_ok": "2026-11-09"
   },
   "Graviton Research Capital": {
@@ -5316,7 +5332,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 334,
+   "last_listed": 332,
    "last_ok": "2026-11-09"
   },
   "Haitong International": {
@@ -5331,7 +5347,7 @@
   },
   "ICBC Standard Bank": {
    "consecutive_failures": 0,
-   "last_listed": 9,
+   "last_listed": 10,
    "last_ok": "2026-11-09"
   },
   "IMC Trading": {
@@ -5356,7 +5372,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 706,
+   "last_listed": 707,
    "last_ok": "2026-11-09"
   },
   "Jane Street": {
@@ -5411,12 +5427,12 @@
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 148,
+   "last_listed": 147,
    "last_ok": "2026-11-09"
   },
   "Macquarie": {
    "consecutive_failures": 0,
-   "last_listed": 571,
+   "last_listed": 568,
    "last_ok": "2026-11-09"
   },
   "Mako Trading": {
@@ -5426,7 +5442,7 @@
   },
   "Man Group": {
    "consecutive_failures": 0,
-   "last_listed": 71,
+   "last_listed": 72,
    "last_ok": "2026-11-09"
   },
   "Marex": {
@@ -5461,17 +5477,17 @@
   },
   "National Bank of Canada": {
    "consecutive_failures": 0,
-   "last_listed": 413,
+   "last_listed": 411,
    "last_ok": "2026-11-09"
   },
   "Natixis CIB": {
    "consecutive_failures": 0,
-   "last_listed": 184,
+   "last_listed": 186,
    "last_ok": "2026-11-09"
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 492,
+   "last_listed": 493,
    "last_ok": "2026-11-09"
   },
   "Nomura (campus)": {
@@ -5531,7 +5547,7 @@
   },
   "RWE Supply & Trading": {
    "consecutive_failures": 0,
-   "last_listed": 151,
+   "last_listed": 152,
    "last_ok": "2026-11-09"
   },
   "Repsol (incl. Repsol Trading)": {
@@ -5576,7 +5592,7 @@
   },
   "Société Générale": {
    "consecutive_failures": 0,
-   "last_listed": 1008,
+   "last_listed": 1005,
    "last_ok": "2026-11-09"
   },
   "Squarepoint Capital": {
@@ -5586,7 +5602,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1020,
+   "last_listed": 1022,
    "last_ok": "2026-11-09"
   },
   "State Street": {
@@ -5640,7 +5656,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 680,
+   "last_listed": 682,
    "last_ok": "2026-11-09"
   },
   "UOB": {
@@ -5670,7 +5686,7 @@
   },
   "Wells Fargo": {
    "consecutive_failures": 0,
-   "last_listed": 15,
+   "last_listed": 18,
    "last_ok": "2026-11-09"
   },
   "Westpac": {
