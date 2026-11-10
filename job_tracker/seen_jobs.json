@@ -2944,6 +2944,21 @@
    "title": "Financial Markets Graduate Programme UK 2027",
    "url": "https://jobs.standardchartered.com/job/London-Financial-Markets-Graduate-Programme-UK-2027/1375944857/"
   },
+  "sitemap:Standard Chartered:https://jobs.standardchartered.com/job/London-GMO-Client-&-Sales-Ops-BRM/1365606557/": {
+   "company": "Standard Chartered",
+   "fingerprints": [
+    "id:sitemap:Standard Chartered:https://jobs.standardchartered.com/job/London-GMO-Client-&-Sales-Ops-BRM/1365606557/",
+    "url:https://jobs.standardchartered.com/job/london-gmo-client-&-sales-ops-brm/1365606557",
+    "title:standard chartered:gmo client sales ops brm:london"
+   ],
+   "first_seen": "2026-11-10T05:11:40+00:00",
+   "last_seen": "2026-11-10",
+   "location": "London (from job URL)",
+   "notified_at": "2026-11-10T05:11:40+00:00",
+   "status": "open",
+   "title": "GMO Client & Sales Ops BRM",
+   "url": "https://jobs.standardchartered.com/job/London-GMO-Client-&-Sales-Ops-BRM/1365606557/"
+  },
   "sitemap:Standard Chartered:https://jobs.standardchartered.com/job/London-Markets-Intern-UK-2027/1370621257/": {
    "company": "Standard Chartered",
    "fingerprints": [
@@ -5093,7 +5108,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-10T04:16:41.343671+00:00",
+ "last_send_slot": "2026-11-10T05:11:39.343453+00:00",
  "last_status_date": "2026-11-09",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5106,7 +5121,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 193,
+   "last_listed": 194,
    "last_ok": "2026-11-10"
   },
   "ANZ (careers site)": {
@@ -5141,7 +5156,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1083,
+   "last_listed": 1047,
    "last_ok": "2026-11-10"
   },
   "BNP Paribas (email alerts)": {
@@ -5176,7 +5191,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2090,
+   "last_listed": 2089,
    "last_ok": "2026-11-10"
   },
   "Bank of America (campus)": {
@@ -5211,7 +5226,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 885,
+   "last_listed": 886,
    "last_ok": "2026-11-10"
   },
   "CIBC": {
@@ -5344,12 +5359,12 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 522,
+   "last_listed": 523,
    "last_ok": "2026-11-10"
   },
   "Fidelity International": {
    "consecutive_failures": 0,
-   "last_listed": 19,
+   "last_listed": 18,
    "last_ok": "2026-11-10"
   },
   "Fidelity International (campus)": {
@@ -5398,7 +5413,7 @@
   },
   "Goldman Sachs": {
    "consecutive_failures": 0,
-   "last_listed": 198,
+   "last_listed": 200,
    "last_ok": "2026-11-10"
   },
   "Graviton Research Capital": {
@@ -5413,7 +5428,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 337,
+   "last_listed": 338,
    "last_ok": "2026-11-10"
   },
   "Haitong International": {
@@ -5453,7 +5468,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 709,
+   "last_listed": 705,
    "last_ok": "2026-11-10"
   },
   "Jane Street": {
@@ -5528,7 +5543,7 @@
   },
   "Marex": {
    "consecutive_failures": 0,
-   "last_listed": 89,
+   "last_listed": 88,
    "last_ok": "2026-11-10"
   },
   "Marshall Wace": {
@@ -5568,7 +5583,7 @@
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 495,
+   "last_listed": 496,
    "last_ok": "2026-11-10"
   },
   "Nomura (campus)": {
@@ -5638,7 +5653,7 @@
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
-   "last_listed": 269,
+   "last_listed": 270,
    "last_ok": "2026-11-10"
   },
   "SMBC (EMEA)": {
@@ -5683,7 +5698,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1006,
+   "last_listed": 1008,
    "last_ok": "2026-11-10"
   },
   "State Street": {
