@@ -3172,7 +3172,7 @@
     "title:credit agricole:assistant sales:paris"
    ],
    "first_seen": "2026-11-06T11:11:36+00:00",
-   "last_seen": "2026-11-09",
+   "last_seen": "2026-11-10",
    "location": "Montrouge, Europe, France, Ile-de-France, 92 - Hauts-De-Seine",
    "notified_at": "2026-11-06T11:11:36+00:00",
    "status": "open",
@@ -3884,6 +3884,22 @@
    "status": "open",
    "title": "Sales, Trading and Structuring Off Cycle Internship Programme 2027 Paris",
    "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays/job/Paris-52-avenue-Hoche/Sales--Trading-and-Structuring-Off-Cycle-Internship-Programme-2027-Paris_JR-0000124763"
+  },
+  "workday:barclays:JR-0000125149": {
+   "company": "Barclays",
+   "fingerprints": [
+    "id:workday:barclays:JR-0000125149",
+    "req:barclays:jr-0000125149",
+    "url:https://barclays.wd3.myworkdayjobs.com/external_career_site_barclays/job/dubai-international-financial-centre-dubai/sales--trading-and-structuring-off-cycle-internship-programme-2027-dubai_jr-0000125149",
+    "title:barclays:sales trading and structuring off cycle internship programme 2027 dubai:dubai"
+   ],
+   "first_seen": "2026-11-10T15:12:26+00:00",
+   "last_seen": "2026-11-10",
+   "location": "Dubai International Financial Centre, Dubai",
+   "notified_at": "2026-11-10T15:12:26+00:00",
+   "status": "open",
+   "title": "Sales, Trading and Structuring Off Cycle Internship Programme 2027 Dubai",
+   "url": "https://barclays.wd3.myworkdayjobs.com/External_Career_Site_Barclays/job/Dubai-International-Financial-Centre-Dubai/Sales--Trading-and-Structuring-Off-Cycle-Internship-Programme-2027-Dubai_JR-0000125149"
   },
   "workday:barclays:JR-0000128133": {
    "company": "Barclays",
@@ -5156,7 +5172,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-10T14:16:50.525708+00:00",
+ "last_send_slot": "2026-11-10T15:12:25.214686+00:00",
  "last_status_date": "2026-11-10",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5164,7 +5180,7 @@
  "sources": {
   "AIB (incl. Goodbody)": {
    "consecutive_failures": 0,
-   "last_listed": 18,
+   "last_listed": 17,
    "last_ok": "2026-11-10"
   },
   "ANZ": {
@@ -5203,9 +5219,8 @@
    "last_ok": "2026-11-10"
   },
   "BMO Capital Markets": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-   "last_listed": 1037,
+   "consecutive_failures": 0,
+   "last_listed": 1038,
    "last_ok": "2026-11-10"
   },
   "BNP Paribas (email alerts)": {
@@ -5220,7 +5235,7 @@
   },
   "BP": {
    "consecutive_failures": 0,
-   "last_listed": 19,
+   "last_listed": 20,
    "last_ok": "2026-11-10"
   },
   "BP (early careers)": {
@@ -5230,7 +5245,7 @@
   },
   "BTG Pactual": {
    "consecutive_failures": 0,
-   "last_listed": 234,
+   "last_listed": 235,
    "last_ok": "2026-11-10"
   },
   "BTIG": {
@@ -5240,7 +5255,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2091,
+   "last_listed": 2094,
    "last_ok": "2026-11-10"
   },
   "Bank of America (campus)": {
@@ -5250,7 +5265,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 93,
+   "last_listed": 94,
    "last_ok": "2026-11-10"
   },
   "Berenberg": {
@@ -5305,7 +5320,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1359,
+   "last_listed": 1358,
    "last_ok": "2026-11-10"
   },
   "Castleton Commodities": {
@@ -5340,12 +5355,12 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 287,
+   "last_listed": 288,
    "last_ok": "2026-11-10"
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 639,
+   "last_listed": 638,
    "last_ok": "2026-11-10"
   },
   "DNB Markets": {
@@ -5355,7 +5370,7 @@
   },
   "DRW": {
    "consecutive_failures": 0,
-   "last_listed": 164,
+   "last_listed": 163,
    "last_ok": "2026-11-10"
   },
   "Da Vinci Trading": {
@@ -5369,7 +5384,7 @@
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
-   "last_listed": 80,
+   "last_listed": 79,
    "last_ok": "2026-11-10"
   },
   "EDF Trading": {
@@ -5393,7 +5408,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1583,
+   "last_listed": 1579,
    "last_ok": "2026-11-10"
   },
   "Equinor": {
@@ -5408,12 +5423,12 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 517,
+   "last_listed": 516,
    "last_ok": "2026-11-10"
   },
   "Fidelity International": {
    "consecutive_failures": 0,
-   "last_listed": 19,
+   "last_listed": 20,
    "last_ok": "2026-11-10"
   },
   "Fidelity International (campus)": {
@@ -5522,7 +5537,7 @@
   },
   "Jane Street": {
    "consecutive_failures": 0,
-   "last_listed": 221,
+   "last_listed": 220,
    "last_ok": "2026-11-10"
   },
   "Jefferies": {
@@ -5572,7 +5587,7 @@
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 140,
+   "last_listed": 139,
    "last_ok": "2026-11-10"
   },
   "Macquarie": {
@@ -5602,12 +5617,12 @@
   },
   "Maven Securities": {
    "consecutive_failures": 0,
-   "last_listed": 34,
+   "last_listed": 33,
    "last_ok": "2026-11-10"
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 93,
+   "last_listed": 94,
    "last_ok": "2026-11-10"
   },
   "Mizuho (EMEA)": {
@@ -5682,7 +5697,7 @@
   },
   "Qube Research & Technologies": {
    "consecutive_failures": 0,
-   "last_listed": 207,
+   "last_listed": 206,
    "last_ok": "2026-11-10"
   },
   "RBC": {
@@ -5712,7 +5727,7 @@
   },
   "Santander CIB": {
    "consecutive_failures": 0,
-   "last_listed": 67,
+   "last_listed": 69,
    "last_ok": "2026-11-10"
   },
   "Schonfeld": {
@@ -5752,7 +5767,7 @@
   },
   "State Street": {
    "consecutive_failures": 0,
-   "last_listed": 94,
+   "last_listed": 93,
    "last_ok": "2026-11-10"
   },
   "Statkraft": {
@@ -5801,7 +5816,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 669,
+   "last_listed": 679,
    "last_ok": "2026-11-10"
   },
   "UOB": {
@@ -5840,7 +5855,7 @@
   },
   "Wintermute": {
    "consecutive_failures": 0,
-   "last_listed": 19,
+   "last_listed": 18,
    "last_ok": "2026-11-10"
   },
   "XTX Markets": {
