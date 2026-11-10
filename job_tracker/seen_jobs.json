@@ -829,6 +829,22 @@
    "title": "Stage Structuration Stratégie d'Investissement Quantitatif (QIS) f/m/d)",
    "url": "https://portal.careers.hsbc.com/careers/job/563774612614939"
   },
+  "eightfold:portal.careers.hsbc.com:66727": {
+   "company": "HSBC",
+   "fingerprints": [
+    "id:eightfold:portal.careers.hsbc.com:66727",
+    "req:hsbc:66727",
+    "url:https://portal.careers.hsbc.com/careers/job/563774612618116",
+    "title:hsbc:stage assistant e sale desk derivatives clearing services dcs:paris"
+   ],
+   "first_seen": "2026-11-10T14:16:52+00:00",
+   "last_seen": "2026-11-10",
+   "location": "PARIS, Paris, France",
+   "notified_at": "2026-11-10T14:16:52+00:00",
+   "status": "open",
+   "title": "Stage Assistant(e) Sale desk Derivatives Clearing Services (DCS) (f/m/d)",
+   "url": "https://portal.careers.hsbc.com/careers/job/563774612618116"
+  },
   "email:BNP Paribas (email alerts):https://bwelcome.hr.bnpparibas/ltrk/eyj0exaioijkv1qilcjhbgcioijiuzi1nij9.eyjpzci6mtm3njq3mzcsimhhc2gioijmzjc0ztyyntrjm2u1yjhkn2i2nwe5odu5ota0n2q4zjhintc5mzbknmy4mdmxmwi4zjg4otawmmuymdc4n2qyin0.hmz2jffq-gd8t-e9lh5egdd_-85bgytpreuyurfqjyw": {
    "company": "BNP Paribas (email alerts)",
    "fingerprints": [
@@ -3422,6 +3438,22 @@
    "title": "Sales Junior (CDD) H/F",
    "url": "https://jobs.ca-cib.com/job/job-sales-junior-cdd-h-f_117267.aspx"
   },
+  "talentsoft:Crédit Agricole CIB:117360": {
+   "company": "Crédit Agricole CIB",
+   "fingerprints": [
+    "id:talentsoft:Crédit Agricole CIB:117360",
+    "req:credit agricole:117360",
+    "url:https://jobs.ca-cib.com/job/job-analyste-trading-equite-structuree-h-f_117360.aspx",
+    "title:credit agricole:analyste trading equite structuree:paris"
+   ],
+   "first_seen": "2026-11-10T14:16:53+00:00",
+   "last_seen": "2026-11-10",
+   "location": "Montrouge, Europe, France, Ile-de-France, 92 - Hauts-De-Seine",
+   "notified_at": "2026-11-10T14:16:53+00:00",
+   "status": "open",
+   "title": "Analyste Trading Équité Structurée H/F",
+   "url": "https://jobs.ca-cib.com/job/job-analyste-trading-equite-structuree-h-f_117360.aspx"
+  },
   "web:https://brightnetwork.co.uk/graduate-jobs/barclays/sales-trading-and-structuring-summer-internship-programme-hong-kong-2027-aky4": {
    "company": "Barclays",
    "fingerprints": [
@@ -5124,8 +5156,8 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-10T13:12:50.840974+00:00",
- "last_status_date": "2026-11-09",
+ "last_send_slot": "2026-11-10T14:16:50.525708+00:00",
+ "last_status_date": "2026-11-10",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -5137,7 +5169,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 197,
+   "last_listed": 195,
    "last_ok": "2026-11-10"
   },
   "ANZ (careers site)": {
@@ -5171,7 +5203,8 @@
    "last_ok": "2026-11-10"
   },
   "BMO Capital Markets": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 1037,
    "last_ok": "2026-11-10"
   },
@@ -5182,7 +5215,7 @@
   },
   "BNY": {
    "consecutive_failures": 0,
-   "last_listed": 107,
+   "last_listed": 108,
    "last_ok": "2026-11-10"
   },
   "BP": {
@@ -5207,12 +5240,12 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2080,
+   "last_listed": 2091,
    "last_ok": "2026-11-10"
   },
   "Bank of America (campus)": {
    "consecutive_failures": 0,
-   "last_listed": 20,
+   "last_listed": 21,
    "last_ok": "2026-11-10"
   },
   "Barclays": {
@@ -5222,7 +5255,7 @@
   },
   "Berenberg": {
    "consecutive_failures": 0,
-   "last_listed": 53,
+   "last_listed": 52,
    "last_ok": "2026-11-10"
   },
   "BlackRock": {
@@ -5237,12 +5270,12 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 586,
+   "last_listed": 587,
    "last_ok": "2026-11-10"
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 907,
+   "last_listed": 905,
    "last_ok": "2026-11-10"
   },
   "CIBC": {
@@ -5272,7 +5305,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1356,
+   "last_listed": 1359,
    "last_ok": "2026-11-10"
   },
   "Castleton Commodities": {
@@ -5307,12 +5340,12 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 289,
+   "last_listed": 287,
    "last_ok": "2026-11-10"
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 640,
+   "last_listed": 639,
    "last_ok": "2026-11-10"
   },
   "DNB Markets": {
@@ -5341,7 +5374,7 @@
   },
   "EDF Trading": {
    "consecutive_failures": 0,
-   "last_listed": 20,
+   "last_listed": 22,
    "last_ok": "2026-11-10"
   },
   "Eastspring Investments": {
@@ -5360,7 +5393,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1586,
+   "last_listed": 1583,
    "last_ok": "2026-11-10"
   },
   "Equinor": {
@@ -5474,7 +5507,7 @@
   },
   "Invesco": {
    "consecutive_failures": 0,
-   "last_listed": 21,
+   "last_listed": 20,
    "last_ok": "2026-11-10"
   },
   "Investec": {
@@ -5589,12 +5622,12 @@
   },
   "National Bank of Canada": {
    "consecutive_failures": 0,
-   "last_listed": 407,
+   "last_listed": 408,
    "last_ok": "2026-11-10"
   },
   "Natixis CIB": {
    "consecutive_failures": 0,
-   "last_listed": 187,
+   "last_listed": 188,
    "last_ok": "2026-11-10"
   },
   "Nomura": {
@@ -5659,7 +5692,7 @@
   },
   "RWE Supply & Trading": {
    "consecutive_failures": 0,
-   "last_listed": 147,
+   "last_listed": 146,
    "last_ok": "2026-11-10"
   },
   "Repsol (incl. Repsol Trading)": {
@@ -5669,7 +5702,7 @@
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
-   "last_listed": 273,
+   "last_listed": 274,
    "last_ok": "2026-11-10"
   },
   "SMBC (EMEA)": {
@@ -5679,7 +5712,7 @@
   },
   "Santander CIB": {
    "consecutive_failures": 0,
-   "last_listed": 68,
+   "last_listed": 67,
    "last_ok": "2026-11-10"
   },
   "Schonfeld": {
@@ -5704,7 +5737,7 @@
   },
   "Société Générale": {
    "consecutive_failures": 0,
-   "last_listed": 1012,
+   "last_listed": 1008,
    "last_ok": "2026-11-10"
   },
   "Squarepoint Capital": {
@@ -5714,7 +5747,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1025,
+   "last_listed": 1028,
    "last_ok": "2026-11-10"
   },
   "State Street": {
@@ -5768,12 +5801,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 676,
+   "last_listed": 669,
    "last_ok": "2026-11-10"
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 370,
+   "last_listed": 369,
    "last_ok": "2026-11-10"
   },
   "Virtu Financial": {
