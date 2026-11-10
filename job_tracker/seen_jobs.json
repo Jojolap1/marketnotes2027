@@ -2490,7 +2490,7 @@
     "title:emma chauvey 130435279:offre de stage assistant sales produits structures linkedin:paris"
    ],
    "first_seen": "2026-11-08T04:17:40+00:00",
-   "last_seen": "2026-11-08",
+   "last_seen": "2026-11-10",
    "location": "Paris",
    "notified_at": "2026-11-08T04:17:40+00:00",
    "status": "unknown",
@@ -2505,7 +2505,7 @@
     "title:finlingoapp:offre de stage assistant sales produits structures:paris"
    ],
    "first_seen": "2026-11-08T04:17:42+00:00",
-   "last_seen": "2026-11-08",
+   "last_seen": "2026-11-10",
    "location": "Paris",
    "notified_at": "2026-11-08T04:17:42+00:00",
    "status": "unknown",
@@ -5108,7 +5108,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-10T06:12:00.702518+00:00",
+ "last_send_slot": "2026-11-10T07:12:19.416273+00:00",
  "last_status_date": "2026-11-09",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5156,7 +5156,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1044,
+   "last_listed": 1043,
    "last_ok": "2026-11-10"
   },
   "BNP Paribas (email alerts)": {
@@ -5221,7 +5221,7 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 576,
+   "last_listed": 582,
    "last_ok": "2026-11-10"
   },
   "Business France (VIE)": {
@@ -5236,7 +5236,7 @@
   },
   "CICC": {
    "consecutive_failures": 0,
-   "last_listed": 376,
+   "last_listed": 379,
    "last_ok": "2026-11-10"
   },
   "CIMB (incl. CIMB Securities)": {
@@ -5256,7 +5256,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1361,
+   "last_listed": 1362,
    "last_ok": "2026-11-10"
   },
   "Castleton Commodities": {
@@ -5276,7 +5276,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 587,
+   "last_listed": 588,
    "last_ok": "2026-11-10"
   },
   "CommBank": {
@@ -5301,7 +5301,7 @@
   },
   "DNB Markets": {
    "consecutive_failures": 0,
-   "last_listed": 102,
+   "last_listed": 101,
    "last_ok": "2026-11-10"
   },
   "DRW": {
@@ -5359,7 +5359,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 519,
+   "last_listed": 517,
    "last_ok": "2026-11-10"
   },
   "Fidelity International": {
@@ -5428,7 +5428,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 338,
+   "last_listed": 340,
    "last_ok": "2026-11-10"
   },
   "Haitong International": {
@@ -5468,7 +5468,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 705,
+   "last_listed": 707,
    "last_ok": "2026-11-10"
   },
   "Jane Street": {
@@ -5513,7 +5513,7 @@
   },
   "LinkedIn (web search)": {
    "consecutive_failures": 0,
-   "last_listed": 4,
+   "last_listed": 14,
    "last_ok": "2026-11-10"
   },
   "Lloyds Banking Group": {
@@ -5523,7 +5523,7 @@
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 140,
+   "last_listed": 141,
    "last_ok": "2026-11-10"
   },
   "Macquarie": {
@@ -5543,7 +5543,7 @@
   },
   "Marex": {
    "consecutive_failures": 0,
-   "last_listed": 88,
+   "last_listed": 89,
    "last_ok": "2026-11-10"
   },
   "Marshall Wace": {
@@ -5558,7 +5558,7 @@
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 94,
+   "last_listed": 93,
    "last_ok": "2026-11-10"
   },
   "Mizuho (EMEA)": {
@@ -5568,7 +5568,7 @@
   },
   "Morgan Stanley": {
    "consecutive_failures": 0,
-   "last_listed": 124,
+   "last_listed": 123,
    "last_ok": "2026-11-10"
   },
   "National Bank of Canada": {
@@ -5583,7 +5583,7 @@
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 496,
+   "last_listed": 497,
    "last_ok": "2026-11-10"
   },
   "Nomura (campus)": {
@@ -5593,7 +5593,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 697,
+   "last_listed": 696,
    "last_ok": "2026-11-10"
   },
   "Old Mission": {
@@ -5683,7 +5683,7 @@
   },
   "Shell": {
    "consecutive_failures": 0,
-   "last_listed": 19,
+   "last_listed": 20,
    "last_ok": "2026-11-10"
   },
   "Société Générale": {
@@ -5698,7 +5698,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1010,
+   "last_listed": 1012,
    "last_ok": "2026-11-10"
   },
   "State Street": {
@@ -5752,12 +5752,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 670,
+   "last_listed": 671,
    "last_ok": "2026-11-10"
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 367,
+   "last_listed": 370,
    "last_ok": "2026-11-10"
   },
   "Virtu Financial": {
