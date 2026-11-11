@@ -5344,7 +5344,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-11T14:17:16.957487+00:00",
+ "last_send_slot": "2026-11-11T15:11:57.564342+00:00",
  "last_status_date": "2026-11-11",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5427,7 +5427,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2106,
+   "last_listed": 2107,
    "last_ok": "2026-11-11"
   },
   "Bank of America (campus)": {
@@ -5437,7 +5437,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 94,
+   "last_listed": 93,
    "last_ok": "2026-11-11"
   },
   "Berenberg": {
@@ -5457,7 +5457,7 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 585,
+   "last_listed": 586,
    "last_ok": "2026-11-11"
   },
   "Business France (VIE)": {
@@ -5492,7 +5492,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1361,
+   "last_listed": 1362,
    "last_ok": "2026-11-11"
   },
   "Castleton Commodities": {
@@ -5512,7 +5512,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 584,
+   "last_listed": 585,
    "last_ok": "2026-11-11"
   },
   "CommBank": {
@@ -5664,7 +5664,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 356,
+   "last_listed": 349,
    "last_ok": "2026-11-11"
   },
   "Haitong International": {
@@ -5684,7 +5684,7 @@
   },
   "IMC Trading": {
    "consecutive_failures": 0,
-   "last_listed": 157,
+   "last_listed": 155,
    "last_ok": "2026-11-11"
   },
   "ING": {
@@ -5699,12 +5699,12 @@
   },
   "Investec": {
    "consecutive_failures": 0,
-   "last_listed": 52,
+   "last_listed": 53,
    "last_ok": "2026-11-11"
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 702,
+   "last_listed": 703,
    "last_ok": "2026-11-11"
   },
   "Jane Street": {
@@ -5738,12 +5738,14 @@
    "last_ok": "2026-11-11"
   },
   "LinkedIn (job alerts)": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "abort: command: FETCH => System Error",
    "last_listed": 235,
    "last_ok": "2026-11-11"
   },
   "LinkedIn (posts)": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "abort: command: EXAMINE => socket error: EOF",
    "last_listed": 1,
    "last_ok": "2026-11-11"
   },
@@ -5754,12 +5756,12 @@
   },
   "Lloyds Banking Group": {
    "consecutive_failures": 0,
-   "last_listed": 34,
+   "last_listed": 35,
    "last_ok": "2026-11-11"
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 140,
+   "last_listed": 141,
    "last_ok": "2026-11-11"
   },
   "Macquarie": {
@@ -5789,12 +5791,12 @@
   },
   "Maven Securities": {
    "consecutive_failures": 0,
-   "last_listed": 35,
+   "last_listed": 36,
    "last_ok": "2026-11-11"
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 94,
+   "last_listed": 95,
    "last_ok": "2026-11-11"
   },
   "Mizuho (EMEA)": {
@@ -5839,7 +5841,7 @@
   },
   "Optiver": {
    "consecutive_failures": 0,
-   "last_listed": 150,
+   "last_listed": 151,
    "last_ok": "2026-11-11"
   },
   "Panmure Liberum": {
@@ -5854,7 +5856,7 @@
   },
   "Pictet": {
    "consecutive_failures": 0,
-   "last_listed": 50,
+   "last_listed": 49,
    "last_ok": "2026-11-11"
   },
   "Point72": {
@@ -5869,7 +5871,7 @@
   },
   "Qube Research & Technologies": {
    "consecutive_failures": 0,
-   "last_listed": 208,
+   "last_listed": 209,
    "last_ok": "2026-11-11"
   },
   "RBC": {
@@ -5879,7 +5881,7 @@
   },
   "RWE Supply & Trading": {
    "consecutive_failures": 0,
-   "last_listed": 146,
+   "last_listed": 147,
    "last_ok": "2026-11-11"
   },
   "Repsol (incl. Repsol Trading)": {
@@ -5909,7 +5911,7 @@
   },
   "Schroders": {
    "consecutive_failures": 0,
-   "last_listed": 35,
+   "last_listed": 37,
    "last_ok": "2026-11-11"
   },
   "Scotiabank": {
@@ -5978,7 +5980,7 @@
   },
   "Trafigura": {
    "consecutive_failures": 0,
-   "last_listed": 9,
+   "last_listed": 10,
    "last_ok": "2026-11-11"
   },
   "Two Sigma": {
@@ -5988,7 +5990,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 683,
+   "last_listed": 685,
    "last_ok": "2026-11-11"
   },
   "UOB": {
@@ -6036,7 +6038,8 @@
    "last_ok": "2026-11-11"
   },
   "eFinancialCareers (job alerts)": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "abort: command: EXAMINE => System Error",
    "last_ok": "2026-11-11"
   }
  },
