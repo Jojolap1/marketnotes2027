@@ -5329,7 +5329,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-11T08:12:27.677624+00:00",
+ "last_send_slot": "2026-11-11T09:17:21.393920+00:00",
  "last_status_date": "2026-11-10",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5342,7 +5342,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 197,
+   "last_listed": 200,
    "last_ok": "2026-11-11"
   },
   "ANZ (careers site)": {
@@ -5387,7 +5387,7 @@
   },
   "BNY": {
    "consecutive_failures": 0,
-   "last_listed": 108,
+   "last_listed": 109,
    "last_ok": "2026-11-11"
   },
   "BP": {
@@ -5412,7 +5412,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2099,
+   "last_listed": 2098,
    "last_ok": "2026-11-11"
   },
   "Bank of America (campus)": {
@@ -5422,7 +5422,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 92,
+   "last_listed": 90,
    "last_ok": "2026-11-11"
   },
   "Berenberg": {
@@ -5442,7 +5442,7 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 585,
+   "last_listed": 584,
    "last_ok": "2026-11-11"
   },
   "Business France (VIE)": {
@@ -5467,7 +5467,7 @@
   },
   "CITIC CLSA (CITIC Securities)": {
    "consecutive_failures": 0,
-   "last_listed": 224,
+   "last_listed": 225,
    "last_ok": "2026-11-11"
   },
   "Capula Investment Management": {
@@ -5512,17 +5512,17 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 289,
+   "last_listed": 288,
    "last_ok": "2026-11-11"
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 634,
+   "last_listed": 635,
    "last_ok": "2026-11-11"
   },
   "DNB Markets": {
    "consecutive_failures": 0,
-   "last_listed": 96,
+   "last_listed": 95,
    "last_ok": "2026-11-11"
   },
   "DRW": {
@@ -5541,7 +5541,7 @@
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
-   "last_listed": 77,
+   "last_listed": 76,
    "last_ok": "2026-11-11"
   },
   "EDF Trading": {
@@ -5565,7 +5565,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1586,
+   "last_listed": 1585,
    "last_ok": "2026-11-11"
   },
   "Equinor": {
@@ -5649,7 +5649,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 349,
+   "last_listed": 350,
    "last_ok": "2026-11-11"
   },
   "Haitong International": {
@@ -5804,7 +5804,7 @@
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 497,
+   "last_listed": 498,
    "last_ok": "2026-11-11"
   },
   "Nomura (campus)": {
@@ -5904,7 +5904,7 @@
   },
   "Shell": {
    "consecutive_failures": 0,
-   "last_listed": 15,
+   "last_listed": 16,
    "last_ok": "2026-11-11"
   },
   "Société Générale": {
@@ -5919,7 +5919,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1044,
+   "last_listed": 1053,
    "last_ok": "2026-11-11"
   },
   "State Street": {
@@ -5929,12 +5929,12 @@
   },
   "Statkraft": {
    "consecutive_failures": 0,
-   "last_listed": 78,
+   "last_listed": 76,
    "last_ok": "2026-11-11"
   },
   "TD Securities": {
    "consecutive_failures": 0,
-   "last_listed": 49,
+   "last_listed": 48,
    "last_ok": "2026-11-11"
   },
   "TP ICAP": {
@@ -5973,7 +5973,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 680,
+   "last_listed": 677,
    "last_ok": "2026-11-11"
   },
   "UOB": {
