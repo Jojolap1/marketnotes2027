@@ -5313,7 +5313,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-11T06:12:58.238701+00:00",
+ "last_send_slot": "2026-11-11T07:11:40.352543+00:00",
  "last_status_date": "2026-11-10",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5326,7 +5326,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 195,
+   "last_listed": 196,
    "last_ok": "2026-11-11"
   },
   "ANZ (careers site)": {
@@ -5361,7 +5361,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1066,
+   "last_listed": 1063,
    "last_ok": "2026-11-11"
   },
   "BNP Paribas (email alerts)": {
@@ -5451,7 +5451,7 @@
   },
   "CITIC CLSA (CITIC Securities)": {
    "consecutive_failures": 0,
-   "last_listed": 223,
+   "last_listed": 224,
    "last_ok": "2026-11-11"
   },
   "Capula Investment Management": {
@@ -5461,7 +5461,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1359,
+   "last_listed": 1360,
    "last_ok": "2026-11-11"
   },
   "Castleton Commodities": {
@@ -5481,7 +5481,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 582,
+   "last_listed": 581,
    "last_ok": "2026-11-11"
   },
   "CommBank": {
@@ -5501,12 +5501,12 @@
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 638,
+   "last_listed": 637,
    "last_ok": "2026-11-11"
   },
   "DNB Markets": {
    "consecutive_failures": 0,
-   "last_listed": 97,
+   "last_listed": 96,
    "last_ok": "2026-11-11"
   },
   "DRW": {
@@ -5763,7 +5763,7 @@
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 94,
+   "last_listed": 93,
    "last_ok": "2026-11-11"
   },
   "Mizuho (EMEA)": {
@@ -5798,7 +5798,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 692,
+   "last_listed": 691,
    "last_ok": "2026-11-11"
   },
   "Old Mission": {
@@ -5903,7 +5903,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1028,
+   "last_listed": 1036,
    "last_ok": "2026-11-11"
   },
   "State Street": {
@@ -5957,12 +5957,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 659,
+   "last_listed": 674,
    "last_ok": "2026-11-11"
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 371,
+   "last_listed": 372,
    "last_ok": "2026-11-11"
   },
   "Virtu Financial": {
