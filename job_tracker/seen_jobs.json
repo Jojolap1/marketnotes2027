@@ -5216,6 +5216,70 @@
    "title": "EMEA Markets Summer Analyst",
    "url": "https://wd1.myworkdaysite.com/recruiting/wf/WellsFargoJobs/job/CITY-OF-LONDON/EMEA-Markets-Summer-Analyst_R-570663"
   },
+  "zhiye:chinastock.zhiye.com:270998210": {
+   "company": "China Galaxy (Chinastock)",
+   "fingerprints": [
+    "id:zhiye:chinastock.zhiye.com:270998210",
+    "req:china galaxy:270998210",
+    "url:https://chinastock.zhiye.com/zpdetail/270998210",
+    "title:china galaxy:j11491:hong kong"
+   ],
+   "first_seen": "2026-11-11T05:11:43+00:00",
+   "last_seen": "2026-11-11",
+   "location": "香港",
+   "notified_at": "2026-11-11T05:11:43+00:00",
+   "status": "open",
+   "title": "跨境销售岗(J11491)",
+   "url": "https://chinastock.zhiye.com/zpdetail/270998210"
+  },
+  "zhiye:chinastock.zhiye.com:270998211": {
+   "company": "China Galaxy (Chinastock)",
+   "fingerprints": [
+    "id:zhiye:chinastock.zhiye.com:270998211",
+    "req:china galaxy:270998211",
+    "url:https://chinastock.zhiye.com/zpdetail/270998211",
+    "title:china galaxy:j11492:hong kong"
+   ],
+   "first_seen": "2026-11-11T05:11:41+00:00",
+   "last_seen": "2026-11-11",
+   "location": "香港",
+   "notified_at": "2026-11-11T05:11:41+00:00",
+   "status": "open",
+   "title": "跨境产品设计岗(J11492)",
+   "url": "https://chinastock.zhiye.com/zpdetail/270998211"
+  },
+  "zhiye:chinastock.zhiye.com:270998217": {
+   "company": "China Galaxy (Chinastock)",
+   "fingerprints": [
+    "id:zhiye:chinastock.zhiye.com:270998217",
+    "req:china galaxy:270998217",
+    "url:https://chinastock.zhiye.com/zpdetail/270998217",
+    "title:china galaxy:j11498:hong kong"
+   ],
+   "first_seen": "2026-11-11T05:11:40+00:00",
+   "last_seen": "2026-11-11",
+   "location": "香港",
+   "notified_at": "2026-11-11T05:11:40+00:00",
+   "status": "open",
+   "title": "跨境销售岗(J11498)",
+   "url": "https://chinastock.zhiye.com/zpdetail/270998217"
+  },
+  "zhiye:chinastock.zhiye.com:270998218": {
+   "company": "China Galaxy (Chinastock)",
+   "fingerprints": [
+    "id:zhiye:chinastock.zhiye.com:270998218",
+    "req:china galaxy:270998218",
+    "url:https://chinastock.zhiye.com/zpdetail/270998218",
+    "title:china galaxy:j11499:hong kong"
+   ],
+   "first_seen": "2026-11-11T05:11:39+00:00",
+   "last_seen": "2026-11-11",
+   "location": "香港",
+   "notified_at": "2026-11-11T05:11:39+00:00",
+   "status": "open",
+   "title": "跨境产品设计岗(J11499)",
+   "url": "https://chinastock.zhiye.com/zpdetail/270998218"
+  },
   "zhiye:cicc.zhiye.com:151241030": {
    "company": "CICC",
    "fingerprints": [
@@ -5249,7 +5313,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-11T04:17:05.997370+00:00",
+ "last_send_slot": "2026-11-11T05:11:37.373158+00:00",
  "last_status_date": "2026-11-10",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5297,7 +5361,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1072,
+   "last_listed": 1068,
    "last_ok": "2026-11-11"
   },
   "BNP Paribas (email alerts)": {
@@ -5352,7 +5416,7 @@
   },
   "BlackRock": {
    "consecutive_failures": 0,
-   "last_listed": 36,
+   "last_listed": 37,
    "last_ok": "2026-11-11"
   },
   "Brevan Howard": {
@@ -5367,7 +5431,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 905,
+   "last_listed": 908,
    "last_ok": "2026-11-11"
   },
   "CIBC": {
@@ -5412,12 +5476,12 @@
   },
   "China Galaxy (Chinastock)": {
    "consecutive_failures": 0,
-   "last_listed": 70,
+   "last_listed": 84,
    "last_ok": "2026-11-11"
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 583,
+   "last_listed": 582,
    "last_ok": "2026-11-11"
   },
   "CommBank": {
@@ -5437,7 +5501,7 @@
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 640,
+   "last_listed": 639,
    "last_ok": "2026-11-11"
   },
   "DNB Markets": {
@@ -5485,7 +5549,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1587,
+   "last_listed": 1586,
    "last_ok": "2026-11-11"
   },
   "Equinor": {
@@ -5569,7 +5633,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 346,
+   "last_listed": 348,
    "last_ok": "2026-11-11"
   },
   "Haitong International": {
@@ -5609,7 +5673,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 706,
+   "last_listed": 704,
    "last_ok": "2026-11-11"
   },
   "Jane Street": {
@@ -5664,7 +5728,7 @@
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 139,
+   "last_listed": 141,
    "last_ok": "2026-11-11"
   },
   "Macquarie": {
@@ -5839,7 +5903,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1016,
+   "last_listed": 1020,
    "last_ok": "2026-11-11"
   },
   "State Street": {
@@ -5893,12 +5957,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 674,
+   "last_listed": 672,
    "last_ok": "2026-11-11"
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 365,
+   "last_listed": 366,
    "last_ok": "2026-11-11"
   },
   "Virtu Financial": {
