@@ -5072,6 +5072,22 @@
    "title": "Internship: Global Markets, Market Connectivity/Global Markets Equities [Jan 2027 to Jun 2027]",
    "url": "https://ocbc.wd102.myworkdayjobs.com/External/job/OCBC-Singapore/Internship--Global-Markets--Market-Connectivity-Global-Markets-Equities--Jan-2027-to-Jun-2027-_JR00011430"
   },
+  "workday:ocbc:JR00011434": {
+   "company": "OCBC / Bank of Singapore",
+   "fingerprints": [
+    "id:workday:ocbc:JR00011434",
+    "req:ocbc bank of singapore:jr00011434",
+    "url:https://ocbc.wd102.myworkdayjobs.com/external/job/ocbc-singapore/internship--global-markets--equities---institutional-dealing--jan-2027-to-jun-2027-_jr00011434",
+    "title:ocbc bank of singapore:internship global markets equities institutional dealing jan 2027 to jun 2027:singapore"
+   ],
+   "first_seen": "2026-11-11T08:12:29+00:00",
+   "last_seen": "2026-11-11",
+   "location": "OCBC Singapore",
+   "notified_at": "2026-11-11T08:12:29+00:00",
+   "status": "open",
+   "title": "Internship: Global Markets, Equities - Institutional Dealing [Jan 2027 to Jun 2027]",
+   "url": "https://ocbc.wd102.myworkdayjobs.com/External/job/OCBC-Singapore/Internship--Global-Markets--Equities---Institutional-Dealing--Jan-2027-to-Jun-2027-_JR00011434"
+  },
   "workday:ocbc:JR00012029": {
    "company": "OCBC / Bank of Singapore",
    "fingerprints": [
@@ -5313,7 +5329,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-11T07:11:40.352543+00:00",
+ "last_send_slot": "2026-11-11T08:12:27.677624+00:00",
  "last_status_date": "2026-11-10",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5326,7 +5342,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 196,
+   "last_listed": 197,
    "last_ok": "2026-11-11"
   },
   "ANZ (careers site)": {
@@ -5396,7 +5412,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2101,
+   "last_listed": 2099,
    "last_ok": "2026-11-11"
   },
   "Bank of America (campus)": {
@@ -5441,12 +5457,12 @@
   },
   "CICC": {
    "consecutive_failures": 0,
-   "last_listed": 379,
+   "last_listed": 380,
    "last_ok": "2026-11-11"
   },
   "CIMB (incl. CIMB Securities)": {
    "consecutive_failures": 0,
-   "last_listed": 126,
+   "last_listed": 128,
    "last_ok": "2026-11-11"
   },
   "CITIC CLSA (CITIC Securities)": {
@@ -5501,7 +5517,7 @@
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 637,
+   "last_listed": 634,
    "last_ok": "2026-11-11"
   },
   "DNB Markets": {
@@ -5549,7 +5565,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1587,
+   "last_listed": 1586,
    "last_ok": "2026-11-11"
   },
   "Equinor": {
@@ -5633,7 +5649,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 348,
+   "last_listed": 349,
    "last_ok": "2026-11-11"
   },
   "Haitong International": {
@@ -5673,7 +5689,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 704,
+   "last_listed": 703,
    "last_ok": "2026-11-11"
   },
   "Jane Street": {
@@ -5708,7 +5724,7 @@
   },
   "LinkedIn (job alerts)": {
    "consecutive_failures": 0,
-   "last_listed": 216,
+   "last_listed": 222,
    "last_ok": "2026-11-11"
   },
   "LinkedIn (posts)": {
@@ -5743,7 +5759,7 @@
   },
   "Man Group": {
    "consecutive_failures": 0,
-   "last_listed": 72,
+   "last_listed": 71,
    "last_ok": "2026-11-11"
   },
   "Marex": {
@@ -5763,7 +5779,7 @@
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 93,
+   "last_listed": 94,
    "last_ok": "2026-11-11"
   },
   "Mizuho (EMEA)": {
@@ -5798,7 +5814,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 691,
+   "last_listed": 693,
    "last_ok": "2026-11-11"
   },
   "Old Mission": {
@@ -5828,7 +5844,7 @@
   },
   "Point72": {
    "consecutive_failures": 0,
-   "last_listed": 196,
+   "last_listed": 197,
    "last_ok": "2026-11-11"
   },
   "Quadrature Capital": {
@@ -5863,7 +5879,7 @@
   },
   "SMBC (EMEA)": {
    "consecutive_failures": 0,
-   "last_listed": 187,
+   "last_listed": 186,
    "last_ok": "2026-11-11"
   },
   "Santander CIB": {
@@ -5898,12 +5914,12 @@
   },
   "Squarepoint Capital": {
    "consecutive_failures": 0,
-   "last_listed": 91,
+   "last_listed": 92,
    "last_ok": "2026-11-11"
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1036,
+   "last_listed": 1044,
    "last_ok": "2026-11-11"
   },
   "State Street": {
@@ -5913,7 +5929,7 @@
   },
   "Statkraft": {
    "consecutive_failures": 0,
-   "last_listed": 77,
+   "last_listed": 78,
    "last_ok": "2026-11-11"
   },
   "TD Securities": {
@@ -5957,7 +5973,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 674,
+   "last_listed": 680,
    "last_ok": "2026-11-11"
   },
   "UOB": {
