@@ -5329,7 +5329,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-11T12:12:19.146463+00:00",
+ "last_send_slot": "2026-11-11T13:11:37.352703+00:00",
  "last_status_date": "2026-11-10",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5402,7 +5402,7 @@
   },
   "BTG Pactual": {
    "consecutive_failures": 0,
-   "last_listed": 238,
+   "last_listed": 236,
    "last_ok": "2026-11-11"
   },
   "BTIG": {
@@ -5422,7 +5422,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 92,
+   "last_listed": 93,
    "last_ok": "2026-11-11"
   },
   "Berenberg": {
@@ -5432,7 +5432,7 @@
   },
   "BlackRock": {
    "consecutive_failures": 0,
-   "last_listed": 38,
+   "last_listed": 39,
    "last_ok": "2026-11-11"
   },
   "Brevan Howard": {
@@ -5477,7 +5477,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1361,
+   "last_listed": 1364,
    "last_ok": "2026-11-11"
   },
   "Castleton Commodities": {
@@ -5497,7 +5497,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 584,
+   "last_listed": 583,
    "last_ok": "2026-11-11"
   },
   "CommBank": {
@@ -5522,7 +5522,7 @@
   },
   "DNB Markets": {
    "consecutive_failures": 0,
-   "last_listed": 95,
+   "last_listed": 94,
    "last_ok": "2026-11-11"
   },
   "DRW": {
@@ -5565,7 +5565,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1582,
+   "last_listed": 1581,
    "last_ok": "2026-11-11"
   },
   "Equinor": {
@@ -5649,7 +5649,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 355,
+   "last_listed": 356,
    "last_ok": "2026-11-11"
   },
   "Haitong International": {
@@ -5689,7 +5689,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 701,
+   "last_listed": 702,
    "last_ok": "2026-11-11"
   },
   "Jane Street": {
@@ -5739,12 +5739,12 @@
   },
   "Lloyds Banking Group": {
    "consecutive_failures": 0,
-   "last_listed": 31,
+   "last_listed": 32,
    "last_ok": "2026-11-11"
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 139,
+   "last_listed": 140,
    "last_ok": "2026-11-11"
   },
   "Macquarie": {
@@ -5789,7 +5789,7 @@
   },
   "Morgan Stanley": {
    "consecutive_failures": 0,
-   "last_listed": 117,
+   "last_listed": 118,
    "last_ok": "2026-11-11"
   },
   "National Bank of Canada": {
@@ -5839,12 +5839,12 @@
   },
   "Pictet": {
    "consecutive_failures": 0,
-   "last_listed": 53,
+   "last_listed": 51,
    "last_ok": "2026-11-11"
   },
   "Point72": {
    "consecutive_failures": 0,
-   "last_listed": 197,
+   "last_listed": 199,
    "last_ok": "2026-11-11"
   },
   "Quadrature Capital": {
@@ -5879,12 +5879,12 @@
   },
   "SMBC (EMEA)": {
    "consecutive_failures": 0,
-   "last_listed": 186,
+   "last_listed": 187,
    "last_ok": "2026-11-11"
   },
   "Santander CIB": {
    "consecutive_failures": 0,
-   "last_listed": 69,
+   "last_listed": 70,
    "last_ok": "2026-11-11"
   },
   "Schonfeld": {
@@ -5919,7 +5919,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1067,
+   "last_listed": 1069,
    "last_ok": "2026-11-11"
   },
   "State Street": {
@@ -5973,12 +5973,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 682,
+   "last_listed": 685,
    "last_ok": "2026-11-11"
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 376,
+   "last_listed": 377,
    "last_ok": "2026-11-11"
   },
   "Virtu Financial": {
