@@ -1496,7 +1496,7 @@
     "title:maven securities:london trader summer internship 2027:london"
    ],
    "first_seen": "2026-10-21T04:17:11+00:00",
-   "last_seen": "2026-11-02",
+   "last_seen": "2026-11-11",
    "location": "London",
    "notified_at": "2026-10-21T04:17:11+00:00",
    "status": "open",
@@ -5329,7 +5329,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-11T11:11:59.717933+00:00",
+ "last_send_slot": "2026-11-11T12:12:19.146463+00:00",
  "last_status_date": "2026-11-10",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5342,7 +5342,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 198,
+   "last_listed": 199,
    "last_ok": "2026-11-11"
   },
   "ANZ (careers site)": {
@@ -5432,7 +5432,7 @@
   },
   "BlackRock": {
    "consecutive_failures": 0,
-   "last_listed": 37,
+   "last_listed": 38,
    "last_ok": "2026-11-11"
   },
   "Brevan Howard": {
@@ -5442,7 +5442,7 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 585,
+   "last_listed": 586,
    "last_ok": "2026-11-11"
   },
   "Business France (VIE)": {
@@ -5477,7 +5477,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1359,
+   "last_listed": 1361,
    "last_ok": "2026-11-11"
   },
   "Castleton Commodities": {
@@ -5497,7 +5497,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 583,
+   "last_listed": 584,
    "last_ok": "2026-11-11"
   },
   "CommBank": {
@@ -5634,7 +5634,7 @@
   },
   "Goldman Sachs": {
    "consecutive_failures": 0,
-   "last_listed": 201,
+   "last_listed": 200,
    "last_ok": "2026-11-11"
   },
   "Graviton Research Capital": {
@@ -5649,7 +5649,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 354,
+   "last_listed": 355,
    "last_ok": "2026-11-11"
   },
   "Haitong International": {
@@ -5689,7 +5689,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 700,
+   "last_listed": 701,
    "last_ok": "2026-11-11"
   },
   "Jane Street": {
@@ -5724,7 +5724,7 @@
   },
   "LinkedIn (job alerts)": {
    "consecutive_failures": 0,
-   "last_listed": 227,
+   "last_listed": 233,
    "last_ok": "2026-11-11"
   },
   "LinkedIn (posts)": {
@@ -5739,7 +5739,7 @@
   },
   "Lloyds Banking Group": {
    "consecutive_failures": 0,
-   "last_listed": 32,
+   "last_listed": 31,
    "last_ok": "2026-11-11"
   },
   "MUFG": {
@@ -5774,7 +5774,7 @@
   },
   "Maven Securities": {
    "consecutive_failures": 0,
-   "last_listed": 33,
+   "last_listed": 35,
    "last_ok": "2026-11-11"
   },
   "Millennium": {
@@ -5789,7 +5789,7 @@
   },
   "Morgan Stanley": {
    "consecutive_failures": 0,
-   "last_listed": 118,
+   "last_listed": 117,
    "last_ok": "2026-11-11"
   },
   "National Bank of Canada": {
@@ -5864,7 +5864,7 @@
   },
   "RWE Supply & Trading": {
    "consecutive_failures": 0,
-   "last_listed": 146,
+   "last_listed": 145,
    "last_ok": "2026-11-11"
   },
   "Repsol (incl. Repsol Trading)": {
@@ -5894,7 +5894,7 @@
   },
   "Schroders": {
    "consecutive_failures": 0,
-   "last_listed": 34,
+   "last_listed": 35,
    "last_ok": "2026-11-11"
   },
   "Scotiabank": {
@@ -5904,7 +5904,7 @@
   },
   "Shell": {
    "consecutive_failures": 0,
-   "last_listed": 16,
+   "last_listed": 17,
    "last_ok": "2026-11-11"
   },
   "Société Générale": {
@@ -5919,7 +5919,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1062,
+   "last_listed": 1067,
    "last_ok": "2026-11-11"
   },
   "State Street": {
@@ -5973,12 +5973,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 679,
+   "last_listed": 682,
    "last_ok": "2026-11-11"
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 373,
+   "last_listed": 376,
    "last_ok": "2026-11-11"
   },
   "Virtu Financial": {
