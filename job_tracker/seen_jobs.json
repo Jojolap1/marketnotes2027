@@ -5329,7 +5329,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-11T10:12:03.810931+00:00",
+ "last_send_slot": "2026-11-11T11:11:59.717933+00:00",
  "last_status_date": "2026-11-10",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5342,7 +5342,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 200,
+   "last_listed": 198,
    "last_ok": "2026-11-11"
   },
   "ANZ (careers site)": {
@@ -5387,7 +5387,7 @@
   },
   "BNY": {
    "consecutive_failures": 0,
-   "last_listed": 109,
+   "last_listed": 108,
    "last_ok": "2026-11-11"
   },
   "BP": {
@@ -5422,7 +5422,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 90,
+   "last_listed": 92,
    "last_ok": "2026-11-11"
   },
   "Berenberg": {
@@ -5447,7 +5447,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 905,
+   "last_listed": 901,
    "last_ok": "2026-11-11"
   },
   "CIBC": {
@@ -5467,7 +5467,7 @@
   },
   "CITIC CLSA (CITIC Securities)": {
    "consecutive_failures": 0,
-   "last_listed": 224,
+   "last_listed": 225,
    "last_ok": "2026-11-11"
   },
   "Capula Investment Management": {
@@ -5517,7 +5517,7 @@
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 635,
+   "last_listed": 636,
    "last_ok": "2026-11-11"
   },
   "DNB Markets": {
@@ -5649,7 +5649,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 346,
+   "last_listed": 354,
    "last_ok": "2026-11-11"
   },
   "Haitong International": {
@@ -5689,7 +5689,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 702,
+   "last_listed": 700,
    "last_ok": "2026-11-11"
   },
   "Jane Street": {
@@ -5739,7 +5739,7 @@
   },
   "Lloyds Banking Group": {
    "consecutive_failures": 0,
-   "last_listed": 31,
+   "last_listed": 32,
    "last_ok": "2026-11-11"
   },
   "MUFG": {
@@ -5839,7 +5839,7 @@
   },
   "Pictet": {
    "consecutive_failures": 0,
-   "last_listed": 54,
+   "last_listed": 53,
    "last_ok": "2026-11-11"
   },
   "Point72": {
@@ -5914,17 +5914,17 @@
   },
   "Squarepoint Capital": {
    "consecutive_failures": 0,
-   "last_listed": 93,
+   "last_listed": 92,
    "last_ok": "2026-11-11"
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1057,
+   "last_listed": 1062,
    "last_ok": "2026-11-11"
   },
   "State Street": {
    "consecutive_failures": 0,
-   "last_listed": 93,
+   "last_listed": 94,
    "last_ok": "2026-11-11"
   },
   "Statkraft": {
