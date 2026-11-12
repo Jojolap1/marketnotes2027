@@ -845,6 +845,22 @@
    "title": "Stage Assistant(e) Sale desk Derivatives Clearing Services (DCS) (f/m/d)",
    "url": "https://portal.careers.hsbc.com/careers/job/563774612618116"
   },
+  "eightfold:portal.careers.hsbc.com:66803": {
+   "company": "HSBC",
+   "fingerprints": [
+    "id:eightfold:portal.careers.hsbc.com:66803",
+    "req:hsbc:66803",
+    "url:https://portal.careers.hsbc.com/careers/job/563774612620272",
+    "title:hsbc:credit quantitative analyst markets securities services:hong kong"
+   ],
+   "first_seen": "2026-11-12T08:12:58+00:00",
+   "last_seen": "2026-11-12",
+   "location": "Central, Hong Kong Island, Hong Kong",
+   "notified_at": "2026-11-12T08:12:58+00:00",
+   "status": "open",
+   "title": "Credit Quantitative Analyst, Markets & Securities Services",
+   "url": "https://portal.careers.hsbc.com/careers/job/563774612620272"
+  },
   "email:BNP Paribas (email alerts):https://bwelcome.hr.bnpparibas/ltrk/eyj0exaioijkv1qilcjhbgcioijiuzi1nij9.eyjpzci6mtm3njq3mzcsimhhc2gioijmzjc0ztyyntrjm2u1yjhkn2i2nwe5odu5ota0n2q4zjhintc5mzbknmy4mdmxmwi4zjg4otawmmuymdc4n2qyin0.hmz2jffq-gd8t-e9lh5egdd_-85bgytpreuyurfqjyw": {
    "company": "BNP Paribas (email alerts)",
    "fingerprints": [
@@ -5375,7 +5391,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-12T07:11:24.360328+00:00",
+ "last_send_slot": "2026-11-12T08:12:56.519865+00:00",
  "last_status_date": "2026-11-11",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5388,7 +5404,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 200,
+   "last_listed": 201,
    "last_ok": "2026-11-12"
   },
   "ANZ (careers site)": {
@@ -5458,7 +5474,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2115,
+   "last_listed": 2113,
    "last_ok": "2026-11-12"
   },
   "Bank of America (campus)": {
@@ -5493,7 +5509,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 867,
+   "last_listed": 870,
    "last_ok": "2026-11-12"
   },
   "CIBC": {
@@ -5508,7 +5524,7 @@
   },
   "CIMB (incl. CIMB Securities)": {
    "consecutive_failures": 0,
-   "last_listed": 126,
+   "last_listed": 124,
    "last_ok": "2026-11-12"
   },
   "CITIC CLSA (CITIC Securities)": {
@@ -5523,7 +5539,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1377,
+   "last_listed": 1378,
    "last_ok": "2026-11-12"
   },
   "Castleton Commodities": {
@@ -5563,7 +5579,7 @@
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 638,
+   "last_listed": 639,
    "last_ok": "2026-11-12"
   },
   "DNB Markets": {
@@ -5611,7 +5627,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1578,
+   "last_listed": 1583,
    "last_ok": "2026-11-12"
   },
   "Equinor": {
@@ -5650,7 +5666,7 @@
   },
   "Flow Traders": {
    "consecutive_failures": 0,
-   "last_listed": 43,
+   "last_listed": 44,
    "last_ok": "2026-11-12"
   },
   "Flowdesk": {
@@ -5695,7 +5711,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 357,
+   "last_listed": 360,
    "last_ok": "2026-11-12"
   },
   "Haitong International": {
@@ -5735,7 +5751,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 704,
+   "last_listed": 705,
    "last_ok": "2026-11-12"
   },
   "Jane Street": {
@@ -5770,12 +5786,12 @@
   },
   "LinkedIn (job alerts)": {
    "consecutive_failures": 0,
-   "last_listed": 220,
+   "last_listed": 228,
    "last_ok": "2026-11-12"
   },
   "LinkedIn (posts)": {
    "consecutive_failures": 0,
-   "last_listed": 1,
+   "last_listed": 2,
    "last_ok": "2026-11-12"
   },
   "LinkedIn (web search)": {
@@ -5790,7 +5806,7 @@
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 142,
+   "last_listed": 143,
    "last_ok": "2026-11-12"
   },
   "Macquarie": {
@@ -5825,7 +5841,7 @@
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 94,
+   "last_listed": 95,
    "last_ok": "2026-11-12"
   },
   "Mizuho (EMEA)": {
@@ -5835,7 +5851,7 @@
   },
   "Morgan Stanley": {
    "consecutive_failures": 0,
-   "last_listed": 112,
+   "last_listed": 111,
    "last_ok": "2026-11-12"
   },
   "National Bank of Canada": {
@@ -5850,7 +5866,7 @@
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 507,
+   "last_listed": 508,
    "last_ok": "2026-11-12"
   },
   "Nomura (campus)": {
@@ -5860,7 +5876,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 697,
+   "last_listed": 696,
    "last_ok": "2026-11-12"
   },
   "Old Mission": {
@@ -5965,7 +5981,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1077,
+   "last_listed": 1082,
    "last_ok": "2026-11-12"
   },
   "State Street": {
@@ -6019,12 +6035,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 682,
+   "last_listed": 693,
    "last_ok": "2026-11-12"
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 373,
+   "last_listed": 377,
    "last_ok": "2026-11-12"
   },
   "Virtu Financial": {
