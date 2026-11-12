@@ -2020,6 +2020,22 @@
    "title": "2027 - Global Markets - Summer Internship (Securitised Products and Private Credit Trading / Structuring) – London (For 2028 Graduates)",
    "url": "https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1548-2027-Global-Markets-Summer-Internship-Securitised-Products-and-Private-Credit-Trading-Structuring-London-For-2028-Graduates/en-GB"
   },
+  "oleeo:Nomura (campus):1580": {
+   "company": "Nomura (campus)",
+   "fingerprints": [
+    "id:oleeo:Nomura (campus):1580",
+    "req:nomura:1580",
+    "url:https://nomuracampus.tal.net/vx/lang-en-gb/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1580-2027-global-markets-naim-fsops-6-month-off-cycle-internship-paris/en-gb",
+    "title:nomura:2027 global markets naim fsops 6 month off cycle internship paris:paris"
+   ],
+   "first_seen": "2026-11-12T10:12:09+00:00",
+   "last_seen": "2026-11-12",
+   "location": "Paris",
+   "notified_at": "2026-11-12T10:12:09+00:00",
+   "status": "open",
+   "title": "2027 - Global Markets - NAIM FSOPS - 6 Month Off Cycle Internship – Paris",
+   "url": "https://nomuracampus.tal.net/vx/lang-en-GB/mobile-0/appcentre-1/brand-4/candidate/so/pm/1/pl/1/opp/1580-2027-Global-Markets-NAIM-FSOPS-6-Month-Off-Cycle-Internship-Paris/en-GB"
+  },
   "oleeo:Nomura:1449": {
    "company": "Nomura",
    "fingerprints": [
@@ -2746,7 +2762,7 @@
     "title:societe generale:trainee global markets marketer asia pacific equity quantitative investment solutions qis:hong kong"
    ],
    "first_seen": "2026-10-22T10:15:50+00:00",
-   "last_seen": "2026-10-23",
+   "last_seen": "2026-11-12",
    "location": "Hong Kong, Hong Kong",
    "notified_at": "2026-10-22T10:15:50+00:00",
    "status": "open",
@@ -3531,6 +3547,22 @@
    "status": "open",
    "title": "Analyste Trading Équité Structurée H/F",
    "url": "https://jobs.ca-cib.com/job/job-analyste-trading-equite-structuree-h-f_117360.aspx"
+  },
+  "talentsoft:Crédit Agricole CIB:117392": {
+   "company": "Crédit Agricole CIB",
+   "fingerprints": [
+    "id:talentsoft:Crédit Agricole CIB:117392",
+    "req:credit agricole:117392",
+    "url:https://jobs.ca-cib.com/job/job-assistant-structureur-h-f_117392.aspx",
+    "title:credit agricole:assistant structureur:paris"
+   ],
+   "first_seen": "2026-11-12T10:12:08+00:00",
+   "last_seen": "2026-11-12",
+   "location": "Montrouge, Europe, France, Ile-de-France, 92 - Hauts-De-Seine",
+   "notified_at": "2026-11-12T10:12:08+00:00",
+   "status": "open",
+   "title": "Assistant Structureur H/F",
+   "url": "https://jobs.ca-cib.com/job/job-assistant-structureur-h-f_117392.aspx"
   },
   "web:https://brightnetwork.co.uk/graduate-jobs/barclays/sales-trading-and-structuring-summer-internship-programme-hong-kong-2027-aky4": {
    "company": "Barclays",
@@ -5391,7 +5423,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-12T09:15:58.234773+00:00",
+ "last_send_slot": "2026-11-12T10:12:06.601818+00:00",
  "last_status_date": "2026-11-11",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5404,12 +5436,12 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 201,
+   "last_listed": 203,
    "last_ok": "2026-11-12"
   },
   "ANZ (careers site)": {
    "consecutive_failures": 0,
-   "last_listed": 13,
+   "last_listed": 14,
    "last_ok": "2026-11-12"
   },
   "Akuna Capital": {
@@ -5509,7 +5541,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 872,
+   "last_listed": 883,
    "last_ok": "2026-11-12"
   },
   "CIBC": {
@@ -5519,12 +5551,12 @@
   },
   "CICC": {
    "consecutive_failures": 0,
-   "last_listed": 375,
+   "last_listed": 374,
    "last_ok": "2026-11-12"
   },
   "CIMB (incl. CIMB Securities)": {
    "consecutive_failures": 0,
-   "last_listed": 122,
+   "last_listed": 124,
    "last_ok": "2026-11-12"
   },
   "CITIC CLSA (CITIC Securities)": {
@@ -5574,7 +5606,7 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 286,
+   "last_listed": 283,
    "last_ok": "2026-11-12"
   },
   "DBS Bank": {
@@ -5584,7 +5616,7 @@
   },
   "DNB Markets": {
    "consecutive_failures": 0,
-   "last_listed": 99,
+   "last_listed": 98,
    "last_ok": "2026-11-12"
   },
   "DRW": {
@@ -5627,7 +5659,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1582,
+   "last_listed": 1581,
    "last_ok": "2026-11-12"
   },
   "Equinor": {
@@ -5647,7 +5679,7 @@
   },
   "Fidelity International": {
    "consecutive_failures": 0,
-   "last_listed": 20,
+   "last_listed": 21,
    "last_ok": "2026-11-12"
   },
   "Fidelity International (campus)": {
@@ -5711,7 +5743,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 362,
+   "last_listed": 359,
    "last_ok": "2026-11-12"
   },
   "Haitong International": {
@@ -5751,7 +5783,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 705,
+   "last_listed": 708,
    "last_ok": "2026-11-12"
   },
   "Jane Street": {
@@ -5786,7 +5818,7 @@
   },
   "LinkedIn (job alerts)": {
    "consecutive_failures": 0,
-   "last_listed": 228,
+   "last_listed": 235,
    "last_ok": "2026-11-12"
   },
   "LinkedIn (posts)": {
@@ -5806,7 +5838,7 @@
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 142,
+   "last_listed": 143,
    "last_ok": "2026-11-12"
   },
   "Macquarie": {
@@ -5861,22 +5893,22 @@
   },
   "Natixis CIB": {
    "consecutive_failures": 0,
-   "last_listed": 189,
+   "last_listed": 188,
    "last_ok": "2026-11-12"
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 508,
+   "last_listed": 510,
    "last_ok": "2026-11-12"
   },
   "Nomura (campus)": {
    "consecutive_failures": 0,
-   "last_listed": 23,
+   "last_listed": 24,
    "last_ok": "2026-11-12"
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 700,
+   "last_listed": 699,
    "last_ok": "2026-11-12"
   },
   "Old Mission": {
@@ -5891,7 +5923,7 @@
   },
   "Panmure Liberum": {
    "consecutive_failures": 0,
-   "last_listed": 3,
+   "last_listed": 2,
    "last_ok": "2026-11-12"
   },
   "Pareto Securities": {
@@ -5901,7 +5933,7 @@
   },
   "Pictet": {
    "consecutive_failures": 0,
-   "last_listed": 46,
+   "last_listed": 47,
    "last_ok": "2026-11-12"
   },
   "Point72": {
@@ -5911,7 +5943,7 @@
   },
   "Quadrature Capital": {
    "consecutive_failures": 0,
-   "last_listed": 3,
+   "last_listed": 4,
    "last_ok": "2026-11-12"
   },
   "Qube Research & Technologies": {
@@ -5931,7 +5963,7 @@
   },
   "Repsol (incl. Repsol Trading)": {
    "consecutive_failures": 0,
-   "last_listed": 62,
+   "last_listed": 61,
    "last_ok": "2026-11-12"
   },
   "SMBC (Asia)": {
@@ -5946,7 +5978,7 @@
   },
   "Santander CIB": {
    "consecutive_failures": 0,
-   "last_listed": 71,
+   "last_listed": 72,
    "last_ok": "2026-11-12"
   },
   "Schonfeld": {
@@ -5966,12 +5998,12 @@
   },
   "Shell": {
    "consecutive_failures": 0,
-   "last_listed": 17,
+   "last_listed": 18,
    "last_ok": "2026-11-12"
   },
   "Société Générale": {
    "consecutive_failures": 0,
-   "last_listed": 1026,
+   "last_listed": 1023,
    "last_ok": "2026-11-12"
   },
   "Squarepoint Capital": {
@@ -5981,7 +6013,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1089,
+   "last_listed": 1094,
    "last_ok": "2026-11-12"
   },
   "State Street": {
@@ -6035,12 +6067,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 696,
+   "last_listed": 697,
    "last_ok": "2026-11-12"
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 379,
+   "last_listed": 381,
    "last_ok": "2026-11-12"
   },
   "Virtu Financial": {
@@ -6070,6 +6102,7 @@
   },
   "Westpac": {
    "consecutive_failures": 0,
+   "last_listed": 1,
    "last_ok": "2026-11-12"
   },
   "Wintermute": {
