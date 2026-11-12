@@ -2600,7 +2600,7 @@
     "url:https://jobs.ca-cib.com/job/job-analyste-credit-early-detection-h-f_113297.aspx"
    ],
    "first_seen": "2026-10-20T05:09:15+00:00",
-   "last_seen": "2026-11-09",
+   "last_seen": "2026-11-12",
    "location": "Types of Jobs/Corporate & Investment Banking; Internship/Trainee; Montrouge",
    "notified_at": "2026-10-20T05:09:15+00:00",
    "status": "open",
@@ -5391,7 +5391,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-12T08:12:56.519865+00:00",
+ "last_send_slot": "2026-11-12T09:15:58.234773+00:00",
  "last_status_date": "2026-11-11",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5474,7 +5474,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2113,
+   "last_listed": 2111,
    "last_ok": "2026-11-12"
   },
   "Bank of America (campus)": {
@@ -5504,12 +5504,12 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 589,
+   "last_listed": 590,
    "last_ok": "2026-11-12"
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 870,
+   "last_listed": 872,
    "last_ok": "2026-11-12"
   },
   "CIBC": {
@@ -5519,17 +5519,17 @@
   },
   "CICC": {
    "consecutive_failures": 0,
-   "last_listed": 377,
+   "last_listed": 375,
    "last_ok": "2026-11-12"
   },
   "CIMB (incl. CIMB Securities)": {
    "consecutive_failures": 0,
-   "last_listed": 124,
+   "last_listed": 122,
    "last_ok": "2026-11-12"
   },
   "CITIC CLSA (CITIC Securities)": {
    "consecutive_failures": 0,
-   "last_listed": 224,
+   "last_listed": 225,
    "last_ok": "2026-11-12"
   },
   "Capula Investment Management": {
@@ -5539,7 +5539,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1378,
+   "last_listed": 1379,
    "last_ok": "2026-11-12"
   },
   "Castleton Commodities": {
@@ -5559,7 +5559,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 579,
+   "last_listed": 582,
    "last_ok": "2026-11-12"
   },
   "CommBank": {
@@ -5584,7 +5584,7 @@
   },
   "DNB Markets": {
    "consecutive_failures": 0,
-   "last_listed": 100,
+   "last_listed": 99,
    "last_ok": "2026-11-12"
   },
   "DRW": {
@@ -5603,7 +5603,7 @@
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
-   "last_listed": 78,
+   "last_listed": 79,
    "last_ok": "2026-11-12"
   },
   "EDF Trading": {
@@ -5627,7 +5627,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1583,
+   "last_listed": 1582,
    "last_ok": "2026-11-12"
   },
   "Equinor": {
@@ -5642,7 +5642,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 515,
+   "last_listed": 516,
    "last_ok": "2026-11-12"
   },
   "Fidelity International": {
@@ -5711,7 +5711,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 360,
+   "last_listed": 362,
    "last_ok": "2026-11-12"
   },
   "Haitong International": {
@@ -5746,7 +5746,7 @@
   },
   "Investec": {
    "consecutive_failures": 0,
-   "last_listed": 54,
+   "last_listed": 55,
    "last_ok": "2026-11-12"
   },
   "JPMorgan": {
@@ -5806,7 +5806,7 @@
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 143,
+   "last_listed": 142,
    "last_ok": "2026-11-12"
   },
   "Macquarie": {
@@ -5876,7 +5876,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 696,
+   "last_listed": 700,
    "last_ok": "2026-11-12"
   },
   "Old Mission": {
@@ -5936,7 +5936,7 @@
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
-   "last_listed": 277,
+   "last_listed": 278,
    "last_ok": "2026-11-12"
   },
   "SMBC (EMEA)": {
@@ -5966,7 +5966,7 @@
   },
   "Shell": {
    "consecutive_failures": 0,
-   "last_listed": 16,
+   "last_listed": 17,
    "last_ok": "2026-11-12"
   },
   "Société Générale": {
@@ -5981,7 +5981,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1082,
+   "last_listed": 1089,
    "last_ok": "2026-11-12"
   },
   "State Street": {
@@ -6035,12 +6035,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 693,
+   "last_listed": 696,
    "last_ok": "2026-11-12"
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 377,
+   "last_listed": 379,
    "last_ok": "2026-11-12"
   },
   "Virtu Financial": {
