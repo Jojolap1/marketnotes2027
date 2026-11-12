@@ -5375,7 +5375,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-12T05:12:05.113501+00:00",
+ "last_send_slot": "2026-11-12T06:11:41.020545+00:00",
  "last_status_date": "2026-11-11",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5388,7 +5388,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 197,
+   "last_listed": 199,
    "last_ok": "2026-11-12"
   },
   "ANZ (careers site)": {
@@ -5458,7 +5458,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2118,
+   "last_listed": 2115,
    "last_ok": "2026-11-12"
   },
   "Bank of America (campus)": {
@@ -5523,7 +5523,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1378,
+   "last_listed": 1376,
    "last_ok": "2026-11-12"
   },
   "Castleton Commodities": {
@@ -5611,7 +5611,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1579,
+   "last_listed": 1580,
    "last_ok": "2026-11-12"
   },
   "Equinor": {
@@ -5626,7 +5626,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 514,
+   "last_listed": 516,
    "last_ok": "2026-11-12"
   },
   "Fidelity International": {
@@ -5790,7 +5790,7 @@
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 143,
+   "last_listed": 142,
    "last_ok": "2026-11-12"
   },
   "Macquarie": {
@@ -5835,7 +5835,7 @@
   },
   "Morgan Stanley": {
    "consecutive_failures": 0,
-   "last_listed": 116,
+   "last_listed": 114,
    "last_ok": "2026-11-12"
   },
   "National Bank of Canada": {
@@ -5850,7 +5850,7 @@
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 505,
+   "last_listed": 506,
    "last_ok": "2026-11-12"
   },
   "Nomura (campus)": {
@@ -5860,7 +5860,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 692,
+   "last_listed": 694,
    "last_ok": "2026-11-12"
   },
   "Old Mission": {
@@ -5965,7 +5965,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1067,
+   "last_listed": 1072,
    "last_ok": "2026-11-12"
   },
   "State Street": {
@@ -6019,7 +6019,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 687,
+   "last_listed": 688,
    "last_ok": "2026-11-12"
   },
   "UOB": {
