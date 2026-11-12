@@ -3241,6 +3241,22 @@
    "title": "Stage - FINANCE DE MARCHE - Structuration et Innovation Produit ETF & Indiciel H/F",
    "url": "https://jobs.amundi.com/job/job-stage-finance-de-marche-structuration-et-innovation-produit-etf-indiciel-h-f_117097.aspx"
   },
+  "talentsoft:Amundi:117404": {
+   "company": "Amundi",
+   "fingerprints": [
+    "id:talentsoft:Amundi:117404",
+    "req:amundi:117404",
+    "url:https://jobs.amundi.com/job/job-stage-assistant-e-produits-financiers-et-coordination-internationale-en-asset-management-h-f_117404.aspx",
+    "title:amundi:stage assistant e produits financiers et coordination internationale en asset management:paris"
+   ],
+   "first_seen": "2026-11-12T14:17:23+00:00",
+   "last_seen": "2026-11-12",
+   "location": "Paris 75015, Europe, France, Ile-de-France, 75 - Paris",
+   "notified_at": "2026-11-12T14:17:23+00:00",
+   "status": "open",
+   "title": "Stage - Assistant(e) Produits Financiers et coordination internationale en Asset Management H/F",
+   "url": "https://jobs.amundi.com/job/job-stage-assistant-e-produits-financiers-et-coordination-internationale-en-asset-management-h-f_117404.aspx"
+  },
   "talentsoft:Crédit Agricole CIB:100814": {
    "company": "Crédit Agricole CIB",
    "fingerprints": [
@@ -5423,8 +5439,8 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-12T13:12:18.218190+00:00",
- "last_status_date": "2026-11-11",
+ "last_send_slot": "2026-11-12T14:17:22.263524+00:00",
+ "last_status_date": "2026-11-12",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -5436,12 +5452,12 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 201,
+   "last_listed": 202,
    "last_ok": "2026-11-12"
   },
   "ANZ (careers site)": {
    "consecutive_failures": 0,
-   "last_listed": 14,
+   "last_listed": 13,
    "last_ok": "2026-11-12"
   },
   "Akuna Capital": {
@@ -5456,7 +5472,7 @@
   },
   "Amundi": {
    "consecutive_failures": 0,
-   "last_listed": 113,
+   "last_listed": 117,
    "last_ok": "2026-11-12"
   },
   "B2C2": {
@@ -5471,7 +5487,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1056,
+   "last_listed": 1057,
    "last_ok": "2026-11-12"
   },
   "BNP Paribas (email alerts)": {
@@ -5506,7 +5522,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2109,
+   "last_listed": 2119,
    "last_ok": "2026-11-12"
   },
   "Bank of America (campus)": {
@@ -5516,12 +5532,12 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 93,
+   "last_listed": 94,
    "last_ok": "2026-11-12"
   },
   "Berenberg": {
    "consecutive_failures": 0,
-   "last_listed": 50,
+   "last_listed": 51,
    "last_ok": "2026-11-12"
   },
   "BlackRock": {
@@ -5541,7 +5557,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 885,
+   "last_listed": 886,
    "last_ok": "2026-11-12"
   },
   "CIBC": {
@@ -5606,7 +5622,7 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 283,
+   "last_listed": 284,
    "last_ok": "2026-11-12"
   },
   "DBS Bank": {
@@ -5659,7 +5675,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1582,
+   "last_listed": 1593,
    "last_ok": "2026-11-12"
   },
   "Equinor": {
@@ -5674,7 +5690,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 516,
+   "last_listed": 514,
    "last_ok": "2026-11-12"
   },
   "Fidelity International": {
@@ -5743,7 +5759,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 365,
+   "last_listed": 366,
    "last_ok": "2026-11-12"
   },
   "Haitong International": {
@@ -5763,7 +5779,7 @@
   },
   "IMC Trading": {
    "consecutive_failures": 0,
-   "last_listed": 156,
+   "last_listed": 157,
    "last_ok": "2026-11-12"
   },
   "ING": {
@@ -5778,12 +5794,12 @@
   },
   "Investec": {
    "consecutive_failures": 0,
-   "last_listed": 54,
+   "last_listed": 55,
    "last_ok": "2026-11-12"
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 709,
+   "last_listed": 710,
    "last_ok": "2026-11-12"
   },
   "Jane Street": {
@@ -5803,7 +5819,7 @@
   },
   "Jump Trading": {
    "consecutive_failures": 0,
-   "last_listed": 91,
+   "last_listed": 92,
    "last_ok": "2026-11-12"
   },
   "Kepler Cheuvreux": {
@@ -5858,7 +5874,7 @@
   },
   "Marex": {
    "consecutive_failures": 0,
-   "last_listed": 88,
+   "last_listed": 90,
    "last_ok": "2026-11-12"
   },
   "Marshall Wace": {
@@ -5948,7 +5964,7 @@
   },
   "Qube Research & Technologies": {
    "consecutive_failures": 0,
-   "last_listed": 210,
+   "last_listed": 211,
    "last_ok": "2026-11-12"
   },
   "RBC": {
@@ -5958,7 +5974,7 @@
   },
   "RWE Supply & Trading": {
    "consecutive_failures": 0,
-   "last_listed": 144,
+   "last_listed": 143,
    "last_ok": "2026-11-12"
   },
   "Repsol (incl. Repsol Trading)": {
@@ -5968,7 +5984,7 @@
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
-   "last_listed": 278,
+   "last_listed": 279,
    "last_ok": "2026-11-12"
   },
   "SMBC (EMEA)": {
@@ -5988,7 +6004,7 @@
   },
   "Schroders": {
    "consecutive_failures": 0,
-   "last_listed": 39,
+   "last_listed": 38,
    "last_ok": "2026-11-12"
   },
   "Scotiabank": {
@@ -6013,7 +6029,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1116,
+   "last_listed": 1118,
    "last_ok": "2026-11-12"
   },
   "State Street": {
@@ -6067,7 +6083,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 699,
+   "last_listed": 700,
    "last_ok": "2026-11-12"
   },
   "UOB": {
