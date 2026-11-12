@@ -5423,7 +5423,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-12T10:12:06.601818+00:00",
+ "last_send_slot": "2026-11-12T11:11:54.197385+00:00",
  "last_status_date": "2026-11-11",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5436,7 +5436,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 203,
+   "last_listed": 202,
    "last_ok": "2026-11-12"
   },
   "ANZ (careers site)": {
@@ -5456,7 +5456,7 @@
   },
   "Amundi": {
    "consecutive_failures": 0,
-   "last_listed": 113,
+   "last_listed": 114,
    "last_ok": "2026-11-12"
   },
   "B2C2": {
@@ -5516,7 +5516,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 93,
+   "last_listed": 95,
    "last_ok": "2026-11-12"
   },
   "Berenberg": {
@@ -5541,7 +5541,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 883,
+   "last_listed": 885,
    "last_ok": "2026-11-12"
   },
   "CIBC": {
@@ -5561,7 +5561,7 @@
   },
   "CITIC CLSA (CITIC Securities)": {
    "consecutive_failures": 0,
-   "last_listed": 225,
+   "last_listed": 226,
    "last_ok": "2026-11-12"
   },
   "Capula Investment Management": {
@@ -5586,12 +5586,12 @@
   },
   "China Galaxy (Chinastock)": {
    "consecutive_failures": 0,
-   "last_listed": 84,
+   "last_listed": 88,
    "last_ok": "2026-11-12"
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 582,
+   "last_listed": 584,
    "last_ok": "2026-11-12"
   },
   "CommBank": {
@@ -5606,7 +5606,7 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 283,
+   "last_listed": 282,
    "last_ok": "2026-11-12"
   },
   "DBS Bank": {
@@ -5713,7 +5713,7 @@
   },
   "G-Research": {
    "consecutive_failures": 0,
-   "last_listed": 65,
+   "last_listed": 66,
    "last_ok": "2026-11-12"
   },
   "GSR": {
@@ -5743,7 +5743,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 359,
+   "last_listed": 362,
    "last_ok": "2026-11-12"
   },
   "Haitong International": {
@@ -5763,7 +5763,7 @@
   },
   "IMC Trading": {
    "consecutive_failures": 0,
-   "last_listed": 157,
+   "last_listed": 156,
    "last_ok": "2026-11-12"
   },
   "ING": {
@@ -5838,7 +5838,7 @@
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 143,
+   "last_listed": 144,
    "last_ok": "2026-11-12"
   },
   "Macquarie": {
@@ -5903,12 +5903,12 @@
   },
   "Nomura (campus)": {
    "consecutive_failures": 0,
-   "last_listed": 24,
+   "last_listed": 25,
    "last_ok": "2026-11-12"
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 699,
+   "last_listed": 701,
    "last_ok": "2026-11-12"
   },
   "Old Mission": {
@@ -5933,7 +5933,7 @@
   },
   "Pictet": {
    "consecutive_failures": 0,
-   "last_listed": 47,
+   "last_listed": 46,
    "last_ok": "2026-11-12"
   },
   "Point72": {
@@ -5953,7 +5953,7 @@
   },
   "RBC": {
    "consecutive_failures": 0,
-   "last_listed": 15,
+   "last_listed": 14,
    "last_ok": "2026-11-12"
   },
   "RWE Supply & Trading": {
@@ -5963,7 +5963,7 @@
   },
   "Repsol (incl. Repsol Trading)": {
    "consecutive_failures": 0,
-   "last_listed": 61,
+   "last_listed": 62,
    "last_ok": "2026-11-12"
   },
   "SMBC (Asia)": {
@@ -5973,12 +5973,12 @@
   },
   "SMBC (EMEA)": {
    "consecutive_failures": 0,
-   "last_listed": 186,
+   "last_listed": 184,
    "last_ok": "2026-11-12"
   },
   "Santander CIB": {
    "consecutive_failures": 0,
-   "last_listed": 72,
+   "last_listed": 74,
    "last_ok": "2026-11-12"
   },
   "Schonfeld": {
@@ -6013,7 +6013,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1094,
+   "last_listed": 1106,
    "last_ok": "2026-11-12"
   },
   "State Street": {
@@ -6028,7 +6028,7 @@
   },
   "TD Securities": {
    "consecutive_failures": 0,
-   "last_listed": 48,
+   "last_listed": 47,
    "last_ok": "2026-11-12"
   },
   "TP ICAP": {
@@ -6042,7 +6042,7 @@
   },
   "TotalEnergies": {
    "consecutive_failures": 0,
-   "last_listed": 220,
+   "last_listed": 240,
    "last_ok": "2026-11-12"
   },
   "Tower Research Capital": {
@@ -6067,7 +6067,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 697,
+   "last_listed": 699,
    "last_ok": "2026-11-12"
   },
   "UOB": {
@@ -6097,7 +6097,7 @@
   },
   "Wells Fargo": {
    "consecutive_failures": 0,
-   "last_listed": 19,
+   "last_listed": 18,
    "last_ok": "2026-11-12"
   },
   "Westpac": {
