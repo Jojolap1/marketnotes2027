@@ -5486,7 +5486,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-13T05:12:01.128725+00:00",
+ "last_send_slot": "2026-11-13T06:11:31.663716+00:00",
  "last_status_date": "2026-11-12",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5534,7 +5534,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1050,
+   "last_listed": 1045,
    "last_ok": "2026-11-13"
   },
   "BNP Paribas (email alerts)": {
@@ -5569,7 +5569,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2100,
+   "last_listed": 2098,
    "last_ok": "2026-11-13"
   },
   "Bank of America (campus)": {
@@ -5614,7 +5614,7 @@
   },
   "CICC": {
    "consecutive_failures": 0,
-   "last_listed": 374,
+   "last_listed": 375,
    "last_ok": "2026-11-13"
   },
   "CIMB (incl. CIMB Securities)": {
@@ -5634,7 +5634,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1387,
+   "last_listed": 1386,
    "last_ok": "2026-11-13"
   },
   "Castleton Commodities": {
@@ -5737,7 +5737,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 514,
+   "last_listed": 505,
    "last_ok": "2026-11-13"
   },
   "Fidelity International": {
@@ -5806,7 +5806,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 352,
+   "last_listed": 351,
    "last_ok": "2026-11-13"
   },
   "Haitong International": {
@@ -5971,7 +5971,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 702,
+   "last_listed": 703,
    "last_ok": "2026-11-13"
   },
   "Old Mission": {
@@ -6076,7 +6076,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1103,
+   "last_listed": 1105,
    "last_ok": "2026-11-13"
   },
   "State Street": {
@@ -6135,7 +6135,7 @@
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 379,
+   "last_listed": 378,
    "last_ok": "2026-11-13"
   },
   "Virtu Financial": {
