@@ -5486,7 +5486,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-13T04:18:34.716990+00:00",
+ "last_send_slot": "2026-11-13T05:12:01.128725+00:00",
  "last_status_date": "2026-11-12",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5509,7 +5509,7 @@
   },
   "Akuna Capital": {
    "consecutive_failures": 0,
-   "last_listed": 29,
+   "last_listed": 30,
    "last_ok": "2026-11-13"
   },
   "Amber Group": {
@@ -5534,7 +5534,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1076,
+   "last_listed": 1050,
    "last_ok": "2026-11-13"
   },
   "BNP Paribas (email alerts)": {
@@ -5599,7 +5599,7 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 591,
+   "last_listed": 592,
    "last_ok": "2026-11-13"
   },
   "Business France (VIE)": {
@@ -5634,7 +5634,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1388,
+   "last_listed": 1387,
    "last_ok": "2026-11-13"
   },
   "Castleton Commodities": {
@@ -5806,7 +5806,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 349,
+   "last_listed": 352,
    "last_ok": "2026-11-13"
   },
   "Haitong International": {
@@ -5826,7 +5826,7 @@
   },
   "IMC Trading": {
    "consecutive_failures": 0,
-   "last_listed": 157,
+   "last_listed": 158,
    "last_ok": "2026-11-13"
   },
   "ING": {
@@ -5846,7 +5846,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 707,
+   "last_listed": 705,
    "last_ok": "2026-11-13"
   },
   "Jane Street": {
@@ -6076,7 +6076,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1098,
+   "last_listed": 1103,
    "last_ok": "2026-11-13"
   },
   "State Street": {
@@ -6130,7 +6130,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 687,
+   "last_listed": 700,
    "last_ok": "2026-11-13"
   },
   "UOB": {
