@@ -5516,7 +5516,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-13T09:16:59.241541+00:00",
+ "last_send_slot": "2026-11-13T10:12:30.347915+00:00",
  "last_status_date": "2026-11-12",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5609,7 +5609,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 88,
+   "last_listed": 89,
    "last_ok": "2026-11-13"
   },
   "Berenberg": {
@@ -5629,7 +5629,7 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 592,
+   "last_listed": 594,
    "last_ok": "2026-11-13"
   },
   "Business France (VIE)": {
@@ -5644,7 +5644,7 @@
   },
   "CICC": {
    "consecutive_failures": 0,
-   "last_listed": 376,
+   "last_listed": 375,
    "last_ok": "2026-11-13"
   },
   "CIMB (incl. CIMB Securities)": {
@@ -5752,7 +5752,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1590,
+   "last_listed": 1593,
    "last_ok": "2026-11-13"
   },
   "Equinor": {
@@ -5836,7 +5836,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 351,
+   "last_listed": 348,
    "last_ok": "2026-11-13"
   },
   "Haitong International": {
@@ -5911,7 +5911,7 @@
   },
   "LinkedIn (job alerts)": {
    "consecutive_failures": 0,
-   "last_listed": 244,
+   "last_listed": 248,
    "last_ok": "2026-11-13"
   },
   "LinkedIn (posts)": {
@@ -5931,7 +5931,7 @@
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 144,
+   "last_listed": 143,
    "last_ok": "2026-11-13"
   },
   "Macquarie": {
@@ -5991,7 +5991,7 @@
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 514,
+   "last_listed": 513,
    "last_ok": "2026-11-13"
   },
   "Nomura (campus)": {
@@ -6066,7 +6066,7 @@
   },
   "SMBC (EMEA)": {
    "consecutive_failures": 0,
-   "last_listed": 183,
+   "last_listed": 182,
    "last_ok": "2026-11-13"
   },
   "Santander CIB": {
@@ -6096,7 +6096,7 @@
   },
   "Société Générale": {
    "consecutive_failures": 0,
-   "last_listed": 1020,
+   "last_listed": 1006,
    "last_ok": "2026-11-13"
   },
   "Squarepoint Capital": {
@@ -6121,7 +6121,7 @@
   },
   "TD Securities": {
    "consecutive_failures": 0,
-   "last_listed": 48,
+   "last_listed": 47,
    "last_ok": "2026-11-13"
   },
   "TP ICAP": {
@@ -6160,12 +6160,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 700,
+   "last_listed": 693,
    "last_ok": "2026-11-13"
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 376,
+   "last_listed": 377,
    "last_ok": "2026-11-13"
   },
   "Virtu Financial": {
