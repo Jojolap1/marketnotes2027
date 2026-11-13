@@ -921,6 +921,21 @@
    "title": "2027 Public Markets Equities Graduate Trainee (HK)",
    "url": "https://www.linkedin.com/jobs/view/4473787714/"
   },
+  "email:LinkedIn (job alerts):4474496527": {
+   "company": "LinkedIn (job alerts)",
+   "fingerprints": [
+    "id:email:LinkedIn (job alerts):4474496527",
+    "url:https://linkedin.com/jobs/view/4474496527",
+    "title:linkedin:global markets research trainee one year contract credit agricole cib ile de hong kong sur site:hong kong"
+   ],
+   "first_seen": "2026-11-13T08:12:16+00:00",
+   "last_seen": "2026-11-13",
+   "location": "Hong Kong",
+   "notified_at": "2026-11-13T08:12:16+00:00",
+   "status": "open",
+   "title": "Global Markets Research Trainee (One Year Contract) Crédit Agricole CIB · Île de Hong Kong (Sur site)",
+   "url": "https://www.linkedin.com/jobs/view/4474496527/"
+  },
   "email:LinkedIn (job alerts):4481430030": {
    "company": "Susquehanna International Group",
    "fingerprints": [
@@ -965,6 +980,21 @@
    "status": "open",
    "title": "Investment Analyst",
    "url": "https://www.linkedin.com/jobs/view/4483394929/"
+  },
+  "email:LinkedIn (job alerts):4484667414": {
+   "company": "LinkedIn (job alerts)",
+   "fingerprints": [
+    "id:email:LinkedIn (job alerts):4484667414",
+    "url:https://linkedin.com/jobs/view/4484667414",
+    "title:linkedin:jan 2027 global markets trainee sales trading one year contract credit agricole cib ile de hong kong sur site:hong kong"
+   ],
+   "first_seen": "2026-11-13T08:12:14+00:00",
+   "last_seen": "2026-11-13",
+   "location": "Hong Kong",
+   "notified_at": "2026-11-13T08:12:14+00:00",
+   "status": "open",
+   "title": "Jan 2027: Global Markets Trainee - Sales / Trading (One Year Contract) Crédit Agricole CIB · Île de Hong Kong (Sur site)",
+   "url": "https://www.linkedin.com/jobs/view/4484667414/"
   },
   "email:LinkedIn (job alerts):4484952546": {
    "company": "Fidelity International",
@@ -5486,7 +5516,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-13T07:12:52.248286+00:00",
+ "last_send_slot": "2026-11-13T08:12:13.138575+00:00",
  "last_status_date": "2026-11-12",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5569,7 +5599,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2097,
+   "last_listed": 2094,
    "last_ok": "2026-11-13"
   },
   "Bank of America (campus)": {
@@ -5604,7 +5634,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 869,
+   "last_listed": 867,
    "last_ok": "2026-11-13"
   },
   "CIBC": {
@@ -5614,7 +5644,7 @@
   },
   "CICC": {
    "consecutive_failures": 0,
-   "last_listed": 375,
+   "last_listed": 376,
    "last_ok": "2026-11-13"
   },
   "CIMB (incl. CIMB Securities)": {
@@ -5634,7 +5664,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1387,
+   "last_listed": 1386,
    "last_ok": "2026-11-13"
   },
   "Castleton Commodities": {
@@ -5669,12 +5699,12 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 284,
+   "last_listed": 283,
    "last_ok": "2026-11-13"
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 637,
+   "last_listed": 636,
    "last_ok": "2026-11-13"
   },
   "DNB Markets": {
@@ -5722,7 +5752,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1595,
+   "last_listed": 1593,
    "last_ok": "2026-11-13"
   },
   "Equinor": {
@@ -5806,7 +5836,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 352,
+   "last_listed": 353,
    "last_ok": "2026-11-13"
   },
   "Haitong International": {
@@ -5845,8 +5875,7 @@
    "last_ok": "2026-11-13"
   },
   "JPMorgan": {
-   "consecutive_failures": 1,
-   "last_error": "ReadTimeout: HTTPSConnectionPool(host='jpmc.fa.oraclecloud.com', port=443): Read timed out. (read timeout=25)",
+   "consecutive_failures": 0,
    "last_listed": 705,
    "last_ok": "2026-11-13"
   },
@@ -5882,7 +5911,7 @@
   },
   "LinkedIn (job alerts)": {
    "consecutive_failures": 0,
-   "last_listed": 235,
+   "last_listed": 244,
    "last_ok": "2026-11-13"
   },
   "LinkedIn (posts)": {
@@ -5902,7 +5931,7 @@
   },
   "MUFG": {
    "consecutive_failures": 0,
-   "last_listed": 145,
+   "last_listed": 144,
    "last_ok": "2026-11-13"
   },
   "Macquarie": {
@@ -5917,12 +5946,12 @@
   },
   "Man Group": {
    "consecutive_failures": 0,
-   "last_listed": 68,
+   "last_listed": 67,
    "last_ok": "2026-11-13"
   },
   "Marex": {
    "consecutive_failures": 0,
-   "last_listed": 92,
+   "last_listed": 93,
    "last_ok": "2026-11-13"
   },
   "Marshall Wace": {
@@ -5962,7 +5991,7 @@
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 511,
+   "last_listed": 514,
    "last_ok": "2026-11-13"
   },
   "Nomura (campus)": {
@@ -6032,7 +6061,7 @@
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
-   "last_listed": 281,
+   "last_listed": 283,
    "last_ok": "2026-11-13"
   },
   "SMBC (EMEA)": {
@@ -6077,7 +6106,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1108,
+   "last_listed": 1110,
    "last_ok": "2026-11-13"
   },
   "State Street": {
