@@ -306,6 +306,22 @@
    "title": "Intern - SPG Sales",
    "url": "https://recrutement.natixis.com/en/job/intern-spg-sales-2"
   },
+  "bpce:22587": {
+   "company": "Natixis CIB",
+   "fingerprints": [
+    "id:bpce:22587",
+    "req:natixis:22587",
+    "url:https://recrutement.natixis.com/en/job/internship-6-months-trading-assistant-lt-f-h",
+    "title:natixis:internship 6 months trading assistant lt:paris"
+   ],
+   "first_seen": "2026-11-13T12:12:23+00:00",
+   "last_seen": "2026-11-13",
+   "location": "Paris, France",
+   "notified_at": "2026-11-13T12:12:23+00:00",
+   "status": "open",
+   "title": "Internship - 6 months - Trading Assistant LT F/H",
+   "url": "https://recrutement.natixis.com/en/job/internship-6-months-trading-assistant-lt-f-h"
+  },
   "brassring:25008:349384": {
    "company": "UBS",
    "fingerprints": [
@@ -5516,7 +5532,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-13T11:12:18.592638+00:00",
+ "last_send_slot": "2026-11-13T12:12:22.249334+00:00",
  "last_status_date": "2026-11-12",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5529,7 +5545,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 203,
+   "last_listed": 204,
    "last_ok": "2026-11-13"
   },
   "ANZ (careers site)": {
@@ -5579,7 +5595,7 @@
   },
   "BP": {
    "consecutive_failures": 0,
-   "last_listed": 17,
+   "last_listed": 18,
    "last_ok": "2026-11-13"
   },
   "BP (early careers)": {
@@ -5609,7 +5625,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 89,
+   "last_listed": 90,
    "last_ok": "2026-11-13"
   },
   "Berenberg": {
@@ -5634,7 +5650,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 876,
+   "last_listed": 878,
    "last_ok": "2026-11-13"
   },
   "CIBC": {
@@ -5664,7 +5680,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1390,
+   "last_listed": 1391,
    "last_ok": "2026-11-13"
   },
   "Castleton Commodities": {
@@ -5684,7 +5700,7 @@
   },
   "Citi": {
    "consecutive_failures": 0,
-   "last_listed": 595,
+   "last_listed": 596,
    "last_ok": "2026-11-13"
   },
   "CommBank": {
@@ -5752,7 +5768,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1594,
+   "last_listed": 1597,
    "last_ok": "2026-11-13"
   },
   "Equinor": {
@@ -5836,7 +5852,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 349,
+   "last_listed": 350,
    "last_ok": "2026-11-13"
   },
   "Haitong International": {
@@ -5876,7 +5892,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 704,
+   "last_listed": 705,
    "last_ok": "2026-11-13"
   },
   "Jane Street": {
@@ -5911,7 +5927,7 @@
   },
   "LinkedIn (job alerts)": {
    "consecutive_failures": 0,
-   "last_listed": 248,
+   "last_listed": 249,
    "last_ok": "2026-11-13"
   },
   "LinkedIn (posts)": {
@@ -5986,7 +6002,7 @@
   },
   "Natixis CIB": {
    "consecutive_failures": 0,
-   "last_listed": 193,
+   "last_listed": 196,
    "last_ok": "2026-11-13"
   },
   "Nomura": {
@@ -6001,7 +6017,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 701,
+   "last_listed": 700,
    "last_ok": "2026-11-13"
   },
   "Old Mission": {
@@ -6026,7 +6042,7 @@
   },
   "Pictet": {
    "consecutive_failures": 0,
-   "last_listed": 43,
+   "last_listed": 42,
    "last_ok": "2026-11-13"
   },
   "Point72": {
@@ -6106,7 +6122,7 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1117,
+   "last_listed": 1120,
    "last_ok": "2026-11-13"
   },
   "State Street": {
@@ -6160,7 +6176,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 696,
+   "last_listed": 702,
    "last_ok": "2026-11-13"
   },
   "UOB": {
