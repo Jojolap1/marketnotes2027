@@ -5532,15 +5532,15 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-13T13:12:36.468587+00:00",
- "last_status_date": "2026-11-12",
+ "last_send_slot": "2026-11-13T14:16:55.573885+00:00",
+ "last_status_date": "2026-11-13",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
  "sources": {
   "AIB (incl. Goodbody)": {
    "consecutive_failures": 0,
-   "last_listed": 18,
+   "last_listed": 17,
    "last_ok": "2026-11-13"
   },
   "ANZ": {
@@ -5550,7 +5550,7 @@
   },
   "ANZ (careers site)": {
    "consecutive_failures": 0,
-   "last_listed": 12,
+   "last_listed": 13,
    "last_ok": "2026-11-13"
   },
   "Akuna Capital": {
@@ -5580,7 +5580,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1038,
+   "last_listed": 1039,
    "last_ok": "2026-11-13"
   },
   "BNP Paribas (email alerts)": {
@@ -5605,7 +5605,7 @@
   },
   "BTG Pactual": {
    "consecutive_failures": 0,
-   "last_listed": 234,
+   "last_listed": 233,
    "last_ok": "2026-11-13"
   },
   "BTIG": {
@@ -5615,7 +5615,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2091,
+   "last_listed": 2098,
    "last_ok": "2026-11-13"
   },
   "Bank of America (campus)": {
@@ -5650,7 +5650,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 878,
+   "last_listed": 879,
    "last_ok": "2026-11-13"
   },
   "CIBC": {
@@ -5659,7 +5659,8 @@
    "last_ok": "2026-11-13"
   },
   "CICC": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 405 Client Error: Method Not Allowed for url: https://cicc.zhiye.com/api/Jobad/GetJobAdPageList",
    "last_listed": 375,
    "last_ok": "2026-11-13"
   },
@@ -5680,7 +5681,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1391,
+   "last_listed": 1392,
    "last_ok": "2026-11-13"
   },
   "Castleton Commodities": {
@@ -5694,7 +5695,8 @@
    "last_ok": "2026-11-13"
   },
   "China Galaxy (Chinastock)": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 405 Client Error: Method Not Allowed for url: https://chinastock.zhiye.com/api/Jobad/GetJobAdPageList",
    "last_listed": 85,
    "last_ok": "2026-11-13"
   },
@@ -5715,7 +5717,7 @@
   },
   "Crédit Agricole CIB": {
    "consecutive_failures": 0,
-   "last_listed": 285,
+   "last_listed": 284,
    "last_ok": "2026-11-13"
   },
   "DBS Bank": {
@@ -5744,7 +5746,7 @@
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
-   "last_listed": 82,
+   "last_listed": 84,
    "last_ok": "2026-11-13"
   },
   "EDF Trading": {
@@ -5783,7 +5785,7 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 505,
+   "last_listed": 506,
    "last_ok": "2026-11-13"
   },
   "Fidelity International": {
@@ -5852,7 +5854,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 350,
+   "last_listed": 351,
    "last_ok": "2026-11-13"
   },
   "Haitong International": {
@@ -5952,7 +5954,7 @@
   },
   "Macquarie": {
    "consecutive_failures": 0,
-   "last_listed": 553,
+   "last_listed": 549,
    "last_ok": "2026-11-13"
   },
   "Mako Trading": {
@@ -5997,7 +5999,7 @@
   },
   "National Bank of Canada": {
    "consecutive_failures": 0,
-   "last_listed": 406,
+   "last_listed": 403,
    "last_ok": "2026-11-13"
   },
   "Natixis CIB": {
@@ -6012,7 +6014,7 @@
   },
   "Nomura (campus)": {
    "consecutive_failures": 0,
-   "last_listed": 25,
+   "last_listed": 24,
    "last_ok": "2026-11-13"
   },
   "OCBC / Bank of Singapore": {
@@ -6042,7 +6044,7 @@
   },
   "Pictet": {
    "consecutive_failures": 0,
-   "last_listed": 42,
+   "last_listed": 41,
    "last_ok": "2026-11-13"
   },
   "Point72": {
@@ -6067,12 +6069,12 @@
   },
   "RWE Supply & Trading": {
    "consecutive_failures": 0,
-   "last_listed": 140,
+   "last_listed": 138,
    "last_ok": "2026-11-13"
   },
   "Repsol (incl. Repsol Trading)": {
    "consecutive_failures": 0,
-   "last_listed": 68,
+   "last_listed": 67,
    "last_ok": "2026-11-13"
   },
   "SMBC (Asia)": {
@@ -6112,7 +6114,7 @@
   },
   "Société Générale": {
    "consecutive_failures": 0,
-   "last_listed": 1006,
+   "last_listed": 1009,
    "last_ok": "2026-11-13"
   },
   "Squarepoint Capital": {
@@ -6176,7 +6178,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 703,
+   "last_listed": 702,
    "last_ok": "2026-11-13"
   },
   "UOB": {
