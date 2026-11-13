@@ -3239,6 +3239,22 @@
    "title": "Stage - Assistant Gérant H/F",
    "url": "https://jobs.amundi.com/job/job-stage-assistant-gerant-h-f_114994.aspx"
   },
+  "talentsoft:Amundi:115782": {
+   "company": "Amundi",
+   "fingerprints": [
+    "id:talentsoft:Amundi:115782",
+    "req:amundi:115782",
+    "url:https://jobs.amundi.com/job/job-stage-assistant-gerant-actions-thematiques-h-f_115782.aspx",
+    "title:amundi:stage assistant gerant actions thematiques:paris"
+   ],
+   "first_seen": "2026-11-13T15:12:09+00:00",
+   "last_seen": "2026-11-13",
+   "location": "Paris 15ème, Europe, France, Ile-de-France, 75 - Paris",
+   "notified_at": "2026-11-13T15:12:09+00:00",
+   "status": "open",
+   "title": "Stage - Assistant Gérant Actions Thématiques H/F",
+   "url": "https://jobs.amundi.com/job/job-stage-assistant-gerant-actions-thematiques-h-f_115782.aspx"
+  },
   "talentsoft:Amundi:116733": {
    "company": "Amundi",
    "fingerprints": [
@@ -5532,7 +5548,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-13T14:16:55.573885+00:00",
+ "last_send_slot": "2026-11-13T15:12:02.808674+00:00",
  "last_status_date": "2026-11-13",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5565,7 +5581,7 @@
   },
   "Amundi": {
    "consecutive_failures": 0,
-   "last_listed": 119,
+   "last_listed": 120,
    "last_ok": "2026-11-13"
   },
   "B2C2": {
@@ -5580,7 +5596,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1039,
+   "last_listed": 1042,
    "last_ok": "2026-11-13"
   },
   "BNP Paribas (email alerts)": {
@@ -5615,7 +5631,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2098,
+   "last_listed": 2101,
    "last_ok": "2026-11-13"
   },
   "Bank of America (campus)": {
@@ -5625,7 +5641,7 @@
   },
   "Barclays": {
    "consecutive_failures": 0,
-   "last_listed": 91,
+   "last_listed": 92,
    "last_ok": "2026-11-13"
   },
   "Berenberg": {
@@ -5645,12 +5661,12 @@
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 595,
+   "last_listed": 594,
    "last_ok": "2026-11-13"
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 879,
+   "last_listed": 881,
    "last_ok": "2026-11-13"
   },
   "CIBC": {
@@ -5659,7 +5675,7 @@
    "last_ok": "2026-11-13"
   },
   "CICC": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "HTTPError: 405 Client Error: Method Not Allowed for url: https://cicc.zhiye.com/api/Jobad/GetJobAdPageList",
    "last_listed": 375,
    "last_ok": "2026-11-13"
@@ -5681,7 +5697,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1392,
+   "last_listed": 1387,
    "last_ok": "2026-11-13"
   },
   "Castleton Commodities": {
@@ -5695,7 +5711,7 @@
    "last_ok": "2026-11-13"
   },
   "China Galaxy (Chinastock)": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "HTTPError: 405 Client Error: Method Not Allowed for url: https://chinastock.zhiye.com/api/Jobad/GetJobAdPageList",
    "last_listed": 85,
    "last_ok": "2026-11-13"
@@ -5746,7 +5762,7 @@
   },
   "Deutsche Bank": {
    "consecutive_failures": 0,
-   "last_listed": 84,
+   "last_listed": 83,
    "last_ok": "2026-11-13"
   },
   "EDF Trading": {
@@ -5770,7 +5786,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1595,
+   "last_listed": 1589,
    "last_ok": "2026-11-13"
   },
   "Equinor": {
@@ -5814,7 +5830,7 @@
   },
   "Flowdesk": {
    "consecutive_failures": 0,
-   "last_listed": 13,
+   "last_listed": 12,
    "last_ok": "2026-11-13"
   },
   "Freepoint Commodities": {
@@ -5874,7 +5890,7 @@
   },
   "IMC Trading": {
    "consecutive_failures": 0,
-   "last_listed": 158,
+   "last_listed": 156,
    "last_ok": "2026-11-13"
   },
   "ING": {
@@ -5894,7 +5910,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 706,
+   "last_listed": 708,
    "last_ok": "2026-11-13"
   },
   "Jane Street": {
@@ -5984,7 +6000,7 @@
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 98,
+   "last_listed": 97,
    "last_ok": "2026-11-13"
   },
   "Mizuho (EMEA)": {
@@ -5994,7 +6010,7 @@
   },
   "Morgan Stanley": {
    "consecutive_failures": 0,
-   "last_listed": 107,
+   "last_listed": 108,
    "last_ok": "2026-11-13"
   },
   "National Bank of Canada": {
@@ -6089,7 +6105,7 @@
   },
   "Santander CIB": {
    "consecutive_failures": 0,
-   "last_listed": 69,
+   "last_listed": 71,
    "last_ok": "2026-11-13"
   },
   "Schonfeld": {
@@ -6168,7 +6184,7 @@
   },
   "Trafigura": {
    "consecutive_failures": 0,
-   "last_listed": 12,
+   "last_listed": 13,
    "last_ok": "2026-11-13"
   },
   "Two Sigma": {
@@ -6178,7 +6194,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 702,
+   "last_listed": 704,
    "last_ok": "2026-11-13"
   },
   "UOB": {
@@ -6193,7 +6209,7 @@
   },
   "Vitol": {
    "consecutive_failures": 0,
-   "last_listed": 36,
+   "last_listed": 37,
    "last_ok": "2026-11-13"
   },
   "Web search (daily Claude session)": {
