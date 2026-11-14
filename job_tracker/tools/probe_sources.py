@@ -2700,6 +2700,32 @@ R84 = [
 ]
 PROBES = PROBES + R84
 
+
+def coba_sample():
+    sm = S.get('https://jobs.commerzbank.com/sitemap.xml', timeout=25).text
+    ids = re.findall(r'ac=jobad&amp;id=(\d+)', sm)
+    out = [f'jobad urls={len(ids)}']
+    for i in ids[:2]:
+        for host in ('https://jobs.commerzbank.com', 'https://coba-beesite-production-frontend.app.beesite.de'):
+            r = S.get(f'{host}/index.php?ac=jobad&id={i}', timeout=25)
+            ld = re.findall(r'<script[^>]+ld\+json[^>]*>(.{0,400})', r.text, re.S)
+            title = re.findall(r'<title>([^<]{0,120})', r.text)
+            out.append(f'{host} id={i}: {r.status_code} len={len(r.text)} title={title} ld={[x[:300] for x in ld][:1]}')
+    return '\n'.join(out)
+
+
+R85 = [
+    ('R85 Commerzbank ads', coba_sample),
+    ('R85 Mizuho discover', lambda: discover('https://www.mizuhogroup.com/asia-pacific/careers')),
+    ('R85 Mizuho links', lambda: grep_page('https://www.mizuhogroup.com/asia-pacific/careers', r'href="[^"]*(?:career|vacanc|job|apply|recruit)[^"]*"', n=25)),
+    ('R85 LDC discover', lambda: discover('https://www.ldc.com/careers/')),
+    ('R85 LDC links', lambda: grep_page('https://www.ldc.com/careers/', r'href="[^"]*(?:workday|job|apply|recruit|opportunit)[^"]*"', n=25)),
+    ('R85 NatWest sites', lambda: wd_guess('natwestgroup.wd3.myworkdayjobs.com', 'natwestgroup',
+        ['NatWestGroupCareers', 'NatWest_Group', 'natwestgroupcareers', 'NWG', 'NWG_Careers', 'External_Careers', 'ExternalCareers', 'NatWest'])
+        + '\n' + validate_page('https://rbs.wd3.myworkdayjobs.com/RBS')),
+]
+PROBES = PROBES + R85
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
