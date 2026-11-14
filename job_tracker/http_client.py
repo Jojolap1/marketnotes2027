@@ -94,11 +94,30 @@ class HttpClient:
     def get_json(self, url, **kwargs):
         response = self.get(url, **kwargs)
         response.raise_for_status()
-        return response.json()
+        return _json(response, url)
 
     def post_json(self, url, payload, **kwargs):
         headers = {'Accept': 'application/json', 'Content-Type': 'application/json'}
         headers.update(kwargs.pop('headers', {}))
         response = self.post(url, json=payload, headers=headers, **kwargs)
         response.raise_for_status()
+        return _json(response, url)
+
+
+MAINTENANCE = re.compile(r'currently unavailable|maintenance|temporarily unavailable|be back soon', re.I)
+
+
+class SiteUnavailable(RuntimeError):
+    """The site served its maintenance page instead of data (Workday wd1/wd5, 2026-11-14)."""
+
+
+def _json(response, url):
+    try:
         return response.json()
+    except ValueError:
+        text = (response.text or '')[:5000]
+        if MAINTENANCE.search(text):
+            host = re.sub(r'^https?://([^/]+).*$', r'\1', url)
+            raise SiteUnavailable(f'{host} is down for maintenance (its "currently unavailable" page was served); later runs retry') from None
+        raise
+
