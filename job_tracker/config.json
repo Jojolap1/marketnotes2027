@@ -1265,10 +1265,13 @@
       "disabled_reason": "citadelsecurities.com and citadel.com careers pages return HTTP 403 to automated requests; no Greenhouse/Lever board. Not bypassed."
     },
     {
-      "company": "NatWest Markets",
-      "platform": "official",
-      "enabled": false,
-      "disabled_reason": "jobs.natwestgroup.com returns HTTP 403; no public Workday site found."
+      "company": "NatWest Group",
+      "platform": "workday",
+      "host": "rbs.wd3.myworkdayjobs.com",
+      "tenant": "rbs",
+      "site": "RBS",
+      "backfill_until": "2026-11-16",
+      "note": "jobs.natwestgroup.com is behind Cloudflare; NatWest Group's public Workday site (rbs.wd3/RBS, 79 postings) is read instead (probe R84/R85)."
     },
     {
       "company": "Daiwa Securities",
@@ -1419,9 +1422,10 @@
     },
     {
       "company": "Louis Dreyfus Company",
-      "platform": "official",
-      "enabled": false,
-      "disabled_reason": "ldc.com careers pages answer HTTP 403; its Workday tenant requires a site name that is not published (HTTP 401) (2026-10-19)."
+      "platform": "smartrecruiters",
+      "board": "LouisDreyfusCompany",
+      "backfill_until": "2026-11-16",
+      "note": "ldc.com is behind Cloudflare, but its job links are SmartRecruiters postings: the public SmartRecruiters API (company LouisDreyfusCompany, 363 postings) is read instead (probe R86)."
     },
     {
       "company": "RWE Supply & Trading",
@@ -1931,9 +1935,18 @@
     },
     {
       "company": "Commerzbank",
-      "platform": "official",
-      "enabled": false,
-      "disabled_reason": "jobs.commerzbank.com renders results with JavaScript and exposes no public feed (2026-10-20)."
+      "platform": "sitemap",
+      "sitemap_url": "https://jobs.commerzbank.com/sitemap.xml",
+      "extra_hosts": [
+        "coba-beesite-production-frontend.app.beesite.de"
+      ],
+      "job_url_pattern": "ac=jobad&(?:amp;)?id=\\d+",
+      "match_query": true,
+      "screen_slug": false,
+      "max_fetch_per_run": 70,
+      "refresh_hours": 96,
+      "backfill_until": "2026-11-18",
+      "note": "The careers site renders results with JavaScript, but its sitemap.xml lists every advert (433) with schema.org JobPosting data (probe R84/R85). URLs carry only an id, so every advert is read once and cached 4 days."
     },
     {
       "company": "Standard Bank / Canaccord Genuity / Zeus Capital",

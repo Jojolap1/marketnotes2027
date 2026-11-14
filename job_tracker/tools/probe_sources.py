@@ -2749,6 +2749,20 @@ R86 = [
 ]
 PROBES = PROBES + R86
 
+
+def mizuho_widget():
+    out = []
+    for u in ('https://www.mizuhogroup.com/asia-pacific/hong-kong/hk-information/careers',
+              'https://mizuhobank.recruitmentplatform.com/FO/careers/components/'):
+        r = S.get(u, timeout=25)
+        hits = sorted(set(m[:200] for m in re.findall(r'[^"\'\s<>]*recruitmentplatform[^"\'\s<>]*|(?:api[_-]?key|apikey|username|lumesse|talentlink)[^\n]{0,120}', r.text, re.I)))[:15]
+        out.append(f'{u}: {r.status_code} len={len(r.text)} hits={hits}')
+    return '\n'.join(out)
+
+
+R87 = [('R87 Mizuho widget config', mizuho_widget)]
+PROBES = PROBES + R87
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

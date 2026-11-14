@@ -33,6 +33,7 @@ LOCATION_SELECTORS = ('[itemprop="jobLocation"]', '[data-testid*="location"]', '
 def read_sitemaps(source, ctx):
     root = source['sitemap_url']
     host = urlparse(root).hostname
+    hosts = {host, *source.get('extra_hosts', [])}
     pending, seen, urls = deque([root]), set(), {}
     max_sitemaps = int(source.get('max_sitemaps', 30))
     pattern = re.compile(source['job_url_pattern'], re.I)
@@ -52,16 +53,20 @@ def read_sitemaps(source, ctx):
                     loc = (child.text or '').strip()
                 elif tag == 'lastmod':
                     lastmod = (child.text or '').strip()
-            if not loc or urlparse(loc).hostname != host:
+            # `extra_hosts`: the site's own sitemap may list adverts served by its
+            # ATS host (Commerzbank: coba-...beesite.de/index.php?ac=jobad&id=N)
+            if not loc or urlparse(loc).hostname not in hosts:
                 continue
             if node.tag.endswith('sitemap') or loc.lower().split('?')[0].endswith('.xml'):
                 pending.append(loc)
-            elif pattern.search(urlparse(loc).path):
-                urls[loc] = lastmod
+            elif pattern.search(urlparse(loc).path + ('?' + urlparse(loc).query if source.get('match_query') else '')):
+                urls[loc.replace('&amp;', '&')] = lastmod
     return urls
 
 
 def slug_candidate(url, source, ctx):
+    if source.get('screen_slug') is False:   # URLs carry an id only: every advert is read (cached)
+        return True
     words = slug_words(unquote(urlparse(url).path))
     if not ctx.title_worth_fetching(words):
         return False
