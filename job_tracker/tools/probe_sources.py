@@ -2726,6 +2726,29 @@ R85 = [
 ]
 PROBES = PROBES + R85
 
+
+def sr_companies(names):
+    out = []
+    for n in names:
+        try:
+            r = S.get(f'https://api.smartrecruiters.com/v1/companies/{n}/postings?limit=3', timeout=20)
+            d = r.json() if r.headers.get('content-type', '').startswith('application/json') else {}
+            out.append(f'{n}: {r.status_code} total={d.get("totalFound")} sample={[(p.get("name"), (p.get("location") or {}).get("city"), p.get("id")) for p in d.get("content", [])][:3]}')
+        except Exception as exc:
+            out.append(f'{n}: {type(exc).__name__}')
+    return '\n'.join(out)
+
+
+R86 = [
+    ('R86 LDC SmartRecruiters', lambda: sr_companies(['LouisDreyfusCompany', 'LDC', 'LouisDreyfus', 'LouisDreyfusCompanyLDC', 'LouisDreyfusCommodities', 'ldc'])),
+    ('R86 LDC job page', lambda: grep_page('https://www.ldc.com/careers/join-ldc/job-details/?id=744000161544922',
+        r'smartrecruiters[^"\'\s<]{0,120}|api[^"\'\s<]{0,80}|<title>[^<]{0,120}', n=15)),
+    ('R86 LDC list page', lambda: grep_page('https://www.ldc.com/careers/join-ldc/', r'smartrecruiters[^"\'\s<]{0,120}|job-details/\?id=\d+|<title>[^<]{0,120}', n=15)),
+    ('R86 Mizuho HK', lambda: grep_page('https://www.mizuhogroup.com/asia-pacific/hong-kong/careers',
+        r'href="[^"]*(?:career|vacanc|job|apply|recruit|talent|workday|taleo|lumesse)[^"]*"', n=30)),
+]
+PROBES = PROBES + R86
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
