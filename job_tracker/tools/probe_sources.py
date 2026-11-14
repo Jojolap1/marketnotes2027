@@ -2659,6 +2659,47 @@ def ubs_detail(jobid):
 R81 = [('R81 UBS detail', lambda: ubs_detail('351011'))]
 PROBES = PROBES + R81
 
+
+def try_urls(urls, pattern=r'myworkdayjobs|recruitmentplatform|api[_-]?key|lumesse|talentlink|"total"|jobPostings|<loc>|<title>[^<]{0,80}', n=8):
+    out = []
+    for u in urls:
+        try:
+            r = S.get(u, timeout=20, headers={'Accept': 'text/html,application/json'})
+            hits = sorted(set(m[:160] for m in re.findall(pattern, r.text, re.I)))[:n]
+            out.append(f'{u} -> {r.status_code} final={r.url[:90]} len={len(r.text)} hits={hits}')
+        except Exception as exc:
+            out.append(f'{u} -> {type(exc).__name__}')
+    return '\n'.join(out)
+
+
+def wd_guess(host, tenant, sites):
+    out = []
+    for site in sites:
+        try:
+            r = S.post(f'https://{host}/wday/cxs/{tenant}/{site}/jobs', json={'appliedFacets': {}, 'limit': 1, 'offset': 0, 'searchText': ''},
+                       headers={'Accept': 'application/json', 'Content-Type': 'application/json'}, timeout=20)
+            out.append(f'{host}/{site}: {r.status_code} {r.text[:120]!r}')
+        except Exception as exc:
+            out.append(f'{host}/{site}: {type(exc).__name__}')
+    return '\n'.join(out)
+
+
+R84 = [
+    ('R84 NatWest pages', lambda: try_urls(['https://jobs.natwestgroup.com/', 'https://jobs.natwestgroup.com/sitemap.xml',
+        'https://jobs.natwestgroup.com/robots.txt', 'https://www.natwestgroup.com/careers.html',
+        'https://www.natwestgroupcareers.com/', 'https://jobs.natwestgroup.com/pages/early-careers'])),
+    ('R84 NatWest workday', lambda: wd_guess('natwestgroup.wd3.myworkdayjobs.com', 'natwestgroup', ['External', 'NatWestGroup', 'Careers', 'natwestgroup']) + '\n' +
+        wd_guess('rbs.wd3.myworkdayjobs.com', 'rbs', ['External', 'RBS', 'Careers'])),
+    ('R84 Mizuho widget', lambda: try_urls(['https://www.mizuhogroup.com/asia-pacific/careers', 'https://www.mizuhogroup.com/asia-pacific/careers/vacancies',
+        'https://mizuhobank.recruitmentplatform.com/', 'https://www.mizuhogroup.com/emea/careers/search-and-apply'])),
+    ('R84 Commerzbank', lambda: try_urls(['https://jobs.commerzbank.com/', 'https://jobs.commerzbank.com/index.php?ac=search_result',
+        'https://jobs.commerzbank.com/sitemap.xml', 'https://jobs.commerzbank.com/robots.txt'],
+        pattern=r'api[^"\']{0,60}|\.json[^"\']{0,40}|softgarden|personio|successfactors|beesite|umantis|<loc>[^<]{0,90}|data-url="[^"]{0,90}')),
+    ('R84 LDC', lambda: try_urls(['https://www.ldc.com/careers/', 'https://www.ldc.com/careers/job-opportunities/', 'https://www.ldc.com/robots.txt']) + '\n' +
+        wd_guess('ldc.wd3.myworkdayjobs.com', 'ldc', ['LDC_Careers', 'External', 'LDCCareers', 'LDC', 'Careers', 'LDC_External', 'ldc_careers'])),
+]
+PROBES = PROBES + R84
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
