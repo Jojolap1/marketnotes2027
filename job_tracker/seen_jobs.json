@@ -5579,8 +5579,8 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-14T13:11:21.468274+00:00",
- "last_status_date": "2026-11-13",
+ "last_send_slot": "2026-11-14T14:14:39.384014+00:00",
+ "last_status_date": "2026-11-14",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -5681,7 +5681,7 @@
    "last_ok": "2026-11-14"
   },
   "BlackRock": {
-   "consecutive_failures": 10,
+   "consecutive_failures": 11,
    "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 37,
    "last_ok": "2026-11-13"
@@ -5732,13 +5732,13 @@
    "last_ok": "2026-11-14"
   },
   "Castleton Commodities": {
-   "consecutive_failures": 10,
+   "consecutive_failures": 11,
    "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 6,
    "last_ok": "2026-11-13"
   },
   "Chevron": {
-   "consecutive_failures": 10,
+   "consecutive_failures": 11,
    "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 4,
    "last_ok": "2026-11-13"
@@ -5749,7 +5749,7 @@
    "last_ok": "2026-11-14"
   },
   "Citi": {
-   "consecutive_failures": 10,
+   "consecutive_failures": 11,
    "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 597,
    "last_ok": "2026-11-13"
@@ -5760,7 +5760,7 @@
    "last_ok": "2026-11-14"
   },
   "ConocoPhillips": {
-   "consecutive_failures": 10,
+   "consecutive_failures": 11,
    "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 1,
    "last_ok": "2026-11-13"
@@ -5800,7 +5800,7 @@
    "last_ok": "2026-11-14"
   },
   "EDF Trading": {
-   "consecutive_failures": 10,
+   "consecutive_failures": 11,
    "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 24,
    "last_ok": "2026-11-13"
@@ -5934,7 +5934,7 @@
    "last_ok": "2026-11-14"
   },
   "Invesco": {
-   "consecutive_failures": 10,
+   "consecutive_failures": 11,
    "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 20,
    "last_ok": "2026-11-13"
@@ -6045,7 +6045,7 @@
    "last_ok": "2026-11-14"
   },
   "Morgan Stanley": {
-   "consecutive_failures": 10,
+   "consecutive_failures": 11,
    "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 108,
    "last_ok": "2026-11-13"
@@ -6181,7 +6181,7 @@
    "last_ok": "2026-11-14"
   },
   "State Street": {
-   "consecutive_failures": 10,
+   "consecutive_failures": 11,
    "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 92,
    "last_ok": "2026-11-13"
@@ -6256,13 +6256,13 @@
    "last_ok": "2026-11-14"
   },
   "Wellington Management": {
-   "consecutive_failures": 10,
+   "consecutive_failures": 11,
    "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 35,
    "last_ok": "2026-11-13"
   },
   "Wells Fargo": {
-   "consecutive_failures": 6,
+   "consecutive_failures": 7,
    "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 14,
    "last_ok": "2026-11-14"
