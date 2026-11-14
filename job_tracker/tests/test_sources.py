@@ -918,3 +918,18 @@ class MaintenancePageTests(unittest.TestCase):
         with self.assertRaises(SiteUnavailable) as err:
             _json(Resp(), 'https://citi.wd5.myworkdayjobs.com/wday/cxs/citi/2/jobs')
         self.assertIn('citi.wd5.myworkdayjobs.com is down for maintenance', str(err.exception))
+
+
+class SitemapAtsHostTests(unittest.TestCase):
+    def test_adverts_on_the_ats_host_with_id_only_urls(self):
+        from sources.sitemap import read_sitemaps, slug_candidate
+        xml = ('<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+               '<url><loc>https://ats.example.de/index.php?ac=jobad&amp;id=61073</loc></url>'
+               '<url><loc>https://jobs.example.com//index.php?ac=applicationstate&amp;language=1</loc></url>'
+               '<url><loc>https://elsewhere.example.org/index.php?ac=jobad&amp;id=1</loc></url></urlset>')
+        ctx = context({'jobs.example.com/sitemap.xml': xml})
+        src = {'company': 'X', 'sitemap_url': 'https://jobs.example.com/sitemap.xml', 'extra_hosts': ['ats.example.de'],
+               'job_url_pattern': r'ac=jobad&(?:amp;)?id=\d+', 'match_query': True, 'screen_slug': False}
+        urls = read_sitemaps(src, ctx)
+        self.assertEqual(list(urls), ['https://ats.example.de/index.php?ac=jobad&id=61073'])
+        self.assertTrue(slug_candidate(list(urls)[0], src, ctx))
