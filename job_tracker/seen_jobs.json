@@ -5579,7 +5579,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-14T04:17:07.407591+00:00",
+ "last_send_slot": "2026-11-14T05:10:25.982563+00:00",
  "last_status_date": "2026-11-13",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5627,7 +5627,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1061,
+   "last_listed": 1045,
    "last_ok": "2026-11-14"
   },
   "BNP Paribas (email alerts)": {
@@ -5681,7 +5681,7 @@
    "last_ok": "2026-11-14"
   },
   "BlackRock": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://blackrock.wd1.myworkdayjobs.com/wday/cxs/blackrock/BlackRock_Professional/jobs",
    "last_listed": 37,
    "last_ok": "2026-11-13"
@@ -5728,17 +5728,17 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1379,
+   "last_listed": 1377,
    "last_ok": "2026-11-14"
   },
   "Castleton Commodities": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://osv-cci.wd1.myworkdayjobs.com/wday/cxs/osv_cci/CCICareers/jobs",
    "last_listed": 6,
    "last_ok": "2026-11-13"
   },
   "Chevron": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://chevron.wd5.myworkdayjobs.com/wday/cxs/chevron/jobs/jobs",
    "last_listed": 4,
    "last_ok": "2026-11-13"
@@ -5749,7 +5749,7 @@
    "last_ok": "2026-11-14"
   },
   "Citi": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://citi.wd5.myworkdayjobs.com/wday/cxs/citi/2/jobs",
    "last_listed": 597,
    "last_ok": "2026-11-13"
@@ -5760,7 +5760,7 @@
    "last_ok": "2026-11-14"
   },
   "ConocoPhillips": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://conocophillips.wd1.myworkdayjobs.com/wday/cxs/conocophillips/External/jobs",
    "last_listed": 1,
    "last_ok": "2026-11-13"
@@ -5772,7 +5772,7 @@
   },
   "DBS Bank": {
    "consecutive_failures": 0,
-   "last_listed": 636,
+   "last_listed": 637,
    "last_ok": "2026-11-14"
   },
   "DNB Markets": {
@@ -5800,7 +5800,7 @@
    "last_ok": "2026-11-14"
   },
   "EDF Trading": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://edftrading.wd1.myworkdayjobs.com/wday/cxs/edftrading/EDFTrading/jobs",
    "last_listed": 24,
    "last_ok": "2026-11-13"
@@ -5934,7 +5934,7 @@
    "last_ok": "2026-11-14"
   },
   "Invesco": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://invesco.wd1.myworkdayjobs.com/wday/cxs/invesco/IVZ/jobs",
    "last_listed": 20,
    "last_ok": "2026-11-13"
@@ -6045,7 +6045,7 @@
    "last_ok": "2026-11-14"
   },
   "Morgan Stanley": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://ms.wd5.myworkdayjobs.com/wday/cxs/ms/External/jobs",
    "last_listed": 108,
    "last_ok": "2026-11-13"
@@ -6061,7 +6061,8 @@
    "last_ok": "2026-11-14"
   },
   "Nomura": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 404 Client Error: Not Found for url: https://careers.nomura.com/sitemap.xml",
    "last_listed": 519,
    "last_ok": "2026-11-14"
   },
@@ -6127,7 +6128,7 @@
   },
   "Repsol (incl. Repsol Trading)": {
    "consecutive_failures": 0,
-   "last_listed": 67,
+   "last_listed": 64,
    "last_ok": "2026-11-14"
   },
   "SMBC (Asia)": {
@@ -6156,7 +6157,8 @@
    "last_ok": "2026-11-14"
   },
   "Scotiabank": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 404 Client Error: Not Found for url: https://jobs.scotiabank.com/search/?q=&locationsearch=London&startrow=0",
    "last_listed": 27,
    "last_ok": "2026-11-14"
   },
@@ -6181,7 +6183,7 @@
    "last_ok": "2026-11-14"
   },
   "State Street": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://statestreet.wd1.myworkdayjobs.com/wday/cxs/statestreet/Global/jobs",
    "last_listed": 92,
    "last_ok": "2026-11-13"
@@ -6232,7 +6234,7 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 685,
+   "last_listed": 693,
    "last_ok": "2026-11-14"
   },
   "UOB": {
@@ -6256,7 +6258,7 @@
    "last_ok": "2026-11-14"
   },
   "Wellington Management": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://wellington.wd5.myworkdayjobs.com/wday/cxs/wellington/External/jobs",
    "last_listed": 35,
    "last_ok": "2026-11-13"
