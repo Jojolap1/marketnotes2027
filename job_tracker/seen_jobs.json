@@ -5579,7 +5579,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-14T06:10:45.974480+00:00",
+ "last_send_slot": "2026-11-14T07:10:37.952679+00:00",
  "last_status_date": "2026-11-13",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5621,12 +5621,14 @@
    "last_ok": "2026-11-14"
   },
   "BBVA": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 502 Server Error: Bad Gateway for url: https://bbva.wd3.myworkdayjobs.com/wday/cxs/bbva/BBVA/jobs",
    "last_listed": 19,
    "last_ok": "2026-11-14"
   },
   "BMO Capital Markets": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 1042,
    "last_ok": "2026-11-14"
   },
@@ -5641,12 +5643,14 @@
    "last_ok": "2026-11-14"
   },
   "BP": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 18,
    "last_ok": "2026-11-14"
   },
   "BP (early careers)": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 7,
    "last_ok": "2026-11-14"
   },
@@ -5681,13 +5685,14 @@
    "last_ok": "2026-11-14"
   },
   "BlackRock": {
-   "consecutive_failures": 3,
+   "consecutive_failures": 4,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://blackrock.wd1.myworkdayjobs.com/wday/cxs/blackrock/BlackRock_Professional/jobs",
    "last_listed": 37,
    "last_ok": "2026-11-13"
   },
   "Brevan Howard": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 1,
    "last_ok": "2026-11-14"
   },
@@ -5732,13 +5737,13 @@
    "last_ok": "2026-11-14"
   },
   "Castleton Commodities": {
-   "consecutive_failures": 3,
+   "consecutive_failures": 4,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://osv-cci.wd1.myworkdayjobs.com/wday/cxs/osv_cci/CCICareers/jobs",
    "last_listed": 6,
    "last_ok": "2026-11-13"
   },
   "Chevron": {
-   "consecutive_failures": 3,
+   "consecutive_failures": 4,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://chevron.wd5.myworkdayjobs.com/wday/cxs/chevron/jobs/jobs",
    "last_listed": 4,
    "last_ok": "2026-11-13"
@@ -5749,18 +5754,19 @@
    "last_ok": "2026-11-14"
   },
   "Citi": {
-   "consecutive_failures": 3,
+   "consecutive_failures": 4,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://citi.wd5.myworkdayjobs.com/wday/cxs/citi/2/jobs",
    "last_listed": 597,
    "last_ok": "2026-11-13"
   },
   "CommBank": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 3,
    "last_ok": "2026-11-14"
   },
   "ConocoPhillips": {
-   "consecutive_failures": 3,
+   "consecutive_failures": 4,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://conocophillips.wd1.myworkdayjobs.com/wday/cxs/conocophillips/External/jobs",
    "last_listed": 1,
    "last_ok": "2026-11-13"
@@ -5800,13 +5806,14 @@
    "last_ok": "2026-11-14"
   },
   "EDF Trading": {
-   "consecutive_failures": 3,
+   "consecutive_failures": 4,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://edftrading.wd1.myworkdayjobs.com/wday/cxs/edftrading/EDFTrading/jobs",
    "last_listed": 24,
    "last_ok": "2026-11-13"
   },
   "Eastspring Investments": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 502 Server Error: Bad Gateway for url: https://prudential.wd3.myworkdayjobs.com/wday/cxs/prudential/prudential_eastspring/jobs",
    "last_listed": 22,
    "last_ok": "2026-11-14"
   },
@@ -5825,7 +5832,8 @@
    "last_ok": "2026-11-14"
   },
   "Equinor": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 1,
    "last_ok": "2026-11-14"
   },
@@ -5899,7 +5907,8 @@
    "last_ok": "2026-11-14"
   },
   "Gunvor": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 10,
    "last_ok": "2026-11-14"
   },
@@ -5929,12 +5938,13 @@
    "last_ok": "2026-11-14"
   },
   "ING": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 502 Server Error: Bad Gateway for url: https://ing.wd3.myworkdayjobs.com/wday/cxs/ing/ICSGBLCOR/jobs",
    "last_listed": 21,
    "last_ok": "2026-11-14"
   },
   "Invesco": {
-   "consecutive_failures": 3,
+   "consecutive_failures": 4,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://invesco.wd1.myworkdayjobs.com/wday/cxs/invesco/IVZ/jobs",
    "last_listed": 20,
    "last_ok": "2026-11-13"
@@ -5995,7 +6005,8 @@
    "last_ok": "2026-11-14"
   },
   "Lloyds Banking Group": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 31,
    "last_ok": "2026-11-14"
   },
@@ -6045,7 +6056,7 @@
    "last_ok": "2026-11-14"
   },
   "Morgan Stanley": {
-   "consecutive_failures": 3,
+   "consecutive_failures": 4,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://ms.wd5.myworkdayjobs.com/wday/cxs/ms/External/jobs",
    "last_listed": 108,
    "last_ok": "2026-11-13"
@@ -6061,7 +6072,7 @@
    "last_ok": "2026-11-14"
   },
   "Nomura": {
-   "consecutive_failures": 2,
+   "consecutive_failures": 3,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://careers.nomura.com/sitemap.xml",
    "last_listed": 519,
    "last_ok": "2026-11-14"
@@ -6127,7 +6138,8 @@
    "last_ok": "2026-11-14"
   },
   "Repsol (incl. Repsol Trading)": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 64,
    "last_ok": "2026-11-14"
   },
@@ -6157,13 +6169,13 @@
    "last_ok": "2026-11-14"
   },
   "Scotiabank": {
-   "consecutive_failures": 2,
-   "last_error": "HTTPError: 404 Client Error: Not Found for url: https://jobs.scotiabank.com/search/?q=&locationsearch=London&startrow=0",
+   "consecutive_failures": 0,
    "last_listed": 27,
    "last_ok": "2026-11-14"
   },
   "Shell": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 17,
    "last_ok": "2026-11-14"
   },
@@ -6183,7 +6195,7 @@
    "last_ok": "2026-11-14"
   },
   "State Street": {
-   "consecutive_failures": 3,
+   "consecutive_failures": 4,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://statestreet.wd1.myworkdayjobs.com/wday/cxs/statestreet/Global/jobs",
    "last_listed": 92,
    "last_ok": "2026-11-13"
@@ -6194,7 +6206,8 @@
    "last_ok": "2026-11-14"
   },
   "TD Securities": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 49,
    "last_ok": "2026-11-14"
   },
@@ -6223,7 +6236,8 @@
    "last_ok": "2026-11-14"
   },
   "Trafigura": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 500 Server Error: Internal Server Error for url: https://trafigura.wd3.myworkdayjobs.com/wday/cxs/trafigura/TrafiguraCareerSite/jobs",
    "last_listed": 14,
    "last_ok": "2026-11-14"
   },
@@ -6234,11 +6248,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 691,
+   "last_listed": 693,
    "last_ok": "2026-11-14"
   },
   "UOB": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 377,
    "last_ok": "2026-11-14"
   },
@@ -6258,7 +6273,7 @@
    "last_ok": "2026-11-14"
   },
   "Wellington Management": {
-   "consecutive_failures": 3,
+   "consecutive_failures": 4,
    "last_error": "HTTPError: 521 Server Error: <none> for url: https://wellington.wd5.myworkdayjobs.com/wday/cxs/wellington/External/jobs",
    "last_listed": 35,
    "last_ok": "2026-11-13"
