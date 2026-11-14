@@ -904,3 +904,17 @@ class BrassRingSectionTests(unittest.TestCase):
         text = _brassring_sections(ctx, 'UBS', 'https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&amp;jobid=1')
         self.assertIn('5 -7 years of relevant experience', text)
         self.assertEqual(ctx.classifier.experience(text).category, '2+')
+
+
+class MaintenancePageTests(unittest.TestCase):
+    def test_maintenance_page_reported_clearly(self):
+        from http_client import SiteUnavailable, _json
+
+        class Resp:
+            text = '<html>Workday is currently unavailable. English French</html>'
+
+            def json(self):
+                raise ValueError('Expecting value')
+        with self.assertRaises(SiteUnavailable) as err:
+            _json(Resp(), 'https://citi.wd5.myworkdayjobs.com/wday/cxs/citi/2/jobs')
+        self.assertIn('citi.wd5.myworkdayjobs.com is down for maintenance', str(err.exception))
