@@ -5354,6 +5354,22 @@
    "title": "Investment Analyst",
    "url": "https://ocbc.wd102.myworkdayjobs.com/External/job/BOS-Singapore/Investment-Analyst_JR00012029-1"
   },
+  "workday:osv_cci:R1419": {
+   "company": "Castleton Commodities",
+   "fingerprints": [
+    "id:workday:osv_cci:R1419",
+    "req:castleton commodities:r1419",
+    "url:https://osv-cci.wd1.myworkdayjobs.com/ccicareers/job/london-uk/commodities-trading-analyst-programme--rolling-application-for-0-3-years-experience-_r1419",
+    "title:castleton commodities:commodities trading analyst programme rolling application for 0 3 years experience:london"
+   ],
+   "first_seen": "2026-11-14T15:13:59+00:00",
+   "last_seen": "2026-11-14",
+   "location": "London, UK",
+   "notified_at": "2026-11-14T15:13:59+00:00",
+   "status": "open",
+   "title": "Commodities Trading Analyst Programme [Rolling Application for 0-3 Years Experience]",
+   "url": "https://osv-cci.wd1.myworkdayjobs.com/CCICareers/job/London-UK/Commodities-Trading-Analyst-Programme--Rolling-Application-for-0-3-Years-Experience-_R1419"
+  },
   "workday:rbc:R-0000190661": {
    "company": "RBC",
    "fingerprints": [
@@ -5385,6 +5401,38 @@
    "status": "open",
    "title": "Analyst, Rates Sales, LDI",
    "url": "https://rbc.wd3.myworkdayjobs.com/RBCGLOBAL1/job/London-United-Kingdom-of-Great-Britain-and-Northern-Ireland/Analyst--Rates-Sales--LDI_R-0000191683-1"
+  },
+  "workday:rbs:R-00285741": {
+   "company": "NatWest Group",
+   "fingerprints": [
+    "id:workday:rbs:R-00285741",
+    "req:natwest group:r-00285741",
+    "url:https://rbs.wd3.myworkdayjobs.com/rbs/job/london/natwest-markets---quantitative-analytics--internship_r-00285741",
+    "title:natwest group:natwest markets quantitative analytics internship:london"
+   ],
+   "first_seen": "2026-11-14T15:14:01+00:00",
+   "last_seen": "2026-11-14",
+   "location": "London",
+   "notified_at": "2026-11-14T15:14:01+00:00",
+   "status": "open",
+   "title": "NatWest Markets - Quantitative Analytics- Internship",
+   "url": "https://rbs.wd3.myworkdayjobs.com/RBS/job/London/NatWest-Markets---Quantitative-Analytics--Internship_R-00285741"
+  },
+  "workday:rbs:R-00287631": {
+   "company": "NatWest Group",
+   "fingerprints": [
+    "id:workday:rbs:R-00287631",
+    "req:natwest group:r-00287631",
+    "url:https://rbs.wd3.myworkdayjobs.com/rbs/job/paris/natwest-markets---paris-internship_r-00287631",
+    "title:natwest group:natwest markets paris internship:paris"
+   ],
+   "first_seen": "2026-11-14T15:14:00+00:00",
+   "last_seen": "2026-11-14",
+   "location": "Paris",
+   "notified_at": "2026-11-14T15:14:00+00:00",
+   "status": "open",
+   "title": "NatWest Markets - Paris Internship",
+   "url": "https://rbs.wd3.myworkdayjobs.com/RBS/job/Paris/NatWest-Markets---Paris-Internship_R-00287631"
   },
   "workday:shell:R201954": {
    "company": "Shell",
@@ -5459,7 +5507,7 @@
     "title:wellington management:investment analyst:hong kong"
    ],
    "first_seen": "2026-11-03T08:12:00+00:00",
-   "last_seen": "2026-11-13",
+   "last_seen": "2026-11-14",
    "location": "Central Hong Kong, Hong Kong",
    "notified_at": "2026-11-03T08:12:00+00:00",
    "status": "open",
@@ -5579,7 +5627,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-14T14:14:39.384014+00:00",
+ "last_send_slot": "2026-11-14T15:13:57.502821+00:00",
  "last_status_date": "2026-11-14",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5681,8 +5729,8 @@
    "last_ok": "2026-11-14"
   },
   "BlackRock": {
-   "consecutive_failures": 11,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 12,
+   "last_error": "SiteUnavailable: blackrock.wd1.myworkdayjobs.com is down for maintenance (its \"currently unavailable\" page was served); later runs retry",
    "last_listed": 37,
    "last_ok": "2026-11-13"
   },
@@ -5728,20 +5776,18 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1374,
+   "last_listed": 1375,
    "last_ok": "2026-11-14"
   },
   "Castleton Commodities": {
-   "consecutive_failures": 11,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-   "last_listed": 6,
-   "last_ok": "2026-11-13"
+   "consecutive_failures": 0,
+   "last_listed": 7,
+   "last_ok": "2026-11-14"
   },
   "Chevron": {
-   "consecutive_failures": 11,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 4,
-   "last_ok": "2026-11-13"
+   "last_ok": "2026-11-14"
   },
   "China Galaxy (Chinastock)": {
    "consecutive_failures": 0,
@@ -5749,8 +5795,8 @@
    "last_ok": "2026-11-14"
   },
   "Citi": {
-   "consecutive_failures": 11,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 12,
+   "last_error": "SiteUnavailable: citi.wd5.myworkdayjobs.com is down for maintenance (its \"currently unavailable\" page was served); later runs retry",
    "last_listed": 597,
    "last_ok": "2026-11-13"
   },
@@ -5759,9 +5805,14 @@
    "last_listed": 3,
    "last_ok": "2026-11-14"
   },
+  "Commerzbank": {
+   "consecutive_failures": 0,
+   "last_listed": 433,
+   "last_ok": "2026-11-14"
+  },
   "ConocoPhillips": {
-   "consecutive_failures": 11,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 12,
+   "last_error": "SiteUnavailable: conocophillips.wd1.myworkdayjobs.com is down for maintenance (its \"currently unavailable\" page was served); later runs retry",
    "last_listed": 1,
    "last_ok": "2026-11-13"
   },
@@ -5800,8 +5851,8 @@
    "last_ok": "2026-11-14"
   },
   "EDF Trading": {
-   "consecutive_failures": 11,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 12,
+   "last_error": "SiteUnavailable: edftrading.wd1.myworkdayjobs.com is down for maintenance (its \"currently unavailable\" page was served); later runs retry",
    "last_listed": 24,
    "last_ok": "2026-11-13"
   },
@@ -5934,8 +5985,8 @@
    "last_ok": "2026-11-14"
   },
   "Invesco": {
-   "consecutive_failures": 11,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 12,
+   "last_error": "SiteUnavailable: invesco.wd1.myworkdayjobs.com is down for maintenance (its \"currently unavailable\" page was served); later runs retry",
    "last_listed": 20,
    "last_ok": "2026-11-13"
   },
@@ -5999,6 +6050,11 @@
    "last_listed": 31,
    "last_ok": "2026-11-14"
   },
+  "Louis Dreyfus Company": {
+   "consecutive_failures": 0,
+   "last_listed": 363,
+   "last_ok": "2026-11-14"
+  },
   "MUFG": {
    "consecutive_failures": 0,
    "last_listed": 144,
@@ -6045,10 +6101,14 @@
    "last_ok": "2026-11-14"
   },
   "Morgan Stanley": {
-   "consecutive_failures": 11,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 108,
-   "last_ok": "2026-11-13"
+   "last_ok": "2026-11-14"
+  },
+  "NatWest Group": {
+   "consecutive_failures": 0,
+   "last_listed": 34,
+   "last_ok": "2026-11-14"
   },
   "National Bank of Canada": {
    "consecutive_failures": 0,
@@ -6181,8 +6241,8 @@
    "last_ok": "2026-11-14"
   },
   "State Street": {
-   "consecutive_failures": 11,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 12,
+   "last_error": "SiteUnavailable: statestreet.wd1.myworkdayjobs.com is down for maintenance (its \"currently unavailable\" page was served); later runs retry",
    "last_listed": 92,
    "last_ok": "2026-11-13"
   },
@@ -6256,14 +6316,13 @@
    "last_ok": "2026-11-14"
   },
   "Wellington Management": {
-   "consecutive_failures": 11,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 35,
-   "last_ok": "2026-11-13"
+   "last_ok": "2026-11-14"
   },
   "Wells Fargo": {
-   "consecutive_failures": 7,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 8,
+   "last_error": "SiteUnavailable: wd1.myworkdaysite.com is down for maintenance (its \"currently unavailable\" page was served); later runs retry",
    "last_listed": 14,
    "last_ok": "2026-11-14"
   },
