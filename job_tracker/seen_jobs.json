@@ -5579,7 +5579,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-14T08:08:03.955606+00:00",
+ "last_send_slot": "2026-11-14T09:15:00.996476+00:00",
  "last_status_date": "2026-11-13",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5621,15 +5621,13 @@
    "last_ok": "2026-11-14"
   },
   "BBVA": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 19,
    "last_ok": "2026-11-14"
   },
   "BMO Capital Markets": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-   "last_listed": 1042,
+   "consecutive_failures": 0,
+   "last_listed": 1036,
    "last_ok": "2026-11-14"
   },
   "BNP Paribas (email alerts)": {
@@ -5643,14 +5641,12 @@
    "last_ok": "2026-11-14"
   },
   "BP": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 18,
    "last_ok": "2026-11-14"
   },
   "BP (early careers)": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 7,
    "last_ok": "2026-11-14"
   },
@@ -5675,8 +5671,7 @@
    "last_ok": "2026-11-14"
   },
   "Barclays": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 95,
    "last_ok": "2026-11-14"
   },
@@ -5686,14 +5681,13 @@
    "last_ok": "2026-11-14"
   },
   "BlackRock": {
-   "consecutive_failures": 5,
-   "last_error": "HTTPError: 521 Server Error: <none> for url: https://blackrock.wd1.myworkdayjobs.com/wday/cxs/blackrock/BlackRock_Professional/jobs",
+   "consecutive_failures": 6,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 37,
    "last_ok": "2026-11-13"
   },
   "Brevan Howard": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 1,
    "last_ok": "2026-11-14"
   },
@@ -5708,8 +5702,7 @@
    "last_ok": "2026-11-14"
   },
   "CIBC": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 4,
    "last_ok": "2026-11-14"
   },
@@ -5724,8 +5717,7 @@
    "last_ok": "2026-11-14"
   },
   "CITIC CLSA (CITIC Securities)": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 226,
    "last_ok": "2026-11-14"
   },
@@ -5740,14 +5732,14 @@
    "last_ok": "2026-11-14"
   },
   "Castleton Commodities": {
-   "consecutive_failures": 5,
-   "last_error": "HTTPError: 521 Server Error: <none> for url: https://osv-cci.wd1.myworkdayjobs.com/wday/cxs/osv_cci/CCICareers/jobs",
+   "consecutive_failures": 6,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 6,
    "last_ok": "2026-11-13"
   },
   "Chevron": {
-   "consecutive_failures": 5,
-   "last_error": "HTTPError: 521 Server Error: <none> for url: https://chevron.wd5.myworkdayjobs.com/wday/cxs/chevron/jobs/jobs",
+   "consecutive_failures": 6,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 4,
    "last_ok": "2026-11-13"
   },
@@ -5757,20 +5749,19 @@
    "last_ok": "2026-11-14"
   },
   "Citi": {
-   "consecutive_failures": 5,
-   "last_error": "HTTPError: 521 Server Error: <none> for url: https://citi.wd5.myworkdayjobs.com/wday/cxs/citi/2/jobs",
+   "consecutive_failures": 6,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 597,
    "last_ok": "2026-11-13"
   },
   "CommBank": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 3,
    "last_ok": "2026-11-14"
   },
   "ConocoPhillips": {
-   "consecutive_failures": 5,
-   "last_error": "HTTPError: 521 Server Error: <none> for url: https://conocophillips.wd1.myworkdayjobs.com/wday/cxs/conocophillips/External/jobs",
+   "consecutive_failures": 6,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 1,
    "last_ok": "2026-11-13"
   },
@@ -5780,8 +5771,7 @@
    "last_ok": "2026-11-14"
   },
   "DBS Bank": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 637,
    "last_ok": "2026-11-14"
   },
@@ -5805,20 +5795,18 @@
    "last_ok": "2026-11-14"
   },
   "Deutsche Bank": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 85,
    "last_ok": "2026-11-14"
   },
   "EDF Trading": {
-   "consecutive_failures": 5,
-   "last_error": "HTTPError: 521 Server Error: <none> for url: https://edftrading.wd1.myworkdayjobs.com/wday/cxs/edftrading/EDFTrading/jobs",
+   "consecutive_failures": 6,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 24,
    "last_ok": "2026-11-13"
   },
   "Eastspring Investments": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 22,
    "last_ok": "2026-11-14"
   },
@@ -5837,8 +5825,7 @@
    "last_ok": "2026-11-14"
   },
   "Equinor": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 1,
    "last_ok": "2026-11-14"
   },
@@ -5849,12 +5836,11 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 507,
+   "last_listed": 504,
    "last_ok": "2026-11-14"
   },
   "Fidelity International": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 21,
    "last_ok": "2026-11-14"
   },
@@ -5913,19 +5899,17 @@
    "last_ok": "2026-11-14"
   },
   "Gunvor": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 10,
    "last_ok": "2026-11-14"
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 338,
+   "last_listed": 335,
    "last_ok": "2026-11-14"
   },
   "Haitong International": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 1,
    "last_ok": "2026-11-14"
   },
@@ -5945,14 +5929,13 @@
    "last_ok": "2026-11-14"
   },
   "ING": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 21,
    "last_ok": "2026-11-14"
   },
   "Invesco": {
-   "consecutive_failures": 5,
-   "last_error": "HTTPError: 521 Server Error: <none> for url: https://invesco.wd1.myworkdayjobs.com/wday/cxs/invesco/IVZ/jobs",
+   "consecutive_failures": 6,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 20,
    "last_ok": "2026-11-13"
   },
@@ -6012,14 +5995,12 @@
    "last_ok": "2026-11-14"
   },
   "Lloyds Banking Group": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 31,
    "last_ok": "2026-11-14"
   },
   "MUFG": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 144,
    "last_ok": "2026-11-14"
   },
@@ -6064,8 +6045,8 @@
    "last_ok": "2026-11-14"
   },
   "Morgan Stanley": {
-   "consecutive_failures": 5,
-   "last_error": "HTTPError: 521 Server Error: <none> for url: https://ms.wd5.myworkdayjobs.com/wday/cxs/ms/External/jobs",
+   "consecutive_failures": 6,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 108,
    "last_ok": "2026-11-13"
   },
@@ -6080,7 +6061,7 @@
    "last_ok": "2026-11-14"
   },
   "Nomura": {
-   "consecutive_failures": 4,
+   "consecutive_failures": 5,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://careers.nomura.com/sitemap.xml",
    "last_listed": 519,
    "last_ok": "2026-11-14"
@@ -6092,7 +6073,7 @@
   },
   "OCBC / Bank of Singapore": {
    "consecutive_failures": 0,
-   "last_listed": 700,
+   "last_listed": 699,
    "last_ok": "2026-11-14"
   },
   "Old Mission": {
@@ -6136,8 +6117,7 @@
    "last_ok": "2026-11-14"
   },
   "RBC": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 15,
    "last_ok": "2026-11-14"
   },
@@ -6147,8 +6127,7 @@
    "last_ok": "2026-11-14"
   },
   "Repsol (incl. Repsol Trading)": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 64,
    "last_ok": "2026-11-14"
   },
@@ -6163,8 +6142,7 @@
    "last_ok": "2026-11-14"
   },
   "Santander CIB": {
-   "consecutive_failures": 1,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 67,
    "last_ok": "2026-11-14"
   },
@@ -6184,8 +6162,7 @@
    "last_ok": "2026-11-14"
   },
   "Shell": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 17,
    "last_ok": "2026-11-14"
   },
@@ -6205,8 +6182,8 @@
    "last_ok": "2026-11-14"
   },
   "State Street": {
-   "consecutive_failures": 5,
-   "last_error": "HTTPError: 521 Server Error: <none> for url: https://statestreet.wd1.myworkdayjobs.com/wday/cxs/statestreet/Global/jobs",
+   "consecutive_failures": 6,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 92,
    "last_ok": "2026-11-13"
   },
@@ -6216,8 +6193,7 @@
    "last_ok": "2026-11-14"
   },
   "TD Securities": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 49,
    "last_ok": "2026-11-14"
   },
@@ -6246,8 +6222,7 @@
    "last_ok": "2026-11-14"
   },
   "Trafigura": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 14,
    "last_ok": "2026-11-14"
   },
@@ -6262,8 +6237,7 @@
    "last_ok": "2026-11-14"
   },
   "UOB": {
-   "consecutive_failures": 2,
-   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+   "consecutive_failures": 0,
    "last_listed": 377,
    "last_ok": "2026-11-14"
   },
@@ -6283,13 +6257,13 @@
    "last_ok": "2026-11-14"
   },
   "Wellington Management": {
-   "consecutive_failures": 5,
-   "last_error": "HTTPError: 521 Server Error: <none> for url: https://wellington.wd5.myworkdayjobs.com/wday/cxs/wellington/External/jobs",
+   "consecutive_failures": 6,
+   "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 35,
    "last_ok": "2026-11-13"
   },
   "Wells Fargo": {
-   "consecutive_failures": 1,
+   "consecutive_failures": 2,
    "last_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
    "last_listed": 14,
    "last_ok": "2026-11-14"
