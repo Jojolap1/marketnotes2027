@@ -5657,7 +5657,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-15T12:11:32.870121+00:00",
+ "last_send_slot": "2026-11-15T13:12:09.616419+00:00",
  "last_status_date": "2026-11-14",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5670,7 +5670,7 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 179,
+   "last_listed": 177,
    "last_ok": "2026-11-15"
   },
   "ANZ (careers site)": {
@@ -5705,7 +5705,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1024,
+   "last_listed": 1021,
    "last_ok": "2026-11-15"
   },
   "BNP Paribas (email alerts)": {
@@ -5805,7 +5805,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1362,
+   "last_listed": 1360,
    "last_ok": "2026-11-15"
   },
   "Castleton Commodities": {
@@ -6217,7 +6217,7 @@
   },
   "SMBC (Asia)": {
    "consecutive_failures": 0,
-   "last_listed": 283,
+   "last_listed": 282,
    "last_ok": "2026-11-15"
   },
   "SMBC (EMEA)": {
