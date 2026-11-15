@@ -5657,7 +5657,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-15T09:16:42.054912+00:00",
+ "last_send_slot": "2026-11-15T10:11:56.119628+00:00",
  "last_status_date": "2026-11-14",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5982,7 +5982,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 334,
+   "last_listed": 331,
    "last_ok": "2026-11-15"
   },
   "Haitong International": {
@@ -6057,7 +6057,7 @@
   },
   "LinkedIn (job alerts)": {
    "consecutive_failures": 0,
-   "last_listed": 227,
+   "last_listed": 233,
    "last_ok": "2026-11-15"
   },
   "LinkedIn (posts)": {
@@ -6252,7 +6252,7 @@
   },
   "Société Générale": {
    "consecutive_failures": 0,
-   "last_listed": 1010,
+   "last_listed": 1009,
    "last_ok": "2026-11-15"
   },
   "Squarepoint Capital": {
@@ -6321,7 +6321,7 @@
   },
   "UOB": {
    "consecutive_failures": 0,
-   "last_listed": 376,
+   "last_listed": 377,
    "last_ok": "2026-11-15"
   },
   "Virtu Financial": {
