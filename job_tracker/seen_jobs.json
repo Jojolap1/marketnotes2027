@@ -5657,8 +5657,8 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-15T13:12:09.616419+00:00",
- "last_status_date": "2026-11-14",
+ "last_send_slot": "2026-11-15T14:15:56.484668+00:00",
+ "last_status_date": "2026-11-15",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
  },
@@ -5705,7 +5705,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1021,
+   "last_listed": 1025,
    "last_ok": "2026-11-15"
   },
   "BNP Paribas (email alerts)": {
@@ -5775,7 +5775,7 @@
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 850,
+   "last_listed": 848,
    "last_ok": "2026-11-15"
   },
   "CIBC": {
@@ -5898,7 +5898,7 @@
   },
   "Engie": {
    "consecutive_failures": 0,
-   "last_listed": 1583,
+   "last_listed": 1582,
    "last_ok": "2026-11-15"
   },
   "Equinor": {
