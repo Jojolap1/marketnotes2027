@@ -5657,7 +5657,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-15T04:22:05.874596+00:00",
+ "last_send_slot": "2026-11-15T05:14:15.618078+00:00",
  "last_status_date": "2026-11-14",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -5705,7 +5705,7 @@
   },
   "BMO Capital Markets": {
    "consecutive_failures": 0,
-   "last_listed": 1037,
+   "last_listed": 1029,
    "last_ok": "2026-11-15"
   },
   "BNP Paribas (email alerts)": {
@@ -5745,7 +5745,7 @@
   },
   "Bank of America (campus)": {
    "consecutive_failures": 0,
-   "last_listed": 20,
+   "last_listed": 18,
    "last_ok": "2026-11-15"
   },
   "Barclays": {
@@ -5982,7 +5982,7 @@
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 332,
+   "last_listed": 334,
    "last_ok": "2026-11-15"
   },
   "Haitong International": {
@@ -6212,7 +6212,7 @@
   },
   "Repsol (incl. Repsol Trading)": {
    "consecutive_failures": 0,
-   "last_listed": 62,
+   "last_listed": 59,
    "last_ok": "2026-11-15"
   },
   "SMBC (Asia)": {
