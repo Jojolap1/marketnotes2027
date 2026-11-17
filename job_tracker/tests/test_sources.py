@@ -423,7 +423,7 @@ class AtsTests(unittest.TestCase):
 
 
 SG_PAGE = '''<html><head><title>Trainee</title><script type="application/ld+json">{"@context":"https://schema.org","@type":"JobPosting",
-"title":"TRAINEE: Sales Assistant","description":"<p>Trainee contract. Students.</p>","datePosted":"2026/10/14","validThrough":"2026/11/16",
+"title":"TRAINEE: Sales Assistant","description":"<p>Trainee contract. Students.</p>","datePosted":"2026/10/14","validThrough":"2099/12/31",
 "employmentType":"Trainee","jobLocation":{"@type":"Place","address":{"addressLocality":"Hong Kong","addressCountry":"HK"}}}</script></head>
 <body><nav>London Paris Singapore Senior Director 10 years experience</nav><h1>TRAINEE: Sales Assistant</h1><a href="/apply">Apply</a></body></html>'''
 
