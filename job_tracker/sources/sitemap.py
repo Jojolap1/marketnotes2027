@@ -21,11 +21,11 @@ from bs4 import BeautifulSoup
 
 from jobs import html_to_text, make_job
 from sources.context import slug_words
-from status import CLOSED, assess_page
+from status import CLOSED, assess_page, parse_date
 
 LOG = logging.getLogger(__name__)
 # Bump when parse_detail output changes so cached pages are re-parsed.
-PAGE_KEY = 'page:v3:'
+PAGE_KEY = 'page:v4:'   # v4: end dates older than the posting date ignored (2026-11-19)
 LOCATION_SELECTORS = ('[itemprop="jobLocation"]', '[data-testid*="location"]', '.job-location', '.jobLocation',
                       '[class*="job-location"]', '[class*="jobGeoLocation"]', '[itemprop="addressLocality"]')
 
@@ -135,6 +135,11 @@ def parse_detail(html, url, source):
         location = _places(posting)
         valid_through = posting.get('validThrough') or ''
         published = posting.get('datePosted') or ''
+        # A republished advert can keep its old end date (SG Junior Credit Sales
+        # HK: validThrough 2026/10/18, datePosted 2026/11/17): ignored then
+        end, start = parse_date(valid_through), parse_date(published)
+        if end and start and end < start:
+            valid_through = ''
         employment = posting.get('employmentType') or ''
         if isinstance(employment, list):
             employment = ', '.join(employment)

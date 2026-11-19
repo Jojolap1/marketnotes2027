@@ -355,3 +355,11 @@ class GenericProgrammeTitleTests(unittest.TestCase):
                      location='Hong Kong', company='Dymon Asia')
         self.assertEqual(c.role_family, 'Asset & Portfolio Management')
         self.assertFalse(c.reject_reason)
+
+
+class ReferenceCheckTests(unittest.TestCase):
+    def test_hk_mandatory_reference_checking_is_not_experience(self):
+        c = classify('Junior Credit Sales, Analyst', 'Junior sales in the team. This is an in-scope position under the MRC Scheme. '
+                     'Authorized Institutions need to obtain specific references from past employers for whom you have worked '
+                     'during the preceding seven years.', location='Hong Kong')
+        self.assertNotIn('years of experience', c.reject_reason or '')

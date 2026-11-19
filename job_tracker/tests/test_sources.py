@@ -445,6 +445,12 @@ class SitemapTests(unittest.TestCase):
         self.assertNotIn('10 years', d['description'])
         self.assertEqual(d['status'], 'open')
 
+    def test_end_date_older_than_posting_date_is_ignored(self):
+        # SG Junior Credit Sales HK (2026-11-19): republished with its old validThrough
+        page = SG_PAGE.replace('"datePosted":"2026/10/14","validThrough":"2099/12/31"', '"datePosted":"2026/11/17","validThrough":"2026/10/18"')
+        d = parse_detail(page, 'u', {})
+        self.assertNotEqual(d['status'], 'closed')
+
     def test_business_line_suffix_in_structured_title_removed(self):
         page = SG_PAGE.replace('"title":"TRAINEE: Sales Assistant"',
                                '"title":"TRAINEE: Sales Assistant - Corporate & Investment banking - Hong Kong, Hong Kong"')
