@@ -254,7 +254,10 @@
       "\\bteam assistant\\b",
       "\\b(?:uae|emirati|saudi|qatari|omani|kuwaiti|bahraini) nationals?\\b|\\bnationals only\\b|\\bemiratisation\\b",
       "\\b(?:sales )?incentive\\b|\\bcompensation\\b",
-      "\\bbusiness anal\\w+\\b"
+      "\\bbusiness anal\\w+\\b",
+      "\\bjuridique\\b",
+      "\\bjuriste\\b",
+      "\\bconformit[ée]\\b"
     ],
     "entry_types": {
       "vie": [
