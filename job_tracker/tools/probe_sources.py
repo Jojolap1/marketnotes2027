@@ -2763,6 +2763,62 @@ def mizuho_widget():
 R87 = [('R87 Mizuho widget config', mizuho_widget)]
 PROBES = PROBES + R87
 
+
+def ats_guess(slugs):
+    out = []
+    for b in slugs:
+        for kind, url in (('gh', f'https://boards-api.greenhouse.io/v1/boards/{b}/jobs'), ('lever', f'https://api.lever.co/v0/postings/{b}?mode=json'),
+                          ('ashby', f'https://api.ashbyhq.com/posting-api/job-board/{b}'), ('sr', f'https://api.smartrecruiters.com/v1/companies/{b}/postings')):
+            try:
+                r = S.get(url, timeout=15)
+            except Exception as exc:
+                continue
+            if r.status_code == 200 and '"totalFound":0' not in r.text and r.text.strip() not in ('[]', '{"jobs":[]}'):
+                out.append(f'{kind}:{b} -> {r.text[:160]!r}')
+    return '\n'.join(out) or 'no ATS board found'
+
+
+MISSING = {
+    'Dymon Asia': ('https://www.dymonasia.com/careers', ['dymonasia', 'dymon', 'dymonasiacapital']),
+    'Citadel': ('https://www.citadel.com/careers/open-opportunities/', ['citadel']),
+    'Segantii': ('https://www.segantii.com/careers', ['segantii', 'segantiicapital']),
+    'Polymer Capital': ('https://www.polymercapital.com/careers', ['polymer', 'polymercapital']),
+    'LMR Partners': ('https://www.lmrpartners.com/careers', ['lmrpartners', 'lmr']),
+    'Eisler Capital': ('https://www.eislercapital.com/careers', ['eislercapital', 'eisler']),
+    'Caxton': ('https://www.caxton.com/careers', ['caxton', 'caxtonassociates']),
+    'Tudor': ('https://www.tudor.com/careers', ['tudor', 'tudorinvestment']),
+    'Winton': ('https://www.winton.com/careers', ['winton', 'wintongroup']),
+    'Hudson Bay': ('https://www.hudsonbaycapital.com/careers', ['hudsonbaycapital', 'hudsonbay']),
+    'Verition': ('https://www.verition.com/careers', ['verition', 'veritionfund']),
+    'PIMCO': ('https://www.pimco.com/en-us/our-firm/careers', ['pimco']),
+    'AXA IM': ('https://www.axa-im.com/careers', ['axaim', 'axainvestmentmanagers']),
+    'Allianz GI': ('https://careers.allianzgi.com/', ['allianzgi']),
+    'Nikko AM': ('https://www.nikkoam.com.sg/careers', ['nikkoam']),
+    'Lion Global': ('https://www.lionglobalinvestors.com/en/careers.html', ['lionglobal']),
+    'GIC': ('https://www.gic.com.sg/careers/', ['gic']),
+    'Temasek': ('https://www.temasek.com.sg/en/join-us', ['temasek']),
+    'Phillip Securities': ('https://www.poems.com.sg/careers/', ['phillip', 'phillipcapital']),
+    'Bank of East Asia': ('https://www.hkbea.com/html/en/bea-about-bea-careers.html', ['bea']),
+    'Futu': ('https://www.futuholdings.com/en/careers', ['futu']),
+    'Mirae Asset': ('https://www.miraeasset.com.hk/en/careers', ['miraeasset']),
+    'Value Partners': ('https://www.valuepartners-group.com/en/about-us/careers/', ['valuepartners']),
+    'PAG': ('https://www.pag.com/careers/', ['pag']),
+    'Tikehau': ('https://www.tikehaucapital.com/en/careers', ['tikehaucapital', 'tikehau']),
+    'Carmignac': ('https://www.carmignac.com/en/careers', ['carmignac']),
+    'Lazard': ('https://www.lazard.com/careers/', ['lazard']),
+    'Rothschild & Co': ('https://www.rothschildandco.com/en/careers/', ['rothschildandco', 'rothschild']),
+    'Winterflood': ('https://www.winterflood.com/careers', ['winterflood']),
+    'BB Energy': ('https://www.bbenergy.com/careers', ['bbenergy']),
+    'Unipec': ('https://www.unipec.com/en/', []),
+    'Ninety One': ('https://ninetyone.com/en/united-kingdom/about-us/careers', ['ninetyone']),
+}
+R89 = []
+for _name, (_url, _slugs) in MISSING.items():
+    R89.append((f'R89 {_name} page', lambda u=_url: discover(u)))
+    if _slugs:
+        R89.append((f'R89 {_name} ats', lambda s=_slugs: ats_guess(s)))
+PROBES = PROBES + R89
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

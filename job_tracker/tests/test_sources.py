@@ -712,6 +712,12 @@ class LinkedInPostTests(unittest.TestCase):
                 'Je recherche un stagiaire pour notre desk de trading à Paris. Envoyez votre CV en MP.</a>')
         self.assertEqual(len(self.parse(html)), 1)
 
+    def test_recruiter_asking_for_cv_firstname_lastname_mails_is_kept(self):
+        for text in ('Nous recrutons un stagiaire Sales & Trading à Paris. Envoyez votre candidature avec pour objet ¶ CV Prénom Nom - Stage S&T ¶ à desk@bank.fr',
+                     'We are hiring a Graduate Trader in London ¶ CV Jane Doe - Graduate Trader ¶ is the subject line to use, send it to jobs@fund.com'):
+            html = f'<a href="https://www.linkedin.com/feed/update/urn:li:activity:7259999999999999999">{text}</a>'
+            self.assertEqual(len(self.parse(html)), 1, text)
+
     def test_candidates_looking_for_a_job_are_ignored(self):
         for text in ('#OpenToWork I am looking for an internship in sales and trading in London. Happy to apply!',
                      'Je suis à la recherche d\'un stage en salle des marchés à Paris, n\'hésitez pas, offres de stage bienvenues.',
