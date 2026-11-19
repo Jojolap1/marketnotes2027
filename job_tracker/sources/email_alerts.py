@@ -105,9 +105,24 @@ SEEKER = re.compile(
     r"\bje (?:suis (?:actuellement )?à la )?recherche (?:d'|un |une |activement )(?:stage|alternance|emploi|poste|opportunit\w*|cdi|v\.?i\.?e)\b|"
     r"\b(?:je suis |actuellement )?à la recherche d'(?:un stage|une alternance|un emploi|un poste|une opportunit\w*|un v\.?i\.?e)\b", re.I)
 # A student sharing their CV ('CV Jane Doe - Financial Markets Internship 2027',
-# 'voici mon CV'): never an offer, whatever hiring words the post quotes (2026-11-18)
-CV_POST = re.compile(r"(?-i:(?:^|¶\s*)(?:CV|Resume|Résumé)\s*[-–:]?\s+[A-Z][\w'’-]+ [A-Z])|"
-                     r"\b(?:here is|here's|voici|attached|ci-joint) (?:my|mon) (?:cv|resume|résumé)\b|\bmy (?:cv|resume|résumé) (?:is )?(?:attached|below|ci-dessous)", re.I)
+# 'voici mon CV'): never an offer (2026-11-18). A recruiter asking for mails
+# titled 'CV Prénom Nom' / 'Objet : CV NOM Prénom' is still an offer: the
+# CV-title rule is skipped when the post asks for an application or a mail.
+CV_SELF = re.compile(r"\b(?:here is|here's|voici|attached|ci-joint) (?:my|mon) (?:cv|resume|résumé)\b|"
+                     r"\bmy (?:cv|resume|résumé) (?:is )?(?:attached|below|ci-dessous)", re.I)
+CV_TITLE = re.compile(r"(?-i:(?:^|¶\s*)(?:CV|Resume|Résumé)\s*[-–:]?\s+([A-Z][\w'’-]+ [A-Z][\w'’-]+))", re.I)
+CV_PLACEHOLDER = re.compile(r"\b(?:pr[ée]nom|nom|name|first|last|surname|family|votre|your|candidate?)\b", re.I)
+APPLY_ASK = re.compile(r"\b(?:envoy\w*|send|sending|email|e-mail|mail|objet|subject|intitul\w*|postul\w*|apply|candidat\w*|"
+                       r"adress\w*|contact\w*|dm|mp)\b|@", re.I)
+
+
+def is_cv_post(text):
+    if CV_SELF.search(text):
+        return True
+    title = CV_TITLE.search(text)
+    return bool(title and not CV_PLACEHOLDER.search(title.group(1)) and not APPLY_ASK.search(text))
+
+
 STRONG_HIRING = re.compile(r"#?\bhiring\b|\brecrut\w*|\brecruiting\b|\bjoin (?:our|my|the) (?:team|desk)|\brejoignez|\bnous (?:re)?cherch|\bon (?:re)?cherch", re.I)
 AUTHOR = re.compile(r"([A-Z][^\n.!?:]{1,70}?)\s+(?:posted|shared|reposted|commented|is hiring|a publié|a partagé|a republié|a commenté|recrute)\b")
 SENTENCE = re.compile(r'(?<=[.!?])\s+|\s+[|•·¶]\s+')
@@ -157,7 +172,7 @@ def post_jobs(blocks, source, ctx, published, evidence):
     jobs = []
     for key, url, text in blocks:
         ctx.stat(source['company'], 'posts')
-        if not HIRING.search(text) or CV_POST.search(text) or (SEEKER.search(text) and not STRONG_HIRING.search(text)):
+        if not HIRING.search(text) or is_cv_post(text) or (SEEKER.search(text) and not STRONG_HIRING.search(text)):
             continue
         ctx.stat(source['company'], 'hiring_posts')
         # 'recruiting' would read as a recruiter job (non front-office title)
