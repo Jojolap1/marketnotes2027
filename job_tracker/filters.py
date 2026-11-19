@@ -133,6 +133,14 @@ def _compile(patterns):
     return [re.compile(p, re.I) for p in patterns]
 
 
+# What is left of a programme title once its intake words are removed: nothing
+# for 'Summer Internship 2027' / 'Graduate Programme - London' (generic titles)
+GENERIC_TITLE_REST = re.compile(
+    r"\b(?:20\d\d|summer|winter|spring|off[- ]?cycle|intern(?:ship)?s?|graduates?|programmes?|programs?|analysts?|trainees?|"
+    r"fellowships?|campus|students?|full[- ]time|placements?|stages?|stagiaires?|london|paris|singapore|hong kong|dubai|apac|emea|asia|"
+    r"europe|global|uk|the|and|of|in|for)\b|[^\w]+", re.I)
+
+
 class Classifier:
     def __init__(self, config):
         f = config.get('filters', config)
@@ -141,6 +149,9 @@ class Classifier:
         self.cities = {city: _compile(pats) for city, pats in f['cities'].items()}
         self.roles = {fam: _compile(pats) for fam, pats in f['role_families'].items()}
         self.role_exclusions = _compile(f.get('role_exclusion_patterns', []))
+        # Investment firms whose generic programme titles ('Summer Internship
+        # 2027' at Tudor) are front-office: the role is read in the advert text
+        self.generic_title_firms = {normalize_text(s['company']) for s in config.get('sources', []) if s.get('generic_titles')}
         self.senior = _compile(f['senior_title_patterns'])
         # Words such as 'Associate' or 'Manager' are senior unless the title
         # also names an internship/graduate/trainee programme.
@@ -244,6 +255,9 @@ class Classifier:
                 c.reject_reason = 'experienced-hire title (associate/manager)'
                 return c
         c.role_family = self.role_family(title)
+        if (not c.role_family and title_entry and normalize_text(job.get('company')) in self.generic_title_firms
+                and not GENERIC_TITLE_REST.sub(' ', title).strip()):
+            c.role_family = self.role_family(description[:4000])
         if not c.role_family:
             c.reject_reason = 'role not targeted'
             return c

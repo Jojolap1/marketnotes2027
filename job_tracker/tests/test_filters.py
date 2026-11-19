@@ -8,7 +8,7 @@ C = Classifier(tracker.CONFIG)
 
 
 def classify(title, description='', location='London', **extra):
-    return C.classify(dict(title=title, description=description, location=location, company='Bank', **extra))
+    return C.classify(dict(dict(company='Bank'), title=title, description=description, location=location, **extra))
 
 
 class LegacyRegressionTests(unittest.TestCase):
@@ -332,3 +332,26 @@ class BareTitleWithAdvertTests(unittest.TestCase):
         self.assertIn('not visible', c.level_label)
         self.assertFalse(self.classify(self.TEXT + ' Experience within a tier 1 bank is required.').eligible)
         self.assertTrue(self.classify(self.TEXT + ' 1 year of experience is a plus.').eligible)
+
+
+class GenericProgrammeTitleTests(unittest.TestCase):
+    """Investment firms flagged generic_titles: 'Summer Internship 2027' is read in the advert."""
+
+    def test_hedge_fund_generic_internship_read_in_description(self):
+        c = classify('Summer Internship 2027', 'Interns join our investment and trading teams, working with portfolio managers.',
+                     company='Tudor Investment Corp')
+        self.assertTrue(c.role_family, c.reject_reason)
+
+    def test_generic_internship_in_support_team_still_rejected(self):
+        c = classify('Summer Internship 2027', 'Interns join our technology and HR teams.', company='Tudor Investment Corp')
+        self.assertEqual(c.reject_reason, 'role not targeted')
+
+    def test_bank_generic_title_not_read_in_description(self):
+        c = classify('Summer Internship 2027', 'Rotations across trading desks.', company='Bank')
+        self.assertEqual(c.reject_reason, 'role not targeted')
+
+    def test_equity_long_short_fellowship(self):
+        c = classify('2027 AI Equity Long/Short (ELS) Fellowship', 'For students joining the investment team.',
+                     location='Hong Kong', company='Dymon Asia')
+        self.assertEqual(c.role_family, 'Asset & Portfolio Management')
+        self.assertFalse(c.reject_reason)
