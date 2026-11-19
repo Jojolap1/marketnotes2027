@@ -2869,6 +2869,8 @@ def sg_offer(slug_part):
     out = [f'urls={urls[:4]}']
     for u in urls[:2]:
         page = get(u)
+        lds = re.findall(r'(?s)<script[^>]*ld\+json[^>]*>(.*?)</script>', page.text)
+        out.append('ld+json: ' + ' || '.join(re.sub(r'\s+', ' ', re.sub(r'<[^>]+>|\\u003c[^>]*?\\u003e', ' ', x))[:6000] for x in lds))
         text = re.sub(r'(?s)<(script|style)\b.*?</\1>', ' ', page.text)
         text = re.sub(r'<[^>]+>', ' ', text)
         text = re.sub(r'\s+', ' ', text)
