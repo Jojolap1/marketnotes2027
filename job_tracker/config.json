@@ -90,7 +90,11 @@
         "\\bmulti[- ]asset\\b",
         "\\binvestment (?:team|management|solutions|specialist)\\b",
         "\\bportfolio (?:analyst|construction|solutions)\\b",
-        "资产管理|資產管理|投资经理|投資經理|组合管理|組合管理"
+        "资产管理|資產管理|投资经理|投資經理|组合管理|組合管理",
+        "\\blong[/ -]short\\b",
+        "\\bequity l/s\\b",
+        "\\bdiscretionary (?:global )?macro\\b",
+        "\\binvestment (?:intern|internship|fellowship|programme|program)\\b"
       ],
       "Markets / Investment Analyst": [
         "\\b(?:global|markets?|investment|fixed income|credit|equity|macro) research\\b",
@@ -294,7 +298,8 @@
         "\\b20\\d\\d analyst\\b",
         "\\banalyst,? 20\\d\\d\\b",
         "校园招聘|校園招聘|应届|應屆|管培生|管理培训生|毕业生|畢業生",
-        "【20\\d\\d】"
+        "【20\\d\\d】",
+        "\\bfellowships?\\b"
       ],
       "entry_level": [
         "\\bjunior\\b",
@@ -539,12 +544,14 @@
     {
       "company": "Point72",
       "platform": "greenhouse",
-      "board": "point72"
+      "board": "point72",
+      "generic_titles": true
     },
     {
       "company": "Squarepoint Capital",
       "platform": "greenhouse",
-      "board": "squarepointcapital"
+      "board": "squarepointcapital",
+      "generic_titles": true
     },
     {
       "company": "Virtu Financial",
@@ -710,7 +717,8 @@
         "London",
         "Paris",
         "Dubai"
-      ]
+      ],
+      "generic_titles": true
     },
     {
       "company": "Two Sigma",
@@ -1588,7 +1596,8 @@
       "platform": "greenhouse",
       "board": "mwinternshipprogram",
       "backfill_until": "2026-11-08",
-      "note": "Marshall Wace internship and placement programmes (Greenhouse board found in the SimplifyJobs public list)"
+      "note": "Marshall Wace internship and placement programmes (Greenhouse board found in the SimplifyJobs public list)",
+      "generic_titles": true
     },
     {
       "company": "First Abu Dhabi Bank",
@@ -1625,7 +1634,8 @@
       "company": "ExodusPoint",
       "platform": "greenhouse",
       "board": "exoduspoint",
-      "backfill_until": "2026-10-31"
+      "backfill_until": "2026-10-31",
+      "generic_titles": true
     },
     {
       "company": "Amber Group",
@@ -1783,7 +1793,8 @@
       "host": "wd3.myworkdaysite.com",
       "tenant": "brevanhoward",
       "site": "BH_ExternalCareers",
-      "backfill_until": "2026-10-27"
+      "backfill_until": "2026-10-27",
+      "generic_titles": true
     },
     {
       "company": "TP ICAP",
@@ -1801,19 +1812,22 @@
       "company": "Qube Research & Technologies",
       "platform": "greenhouse",
       "board": "quberesearchandtechnologies",
-      "backfill_until": "2026-10-27"
+      "backfill_until": "2026-10-27",
+      "generic_titles": true
     },
     {
       "company": "Schonfeld",
       "platform": "greenhouse",
       "board": "schonfeld",
-      "backfill_until": "2026-10-27"
+      "backfill_until": "2026-10-27",
+      "generic_titles": true
     },
     {
       "company": "Man Group",
       "platform": "greenhouse",
       "board": "mangroup",
-      "backfill_until": "2026-10-27"
+      "backfill_until": "2026-10-27",
+      "generic_titles": true
     },
     {
       "company": "Graviton Research Capital",
@@ -1860,7 +1874,8 @@
       "company": "Capula Investment Management",
       "platform": "workable",
       "board": "capula-investment-management-ltd",
-      "backfill_until": "2026-10-27"
+      "backfill_until": "2026-10-27",
+      "generic_titles": true
     },
     {
       "company": "Da Vinci Trading",
@@ -1974,6 +1989,55 @@
       "platform": "official",
       "enabled": false,
       "disabled_reason": "abnamro.com careers answers HTTP 503 to automated requests (2026-10-20); re-check later."
+    },
+    {
+      "company": "Tudor Investment Corp",
+      "platform": "greenhouse",
+      "board": "tudorgroup",
+      "backfill_until": "2026-11-20",
+      "generic_titles": true
+    },
+    {
+      "company": "Winton",
+      "platform": "greenhouse",
+      "board": "winton",
+      "backfill_until": "2026-11-20",
+      "generic_titles": true
+    },
+    {
+      "company": "Caxton Associates",
+      "platform": "workable",
+      "board": "caxton",
+      "backfill_until": "2026-11-20",
+      "generic_titles": true
+    },
+    {
+      "company": "Lazard",
+      "platform": "oracle",
+      "host": "icbpjb.fa.ocs.oraclecloud.com",
+      "site": "CX_1001",
+      "backfill_until": "2026-11-20"
+    },
+    {
+      "company": "Lazard (students)",
+      "platform": "oracle",
+      "host": "icbpjb.fa.ocs.oraclecloud.com",
+      "site": "CX_1",
+      "backfill_until": "2026-11-20"
+    },
+    {
+      "company": "Dymon Asia",
+      "platform": "greenhouse",
+      "board": "dymonasiacapitalsingaporepteltd",
+      "backfill_until": "2026-11-20",
+      "generic_titles": true
+    },
+    {
+      "company": "GIC",
+      "platform": "successfactors_xml",
+      "host": "career10.successfactors.com",
+      "sf_company": "gicprivate",
+      "backfill_until": "2026-11-20"
     }
   ],
   "company_aliases": [
