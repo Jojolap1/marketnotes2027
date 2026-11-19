@@ -104,6 +104,10 @@ SEEKER = re.compile(
     r"#?open ?to ?work\b|\b(?:i am|i'm|i’m|currently) (?:actively )?(?:looking|seeking|searching) for (?:an? |my )?(?:new |next )?(?:internship|opportunit|position|role|job|placement)|"
     r"\bje (?:suis (?:actuellement )?à la )?recherche (?:d'|un |une |activement )(?:stage|alternance|emploi|poste|opportunit\w*|cdi|v\.?i\.?e)\b|"
     r"\b(?:je suis |actuellement )?à la recherche d'(?:un stage|une alternance|un emploi|un poste|une opportunit\w*|un v\.?i\.?e)\b", re.I)
+# A student sharing their CV ('CV Jane Doe - Financial Markets Internship 2027',
+# 'voici mon CV'): never an offer, whatever hiring words the post quotes (2026-11-18)
+CV_POST = re.compile(r"(?-i:(?:^|¶\s*)(?:CV|Resume|Résumé)\s*[-–:]?\s+[A-Z][\w'’-]+ [A-Z])|"
+                     r"\b(?:here is|here's|voici|attached|ci-joint) (?:my|mon) (?:cv|resume|résumé)\b|\bmy (?:cv|resume|résumé) (?:is )?(?:attached|below|ci-dessous)", re.I)
 STRONG_HIRING = re.compile(r"#?\bhiring\b|\brecrut\w*|\brecruiting\b|\bjoin (?:our|my|the) (?:team|desk)|\brejoignez|\bnous (?:re)?cherch|\bon (?:re)?cherch", re.I)
 AUTHOR = re.compile(r"([A-Z][^\n.!?:]{1,70}?)\s+(?:posted|shared|reposted|commented|is hiring|a publié|a partagé|a republié|a commenté|recrute)\b")
 SENTENCE = re.compile(r'(?<=[.!?])\s+|\s+[|•·¶]\s+')
@@ -153,7 +157,7 @@ def post_jobs(blocks, source, ctx, published, evidence):
     jobs = []
     for key, url, text in blocks:
         ctx.stat(source['company'], 'posts')
-        if not HIRING.search(text) or (SEEKER.search(text) and not STRONG_HIRING.search(text)):
+        if not HIRING.search(text) or CV_POST.search(text) or (SEEKER.search(text) and not STRONG_HIRING.search(text)):
             continue
         ctx.stat(source['company'], 'hiring_posts')
         # 'recruiting' would read as a recruiter job (non front-office title)

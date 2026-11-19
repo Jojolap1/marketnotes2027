@@ -714,13 +714,20 @@ class LinkedInPostTests(unittest.TestCase):
 
     def test_candidates_looking_for_a_job_are_ignored(self):
         for text in ('#OpenToWork I am looking for an internship in sales and trading in London. Happy to apply!',
-                     'Je suis à la recherche d\'un stage en salle des marchés à Paris, n\'hésitez pas, offres de stage bienvenues.'):
+                     'Je suis à la recherche d\'un stage en salle des marchés à Paris, n\'hésitez pas, offres de stage bienvenues.',
+                     'Voici mon CV : stage Sales & Trading 2027 à Paris. Aux banques qui recrutent un stagiaire en salle des marchés, contactez-moi !'):
             html = f'<a href="https://www.linkedin.com/feed/update/urn:li:activity:7258888888888888888">{text}</a>'
             self.assertEqual(self.parse(html), [], text)
 
 
 class WebSearchTests(unittest.TestCase):
     SRC = {'company': 'LinkedIn (web search)', 'platform': 'web_search', 'queries': ['q1', 'q2'], 'hours_utc': [4, 11]}
+
+    def test_student_cv_post_is_not_an_offer(self):
+        jobs, _ = self.run_fetch([{'link': 'https://fr.linkedin.com/posts/iannmessaoudi_cv-iann-messaoudi-financial-markets-internship-activity-7527876950250635264-qm_-',
+                                   'title': 'CV Iann Messaoudi - Financial Markets Internship 2027 | LinkedIn',
+                                   'snippet': 'Recrutement : je cherche un stage Sales & Trading Intern à Paris pour 2027, hiring managers welcome.'}])
+        self.assertEqual(jobs, [])
 
     def test_post_date_read_from_its_linkedin_id(self):
         from sources.web_search import activity_date
