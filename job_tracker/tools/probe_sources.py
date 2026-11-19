@@ -2819,6 +2819,27 @@ for _name, (_url, _slugs) in MISSING.items():
         R89.append((f'R89 {_name} ats', lambda s=_slugs: ats_guess(s)))
 PROBES = PROBES + R89
 
+
+R90 = [
+    ('R90 Tudor gh', lambda: greenhouse('tudorgroup')),
+    ('R90 LMR gh', lambda: greenhouse('lmr')),
+    ('R90 Winton gh', lambda: greenhouse('winton')),
+    ('R90 Caxton workable', lambda: summarize_json(S.post('https://apply.workable.com/api/v3/accounts/caxton/jobs', json={'query': ''}, timeout=25),
+                                                   lambda d: (d.get('total'), [(j.get('title'), (j.get('location') or {}).get('city')) for j in d.get('results', [])]))),
+    ('R90 Lazard oracle links', lambda: grep_page('https://www.lazard.com/careers/', r'https://icbpjb\.fa\.ocs\.oraclecloud\.com/[^"\'\s<>]{0,160}', n=8)),
+    ('R90 Lazard oracle CX_1', lambda: oracle('icbpjb.fa.ocs.oraclecloud.com', 'CX_1')),
+    ('R90 Lazard oracle CX_1001', lambda: oracle('icbpjb.fa.ocs.oraclecloud.com', 'CX_1001')),
+]
+for _name, _url in (('Dymon Asia', 'https://www.dymonasia.com/'), ('Segantii', 'https://www.segantii.com/'), ('Polymer', 'https://www.polymercapital.com/'),
+                    ('PIMCO', 'https://careers.pimco.com/'), ('GIC', 'https://www.gic.com.sg/'), ('Hudson Bay', 'https://www.hudsonbaycapital.com/careers'),
+                    ('Verition', 'https://www.verition.com/careers'), ('Value Partners', 'https://www.valuepartners-group.com/en/'),
+                    ('PAG', 'https://www.pag.com/en/careers'), ('Rothschild', 'https://www.rothschildandco.com/en/careers/'),
+                    ('BB Energy', 'https://www.bbenergy.com/careers/'), ('Tikehau', 'https://www.tikehaucapital.com/en/careers'),
+                    ('BEA', 'https://www.hkbea.com/'), ('Phillip', 'https://www.phillip.com.sg/'), ('Lion Global', 'https://www.lionglobalinvestors.com/'),
+                    ('Eisler', 'https://eisler.com/'), ('AllianzGI', 'https://www.allianzgi.com/en/careers'), ('Nikko/Amova', 'https://sg.amova-am.com/')):
+    R90.append((f'R90 {_name} links', lambda u=_url: grep_page(u, r'href="[^"]*(?:career|job|vacanc|recruit|join|apply|workday|greenhouse|lever|workable)[^"]*"', n=20)))
+PROBES = PROBES + R90
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
