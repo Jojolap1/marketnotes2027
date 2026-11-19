@@ -2840,6 +2840,18 @@ for _name, _url in (('Dymon Asia', 'https://www.dymonasia.com/'), ('Segantii', '
     R90.append((f'R90 {_name} links', lambda u=_url: grep_page(u, r'href="[^"]*(?:career|job|vacanc|recruit|join|apply|workday|greenhouse|lever|workable)[^"]*"', n=20)))
 PROBES = PROBES + R90
 
+
+R91 = [(f'R91 {n}', lambda u=u: discover(u)) for n, u in (
+    ('Dymon join-us', 'https://www.dymonasia.com/join-us/'), ('Polymer join-us', 'https://polymercapital.com/join-us/'),
+    ('GIC careers', 'https://careers.gic.com.sg/'), ('GIC careers2', 'https://gic.careers/'),
+    ('Value Partners career', 'https://www.valuepartners-group.com/en/career/'),
+    ('Allianz careers', 'https://careers.allianz.com/global/en/search-results?keywords=Allianz%20Global%20Investors'),
+    ('Segantii home', 'https://www.segantii.com/'), ('PAG careers', 'https://www.pag.com/en/careers'),
+    ('Tikehau work', 'https://www.tikehaucapital.com/en/careers/work-at-tikehau'), ('Rothschild careers', 'https://www.rothschildandco.com/en/careers/'))]
+R91 += [('R91 Dymon join-us links', lambda: grep_page('https://www.dymonasia.com/join-us/', r'href="[^"]*"[^>]*>[^<]{0,60}(?:apply|job|career|position|vacanc|opening)[^<]{0,40}|(?:mailto:[^"]+)|<h[1-4][^>]*>[^<]{0,80}', n=25)),
+        ('R91 Polymer join-us links', lambda: grep_page('https://polymercapital.com/join-us/', r'href="[^"]*"[^>]*>[^<]{0,60}(?:apply|job|career|position|vacanc|opening)[^<]{0,40}|(?:mailto:[^"]+)|<h[1-4][^>]*>[^<]{0,80}', n=25))]
+PROBES = PROBES + R91
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
