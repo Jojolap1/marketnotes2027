@@ -2852,6 +2852,16 @@ R91 += [('R91 Dymon join-us links', lambda: grep_page('https://www.dymonasia.com
         ('R91 Polymer join-us links', lambda: grep_page('https://polymercapital.com/join-us/', r'href="[^"]*"[^>]*>[^<]{0,60}(?:apply|job|career|position|vacanc|opening)[^<]{0,40}|(?:mailto:[^"]+)|<h[1-4][^>]*>[^<]{0,80}', n=25))]
 PROBES = PROBES + R91
 
+
+R92 = [
+    ('R92 Dymon gh', lambda: greenhouse('dymonasiacapitalsingaporepteltd')),
+    ('R92 Polymer careers', lambda: discover('https://careers.polymercapital.com/')),
+    ('R92 Polymer links', lambda: grep_page('https://careers.polymercapital.com/', r'href="[^"]*(?:job|position|opening|apply)[^"]*"|<title>[^<]{0,80}', n=15)),
+    ('R92 GIC sf company', lambda: grep_page('https://careers.gic.com.sg/', r'career10\.successfactors\.com/[^"\'\s<>]{0,160}', n=8)),
+    ('R92 GIC sf links2', lambda: grep_page('https://gic.careers/', r'career10\.successfactors\.com/[^"\'\s<>]{0,160}', n=8)),
+]
+PROBES = PROBES + R92
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
