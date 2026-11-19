@@ -2862,6 +2862,27 @@ R92 = [
 ]
 PROBES = PROBES + R92
 
+
+def sg_offer(slug_part):
+    r = get('https://careers.societegenerale.com/sitemap.xml')
+    urls = [u for u in re.findall(r'<loc>\s*([^<]+?)\s*</loc>', r.text) if slug_part in u]
+    out = [f'urls={urls[:4]}']
+    for u in urls[:2]:
+        page = get(u)
+        lds = re.findall(r'(?s)<script[^>]*ld\+json[^>]*>(.*?)</script>', page.text)
+        out.append('ld+json: ' + ' || '.join(re.sub(r'\s+', ' ', re.sub(r'<[^>]+>|\\u003c[^>]*?\\u003e', ' ', x))[:6000] for x in lds))
+        text = re.sub(r'(?s)<(script|style)\b.*?</\1>', ' ', page.text)
+        text = re.sub(r'<[^>]+>', ' ', text)
+        text = re.sub(r'\s+', ' ', text)
+        hits = [text[max(0, m.start() - 220):m.end() + 160] for m in re.finditer(r'\b\d{1,2}\s*\+?\s*(?:years?|ans|yrs)|experience|expérience', text, re.I)][:10]
+        out.append(f'{u} HTTP {page.status_code} len={len(text)}')
+        out += [' > ' + h for h in hits]
+    return '\n'.join(out)
+
+
+R93 = [('R93 SG junior credit sales', lambda: sg_offer('junior-credit-sales'))]
+PROBES = PROBES + R93
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:

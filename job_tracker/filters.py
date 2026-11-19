@@ -39,7 +39,9 @@ NON_EXPERIENCE_CONTEXT = re.compile(
     r'\b(?:degree|bachelor|master|msc|mba|phd|doctorat|licence|bac\s*\+|universit|school|[ée]cole|study|studies|[ée]tudes|'
     r'graduat(?:e|ing) (?:in|by)|final[- ]year|penultimate|programme lasts|program lasts|rotation|contract|contrat|durée|duration|'
     r'mission|v\.?i\.?e|founded|history|heritage|since \d{4}|for over|depuis plus de|old\b|âge|ans révolus|anniversary|'
-    r'internship of|stage de|apprenticeship of|alternance de|visa|warranty|years? ago)', re.I)
+    r'internship of|stage de|apprenticeship of|alternance de|visa|warranty|years? ago|'
+    # HK Mandatory Reference Checking: 'references from past employers ... during the preceding seven years'
+    r'preceding|references? (?:from|check)|past employers|previous employers)', re.I)
 ENTRY_PHRASES = re.compile(
     r"\b(?:entry[- ]level|no (?:prior |previous )?(?:work |professional )?experience (?:is )?(?:required|necessary|needed)|"
     r"recent graduates?|new graduates?|fresh graduates?|graduating (?:in|by) \d{4}|currently (?:enrolled|pursuing|studying)|"
