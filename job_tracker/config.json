@@ -2006,6 +2006,19 @@
       "host": "icbpjb.fa.ocs.oraclecloud.com",
       "site": "CX_1",
       "backfill_until": "2026-11-20"
+    },
+    {
+      "company": "Dymon Asia",
+      "platform": "greenhouse",
+      "board": "dymonasiacapitalsingaporepteltd",
+      "backfill_until": "2026-11-20"
+    },
+    {
+      "company": "GIC",
+      "platform": "successfactors_xml",
+      "host": "career10.successfactors.com",
+      "sf_company": "gicprivate",
+      "backfill_until": "2026-11-20"
     }
   ],
   "company_aliases": [
