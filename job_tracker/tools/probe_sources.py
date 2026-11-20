@@ -2883,6 +2883,26 @@ def sg_offer(slug_part):
 R93 = [('R93 SG junior credit sales', lambda: sg_offer('junior-credit-sales'))]
 PROBES = PROBES + R93
 
+
+def wd_429(host, tenant, site):
+    url = f'https://{host}/wday/cxs/{tenant}/{site}/jobs'
+    out = []
+    for attempt in range(2):
+        r = S.post(url, json={'appliedFacets': {}, 'limit': 1, 'offset': 0, 'searchText': ''}, timeout=25,
+                   headers={'Accept': 'application/json', 'Content-Type': 'application/json'})
+        hdr = {k: v for k, v in r.headers.items() if k.lower() in ('retry-after', 'server', 'x-ratelimit-limit', 'x-ratelimit-remaining', 'cf-ray', 'x-wd-request-id')}
+        out.append(f'try{attempt}: HTTP {r.status_code} headers={hdr} body={r.text[:160]!r}')
+        time.sleep(5)
+    gp = get(f'https://{host}/{site}')
+    out.append(f'GET careers page: HTTP {gp.status_code} len={len(gp.text)}')
+    return '\n'.join(out)
+
+
+R94 = [(f'R94 {h}', lambda h=h, t=t, s=s: wd_429(h, t, s)) for h, t, s in (
+    ('ms.wd5.myworkdayjobs.com', 'ms', 'External'), ('uobgroup.wd3.myworkdayjobs.com', 'uobgroup', 'UOBExternal'),
+    ('rbs.wd3.myworkdayjobs.com', 'rbs', 'RBS'))]
+PROBES = PROBES + R94
+
 if __name__ == '__main__':
     only = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, fn in PROBES:
