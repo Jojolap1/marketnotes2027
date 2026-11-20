@@ -79,6 +79,7 @@ class Classification:
     role_family: str = ''
     entry_type: str = ''           # internship | graduate_programme | vie | apprenticeship | entry_level | ''
     seniority: str = 'unknown'     # junior | senior | unknown
+    evidence: str = ''             # advert words behind a rejection (run report)
     experience: Experience = field(default_factory=Experience)
     reasons: list = field(default_factory=list)
     reject_reason: str = ''
@@ -264,7 +265,9 @@ class Classifier:
             c.reject_reason = 'role not targeted'
             return c
         # Explicit corporate title / grade fields in the description.
-        if any(p.search(description) for p in self.senior_desc):
+        senior = next((m for m in (p.search(description) for p in self.senior_desc) if m), None)
+        if senior:
+            c.evidence = description[max(0, senior.start() - 80):senior.end() + 80]
             c.seniority = 'senior'
             c.reject_reason = 'senior corporate title in description'
             return c
@@ -273,6 +276,7 @@ class Classifier:
         exp = c.experience
         # Only a *minimum* above the threshold excludes a job ("1-2 years" requires 1).
         if exp.category == '2+':
+            c.evidence = exp.evidence
             c.reject_reason = f'requires {exp.min_years}+ years of experience'
             return c
         if not c.entry_type and exp.category in ('entry', '0-1'):
@@ -291,7 +295,9 @@ class Classifier:
             # not evidence of a junior role.
             advert = (len(description) >= MIN_ADVERT_TEXT and not job.get('title_only')
                       and not job.get('not_an_advert'))
-            if advert and VAGUE_EXPERIENCE.search(description):
+            vague = advert and VAGUE_EXPERIENCE.search(description)
+            if vague:
+                c.evidence = description[max(0, vague.start() - 80):vague.end() + 80]
                 c.reject_reason = 'experience required (advert asks for proven / extensive experience)'
                 return c
             if advert and not states_experience(description):
