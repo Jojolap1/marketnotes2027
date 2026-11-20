@@ -131,4 +131,9 @@ def fingerprints(job, city=''):
     title = VIE_MARK.sub('', normalized_title(job.get('title'))).strip()
     if title:
         keys.append(f'title:{company}:{title}:{normalize_text(city)}')
+        # The same offer reposted on LinkedIn by several people ('Offre de Stage -
+        # Assistant Sales Produits Structurés', sent 3 times 8-16 Nov): posts
+        # carry the author as company, so a long title + city identifies them
+        if job.get('not_an_advert') and len(title.split()) >= 5:
+            keys.append(f'post-title:{title}:{normalize_text(city)}')
     return keys

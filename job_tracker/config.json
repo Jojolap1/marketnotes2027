@@ -257,7 +257,14 @@
       "\\bbusiness anal\\w+\\b",
       "\\bjuridique\\b",
       "\\bjuriste\\b",
-      "\\bconformit[ée]\\b"
+      "\\bconformit[ée]\\b",
+      "\\b(?:fs|sales )?ops\\b",
+      "\\bportefeuille de projets\\b",
+      "\\bproject portfolio\\b",
+      "\\bproduction\\b",
+      "\\bia agentique\\b",
+      "\\bautomatisation\\b",
+      "\\bclient relationship management\\b"
     ],
     "entry_types": {
       "vie": [

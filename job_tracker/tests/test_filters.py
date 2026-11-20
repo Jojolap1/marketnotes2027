@@ -363,3 +363,19 @@ class ReferenceCheckTests(unittest.TestCase):
                      'Authorized Institutions need to obtain specific references from past employers for whom you have worked '
                      'during the preceding seven years.', location='Hong Kong')
         self.assertNotIn('years of experience', c.reject_reason or '')
+
+
+class AuditFixesTests(unittest.TestCase):
+    """Wrong alerts found in the 6-20 Nov audit."""
+
+    def test_ops_project_portfolio_and_automation_titles_rejected(self):
+        for title in ('GMO Client & Sales Ops BRM', '2027 - Global Markets - NAIM FSOPS - 6 Month Off Cycle Internship',
+                      'Chargé de pilotage et gestion de portefeuille de projets finance', 'HOLT Production & Model Research Analyst',
+                      'Analyste IA Agentique – Automatisation de stratégies de trading'):
+            self.assertEqual(classify(title, location='Paris').reject_reason, 'non front-office title', title)
+
+    def test_same_offer_reposted_by_several_people_has_a_shared_fingerprint(self):
+        from jobs import fingerprints
+        a = dict(id='post:linkedin:1', company='Finlingoapp', title='Offre de Stage - Assistant Sales Produits Structurés', not_an_advert=True)
+        b = dict(a, id='post:linkedin:2', company='Tonstageenfinance')
+        self.assertTrue(set(fingerprints(a, 'Paris')) & set(fingerprints(b, 'Paris')))
