@@ -379,3 +379,29 @@ class AuditFixesTests(unittest.TestCase):
         a = dict(id='post:linkedin:1', company='Finlingoapp', title='Offre de Stage - Assistant Sales Produits Structurés', not_an_advert=True)
         b = dict(a, id='post:linkedin:2', company='Tonstageenfinance')
         self.assertTrue(set(fingerprints(a, 'Paris')) & set(fingerprints(b, 'Paris')))
+
+
+class NearMissAuditTests(unittest.TestCase):
+    """Wrong rejections found in the 20 Nov near-miss audit."""
+    PAD = ' The programme gives exposure to trading desks and client coverage across asset classes.' * 5
+
+    def test_experienced_colleagues_are_not_a_requirement(self):
+        c = classify('Sales and Trading', "As a Sales and Trading intern, you'll work alongside our experienced Sales people "
+                     "and hear from our seasoned full-time traders." + self.PAD, location='Hong Kong')
+        self.assertFalse(c.reject_reason, c.reject_reason)
+
+    def test_up_to_three_years_is_a_maximum(self):
+        c = classify('Junior Oil Trader', "Up to 3 years' experience in commodities, trading or financial markets." + self.PAD,
+                     location='Singapore')
+        self.assertFalse(c.reject_reason, c.reject_reason)
+
+    def test_ranked_is_not_a_corporate_title(self):
+        c = classify('Internship - 6 months - Investment Specialist F/M',
+                     'IPE ranked Ostrum AM as the 12th largest institutional asset manager.' + self.PAD, location='Paris')
+        self.assertNotEqual(c.reject_reason, 'senior corporate title in description')
+
+    def test_real_requirements_still_rejected(self):
+        self.assertEqual(classify('Cash Equity Sales', 'Corporate Title : Associate/VP. Global Markets.' + self.PAD,
+                                  location='Singapore').reject_reason, 'senior corporate title in description')
+        self.assertIn('2+ years', classify('Commodities Broker Trader', '2+ years of experience as an Execution/Broker Trader.'
+                                           + self.PAD).reject_reason)
