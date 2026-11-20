@@ -63,8 +63,8 @@ class HttpClient:
         self.last_request = {}
         self.requests_per_host = Counter()
         self.host_intervals = {}
-        self.refusals = Counter()      # 429s left after retrying, per throttle group
-        self.stopped_groups = set()    # groups not asked again this run
+        self.refusals = Counter()      # 429s left after retrying, per host
+        self.stopped_groups = set()    # hosts not asked again this run
 
     def set_host_interval(self, host, seconds):
         self.host_intervals[host] = float(seconds)
@@ -80,9 +80,8 @@ class HttpClient:
     def request(self, method, url, **kwargs):
         host = urlparse(url).hostname or ''
         kwargs.setdefault('timeout', self.timeout)
-        group = throttle_group(host)
-        if group in self.stopped_groups:
-            raise RateLimited(f'{group} rate limiter refused earlier requests this run; {host} not asked until the next run')
+        if host in self.stopped_groups:
+            raise RateLimited(f'{host} rate limiter refused earlier requests this run; not asked until the next run')
         attempt = 0
         while True:
             self._wait(host)
@@ -107,10 +106,11 @@ class HttpClient:
                 self.sleep(min(delay, 60))
                 continue
             if response.status_code == 429:
-                self.refusals[group] += 1
-                if self.refusals[group] >= 2:   # still refused after pausing: leave it alone for this run
-                    self.stopped_groups.add(group)
-                    LOG.warning('%s: rate limited (429) twice after pausing; not asked again this run', group)
+                # Refusals are per tenant (Morgan Stanley and Citi refused while
+                # OCBC answered, 2026-11-20): only the refusing host is left alone
+                self.refusals[host] += 1
+                self.stopped_groups.add(host)
+                LOG.warning('%s: rate limited (429) after pausing; not asked again this run', host)
             return response
 
     def get(self, url, **kwargs):
