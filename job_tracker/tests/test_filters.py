@@ -420,18 +420,17 @@ class WorkdayRateLimitTests(unittest.TestCase):
         http.session.request = fake
         return http
 
-    def test_workday_left_alone_after_two_refusals(self):
+    def test_refusing_tenant_left_alone_others_still_asked(self):
         from http_client import RateLimited
-        http = self.client([429] * 6)
+        http = self.client([429] * 3 + [200])
         http.post('https://ms.wd5.myworkdayjobs.com/wday/cxs/ms/External/jobs')
-        http.post('https://citi.wd5.myworkdayjobs.com/wday/cxs/citi/2/jobs')
         with self.assertRaises(RateLimited):
-            http.post('https://db.wd3.myworkdayjobs.com/wday/cxs/db/DBWebsite/jobs')
+            http.post('https://ms.wd5.myworkdayjobs.com/wday/cxs/ms/External/jobs')
+        self.assertEqual(http.post('https://ocbc.wd102.myworkdayjobs.com/x').status_code, 200)
 
     def test_other_hosts_not_affected(self):
-        http = self.client([429] * 6 + [200])
+        http = self.client([429] * 3 + [200])
         http.post('https://ms.wd5.myworkdayjobs.com/x')
-        http.post('https://citi.wd5.myworkdayjobs.com/x')
         self.assertEqual(http.get('https://boards-api.greenhouse.io/v1/boards/x/jobs').status_code, 200)
 
     def test_tenants_read_every_three_hours_staggered(self):
