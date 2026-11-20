@@ -10,6 +10,7 @@ Only titles that pass the cheap screen get a detail request, and details
 are cached between runs.
 """
 import logging
+import os
 import re
 
 from filters import normalize_text
@@ -114,7 +115,31 @@ def _status(detail, ctx):
     return OPEN, evidence
 
 
+LISTING_KEY = 'workday-run:'
+
+
+def _due(source, ctx):
+    """Each tenant is read every `every_hours` (3 by default, staggered per
+    employer) instead of hourly: Workday's rate limiter refused hourly reads
+    of ~35 tenants (2026-11-18/20). Between two reads, the last listing stands."""
+    every = int(source.get('every_hours', 3))
+    offset = sum(map(ord, source['company'])) % every
+    return every <= 1 or (ctx.now.hour + offset) % every == 0
+
+
 def fetch(source, ctx):
+    company = source['company']
+    cached = ctx.cache.get(LISTING_KEY + company, max_age_hours=float(source.get('every_hours', 3)) * 2 + 1)
+    if cached is not None and not _due(source, ctx) and os.environ.get('WORKDAY_FORCE') != '1':
+        ctx.stat(company, 'not_due')
+        ctx.stat(company, 'listed_from_cache', len(cached))
+        return [dict(job) for job in cached]
+    jobs = _fetch(source, ctx)
+    ctx.cache.put(LISTING_KEY + company, jobs)
+    return jobs
+
+
+def _fetch(source, ctx):
     host, tenant, site = source['host'], source['tenant'], source['site']
     base = f'https://{host}/wday/cxs/{tenant}/{site}'
     company = source['company']
