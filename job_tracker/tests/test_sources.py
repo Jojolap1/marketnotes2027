@@ -44,7 +44,7 @@ def wd_route(method, url, payload):
 class WorkdayTests(unittest.TestCase):
     def test_location_facets_listing_screening_and_status(self):
         ctx = context({'citi.wd5': wd_route}, now=NOW)
-        jobs = fetch_source({'company': 'Citi', 'platform': 'workday', 'host': 'citi.wd5.myworkdayjobs.com',
+        jobs = fetch_source({'company': 'Citi', 'platform': 'workday', 'every_hours': 1, 'host': 'citi.wd5.myworkdayjobs.com',
                              'tenant': 'citi', 'site': '2', 'countries': ['United Kingdom', 'Singapore']}, ctx)
         by_title = {j['title']: j for j in jobs}
         st = by_title['Markets – Sales and Trading, Summer Analyst, London – United Kingdom, 2027']
@@ -61,7 +61,7 @@ class WorkdayTests(unittest.TestCase):
 
     def test_detail_cache_avoids_repeat_requests(self):
         ctx = context({'citi.wd5': wd_route}, now=NOW)
-        src = {'company': 'Citi', 'platform': 'workday', 'host': 'citi.wd5.myworkdayjobs.com', 'tenant': 'citi', 'site': '2',
+        src = {'company': 'Citi', 'platform': 'workday', 'every_hours': 1, 'host': 'citi.wd5.myworkdayjobs.com', 'tenant': 'citi', 'site': '2',
                'countries': ['United Kingdom', 'Singapore']}
         fetch_source(src, ctx)
         first = len(ctx.http.calls)
@@ -570,7 +570,7 @@ class WorkdayVagueLocationTests(unittest.TestCase):
                                            'jobDescription': 'Internship', 'startDate': '2026-11-05', 'canApply': True, 'jobReqId': 'R1'}}
             return (404, {})
         ctx = context({'uobgroup.wd3': route}, now=NOW)
-        src = {'company': 'UOB', 'platform': 'workday', 'host': 'uobgroup.wd3.myworkdayjobs.com', 'tenant': 'uobgroup',
+        src = {'company': 'UOB', 'platform': 'workday', 'every_hours': 1, 'host': 'uobgroup.wd3.myworkdayjobs.com', 'tenant': 'uobgroup',
                'site': 'UOBExternal', 'vague_locations': 'Central Region|City Area'}
         jobs = fetch_source(src, ctx)
         self.assertEqual([(j['title'], j['location']) for j in jobs],

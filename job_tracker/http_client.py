@@ -98,12 +98,15 @@ class HttpClient:
             if response.status_code in (401, 403, 451):
                 raise AccessDenied(f'{response.status_code} access denied for {url}', response=response)
             refuse_bot_check(response, url)
-            if response.status_code in RETRY_STATUSES and attempt < self.max_retries:
+            # A rate limiter (429) gets one retry after a pause; 5xx get max_retries.
+            # Long or repeated pauses on ~35 refusing Workday tenants pushed a run
+            # past its 40-minute limit (2026-11-20).
+            limit = 1 if response.status_code == 429 else self.max_retries
+            if response.status_code in RETRY_STATUSES and attempt < limit:
                 attempt += 1
                 retry_after = response.headers.get('Retry-After', '')
-                # a rate limiter without Retry-After gets a longer pause than a 5xx
-                delay = int(retry_after) if retry_after.isdigit() else 2 ** attempt * (10 if response.status_code == 429 else 2)
-                self.sleep(min(delay, 60))
+                delay = int(retry_after) if retry_after.isdigit() else (8 if response.status_code == 429 else 2 ** attempt * 2)
+                self.sleep(min(delay, 30))
                 continue
             if response.status_code == 429:
                 # Refusals are per tenant (Morgan Stanley and Citi refused while

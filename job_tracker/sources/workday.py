@@ -130,10 +130,11 @@ def _due(source, ctx):
 def fetch(source, ctx):
     company = source['company']
     cached = ctx.cache.get(LISTING_KEY + company, max_age_hours=float(source.get('every_hours', 3)) * 2 + 1)
-    if cached is not None and not _due(source, ctx) and os.environ.get('WORKDAY_FORCE') != '1':
+    if not _due(source, ctx) and os.environ.get('WORKDAY_FORCE') != '1':
+        # Not this tenant's hour: last listing kept (none yet: read at its next hour)
         ctx.stat(company, 'not_due')
-        ctx.stat(company, 'listed_from_cache', len(cached))
-        return [dict(job) for job in cached]
+        ctx.stat(company, 'listed_from_cache', len(cached or []))
+        return [dict(job) for job in (cached or [])]
     jobs = _fetch(source, ctx)
     ctx.cache.put(LISTING_KEY + company, jobs)
     return jobs
