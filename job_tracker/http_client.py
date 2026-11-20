@@ -35,6 +35,22 @@ def refuse_bot_check(response, url):
         raise AccessDenied(f'bot-check page instead of content for {url}', response=response)
 
 
+class RateLimited(RuntimeError):
+    """The site's rate limiter refused this run: it is not asked again until the next run."""
+
+
+# Hosts served by one platform behind one rate limiter: Workday tenants
+# (*.myworkdayjobs.com) sit behind the same Cloudflare front, which answered
+# 429 to ~35 tenants for two days (2026-11-18/20). One shared pace for them.
+def throttle_group(host):
+    if host.endswith('.myworkdayjobs.com') or host.endswith('.myworkdaysite.com'):
+        return 'workday'
+    return host
+
+
+GROUP_INTERVALS = {'workday': 3.0}
+
+
 class HttpClient:
     def __init__(self, min_interval=1.0, max_retries=2, timeout=25, sleep=time.sleep):
         self.session = requests.Session()
@@ -47,20 +63,26 @@ class HttpClient:
         self.last_request = {}
         self.requests_per_host = Counter()
         self.host_intervals = {}
+        self.refusals = Counter()      # 429s left after retrying, per throttle group
+        self.stopped_groups = set()    # groups not asked again this run
 
     def set_host_interval(self, host, seconds):
         self.host_intervals[host] = float(seconds)
 
     def _wait(self, host):
-        interval = self.host_intervals.get(host, self.min_interval)
-        elapsed = time.monotonic() - self.last_request.get(host, -1e9)
+        group = throttle_group(host)
+        interval = self.host_intervals.get(host, max(self.min_interval, GROUP_INTERVALS.get(group, 0)))
+        elapsed = time.monotonic() - self.last_request.get(group, -1e9)
         if elapsed < interval:
             self.sleep(interval - elapsed)
-        self.last_request[host] = time.monotonic()
+        self.last_request[group] = time.monotonic()
 
     def request(self, method, url, **kwargs):
         host = urlparse(url).hostname or ''
         kwargs.setdefault('timeout', self.timeout)
+        group = throttle_group(host)
+        if group in self.stopped_groups:
+            raise RateLimited(f'{group} rate limiter refused earlier requests this run; {host} not asked until the next run')
         attempt = 0
         while True:
             self._wait(host)
@@ -80,9 +102,15 @@ class HttpClient:
             if response.status_code in RETRY_STATUSES and attempt < self.max_retries:
                 attempt += 1
                 retry_after = response.headers.get('Retry-After', '')
-                delay = int(retry_after) if retry_after.isdigit() else 2 ** attempt * 2
+                # a rate limiter without Retry-After gets a longer pause than a 5xx
+                delay = int(retry_after) if retry_after.isdigit() else 2 ** attempt * (10 if response.status_code == 429 else 2)
                 self.sleep(min(delay, 60))
                 continue
+            if response.status_code == 429:
+                self.refusals[group] += 1
+                if self.refusals[group] >= 2:   # still refused after pausing: leave it alone for this run
+                    self.stopped_groups.add(group)
+                    LOG.warning('%s: rate limited (429) twice after pausing; not asked again this run', group)
             return response
 
     def get(self, url, **kwargs):

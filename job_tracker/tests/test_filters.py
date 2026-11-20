@@ -405,3 +405,39 @@ class NearMissAuditTests(unittest.TestCase):
                                   location='Singapore').reject_reason, 'senior corporate title in description')
         self.assertIn('2+ years', classify('Commodities Broker Trader', '2+ years of experience as an Execution/Broker Trader.'
                                            + self.PAD).reject_reason)
+
+
+class WorkdayRateLimitTests(unittest.TestCase):
+    def client(self, statuses):
+        from unittest import mock
+        from http_client import HttpClient
+        http = HttpClient(sleep=lambda s: None)
+        responses = iter(statuses)
+
+        def fake(method, url, **kw):
+            r = mock.Mock(status_code=next(responses), headers={}, text='', url=url)
+            return r
+        http.session.request = fake
+        return http
+
+    def test_workday_left_alone_after_two_refusals(self):
+        from http_client import RateLimited
+        http = self.client([429] * 6)
+        http.post('https://ms.wd5.myworkdayjobs.com/wday/cxs/ms/External/jobs')
+        http.post('https://citi.wd5.myworkdayjobs.com/wday/cxs/citi/2/jobs')
+        with self.assertRaises(RateLimited):
+            http.post('https://db.wd3.myworkdayjobs.com/wday/cxs/db/DBWebsite/jobs')
+
+    def test_other_hosts_not_affected(self):
+        http = self.client([429] * 6 + [200])
+        http.post('https://ms.wd5.myworkdayjobs.com/x')
+        http.post('https://citi.wd5.myworkdayjobs.com/x')
+        self.assertEqual(http.get('https://boards-api.greenhouse.io/v1/boards/x/jobs').status_code, 200)
+
+    def test_tenants_read_every_three_hours_staggered(self):
+        from datetime import datetime, timezone
+        from types import SimpleNamespace
+        from sources.workday import _due
+        due = [sum(_due({'company': 'Citi'}, SimpleNamespace(now=datetime(2026, 11, 20, h, tzinfo=timezone.utc)))
+                   for h in range(24))]
+        self.assertEqual(due, [8])
