@@ -42,6 +42,7 @@ NON_EXPERIENCE_CONTEXT = re.compile(
     r'internship of|stage de|apprenticeship of|alternance de|visa|warranty|years? ago|'
     # HK Mandatory Reference Checking: 'references from past employers ... during the preceding seven years'
     r'preceding|references? (?:from|check)|past employers|previous employers)', re.I)
+UPPER_BOUND = re.compile(r"(?:up to|fewer than|less than|under|no more than|not more than|maximum(?: of)?|max\.?|jusqu'(?:à|a)|moins de)\s*$", re.I)
 ENTRY_PHRASES = re.compile(
     r"\b(?:entry[- ]level|no (?:prior |previous )?(?:work |professional )?experience (?:is )?(?:required|necessary|needed)|"
     r"recent graduates?|new graduates?|fresh graduates?|graduating (?:in|by) \d{4}|currently (?:enrolled|pursuing|studying)|"
@@ -79,6 +80,7 @@ class Classification:
     role_family: str = ''
     entry_type: str = ''           # internship | graduate_programme | vie | apprenticeship | entry_level | ''
     seniority: str = 'unknown'     # junior | senior | unknown
+    evidence: str = ''             # advert words behind a rejection (run report)
     experience: Experience = field(default_factory=Experience)
     reasons: list = field(default_factory=list)
     reject_reason: str = ''
@@ -119,6 +121,20 @@ VAGUE_EXPERIENCE = re.compile(
     r"(?:\w+\s+){0,3}(?:experience|track record)\b|\bproven track record\b|\bseasoned\b|\bexperienced (?:sales|trader|professional)\b|"
     r"\bexperience (?:within|at|in) [\w &,-]{0,40}?(?:tier[- ]?(?:1|one)|bulge[- ]bracket|leading (?:investment )?bank|top[- ]tier)|"
     r"\bexp[ée]rience (?:significative|confirm[ée]e|solide|probante)\b|\bplusieurs ann[ée]es d'exp[ée]rience\b", re.I)
+# 'work alongside our experienced Sales people', 'from our seasoned traders',
+# 'a team of experienced quants': the firm's staff, not a requirement
+# (Jane Street S&T / QT internships rejected, 2026-11-20)
+ABOUT_COLLEAGUES = re.compile(r"\b(?:our|alongside|with|from|among|by|team of|group of|other|fellow)\s+(?:\w+\s+){0,2}$", re.I)
+
+
+def vague_requirement(text):
+    """First vague-experience wording that is asked of the candidate."""
+    for m in VAGUE_EXPERIENCE.finditer(text):
+        if not ABOUT_COLLEAGUES.search(text[max(0, m.start() - 40):m.start()]):
+            return m
+    return None
+
+
 def states_experience(text):
     """True when the advert says what experience it expects from the
     candidate (so 'none required' can be trusted), not only the job summary."""
@@ -211,6 +227,10 @@ class Classifier:
                 if NON_EXPERIENCE_CONTEXT.search(before[-25:] + ' ' + after[:25]) and not role_years:
                     continue
                 consumed.append((m.start(), m.end()))
+                # 'Up to 3 years', 'fewer than five years': a maximum, not a minimum
+                # (Macquarie Junior Oil Trader, DRW Equity Trader, 2026-11-20)
+                if UPPER_BOUND.search(before[-30:]):
+                    hi, lo = (hi if m.re.groups > 1 and m.group(2) else lo), 0
                 found.append((lo, hi, window.strip()))
         if found:
             lo, hi, evidence = max(found, key=lambda x: (x[0], x[1] or 0))
@@ -264,7 +284,10 @@ class Classifier:
             c.reject_reason = 'role not targeted'
             return c
         # Explicit corporate title / grade fields in the description.
-        if any(p.search(description) for p in self.senior_desc):
+        senior = None if title_entry in ('internship', 'graduate_programme', 'vie', 'apprenticeship') else \
+            next((m for m in (p.search(description) for p in self.senior_desc) if m), None)
+        if senior:
+            c.evidence = description[max(0, senior.start() - 80):senior.end() + 80]
             c.seniority = 'senior'
             c.reject_reason = 'senior corporate title in description'
             return c
@@ -273,6 +296,7 @@ class Classifier:
         exp = c.experience
         # Only a *minimum* above the threshold excludes a job ("1-2 years" requires 1).
         if exp.category == '2+':
+            c.evidence = exp.evidence
             c.reject_reason = f'requires {exp.min_years}+ years of experience'
             return c
         if not c.entry_type and exp.category in ('entry', '0-1'):
@@ -291,7 +315,9 @@ class Classifier:
             # not evidence of a junior role.
             advert = (len(description) >= MIN_ADVERT_TEXT and not job.get('title_only')
                       and not job.get('not_an_advert'))
-            if advert and VAGUE_EXPERIENCE.search(description):
+            vague = advert and vague_requirement(description)
+            if vague:
+                c.evidence = description[max(0, vague.start() - 80):vague.end() + 80]
                 c.reject_reason = 'experience required (advert asks for proven / extensive experience)'
                 return c
             if advert and not states_experience(description):

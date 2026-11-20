@@ -1,4 +1,5 @@
 """Diagnostic run report (Markdown), also appended to the GitHub job summary."""
+import re
 import logging
 import os
 from datetime import datetime, timezone
@@ -80,7 +81,8 @@ class Report:
         if self.near_misses:
             lines += ['', '## Near misses (target city and role, rejected on level/experience)', '']
             for job, c in self.near_misses[:150]:
-                lines.append(f"- {job['company']} — {job['title']} — {c.city} — {c.reject_reason}")
+                lines.append(f"- {job['company']} — {job['title']} — {c.city} — {c.reject_reason}"
+                             + (f' — «{re.sub(chr(10), " ", c.evidence)[:220]}»' if getattr(c, 'evidence', '') else '') + f" — {job.get('url', '')}")
         if getattr(self, 'samples', None):
             lines += ['', '## Rejected samples per source (target-city screening passed)', '']
             for company, items in sorted(self.samples.items()):
