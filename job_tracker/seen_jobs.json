@@ -159,6 +159,22 @@
    "title": "2027 Macquarie Asset Management Summer Internship Programme - Client Solutions Group",
    "url": "https://recruitment.macquarie.com/en_US/careers/JobDetail?jobId=24115"
   },
+  "avature:24650:Macquarie": {
+   "company": "Macquarie",
+   "fingerprints": [
+    "id:avature:24650:Macquarie",
+    "req:macquarie:24650",
+    "url:https://recruitment.macquarie.com/en_us/careers/jobdetail?jobId=24650",
+    "title:macquarie:junior oil trader:singapore"
+   ],
+   "first_seen": "2026-11-20T09:17:20+00:00",
+   "last_seen": "2026-11-20",
+   "location": "Singapore Office",
+   "notified_at": "2026-11-20T09:17:20+00:00",
+   "status": "open",
+   "title": "Junior Oil Trader",
+   "url": "https://recruitment.macquarie.com/en_US/careers/JobDetail?jobId=24650"
+  },
   "bofa:26025195": {
    "company": "Bank of America",
    "fingerprints": [
@@ -337,6 +353,22 @@
    "title": "Intern - SPG Sales",
    "url": "https://recrutement.natixis.com/en/job/intern-spg-sales-2"
   },
+  "bpce:22557": {
+   "company": "Natixis CIB",
+   "fingerprints": [
+    "id:bpce:22557",
+    "req:natixis:22557",
+    "url:https://recrutement.natixis.com/en/job/internship-6-months-investment-specialist-f-m",
+    "title:natixis:internship 6 months investment specialist f m:paris"
+   ],
+   "first_seen": "2026-11-20T09:17:19+00:00",
+   "last_seen": "2026-11-20",
+   "location": "Paris, France",
+   "notified_at": "2026-11-20T09:17:19+00:00",
+   "status": "open",
+   "title": "Internship - 6 months - Investment Specialist F/M",
+   "url": "https://recrutement.natixis.com/en/job/internship-6-months-investment-specialist-f-m"
+  },
   "bpce:22587": {
    "company": "Natixis CIB",
    "fingerprints": [
@@ -352,6 +384,22 @@
    "status": "open",
    "title": "Internship - 6 months - Trading Assistant LT F/H",
    "url": "https://recrutement.natixis.com/en/job/internship-6-months-trading-assistant-lt-f-h"
+  },
+  "brassring:25008:344769": {
+   "company": "UBS",
+   "fingerprints": [
+    "id:brassring:25008:344769",
+    "req:ubs:344769",
+    "url:https://jobs.ubs.com/tgnewui/search/home/homewithpreload?PageType=JobDetails&jobid=344769&partnerid=25008&siteid=5012",
+    "title:ubs:apac fx commodities strategist:hong kong"
+   ],
+   "first_seen": "2026-11-20T09:17:18+00:00",
+   "last_seen": "2026-11-20",
+   "location": "Hong Kong SAR",
+   "notified_at": "2026-11-20T09:17:18+00:00",
+   "status": "open",
+   "title": "APAC FX / Commodities Strategist",
+   "url": "https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=344769"
   },
   "brassring:25008:349384": {
    "company": "UBS",
@@ -3025,7 +3073,8 @@
     "url:https://fr.linkedin.com/posts/emma-chauvey-130435279_offre-de-stage-assistant-sales-produits-activity-7524389224289304578-srzc",
     "title:emma chauvey 130435279:offre de stage assistant sales produits structures linkedin:paris",
     "url:https://fr.linkedin.com/posts/emma-chauvey-130435279_offre-cl%c3%b4tur%c3%a9e-offre-de-stage-assistant-activity-7524389224289304578-3hfd",
-    "title:emma chauvey 130435279:offre de stage assistant sales produits structures:paris"
+    "title:emma chauvey 130435279:offre de stage assistant sales produits structures:paris",
+    "post-title:offre de stage assistant sales produits structures:paris"
    ],
    "first_seen": "2026-11-08T04:17:40+00:00",
    "last_seen": "2026-11-20",
@@ -3041,7 +3090,8 @@
     "id:post:linkedin:7524394462739963904",
     "url:https://fr.linkedin.com/posts/tonstageenfinance_stage-sales-produits-structur%c3%a9s-janvier-activity-7524394462739963904-y10v",
     "title:tonstageenfinance:offre de stage assistant sales produits structures:paris",
-    "title:tonstageenfinance:offre de stage assistant sales produits structures linkedin:paris"
+    "title:tonstageenfinance:offre de stage assistant sales produits structures linkedin:paris",
+    "post-title:offre de stage assistant sales produits structures linkedin:paris"
    ],
    "first_seen": "2026-11-16T04:26:31+00:00",
    "last_seen": "2026-11-20",
@@ -3072,7 +3122,8 @@
     "id:post:linkedin:7526556957466411008",
     "url:https://fr.linkedin.com/posts/theoboltz_offre-de-stage-stagiaire-equity-derivatives-activity-7526556957466411008-17mv",
     "title:theoboltz:offre de stage stagiaire equity derivatives structuring l equipe:paris",
-    "title:theoboltz:offre de stage stagiaire equity derivatives structuring:paris"
+    "title:theoboltz:offre de stage stagiaire equity derivatives structuring:paris",
+    "post-title:offre de stage stagiaire equity derivatives structuring:paris"
    ],
    "first_seen": "2026-11-17T05:12:11+00:00",
    "last_seen": "2026-11-20",
@@ -6328,7 +6379,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-20T08:19:18.100606+00:00",
+ "last_send_slot": "2026-11-20T09:17:16.678697+00:00",
  "last_status_date": "2026-11-19",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -6341,12 +6392,12 @@
   },
   "ANZ": {
    "consecutive_failures": 0,
-   "last_listed": 221,
+   "last_listed": 222,
    "last_ok": "2026-11-20"
   },
   "ANZ (careers site)": {
    "consecutive_failures": 0,
-   "last_listed": 11,
+   "last_listed": 8,
    "last_ok": "2026-11-20"
   },
   "Akuna Capital": {
@@ -6361,7 +6412,7 @@
   },
   "Amundi": {
    "consecutive_failures": 0,
-   "last_listed": 125,
+   "last_listed": 127,
    "last_ok": "2026-11-20"
   },
   "B2C2": {
@@ -6370,14 +6421,14 @@
    "last_ok": "2026-11-20"
   },
   "BBVA": {
-   "consecutive_failures": 5,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://bbva.wd3.myworkdayjobs.com/wday/cxs/bbva/BBVA/jobs",
+   "consecutive_failures": 6,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; bbva.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 20,
    "last_ok": "2026-11-19"
   },
   "BMO Capital Markets": {
-   "consecutive_failures": 42,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://bmo.wd3.myworkdayjobs.com/wday/cxs/bmo/External/jobs",
+   "consecutive_failures": 43,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; bmo.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 1021,
    "last_ok": "2026-11-16"
   },
@@ -6392,14 +6443,14 @@
    "last_ok": "2026-11-20"
   },
   "BP": {
-   "consecutive_failures": 34,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://bpinternational.wd3.myworkdayjobs.com/wday/cxs/bpinternational/bpCareers/jobs",
+   "consecutive_failures": 35,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; bpinternational.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 18,
    "last_ok": "2026-11-17"
   },
   "BP (early careers)": {
-   "consecutive_failures": 6,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://bpinternational.wd3.myworkdayjobs.com/wday/cxs/bpinternational/bpEarlyCareers/jobs",
+   "consecutive_failures": 7,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; bpinternational.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 7,
    "last_ok": "2026-11-19"
   },
@@ -6415,7 +6466,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2081,
+   "last_listed": 2080,
    "last_ok": "2026-11-20"
   },
   "Bank of America (campus)": {
@@ -6424,8 +6475,8 @@
    "last_ok": "2026-11-20"
   },
   "Barclays": {
-   "consecutive_failures": 42,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://barclays.wd3.myworkdayjobs.com/wday/cxs/barclays/External_Career_Site_Barclays/jobs",
+   "consecutive_failures": 43,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; barclays.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 92,
    "last_ok": "2026-11-16"
   },
@@ -6435,35 +6486,36 @@
    "last_ok": "2026-11-20"
   },
   "BlackRock": {
-   "consecutive_failures": 2,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://blackrock.wd1.myworkdayjobs.com/wday/cxs/blackrock/BlackRock_Professional/jobs",
+   "consecutive_failures": 3,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; blackrock.wd1.myworkdayjobs.com not asked until the next run",
    "last_listed": 30,
    "last_ok": "2026-11-20"
   },
   "Brevan Howard": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; wd3.myworkdaysite.com not asked until the next run",
    "last_listed": 1,
    "last_ok": "2026-11-20"
   },
   "Bunge": {
    "consecutive_failures": 0,
-   "last_listed": 576,
+   "last_listed": 575,
    "last_ok": "2026-11-20"
   },
   "Business France (VIE)": {
    "consecutive_failures": 0,
-   "last_listed": 833,
+   "last_listed": 840,
    "last_ok": "2026-11-20"
   },
   "CIBC": {
-   "consecutive_failures": 2,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://cibc.wd3.myworkdayjobs.com/wday/cxs/cibc/search/jobs",
+   "consecutive_failures": 3,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; cibc.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 7,
    "last_ok": "2026-11-20"
   },
   "CICC": {
    "consecutive_failures": 0,
-   "last_listed": 358,
+   "last_listed": 357,
    "last_ok": "2026-11-20"
   },
   "CIMB (incl. CIMB Securities)": {
@@ -6472,8 +6524,8 @@
    "last_ok": "2026-11-20"
   },
   "CITIC CLSA (CITIC Securities)": {
-   "consecutive_failures": 42,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://citicclsa.wd3.myworkdayjobs.com/wday/cxs/citicclsa/External/jobs",
+   "consecutive_failures": 43,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; citicclsa.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 226,
    "last_ok": "2026-11-16"
   },
@@ -6484,12 +6536,12 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1378,
+   "last_listed": 1379,
    "last_ok": "2026-11-20"
   },
   "Castleton Commodities": {
-   "consecutive_failures": 3,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://osv-cci.wd1.myworkdayjobs.com/wday/cxs/osv_cci/CCICareers/jobs",
+   "consecutive_failures": 4,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; osv-cci.wd1.myworkdayjobs.com not asked until the next run",
    "last_listed": 7,
    "last_ok": "2026-11-20"
   },
@@ -6499,8 +6551,8 @@
    "last_ok": "2026-11-20"
   },
   "Chevron": {
-   "consecutive_failures": 7,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://chevron.wd5.myworkdayjobs.com/wday/cxs/chevron/jobs/jobs",
+   "consecutive_failures": 8,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; chevron.wd5.myworkdayjobs.com not asked until the next run",
    "last_listed": 5,
    "last_ok": "2026-11-19"
   },
@@ -6510,24 +6562,25 @@
    "last_ok": "2026-11-20"
   },
   "Citi": {
-   "consecutive_failures": 42,
+   "consecutive_failures": 43,
    "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://citi.wd5.myworkdayjobs.com/wday/cxs/citi/2/jobs",
    "last_listed": 589,
    "last_ok": "2026-11-16"
   },
   "CommBank": {
-   "consecutive_failures": 10,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://cba.wd3.myworkdayjobs.com/wday/cxs/cba/CommBank_Careers/jobs",
+   "consecutive_failures": 11,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; cba.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 1,
    "last_ok": "2026-11-19"
   },
   "Commerzbank": {
    "consecutive_failures": 0,
-   "last_listed": 426,
+   "last_listed": 427,
    "last_ok": "2026-11-20"
   },
   "ConocoPhillips": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; conocophillips.wd1.myworkdayjobs.com not asked until the next run",
    "last_listed": 2,
    "last_ok": "2026-11-20"
   },
@@ -6537,14 +6590,14 @@
    "last_ok": "2026-11-20"
   },
   "DBS Bank": {
-   "consecutive_failures": 42,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://dbs.wd3.myworkdayjobs.com/wday/cxs/dbs/DBS_Careers/jobs",
+   "consecutive_failures": 43,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; dbs.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 632,
    "last_ok": "2026-11-16"
   },
   "DNB Markets": {
    "consecutive_failures": 0,
-   "last_listed": 88,
+   "last_listed": 87,
    "last_ok": "2026-11-20"
   },
   "DRW": {
@@ -6562,8 +6615,8 @@
    "last_ok": "2026-11-20"
   },
   "Deutsche Bank": {
-   "consecutive_failures": 42,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://db.wd3.myworkdayjobs.com/wday/cxs/db/DBWebsite/jobs",
+   "consecutive_failures": 43,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; db.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 82,
    "last_ok": "2026-11-16"
   },
@@ -6573,14 +6626,14 @@
    "last_ok": "2026-11-20"
   },
   "EDF Trading": {
-   "consecutive_failures": 7,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://edftrading.wd1.myworkdayjobs.com/wday/cxs/edftrading/EDFTrading/jobs",
+   "consecutive_failures": 8,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; edftrading.wd1.myworkdayjobs.com not asked until the next run",
    "last_listed": 25,
    "last_ok": "2026-11-19"
   },
   "Eastspring Investments": {
-   "consecutive_failures": 35,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://prudential.wd3.myworkdayjobs.com/wday/cxs/prudential/prudential_eastspring/jobs",
+   "consecutive_failures": 36,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; prudential.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 22,
    "last_ok": "2026-11-17"
   },
@@ -6599,8 +6652,8 @@
    "last_ok": "2026-11-20"
   },
   "Equinor": {
-   "consecutive_failures": 7,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://equinor.wd3.myworkdayjobs.com/wday/cxs/equinor/EQNR/jobs",
+   "consecutive_failures": 8,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; equinor.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 1,
    "last_ok": "2026-11-19"
   },
@@ -6611,12 +6664,12 @@
   },
   "ExxonMobil": {
    "consecutive_failures": 0,
-   "last_listed": 501,
+   "last_listed": 500,
    "last_ok": "2026-11-20"
   },
   "Fidelity International": {
-   "consecutive_failures": 42,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://fil.wd3.myworkdayjobs.com/wday/cxs/fil/001/jobs",
+   "consecutive_failures": 43,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; fil.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 19,
    "last_ok": "2026-11-16"
   },
@@ -6645,13 +6698,14 @@
    "last_ok": "2026-11-20"
   },
   "Freepoint Commodities": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; freepoint.wd12.myworkdayjobs.com not asked until the next run",
    "last_listed": 1,
    "last_ok": "2026-11-20"
   },
   "G-Research": {
-   "consecutive_failures": 37,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://gresearch.wd103.myworkdayjobs.com/wday/cxs/gresearch/G-Research/jobs",
+   "consecutive_failures": 38,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; gresearch.wd103.myworkdayjobs.com not asked until the next run",
    "last_listed": 64,
    "last_ok": "2026-11-17"
   },
@@ -6681,19 +6735,19 @@
    "last_ok": "2026-11-20"
   },
   "Gunvor": {
-   "consecutive_failures": 8,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://gunvor.wd3.myworkdayjobs.com/wday/cxs/gunvor/Gunvor_Careers/jobs",
+   "consecutive_failures": 9,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; gunvor.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 11,
    "last_ok": "2026-11-19"
   },
   "HSBC": {
    "consecutive_failures": 0,
-   "last_listed": 371,
+   "last_listed": 369,
    "last_ok": "2026-11-20"
   },
   "Haitong International": {
-   "consecutive_failures": 10,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://htisec.wd3.myworkdayjobs.com/wday/cxs/htisec/hti_careers/jobs",
+   "consecutive_failures": 11,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; htisec.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 1,
    "last_ok": "2026-11-19"
   },
@@ -6713,14 +6767,14 @@
    "last_ok": "2026-11-20"
   },
   "ING": {
-   "consecutive_failures": 42,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://ing.wd3.myworkdayjobs.com/wday/cxs/ing/ICSGBLCOR/jobs",
+   "consecutive_failures": 43,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; ing.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 21,
    "last_ok": "2026-11-16"
   },
   "Invesco": {
-   "consecutive_failures": 7,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://invesco.wd1.myworkdayjobs.com/wday/cxs/invesco/IVZ/jobs",
+   "consecutive_failures": 8,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; invesco.wd1.myworkdayjobs.com not asked until the next run",
    "last_listed": 22,
    "last_ok": "2026-11-19"
   },
@@ -6731,7 +6785,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 675,
+   "last_listed": 677,
    "last_ok": "2026-11-20"
   },
   "Jane Street": {
@@ -6790,25 +6844,25 @@
    "last_ok": "2026-11-20"
   },
   "Lloyds Banking Group": {
-   "consecutive_failures": 22,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://lbg.wd3.myworkdayjobs.com/wday/cxs/lbg/lbg_Careers/jobs",
+   "consecutive_failures": 23,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; lbg.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 26,
    "last_ok": "2026-11-18"
   },
   "Louis Dreyfus Company": {
    "consecutive_failures": 0,
-   "last_listed": 378,
+   "last_listed": 377,
    "last_ok": "2026-11-20"
   },
   "MUFG": {
-   "consecutive_failures": 42,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://mufgub.wd3.myworkdayjobs.com/wday/cxs/mufgub/MUFG-Careers/jobs",
+   "consecutive_failures": 43,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; mufgub.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 144,
    "last_ok": "2026-11-16"
   },
   "Macquarie": {
    "consecutive_failures": 0,
-   "last_listed": 583,
+   "last_listed": 585,
    "last_ok": "2026-11-20"
   },
   "Mako Trading": {
@@ -6838,7 +6892,7 @@
   },
   "Millennium": {
    "consecutive_failures": 0,
-   "last_listed": 98,
+   "last_listed": 103,
    "last_ok": "2026-11-20"
   },
   "Mizuho (EMEA)": {
@@ -6847,20 +6901,20 @@
    "last_ok": "2026-11-20"
   },
   "Morgan Stanley": {
-   "consecutive_failures": 42,
+   "consecutive_failures": 43,
    "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://ms.wd5.myworkdayjobs.com/wday/cxs/ms/External/jobs",
    "last_listed": 107,
    "last_ok": "2026-11-16"
   },
   "NatWest Group": {
-   "consecutive_failures": 8,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://rbs.wd3.myworkdayjobs.com/wday/cxs/rbs/RBS/jobs",
+   "consecutive_failures": 9,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; rbs.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 44,
    "last_ok": "2026-11-19"
   },
   "National Bank of Canada": {
    "consecutive_failures": 0,
-   "last_listed": 399,
+   "last_listed": 398,
    "last_ok": "2026-11-20"
   },
   "Natixis CIB": {
@@ -6870,7 +6924,7 @@
   },
   "Nomura": {
    "consecutive_failures": 0,
-   "last_listed": 528,
+   "last_listed": 529,
    "last_ok": "2026-11-20"
   },
   "Nomura (campus)": {
@@ -6879,7 +6933,8 @@
    "last_ok": "2026-11-20"
   },
   "OCBC / Bank of Singapore": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; ocbc.wd102.myworkdayjobs.com not asked until the next run",
    "last_listed": 694,
    "last_ok": "2026-11-20"
   },
@@ -6924,8 +6979,8 @@
    "last_ok": "2026-11-20"
   },
   "RBC": {
-   "consecutive_failures": 6,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://rbc.wd3.myworkdayjobs.com/wday/cxs/rbc/RBCGLOBAL1/jobs",
+   "consecutive_failures": 7,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; rbc.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 11,
    "last_ok": "2026-11-19"
   },
@@ -6935,8 +6990,8 @@
    "last_ok": "2026-11-20"
   },
   "Repsol (incl. Repsol Trading)": {
-   "consecutive_failures": 32,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://repsol.wd3.myworkdayjobs.com/wday/cxs/repsol/Repsol/jobs",
+   "consecutive_failures": 33,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; repsol.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 59,
    "last_ok": "2026-11-17"
   },
@@ -6947,12 +7002,12 @@
   },
   "SMBC (EMEA)": {
    "consecutive_failures": 0,
-   "last_listed": 190,
+   "last_listed": 192,
    "last_ok": "2026-11-20"
   },
   "Santander CIB": {
-   "consecutive_failures": 42,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://santander.wd3.myworkdayjobs.com/wday/cxs/santander/SantanderCareers/jobs",
+   "consecutive_failures": 43,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; santander.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 63,
    "last_ok": "2026-11-16"
   },
@@ -6972,8 +7027,8 @@
    "last_ok": "2026-11-20"
   },
   "Shell": {
-   "consecutive_failures": 41,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://shell.wd3.myworkdayjobs.com/wday/cxs/shell/ShellCareers/jobs",
+   "consecutive_failures": 42,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; shell.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 18,
    "last_ok": "2026-11-16"
   },
@@ -6989,23 +7044,23 @@
   },
   "Standard Chartered": {
    "consecutive_failures": 0,
-   "last_listed": 1159,
+   "last_listed": 1163,
    "last_ok": "2026-11-20"
   },
   "State Street": {
-   "consecutive_failures": 2,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://statestreet.wd1.myworkdayjobs.com/wday/cxs/statestreet/Global/jobs",
+   "consecutive_failures": 3,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; statestreet.wd1.myworkdayjobs.com not asked until the next run",
    "last_listed": 87,
    "last_ok": "2026-11-20"
   },
   "Statkraft": {
    "consecutive_failures": 0,
-   "last_listed": 76,
+   "last_listed": 75,
    "last_ok": "2026-11-20"
   },
   "TD Securities": {
-   "consecutive_failures": 42,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://td.wd3.myworkdayjobs.com/wday/cxs/td/TD_Bank_Careers/jobs",
+   "consecutive_failures": 43,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; td.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 49,
    "last_ok": "2026-11-16"
   },
@@ -7034,8 +7089,8 @@
    "last_ok": "2026-11-20"
   },
   "Trafigura": {
-   "consecutive_failures": 16,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://trafigura.wd3.myworkdayjobs.com/wday/cxs/trafigura/TrafiguraCareerSite/jobs",
+   "consecutive_failures": 17,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; trafigura.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 14,
    "last_ok": "2026-11-19"
   },
@@ -7051,12 +7106,12 @@
   },
   "UBS": {
    "consecutive_failures": 0,
-   "last_listed": 698,
+   "last_listed": 693,
    "last_ok": "2026-11-20"
   },
   "UOB": {
-   "consecutive_failures": 42,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://uobgroup.wd3.myworkdayjobs.com/wday/cxs/uobgroup/UOBExternal/jobs",
+   "consecutive_failures": 43,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; uobgroup.wd3.myworkdayjobs.com not asked until the next run",
    "last_listed": 376,
    "last_ok": "2026-11-16"
   },
@@ -7076,13 +7131,14 @@
    "last_ok": "2026-11-20"
   },
   "Wellington Management": {
-   "consecutive_failures": 15,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://wellington.wd5.myworkdayjobs.com/wday/cxs/wellington/External/jobs",
+   "consecutive_failures": 16,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; wellington.wd5.myworkdayjobs.com not asked until the next run",
    "last_listed": 36,
    "last_ok": "2026-11-19"
   },
   "Wells Fargo": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "RateLimited: workday rate limiter refused earlier requests this run; wd1.myworkdaysite.com not asked until the next run",
    "last_listed": 11,
    "last_ok": "2026-11-20"
   },
