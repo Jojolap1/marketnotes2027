@@ -5430,7 +5430,7 @@
     "title:edf:junior power trader:london"
    ],
    "first_seen": "2026-11-19T12:17:31+00:00",
-   "last_seen": "2026-11-20",
+   "last_seen": "2026-11-21",
    "location": "London",
    "notified_at": "2026-11-19T12:17:31+00:00",
    "status": "open",
@@ -6134,7 +6134,7 @@
     "title:castleton commodities:commodities trading analyst programme rolling application for 0 3 years experience:london"
    ],
    "first_seen": "2026-11-14T15:13:59+00:00",
-   "last_seen": "2026-11-20",
+   "last_seen": "2026-11-21",
    "location": "London, UK",
    "notified_at": "2026-11-14T15:13:59+00:00",
    "status": "open",
@@ -6398,7 +6398,7 @@
    "url": "https://cicc.zhiye.com/zpdetail/151241150"
   }
  },
- "last_send_slot": "2026-11-21T04:16:32.186676+00:00",
+ "last_send_slot": "2026-11-21T05:10:44.896231+00:00",
  "last_status_date": "2026-11-20",
  "page_watches": {
   "Sucden": "fcc1af1377252db3"
@@ -6440,15 +6440,15 @@
    "last_ok": "2026-11-21"
   },
   "BBVA": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://bbva.wd3.myworkdayjobs.com/wday/cxs/bbva/BBVA/jobs",
    "last_listed": 20,
    "last_ok": "2026-11-21"
   },
   "BMO Capital Markets": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://bmo.wd3.myworkdayjobs.com/wday/cxs/bmo/External/jobs",
+   "consecutive_failures": 0,
    "last_listed": 1021,
-   "last_ok": "2026-11-20"
+   "last_ok": "2026-11-21"
   },
   "BNP Paribas (email alerts)": {
    "consecutive_failures": 0,
@@ -6461,13 +6461,13 @@
    "last_ok": "2026-11-21"
   },
   "BP": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://bpinternational.wd3.myworkdayjobs.com/wday/cxs/bpinternational/bpCareers/jobs",
+   "consecutive_failures": 0,
    "last_listed": 18,
-   "last_ok": "2026-11-20"
+   "last_ok": "2026-11-21"
   },
   "BP (early careers)": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://bpinternational.wd3.myworkdayjobs.com/wday/cxs/bpinternational/bpEarlyCareers/jobs",
    "last_listed": 7,
    "last_ok": "2026-11-21"
   },
@@ -6483,7 +6483,7 @@
   },
   "Bank of America": {
    "consecutive_failures": 0,
-   "last_listed": 2102,
+   "last_listed": 2100,
    "last_ok": "2026-11-21"
   },
   "Bank of America (campus)": {
@@ -6492,7 +6492,8 @@
    "last_ok": "2026-11-21"
   },
   "Barclays": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://barclays.wd3.myworkdayjobs.com/wday/cxs/barclays/External_Career_Site_Barclays/jobs",
    "last_listed": 92,
    "last_ok": "2026-11-21"
   },
@@ -6537,10 +6538,9 @@
    "last_ok": "2026-11-21"
   },
   "CITIC CLSA (CITIC Securities)": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://citicclsa.wd3.myworkdayjobs.com/wday/cxs/citicclsa/External/jobs",
+   "consecutive_failures": 0,
    "last_listed": 226,
-   "last_ok": "2026-11-20"
+   "last_ok": "2026-11-21"
   },
   "Capula Investment Management": {
    "consecutive_failures": 0,
@@ -6549,7 +6549,7 @@
   },
   "Cargill": {
    "consecutive_failures": 0,
-   "last_listed": 1405,
+   "last_listed": 1404,
    "last_ok": "2026-11-21"
   },
   "Castleton Commodities": {
@@ -6563,10 +6563,9 @@
    "last_ok": "2026-11-21"
   },
   "Chevron": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://chevron.wd5.myworkdayjobs.com/wday/cxs/chevron/jobs/jobs",
+   "consecutive_failures": 0,
    "last_listed": 5,
-   "last_ok": "2026-11-20"
+   "last_ok": "2026-11-21"
   },
   "China Galaxy (Chinastock)": {
    "consecutive_failures": 0,
@@ -6579,10 +6578,9 @@
    "last_ok": "2026-11-21"
   },
   "CommBank": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://cba.wd3.myworkdayjobs.com/wday/cxs/cba/CommBank_Careers/jobs",
+   "consecutive_failures": 0,
    "last_listed": 1,
-   "last_ok": "2026-11-20"
+   "last_ok": "2026-11-21"
   },
   "Commerzbank": {
    "consecutive_failures": 0,
@@ -6600,10 +6598,9 @@
    "last_ok": "2026-11-21"
   },
   "DBS Bank": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://dbs.wd3.myworkdayjobs.com/wday/cxs/dbs/DBS_Careers/jobs",
+   "consecutive_failures": 0,
    "last_listed": 632,
-   "last_ok": "2026-11-20"
+   "last_ok": "2026-11-21"
   },
   "DNB Markets": {
    "consecutive_failures": 0,
@@ -6641,7 +6638,7 @@
   },
   "Eastspring Investments": {
    "consecutive_failures": 0,
-   "last_listed": 22,
+   "last_listed": 23,
    "last_ok": "2026-11-21"
   },
   "Eclipse Trading": {
@@ -6659,7 +6656,8 @@
    "last_ok": "2026-11-21"
   },
   "Equinor": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://equinor.wd3.myworkdayjobs.com/wday/cxs/equinor/EQNR/jobs",
    "last_listed": 1,
    "last_ok": "2026-11-21"
   },
@@ -6708,10 +6706,9 @@
    "last_ok": "2026-11-21"
   },
   "G-Research": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://gresearch.wd103.myworkdayjobs.com/wday/cxs/gresearch/G-Research/jobs",
+   "consecutive_failures": 0,
    "last_listed": 64,
-   "last_ok": "2026-11-20"
+   "last_ok": "2026-11-21"
   },
   "GIC": {
    "consecutive_failures": 0,
@@ -6739,10 +6736,9 @@
    "last_ok": "2026-11-21"
   },
   "Gunvor": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://gunvor.wd3.myworkdayjobs.com/wday/cxs/gunvor/Gunvor_Careers/jobs",
+   "consecutive_failures": 0,
    "last_listed": 11,
-   "last_ok": "2026-11-20"
+   "last_ok": "2026-11-21"
   },
   "HSBC": {
    "consecutive_failures": 0,
@@ -6750,10 +6746,9 @@
    "last_ok": "2026-11-21"
   },
   "Haitong International": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://htisec.wd3.myworkdayjobs.com/wday/cxs/htisec/hti_careers/jobs",
+   "consecutive_failures": 0,
    "last_listed": 1,
-   "last_ok": "2026-11-20"
+   "last_ok": "2026-11-21"
   },
   "Hudson River Trading": {
    "consecutive_failures": 0,
@@ -6787,7 +6782,7 @@
   },
   "JPMorgan": {
    "consecutive_failures": 0,
-   "last_listed": 681,
+   "last_listed": 680,
    "last_ok": "2026-11-21"
   },
   "Jane Street": {
@@ -6846,7 +6841,8 @@
    "last_ok": "2026-11-21"
   },
   "Lloyds Banking Group": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://lbg.wd3.myworkdayjobs.com/wday/cxs/lbg/lbg_Careers/jobs",
    "last_listed": 26,
    "last_ok": "2026-11-21"
   },
@@ -6906,7 +6902,8 @@
    "last_ok": "2026-11-21"
   },
   "NatWest Group": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://rbs.wd3.myworkdayjobs.com/wday/cxs/rbs/RBS/jobs",
    "last_listed": 44,
    "last_ok": "2026-11-21"
   },
@@ -6976,10 +6973,9 @@
    "last_ok": "2026-11-21"
   },
   "RBC": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://rbc.wd3.myworkdayjobs.com/wday/cxs/rbc/RBCGLOBAL1/jobs",
+   "consecutive_failures": 0,
    "last_listed": 11,
-   "last_ok": "2026-11-20"
+   "last_ok": "2026-11-21"
   },
   "RWE Supply & Trading": {
    "consecutive_failures": 0,
@@ -7002,10 +6998,9 @@
    "last_ok": "2026-11-21"
   },
   "Santander CIB": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://santander.wd3.myworkdayjobs.com/wday/cxs/santander/SantanderCareers/jobs",
+   "consecutive_failures": 0,
    "last_listed": 63,
-   "last_ok": "2026-11-20"
+   "last_ok": "2026-11-21"
   },
   "Schonfeld": {
    "consecutive_failures": 0,
@@ -7053,7 +7048,8 @@
    "last_ok": "2026-11-21"
   },
   "TD Securities": {
-   "consecutive_failures": 0,
+   "consecutive_failures": 1,
+   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://td.wd3.myworkdayjobs.com/wday/cxs/td/TD_Bank_Careers/jobs",
    "last_listed": 49,
    "last_ok": "2026-11-21"
   },
@@ -7102,10 +7098,9 @@
    "last_ok": "2026-11-21"
   },
   "UOB": {
-   "consecutive_failures": 1,
-   "last_error": "HTTPError: 429 Client Error: Too Many Requests for url: https://uobgroup.wd3.myworkdayjobs.com/wday/cxs/uobgroup/UOBExternal/jobs",
+   "consecutive_failures": 0,
    "last_listed": 376,
-   "last_ok": "2026-11-20"
+   "last_ok": "2026-11-21"
   },
   "Virtu Financial": {
    "consecutive_failures": 0,
